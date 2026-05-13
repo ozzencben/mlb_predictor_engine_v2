@@ -1,5 +1,6 @@
 import { usePredictions } from './hooks/usePredictions'
 import MatchupCard from './components/MatchupCard'
+import Footer from './components/Footer' // Footer'ı içeri aktardık
 
 function App() {
   const { data, loading, error } = usePredictions()
@@ -22,8 +23,8 @@ function App() {
         </div>
         <div className="mt-4 md:mt-0 text-right">
           <span className="text-[10px] text-gray-500 font-bold uppercase">System Status</span>
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+          <div className="flex items-center justify-end gap-2">
+            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
             <span className="text-xs font-bold text-green-500 uppercase">Live & Ready</span>
           </div>
         </div>
@@ -35,6 +36,8 @@ function App() {
           <MatchupCard key={index} prediction={game} />
         ))}
       </div>
+
+      <Footer />
     </div>
   )
 }
