@@ -1,7 +1,7 @@
 import requests
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 
 class MatchupScraper:
     def __init__(self):
@@ -104,6 +104,23 @@ class MatchupScraper:
                     away_pitcher = away_node.get('probablePitcher', {}).get('fullName', 'TBD')
                     home_pitcher = home_node.get('probablePitcher', {}).get('fullName', 'TBD')
                     
+                    # --- YENİ EKLENEN KISIM: Maç Saati (Game Time) Formatlama ---
+                    raw_date = game.get('gameDate') # Örn: "2026-05-13T23:05:00Z"
+                    game_time = "TBD"
+                    if raw_date:
+                        try:
+                            # UTC zamanını parse et
+                            utc_dt = datetime.strptime(raw_date, '%Y-%m-%dT%H:%M:%SZ')
+                            # EDT (Eastern Daylight Time) için 4 saat çıkar
+                            et_dt = utc_dt - timedelta(hours=4)
+                            # 12 saatlik formata çevir (Örn: 07:05 PM ET)
+                            game_time = et_dt.strftime('%I:%M %p ET')
+                            # Başındaki sıfırı temizle (Örn: "07" -> "7")
+                            if game_time.startswith("0"):
+                                game_time = game_time[1:]
+                        except Exception:
+                            game_time = raw_date # Hata olursa ham veriyi bırak
+                    
                     # Puan durumu verilerini (varsa) eşleştir, yoksa boş değer ata
                     away_stats = standings.get(away_id, {"record": "0-0", "home_record": "0-0", "away_record": "0-0", "l10": "0-0"})
                     home_stats = standings.get(home_id, {"record": "0-0", "home_record": "0-0", "away_record": "0-0", "l10": "0-0"})
@@ -114,8 +131,8 @@ class MatchupScraper:
                         "home_team": home_team,
                         "away_pitcher": away_pitcher,
                         "home_pitcher": home_pitcher,
+                        "game_time": game_time, # Tyle'ın İstediği Saat Bilgisi
                         "status": game['status']['detailedState'],
-                        # TYLER'IN İSTEDİĞİ YENİ VERİLER BURADA!
                         "away_team_stats": away_stats,
                         "home_team_stats": home_stats
                     })
@@ -124,7 +141,7 @@ class MatchupScraper:
             with open(output_path, 'w', encoding='utf-8') as f:
                 json.dump({"date": today_str, "games": matchups}, f, indent=4, ensure_ascii=False)
             
-            print(f"✅ Başarılı! {len(matchups)} maç ve detaylı takım formları arşivlendi.")
+            print(f"✅ Başarılı! {len(matchups)} maç, saatleri ve detaylı takım formları arşivlendi.")
             return matchups
 
         except Exception as e:

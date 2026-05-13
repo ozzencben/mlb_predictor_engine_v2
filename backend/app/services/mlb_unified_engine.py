@@ -98,6 +98,7 @@ class MLBUnifiedEngine:
                 "home_team": home_team,
                 "away_pitcher": away_pitcher,
                 "home_pitcher": home_pitcher,
+                "game_time": game_data.get('game_time', 'TBD'),
                 "away_stats": game_data.get('away_team_stats', {}), 
                 "home_stats": game_data.get('home_team_stats', {}),
                 "status": game_data.get('status', 'TBD')
