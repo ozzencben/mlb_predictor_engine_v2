@@ -1,4 +1,40 @@
 {
+    "JR Ritchie": {
+        "era": 3.63,
+        "fip": 6.78,
+        "k_bb_pct": 0.013,
+        "innings_pitched": 17.1,
+        "wins": 1,
+        "losses": 0,
+        "record": "1-0"
+    },
+    "Nick Lodolo": {
+        "era": 6.75,
+        "fip": 8.05,
+        "k_bb_pct": 0.048,
+        "innings_pitched": 5.1,
+        "wins": 0,
+        "losses": 1,
+        "record": "0-1"
+    },
+    "Reid Detmers": {
+        "era": 4.38,
+        "fip": 3.09,
+        "k_bb_pct": 0.169,
+        "innings_pitched": 49.1,
+        "wins": 1,
+        "losses": 4,
+        "record": "1-4"
+    },
+    "Matthew Liberatore": {
+        "era": 4.07,
+        "fip": 5.39,
+        "k_bb_pct": 0.073,
+        "innings_pitched": 42.0,
+        "wins": 2,
+        "losses": 1,
+        "record": "2-1"
+    },
     "Mitch Keller": {
         "era": 2.87,
         "fip": 3.11,
@@ -8,41 +44,14 @@
         "losses": 1,
         "record": "4-1"
     },
-    "Jacob Misiorowski": {
-        "era": 2.45,
-        "fip": 2.31,
-        "k_bb_pct": 0.299,
-        "innings_pitched": 44.0,
-        "wins": 3,
-        "losses": 2,
-        "record": "3-2"
-    },
-    "Seth Lugo": {
-        "era": 3.21,
-        "fip": 2.73,
-        "k_bb_pct": 0.128,
-        "innings_pitched": 47.2,
-        "wins": 1,
-        "losses": 2,
-        "record": "1-2"
-    },
-    "Dylan Cease": {
-        "era": 2.58,
-        "fip": 1.71,
-        "k_bb_pct": 0.251,
-        "innings_pitched": 45.1,
+    "Sonny Gray": {
+        "era": 3.54,
+        "fip": 4.22,
+        "k_bb_pct": 0.067,
+        "innings_pitched": 28.0,
         "wins": 3,
         "losses": 1,
         "record": "3-1"
-    },
-    "Max Fried": {
-        "era": 2.87,
-        "fip": 2.66,
-        "k_bb_pct": 0.13,
-        "innings_pitched": 59.2,
-        "wins": 4,
-        "losses": 2,
-        "record": "4-2"
     },
     "Griffin Jax": {
         "era": 5.0,
@@ -53,14 +62,14 @@
         "losses": 2,
         "record": "1-2"
     },
-    "Kyle Bradish": {
-        "era": 4.71,
-        "fip": 4.15,
-        "k_bb_pct": 0.122,
-        "innings_pitched": 42.0,
+    "Ryne Nelson": {
+        "era": 5.68,
+        "fip": 5.15,
+        "k_bb_pct": 0.127,
+        "innings_pitched": 38.0,
         "wins": 1,
-        "losses": 5,
-        "record": "1-5"
+        "losses": 3,
+        "record": "1-3"
     },
     "Robbie Ray": {
         "era": 2.76,
@@ -71,47 +80,83 @@
         "losses": 4,
         "record": "3-4"
     },
-    "Reid Detmers": {
-        "era": 4.53,
-        "fip": 3.29,
-        "k_bb_pct": 0.163,
-        "innings_pitched": 43.2,
-        "wins": 1,
-        "losses": 3,
-        "record": "1-3"
-    },
-    "Shota Imanaga": {
-        "era": 2.28,
-        "fip": 2.83,
-        "k_bb_pct": 0.214,
-        "innings_pitched": 47.1,
-        "wins": 4,
-        "losses": 2,
-        "record": "4-2"
-    },
-    "Noah Schultz": {
-        "era": 4.68,
-        "fip": 4.27,
-        "k_bb_pct": 0.066,
-        "innings_pitched": 25.0,
-        "wins": 2,
-        "losses": 2,
-        "record": "2-2"
-    },
-    "Shohei Ohtani": {
-        "era": 0.97,
+    "Jacob Misiorowski": {
+        "era": 2.45,
         "fip": 2.31,
-        "k_bb_pct": 0.228,
-        "innings_pitched": 37.0,
-        "wins": 2,
+        "k_bb_pct": 0.299,
+        "innings_pitched": 44.0,
+        "wins": 3,
         "losses": 2,
-        "record": "2-2"
+        "record": "3-2"
+    },
+    "Jose Quintana": {
+        "era": 3.9,
+        "fip": 5.68,
+        "k_bb_pct": 0.008,
+        "innings_pitched": 30.0,
+        "wins": 1,
+        "losses": 2,
+        "record": "1-2"
     },
     "Framber Valdez": {
         "era": 4.57,
         "fip": 4.08,
         "k_bb_pct": 0.103,
         "innings_pitched": 43.1,
+        "wins": 2,
+        "losses": 2,
+        "record": "2-2"
+    },
+    "Max Fried": {
+        "era": 3.21,
+        "fip": 2.66,
+        "k_bb_pct": 0.129,
+        "innings_pitched": 61.2,
+        "wins": 4,
+        "losses": 3,
+        "record": "4-3"
+    },
+    "Christian Scott": {
+        "era": 3.27,
+        "fip": 3.51,
+        "k_bb_pct": 0.167,
+        "innings_pitched": 11.0,
+        "wins": 0,
+        "losses": 0,
+        "record": "0-0"
+    },
+    "Simeon Woods Richardson": {
+        "era": 6.92,
+        "fip": 6.07,
+        "k_bb_pct": 0.017,
+        "innings_pitched": 39.0,
+        "wins": 0,
+        "losses": 5,
+        "record": "0-5"
+    },
+    "Jake Irvin": {
+        "era": 5.22,
+        "fip": 3.94,
+        "k_bb_pct": 0.142,
+        "innings_pitched": 39.2,
+        "wins": 1,
+        "losses": 4,
+        "record": "1-4"
+    },
+    "J.T. Ginn": {
+        "era": 3.62,
+        "fip": 4.44,
+        "k_bb_pct": 0.107,
+        "innings_pitched": 37.1,
+        "wins": 1,
+        "losses": 1,
+        "record": "1-1"
+    },
+    "Noah Schultz": {
+        "era": 4.68,
+        "fip": 4.27,
+        "k_bb_pct": 0.066,
+        "innings_pitched": 25.0,
         "wins": 2,
         "losses": 2,
         "record": "2-2"
@@ -125,122 +170,14 @@
         "losses": 4,
         "record": "1-4"
     },
-    "Jake Irvin": {
-        "era": 5.22,
-        "fip": 3.94,
-        "k_bb_pct": 0.142,
-        "innings_pitched": 39.2,
-        "wins": 1,
-        "losses": 4,
-        "record": "1-4"
-    },
-    "Max Meyer": {
-        "era": 2.79,
-        "fip": 2.7,
-        "k_bb_pct": 0.17,
-        "innings_pitched": 42.0,
-        "wins": 2,
-        "losses": 0,
-        "record": "2-0"
-    },
-    "Matthew Liberatore": {
-        "era": 4.07,
-        "fip": 5.39,
-        "k_bb_pct": 0.073,
-        "innings_pitched": 42.0,
-        "wins": 2,
-        "losses": 1,
-        "record": "2-1"
-    },
-    "Simeon Woods Richardson": {
-        "era": 6.92,
-        "fip": 6.07,
-        "k_bb_pct": 0.017,
-        "innings_pitched": 39.0,
-        "wins": 0,
-        "losses": 5,
-        "record": "0-5"
-    },
-    "Jose Quintana": {
-        "era": 3.9,
-        "fip": 5.68,
-        "k_bb_pct": 0.008,
-        "innings_pitched": 30.0,
-        "wins": 1,
-        "losses": 2,
-        "record": "1-2"
-    },
-    "JR Ritchie": {
-        "era": 3.63,
-        "fip": 6.78,
-        "k_bb_pct": 0.013,
-        "innings_pitched": 17.1,
-        "wins": 1,
-        "losses": 0,
-        "record": "1-0"
-    },
-    "J.T. Ginn": {
-        "era": 3.62,
-        "fip": 4.44,
-        "k_bb_pct": 0.107,
-        "innings_pitched": 37.1,
-        "wins": 1,
-        "losses": 1,
-        "record": "1-1"
-    },
-    "Michael King": {
-        "era": 2.76,
-        "fip": 3.64,
-        "k_bb_pct": 0.139,
-        "innings_pitched": 45.2,
-        "wins": 3,
-        "losses": 2,
-        "record": "3-2"
-    },
-    "Christian Scott": {
-        "era": 3.27,
-        "fip": 3.51,
-        "k_bb_pct": 0.167,
-        "innings_pitched": 11.0,
-        "wins": 0,
-        "losses": 0,
-        "record": "0-0"
-    },
-    "Parker Messick": {
-        "era": 2.25,
-        "fip": 2.82,
-        "k_bb_pct": 0.217,
-        "innings_pitched": 48.0,
-        "wins": 4,
-        "losses": 1,
-        "record": "4-1"
-    },
-    "Nick Lodolo": {
-        "era": 6.75,
-        "fip": 8.05,
-        "k_bb_pct": 0.048,
-        "innings_pitched": 5.1,
-        "wins": 0,
-        "losses": 1,
-        "record": "0-1"
-    },
-    "Sonny Gray": {
-        "era": 3.54,
-        "fip": 4.22,
-        "k_bb_pct": 0.067,
-        "innings_pitched": 28.0,
+    "Dylan Cease": {
+        "era": 2.58,
+        "fip": 1.71,
+        "k_bb_pct": 0.251,
+        "innings_pitched": 45.1,
         "wins": 3,
         "losses": 1,
         "record": "3-1"
-    },
-    "Andrew Painter": {
-        "era": 6.89,
-        "fip": 4.83,
-        "k_bb_pct": 0.118,
-        "innings_pitched": 32.2,
-        "wins": 1,
-        "losses": 4,
-        "record": "1-4"
     },
     "Bryce Miller": {
         "era": 4.2,
@@ -251,14 +188,50 @@
         "losses": 0,
         "record": "0-0"
     },
-    "Ryne Nelson": {
-        "era": 5.68,
-        "fip": 5.15,
-        "k_bb_pct": 0.127,
-        "innings_pitched": 38.0,
+    "Shohei Ohtani": {
+        "era": 0.97,
+        "fip": 2.31,
+        "k_bb_pct": 0.228,
+        "innings_pitched": 37.0,
+        "wins": 2,
+        "losses": 2,
+        "record": "2-2"
+    },
+    "Kyle Bradish": {
+        "era": 4.21,
+        "fip": 3.92,
+        "k_bb_pct": 0.131,
+        "innings_pitched": 47.0,
+        "wins": 2,
+        "losses": 5,
+        "record": "2-5"
+    },
+    "Andrew Painter": {
+        "era": 6.89,
+        "fip": 4.83,
+        "k_bb_pct": 0.118,
+        "innings_pitched": 32.2,
         "wins": 1,
-        "losses": 3,
-        "record": "1-3"
+        "losses": 4,
+        "record": "1-4"
+    },
+    "Michael King": {
+        "era": 2.76,
+        "fip": 3.64,
+        "k_bb_pct": 0.139,
+        "innings_pitched": 45.2,
+        "wins": 3,
+        "losses": 2,
+        "record": "3-2"
+    },
+    "Shota Imanaga": {
+        "era": 2.28,
+        "fip": 2.83,
+        "k_bb_pct": 0.214,
+        "innings_pitched": 47.1,
+        "wins": 4,
+        "losses": 2,
+        "record": "4-2"
     },
     "Lance McCullers Jr.": {
         "era": 7.41,
@@ -268,5 +241,32 @@
         "wins": 2,
         "losses": 3,
         "record": "2-3"
+    },
+    "Seth Lugo": {
+        "era": 3.21,
+        "fip": 2.73,
+        "k_bb_pct": 0.128,
+        "innings_pitched": 47.2,
+        "wins": 1,
+        "losses": 2,
+        "record": "1-2"
+    },
+    "Parker Messick": {
+        "era": 2.35,
+        "fip": 2.98,
+        "k_bb_pct": 0.215,
+        "innings_pitched": 53.2,
+        "wins": 5,
+        "losses": 1,
+        "record": "5-1"
+    },
+    "Max Meyer": {
+        "era": 2.79,
+        "fip": 2.7,
+        "k_bb_pct": 0.17,
+        "innings_pitched": 42.0,
+        "wins": 2,
+        "losses": 0,
+        "record": "2-0"
     }
 }
