@@ -1,16 +1,20 @@
 import json
 import os
 from app.services.mlb_unified_engine import MLBUnifiedEngine
-from app.services.odds_provider import OddsProvider # YENİ: Oran Sağlayıcımızı import ettik
+from app.services.odds_provider import OddsProvider
+from app.services.data_collector import DataCollector
+from app.services.matchup_scraper import MatchupScraper
+from app.services.pitcher_scraper import PitcherScraper
 
 class PredictionRunner:
     """
     Sistemin ana şalteri.
-    Verileri okur, MLBUnifiedEngine'i başlatır, oranları karşılaştırır ve tahminleri üretir.
+    Tüm scraper'ları sırayla çalıştırır, ardından MLBUnifiedEngine ile tahminleri üretir.
     """
     def __init__(self):
-        self.data_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
-        self.odds_provider = OddsProvider() # YENİ: Oran motorunu başlattık
+        self.data_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data'))
+        os.makedirs(self.data_dir, exist_ok=True)
+        self.odds_provider = OddsProvider()
 
     def _load_json(self, filename: str):
         filepath = os.path.join(self.data_dir, filename)
@@ -18,21 +22,50 @@ class PredictionRunner:
             with open(filepath, 'r', encoding='utf-8') as f:
                 return json.load(f)
         except FileNotFoundError:
-            print(f"⚠️ Uyarı: {filename} bulunamadı! (Boş veri ile devam ediliyor)")
+            print(f"⚠️ Uyarı: {filename} bulunamadı!")
             return [] if filename == 'live_odds.json' else {}
 
-    def run_daily_predictions(self):
-        print("🚀 Tahmin Motoru Başlatılıyor (Yakıt ve Oranlar Pompalanıyor)...")
+    def _run_scrapers(self):
+        """Tüm veri toplama adımlarını sırayla çalıştırır."""
+        print("📡 [1/4] Takım istatistikleri çekiliyor (TeamRankings)...")
+        try:
+            DataCollector().collect_all_stats()
+        except Exception as e:
+            print(f"⚠️ DataCollector hatası: {e}")
 
-        # 1. JSON Verilerini Oku
+        print("⚾ [2/4] Günün maçları ve atıcılar çekiliyor (MLB API)...")
+        try:
+            MatchupScraper().fetch_todays_matchups()
+        except Exception as e:
+            print(f"⚠️ MatchupScraper hatası: {e}")
+
+        print("🎯 [3/4] Atıcı istatistikleri çekiliyor (MLB API)...")
+        try:
+            PitcherScraper().build_pitcher_library()
+        except Exception as e:
+            print(f"⚠️ PitcherScraper hatası: {e}")
+
+        print("💰 [4/4] Canlı bahis oranları çekiliyor (The Odds API)...")
+        try:
+            self.odds_provider.fetch_live_odds()
+        except Exception as e:
+            print(f"⚠️ OddsProvider hatası: {e}")
+
+    def run_daily_predictions(self):
+        print("🚀 Tahmin Motoru Başlatılıyor...")
+
+        # 1. Her zaman taze veri topla
+        self._run_scrapers()
+
+        # 2. Scraper çıktılarını oku
         team_db = self._load_json('live_stats.json')
         pitcher_db = self._load_json('pitcher_stats.json')
         matchups_data = self._load_json('daily_matchups.json')
         ballpark_db = self._load_json('ballpark_stats.json')
-        live_odds_data = self._load_json('live_odds.json') # YENİ: Oranları oku
+        live_odds_data = self._load_json('live_odds.json')
 
         if not team_db or not pitcher_db or not matchups_data:
-            print("❌ Kritik veri dosyaları eksik! Önce scraper'ları çalıştırın.")
+            print("❌ Kritik veri dosyaları hâlâ eksik, scraper'lar başarısız olmuş olabilir.")
             return []
 
         # 2. Orkestra Şefini Uyandır

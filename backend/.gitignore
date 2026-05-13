@@ -40,9 +40,13 @@ build/
 dist/
 *.egg-info/
 
-# Data files that shouldn't be version controlled
+# Data files — runtime-generated files are NOT version controlled
+# Use negation (!) to explicitly allow static seed files.
 app/data/*.json
 app/data/*.csv
+app/data/history/
+!app/data/team_mappings.json
+!app/data/ballpark_stats.json
 
 # Testing artifacts
 .pytest_cache/

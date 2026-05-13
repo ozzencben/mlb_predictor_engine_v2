@@ -1,0 +1,182 @@
+{
+    "Colorado": {
+        "park_name": "Coors Field",
+        "run_factor": 112.0,
+        "nrfi_pct": 0.446,
+        "yrfi_pct": 0.56
+    },
+    "Boston": {
+        "park_name": "Fenway Park",
+        "run_factor": 108.0,
+        "nrfi_pct": 0.463,
+        "yrfi_pct": 0.54
+    },
+    "Cincinnati": {
+        "park_name": "Great American Ball Park",
+        "run_factor": 106.0,
+        "nrfi_pct": 0.472,
+        "yrfi_pct": 0.53
+    },
+    "Atlanta": {
+        "park_name": "Truist Park",
+        "run_factor": 103.0,
+        "nrfi_pct": 0.485,
+        "yrfi_pct": 0.515
+    },
+    "Kansas City": {
+        "park_name": "Kauffman Stadium",
+        "run_factor": 103.0,
+        "nrfi_pct": 0.485,
+        "yrfi_pct": 0.515
+    },
+    "LA Dodgers": {
+        "park_name": "Dodger Stadium",
+        "run_factor": 102.0,
+        "nrfi_pct": 0.49,
+        "yrfi_pct": 0.51
+    },
+    "Texas": {
+        "park_name": "Globe Life Field",
+        "run_factor": 102.0,
+        "nrfi_pct": 0.49,
+        "yrfi_pct": 0.51
+    },
+    "Chi White Sox": {
+        "park_name": "Guaranteed Rate Field",
+        "run_factor": 101.0,
+        "nrfi_pct": 0.495,
+        "yrfi_pct": 0.505
+    },
+    "Philadelphia": {
+        "park_name": "Citizens Bank Park",
+        "run_factor": 101.0,
+        "nrfi_pct": 0.495,
+        "yrfi_pct": 0.505
+    },
+    "Arizona": {
+        "park_name": "Chase Field",
+        "run_factor": 100.0,
+        "nrfi_pct": 0.5,
+        "yrfi_pct": 0.5
+    },
+    "Chi Cubs": {
+        "park_name": "Wrigley Field",
+        "run_factor": 100.0,
+        "nrfi_pct": 0.5,
+        "yrfi_pct": 0.5
+    },
+    "Houston": {
+        "park_name": "Minute Maid Park",
+        "run_factor": 100.0,
+        "nrfi_pct": 0.5,
+        "yrfi_pct": 0.5
+    },
+    "Miami": {
+        "park_name": "loanDepot park",
+        "run_factor": 100.0,
+        "nrfi_pct": 0.5,
+        "yrfi_pct": 0.5
+    },
+    "Milwaukee": {
+        "park_name": "American Family Field",
+        "run_factor": 100.0,
+        "nrfi_pct": 0.5,
+        "yrfi_pct": 0.5
+    },
+    "NY Yankees": {
+        "park_name": "Yankee Stadium",
+        "run_factor": 100.0,
+        "nrfi_pct": 0.5,
+        "yrfi_pct": 0.5
+    },
+    "Pittsburgh": {
+        "park_name": "PNC Park",
+        "run_factor": 100.0,
+        "nrfi_pct": 0.5,
+        "yrfi_pct": 0.5
+    },
+    "Toronto": {
+        "park_name": "Rogers Centre",
+        "run_factor": 100.0,
+        "nrfi_pct": 0.5,
+        "yrfi_pct": 0.5
+    },
+    "Washington": {
+        "park_name": "Nationals Park",
+        "run_factor": 100.0,
+        "nrfi_pct": 0.5,
+        "yrfi_pct": 0.5
+    },
+    "Baltimore": {
+        "park_name": "Oriole Park at Camden Yards",
+        "run_factor": 98.0,
+        "nrfi_pct": 0.51,
+        "yrfi_pct": 0.49
+    },
+    "Detroit": {
+        "park_name": "Comerica Park",
+        "run_factor": 98.0,
+        "nrfi_pct": 0.51,
+        "yrfi_pct": 0.49
+    },
+    "LA Angels": {
+        "park_name": "Angel Stadium",
+        "run_factor": 98.0,
+        "nrfi_pct": 0.51,
+        "yrfi_pct": 0.49
+    },
+    "Minnesota": {
+        "park_name": "Target Field",
+        "run_factor": 98.0,
+        "nrfi_pct": 0.51,
+        "yrfi_pct": 0.49
+    },
+    "NY Mets": {
+        "park_name": "Citi Field",
+        "run_factor": 97.0,
+        "nrfi_pct": 0.515,
+        "yrfi_pct": 0.485
+    },
+    "Tampa Bay": {
+        "park_name": "Tropicana Field",
+        "run_factor": 97.0,
+        "nrfi_pct": 0.515,
+        "yrfi_pct": 0.485
+    },
+    "Cleveland": {
+        "park_name": "Progressive Field",
+        "run_factor": 96.0,
+        "nrfi_pct": 0.521,
+        "yrfi_pct": 0.479
+    },
+    "Oakland": {
+        "park_name": "Oakland Coliseum",
+        "run_factor": 95.0,
+        "nrfi_pct": 0.526,
+        "yrfi_pct": 0.474
+    },
+    "San Diego": {
+        "park_name": "Petco Park",
+        "run_factor": 95.0,
+        "nrfi_pct": 0.526,
+        "yrfi_pct": 0.474
+    },
+    "SF Giants": {
+        "park_name": "Oracle Park",
+        "run_factor": 94.0,
+        "nrfi_pct": 0.532,
+        "yrfi_pct": 0.468
+    },
+    "St Louis": {
+        "park_name": "Busch Stadium",
+        "run_factor": 94.0,
+        "nrfi_pct": 0.532,
+        "yrfi_pct": 0.468
+    },
+    "Seattle": {
+        "park_name": "T-Mobile Park",
+        "run_factor": 93.0,
+        "nrfi_pct": 0.538,
+        "yrfi_pct": 0.462
+    }
+}

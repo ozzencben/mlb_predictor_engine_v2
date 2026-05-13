@@ -15,8 +15,9 @@ app = FastAPI(
 
 # 🌐 CORS: Allowed origins are read from CORS_ORIGINS env variable.
 # Local dev default: "*"  |  Production: set to your Vercel URL on Render.
+# Trailing slashes are stripped automatically (browsers never send them).
 _raw_origins = os.getenv("CORS_ORIGINS", "*")
-allowed_origins = [o.strip() for o in _raw_origins.split(",")]
+allowed_origins = [o.strip().rstrip("/") for o in _raw_origins.split(",")]
 
 app.add_middleware(
     CORSMiddleware,
