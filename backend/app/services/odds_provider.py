@@ -1,14 +1,21 @@
 import requests
 import json
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class OddsProvider:
     """
     The Odds API'den canlı oranları çeker, takımları eşleştirir ve
     modelimiz için "The Edge" (Değer/Avantaj) hesaplaması yapar.
     """
-    def __init__(self, api_key: str = "0d0dc3ee89d686ebd81213ac126c9af6"):
-        self.api_key = api_key
+    def __init__(self, api_key: str = None):
+        self.api_key = api_key or os.getenv("ODDS_API_KEY")
+
+        if not self.api_key:
+            print("❌ HATA: ODDS_API_KEY bulunamadı! Lütfen .env dosyasını kontrol edin.")
+
         self.base_url = "https://api.the-odds-api.com/v4/sports/baseball_mlb/odds"
         self.data_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
         
