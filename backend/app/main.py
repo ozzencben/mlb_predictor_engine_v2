@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
 from app.core.lifespan import lifespan
 from app.api.v1.api import api_router
@@ -12,10 +13,14 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# 🌐 CORS: Frontend (React/Vite) bağlantısı için güvenlik izinleri
+# 🌐 CORS: Allowed origins are read from CORS_ORIGINS env variable.
+# Local dev default: "*"  |  Production: set to your Vercel URL on Render.
+_raw_origins = os.getenv("CORS_ORIGINS", "*")
+allowed_origins = [o.strip() for o in _raw_origins.split(",")]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Geliştirme aşamasında her yerden gelen isteğe izin veriyoruz
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
