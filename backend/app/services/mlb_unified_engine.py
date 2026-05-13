@@ -9,19 +9,24 @@ class MLBUnifiedEngine:
     and returns a unified dictionary ready for the frontend.
     """
     
-    def __init__(self, team_db: dict, pitcher_db: dict, ballpark_db: dict = None):
+    def __init__(self, team_db: dict, pitcher_db: dict, ballpark_db: dict = None, standings_db: dict = None):
         if ballpark_db is None:
             ballpark_db = {}
-            
-        # 1. Modelleri Başlat (Instantiation)
-        # Bütün o karmaşık veritabanları çöpe gitti. 
-        # Modellerimiz artık sadece 2 taze JSON verisiyle (Team ve Pitcher) çalışıyor.
+        if standings_db is None:
+             standings_db = {}
+             
+        self.team_db = team_db
+        self.pitcher_db = pitcher_db
+        self.ballpark_db = ballpark_db
+        self.standings_db = standings_db
+
+        # Initialize Models with the new advanced data sources
         self.nrfi_model = NRFIModel(pitcher_db, team_db, ballpark_db)
         self.f5_model = F5Model(team_db, pitcher_db)
-        self.mlb_model = MLBModel(team_db, pitcher_db)
+        self.mlb_model = MLBModel(team_db, pitcher_db, ballpark_db)
 
     def _recalculate_probabilities(self, away_score: float, home_score: float, exponent: float = 1.83):
-        """Eğer Emniyet Kemeri skorları değiştirirse, olasılıkları yeniden hesaplar."""
+        """Recalculates win probabilities if safety checks alter the scores."""
         if away_score == 0 and home_score == 0:
             return 0.500, 0.500
         
@@ -31,25 +36,31 @@ class MLBUnifiedEngine:
         
         return a_pow / total_pow, h_pow / total_pow
 
-    def predict_matchup(self, away_team: str, home_team: str, away_pitcher: str, home_pitcher: str) -> dict:
+    def predict_matchup(self, game_data: dict) -> dict:
         """
-        Gerekli tüm modelleri çalıştırır, güvenliği sağlar ve JSON çıktısını hazırlar.
+        Executes all models, ensures safety, and builds the rich JSON payload.
+        Now takes a full game dictionary from the matchup_scraper.
         """
         
-        # 1. Modelleri Çalıştır (Delegation)
+        away_team = game_data['away_team']
+        home_team = game_data['home_team']
+        away_pitcher = game_data['away_pitcher']
+        home_pitcher = game_data['home_pitcher']
+
+        # 1. Execute Models
         nrfi_result = self.nrfi_model.calculate(away_team, home_team, away_pitcher, home_pitcher)
         f5_result = self.f5_model.calculate(away_team, home_team, away_pitcher, home_pitcher)
-        full_result = self.mlb_model.calculate(away_team, home_team, away_pitcher, home_pitcher)
+        full_result, raw_pitcher_data = self.mlb_model.calculate(away_team, home_team, away_pitcher, home_pitcher)
 
-        # 2. Değişkenleri Çıkar
+        # 2. Extract Variables
         f5_away = f5_result["f5_away_score"]
         f5_home = f5_result["f5_home_score"]
         
         full_away = full_result["full_away_score"]
         full_home = full_result["full_home_score"]
 
-        # 3. EMNİYET KEMERİ (Safety Check)
-        # Tam maç skoru, F5 skorundan en az 0.5 yüksek olmak zorundadır.
+        # 3. SAFETY CHECK
+        # Full game score must be at least 0.5 higher than the F5 score.
         adjusted = False
         if full_away < f5_away + 0.5:
             full_away = f5_away + 0.5
@@ -59,13 +70,12 @@ class MLBUnifiedEngine:
             full_home = f5_home + 0.5
             adjusted = True
 
-        # Eğer skorlar güvenliğe takılıp yükseltildiyse, kazanma oranlarını ve totali güncelle
+        # If scores were adjusted, recalculate totals and probabilities
         if adjusted:
             full_away = round(full_away, 1)
             full_home = round(full_home, 1)
             away_prob, home_prob = self._recalculate_probabilities(full_away, full_home)
             
-            # Güncellenmiş değerleri geri yaz
             full_result["full_away_score"] = full_away
             full_result["full_home_score"] = full_home
             full_result["full_total"] = round(full_away + full_home, 2)
@@ -73,15 +83,30 @@ class MLBUnifiedEngine:
             full_result["full_home_win_prob"] = round(home_prob, 3)
             full_result["full_spread_adv"] = round(abs(full_home - full_away) - 1.5, 2)
 
-        # 4. Final Çıktısı (API'nin Okuyacağı Format)
+        # 4. Value Check Logic (Basic comparison to live odds if available)
+        value_alerts = []
+        book_total = game_data.get('odds', {}).get('over_under', 0)
+        if book_total > 0:
+            diff = abs(full_result['full_total'] - book_total)
+            if diff > 0.7:
+                 value_alerts.append("🔥 SIGNIFICANT TOTAL EDGE")
+
+        # 5. Build the Final Output Format (API Payload)
         return {
             "matchup": {
                 "away_team": away_team,
                 "home_team": home_team,
                 "away_pitcher": away_pitcher,
-                "home_pitcher": home_pitcher
+                "home_pitcher": home_pitcher,
+                "away_stats": game_data.get('away_team_stats', {}), 
+                "home_stats": game_data.get('home_team_stats', {}),
+                "status": game_data.get('status', 'TBD')
             },
             "NRFI": nrfi_result,
             "F5": f5_result,
-            "Full_Game": full_result
+            "Full_Game": full_result,
+            "Details": {
+                 "pitcher_analysis": raw_pitcher_data,
+                 "value_alerts": value_alerts
+            }
         }

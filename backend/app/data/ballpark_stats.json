@@ -3,180 +3,270 @@
         "park_name": "Coors Field",
         "run_factor": 112.0,
         "nrfi_pct": 0.446,
-        "yrfi_pct": 0.56
+        "yrfi_pct": 0.56,
+        "lat": 39.7559,
+        "lon": -104.9942,
+        "roof_type": "Open"
     },
     "Boston": {
         "park_name": "Fenway Park",
         "run_factor": 108.0,
         "nrfi_pct": 0.463,
-        "yrfi_pct": 0.54
+        "yrfi_pct": 0.54,
+        "lat": 42.3467,
+        "lon": -71.0972,
+        "roof_type": "Open"
     },
     "Cincinnati": {
         "park_name": "Great American Ball Park",
         "run_factor": 106.0,
         "nrfi_pct": 0.472,
-        "yrfi_pct": 0.53
+        "yrfi_pct": 0.53,
+        "lat": 39.0979,
+        "lon": -84.5072,
+        "roof_type": "Open"
     },
     "Atlanta": {
         "park_name": "Truist Park",
         "run_factor": 103.0,
         "nrfi_pct": 0.485,
-        "yrfi_pct": 0.515
+        "yrfi_pct": 0.515,
+        "lat": 33.8907,
+        "lon": -84.4677,
+        "roof_type": "Open"
     },
     "Kansas City": {
         "park_name": "Kauffman Stadium",
         "run_factor": 103.0,
         "nrfi_pct": 0.485,
-        "yrfi_pct": 0.515
+        "yrfi_pct": 0.515,
+        "lat": 39.0517,
+        "lon": -94.4803,
+        "roof_type": "Open"
     },
     "LA Dodgers": {
         "park_name": "Dodger Stadium",
         "run_factor": 102.0,
         "nrfi_pct": 0.49,
-        "yrfi_pct": 0.51
+        "yrfi_pct": 0.51,
+        "lat": 34.0739,
+        "lon": -118.2400,
+        "roof_type": "Open"
     },
     "Texas": {
         "park_name": "Globe Life Field",
         "run_factor": 102.0,
         "nrfi_pct": 0.49,
-        "yrfi_pct": 0.51
+        "yrfi_pct": 0.51,
+        "lat": 32.7513,
+        "lon": -97.0825,
+        "roof_type": "Retractable"
     },
     "Chi White Sox": {
         "park_name": "Guaranteed Rate Field",
         "run_factor": 101.0,
         "nrfi_pct": 0.495,
-        "yrfi_pct": 0.505
+        "yrfi_pct": 0.505,
+        "lat": 41.8299,
+        "lon": -87.6338,
+        "roof_type": "Open"
     },
     "Philadelphia": {
         "park_name": "Citizens Bank Park",
         "run_factor": 101.0,
         "nrfi_pct": 0.495,
-        "yrfi_pct": 0.505
+        "yrfi_pct": 0.505,
+        "lat": 39.9061,
+        "lon": -75.1665,
+        "roof_type": "Open"
     },
     "Arizona": {
         "park_name": "Chase Field",
         "run_factor": 100.0,
         "nrfi_pct": 0.5,
-        "yrfi_pct": 0.5
+        "yrfi_pct": 0.5,
+        "lat": 33.4455,
+        "lon": -112.0667,
+        "roof_type": "Retractable"
     },
     "Chi Cubs": {
         "park_name": "Wrigley Field",
         "run_factor": 100.0,
         "nrfi_pct": 0.5,
-        "yrfi_pct": 0.5
+        "yrfi_pct": 0.5,
+        "lat": 41.9484,
+        "lon": -87.6553,
+        "roof_type": "Open"
     },
     "Houston": {
         "park_name": "Minute Maid Park",
         "run_factor": 100.0,
         "nrfi_pct": 0.5,
-        "yrfi_pct": 0.5
+        "yrfi_pct": 0.5,
+        "lat": 29.7570,
+        "lon": -95.3555,
+        "roof_type": "Retractable"
     },
     "Miami": {
         "park_name": "loanDepot park",
         "run_factor": 100.0,
         "nrfi_pct": 0.5,
-        "yrfi_pct": 0.5
+        "yrfi_pct": 0.5,
+        "lat": 25.7781,
+        "lon": -80.2195,
+        "roof_type": "Retractable"
     },
     "Milwaukee": {
         "park_name": "American Family Field",
         "run_factor": 100.0,
         "nrfi_pct": 0.5,
-        "yrfi_pct": 0.5
+        "yrfi_pct": 0.5,
+        "lat": 43.0280,
+        "lon": -87.9712,
+        "roof_type": "Retractable"
     },
     "NY Yankees": {
         "park_name": "Yankee Stadium",
         "run_factor": 100.0,
         "nrfi_pct": 0.5,
-        "yrfi_pct": 0.5
+        "yrfi_pct": 0.5,
+        "lat": 40.8296,
+        "lon": -73.9262,
+        "roof_type": "Open"
     },
     "Pittsburgh": {
         "park_name": "PNC Park",
         "run_factor": 100.0,
         "nrfi_pct": 0.5,
-        "yrfi_pct": 0.5
+        "yrfi_pct": 0.5,
+        "lat": 40.4469,
+        "lon": -80.0057,
+        "roof_type": "Open"
     },
     "Toronto": {
         "park_name": "Rogers Centre",
         "run_factor": 100.0,
         "nrfi_pct": 0.5,
-        "yrfi_pct": 0.5
+        "yrfi_pct": 0.5,
+        "lat": 43.6414,
+        "lon": -79.3894,
+        "roof_type": "Retractable"
     },
     "Washington": {
         "park_name": "Nationals Park",
         "run_factor": 100.0,
         "nrfi_pct": 0.5,
-        "yrfi_pct": 0.5
+        "yrfi_pct": 0.5,
+        "lat": 38.8730,
+        "lon": -77.0074,
+        "roof_type": "Open"
     },
     "Baltimore": {
         "park_name": "Oriole Park at Camden Yards",
         "run_factor": 98.0,
         "nrfi_pct": 0.51,
-        "yrfi_pct": 0.49
+        "yrfi_pct": 0.49,
+        "lat": 39.2840,
+        "lon": -76.6200,
+        "roof_type": "Open"
     },
     "Detroit": {
         "park_name": "Comerica Park",
         "run_factor": 98.0,
         "nrfi_pct": 0.51,
-        "yrfi_pct": 0.49
+        "yrfi_pct": 0.49,
+        "lat": 42.3390,
+        "lon": -83.0485,
+        "roof_type": "Open"
     },
     "LA Angels": {
         "park_name": "Angel Stadium",
         "run_factor": 98.0,
         "nrfi_pct": 0.51,
-        "yrfi_pct": 0.49
+        "yrfi_pct": 0.49,
+        "lat": 33.8003,
+        "lon": -117.8827,
+        "roof_type": "Open"
     },
     "Minnesota": {
         "park_name": "Target Field",
         "run_factor": 98.0,
         "nrfi_pct": 0.51,
-        "yrfi_pct": 0.49
+        "yrfi_pct": 0.49,
+        "lat": 44.9817,
+        "lon": -93.2776,
+        "roof_type": "Open"
     },
     "NY Mets": {
         "park_name": "Citi Field",
         "run_factor": 97.0,
         "nrfi_pct": 0.515,
-        "yrfi_pct": 0.485
+        "yrfi_pct": 0.485,
+        "lat": 40.7571,
+        "lon": -73.8458,
+        "roof_type": "Open"
     },
     "Tampa Bay": {
         "park_name": "Tropicana Field",
         "run_factor": 97.0,
         "nrfi_pct": 0.515,
-        "yrfi_pct": 0.485
+        "yrfi_pct": 0.485,
+        "lat": 27.7682,
+        "lon": -82.6534,
+        "roof_type": "Dome"
     },
     "Cleveland": {
         "park_name": "Progressive Field",
         "run_factor": 96.0,
         "nrfi_pct": 0.521,
-        "yrfi_pct": 0.479
+        "yrfi_pct": 0.479,
+        "lat": 41.4962,
+        "lon": -81.6852,
+        "roof_type": "Open"
     },
-    "Oakland": {
-        "park_name": "Oakland Coliseum",
+    "Athletics": {
+        "park_name": "Sutter Health Park",
         "run_factor": 95.0,
         "nrfi_pct": 0.526,
-        "yrfi_pct": 0.474
+        "yrfi_pct": 0.474,
+        "lat": 38.5802,
+        "lon": -121.5145,
+        "roof_type": "Open"
     },
     "San Diego": {
         "park_name": "Petco Park",
         "run_factor": 95.0,
         "nrfi_pct": 0.526,
-        "yrfi_pct": 0.474
+        "yrfi_pct": 0.474,
+        "lat": 32.7076,
+        "lon": -117.1570,
+        "roof_type": "Open"
     },
     "SF Giants": {
         "park_name": "Oracle Park",
         "run_factor": 94.0,
         "nrfi_pct": 0.532,
-        "yrfi_pct": 0.468
+        "yrfi_pct": 0.468,
+        "lat": 37.7786,
+        "lon": -122.3893,
+        "roof_type": "Open"
     },
     "St Louis": {
         "park_name": "Busch Stadium",
         "run_factor": 94.0,
         "nrfi_pct": 0.532,
-        "yrfi_pct": 0.468
+        "yrfi_pct": 0.468,
+        "lat": 38.6226,
+        "lon": -90.1928,
+        "roof_type": "Open"
     },
     "Seattle": {
         "park_name": "T-Mobile Park",
         "run_factor": 93.0,
         "nrfi_pct": 0.538,
-        "yrfi_pct": 0.462
+        "yrfi_pct": 0.462,
+        "lat": 47.5914,
+        "lon": -122.3325,
+        "roof_type": "Retractable"
     }
 }
