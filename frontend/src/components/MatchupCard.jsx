@@ -63,8 +63,10 @@ const MatchupCard = ({ prediction }) => {
                             <p className="text-[10px] text-gray-400 mt-0.5">{pitcherAway.record} | {pitcherAway.era} ERA</p>
                         </div>
 
-                        {/* Takım Formu (Rekoru) Atıcının Altına İndi */}
-                        <span className="text-[11px] text-gray-400 font-semibold">{matchup.away_stats?.record}</span>
+                        {/* Takım Formu (Genel Rekor ve Son 10 Maç) */}
+                        <span className="text-[11px] text-gray-400 font-semibold tracking-wider">
+                            {matchup.away_stats?.record} <span className="text-gray-600 mx-1">|</span> <span className="text-gray-500">L10: {matchup.away_stats?.l10}</span>
+                        </span>
                     </div>
 
                     {/* SAĞ KOLON: EV SAHİBİ TAKIMI */}
@@ -83,8 +85,10 @@ const MatchupCard = ({ prediction }) => {
                             <p className="text-[10px] text-gray-400 mt-0.5">{pitcherHome.record} | {pitcherHome.era} ERA</p>
                         </div>
 
-                        {/* Takım Formu (Rekoru) Atıcının Altına İndi */}
-                        <span className="text-[11px] text-gray-400 font-semibold">{matchup.home_stats?.record}</span>
+                        {/* Takım Formu (Genel Rekor ve Son 10 Maç) */}
+                        <span className="text-[11px] text-gray-400 font-semibold tracking-wider">
+                            {matchup.home_stats?.record} <span className="text-gray-600 mx-1">|</span> <span className="text-gray-500">L10: {matchup.home_stats?.l10}</span>
+                        </span>
                     </div>
 
                     {/* ORTA KOLON: Skor, Saat, Oranlar */}
@@ -142,7 +146,6 @@ const MatchupCard = ({ prediction }) => {
                     </div>
 
                     <div className="flex items-center gap-4 ml-auto">
-                        {/* Buton ismi Matchup 📊 olarak güncellendi */}
                         <span className="text-gray-400 text-xs font-bold uppercase tracking-wider cursor-pointer hover:text-white transition-colors">
                             Matchup 📊
                         </span>
@@ -245,6 +248,9 @@ const MatchupCard = ({ prediction }) => {
                                     </div>
                                     <div className="text-sm font-medium text-gray-300 mt-2">
                                         {Weather.condition}
+                                    </div>
+                                    <div className="text-sm font-medium text-gray-300 mt-1">
+                                        <span className="text-gray-500 mr-2">HUMIDITY</span> {Weather.humidity}%
                                     </div>
                                 </>
                             ) : (
