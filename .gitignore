@@ -1,0 +1,49 @@
+# =============================================================================
+# MLB Predictor Engine — Root .gitignore
+# =============================================================================
+
+# --- Gizli Ortam Değişkenleri ---
+.env
+.env.local
+.env.production
+.env.development
+.env.staging
+
+# --- Python (Backend) ---
+**/__pycache__/
+**/*.py[cod]
+**/*.pyd
+**/.venv/
+**/venv/
+**/env/
+**/*.egg-info/
+**/dist/
+**/build/
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+**/htmlcov/
+**/.coverage
+**/*.log
+
+# --- Node.js / Next.js (Frontend — ileride) ---
+**/node_modules/
+**/.next/
+**/out/
+**/.turbo/
+**/coverage/
+
+# --- IDE & Editörler ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+*.orig
+
+# --- Veri dosyaları (dinamik, Git'e eklenmemeli) ---
+backend/app/data/*.json
+backend/app/data/*.csv

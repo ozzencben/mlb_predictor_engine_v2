@@ -1,0 +1,53 @@
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# Environment variables
+.env
+.env.production
+.env.development
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Django / Flask specific
+/static_prod/
+/media/
+/collectedstatic/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Build outputs
+build/
+dist/
+*.egg-info/
+
+# Data files that shouldn't be version controlled
+app/data/*.json
+app/data/*.csv
+
+# Testing artifacts
+.pytest_cache/
+htmlcov/
+coverage/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints

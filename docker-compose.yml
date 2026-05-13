@@ -1,0 +1,77 @@
+# =============================================================================
+# MLB Predictor Engine - Docker Compose
+# =============================================================================
+# Kullanım:
+#   Geliştirme:  docker compose up --build
+#   Arkaplanda:  docker compose up -d --build
+#   Durdurma:    docker compose down
+#   Loglar:      docker compose logs -f backend
+# =============================================================================
+
+services:
+
+  # ---------------------------------------------------------------------------
+  # BACKEND — FastAPI (Python 3.12 + uv)
+  # ---------------------------------------------------------------------------
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: mlb_backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"      # Host:Container — API erişimi için
+    volumes:
+      # Veri dosyalarını dışarıya bağla: container yeniden başlatılsa bile
+      # JSON verileri korunur ve host üzerinden düzenlenebilir
+      - ./backend/app/data:/app/app/data
+    environment:
+      - PYTHONUNBUFFERED=1
+      - APP_ENV=${APP_ENV:-development}
+    env_file:
+      - .env            # Kök dizindeki .env dosyasından ortam değişkenlerini oku
+    networks:
+      - mlb_network
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  # ---------------------------------------------------------------------------
+  # FRONTEND — Next.js  (ileride eklenecek)
+  # ---------------------------------------------------------------------------
+  # Aşağıdaki bloğu Next.js projen hazır olduğunda uncomment et.
+  # Beklenen yapı: kök dizinde /frontend klasörü
+  #
+  # frontend:
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile
+  #   container_name: mlb_frontend
+  #   restart: unless-stopped
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - NEXT_PUBLIC_API_URL=http://backend:8000   # Servisler arası iletişim
+  #   depends_on:
+  #     backend:
+  #       condition: service_healthy
+  #   networks:
+  #     - mlb_network
+
+# ---------------------------------------------------------------------------
+# VOLUMES
+# ---------------------------------------------------------------------------
+# Kalıcı veri depolama için named volume (opsiyonel, gelecekte DB eklenirse)
+# volumes:
+#   mlb_data:
+
+# ---------------------------------------------------------------------------
+# NETWORKS
+# ---------------------------------------------------------------------------
+networks:
+  mlb_network:
+    driver: bridge
+    name: mlb_network

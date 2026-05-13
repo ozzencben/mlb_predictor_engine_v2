@@ -1,0 +1,57 @@
+# Python cache ve bytecode dosyaları
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.pyz
+.Python
+
+# Sanal ortam (Docker içinde uv ile yeniden oluşturulacak)
+.venv/
+venv/
+env/
+
+# uv cache
+.uv/
+
+# IDE ve editör dosyaları
+.vscode/
+.idea/
+*.swp
+*.swo
+*.orig
+.DS_Store
+
+# Test ve kalite araçları
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+*.cover
+
+# Log dosyaları
+*.log
+logs/
+
+# Geçici dosyalar
+*.tmp
+*.bak
+tmp/
+
+# Git
+.git/
+.gitignore
+
+# Docker dosyaları (kendisini build etmemeli)
+Dockerfile
+docker-compose*.yml
+.dockerignore
+
+# Dokümantasyon
+README.md
+docs/
+
+# CI/CD
+.github/

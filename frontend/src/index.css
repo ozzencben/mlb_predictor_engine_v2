@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+/* Tyler'ın özel arka plan rengini buraya direkt değişkenle de atabiliriz */
+:root {
+  --mlb-dark: #0f172a;
+}
+
+body {
+  background-color: var(--mlb-dark);
+  color: white;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}

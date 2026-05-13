@@ -1,0 +1,27 @@
+# Gizli ortam değişkenleri — Git'e asla commit etme!
+.env
+
+# Python
+**/__pycache__/
+**/*.pyc
+
+# Node / Next.js — ilerideki frontend için
+**/node_modules/
+**/.next/
+**/out/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Loglar
+*.log
+logs/
