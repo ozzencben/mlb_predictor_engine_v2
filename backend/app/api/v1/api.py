@@ -1,5 +1,4 @@
-from fastapi import APIRouter, HTTPException, Depends, Security, BackgroundTasks
-from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+from fastapi import APIRouter, HTTPException
 from starlette.concurrency import run_in_threadpool
 import os
 import json
@@ -14,19 +13,10 @@ api_router = APIRouter()
 # Global Yollar
 DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'data'))
 PREDICTIONS_FILE = os.path.join(DATA_DIR, 'todays_predictions.json')
-
-# Vercel Cron Güvenliği (Authorization: Bearer <TOKEN> formatında gelir)
-security = HTTPBearer()
-CRON_SECRET = os.getenv("CRON_SECRET", "gizli-cron-sifresi")
+CACHE_EXPIRY_SECONDS = 3600  # 1 Saat
 
 # Yarış Durumu (Race Condition) Kilidi
 _update_lock = asyncio.Lock()
-
-def verify_cron_key(credentials: HTTPAuthorizationCredentials = Security(security)):
-    """Vercel Cron veya Manuel İsteklerin Yetkisini Doğrular."""
-    if credentials.credentials != CRON_SECRET:
-        raise HTTPException(status_code=403, detail="Geçersiz Yetki. Bearer token hatalı.")
-    return credentials.credentials
 
 def _get_file_modified_time(filepath):
     if os.path.exists(filepath):
@@ -34,39 +24,37 @@ def _get_file_modified_time(filepath):
         return datetime.fromtimestamp(mtime).strftime('%Y-%m-%d %H:%M:%S')
     return "Bulunamadı"
 
-async def _background_prediction_task():
-    """
-    Arka planda çalışacak asıl ağır iş yükü.
-    Kilit mekanizmasını burada işletiyoruz ki API anında yanıt dönebilsin.
-    """
-    if _update_lock.locked():
-        print("⏳ Güncelleme işlemi halihazırda devam ediyor. Bu tetikleme yoksayıldı.")
-        return
-
-    async with _update_lock:
-        try:
-            print("⚙️ Arka plan tahmin motoru başlatıldı...")
-            runner = PredictionRunner()
-            # Ağır (I/O ve CPU bound) işlemleri Event Loop'u kitlemeden çalıştır
-            await run_in_threadpool(runner.run_daily_predictions)
-            print("✅ Arka plan işlemi başarıyla tamamlandı.")
-        except Exception as e:
-            print(f"❌ Arka plan görev hatası: {e}")
-
 @api_router.get("/predictions")
 async def get_predictions():
-    """
-    SADECE OKUMA YAPAR. Ortalama yanıt süresi <10ms.
-    Frontend (Next.js) burayı çağırır.
-    """
+    """Ana Dashboard Verisi. Güvenli Cache ve ThreadPool mantığı ile çalışır."""
+    need_refresh = True
+    
+    if os.path.exists(PREDICTIONS_FILE):
+        file_age = time.time() - os.path.getmtime(PREDICTIONS_FILE)
+        if file_age < CACHE_EXPIRY_SECONDS:
+            need_refresh = False
+
+    if need_refresh:
+        # Kilit mekanizması: Aynı anda sadece bir istek yenileme yapabilir
+        async with _update_lock:
+            # Double-check locking: Kilit beklerken başka biri veriyi güncellemiş olabilir
+            if os.path.exists(PREDICTIONS_FILE) and (time.time() - os.path.getmtime(PREDICTIONS_FILE)) < CACHE_EXPIRY_SECONDS:
+                need_refresh = False
+            else:
+                print("🔄 Veriler bayatlamış (veya yok), motor izole havuzda (threadpool) çalıştırılıyor...")
+                runner = PredictionRunner()
+                # Event Loop'u kilitlememek için ağır işlemi thread pool'a atıyoruz
+                await run_in_threadpool(runner.run_daily_predictions)
+
     if not os.path.exists(PREDICTIONS_FILE):
-        raise HTTPException(status_code=503, detail="Veriler henüz hazır değil. Lütfen biraz sonra tekrar deneyin.")
+        raise HTTPException(status_code=500, detail="Tahmin dosyası oluşturulamadı.")
 
     with open(PREDICTIONS_FILE, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
     return {
         "status": "success", 
+        "cached": not need_refresh, 
         "data": data
     }
 
@@ -84,24 +72,17 @@ async def get_system_status():
         }
     }
 
-# Vercel Cron varsayılan olarak GET isteği atar, bu yüzden GET yaptık.
-# Manuel tetikleme (Postman vs.) için de kullanılabilir.
-@api_router.get("/cron/refresh")
-async def cron_refresh_data(
-    background_tasks: BackgroundTasks, 
-    _ = Depends(verify_cron_key)
-):
-    """
-    Vercel Cron Hedefi. 
-    İşlemi BackgroundTask'a atar ve Timeout yememek için anında '202 Accepted' döner.
-    """
+@api_router.post("/refresh-data")
+async def refresh_data():
+    """Manuel Tetikleyici (Zorla Güncelle - ThreadPool Korumalı)."""
+    # Zaten bir güncelleme çalışıyorsa reddet veya bekle
     if _update_lock.locked():
-        return {"status": "ignored", "message": "Sistem zaten şu anda güncelleniyor."}
-
-    # Görevi arka plana ekle
-    background_tasks.add_task(_background_prediction_task)
-    
-    return {
-        "status": "accepted", 
-        "message": "Güncelleme komutu alındı, işlem arka planda başlatıldı."
-    }
+        raise HTTPException(status_code=429, detail="Sistem şu anda zaten güncelleniyor. Lütfen bekleyin.")
+        
+    try:
+        async with _update_lock:
+            runner = PredictionRunner()
+            await run_in_threadpool(runner.run_daily_predictions)
+        return {"status": "success", "message": "Tüm sistem verileri başarıyla zorla güncellendi."}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Manuel güncelleme hatası: {str(e)}")
