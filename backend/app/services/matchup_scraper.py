@@ -144,9 +144,11 @@ class MatchupScraper:
                         "home_team_stats": home_stats
                     })
 
+            last_updated_str = now_et.strftime('%B %d, %I:%M %p ET')
+
             output_path = os.path.join(self.data_dir, 'daily_matchups.json')
             with open(output_path, 'w', encoding='utf-8') as f:
-                json.dump({"date": today_str, "games": matchups}, f, indent=4, ensure_ascii=False)
+                json.dump({"date": today_str, "games": matchups, "last_updated": last_updated_str}, f, indent=4, ensure_ascii=False)
             
             print(f"✅ Başarılı! {len(matchups)} maç, saatleri ve detaylı takım formları arşivlendi.")
             return matchups
