@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import os
+import tempfile
 from datetime import datetime
 
 class DataCollector:
@@ -9,26 +10,23 @@ class DataCollector:
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
         }
-        # Klasör yolları
         self.base_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
         self.history_dir = os.path.join(self.base_dir, 'history')
         
-        # Klasörleri oluştur
         for path in [self.base_dir, self.history_dir]:
-            if not os.path.exists(path):
-                os.makedirs(path)
+            os.makedirs(path, exist_ok=True) # exist_ok=True ile try-catch'e gerek kalmaz
 
         self.league_avg_ops = 0.730
         self.avg_pa_per_game = 38.0 
 
-    def _safe_float(self, val):
+    def _safe_float(self, val: str) -> float:
         if isinstance(val, str):
             val = val.strip().replace('%', '')
         return float(val) if val and val != '--' else 0.0
 
-    def _scrape_teamrankings_table(self, url):
+    def _scrape_teamrankings_table(self, url: str) -> dict:
         try:
-            response = requests.get(url, headers=self.headers)
+            response = requests.get(url, headers=self.headers, timeout=10) # Timeout eklendi (Zorunlu)
             response.raise_for_status()
             soup = BeautifulSoup(response.text, 'html.parser')
             table = soup.find('table', {'class': 'datatable'})
@@ -49,7 +47,21 @@ class DataCollector:
             print(f"❌ Hata (URL: {url}): {e}")
             return {}
 
-    def collect_all_stats(self):
+    def _atomic_save(self, filepath: str, data: dict):
+        """JSON dosyasını bozulma riski olmadan işletim sistemi seviyesinde güvenle kaydeder."""
+        dir_name = os.path.dirname(filepath)
+        # Geçici dosya oluştur
+        fd, temp_path = tempfile.mkstemp(dir=dir_name, suffix='.json')
+        try:
+            with os.fdopen(fd, 'w', encoding='utf-8') as f:
+                json.dump(data, f, indent=4, ensure_ascii=False)
+            # Atomik yer değiştirme (eski dosyayı güvenle ezer)
+            os.replace(temp_path, filepath)
+        except Exception as e:
+            os.remove(temp_path) # Hata olursa temp dosyasını temizle
+            raise e
+
+    def collect_all_stats(self) -> dict:
         print(f"🚀 VERİ TOPLAMA BAŞLADI: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
         
         # 1. Ham Verileri Çek
@@ -59,18 +71,19 @@ class DataCollector:
         ops_data = self._scrape_teamrankings_table("https://www.teamrankings.com/mlb/stat/on-base-plus-slugging-pct")
         so_data = self._scrape_teamrankings_table("https://www.teamrankings.com/mlb/stat/strikeouts-per-game")
         
-        if not rpg_off:
-            print("❌ Kritik veriler çekilemedi.")
-            return
+        # MANTIKSAL GÜVENLİK: Herhangi bir scraping başarısız olursa iyi veriyi ezmeyi reddet.
+        if not all([rpg_off, rpg_def, ba_data, ops_data, so_data]):
+            print("❌ Eksik veri çekildi. Sistem bütünlüğü için mevcut JSON güncellenmeyecek.")
+            return {}
 
         # 2. Verileri Birleştir
         unified_stats = {}
         for team in rpg_off.keys():
             team_ops = ops_data.get(team, {}).get("current", self.league_avg_ops)
-            wrc_proxy = round((team_ops / self.league_avg_ops) * 100, 1)
+            wrc_proxy = round((team_ops / self.league_avg_ops) * 100.0, 1)
             
             team_so = so_data.get(team, {}).get("current", 8.5)
-            k_pct_proxy = round((team_so / self.avg_pa_per_game) * 100, 1)
+            k_pct_proxy = round((team_so / self.avg_pa_per_game) * 100.0, 1)
 
             unified_stats[team] = {
                 "rpg_offense": rpg_off.get(team, {}),
@@ -82,22 +95,12 @@ class DataCollector:
                 }
             }
 
-        # 3. KAYIT İŞLEMİ (HİBRİT)
-        # A. Canlı Kullanım İçin (Update Always)
+        # 3. KAYIT İŞLEMİ (ATOMİK)
         live_path = os.path.join(self.base_dir, 'live_stats.json')
-        with open(live_path, 'w', encoding='utf-8') as f:
-            json.dump(unified_stats, f, indent=4, ensure_ascii=False)
+        history_path = os.path.join(self.history_dir, f"{datetime.now().strftime('%Y-%m-%d')}_stats.json")
         
-        # B. Tarihsel Arşiv İçin (Archive)
-        today_str = datetime.now().strftime('%Y-%m-%d')
-        history_path = os.path.join(self.history_dir, f'{today_str}_stats.json')
-        with open(history_path, 'w', encoding='utf-8') as f:
-            json.dump(unified_stats, f, indent=4, ensure_ascii=False)
+        self._atomic_save(live_path, unified_stats)
+        self._atomic_save(history_path, unified_stats)
         
         print(f"✅ Canlı veri güncellendi: {live_path}")
-        print(f"📂 Geçmişe kaydedildi: {history_path}")
         return unified_stats
-
-if __name__ == "__main__":
-    collector = DataCollector()
-    collector.collect_all_stats()

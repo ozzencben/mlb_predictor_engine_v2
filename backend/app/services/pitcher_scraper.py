@@ -1,44 +1,64 @@
 import requests
 import json
 import os
+import tempfile
 from datetime import datetime
 
 class PitcherScraper:
     def __init__(self):
         self.data_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
+        os.makedirs(self.data_dir, exist_ok=True)
+        
         self.current_year = datetime.now().year
-        # MLB'de FIP sabiti genelde 3.10 - 3.20 arasıdır.
         self.fip_constant = 3.15 
         
-        # Çaylaklar için varsayılan değerleri güncelledik (W-L eklendi)
         self.league_averages = {
             "era": 4.20,
             "fip": 4.20,
-            "k_bb_pct": 0.14, # %14
+            "k_bb_pct": 0.14, 
             "innings_pitched": 0.0,
             "wins": 0,
             "losses": 0,
             "record": "0-0"
         }
+        
+        # TCP/SSL Handshake maliyetini düşürmek için Session kullanımı
+        self.session = requests.Session()
+        self.session.headers.update({
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) MLB-Scraper/1.0'
+        })
 
-    def _get_pitcher_id(self, pitcher_name):
-        """MLB API'de atıcıyı isminden arar ve resmi ID'sini bulur."""
+    def _atomic_save(self, filepath: str, data: dict):
+        """Dosyanın bozulmasını önleyen atomik yazma işlemi."""
+        dir_name = os.path.dirname(filepath)
+        fd, temp_path = tempfile.mkstemp(dir=dir_name, suffix='.json')
+        try:
+            with os.fdopen(fd, 'w', encoding='utf-8') as f:
+                json.dump(data, f, indent=4, ensure_ascii=False)
+            os.replace(temp_path, filepath)
+        except Exception as e:
+            os.remove(temp_path)
+            raise e
+
+    def _get_pitcher_id(self, pitcher_name: str) -> str:
         url = f"https://statsapi.mlb.com/api/v1/people/search?names={pitcher_name}"
         try:
-            response = requests.get(url, timeout=10)
+            response = self.session.get(url, timeout=10)
             response.raise_for_status()
             data = response.json()
             if data.get('people'):
-                return data['people'][0]['id']
+                return str(data['people'][0]['id'])
             return None
-        except:
+        except requests.exceptions.RequestException as e:
+            print(f"⚠️ Ağ Hatası (ID Arama - {pitcher_name}): {e}")
+            return None
+        except Exception:
             return None
 
-    def _get_advanced_stats(self, person_id):
-        """Atıcının saf yetenek metriklerini hesaplamak için ham MLB verilerini çeker."""
+    def _get_advanced_stats(self, person_id: str) -> dict:
         url = f"https://statsapi.mlb.com/api/v1/people/{person_id}?hydrate=stats(group=[pitching],type=[season],season={self.current_year})"
         try:
-            response = requests.get(url, timeout=10)
+            response = self.session.get(url, timeout=10)
             response.raise_for_status()
             data = response.json()
             
@@ -52,7 +72,10 @@ class PitcherScraper:
             if not splits: return None
             
             return splits[0].get('stat', {})
-        except:
+        except requests.exceptions.RequestException as e:
+            print(f"⚠️ Ağ Hatası (Stat Çekme - {person_id}): {e}")
+            return None
+        except Exception:
             return None
 
     def build_pitcher_library(self):
@@ -63,16 +86,17 @@ class PitcherScraper:
             with open(matchups_file, 'r', encoding='utf-8') as f:
                 matchups_data = json.load(f)
         except FileNotFoundError:
-            print("❌ daily_matchups.json bulunamadı!")
+            print("❌ daily_matchups.json bulunamadı. Lütfen önce matchup_scraper.py'yi çalıştırın.")
             return
 
         pitcher_names = set()
         for game in matchups_data.get('games', []):
-            if game['away_pitcher'] != 'TBD': pitcher_names.add(game['away_pitcher'])
-            if game['home_pitcher'] != 'TBD': pitcher_names.add(game['home_pitcher'])
+            if game.get('away_pitcher') and game['away_pitcher'] != 'TBD': 
+                pitcher_names.add(game['away_pitcher'])
+            if game.get('home_pitcher') and game['home_pitcher'] != 'TBD': 
+                pitcher_names.add(game['home_pitcher'])
 
         print(f"🔍 Toplam {len(pitcher_names)} adet başlangıç atıcısı (SP) aranıyor...")
-
         pitcher_library = {}
 
         for name in pitcher_names:
@@ -90,30 +114,24 @@ class PitcherScraper:
                 pitcher_library[name] = self.league_averages.copy()
                 continue
 
-            # Temel veriler
             era = float(stats.get('era', 4.20))
             ip = float(stats.get('inningsPitched', 0.1))
             hr = int(stats.get('homeRuns', 0))
             bb = int(stats.get('baseOnBalls', 0))
             k = int(stats.get('strikeOuts', 0))
             bf = int(stats.get('battersFaced', 1))
-            
-            # YENİ EKLENENLER: Galibiyet ve Mağlubiyet
             wins = int(stats.get('wins', 0))
             losses = int(stats.get('losses', 0))
 
             # 1. Gerçek K-BB% Hesaplama
             if bf > 0:
-                k_pct = k / bf
-                bb_pct = bb / bf
-                k_bb_pct = round(k_pct - bb_pct, 3)
+                k_bb_pct = round((k / bf) - (bb / bf), 3)
             else:
                 k_bb_pct = 0.0
 
             # 2. FIP Hesaplama
             if ip > 0:
-                fip = ((13 * hr) + (3 * bb) - (2 * k)) / ip + self.fip_constant
-                fip = round(max(0.0, fip), 2)
+                fip = round(max(0.0, (((13 * hr) + (3 * bb) - (2 * k)) / ip) + self.fip_constant), 2)
             else:
                 fip = era
 
@@ -124,24 +142,22 @@ class PitcherScraper:
                 "innings_pitched": ip,
                 "wins": wins,
                 "losses": losses,
-                "record": f"{wins}-{losses}" # Frontend için hazır string (Örn: "5-2")
+                "record": f"{wins}-{losses}"
             }
             print(f"✅ Başarılı (W-L: {wins}-{losses} | FIP: {fip})")
 
+        # Güvenli Kayıt (Atomik)
         output_path = os.path.join(self.data_dir, 'pitcher_stats.json')
-        with open(output_path, 'w', encoding='utf-8') as f:
-            json.dump(pitcher_library, f, indent=4, ensure_ascii=False)
-            
         history_dir = os.path.join(self.data_dir, 'history')
-        if not os.path.exists(history_dir):
-            os.makedirs(history_dir)
-            
-        today_str = datetime.now().strftime('%Y-%m-%d')
-        history_path = os.path.join(history_dir, f'{today_str}_pitchers.json')
-        with open(history_path, 'w', encoding='utf-8') as f:
-            json.dump(pitcher_library, f, indent=4, ensure_ascii=False)
-            
-        print(f"\n🎉 GÖREV TAMAM! {len(pitcher_library)} atıcının İleri Seviye İstatistikleri ve W-L kayıtları çekildi.")
+        os.makedirs(history_dir, exist_ok=True)
+        history_path = os.path.join(history_dir, f"{datetime.now().strftime('%Y-%m-%d')}_pitchers.json")
+
+        if pitcher_library:
+            self._atomic_save(output_path, pitcher_library)
+            self._atomic_save(history_path, pitcher_library)
+            print(f"\n🎉 GÖREV TAMAM! {len(pitcher_library)} atıcının verileri güvenle kaydedildi.")
+        else:
+            print("\n⚠️ Uyarı: Hiçbir atıcı verisi bulunamadı, JSON güncellenmedi.")
 
 if __name__ == "__main__":
     scraper = PitcherScraper()

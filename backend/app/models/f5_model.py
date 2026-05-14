@@ -1,7 +1,9 @@
+from app.models.mlb_model import PitcherStats, TeamMLBStats
+
 class F5Model:
     """
     Calculates the "First 5 Innings" (F5) projected scores.
-    Relies almost entirely on the Starting Pitcher's Sabermetrics.
+    Relies heavily on the Starting Pitcher's Sabermetrics (95% weight).
     """
 
     def __init__(self, team_db: dict, pitcher_db: dict):
@@ -11,33 +13,35 @@ class F5Model:
         self.hfa = 1.03
         self.offExp = 1.83
 
-    def _get_pitcher_rating(self, pitcher_name: str):
-        """Uses FIP and K-BB% for SP rating."""
-        p = self.pitcher_db.get(pitcher_name, {"era": 4.2, "fip": 4.2, "k_bb_pct": 0.14})
-        fip = p.get('fip', 4.2)
-        k_bb = p.get('k_bb_pct', 0.14)
-        rating = (self.lgERA / fip) * (1 + (k_bb - 0.14))
-        return max(0.6, min(1.4, rating))
+    # KOD TEKRARI ÖNLENDİ: Doğrudan Dataclass'ları döndüren metodlar
+    def _get_pitcher_data(self, pitcher_name: str) -> PitcherStats:
+        p = self.pitcher_db.get(pitcher_name, {})
+        return PitcherStats(
+            era=float(p.get('era', 4.2)),
+            fip=float(p.get('fip', 4.2)),
+            k_bb_pct=float(p.get('k_bb_pct', 0.14))
+        )
 
-    def _get_offense_rating(self, team_name: str):
+    def _get_team_data(self, team_name: str) -> TeamMLBStats:
         t = self.team_db.get(team_name, {})
-        wrc = t.get('advanced_metrics', {}).get('wrc_plus', 100.0)
-        off_current = t.get('rpg_offense', {}).get('current', 4.5)
-        off_last3 = t.get('rpg_offense', {}).get('last_3', 4.5)
-        rpg = (0.3 * off_current) + (0.7 * off_last3)
-        
-        rating = (wrc / 100.0) * (rpg / 4.5)
-        return max(0.7, min(1.3, rating))
+        return TeamMLBStats(
+            wrc_plus=float(t.get('advanced_metrics', {}).get('wrc_plus', 100.0)),
+            off_current=float(t.get('rpg_offense', {}).get('current', 4.5)),
+            off_last3=float(t.get('rpg_offense', {}).get('last_3', 4.5)),
+            def_current=4.5 # F5'te BP kullanılmadığı için proxy
+        )
 
-    def calculate_score(self, offense_team: str, pitching_team: str, pitcher: str, is_home: bool) -> float:
-        sp_rating = self._get_pitcher_rating(pitcher)
-        off_rating = self._get_offense_rating(offense_team)
+    def calculate_score(self, offense_team: str, pitcher: str, is_home: bool) -> float:
+        pitcher_data = self._get_pitcher_data(pitcher)
+        off_stats = self._get_team_data(offense_team)
         
-        # F5 Defense is 95% SP.
-        pitching_defense_strength = sp_rating * 0.95 + 0.05
+        # F5 Defense is 95% SP. Base 0.05 ekleyerek ZeroDivision ve ufak sapmaları koruyoruz.
+        pitching_defense_strength = (pitcher_data.sp_rating * 0.95) + 0.05
         
-        raw_score = 4.5 * off_rating * (1 / pitching_defense_strength)
-        if is_home: raw_score *= self.hfa
+        raw_score = 4.5 * off_stats.offense_rating * (1.0 / pitching_defense_strength)
+        
+        if is_home: 
+            raw_score *= self.hfa
             
         # Scale to 5 innings
         f5_score = raw_score * (5.0 / 9.0)
@@ -45,16 +49,19 @@ class F5Model:
         return round(max(0.0, min(10.0, f5_score)), 1)
 
     def calculate(self, away_team: str, home_team: str, away_pitcher: str, home_pitcher: str) -> dict:
-        away_score = self.calculate_score(away_team, home_team, home_pitcher, is_home=False)
-        home_score = self.calculate_score(home_team, away_team, away_pitcher, is_home=True)
+        # GEREKSİZ PARAMETRE KALDIRILDI: pitching_team F5'te kullanılmadığı için metoddan çıkartıldı.
+        away_score = self.calculate_score(away_team, home_pitcher, is_home=False)
+        home_score = self.calculate_score(home_team, away_pitcher, is_home=True)
         
+        # Pythagorean Optimizasyonu (total_pow ile CPU kazancı)
         if away_score == 0 and home_score == 0:
             away_prob, home_prob = 0.5, 0.5
         else:
             away_pow = away_score ** self.offExp
             home_pow = home_score ** self.offExp
-            away_prob = away_pow / (away_pow + home_pow)
-            home_prob = home_pow / (away_pow + home_pow)
+            total_pow = away_pow + home_pow
+            away_prob = away_pow / total_pow
+            home_prob = home_pow / total_pow
             
         return {
             "f5_away_score": away_score,

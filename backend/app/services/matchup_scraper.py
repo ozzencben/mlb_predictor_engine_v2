@@ -1,16 +1,15 @@
 import requests
 import json
 import os
-from datetime import datetime, timedelta
-import pytz  # Zaman dilimi kilitlemesi için eklendi
+import tempfile # Atomik yazma için eklendi
+from datetime import datetime
+import pytz 
 
 class MatchupScraper:
     def __init__(self):
         self.data_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
-        if not os.path.exists(self.data_dir):
-            os.makedirs(self.data_dir)
+        os.makedirs(self.data_dir, exist_ok=True)
 
-        # Takım isimlerini eşleştirmek için haritalama
         mapping_file = os.path.join(self.data_dir, 'team_mappings.json')
         try:
             with open(mapping_file, 'r', encoding='utf-8') as f:
@@ -20,38 +19,45 @@ class MatchupScraper:
             print("⚠️ Uyarı: team_mappings.json bulunamadı. Ham MLB isimleri kullanılacak.")
             self.mlb_to_tr_map = {}
 
+    def _atomic_save(self, filepath: str, data: dict):
+        """Dosyanın bozulmasını önleyen atomik yazma işlemi."""
+        dir_name = os.path.dirname(filepath)
+        fd, temp_path = tempfile.mkstemp(dir=dir_name, suffix='.json')
+        try:
+            with os.fdopen(fd, 'w', encoding='utf-8') as f:
+                json.dump(data, f, indent=4, ensure_ascii=False)
+            os.replace(temp_path, filepath)
+        except Exception as e:
+            os.remove(temp_path)
+            raise e
+
     def _fetch_standings(self):
-        """MLB Puan Durumunu çeker ve takımların Ev/Deplasman/Son 10 maç formunu çıkarır."""
+        """MLB Puan Durumunu çeker."""
         print("📊 Takım Formları ve Lig Kayıtları Çekiliyor...")
-        # 103 = American League, 104 = National League
         url = "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104"
-        
         team_records = {}
         try:
-            response = requests.get(url, timeout=10)
+            # timeout eklendi, ağ sorunlarında sonsuza kadar beklemez
+            response = requests.get(url, timeout=10) 
             response.raise_for_status()
             data = response.json()
             
             for record in data.get('records', []):
                 for team in record.get('teamRecords', []):
                     team_id = team['team']['id']
-                    
-                    # Genel Kayıt
                     wins = team.get('wins', 0)
                     losses = team.get('losses', 0)
                     
-                    # Detaylı Kayıtlar (Ev, Deplasman, Son 10)
-                    home_rec = "0-0"
-                    away_rec = "0-0"
-                    l10_rec = "0-0"
+                    home_rec, away_rec, l10_rec = "0-0", "0-0", "0-0"
                     
                     for split in team.get('records', {}).get('splitRecords', []):
+                        rec_str = f"{split.get('wins', 0)}-{split.get('losses', 0)}"
                         if split['type'] == 'home':
-                            home_rec = f"{split['wins']}-{split['losses']}"
+                            home_rec = rec_str
                         elif split['type'] == 'away':
-                            away_rec = f"{split['wins']}-{split['losses']}"
+                            away_rec = rec_str
                         elif split['type'] == 'lastTen':
-                            l10_rec = f"{split['wins']}-{split['losses']}"
+                            l10_rec = rec_str
                             
                     team_records[team_id] = {
                         "record": f"{wins}-{losses}",
@@ -62,20 +68,16 @@ class MatchupScraper:
             return team_records
         except Exception as e:
             print(f"❌ Puan Durumu Çekme Hatası: {e}")
-            return {}
+            return {} # Standings olmadan da program devam etmeli
 
     def fetch_todays_matchups(self):
-        # --- KRİTİK DÜZELTME: Sistemi US/Eastern (New York) Saatine Kilitleme ---
         tz_et = pytz.timezone('US/Eastern')
         now_et = datetime.now(tz_et)
         today_str = now_et.strftime('%Y-%m-%d')
         
         print(f"🌐 [Timezone: ET] {today_str} tarihi için MLB Maçları Çekiliyor...")
 
-        # 1. Önce puan durumunu al (Takım formları)
         standings = self._fetch_standings()
-
-        # 2. Bugünün maç programını al
         url = f"https://statsapi.mlb.com/api/v1/schedule?sportId=1&date={today_str}&hydrate=probablePitcher"
         
         try:
@@ -84,24 +86,21 @@ class MatchupScraper:
             data = response.json()
             
             matchups = []
-            
             if not data.get('dates'):
                 print("ℹ️ Bugün için planlanmış MLB maçı bulunamadı.")
-                return matchups
+                # GÜVENLİK: Boş liste döndürmek yerine durumu bildirip çıkıyoruz. 
+                # Mevcut JSON dosyasına dokunmuyoruz ki dünkü veriler ekranda kalsın.
+                return []
 
             games = data['dates'][0].get('games', [])
             
             for game in games:
                 if game['status']['statusCode'] in ['P', 'S', 'I', 'F', 'O']: 
-                    
                     away_node = game['teams']['away']
                     home_node = game['teams']['home']
                     
                     away_team_full = away_node['team']['name']
                     home_team_full = home_node['team']['name']
-                    
-                    away_id = away_node['team']['id']
-                    home_id = home_node['team']['id']
                     
                     away_team = self.mlb_to_tr_map.get(away_team_full, away_team_full)
                     home_team = self.mlb_to_tr_map.get(home_team_full, home_team_full)
@@ -109,28 +108,18 @@ class MatchupScraper:
                     away_pitcher = away_node.get('probablePitcher', {}).get('fullName', 'TBD')
                     home_pitcher = home_node.get('probablePitcher', {}).get('fullName', 'TBD')
                     
-                    # --- YENİ EKLENEN KISIM: Maç Saati (Game Time) Formatlama (PYTZ Korumalı) ---
-                    raw_date = game.get('gameDate') # Örn: "2026-05-13T23:05:00Z"
+                    raw_date = game.get('gameDate')
                     game_time = "TBD"
                     if raw_date:
                         try:
-                            # UTC zamanını parse et ve ET'ye güvenli şekilde çevir
-                            utc_dt = datetime.strptime(raw_date, '%Y-%m-%dT%H:%M:%SZ')
-                            utc_dt = pytz.utc.localize(utc_dt)
+                            utc_dt = pytz.utc.localize(datetime.strptime(raw_date, '%Y-%m-%dT%H:%M:%SZ'))
                             et_dt = utc_dt.astimezone(tz_et)
-                            
-                            # 12 saatlik formata çevir (Örn: 07:05 PM ET)
-                            game_time = et_dt.strftime('%I:%M %p ET')
-                            
-                            # Başındaki sıfırı temizle (Örn: "07" -> "7")
-                            if game_time.startswith("0"):
-                                game_time = game_time[1:]
+                            game_time = et_dt.strftime('%I:%M %p ET').lstrip('0')
                         except Exception:
-                            game_time = raw_date # Hata olursa ham veriyi bırak
+                            game_time = raw_date 
                     
-                    # Puan durumu verilerini (varsa) eşleştir, yoksa boş değer ata
-                    away_stats = standings.get(away_id, {"record": "0-0", "home_record": "0-0", "away_record": "0-0", "l10": "0-0"})
-                    home_stats = standings.get(home_id, {"record": "0-0", "home_record": "0-0", "away_record": "0-0", "l10": "0-0"})
+                    away_stats = standings.get(away_node['team']['id'], {"record": "0-0", "home_record": "0-0", "away_record": "0-0", "l10": "0-0"})
+                    home_stats = standings.get(home_node['team']['id'], {"record": "0-0", "home_record": "0-0", "away_record": "0-0", "l10": "0-0"})
                     
                     matchups.append({
                         "game_id": game['gamePk'],
@@ -144,19 +133,20 @@ class MatchupScraper:
                         "home_team_stats": home_stats
                     })
 
-            last_updated_str = now_et.strftime('%B %d, %I:%M %p ET')
+            # Eğer API yanıt döndüyse ama maç yoksa (örn: All-Star arası), eski veriyi ezmemek için kontrol
+            if not matchups:
+                return []
 
+            last_updated_str = now_et.strftime('%B %d, %I:%M %p ET')
             output_path = os.path.join(self.data_dir, 'daily_matchups.json')
-            with open(output_path, 'w', encoding='utf-8') as f:
-                json.dump({"date": today_str, "games": matchups, "last_updated": last_updated_str}, f, indent=4, ensure_ascii=False)
             
-            print(f"✅ Başarılı! {len(matchups)} maç, saatleri ve detaylı takım formları arşivlendi.")
+            # GÜVENLİK: Atomik yazma işlemi
+            self._atomic_save(output_path, {"date": today_str, "games": matchups, "last_updated": last_updated_str})
+            
+            print(f"✅ Başarılı! {len(matchups)} maç arşivlendi.")
             return matchups
 
         except Exception as e:
-            print(f"❌ MLB Maçları Çekilirken Hata: {e}")
+            # GÜVENLİK: API çökerse dünkü/mevcut JSON dosyasını ezme. Sadece hata dön.
+            print(f"❌ MLB Maçları Çekilirken Hata: {e}. Mevcut veri korundu.")
             return []
-
-if __name__ == "__main__":
-    scraper = MatchupScraper()
-    todays_games = scraper.fetch_todays_matchups()
