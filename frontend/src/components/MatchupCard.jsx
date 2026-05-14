@@ -21,137 +21,145 @@ const MatchupCard = ({ prediction }) => {
     const isLive = matchup.status === "In Progress";
 
     return (
-        <div className="bg-mlb-card rounded-xl border border-gray-700 shadow-2xl overflow-hidden mb-6 transition-all duration-300 hover:border-gray-500 w-full">
+        <div className="bg-mlb-card rounded-xl border border-gray-700 shadow-2xl overflow-hidden mb-8 transition-all duration-300 hover:border-gray-500 w-full">
 
-            {/* 1. ÜST BAR */}
-            <div className="bg-slate-800/90 px-4 py-2.5 flex justify-between items-center text-[10px] md:text-xs text-gray-400 font-bold uppercase tracking-wider">
-                <span className="truncate pr-2">{matchup.away_team} @ {matchup.home_team}</span>
+            {/* ================= 1. ÜST BAR (Mobilde Daralma Düzeltildi) ================= */}
+            <div className="bg-slate-800/90 px-3 py-2 flex justify-between items-center border-b border-gray-700/50 gap-2">
+                <div className="flex items-center gap-1.5 flex-1 min-w-0">
+                    <span className="bg-blue-600/20 text-blue-400 border border-blue-500/30 px-1.5 py-0.5 rounded text-[9px] font-black tracking-widest flex-shrink-0">MLB</span>
+                    <span className="text-[9px] md:text-xs text-gray-300 font-bold uppercase tracking-wider truncate">
+                        {matchup.away_team} @ {matchup.home_team}
+                    </span>
+                </div>
 
                 {isLive && (
-                    <span className="text-green-400 font-black flex items-center gap-1.5 animate-pulse mx-auto">
+                    <span className="text-green-400 text-[10px] md:text-xs font-black flex items-center gap-1 animate-pulse flex-shrink-0">
                         <span className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]"></span> LIVE
                     </span>
                 )}
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-shrink-0">
                     {Weather && (
-                        <span className="flex items-center gap-1.5 text-gray-200 bg-slate-900/60 px-2.5 py-1 rounded-md border border-slate-700/50">
+                        <span className="flex items-center gap-1 text-gray-300 bg-slate-900/60 px-2 py-1 rounded border border-slate-700/50 text-[9px] md:text-[10px] font-bold whitespace-nowrap">
                             {getWeatherIcon(Weather.condition)} {Weather.temp_f}°F
                         </span>
                     )}
-                    <span className="bg-blue-600/20 text-blue-400 border border-blue-500/30 px-2 py-1 rounded flex-shrink-0">MLB</span>
                 </div>
             </div>
 
-            {/* 2. ANA KART İÇERİĞİ */}
-            <div className="p-4 md:p-6">
-                <div className="flex flex-wrap md:flex-nowrap items-start md:items-center justify-between relative w-full">
+            {/* ================= 2. ANA KART İÇERİĞİ ================= */}
+            <div className="p-3 md:p-6">
 
-                    {/* SOL KOLON: DEPLASMAN TAKIMI */}
-                    <div className="flex flex-col items-center w-1/2 md:w-1/3 order-1 text-center px-1">
-                        <img src={getTeamLogo(matchup.away_team)} alt={matchup.away_team} className="w-16 h-16 md:w-20 md:h-20 mb-2 drop-shadow-lg" />
+                {/* LOGOLAR, SAAT VE ATICILAR (Flex-1 ve Whitespace-nowrap Düzeltmesi) */}
+                <div className="flex w-full justify-between items-start mb-5">
 
-                        <div className="min-h-[44px] md:min-h-[56px] flex items-center justify-center w-full px-1 mb-1">
-                            <h2 className="text-[15px] sm:text-lg md:text-xl font-black leading-tight balance-text">
-                                {matchup.away_team}
-                            </h2>
+                    {/* DEPLASMAN */}
+                    <div className="flex-1 flex flex-col items-center text-center w-0 px-1">
+                        <img src={getTeamLogo(matchup.away_team)} alt={matchup.away_team} className="w-14 h-14 md:w-20 md:h-20 mb-2 drop-shadow-lg" />
+                        <div className="min-h-[40px] md:min-h-[48px] flex items-center justify-center w-full mb-2">
+                            <h2 className="text-[13px] md:text-lg font-black leading-tight balance-text">{matchup.away_team}</h2>
                         </div>
-
-                        {/* Atıcı Kutusu Üste Çıktı */}
-                        <div className="bg-slate-800/80 border border-slate-700 rounded-lg px-2 py-2 w-full max-w-[140px] shadow-inner mb-1.5">
-                            <p className="text-xs text-gray-200 truncate font-bold">{matchup.away_pitcher}</p>
-                            <p className="text-[10px] text-gray-400 mt-0.5">{pitcherAway.record} | {pitcherAway.era} ERA</p>
+                        <div className="bg-slate-800/80 border border-slate-700 rounded-lg px-1.5 md:px-2 py-1.5 w-full max-w-[120px] md:max-w-[140px] shadow-inner mx-auto">
+                            <p className="text-[11px] md:text-xs text-gray-200 truncate font-bold">{matchup.away_pitcher}</p>
+                            <p className="text-[9px] md:text-[10px] text-gray-400 truncate">{pitcherAway.record} | {pitcherAway.era} ERA</p>
                         </div>
+                    </div>
 
-                        {/* Takım Formu (Genel Rekor ve Son 10 Maç) */}
-                        <span className="text-[11px] text-gray-400 font-semibold tracking-wider">
-                            {matchup.away_stats?.record} <span className="text-gray-600 mx-1">|</span> <span className="text-gray-500">L10: {matchup.away_stats?.l10}</span>
+                    {/* ORTA: SAAT (Asla Alt Satıra Geçmez) */}
+                    <div className="flex-shrink-0 flex flex-col items-center justify-start pt-2 px-1">
+                        <span className="text-[8px] md:text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1 text-center">Game Time</span>
+                        <span className="text-[10px] md:text-sm font-black text-gray-300 bg-slate-900/50 px-2.5 py-1 rounded-full border border-slate-700/50 whitespace-nowrap">
+                            {matchup.game_time || "TBD"}
                         </span>
                     </div>
 
-                    {/* SAĞ KOLON: EV SAHİBİ TAKIMI */}
-                    <div className="flex flex-col items-center w-1/2 md:w-1/3 order-2 md:order-3 text-center px-1">
-                        <img src={getTeamLogo(matchup.home_team)} alt={matchup.home_team} className="w-16 h-16 md:w-20 md:h-20 mb-2 drop-shadow-lg" />
-
-                        <div className="min-h-[44px] md:min-h-[56px] flex items-center justify-center w-full px-1 mb-1">
-                            <h2 className="text-[15px] sm:text-lg md:text-xl font-black leading-tight balance-text">
-                                {matchup.home_team}
-                            </h2>
+                    {/* EV SAHİBİ */}
+                    <div className="flex-1 flex flex-col items-center text-center w-0 px-1">
+                        <img src={getTeamLogo(matchup.home_team)} alt={matchup.home_team} className="w-14 h-14 md:w-20 md:h-20 mb-2 drop-shadow-lg" />
+                        <div className="min-h-[40px] md:min-h-[48px] flex items-center justify-center w-full mb-2">
+                            <h2 className="text-[13px] md:text-lg font-black leading-tight balance-text">{matchup.home_team}</h2>
                         </div>
-
-                        {/* Atıcı Kutusu Üste Çıktı */}
-                        <div className="bg-slate-800/80 border border-slate-700 rounded-lg px-2 py-2 w-full max-w-[140px] shadow-inner mb-1.5">
-                            <p className="text-xs text-gray-200 truncate font-bold">{matchup.home_pitcher}</p>
-                            <p className="text-[10px] text-gray-400 mt-0.5">{pitcherHome.record} | {pitcherHome.era} ERA</p>
-                        </div>
-
-                        {/* Takım Formu (Genel Rekor ve Son 10 Maç) */}
-                        <span className="text-[11px] text-gray-400 font-semibold tracking-wider">
-                            {matchup.home_stats?.record} <span className="text-gray-600 mx-1">|</span> <span className="text-gray-500">L10: {matchup.home_stats?.l10}</span>
-                        </span>
-                    </div>
-
-                    {/* ORTA KOLON: Skor, Saat, Oranlar */}
-                    <div className="flex flex-col items-center justify-center w-full md:w-1/3 order-3 md:order-2 mt-6 md:mt-0 pt-5 md:pt-0 border-t border-slate-700/50 md:border-0 relative z-10">
-
-                        <div className="text-center mb-3">
-                            <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">{matchup.game_time || "TBD"}</span>
-                        </div>
-
-                        <div className="text-center mb-4">
-                            <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest block mb-1.5">Proj. Score</span>
-                            <div className="text-3xl md:text-4xl font-black text-white bg-slate-900/60 px-6 py-2 rounded-xl border border-slate-700 shadow-inner tracking-tight">
-                                {Full_Game.full_away_score} <span className="text-gray-600 font-medium mx-1">-</span> {Full_Game.full_home_score}
-                            </div>
-                        </div>
-
-                        <div className="flex items-center justify-center gap-3 mb-5 w-full max-w-[280px]">
-                            <div className="text-xs font-black text-gray-400 w-9 text-right">{Math.round(Full_Game.full_away_win_prob * 100)}%</div>
-                            <div className="flex-grow h-2 bg-slate-800 rounded-full overflow-hidden flex border border-slate-700/50">
-                                <div style={{ width: `${Full_Game.full_away_win_prob * 100}%` }} className="bg-blue-500 h-full"></div>
-                                <div style={{ width: `${Full_Game.full_home_win_prob * 100}%` }} className="bg-red-500 h-full"></div>
-                            </div>
-                            <div className="text-xs font-black text-gray-400 w-9 text-left">{Math.round(Full_Game.full_home_win_prob * 100)}%</div>
-                        </div>
-
-                        {/* ML ODDS */}
-                        <div className="bg-slate-900/60 border border-slate-700 rounded-xl px-4 pt-3.5 pb-2.5 w-full max-w-[260px] flex items-center justify-between relative shadow-lg">
-                            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-800 border border-slate-600 px-3 py-0.5 rounded-full text-[10px] md:text-xs font-black text-gray-300 shadow-md whitespace-nowrap">
-                                Book O/U: {Odds.over_under}
-                            </div>
-
-                            <div className="flex flex-col items-center w-2/5">
-                                <span className={`text-lg md:text-xl font-black tracking-tight ${Odds.away_edge_pct > 5 ? 'text-mlb-green' : 'text-gray-200'}`}>
-                                    {formatAmericanOdds(Odds.best_away_odds)}
-                                </span>
-                            </div>
-                            <div className="text-[10px] font-bold text-gray-500 uppercase tracking-widest w-1/5 text-center">ML</div>
-                            <div className="flex flex-col items-center w-2/5">
-                                <span className={`text-lg md:text-xl font-black tracking-tight ${Odds.home_edge_pct > 5 ? 'text-mlb-green' : 'text-gray-200'}`}>
-                                    {formatAmericanOdds(Odds.best_home_odds)}
-                                </span>
-                            </div>
+                        <div className="bg-slate-800/80 border border-slate-700 rounded-lg px-1.5 md:px-2 py-1.5 w-full max-w-[120px] md:max-w-[140px] shadow-inner mx-auto">
+                            <p className="text-[11px] md:text-xs text-gray-200 truncate font-bold">{matchup.home_pitcher}</p>
+                            <p className="text-[9px] md:text-[10px] text-gray-400 truncate">{pitcherHome.record} | {pitcherHome.era} ERA</p>
                         </div>
                     </div>
                 </div>
 
-                {/* ALT BİLGİ VE BUTONLAR */}
-                <div className="mt-6 md:mt-8 pt-4 border-t border-slate-700/80 flex flex-wrap justify-between items-center gap-4">
-                    <div className="flex items-center gap-3">
+                {/* COVERS STİLİ STACKED KAYITLAR */}
+                <div className="flex justify-center items-center w-full mb-6 bg-slate-900/40 rounded-lg py-3 border border-slate-700/50 max-w-[320px] mx-auto shadow-inner px-2">
+                    <div className="flex flex-col flex-1 text-right pr-3 md:pr-4 gap-2">
+                        <span className="text-[10px] md:text-[11px] font-black text-gray-300">{matchup.away_stats?.record}</span>
+                        <span className="text-[10px] md:text-[11px] font-black text-gray-400">{matchup.away_stats?.l10}</span>
+                    </div>
+                    <div className="flex flex-col flex-shrink-0 text-center gap-2 border-x border-slate-700/50 px-3 md:px-4">
+                        <span className="text-[8px] md:text-[9px] text-gray-500 font-black uppercase tracking-widest">W / L</span>
+                        <span className="text-[8px] md:text-[9px] text-gray-500 font-black uppercase tracking-widest">L 10</span>
+                    </div>
+                    <div className="flex flex-col flex-1 text-left pl-3 md:pl-4 gap-2">
+                        <span className="text-[10px] md:text-[11px] font-black text-gray-300">{matchup.home_stats?.record}</span>
+                        <span className="text-[10px] md:text-[11px] font-black text-gray-400">{matchup.home_stats?.l10}</span>
+                    </div>
+                </div>
+
+                {/* SKOR TAHMİNİ, WIN PROB VE ORANLAR */}
+                <div className="flex flex-col items-center justify-center w-full border-t border-slate-700/50 pt-5 relative z-10">
+
+                    {/* Proj Score */}
+                    <div className="text-center mb-4">
+                        <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest block mb-1.5">Proj. Score</span>
+                        <div className="text-3xl md:text-4xl font-black text-white bg-slate-900/80 px-8 py-2 rounded-xl border border-slate-700 shadow-[0_0_15px_rgba(0,0,0,0.5)] tracking-tight">
+                            {Full_Game.full_away_score} <span className="text-gray-600 font-medium mx-2">-</span> {Full_Game.full_home_score}
+                        </div>
+                    </div>
+
+                    {/* Win Prob Bar */}
+                    <div className="flex items-center justify-center gap-3 mb-5 w-full max-w-[280px]">
+                        <div className="text-[11px] font-black text-gray-400 w-8 text-right">{Math.round(Full_Game.full_away_win_prob * 100)}%</div>
+                        <div className="flex-grow h-1.5 bg-slate-800 rounded-full overflow-hidden flex border border-slate-700/50">
+                            <div style={{ width: `${Full_Game.full_away_win_prob * 100}%` }} className="bg-blue-500 h-full"></div>
+                            <div style={{ width: `${Full_Game.full_home_win_prob * 100}%` }} className="bg-red-500 h-full"></div>
+                        </div>
+                        <div className="text-[11px] font-black text-gray-400 w-8 text-left">{Math.round(Full_Game.full_home_win_prob * 100)}%</div>
+                    </div>
+
+                    {/* ML Odds & Book O/U */}
+                    <div className="bg-slate-900/80 border border-slate-700 rounded-xl px-5 pt-4 pb-3 w-full max-w-[280px] flex items-center justify-between relative shadow-lg">
+                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-800 border border-slate-600 px-4 py-0.5 rounded-full text-[10px] font-black text-gray-300 shadow-md whitespace-nowrap">
+                            Book O/U: {Odds.over_under}
+                        </div>
+
+                        <div className="flex flex-col items-center w-2/5">
+                            <span className={`text-xl font-black tracking-tight ${Odds.away_edge_pct > 5 ? 'text-mlb-green' : 'text-gray-200'}`}>
+                                {formatAmericanOdds(Odds.best_away_odds)}
+                            </span>
+                        </div>
+                        <div className="text-[10px] font-bold text-gray-600 uppercase tracking-widest w-1/5 text-center">ML</div>
+                        <div className="flex flex-col items-center w-2/5">
+                            <span className={`text-xl font-black tracking-tight ${Odds.home_edge_pct > 5 ? 'text-mlb-green' : 'text-gray-200'}`}>
+                                {formatAmericanOdds(Odds.best_home_odds)}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                {/* ================= ALT BİLGİ VE BUTONLAR ================= */}
+                <div className="mt-8 pt-4 border-t border-slate-700/80 flex flex-wrap justify-between items-center gap-4">
+                    <div className="flex items-center gap-2">
                         {Details?.value_alerts?.length > 0 && (
-                            <span className="animate-pulse bg-green-900/20 border border-mlb-green/40 px-3 py-1.5 rounded-md text-mlb-green text-xs font-black uppercase flex items-center shadow-[0_0_10px_rgba(34,197,94,0.1)]">
+                            <span className="animate-pulse bg-green-900/20 border border-mlb-green/40 px-2.5 py-1.5 rounded-md text-mlb-green text-[9px] md:text-[10px] font-black uppercase flex items-center shadow-[0_0_10px_rgba(34,197,94,0.1)]">
                                 🔥 Edge Alert
                             </span>
                         )}
                     </div>
 
-                    <div className="flex items-center gap-4 ml-auto">
-                        <span className="text-gray-400 text-xs font-bold uppercase tracking-wider cursor-pointer hover:text-white transition-colors">
+                    <div className="flex items-center gap-3 md:gap-4 ml-auto">
+                        <span className="text-gray-400 text-[10px] md:text-xs font-bold uppercase tracking-wider">
                             Matchup 📊
                         </span>
                         <button
                             onClick={() => setIsExpanded(!isExpanded)}
-                            className="text-xs bg-blue-600/90 hover:bg-blue-500 text-white px-5 py-2 rounded-lg transition-colors font-black uppercase tracking-wider shadow-lg"
+                            className="text-[10px] md:text-[11px] bg-blue-600/90 hover:bg-blue-500 text-white px-4 md:px-5 py-2 md:py-2.5 rounded-lg transition-colors font-black uppercase tracking-wider shadow-lg"
                         >
                             {isExpanded ? 'Hide Details ⬆' : 'Details ⬇'}
                         </button>
@@ -159,53 +167,40 @@ const MatchupCard = ({ prediction }) => {
                 </div>
             </div>
 
-            {/* 3. EXPAND ALANI */}
+            {/* ================= 3. EXPAND ALANI (IN-DEPTH) ================= */}
             <div className={`bg-slate-900 border-t border-slate-700 overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? 'max-h-[1500px] opacity-100 p-4 md:p-6' : 'max-h-0 opacity-0 p-0'}`}>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
 
-                    {/* NRFI/YRFI Card */}
-                    <div className="bg-slate-800/60 rounded-xl p-5 border border-slate-700/80">
-                        <div className="flex justify-between items-start mb-5">
-                            <div>
-                                <h3 className={`text-2xl font-black ${NRFI.pick === 'NRFI' ? 'text-blue-400' : 'text-red-400'}`}>
-                                    {Math.round(NRFI.confidence * 100)}%
-                                </h3>
-                                <p className={`text-[10px] font-black uppercase tracking-widest ${NRFI.pick === 'NRFI' ? 'text-blue-500/80' : 'text-red-500/80'}`}>
-                                    {NRFI.pick} Probability
-                                </p>
+                    {/* YENİ NRFI/YRFI KARTI (IMG_3226 MİMİC) */}
+                    <div className="bg-slate-800/60 rounded-xl p-5 border border-slate-700/80 flex flex-col justify-between">
+                        <div className="mb-4 text-center md:text-left">
+                            <h3 className={`text-3xl font-black tracking-tighter ${NRFI.pick === 'NRFI' ? 'text-mlb-green' : 'text-red-400'}`}>
+                                {Math.round(NRFI.confidence * 100)}%
+                            </h3>
+                            <p className={`text-[10px] font-black uppercase tracking-widest ${NRFI.pick === 'NRFI' ? 'text-mlb-green/80' : 'text-red-500/80'}`}>
+                                {NRFI.pick} Probability
+                            </p>
+                        </div>
+
+                        {/* Etiketler Ortada, Değerler Kenarlarda (Covers/IMG_3226 Style) */}
+                        <div className="flex justify-center items-center w-full bg-slate-900/50 rounded-lg py-3 border border-slate-700/50 my-2">
+                            <div className="flex flex-col w-[35%] items-center gap-2">
+                                <span className="bg-slate-800 px-3 py-1 rounded-full text-[10px] font-black text-gray-300 border border-slate-700">{pitcherAway.fip}</span>
+                                <span className="bg-slate-800 px-3 py-1 rounded-full text-[10px] font-black text-gray-300 border border-slate-700">{Math.round(pitcherAway.k_bb_pct * 100)}%</span>
+                            </div>
+                            <div className="flex flex-col w-[30%] text-center gap-3">
+                                <span className="text-[9px] text-gray-500 font-black uppercase tracking-widest leading-tight">Pitcher<br />FIP</span>
+                                <span className="text-[9px] text-gray-500 font-black uppercase tracking-widest leading-tight">K-BB<br />Strike%</span>
+                            </div>
+                            <div className="flex flex-col w-[35%] items-center gap-2">
+                                <span className="bg-slate-800 px-3 py-1 rounded-full text-[10px] font-black text-gray-300 border border-slate-700">{pitcherHome.fip}</span>
+                                <span className="bg-slate-800 px-3 py-1 rounded-full text-[10px] font-black text-gray-300 border border-slate-700">{Math.round(pitcherHome.k_bb_pct * 100)}%</span>
                             </div>
                         </div>
 
-                        <div className="flex justify-between items-center text-center">
-                            <div className="w-1/3 flex flex-col items-center">
-                                <img src={getTeamLogo(matchup.away_team)} alt="Away" className="w-10 h-10 opacity-80 mb-2 drop-shadow-md" />
-                                <div className="bg-slate-900 px-3 py-1 rounded-md text-xs font-black text-gray-300 border border-slate-700 mb-2 w-full">
-                                    {pitcherAway.fip} FIP
-                                </div>
-                                <div className="bg-slate-900 px-3 py-1 rounded-md text-xs font-black text-gray-300 border border-slate-700 w-full">
-                                    {Math.round(pitcherAway.k_bb_pct * 100)}% K-BB
-                                </div>
-                            </div>
-
-                            <div className="w-1/3 text-[10px] text-gray-500 font-bold uppercase tracking-widest flex flex-col gap-6">
-                                <span>Pitcher Skills</span>
-                                <span>Edge</span>
-                            </div>
-
-                            <div className="w-1/3 flex flex-col items-center">
-                                <img src={getTeamLogo(matchup.home_team)} alt="Home" className="w-10 h-10 opacity-80 mb-2 drop-shadow-md" />
-                                <div className="bg-slate-900 px-3 py-1 rounded-md text-xs font-black text-gray-300 border border-slate-700 mb-2 w-full">
-                                    {pitcherHome.fip} FIP
-                                </div>
-                                <div className="bg-slate-900 px-3 py-1 rounded-md text-xs font-black text-gray-300 border border-slate-700 w-full">
-                                    {Math.round(pitcherHome.k_bb_pct * 100)}% K-BB
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="mt-5 pt-3 border-t border-slate-700/50 text-center bg-slate-900/30 rounded-b-lg -mx-5 -mb-5 pb-3">
-                            <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Model Outcome: <span className={`text-sm font-black ${NRFI.pick === 'NRFI' ? 'text-blue-400' : 'text-red-400'}`}>{NRFI.pick}</span></span>
+                        <div className="mt-4 pt-3 border-t border-slate-700/50 text-center">
+                            <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Model Outcome: <span className={`text-sm font-black italic ml-1 ${NRFI.pick === 'NRFI' ? 'text-blue-400' : 'text-red-400'}`}>{NRFI.pick}</span></span>
                         </div>
                     </div>
 
@@ -234,7 +229,7 @@ const MatchupCard = ({ prediction }) => {
                         </div>
                     </div>
 
-                    {/* Ballpark Context */}
+                    {/* Ballpark Context (Weather & Humidity) */}
                     <div className="bg-slate-800/60 rounded-xl p-5 border border-slate-700/80 md:col-span-2 flex flex-col md:flex-row items-center justify-between overflow-hidden relative">
                         <div className="relative z-10 w-full md:w-auto text-center md:text-left">
                             <h3 className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-3">Ballpark Context</h3>

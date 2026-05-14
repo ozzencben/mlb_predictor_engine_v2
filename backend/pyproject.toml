@@ -9,6 +9,7 @@ dependencies = [
     "cloudscraper>=1.2.71",
     "fastapi>=0.136.1",
     "python-dotenv>=1.2.2",
+    "pytz>=2026.2",
     "requests>=2.34.0",
     "uvicorn>=0.46.0",
 ]

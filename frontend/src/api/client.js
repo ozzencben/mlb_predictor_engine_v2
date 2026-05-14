@@ -3,7 +3,6 @@ import axios from 'axios';
 // Tüm istekler için temel ayarlar
 const apiClient = axios.create({
   baseURL: "https://mlb-predictor-engine-v2.onrender.com/api/v1",  // "http://localhost:8000/api/v1"
-  timeout: 10000, // 10 saniye sonra yanıt gelmezse iptal et
   headers: {
     'Content-Type': 'application/json',
   },

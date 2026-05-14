@@ -2,6 +2,7 @@ import requests
 import json
 import os
 from datetime import datetime, timedelta
+import pytz  # Zaman dilimi kilitlemesi için eklendi
 
 class MatchupScraper:
     def __init__(self):
@@ -9,7 +10,7 @@ class MatchupScraper:
         if not os.path.exists(self.data_dir):
             os.makedirs(self.data_dir)
 
-        # Takım isimlerini eşleştirmek için haritalama (Eski koddan miras)
+        # Takım isimlerini eşleştirmek için haritalama
         mapping_file = os.path.join(self.data_dir, 'team_mappings.json')
         try:
             with open(mapping_file, 'r', encoding='utf-8') as f:
@@ -64,8 +65,12 @@ class MatchupScraper:
             return {}
 
     def fetch_todays_matchups(self):
-        today_str = datetime.now().strftime('%Y-%m-%d')
-        print(f"🌐 {today_str} tarihi için MLB Maçları Çekiliyor...")
+        # --- KRİTİK DÜZELTME: Sistemi US/Eastern (New York) Saatine Kilitleme ---
+        tz_et = pytz.timezone('US/Eastern')
+        now_et = datetime.now(tz_et)
+        today_str = now_et.strftime('%Y-%m-%d')
+        
+        print(f"🌐 [Timezone: ET] {today_str} tarihi için MLB Maçları Çekiliyor...")
 
         # 1. Önce puan durumunu al (Takım formları)
         standings = self._fetch_standings()
@@ -104,17 +109,19 @@ class MatchupScraper:
                     away_pitcher = away_node.get('probablePitcher', {}).get('fullName', 'TBD')
                     home_pitcher = home_node.get('probablePitcher', {}).get('fullName', 'TBD')
                     
-                    # --- YENİ EKLENEN KISIM: Maç Saati (Game Time) Formatlama ---
+                    # --- YENİ EKLENEN KISIM: Maç Saati (Game Time) Formatlama (PYTZ Korumalı) ---
                     raw_date = game.get('gameDate') # Örn: "2026-05-13T23:05:00Z"
                     game_time = "TBD"
                     if raw_date:
                         try:
-                            # UTC zamanını parse et
+                            # UTC zamanını parse et ve ET'ye güvenli şekilde çevir
                             utc_dt = datetime.strptime(raw_date, '%Y-%m-%dT%H:%M:%SZ')
-                            # EDT (Eastern Daylight Time) için 4 saat çıkar
-                            et_dt = utc_dt - timedelta(hours=4)
+                            utc_dt = pytz.utc.localize(utc_dt)
+                            et_dt = utc_dt.astimezone(tz_et)
+                            
                             # 12 saatlik formata çevir (Örn: 07:05 PM ET)
                             game_time = et_dt.strftime('%I:%M %p ET')
+                            
                             # Başındaki sıfırı temizle (Örn: "07" -> "7")
                             if game_time.startswith("0"):
                                 game_time = game_time[1:]
@@ -131,7 +138,7 @@ class MatchupScraper:
                         "home_team": home_team,
                         "away_pitcher": away_pitcher,
                         "home_pitcher": home_pitcher,
-                        "game_time": game_time, # Tyle'ın İstediği Saat Bilgisi
+                        "game_time": game_time,
                         "status": game['status']['detailedState'],
                         "away_team_stats": away_stats,
                         "home_team_stats": home_stats
