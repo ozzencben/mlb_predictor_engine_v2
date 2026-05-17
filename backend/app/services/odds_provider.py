@@ -1,7 +1,9 @@
-import requests
+import asyncio
 import json
 import os
 import tempfile
+
+import httpx
 from app.core.config import settings
 
 
@@ -80,7 +82,49 @@ class OddsProvider:
             )
             return odds_data
 
-        except requests.exceptions.RequestException as e:
+        except httpx.RequestError as e:
+            print(f"❌ Oranlar çekilirken API Hatası: {e}")
+            return []
+
+    async def fetch_live_odds_async(
+        self, client: httpx.AsyncClient, regions="us", markets="h2h,totals"
+    ) -> list:
+        """API'den taze oranları asenkron olarak çeker, atomik kaydeder."""
+        if not self.api_key:
+            return []
+
+        print(
+            "💰 The Odds API'den canlı bahis oranları (ML) ve Alt/Üst baremleri çekiliyor..."
+        )
+
+        params = {
+            "apiKey": self.api_key,
+            "regions": regions,
+            "markets": markets,
+            "oddsFormat": "decimal",
+        }
+
+        try:
+            response = await client.get(self.base_url, params=params, timeout=10.0)
+            response.raise_for_status()
+            odds_data = response.json()
+
+            if not odds_data:
+                print(
+                    "ℹ️ Şu an için The Odds API'den veri dönmedi (Maç yok veya Piyasalar kapalı)."
+                )
+                return []
+
+            output_path = os.path.join(self.data_dir, "live_odds.json")
+            loop = asyncio.get_running_loop()
+            await loop.run_in_executor(None, self._atomic_save, output_path, odds_data)
+
+            print(
+                f"✅ Başarılı! {len(odds_data)} maçın güncel oranları live_odds.json dosyasına yazıldı."
+            )
+            return odds_data
+
+        except httpx.HTTPError as e:
             print(f"❌ Oranlar çekilirken API Hatası: {e}")
             return []
 

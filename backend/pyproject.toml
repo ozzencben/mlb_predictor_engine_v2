@@ -8,6 +8,7 @@ dependencies = [
     "beautifulsoup4>=4.14.3",
     "cloudscraper>=1.2.71",
     "fastapi>=0.136.1",
+    "httpx>=0.28.1",
     "pydantic>=2.13.4",
     "python-dotenv>=1.2.2",
     "pytz>=2026.2",
