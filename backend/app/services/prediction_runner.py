@@ -8,7 +8,7 @@ from app.services.data_collector import DataCollector
 from app.services.matchup_scraper import MatchupScraper
 from app.services.pitcher_scraper import PitcherScraper
 from app.services.weather_scraper import WeatherScraper
-from pydantic import ValidationError # Hata ayıklama için
+from pydantic import ValidationError
 
 class PredictionRunner:
     """
