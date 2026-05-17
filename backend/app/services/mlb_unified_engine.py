@@ -4,6 +4,7 @@ from app.models.nrfi_model import NRFIModel
 from app.models.f5_model import F5Model
 from app.models.mlb_model import MLBModel
 
+
 # --- Pydantic Schema --- (FastAPI Endpoint'i için gerekli yapı)
 class GameInputData(BaseModel):
     away_team: str
@@ -16,19 +17,27 @@ class GameInputData(BaseModel):
     away_team_stats: dict = Field(default_factory=dict)
     home_team_stats: dict = Field(default_factory=dict)
 
+
 # Artık bu sınıfları doğrudan import ediyoruz. (Önceki adımlarda yazdığımız sınıflar)
 # from core.models.nrfi import NRFIModel
 # from core.models.f5 import F5Model
 # from core.models.mlb import MLBModel
 
+
 class MLBUnifiedEngine:
     """
-    The Orchestrator. 
-    Routes live data to specific models (NRFI, F5, MLB), applies safety logic, 
+    The Orchestrator.
+    Routes live data to specific models (NRFI, F5, MLB), applies safety logic,
     and returns a unified dictionary ready for the frontend.
     """
-    
-    def __init__(self, team_db: dict, pitcher_db: dict, ballpark_db: dict = None, standings_db: dict = None):
+
+    def __init__(
+        self,
+        team_db: dict,
+        pitcher_db: dict,
+        ballpark_db: dict = None,
+        standings_db: dict = None,
+    ):
         self.team_db = team_db
         self.pitcher_db = pitcher_db
         self.ballpark_db = ballpark_db or {}
@@ -39,15 +48,17 @@ class MLBUnifiedEngine:
         self.f5_model = F5Model(team_db, pitcher_db)
         self.mlb_model = MLBModel(team_db, pitcher_db, ballpark_db)
 
-    def _recalculate_probabilities(self, away_score: float, home_score: float, exponent: float = 1.83) -> tuple[float, float]:
+    def _recalculate_probabilities(
+        self, away_score: float, home_score: float, exponent: float = 1.83
+    ) -> tuple[float, float]:
         """Skorlar güvenlik sınırına takılırsa kazanma ihtimallerini yeniden hesaplar."""
         if away_score == 0 and home_score == 0:
             return 0.500, 0.500
-        
-        a_pow = away_score ** exponent
-        h_pow = home_score ** exponent
+
+        a_pow = away_score**exponent
+        h_pow = home_score**exponent
         total_pow = a_pow + h_pow
-        
+
         return a_pow / total_pow, h_pow / total_pow
 
     def predict_matchup(self, game: GameInputData) -> dict:
@@ -55,11 +66,17 @@ class MLBUnifiedEngine:
         Bütün tahmin motorlarını çalıştırır, mantık hatalarını düzeltir (Safety Check)
         ve FastAPI için uygun JSON payload'unu oluşturur.
         """
-        
+
         # 1. Modellerin Çalıştırılması
-        nrfi_result = self.nrfi_model.calculate(game.away_team, game.home_team, game.away_pitcher, game.home_pitcher)
-        f5_result = self.f5_model.calculate(game.away_team, game.home_team, game.away_pitcher, game.home_pitcher)
-        full_result, raw_pitcher_data = self.mlb_model.calculate(game.away_team, game.home_team, game.away_pitcher, game.home_pitcher)
+        nrfi_result = self.nrfi_model.calculate(
+            game.away_team, game.home_team, game.away_pitcher, game.home_pitcher
+        )
+        f5_result = self.f5_model.calculate(
+            game.away_team, game.home_team, game.away_pitcher, game.home_pitcher
+        )
+        full_result, raw_pitcher_data = self.mlb_model.calculate(
+            game.away_team, game.home_team, game.away_pitcher, game.home_pitcher
+        )
 
         # 2. Değişkenlerin Çıkartılması
         f5_away = f5_result["f5_away_score"]
@@ -67,37 +84,52 @@ class MLBUnifiedEngine:
         full_away = full_result["full_away_score"]
         full_home = full_result["full_home_score"]
 
-        # 3. MANTIKSAL GÜVENLİK KONTROLÜ (SAFETY CHECK)
+        # 3. SABERMETRİK GÜVENLİK KONTROLÜ (INNING-WEIGHTED CONSTRAINT)
         # Mantık: Bir takım maçın tamamında, ilk 5 inning'de attığı sayıdan daha az sayı atmış olamaz.
+        # Bullpen (son 4 inning) en kötü senaryoda bile ham skoru %20 kadar artırması beklenir.
+        # Bu, Pythagorean Expectation dağılımını korur ve statik 0.5 hakarete uğratmaz.
+
         adjusted = False
-        if full_away < f5_away + 0.5:
-            full_away = f5_away + 0.5
-            adjusted = True
-            
-        if full_home < f5_home + 0.5:
-            full_home = f5_home + 0.5
-            adjusted = True
+        model_anomalies = []
+
+        # Away takımı için dinamik kısıt
+        if full_away < f5_away:
+            floor_away = f5_away + (full_away * 0.2)
+            if full_away < floor_away:
+                full_away = floor_away
+                adjusted = True
+                model_anomalies.append("Away team: Sabermetric adjustment applied")
+
+        # Home takımı için dinamik kısıt
+        if full_home < f5_home:
+            floor_home = f5_home + (full_home * 0.2)
+            if full_home < floor_home:
+                full_home = floor_home
+                adjusted = True
+                model_anomalies.append("Home team: Sabermetric adjustment applied")
 
         # Skorlar düzeltildiyse diğer metrikleri güncelle
         if adjusted:
             full_away = round(full_away, 1)
             full_home = round(full_home, 1)
             away_prob, home_prob = self._recalculate_probabilities(full_away, full_home)
-            
-            full_result.update({
-                "full_away_score": full_away,
-                "full_home_score": full_home,
-                "full_total": round(full_away + full_home, 2),
-                "full_away_win_prob": round(away_prob, 3),
-                "full_home_win_prob": round(home_prob, 3),
-                "full_spread_adv": round(abs(full_home - full_away) - 1.5, 2)
-            })
+
+            full_result.update(
+                {
+                    "full_away_score": full_away,
+                    "full_home_score": full_home,
+                    "full_total": round(full_away + full_home, 2),
+                    "full_away_win_prob": round(away_prob, 3),
+                    "full_home_win_prob": round(home_prob, 3),
+                    "full_spread_adv": round(abs(full_home - full_away) - 1.5, 2),
+                }
+            )
 
         # 4. Value Bet Yakalayıcı (Market Oranlarına Karşı)
         value_alerts = []
-        book_total = game.odds.get('over_under', 0)
+        book_total = game.odds.get("over_under", 0)
         if book_total > 0:
-            diff = abs(full_result['full_total'] - book_total)
+            diff = abs(full_result["full_total"] - book_total)
             if diff > 0.7:
                 value_alerts.append("🔥 SIGNIFICANT TOTAL EDGE")
 
@@ -109,15 +141,16 @@ class MLBUnifiedEngine:
                 "away_pitcher": game.away_pitcher,
                 "home_pitcher": game.home_pitcher,
                 "game_time": game.game_time,
-                "away_stats": game.away_team_stats, 
+                "away_stats": game.away_team_stats,
                 "home_stats": game.home_team_stats,
-                "status": game.status
+                "status": game.status,
             },
             "NRFI": nrfi_result,
             "F5": f5_result,
             "Full_Game": full_result,
             "Details": {
-                 "pitcher_analysis": raw_pitcher_data,
-                 "value_alerts": value_alerts
-            }
+                "pitcher_analysis": raw_pitcher_data,
+                "value_alerts": value_alerts,
+                "model_anomalies": model_anomalies,
+            },
         }
