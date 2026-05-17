@@ -62,7 +62,7 @@ class MLBModel:
         validated = PitcherStatsSchema.model_validate(p)
         return PitcherStats(
             era=validated.era, fip=validated.fip, k_bb_pct=validated.k_bb_pct
-        ), p
+        ), validated.model_dump()
 
     def _get_team_data(self, team_name: str) -> TeamMLBStats:
         t = self.team_db.get(team_name, {})

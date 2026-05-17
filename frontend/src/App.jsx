@@ -1,13 +1,16 @@
-import { usePredictions } from './hooks/usePredictions'
-import MatchupCard from './components/MatchupCard'
-import MatchupSkeleton from './components/MatchupSkeleton' // Yeni ekledik
-import Footer from './components/Footer'
+import { usePredictions } from './hooks/usePredictions';
+import MatchupCard from './components/MatchupCard';
+import MatchupSkeleton from './components/MatchupSkeleton';
+import Footer from './components/Footer';
 
 function App() {
-  const { data, loading, error } = usePredictions()
+  const { data, loading, error } = usePredictions();
 
-  // Hata durumunda hala tam ekran uyarı vermek mantıklı
-  if (error) return <div className="p-10 text-red-500 text-center font-black">❌ Connection Error: {error}</div>
+  if (error) return <div className="p-10 text-red-500 text-center font-black">❌ Connection Error: {error}</div>;
+
+  const predictions = data?.data?.predictions || [];
+  const systemDate = data?.data?.date || '';
+  const lastUpdated = data?.data?.last_updated;
 
   return (
     <div className="max-w-4xl mx-auto p-4 md:p-8">
@@ -18,17 +21,15 @@ function App() {
             TYLER MLB <span className="text-blue-500">PREDICTOR</span>
           </h1>
           <p className="text-gray-500 text-sm font-bold tracking-tight">
-            {/* Loading sırasında tarih henüz gelmediği için korumalı yazdık */}
-            Data-Driven Insights for {loading ? 'Loading...' : data?.data?.date}
+            Data-Driven Insights for {loading ? 'Loading...' : systemDate || 'No Date'}
           </p>
         </div>
 
         <div className="mt-4 md:mt-0 text-right">
-          {/* Son Güncelleme Bilgisi - Sadece veri varsa gösterilir */}
-          {!loading && data?.data?.last_updated && (
+          {!loading && lastUpdated && (
             <div className="mb-1">
               <span className="text-[9px] text-gray-600 font-black uppercase tracking-[0.2em]">
-                Last Update: <span className="text-gray-400">{data.data.last_updated}</span>
+                Last Update: <span className="text-gray-400">{lastUpdated}</span>
               </span>
             </div>
           )}
@@ -51,23 +52,35 @@ function App() {
       {/* ================= KARTLARIN OLDUĞU BÖLÜM ================= */}
       <div className="grid grid-cols-1 gap-4">
         {loading ? (
-          // Yükleme sırasında 3 adet Skeleton gösteriyoruz
           <>
             <MatchupSkeleton />
             <MatchupSkeleton />
             <MatchupSkeleton />
           </>
+        ) : predictions.length === 0 ? (
+          /* Empty State Entegrasyonu */
+          <div className="bg-slate-900 border border-dashed border-gray-700 rounded-xl p-10 text-center my-6 shadow-inner">
+            <span className="text-5xl block mb-4" role="img" aria-label="baseball">⚾</span>
+            <h3 className="text-lg font-black text-white uppercase tracking-wider mb-2">
+              No Games Scheduled Today
+            </h3>
+            <p className="text-gray-400 text-sm max-w-md mx-auto font-medium">
+              There are no active MLB matchups processed by the engine for {systemDate || 'today'}. This might be due to a league rest day or game postponements.
+            </p>
+          </div>
         ) : (
-          // Veri geldiğinde gerçek kartlar
-          data?.data?.predictions.map((game, index) => (
-            <MatchupCard key={index} prediction={game} />
+          predictions.map((game) => (
+            <MatchupCard 
+              key={`${game.matchup.away_team}-${game.matchup.home_team}`} 
+              prediction={game} 
+            />
           ))
         )}
       </div>
 
       <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

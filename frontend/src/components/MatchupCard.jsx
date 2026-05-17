@@ -20,6 +20,9 @@ const MatchupCard = ({ prediction }) => {
     const pitcherHome = Details?.pitcher_analysis?.home || {};
     const isLive = matchup.status === "In Progress";
 
+    // Odds Barem Güvenlik Kontrolü
+    const isOddsAvailable = Odds && Odds.over_under > 0;
+
     return (
         <div className="bg-mlb-card rounded-xl border border-gray-700 shadow-2xl overflow-hidden mb-8 transition-all duration-300 hover:border-gray-500 w-full">
 
@@ -50,6 +53,25 @@ const MatchupCard = ({ prediction }) => {
             {/* ================= 2. ANA KART İÇERİĞİ ================= */}
             <div className="p-3 md:p-6">
 
+                {/* ================= SABERMETRİK ANOMALİ UYARI KUTUSU ================= */}
+                {Details?.model_anomalies && Details.model_anomalies.length > 0 && (
+                    <div className="bg-amber-500/10 border border-amber-500/25 rounded-xl p-3 md:p-4 mb-5 flex items-start gap-3 shadow-[0_0_15px_rgba(245,158,11,0.05)]">
+                        <span className="text-amber-400 text-lg leading-none mt-0.5">⚠️</span>
+                        <div className="flex-1 min-w-0">
+                            <h4 className="text-[10px] md:text-xs text-amber-400 font-black uppercase tracking-wider mb-1">
+                                Sabermetric Adjustments Applied
+                            </h4>
+                            <ul className="list-disc list-inside space-y-0.5">
+                                {Details.model_anomalies.map((anomaly, idx) => (
+                                    <li key={idx} className="text-[9px] md:text-[11px] text-gray-300 font-medium">
+                                        {anomaly}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                )}
+
                 {/* LOGOLAR, SAAT VE ATICILAR (Flex-1 ve Whitespace-nowrap Düzeltmesi) */}
                 <div className="flex w-full justify-between items-start mb-5">
 
@@ -59,8 +81,14 @@ const MatchupCard = ({ prediction }) => {
                         <div className="min-h-[40px] md:min-h-[48px] flex items-center justify-center w-full mb-2">
                             <h2 className="text-[13px] md:text-lg font-black leading-tight balance-text">{matchup.away_team}</h2>
                         </div>
-                        <div className="bg-slate-800/80 border border-slate-700 rounded-lg px-1.5 md:px-2 py-1.5 w-full max-w-[120px] md:max-w-[140px] shadow-inner mx-auto">
-                            <p className="text-[11px] md:text-xs text-gray-200 truncate font-bold">{matchup.away_pitcher}</p>
+                        <div className="bg-slate-800/80 border border-slate-700 rounded-lg px-1.5 md:px-2 py-1.5 w-full max-w-[120px] md:max-w-[140px] shadow-inner mx-auto relative">
+                            {/* FALLBACK BADGE */}
+                            {pitcherAway.is_fallback && (
+                                <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[7px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider shadow animate-pulse whitespace-nowrap">
+                                    ⚠️ Fallback SP
+                                </span>
+                            )}
+                            <p className={`text-[11px] md:text-xs text-gray-200 truncate font-bold ${pitcherAway.is_fallback ? 'mt-1' : ''}`}>{matchup.away_pitcher}</p>
                             <p className="text-[9px] md:text-[10px] text-gray-400 truncate">{pitcherAway.record} | {pitcherAway.era} ERA</p>
                         </div>
                     </div>
@@ -79,8 +107,14 @@ const MatchupCard = ({ prediction }) => {
                         <div className="min-h-[40px] md:min-h-[48px] flex items-center justify-center w-full mb-2">
                             <h2 className="text-[13px] md:text-lg font-black leading-tight balance-text">{matchup.home_team}</h2>
                         </div>
-                        <div className="bg-slate-800/80 border border-slate-700 rounded-lg px-1.5 md:px-2 py-1.5 w-full max-w-[120px] md:max-w-[140px] shadow-inner mx-auto">
-                            <p className="text-[11px] md:text-xs text-gray-200 truncate font-bold">{matchup.home_pitcher}</p>
+                        <div className="bg-slate-800/80 border border-slate-700 rounded-lg px-1.5 md:px-2 py-1.5 w-full max-w-[120px] md:max-w-[140px] shadow-inner mx-auto relative">
+                            {/* FALLBACK BADGE */}
+                            {pitcherHome.is_fallback && (
+                                <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[7px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider shadow animate-pulse whitespace-nowrap">
+                                    ⚠️ Fallback SP
+                                </span>
+                            )}
+                            <p className={`text-[11px] md:text-xs text-gray-200 truncate font-bold ${pitcherHome.is_fallback ? 'mt-1' : ''}`}>{matchup.home_pitcher}</p>
                             <p className="text-[9px] md:text-[10px] text-gray-400 truncate">{pitcherHome.record} | {pitcherHome.era} ERA</p>
                         </div>
                     </div>
@@ -126,7 +160,7 @@ const MatchupCard = ({ prediction }) => {
                     {/* ML Odds & Book O/U */}
                     <div className="bg-slate-900/80 border border-slate-700 rounded-xl px-5 pt-4 pb-3 w-full max-w-[280px] flex items-center justify-between relative shadow-lg">
                         <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-800 border border-slate-600 px-4 py-0.5 rounded-full text-[10px] font-black text-gray-300 shadow-md whitespace-nowrap">
-                            Book O/U: {Odds.over_under}
+                            Book O/U: {isOddsAvailable ? Odds.over_under : 'N/A'}
                         </div>
 
                         <div className="flex flex-col items-center w-2/5">
@@ -221,12 +255,20 @@ const MatchupCard = ({ prediction }) => {
                                 </span>
                             </div>
                         </div>
-                        <div className="flex justify-between text-sm items-center bg-slate-900/50 p-3 rounded-lg border border-slate-700/50 mt-auto">
-                            <span className="text-gray-400 font-semibold">Total Diff:</span>
-                            <span className={`font-black text-sm ${Full_Game.full_total > Odds.over_under ? 'text-mlb-green' : 'text-blue-400'}`}>
-                                {Math.abs(Full_Game.full_total - Odds.over_under).toFixed(1)} {Full_Game.full_total > Odds.over_under ? 'OVER' : 'UNDER'} Book
-                            </span>
-                        </div>
+
+                        {/* Odds Korumalı Alt/Üst Kıyaslama */}
+                        {isOddsAvailable ? (
+                            <div className="flex justify-between text-sm items-center bg-slate-900/50 p-3 rounded-lg border border-slate-700/50 mt-auto">
+                                <span className="text-gray-400 font-semibold">Total Diff:</span>
+                                <span className={`font-black text-sm ${Full_Game.full_total > Odds.over_under ? 'text-mlb-green' : 'text-blue-400'}`}>
+                                    {Math.abs(Full_Game.full_total - Odds.over_under).toFixed(1)} {Full_Game.full_total > Odds.over_under ? 'OVER' : 'UNDER'} Book
+                                </span>
+                            </div>
+                        ) : (
+                            <div className="flex justify-between text-[10px] items-center bg-slate-900/40 p-3 rounded-lg border border-slate-700/30 mt-auto text-gray-500 font-bold uppercase tracking-wider text-center">
+                                Book totals currently unavailable
+                            </div>
+                        )}
                     </div>
 
                     {/* Ballpark Context (Weather & Humidity) */}
@@ -265,4 +307,15 @@ const MatchupCard = ({ prediction }) => {
     );
 };
 
-export default MatchupCard;
+// Custom Comparison Function: Sadece status, game_time, Odds, Details ve Weather değiştiğinde re-render tetikle
+const arePropsEqual = (prevProps, nextProps) => {
+    return (
+        prevProps.prediction.matchup?.status === nextProps.prediction.matchup?.status &&
+        prevProps.prediction.matchup?.game_time === nextProps.prediction.matchup?.game_time &&
+        JSON.stringify(prevProps.prediction.Odds) === JSON.stringify(nextProps.prediction.Odds) &&
+        JSON.stringify(prevProps.prediction.Details) === JSON.stringify(nextProps.prediction.Details) &&
+        JSON.stringify(prevProps.prediction.Weather) === JSON.stringify(nextProps.prediction.Weather)
+    );
+};
+
+export default React.memo(MatchupCard, arePropsEqual);
