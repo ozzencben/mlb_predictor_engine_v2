@@ -24,10 +24,10 @@ const renderNrfiStat = (pct, record) => {
     if (pct === 'N/A' || !pct) return <span className="text-gray-600 font-bold text-xs">-</span>;
     return (
         <div className="flex flex-col items-center justify-center">
-            <span className={`px-2 py-0.5 rounded text-[11px] md:text-xs font-black border tracking-wider shadow-sm ${getNrfiColor(pct)}`}>
+            <span className={`px-1.5 md:px-2 py-0.5 rounded text-[10px] md:text-xs font-black border tracking-wider shadow-sm ${getNrfiColor(pct)}`}>
                 {pct}%
             </span>
-            {record && record !== "0-0" && <span className="text-[9px] text-gray-400 font-bold mt-1 tracking-wider">{record}</span>}
+            {record && record !== "0-0" && <span className="text-[8px] md:text-[9px] text-gray-400 font-bold mt-1 tracking-wider whitespace-nowrap">{record}</span>}
         </div>
     );
 };
@@ -72,9 +72,9 @@ const MatchupCard = ({ prediction }) => {
 
                 <div className="flex items-center gap-2 flex-shrink-0">
                     {Weather && Weather.cbs_alert_word && Weather.cbs_alert_word !== "Clear" && (
-                        <span className={`px-2 py-1 rounded text-[9px] md:text-[10px] font-black uppercase tracking-widest border flex items-center gap-1 shadow-sm ${Weather.red_flag_alert ? 'bg-red-900/80 text-red-100 border-red-500' : (Weather.cbs_alert_word.includes('Ideal') ? 'bg-green-900/50 text-green-300 border-green-500/50' : 'bg-amber-900/50 text-amber-300 border-amber-500/50')}`}>
+                        <span className={`px-1.5 md:px-2 py-1 rounded text-[8px] md:text-[10px] font-black uppercase tracking-widest border flex items-center gap-1 shadow-sm ${Weather.red_flag_alert ? 'bg-red-900/80 text-red-100 border-red-500' : (Weather.cbs_alert_word.includes('Ideal') ? 'bg-green-900/50 text-green-300 border-green-500/50' : 'bg-amber-900/50 text-amber-300 border-amber-500/50')}`}>
                             {Weather.red_flag_alert ? '🚩' : (Weather.cbs_alert_word.includes('Ideal') ? '✅' : '⚠️')}
-                            <span className="hidden sm:inline">{Weather.cbs_alert_word}</span>
+                            <span className="whitespace-nowrap">{Weather.cbs_alert_word}</span>
                         </span>
                     )}
                     {Weather && (
@@ -261,25 +261,25 @@ const MatchupCard = ({ prediction }) => {
                         {/* Pitcher NRFI Table */}
                         <div className="w-full bg-slate-900/40">
                             {/* Table Header */}
-                            <div className="flex justify-between items-center bg-slate-900/80 px-3 py-2 border-b border-slate-700/50">
-                                <div className="text-[9px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest w-[40%] text-left pl-1">Pitcher NRFI</div>
-                                <div className="text-[9px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest w-[20%] text-center">Season</div>
-                                <div className="text-[9px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest w-[20%] text-center">Location</div>
-                                <div className="text-[9px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest w-[20%] text-center">Last 10</div>
+                            <div className="flex justify-between items-center bg-slate-900/80 px-2 md:px-3 py-2 border-b border-slate-700/50">
+                                <div className="text-[8px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest w-[40%] text-left pl-1">Pitcher NRFI</div>
+                                <div className="text-[8px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest w-[20%] text-center">Season</div>
+                                <div className="text-[8px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest w-[20%] text-center">Location</div>
+                                <div className="text-[8px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest w-[20%] text-center">Last 10</div>
                             </div>
 
                             {/* Away Pitcher Row */}
-                            <div className="flex justify-between items-center px-3 py-3 border-b border-slate-700/30 hover:bg-slate-800/30 transition-colors">
-                                <div className="flex items-center gap-2 w-[40%] min-w-0 pr-1">
-                                    <img src={getTeamLogo(matchup.away_team)} alt={matchup.away_team} className="w-6 h-6 md:w-8 md:h-8 drop-shadow-md flex-shrink-0" />
+                            <div className="flex justify-between items-center px-2 md:px-3 py-2.5 md:py-3 border-b border-slate-700/30 hover:bg-slate-800/30 transition-colors">
+                                <div className="flex items-center gap-1.5 md:gap-2 w-[40%] min-w-0 pr-1">
+                                    <img src={getTeamLogo(matchup.away_team)} alt={matchup.away_team} className="w-5 h-5 md:w-8 md:h-8 drop-shadow-md flex-shrink-0" />
                                     <div className="flex flex-col min-w-0">
-                                        <span className="text-[11px] md:text-sm font-black text-gray-200 truncate">{matchup.away_pitcher}</span>
+                                        <span className="text-[10px] md:text-sm font-black text-gray-200 truncate">{matchup.away_pitcher}</span>
                                         {awayTrends.streak_score > 0 ? (
-                                            <span className="text-[9px] md:text-[10px] font-bold text-gray-400 flex items-center gap-1 mt-0.5">
+                                            <span className="text-[8px] md:text-[10px] font-bold text-gray-400 flex items-center gap-0.5 md:gap-1 mt-0.5">
                                                 {awayTrends.streak_emoji} <span className="text-white font-black">{awayTrends.streak_score}W</span>
                                             </span>
                                         ) : (
-                                            <span className="text-[9px] font-medium text-gray-600 mt-0.5">-</span>
+                                            <span className="text-[8px] font-medium text-gray-600 mt-0.5">-</span>
                                         )}
                                     </div>
                                 </div>
@@ -289,17 +289,17 @@ const MatchupCard = ({ prediction }) => {
                             </div>
 
                             {/* Home Pitcher Row */}
-                            <div className="flex justify-between items-center px-3 py-3 hover:bg-slate-800/30 transition-colors">
-                                <div className="flex items-center gap-2 w-[40%] min-w-0 pr-1">
-                                    <img src={getTeamLogo(matchup.home_team)} alt={matchup.home_team} className="w-6 h-6 md:w-8 md:h-8 drop-shadow-md flex-shrink-0" />
+                            <div className="flex justify-between items-center px-2 md:px-3 py-2.5 md:py-3 hover:bg-slate-800/30 transition-colors">
+                                <div className="flex items-center gap-1.5 md:gap-2 w-[40%] min-w-0 pr-1">
+                                    <img src={getTeamLogo(matchup.home_team)} alt={matchup.home_team} className="w-5 h-5 md:w-8 md:h-8 drop-shadow-md flex-shrink-0" />
                                     <div className="flex flex-col min-w-0">
-                                        <span className="text-[11px] md:text-sm font-black text-gray-200 truncate">{matchup.home_pitcher}</span>
+                                        <span className="text-[10px] md:text-sm font-black text-gray-200 truncate">{matchup.home_pitcher}</span>
                                         {homeTrends.streak_score > 0 ? (
-                                            <span className="text-[9px] md:text-[10px] font-bold text-gray-400 flex items-center gap-1 mt-0.5">
+                                            <span className="text-[8px] md:text-[10px] font-bold text-gray-400 flex items-center gap-0.5 md:gap-1 mt-0.5">
                                                 {homeTrends.streak_emoji} <span className="text-white font-black">{homeTrends.streak_score}W</span>
                                             </span>
                                         ) : (
-                                            <span className="text-[9px] font-medium text-gray-600 mt-0.5">-</span>
+                                            <span className="text-[8px] font-medium text-gray-600 mt-0.5">-</span>
                                         )}
                                     </div>
                                 </div>
@@ -311,20 +311,20 @@ const MatchupCard = ({ prediction }) => {
 
                         {/* Team Records Footer Table */}
                         <div className="w-full bg-slate-900/60 mt-auto border-t border-slate-700">
-                            <div className="flex justify-between items-center bg-slate-800/40 px-3 py-1.5 border-b border-slate-700/50">
-                                <div className="text-[8px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[40%] text-left pl-1">Team Record</div>
-                                <div className="text-[8px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[30%] text-center">Season</div>
-                                <div className="text-[8px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[30%] text-center">L10</div>
+                            <div className="flex justify-between items-center bg-slate-800/40 px-2 md:px-3 py-1.5 border-b border-slate-700/50">
+                                <div className="text-[7px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[40%] text-left pl-1">Team Record</div>
+                                <div className="text-[7px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[30%] text-center">Season</div>
+                                <div className="text-[7px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[30%] text-center">L10</div>
                             </div>
-                            <div className="flex justify-between items-center px-4 py-2 border-b border-slate-700/30">
-                                <div className="w-[40%] text-[10px] font-bold text-gray-400 flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-blue-500"></span>{matchup.away_team}</div>
-                                <div className="w-[30%] text-center text-[10px] font-black text-gray-300">{matchup.away_stats?.record}</div>
-                                <div className="w-[30%] text-center text-[10px] font-black text-gray-300">{matchup.away_stats?.l10}</div>
+                            <div className="flex justify-between items-center px-2 md:px-4 py-2 border-b border-slate-700/30">
+                                <div className="w-[40%] text-[9px] md:text-[10px] font-bold text-gray-400 flex items-center gap-1.5 min-w-0 pr-1"><span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-blue-500 flex-shrink-0"></span><span className="truncate">{matchup.away_team}</span></div>
+                                <div className="w-[30%] text-center text-[9px] md:text-[10px] font-black text-gray-300">{matchup.away_stats?.record}</div>
+                                <div className="w-[30%] text-center text-[9px] md:text-[10px] font-black text-gray-300">{matchup.away_stats?.l10}</div>
                             </div>
-                            <div className="flex justify-between items-center px-4 py-2">
-                                <div className="w-[40%] text-[10px] font-bold text-gray-400 flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-red-500"></span>{matchup.home_team}</div>
-                                <div className="w-[30%] text-center text-[10px] font-black text-gray-300">{matchup.home_stats?.record}</div>
-                                <div className="w-[30%] text-center text-[10px] font-black text-gray-300">{matchup.home_stats?.l10}</div>
+                            <div className="flex justify-between items-center px-2 md:px-4 py-2">
+                                <div className="w-[40%] text-[9px] md:text-[10px] font-bold text-gray-400 flex items-center gap-1.5 min-w-0 pr-1"><span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-red-500 flex-shrink-0"></span><span className="truncate">{matchup.home_team}</span></div>
+                                <div className="w-[30%] text-center text-[9px] md:text-[10px] font-black text-gray-300">{matchup.home_stats?.record}</div>
+                                <div className="w-[30%] text-center text-[9px] md:text-[10px] font-black text-gray-300">{matchup.home_stats?.l10}</div>
                             </div>
                         </div>
                     </div>
@@ -355,15 +355,15 @@ const MatchupCard = ({ prediction }) => {
                                     </div>
                                 </div>
 
-                                <div className="flex justify-between text-sm mb-4 items-center">
-                                    <span className="text-gray-400 font-semibold">F5 Score Projection:</span>
-                                    <span className="font-black text-white bg-slate-900 px-4 py-1.5 rounded-lg border border-slate-700 text-lg shadow-inner">
+                                <div className="flex justify-between text-[11px] md:text-sm mb-4 items-center gap-2">
+                                    <span className="text-gray-400 font-semibold leading-tight">F5 Score Proj:</span>
+                                    <span className="font-black text-white bg-slate-900 px-3 md:px-4 py-1 md:py-1.5 rounded-lg border border-slate-700 text-xs md:text-lg shadow-inner whitespace-nowrap">
                                         {F5.f5_away_score} - {F5.f5_home_score}
                                     </span>
                                 </div>
-                                <div className="flex justify-between text-sm mb-4 items-center">
-                                    <span className="text-gray-400 font-semibold">Model O/U Total:</span>
-                                    <span className="font-black text-white bg-slate-900 px-4 py-1.5 rounded-lg border border-slate-700 shadow-inner">
+                                <div className="flex justify-between text-[11px] md:text-sm mb-4 items-center gap-2">
+                                    <span className="text-gray-400 font-semibold leading-tight">Model O/U Total:</span>
+                                    <span className="font-black text-white bg-slate-900 px-3 md:px-4 py-1 md:py-1.5 rounded-lg border border-slate-700 text-xs md:text-base shadow-inner whitespace-nowrap">
                                         {Full_Game.full_total} runs
                                     </span>
                                 </div>
@@ -371,9 +371,9 @@ const MatchupCard = ({ prediction }) => {
 
                             {/* Odds Korumalı Alt/Üst Kıyaslama */}
                             {isOddsAvailable ? (
-                                <div className="flex justify-between text-sm items-center bg-slate-900/50 p-3 rounded-lg border border-slate-700/50 mt-auto">
-                                    <span className="text-gray-400 font-semibold">Total Diff:</span>
-                                    <span className={`font-black text-sm ${Full_Game.full_total > Odds.over_under ? 'text-mlb-green' : 'text-blue-400'}`}>
+                                <div className="flex justify-between text-[11px] md:text-sm items-center bg-slate-900/50 p-2 md:p-3 rounded-lg border border-slate-700/50 mt-auto">
+                                    <span className="text-gray-400 font-semibold leading-tight">Total Diff:</span>
+                                    <span className={`font-black text-xs md:text-sm whitespace-nowrap ${Full_Game.full_total > Odds.over_under ? 'text-mlb-green' : 'text-blue-400'}`}>
                                         {Math.abs(Full_Game.full_total - Odds.over_under).toFixed(1)} {Full_Game.full_total > Odds.over_under ? 'OVER' : 'UNDER'} Book
                                     </span>
                                 </div>
