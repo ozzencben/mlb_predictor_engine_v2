@@ -39,7 +39,7 @@ class GroqPredictor(BaseAIPredictor):
         context = (
             f"Matchup: {matchup.get('away_team')} vs {matchup.get('home_team')}\n"
             f"Full Game Proj: {full.get('full_away_score')}-{full.get('full_home_score')} (Total: {full.get('full_total')}).\n"
-            f"Vegas Lines: O/U {odds.get('over_under', 'N/A')}. Away ML Edge: {odds.get('away_edge_pct', '0')}%, Home ML Edge: {odds.get('home_edge_pct', '0')}%.\n"
+            f"Vegas Lines: O/U {odds.get('over_under', 'N/A')}. ML Edge -> Away: {odds.get('away_edge_pct', '0')}%, Home: {odds.get('home_edge_pct', '0')}%. F5 Edge -> Away: {odds.get('f5_away_edge_pct', '0')}%, Home: {odds.get('f5_home_edge_pct', '0')}%. NRFI Edge -> NRFI: {odds.get('nrfi_edge_pct', '0')}%, YRFI: {odds.get('yrfi_edge_pct', '0')}%.\n"
             f"NRFI Confidence: {nrfi.get('confidence')} (Pick: {nrfi.get('pick')}).\n"
             f"Away SP: Loc NRFI {a_pitcher.get('location_nrfi_pct')}% ({a_pitcher.get('location_record')}), Season Record: {a_pitcher.get('season_record')}, L10: {a_pitcher.get('last10_record')}, Streak: {a_pitcher.get('streak_score')} {a_pitcher.get('streak_emoji')}.\n"
             f"Home SP: Loc NRFI {h_pitcher.get('location_nrfi_pct')}% ({h_pitcher.get('location_record')}), Season Record: {h_pitcher.get('season_record')}, L10: {h_pitcher.get('last10_record')}, Streak: {h_pitcher.get('streak_score')} {h_pitcher.get('streak_emoji')}.\n"

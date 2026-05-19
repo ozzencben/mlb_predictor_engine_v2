@@ -348,6 +348,28 @@ const MatchupCard = ({ prediction }) => {
                                         {F5.f5_away_score} - {F5.f5_home_score}
                                     </span>
                                 </div>
+                                {isOddsAvailable && Odds.f5_away_odds !== 0.0 ? (
+                                    <div className="flex justify-between text-[11px] md:text-sm mb-4 items-center bg-slate-900/50 p-2 md:p-3 rounded-lg border border-slate-700/50">
+                                        <span className="text-gray-400 font-semibold leading-tight">Vegas F5 ML:</span>
+                                        <div className="flex gap-4">
+                                            <div className="flex flex-col items-center">
+                                                <span className="text-[10px] text-gray-500 font-black tracking-wider">{matchup.away_team}</span>
+                                                <span className={`font-black text-sm md:text-base ${Odds.f5_away_edge_pct > 5 ? 'text-mlb-green' : 'text-white'}`}>{formatAmericanOdds(Odds.f5_away_odds)}</span>
+                                            </div>
+                                            <div className="flex flex-col items-center">
+                                                <span className="text-[10px] text-gray-500 font-black tracking-wider">{matchup.home_team}</span>
+                                                <span className={`font-black text-sm md:text-base ${Odds.f5_home_edge_pct > 5 ? 'text-mlb-green' : 'text-white'}`}>{formatAmericanOdds(Odds.f5_home_odds)}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="flex justify-between text-[11px] md:text-sm mb-4 items-center bg-slate-900/50 p-2 md:p-3 rounded-lg border border-slate-700/50">
+                                        <span className="text-gray-400 font-semibold leading-tight">Vegas F5 ML:</span>
+                                        <span className="text-[9px] font-black text-amber-500 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20 whitespace-nowrap">
+                                            🔒 Locked
+                                        </span>
+                                    </div>
+                                )}
                                 <div className="flex justify-between text-[11px] md:text-sm mb-4 items-center gap-2">
                                     <span className="text-gray-400 font-semibold leading-tight">Model O/U Total:</span>
                                     <span className="font-black text-white bg-slate-900 px-3 md:px-4 py-1 md:py-1.5 rounded-lg border border-slate-700 text-xs md:text-base shadow-inner whitespace-nowrap">

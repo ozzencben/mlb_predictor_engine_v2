@@ -223,12 +223,20 @@ class PredictionRunner:
                 away_prob = prediction["Full_Game"]["full_away_win_prob"]
                 home_prob = prediction["Full_Game"]["full_home_win_prob"]
 
-                away_edge = self.odds_provider.calculate_edge(
-                    away_prob, best_odds["away_odds"]
-                )
-                home_edge = self.odds_provider.calculate_edge(
-                    home_prob, best_odds["home_odds"]
-                )
+                f5_away_prob = prediction["F5"]["f5_away_win_prob"]
+                f5_home_prob = prediction["F5"]["f5_home_win_prob"]
+
+                nrfi_prob = prediction["NRFI"]["nrfi_score"]
+                yrfi_prob = prediction["NRFI"]["yrfi_score"]
+
+                away_edge = self.odds_provider.calculate_edge(away_prob, best_odds["away_odds"])
+                home_edge = self.odds_provider.calculate_edge(home_prob, best_odds["home_odds"])
+
+                f5_away_edge = self.odds_provider.calculate_edge(f5_away_prob, best_odds["f5_away_odds"])
+                f5_home_edge = self.odds_provider.calculate_edge(f5_home_prob, best_odds["f5_home_odds"])
+
+                nrfi_edge = self.odds_provider.calculate_edge(nrfi_prob, best_odds["nrfi_odds"])
+                yrfi_edge = self.odds_provider.calculate_edge(yrfi_prob, best_odds["yrfi_odds"])
 
                 prediction["Odds"] = {
                     "best_away_odds": best_odds["away_odds"],
@@ -236,6 +244,16 @@ class PredictionRunner:
                     "over_under": best_odds["over_under"],
                     "away_edge_pct": round(away_edge * 100, 1),
                     "home_edge_pct": round(home_edge * 100, 1),
+                    
+                    "f5_away_odds": best_odds["f5_away_odds"],
+                    "f5_home_odds": best_odds["f5_home_odds"],
+                    "f5_away_edge_pct": round(f5_away_edge * 100, 1),
+                    "f5_home_edge_pct": round(f5_home_edge * 100, 1),
+                    
+                    "nrfi_odds": best_odds["nrfi_odds"],
+                    "yrfi_odds": best_odds["yrfi_odds"],
+                    "nrfi_edge_pct": round(nrfi_edge * 100, 1),
+                    "yrfi_edge_pct": round(yrfi_edge * 100, 1),
                 }
 
                 weather_info = weather_db.get(home_team, {})

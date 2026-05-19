@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getTeamLogo } from '../utils/formatters';
+import { getTeamLogo, formatAmericanOdds } from '../utils/formatters';
 
 const getNrfiColor = (pct) => {
     if (pct === 'N/A' || !pct) return 'bg-slate-800 text-gray-500 border-slate-700';
@@ -30,6 +30,8 @@ const NrfiRow = ({ prediction }) => {
     const awayTeamNrfi = trends?.away_team_nrfi || {};
     const homeTeamNrfi = trends?.home_team_nrfi || {};
     const aiInsight = Details?.ai_insight;
+    const Odds = prediction.Odds || {};
+    const hasNrfiOdds = !!(Odds.nrfi_odds && Odds.nrfi_odds !== 0.0);
 
     // AI/Algo Score
     const nrfiScore = (NRFI?.nrfi_score * 100).toFixed(1);
@@ -59,6 +61,23 @@ const NrfiRow = ({ prediction }) => {
 
                 {/* Algo Score & Game Time */}
                 <div className="flex items-center justify-between w-full md:w-auto gap-4 md:gap-8">
+                    {hasNrfiOdds ? (
+                        <div className="flex flex-col items-center">
+                            <span className="text-[8px] md:text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">Vegas</span>
+                            <div className="flex gap-2">
+                                <span className={`text-[10px] md:text-xs font-black ${Odds.nrfi_edge_pct > 5 ? 'text-mlb-green' : 'text-gray-300'}`}>N {formatAmericanOdds(Odds.nrfi_odds)}</span>
+                                <span className="text-[10px] md:text-xs font-black text-gray-600">|</span>
+                                <span className={`text-[10px] md:text-xs font-black ${Odds.yrfi_edge_pct > 5 ? 'text-mlb-green' : 'text-gray-300'}`}>Y {formatAmericanOdds(Odds.yrfi_odds)}</span>
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="flex flex-col items-center">
+                            <span className="text-[8px] md:text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">Vegas</span>
+                            <span className="text-[9px] font-black text-amber-500 bg-amber-500/10 px-2.5 py-1 rounded border border-amber-500/20 whitespace-nowrap">
+                                🔒 Locked
+                            </span>
+                        </div>
+                    )}
                     <div className="flex flex-col items-center">
                         <span className="text-[8px] md:text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">AI Score</span>
                         <div className={`px-2 py-1 rounded border font-black text-xs md:text-sm ${scoreColor}`}>
