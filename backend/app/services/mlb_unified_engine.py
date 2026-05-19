@@ -3,6 +3,7 @@ from pydantic import BaseModel, Field
 from app.models.nrfi_model import NRFIModel
 from app.models.f5_model import F5Model
 from app.models.mlb_model import MLBModel
+from app.models.schemas import NRFITrendSchema
 
 
 # --- Pydantic Schema --- (FastAPI Endpoint'i için gerekli yapı)
@@ -61,7 +62,7 @@ class MLBUnifiedEngine:
 
         return a_pow / total_pow, h_pow / total_pow
 
-    def predict_matchup(self, game: GameInputData) -> dict:
+    def predict_matchup(self, game: GameInputData, trends: NRFITrendSchema = None) -> dict:
         """
         Bütün tahmin motorlarını çalıştırır, mantık hatalarını düzeltir (Safety Check)
         ve FastAPI için uygun JSON payload'unu oluşturur.
@@ -71,6 +72,35 @@ class MLBUnifiedEngine:
         nrfi_result = self.nrfi_model.calculate(
             game.away_team, game.home_team, game.away_pitcher, game.home_pitcher
         )
+        
+        # --- KALİBRASYON ENJEKSİYONU ---
+        if trends and not trends.is_scraper_fallback:
+            # Akıllı Streak Çarpanı (Eksiler YRFI gücünü artırır)
+            streak_modifier = min(0.05, (trends.away_pitcher.streak_score + trends.home_pitcher.streak_score) * 0.01)
+            
+            # Momentum Hesaplaması: Sezon + Stadyum (Location) + Son 10 Maç ortalaması alınır
+            a_pitcher = trends.away_pitcher
+            h_pitcher = trends.home_pitcher
+            away_momentum = ((a_pitcher.season_nrfi_pct + a_pitcher.location_nrfi_pct + a_pitcher.last10_nrfi_pct) / 3 - 50.0) / 100.0
+            home_momentum = ((h_pitcher.season_nrfi_pct + h_pitcher.location_nrfi_pct + h_pitcher.last10_nrfi_pct) / 3 - 50.0) / 100.0
+            
+            team_momentum = (away_momentum + home_momentum) * 0.05
+            total_bump = round(streak_modifier + team_momentum, 4)
+            
+            nrfi_result["nrfi_score"] = round(nrfi_result["nrfi_score"] + total_bump, 4)
+            nrfi_result["yrfi_score"] = round(nrfi_result["yrfi_score"] - total_bump, 4)
+            nrfi_result["confidence"] = round(max(nrfi_result["nrfi_score"], nrfi_result["yrfi_score"]), 4)
+            nrfi_result["pick"] = "NRFI" if nrfi_result["nrfi_score"] >= nrfi_result["yrfi_score"] else "YRFI"
+
+            # Frontend için raw datayı payload'a mühürle
+            nrfi_result["scraped_trends"] = {
+                "away_pitcher": a_pitcher.model_dump(),
+                "home_pitcher": h_pitcher.model_dump(),
+                "is_fallback": False
+            }
+        else:
+            nrfi_result["scraped_trends"] = {"is_fallback": True}
+
         f5_result = self.f5_model.calculate(
             game.away_team, game.home_team, game.away_pitcher, game.home_pitcher
         )

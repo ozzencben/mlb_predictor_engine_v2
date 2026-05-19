@@ -2,6 +2,7 @@ import asyncio
 import json
 import os
 import tempfile
+import requests
 
 import httpx
 from app.core.config import settings
@@ -82,8 +83,17 @@ class OddsProvider:
             )
             return odds_data
 
+        except httpx.HTTPStatusError as e:
+            print(f"❌ Oranlar HTTP Hatası ({e.response.status_code}): {e.response.text}")
+            return []
         except httpx.RequestError as e:
-            print(f"❌ Oranlar çekilirken API Hatası: {e}")
+            error_type = type(e).__name__
+            req_url = e.request.url if hasattr(e, "request") else "URL Yok"
+            print(f"❌ Oranlar Ağ Hatası [{error_type}]: {req_url} -> Detay: {str(e)}")
+            return []
+        except Exception as e:
+            error_type = type(e).__name__
+            print(f"❌ Oranlar Beklenmeyen Hata [{error_type}]: {e}")
             return []
 
     async def fetch_live_odds_async(
@@ -124,8 +134,17 @@ class OddsProvider:
             )
             return odds_data
 
-        except httpx.HTTPError as e:
-            print(f"❌ Oranlar çekilirken API Hatası: {e}")
+        except httpx.HTTPStatusError as e:
+            print(f"❌ Oranlar HTTP Hatası ({e.response.status_code}): {e.response.text}")
+            return []
+        except httpx.RequestError as e:
+            error_type = type(e).__name__
+            req_url = e.request.url if hasattr(e, "request") else "URL Yok"
+            print(f"❌ Oranlar Ağ Hatası [{error_type}]: {req_url} -> Detay: {str(e)}")
+            return []
+        except Exception as e:
+            error_type = type(e).__name__
+            print(f"❌ Oranlar Beklenmeyen Hata [{error_type}]: {e}")
             return []
 
     def get_best_odds_for_game(

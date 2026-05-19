@@ -12,6 +12,26 @@ const getWeatherIcon = (condition) => {
     return '⛅';
 };
 
+// NRFI yüzdesi için dinamik renk
+const getNrfiColor = (pct) => {
+    if (pct === 'N/A' || !pct) return 'bg-slate-800 text-gray-500 border-slate-700';
+    if (pct >= 70) return 'bg-red-500/20 text-red-400 border-red-500/30'; // Hot
+    if (pct <= 40) return 'bg-blue-500/20 text-blue-400 border-blue-500/30'; // Cold
+    return 'bg-slate-700 text-gray-300 border-slate-600'; // Neutral
+};
+
+const renderNrfiStat = (pct, record) => {
+    if (pct === 'N/A' || !pct) return <span className="text-gray-600 font-bold text-xs">-</span>;
+    return (
+        <div className="flex flex-col items-center justify-center">
+            <span className={`px-2 py-0.5 rounded text-[11px] md:text-xs font-black border tracking-wider shadow-sm ${getNrfiColor(pct)}`}>
+                {pct}%
+            </span>
+            {record && record !== "0-0" && <span className="text-[9px] text-gray-400 font-bold mt-1 tracking-wider">{record}</span>}
+        </div>
+    );
+};
+
 const MatchupCard = ({ prediction }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
@@ -20,13 +40,22 @@ const MatchupCard = ({ prediction }) => {
     const pitcherHome = Details?.pitcher_analysis?.home || {};
     const isLive = matchup.status === "In Progress";
 
+    // AI Insight Verisi
+    const aiInsight = Details?.ai_insight;
+
+    // Yeni Trend Verilerini Çıkar (Fallback güvenliği ile)
+    const trends = NRFI?.scraped_trends || {};
+    const awayTrends = trends?.away_pitcher || {};
+    const homeTrends = trends?.home_pitcher || {};
+    const isTrendsFallback = trends?.is_fallback ?? true;
+
     // Odds Barem Güvenlik Kontrolü
     const isOddsAvailable = Odds && Odds.over_under > 0;
 
     return (
         <div className="bg-mlb-card rounded-xl border border-gray-700 shadow-2xl overflow-hidden mb-8 transition-all duration-300 hover:border-gray-500 w-full">
 
-            {/* ================= 1. ÜST BAR (Mobilde Daralma Düzeltildi) ================= */}
+            {/* ================= 1. ÜST BAR ================= */}
             <div className="bg-slate-800/90 px-3 py-2 flex justify-between items-center border-b border-gray-700/50 gap-2">
                 <div className="flex items-center gap-1.5 flex-1 min-w-0">
                     <span className="bg-blue-600/20 text-blue-400 border border-blue-500/30 px-1.5 py-0.5 rounded text-[9px] font-black tracking-widest flex-shrink-0">MLB</span>
@@ -42,8 +71,14 @@ const MatchupCard = ({ prediction }) => {
                 )}
 
                 <div className="flex items-center gap-2 flex-shrink-0">
+                    {Weather && Weather.cbs_alert_word && Weather.cbs_alert_word !== "Clear" && (
+                        <span className={`px-2 py-1 rounded text-[9px] md:text-[10px] font-black uppercase tracking-widest border flex items-center gap-1 shadow-sm ${Weather.red_flag_alert ? 'bg-red-900/80 text-red-100 border-red-500' : (Weather.cbs_alert_word.includes('Ideal') ? 'bg-green-900/50 text-green-300 border-green-500/50' : 'bg-amber-900/50 text-amber-300 border-amber-500/50')}`}>
+                            {Weather.red_flag_alert ? '🚩' : (Weather.cbs_alert_word.includes('Ideal') ? '✅' : '⚠️')}
+                            <span className="hidden sm:inline">{Weather.cbs_alert_word}</span>
+                        </span>
+                    )}
                     {Weather && (
-                        <span className="flex items-center gap-1 text-gray-300 bg-slate-900/60 px-2 py-1 rounded border border-slate-700/50 text-[9px] md:text-[10px] font-bold whitespace-nowrap">
+                        <span className="flex items-center gap-1 text-gray-200 bg-slate-900/80 px-2 py-1 rounded border border-slate-600 shadow-sm text-[9px] md:text-[10px] font-bold whitespace-nowrap">
                             {getWeatherIcon(Weather.condition)} {Weather.temp_f}°F
                         </span>
                     )}
@@ -72,9 +107,8 @@ const MatchupCard = ({ prediction }) => {
                     </div>
                 )}
 
-                {/* LOGOLAR, SAAT VE ATICILAR (Flex-1 ve Whitespace-nowrap Düzeltmesi) */}
+                {/* LOGOLAR, SAAT VE ATICILAR */}
                 <div className="flex w-full justify-between items-start mb-5">
-
                     {/* DEPLASMAN */}
                     <div className="flex-1 flex flex-col items-center text-center w-0 px-1">
                         <img src={getTeamLogo(matchup.away_team)} alt={matchup.away_team} className="w-14 h-14 md:w-20 md:h-20 mb-2 drop-shadow-lg" />
@@ -82,18 +116,17 @@ const MatchupCard = ({ prediction }) => {
                             <h2 className="text-[13px] md:text-lg font-black leading-tight balance-text">{matchup.away_team}</h2>
                         </div>
                         <div className="bg-slate-800/80 border border-slate-700 rounded-lg px-1.5 md:px-2 py-1.5 w-full max-w-[120px] md:max-w-[140px] shadow-inner mx-auto relative">
-                            {/* FALLBACK BADGE */}
                             {pitcherAway.is_fallback && (
                                 <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[7px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider shadow animate-pulse whitespace-nowrap">
                                     ⚠️ Fallback SP
                                 </span>
                             )}
                             <p className={`text-[11px] md:text-xs text-gray-200 truncate font-bold ${pitcherAway.is_fallback ? 'mt-1' : ''}`}>{matchup.away_pitcher}</p>
-                            <p className="text-[9px] md:text-[10px] text-gray-400 truncate">{pitcherAway.record} | {pitcherAway.era} ERA</p>
+                            <p className="text-[9px] md:text-[10px] text-gray-400 truncate">{matchup.away_stats?.record} | {pitcherAway.era} ERA</p>
                         </div>
                     </div>
 
-                    {/* ORTA: SAAT (Asla Alt Satıra Geçmez) */}
+                    {/* ORTA: SAAT */}
                     <div className="flex-shrink-0 flex flex-col items-center justify-start pt-2 px-1">
                         <span className="text-[8px] md:text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1 text-center">Game Time</span>
                         <span className="text-[10px] md:text-sm font-black text-gray-300 bg-slate-900/50 px-2.5 py-1 rounded-full border border-slate-700/50 whitespace-nowrap">
@@ -108,14 +141,13 @@ const MatchupCard = ({ prediction }) => {
                             <h2 className="text-[13px] md:text-lg font-black leading-tight balance-text">{matchup.home_team}</h2>
                         </div>
                         <div className="bg-slate-800/80 border border-slate-700 rounded-lg px-1.5 md:px-2 py-1.5 w-full max-w-[120px] md:max-w-[140px] shadow-inner mx-auto relative">
-                            {/* FALLBACK BADGE */}
                             {pitcherHome.is_fallback && (
                                 <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[7px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider shadow animate-pulse whitespace-nowrap">
                                     ⚠️ Fallback SP
                                 </span>
                             )}
                             <p className={`text-[11px] md:text-xs text-gray-200 truncate font-bold ${pitcherHome.is_fallback ? 'mt-1' : ''}`}>{matchup.home_pitcher}</p>
-                            <p className="text-[9px] md:text-[10px] text-gray-400 truncate">{pitcherHome.record} | {pitcherHome.era} ERA</p>
+                            <p className="text-[9px] md:text-[10px] text-gray-400 truncate">{matchup.home_stats?.record} | {pitcherHome.era} ERA</p>
                         </div>
                     </div>
                 </div>
@@ -202,73 +234,155 @@ const MatchupCard = ({ prediction }) => {
             </div>
 
             {/* ================= 3. EXPAND ALANI (IN-DEPTH) ================= */}
-            <div className={`bg-slate-900 border-t border-slate-700 overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? 'max-h-[1500px] opacity-100 p-4 md:p-6' : 'max-h-0 opacity-0 p-0'}`}>
+            <div className={`bg-slate-900 border-t border-slate-700 overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? 'max-h-[2000px] opacity-100 p-4 md:p-6' : 'max-h-0 opacity-0 p-0'}`}>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
 
-                    {/* YENİ NRFI/YRFI KARTI (IMG_3226 MİMİC) */}
-                    <div className="bg-slate-800/60 rounded-xl p-5 border border-slate-700/80 flex flex-col justify-between">
-                        <div className="mb-4 text-center md:text-left">
-                            <h3 className={`text-3xl font-black tracking-tighter ${NRFI.pick === 'NRFI' ? 'text-mlb-green' : 'text-red-400'}`}>
-                                {Math.round(NRFI.confidence * 100)}%
-                            </h3>
-                            <p className={`text-[10px] font-black uppercase tracking-widest ${NRFI.pick === 'NRFI' ? 'text-mlb-green/80' : 'text-red-500/80'}`}>
-                                {NRFI.pick} Probability
-                            </p>
-                        </div>
-
-                        {/* Etiketler Ortada, Değerler Kenarlarda (Covers/IMG_3226 Style) */}
-                        <div className="flex justify-center items-center w-full bg-slate-900/50 rounded-lg py-3 border border-slate-700/50 my-2">
-                            <div className="flex flex-col w-[35%] items-center gap-2">
-                                <span className="bg-slate-800 px-3 py-1 rounded-full text-[10px] font-black text-gray-300 border border-slate-700">{pitcherAway.fip}</span>
-                                <span className="bg-slate-800 px-3 py-1 rounded-full text-[10px] font-black text-gray-300 border border-slate-700">{Math.round(pitcherAway.k_bb_pct * 100)}%</span>
+                    {/* NRFI/YRFI TABLE CARD */}
+                    <div className="bg-slate-800/60 rounded-xl overflow-hidden border border-slate-700/80 flex flex-col h-full shadow-lg">
+                        {/* Header: Probability */}
+                        <div className="p-4 md:p-5 flex justify-between items-center bg-slate-800/90 border-b border-slate-700">
+                            <div>
+                                <h3 className={`text-3xl md:text-4xl font-black tracking-tighter leading-none ${NRFI.pick === 'NRFI' ? 'text-mlb-green' : 'text-red-400'}`}>
+                                    {Math.round(NRFI.confidence * 100)}%
+                                </h3>
+                                <p className={`text-[9px] font-black uppercase tracking-widest mt-1 ${NRFI.pick === 'NRFI' ? 'text-mlb-green/80' : 'text-red-500/80'}`}>
+                                    {NRFI.pick} Probability
+                                </p>
                             </div>
-                            <div className="flex flex-col w-[30%] text-center gap-3">
-                                <span className="text-[9px] text-gray-500 font-black uppercase tracking-widest leading-tight">Pitcher<br />FIP</span>
-                                <span className="text-[9px] text-gray-500 font-black uppercase tracking-widest leading-tight">K-BB<br />Strike%</span>
-                            </div>
-                            <div className="flex flex-col w-[35%] items-center gap-2">
-                                <span className="bg-slate-800 px-3 py-1 rounded-full text-[10px] font-black text-gray-300 border border-slate-700">{pitcherHome.fip}</span>
-                                <span className="bg-slate-800 px-3 py-1 rounded-full text-[10px] font-black text-gray-300 border border-slate-700">{Math.round(pitcherHome.k_bb_pct * 100)}%</span>
+                            <div className="text-right flex flex-col items-end">
+                                <span className="text-[9px] font-bold text-gray-500 uppercase tracking-widest block mb-1">Outcome</span>
+                                <div className={`text-sm font-black italic border px-3 py-1 rounded-md shadow-inner ${NRFI.pick === 'NRFI' ? 'text-mlb-green border-mlb-green/30 bg-green-900/20' : 'text-red-400 border-red-500/30 bg-red-900/20'}`}>
+                                    {NRFI.pick}
+                                </div>
                             </div>
                         </div>
 
-                        <div className="mt-4 pt-3 border-t border-slate-700/50 text-center">
-                            <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Model Outcome: <span className={`text-sm font-black italic ml-1 ${NRFI.pick === 'NRFI' ? 'text-blue-400' : 'text-red-400'}`}>{NRFI.pick}</span></span>
+                        {/* Pitcher NRFI Table */}
+                        <div className="w-full bg-slate-900/40">
+                            {/* Table Header */}
+                            <div className="flex justify-between items-center bg-slate-900/80 px-3 py-2 border-b border-slate-700/50">
+                                <div className="text-[9px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest w-[40%] text-left pl-1">Pitcher NRFI</div>
+                                <div className="text-[9px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest w-[20%] text-center">Season</div>
+                                <div className="text-[9px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest w-[20%] text-center">Location</div>
+                                <div className="text-[9px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest w-[20%] text-center">Last 10</div>
+                            </div>
+
+                            {/* Away Pitcher Row */}
+                            <div className="flex justify-between items-center px-3 py-3 border-b border-slate-700/30 hover:bg-slate-800/30 transition-colors">
+                                <div className="flex items-center gap-2 w-[40%] min-w-0 pr-1">
+                                    <img src={getTeamLogo(matchup.away_team)} alt={matchup.away_team} className="w-6 h-6 md:w-8 md:h-8 drop-shadow-md flex-shrink-0" />
+                                    <div className="flex flex-col min-w-0">
+                                        <span className="text-[11px] md:text-sm font-black text-gray-200 truncate">{matchup.away_pitcher}</span>
+                                        {awayTrends.streak_score > 0 ? (
+                                            <span className="text-[9px] md:text-[10px] font-bold text-gray-400 flex items-center gap-1 mt-0.5">
+                                                {awayTrends.streak_emoji} <span className="text-white font-black">{awayTrends.streak_score}W</span>
+                                            </span>
+                                        ) : (
+                                            <span className="text-[9px] font-medium text-gray-600 mt-0.5">-</span>
+                                        )}
+                                    </div>
+                                </div>
+                                <div className="w-[20%] flex justify-center">{renderNrfiStat(awayTrends.season_nrfi_pct, awayTrends.season_record)}</div>
+                                <div className="w-[20%] flex justify-center">{renderNrfiStat(awayTrends.location_nrfi_pct, awayTrends.location_record)}</div>
+                                <div className="w-[20%] flex justify-center">{renderNrfiStat(awayTrends.last10_nrfi_pct, awayTrends.last10_record)}</div>
+                            </div>
+
+                            {/* Home Pitcher Row */}
+                            <div className="flex justify-between items-center px-3 py-3 hover:bg-slate-800/30 transition-colors">
+                                <div className="flex items-center gap-2 w-[40%] min-w-0 pr-1">
+                                    <img src={getTeamLogo(matchup.home_team)} alt={matchup.home_team} className="w-6 h-6 md:w-8 md:h-8 drop-shadow-md flex-shrink-0" />
+                                    <div className="flex flex-col min-w-0">
+                                        <span className="text-[11px] md:text-sm font-black text-gray-200 truncate">{matchup.home_pitcher}</span>
+                                        {homeTrends.streak_score > 0 ? (
+                                            <span className="text-[9px] md:text-[10px] font-bold text-gray-400 flex items-center gap-1 mt-0.5">
+                                                {homeTrends.streak_emoji} <span className="text-white font-black">{homeTrends.streak_score}W</span>
+                                            </span>
+                                        ) : (
+                                            <span className="text-[9px] font-medium text-gray-600 mt-0.5">-</span>
+                                        )}
+                                    </div>
+                                </div>
+                                <div className="w-[20%] flex justify-center">{renderNrfiStat(homeTrends.season_nrfi_pct, homeTrends.season_record)}</div>
+                                <div className="w-[20%] flex justify-center">{renderNrfiStat(homeTrends.location_nrfi_pct, homeTrends.location_record)}</div>
+                                <div className="w-[20%] flex justify-center">{renderNrfiStat(homeTrends.last10_nrfi_pct, homeTrends.last10_record)}</div>
+                            </div>
+                        </div>
+
+                        {/* Team Records Footer Table */}
+                        <div className="w-full bg-slate-900/60 mt-auto border-t border-slate-700">
+                            <div className="flex justify-between items-center bg-slate-800/40 px-3 py-1.5 border-b border-slate-700/50">
+                                <div className="text-[8px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[40%] text-left pl-1">Team Record</div>
+                                <div className="text-[8px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[30%] text-center">Season</div>
+                                <div className="text-[8px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[30%] text-center">L10</div>
+                            </div>
+                            <div className="flex justify-between items-center px-4 py-2 border-b border-slate-700/30">
+                                <div className="w-[40%] text-[10px] font-bold text-gray-400 flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-blue-500"></span>{matchup.away_team}</div>
+                                <div className="w-[30%] text-center text-[10px] font-black text-gray-300">{matchup.away_stats?.record}</div>
+                                <div className="w-[30%] text-center text-[10px] font-black text-gray-300">{matchup.away_stats?.l10}</div>
+                            </div>
+                            <div className="flex justify-between items-center px-4 py-2">
+                                <div className="w-[40%] text-[10px] font-bold text-gray-400 flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-red-500"></span>{matchup.home_team}</div>
+                                <div className="w-[30%] text-center text-[10px] font-black text-gray-300">{matchup.home_stats?.record}</div>
+                                <div className="w-[30%] text-center text-[10px] font-black text-gray-300">{matchup.home_stats?.l10}</div>
+                            </div>
                         </div>
                     </div>
 
-                    {/* F5 & Totals Card */}
-                    <div className="bg-slate-800/60 rounded-xl p-5 border border-slate-700/80 flex flex-col justify-between">
-                        <div>
-                            <h3 className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-4 border-b border-slate-700 pb-2">F5 & Totals Projection</h3>
-                            <div className="flex justify-between text-sm mb-4 items-center">
-                                <span className="text-gray-400 font-semibold">F5 Score:</span>
-                                <span className="font-black text-white bg-slate-900 px-4 py-1.5 rounded-lg border border-slate-700 text-lg">
-                                    {F5.f5_away_score} - {F5.f5_home_score}
-                                </span>
-                            </div>
-                            <div className="flex justify-between text-sm mb-4 items-center">
-                                <span className="text-gray-400 font-semibold">Model O/U Total:</span>
-                                <span className="font-black text-white bg-slate-900 px-4 py-1.5 rounded-lg border border-slate-700">
-                                    {Full_Game.full_total} runs
-                                </span>
-                            </div>
-                        </div>
+                    {/* Right Column: Advanced Stats & Projections */}
+                    <div className="flex flex-col gap-4">
+                        {/* F5 & Totals Card */}
+                        <div className="bg-slate-800/60 rounded-xl p-5 border border-slate-700/80 flex flex-col justify-between flex-grow shadow-lg">
+                            <div>
+                                <h3 className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-4 border-b border-slate-700 pb-2">Advanced SP Metrics & Projections</h3>
 
-                        {/* Odds Korumalı Alt/Üst Kıyaslama */}
-                        {isOddsAvailable ? (
-                            <div className="flex justify-between text-sm items-center bg-slate-900/50 p-3 rounded-lg border border-slate-700/50 mt-auto">
-                                <span className="text-gray-400 font-semibold">Total Diff:</span>
-                                <span className={`font-black text-sm ${Full_Game.full_total > Odds.over_under ? 'text-mlb-green' : 'text-blue-400'}`}>
-                                    {Math.abs(Full_Game.full_total - Odds.over_under).toFixed(1)} {Full_Game.full_total > Odds.over_under ? 'OVER' : 'UNDER'} Book
-                                </span>
+                                {/* FIP and K-BB% Metrics Row */}
+                                <div className="flex justify-between items-center bg-slate-900/50 rounded-lg p-3 border border-slate-700/50 mb-5">
+                                    <div className="flex flex-col items-center gap-1 w-1/3">
+                                        <span className="text-[11px] font-black text-gray-300 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">{pitcherAway.fip}</span>
+                                        <span className="text-[8px] text-gray-500 uppercase tracking-widest">Away FIP</span>
+                                        <span className="text-[11px] font-black text-gray-300 bg-slate-800 px-2 py-0.5 rounded border border-slate-700 mt-1">{Math.round(pitcherAway.k_bb_pct * 100)}%</span>
+                                        <span className="text-[8px] text-gray-500 uppercase tracking-widest">Away K-BB</span>
+                                    </div>
+                                    <div className="w-1/3 flex flex-col items-center gap-2">
+                                        <div className="text-[9px] font-black text-gray-400 uppercase tracking-widest opacity-60">VS</div>
+                                    </div>
+                                    <div className="flex flex-col items-center gap-1 w-1/3">
+                                        <span className="text-[11px] font-black text-gray-300 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">{pitcherHome.fip}</span>
+                                        <span className="text-[8px] text-gray-500 uppercase tracking-widest">Home FIP</span>
+                                        <span className="text-[11px] font-black text-gray-300 bg-slate-800 px-2 py-0.5 rounded border border-slate-700 mt-1">{Math.round(pitcherHome.k_bb_pct * 100)}%</span>
+                                        <span className="text-[8px] text-gray-500 uppercase tracking-widest">Home K-BB</span>
+                                    </div>
+                                </div>
+
+                                <div className="flex justify-between text-sm mb-4 items-center">
+                                    <span className="text-gray-400 font-semibold">F5 Score Projection:</span>
+                                    <span className="font-black text-white bg-slate-900 px-4 py-1.5 rounded-lg border border-slate-700 text-lg shadow-inner">
+                                        {F5.f5_away_score} - {F5.f5_home_score}
+                                    </span>
+                                </div>
+                                <div className="flex justify-between text-sm mb-4 items-center">
+                                    <span className="text-gray-400 font-semibold">Model O/U Total:</span>
+                                    <span className="font-black text-white bg-slate-900 px-4 py-1.5 rounded-lg border border-slate-700 shadow-inner">
+                                        {Full_Game.full_total} runs
+                                    </span>
+                                </div>
                             </div>
-                        ) : (
-                            <div className="flex justify-between text-[10px] items-center bg-slate-900/40 p-3 rounded-lg border border-slate-700/30 mt-auto text-gray-500 font-bold uppercase tracking-wider text-center">
-                                Book totals currently unavailable
-                            </div>
-                        )}
+
+                            {/* Odds Korumalı Alt/Üst Kıyaslama */}
+                            {isOddsAvailable ? (
+                                <div className="flex justify-between text-sm items-center bg-slate-900/50 p-3 rounded-lg border border-slate-700/50 mt-auto">
+                                    <span className="text-gray-400 font-semibold">Total Diff:</span>
+                                    <span className={`font-black text-sm ${Full_Game.full_total > Odds.over_under ? 'text-mlb-green' : 'text-blue-400'}`}>
+                                        {Math.abs(Full_Game.full_total - Odds.over_under).toFixed(1)} {Full_Game.full_total > Odds.over_under ? 'OVER' : 'UNDER'} Book
+                                    </span>
+                                </div>
+                            ) : (
+                                <div className="flex justify-between text-[10px] items-center bg-slate-900/40 p-3 rounded-lg border border-slate-700/30 mt-auto text-gray-500 font-bold uppercase tracking-wider text-center">
+                                    Book totals currently unavailable
+                                </div>
+                            )}
+                        </div>
                     </div>
 
                     {/* Ballpark Context (Weather & Humidity) */}
@@ -289,6 +403,12 @@ const MatchupCard = ({ prediction }) => {
                                     <div className="text-sm font-medium text-gray-300 mt-1">
                                         <span className="text-gray-500 mr-2">HUMIDITY</span> {Weather.humidity}%
                                     </div>
+                                    {Weather.cbs_alert_word && Weather.cbs_alert_word !== "Clear" && (
+                                        <div className={`mt-3 inline-block px-3 py-1 rounded text-[10px] font-black uppercase tracking-widest border ${Weather.red_flag_alert ? 'bg-red-900/30 text-red-400 border-red-500/50' : (Weather.cbs_alert_word.includes('Ideal') ? 'bg-green-900/30 text-green-400 border-green-500/50' : 'bg-amber-900/30 text-amber-400 border-amber-500/50')}`}>
+                                            {Weather.red_flag_alert ? '🚩 ' : (Weather.cbs_alert_word.includes('Ideal') ? '✅ ' : '⚠️ ')}
+                                            {Weather.cbs_alert_word}
+                                        </div>
+                                    )}
                                 </>
                             ) : (
                                 <span className="text-sm text-gray-500">Weather data unavailable</span>
@@ -300,6 +420,20 @@ const MatchupCard = ({ prediction }) => {
                         </div>
                     </div>
 
+                    {/* AI MATCHUP INSIGHT (YENİ EKLENEN) */}
+                    {aiInsight && (
+                        <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 rounded-xl p-4 md:p-5 border border-blue-500/20 md:col-span-2 shadow-[0_0_15px_rgba(59,130,246,0.05)] relative overflow-hidden flex flex-col justify-center">
+                            <div className="absolute top-0 left-0 w-1 h-full bg-blue-500/50"></div>
+                            <div className="flex items-center gap-2 mb-3">
+                                <span className="text-blue-400 text-lg leading-none">🧠</span>
+                                <h3 className="text-[10px] md:text-xs text-blue-400 font-black uppercase tracking-widest pt-0.5">AI Matchup Insight</h3>
+                            </div>
+                            <p className="text-xs md:text-sm text-gray-300 leading-relaxed font-medium">
+                                {aiInsight}
+                            </p>
+                        </div>
+                    )}
+
                 </div>
             </div>
 
@@ -307,14 +441,15 @@ const MatchupCard = ({ prediction }) => {
     );
 };
 
-// Custom Comparison Function: Sadece status, game_time, Odds, Details ve Weather değiştiğinde re-render tetikle
+// Re-render optimizasyonu
 const arePropsEqual = (prevProps, nextProps) => {
     return (
         prevProps.prediction.matchup?.status === nextProps.prediction.matchup?.status &&
         prevProps.prediction.matchup?.game_time === nextProps.prediction.matchup?.game_time &&
         JSON.stringify(prevProps.prediction.Odds) === JSON.stringify(nextProps.prediction.Odds) &&
         JSON.stringify(prevProps.prediction.Details) === JSON.stringify(nextProps.prediction.Details) &&
-        JSON.stringify(prevProps.prediction.Weather) === JSON.stringify(nextProps.prediction.Weather)
+        JSON.stringify(prevProps.prediction.Weather) === JSON.stringify(nextProps.prediction.Weather) &&
+        JSON.stringify(prevProps.prediction.NRFI) === JSON.stringify(nextProps.prediction.NRFI)
     );
 };
 

@@ -101,3 +101,64 @@ class BallparkStatsSchema(BaseModel):
             "yrfi_pct": _coerce("yrfi_pct", values.get("yrfi_pct"), 0.50),
             "park_factor": _coerce("park_factor", values.get("park_factor"), 1.0),
         }
+
+class PitcherTrendData(BaseModel):
+    season_nrfi_pct: float = Field(default=50.0)
+    location_nrfi_pct: float = Field(default=50.0)
+    last10_nrfi_pct: float = Field(default=50.0)
+    streak_score: int = Field(default=0)
+    season_record: str = Field(default="0-0")
+    location_record: str = Field(default="0-0")
+    last10_record: str = Field(default="0-0")
+    streak_emoji: str = Field(default="")
+
+    @model_validator(mode="before")
+    @classmethod
+    def normalize_trend_fields(cls, values):
+        if not isinstance(values, dict):
+            return values
+        
+        normalized = {}
+        for field in ["season_nrfi_pct", "location_nrfi_pct", "last10_nrfi_pct"]:
+            raw = values.get(field, 50.0)
+            try:
+                normalized[field] = float(raw)
+            except (TypeError, ValueError):
+                normalized[field] = 50.0
+                
+        try:
+            normalized["streak_score"] = int(values.get("streak_score", 0))
+        except (TypeError, ValueError):
+            normalized["streak_score"] = 0
+            
+        normalized["season_record"] = str(values.get("season_record", "0-0"))
+        normalized["location_record"] = str(values.get("location_record", "0-0"))
+        normalized["last10_record"] = str(values.get("last10_record", "0-0"))
+        normalized["streak_emoji"] = str(values.get("streak_emoji", ""))
+            
+        return normalized
+
+class NRFITrendSchema(BaseModel):
+    away_pitcher: PitcherTrendData = Field(default_factory=PitcherTrendData)
+    home_pitcher: PitcherTrendData = Field(default_factory=PitcherTrendData)
+    is_scraper_fallback: bool = Field(default=False)
+
+    # --- GERİYE DÖNÜK UYUMLULUK (FACADE PATTERN) ---
+    @property
+    def away_team_nrfi_pct(self) -> float:
+        return self.away_pitcher.season_nrfi_pct
+    
+    @property
+    def home_team_nrfi_pct(self) -> float:
+        return self.home_pitcher.season_nrfi_pct
+
+    @property
+    def away_pitcher_nrfi_streak(self) -> int:
+        return self.away_pitcher.streak_score
+
+    @property
+    def home_pitcher_nrfi_streak(self) -> int:
+        return self.home_pitcher.streak_score
+
+
+

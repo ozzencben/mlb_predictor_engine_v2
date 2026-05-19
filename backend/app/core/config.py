@@ -29,6 +29,10 @@ class BaseSettingsFallback:
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
             "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
         )
+        self.AI_PROVIDER = os.getenv("AI_PROVIDER", "gemini")
+        self.GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+        self.GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
+        self.GROQ_MODEL_NAME = os.getenv("GROQ_MODEL_NAME", "llama3-70b-8192")
 
 
 if PYDANTIC_AVAILABLE:
@@ -42,6 +46,10 @@ if PYDANTIC_AVAILABLE:
             default="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
             "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
         )
+        AI_PROVIDER: str = Field(default="gemini")
+        GEMINI_API_KEY: str = Field(default="")
+        GROQ_API_KEY: str = Field(default="")
+        GROQ_MODEL_NAME: str = Field(default="llama3-70b-8192")
 
         class Config:
             env_file = str(DOTENV_PATH)
