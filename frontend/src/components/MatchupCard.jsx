@@ -312,19 +312,22 @@ const MatchupCard = ({ prediction }) => {
                         {/* Team Records Footer Table */}
                         <div className="w-full bg-slate-900/60 mt-auto border-t border-slate-700">
                             <div className="flex justify-between items-center bg-slate-800/40 px-2 md:px-3 py-1.5 border-b border-slate-700/50">
-                                <div className="text-[7px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[40%] text-left pl-1">Team Record</div>
-                                <div className="text-[7px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[30%] text-center">Season</div>
-                                <div className="text-[7px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[30%] text-center">L10</div>
+                                <div className="text-[7px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[30%] text-left pl-1">Team Record</div>
+                                <div className="text-[7px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[20%] text-center">Season</div>
+                                <div className="text-[7px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[30%] text-center">Away/Home</div>
+                                <div className="text-[7px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[20%] text-center">L10</div>
                             </div>
                             <div className="flex justify-between items-center px-2 md:px-4 py-2 border-b border-slate-700/30">
-                                <div className="w-[40%] text-[9px] md:text-[10px] font-bold text-gray-400 flex items-center gap-1.5 min-w-0 pr-1"><span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-blue-500 flex-shrink-0"></span><span className="truncate">{matchup.away_team}</span></div>
-                                <div className="w-[30%] text-center text-[9px] md:text-[10px] font-black text-gray-300">{matchup.away_stats?.record}</div>
-                                <div className="w-[30%] text-center text-[9px] md:text-[10px] font-black text-gray-300">{matchup.away_stats?.l10}</div>
+                                <div className="w-[30%] text-[9px] md:text-[10px] font-bold text-gray-400 flex items-center gap-1.5 min-w-0 pr-1"><span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-blue-500 flex-shrink-0"></span><span className="truncate">{matchup.away_team}</span></div>
+                                <div className="w-[20%] text-center text-[9px] md:text-[10px] font-black text-gray-300">{matchup.away_stats?.record}</div>
+                                <div className="w-[30%] text-center text-[9px] md:text-[10px] font-black text-gray-300"><span className="text-[8px] text-gray-500 mr-1">A</span>{matchup.away_stats?.away_record || '-'}</div>
+                                <div className="w-[20%] text-center text-[9px] md:text-[10px] font-black text-gray-300">{matchup.away_stats?.l10}</div>
                             </div>
                             <div className="flex justify-between items-center px-2 md:px-4 py-2">
-                                <div className="w-[40%] text-[9px] md:text-[10px] font-bold text-gray-400 flex items-center gap-1.5 min-w-0 pr-1"><span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-red-500 flex-shrink-0"></span><span className="truncate">{matchup.home_team}</span></div>
-                                <div className="w-[30%] text-center text-[9px] md:text-[10px] font-black text-gray-300">{matchup.home_stats?.record}</div>
-                                <div className="w-[30%] text-center text-[9px] md:text-[10px] font-black text-gray-300">{matchup.home_stats?.l10}</div>
+                                <div className="w-[30%] text-[9px] md:text-[10px] font-bold text-gray-400 flex items-center gap-1.5 min-w-0 pr-1"><span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-red-500 flex-shrink-0"></span><span className="truncate">{matchup.home_team}</span></div>
+                                <div className="w-[20%] text-center text-[9px] md:text-[10px] font-black text-gray-300">{matchup.home_stats?.record}</div>
+                                <div className="w-[30%] text-center text-[9px] md:text-[10px] font-black text-gray-300"><span className="text-[8px] text-gray-500 mr-1">H</span>{matchup.home_stats?.home_record || '-'}</div>
+                                <div className="w-[20%] text-center text-[9px] md:text-[10px] font-black text-gray-300">{matchup.home_stats?.l10}</div>
                             </div>
                         </div>
                     </div>
@@ -334,26 +337,8 @@ const MatchupCard = ({ prediction }) => {
                         {/* F5 & Totals Card */}
                         <div className="bg-slate-800/60 rounded-xl p-5 border border-slate-700/80 flex flex-col justify-between flex-grow shadow-lg">
                             <div>
-                                <h3 className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-4 border-b border-slate-700 pb-2">Advanced SP Metrics & Projections</h3>
+                                <h3 className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-4 border-b border-slate-700 pb-2">Game Projections</h3>
 
-                                {/* FIP and K-BB% Metrics Row */}
-                                <div className="flex justify-between items-center bg-slate-900/50 rounded-lg p-3 border border-slate-700/50 mb-5">
-                                    <div className="flex flex-col items-center gap-1 w-1/3">
-                                        <span className="text-[11px] font-black text-gray-300 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">{pitcherAway.fip}</span>
-                                        <span className="text-[8px] text-gray-500 uppercase tracking-widest">Away FIP</span>
-                                        <span className="text-[11px] font-black text-gray-300 bg-slate-800 px-2 py-0.5 rounded border border-slate-700 mt-1">{Math.round(pitcherAway.k_bb_pct * 100)}%</span>
-                                        <span className="text-[8px] text-gray-500 uppercase tracking-widest">Away K-BB</span>
-                                    </div>
-                                    <div className="w-1/3 flex flex-col items-center gap-2">
-                                        <div className="text-[9px] font-black text-gray-400 uppercase tracking-widest opacity-60">VS</div>
-                                    </div>
-                                    <div className="flex flex-col items-center gap-1 w-1/3">
-                                        <span className="text-[11px] font-black text-gray-300 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">{pitcherHome.fip}</span>
-                                        <span className="text-[8px] text-gray-500 uppercase tracking-widest">Home FIP</span>
-                                        <span className="text-[11px] font-black text-gray-300 bg-slate-800 px-2 py-0.5 rounded border border-slate-700 mt-1">{Math.round(pitcherHome.k_bb_pct * 100)}%</span>
-                                        <span className="text-[8px] text-gray-500 uppercase tracking-widest">Home K-BB</span>
-                                    </div>
-                                </div>
 
                                 <div className="flex justify-between text-[11px] md:text-sm mb-4 items-center gap-2">
                                     <span className="text-gray-400 font-semibold leading-tight">F5 Score Proj:</span>
@@ -428,9 +413,9 @@ const MatchupCard = ({ prediction }) => {
                                 <span className="text-blue-400 text-lg leading-none">🧠</span>
                                 <h3 className="text-[10px] md:text-xs text-blue-400 font-black uppercase tracking-widest pt-0.5">AI Matchup Insight</h3>
                             </div>
-                            <p className="text-xs md:text-sm text-gray-300 leading-relaxed font-medium">
+                            <div className="text-xs md:text-sm text-gray-300 leading-relaxed font-medium whitespace-pre-wrap">
                                 {aiInsight}
-                            </p>
+                            </div>
                         </div>
                     )}
 
