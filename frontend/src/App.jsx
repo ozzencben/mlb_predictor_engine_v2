@@ -15,6 +15,11 @@ function App() {
   const systemDate = data?.data?.date || '';
   const lastUpdated = data?.data?.last_updated;
 
+  // Sort NRFI predictions from highest AI score to least when active
+  const displayPredictions = activeModel === 'nrfi'
+    ? [...predictions].sort((a, b) => (b.NRFI?.confidence || 0) - (a.NRFI?.confidence || 0))
+    : predictions;
+
   return (
     <div className="max-w-4xl mx-auto p-4 md:p-8">
       {/* ================= HEADER ================= */}
@@ -62,7 +67,7 @@ function App() {
               : 'text-gray-500 hover:text-gray-300 hover:bg-slate-800'
           }`}
         >
-          Full Game
+          Daily Games
         </button>
         <button
           onClick={() => setActiveModel('nrfi')}
@@ -96,7 +101,7 @@ function App() {
             </p>
           </div>
         ) : (
-          predictions.map((game) => (
+          displayPredictions.map((game) => (
             activeModel === 'full' ? (
               <MatchupCard 
                 key={`${game.matchup.away_team}-${game.matchup.home_team}`} 

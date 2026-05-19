@@ -157,16 +157,22 @@ const MatchupCard = ({ prediction }) => {
                 {/* COVERS STİLİ STACKED KAYITLAR */}
                 <div className="flex justify-center items-center w-full mb-6 bg-slate-900/40 rounded-lg py-3 border border-slate-700/50 max-w-[320px] mx-auto shadow-inner px-2">
                     <div className="flex flex-col flex-1 text-right pr-3 md:pr-4 gap-2">
-                        <span className="text-[10px] md:text-[11px] font-black text-gray-300">{matchup.away_stats?.record}</span>
-                        <span className="text-[10px] md:text-[11px] font-black text-gray-400">{matchup.away_stats?.l10}</span>
+                        <span className="text-[10px] md:text-[11px] font-black text-gray-300">{matchup.away_stats?.record || "0-0"}</span>
+                        <span className="text-[10px] md:text-[11px] font-black text-gray-400">{matchup.away_stats?.home_record || "0-0"}</span>
+                        <span className="text-[10px] md:text-[11px] font-black text-gray-400">{matchup.away_stats?.away_record || "0-0"}</span>
+                        <span className="text-[10px] md:text-[11px] font-black text-gray-400">{matchup.away_stats?.l10 || "0-0"}</span>
                     </div>
                     <div className="flex flex-col flex-shrink-0 text-center gap-2 border-x border-slate-700/50 px-3 md:px-4">
-                        <span className="text-[8px] md:text-[9px] text-gray-500 font-black uppercase tracking-widest">W / L</span>
+                        <span className="text-[8px] md:text-[9px] text-gray-500 font-black uppercase tracking-widest">Overall</span>
+                        <span className="text-[8px] md:text-[9px] text-gray-500 font-black uppercase tracking-widest">Home</span>
+                        <span className="text-[8px] md:text-[9px] text-gray-500 font-black uppercase tracking-widest">Away</span>
                         <span className="text-[8px] md:text-[9px] text-gray-500 font-black uppercase tracking-widest">L 10</span>
                     </div>
                     <div className="flex flex-col flex-1 text-left pl-3 md:pl-4 gap-2">
-                        <span className="text-[10px] md:text-[11px] font-black text-gray-300">{matchup.home_stats?.record}</span>
-                        <span className="text-[10px] md:text-[11px] font-black text-gray-400">{matchup.home_stats?.l10}</span>
+                        <span className="text-[10px] md:text-[11px] font-black text-gray-300">{matchup.home_stats?.record || "0-0"}</span>
+                        <span className="text-[10px] md:text-[11px] font-black text-gray-400">{matchup.home_stats?.home_record || "0-0"}</span>
+                        <span className="text-[10px] md:text-[11px] font-black text-gray-400">{matchup.home_stats?.away_record || "0-0"}</span>
+                        <span className="text-[10px] md:text-[11px] font-black text-gray-400">{matchup.home_stats?.l10 || "0-0"}</span>
                     </div>
                 </div>
 
