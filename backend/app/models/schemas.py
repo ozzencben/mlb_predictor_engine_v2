@@ -141,6 +141,8 @@ class PitcherTrendData(BaseModel):
 class NRFITrendSchema(BaseModel):
     away_pitcher: PitcherTrendData = Field(default_factory=PitcherTrendData)
     home_pitcher: PitcherTrendData = Field(default_factory=PitcherTrendData)
+    away_team_nrfi: PitcherTrendData = Field(default_factory=PitcherTrendData)
+    home_team_nrfi: PitcherTrendData = Field(default_factory=PitcherTrendData)
     is_scraper_fallback: bool = Field(default=False)
 
     # --- GERİYE DÖNÜK UYUMLULUK (FACADE PATTERN) ---

@@ -96,6 +96,8 @@ class MLBUnifiedEngine:
             nrfi_result["scraped_trends"] = {
                 "away_pitcher": a_pitcher.model_dump(),
                 "home_pitcher": h_pitcher.model_dump(),
+                "away_team_nrfi": trends.away_team_nrfi.model_dump(),
+                "home_team_nrfi": trends.home_team_nrfi.model_dump(),
                 "is_fallback": False
             }
         else:

@@ -32,6 +32,8 @@ class GroqPredictor(BaseAIPredictor):
         
         a_pitcher = trends.get("away_pitcher", {}) if not is_fallback else {"location_nrfi_pct": "N/A", "streak_score": "N/A", "season_record": "N/A", "location_record": "N/A", "last10_record": "N/A", "streak_emoji": ""}
         h_pitcher = trends.get("home_pitcher", {}) if not is_fallback else {"location_nrfi_pct": "N/A", "streak_score": "N/A", "season_record": "N/A", "location_record": "N/A", "last10_record": "N/A", "streak_emoji": ""}
+        a_team_nrfi = trends.get("away_team_nrfi", {}) if not is_fallback else {"season_nrfi_pct": "N/A", "season_record": "N/A"}
+        h_team_nrfi = trends.get("home_team_nrfi", {}) if not is_fallback else {"season_nrfi_pct": "N/A", "season_record": "N/A"}
 
         # Ham veri paketinin string formata dönüştürülmesi
         context = (
@@ -41,6 +43,8 @@ class GroqPredictor(BaseAIPredictor):
             f"NRFI Confidence: {nrfi.get('confidence')} (Pick: {nrfi.get('pick')}).\n"
             f"Away SP: Loc NRFI {a_pitcher.get('location_nrfi_pct')}% ({a_pitcher.get('location_record')}), Season Record: {a_pitcher.get('season_record')}, L10: {a_pitcher.get('last10_record')}, Streak: {a_pitcher.get('streak_score')} {a_pitcher.get('streak_emoji')}.\n"
             f"Home SP: Loc NRFI {h_pitcher.get('location_nrfi_pct')}% ({h_pitcher.get('location_record')}), Season Record: {h_pitcher.get('season_record')}, L10: {h_pitcher.get('last10_record')}, Streak: {h_pitcher.get('streak_score')} {h_pitcher.get('streak_emoji')}.\n"
+            f"Away Team Offense NRFI: {a_team_nrfi.get('season_nrfi_pct')}% ({a_team_nrfi.get('season_record')}).\n"
+            f"Home Team Offense NRFI: {h_team_nrfi.get('season_nrfi_pct')}% ({h_team_nrfi.get('season_record')}).\n"
             f"Weather: {weather.get('temp_f', 'N/A')}F, Wind {weather.get('wind_mph', 'N/A')}mph {weather.get('wind_direction', 'N/A')}. Alert: {weather.get('cbs_alert_word', 'None')} (Red Flag: {weather.get('red_flag_alert', False)})."
         )
 

@@ -47,6 +47,8 @@ const MatchupCard = ({ prediction }) => {
     const trends = NRFI?.scraped_trends || {};
     const awayTrends = trends?.away_pitcher || {};
     const homeTrends = trends?.home_pitcher || {};
+    const awayTeamNrfi = trends?.away_team_nrfi || {};
+    const homeTeamNrfi = trends?.home_team_nrfi || {};
     const isTrendsFallback = trends?.is_fallback ?? true;
 
     // Odds Barem Güvenlik Kontrolü
@@ -309,25 +311,25 @@ const MatchupCard = ({ prediction }) => {
                             </div>
                         </div>
 
-                        {/* Team Records Footer Table */}
+                        {/* Team NRFI Records Footer Table */}
                         <div className="w-full bg-slate-900/60 mt-auto border-t border-slate-700">
                             <div className="flex justify-between items-center bg-slate-800/40 px-2 md:px-3 py-1.5 border-b border-slate-700/50">
-                                <div className="text-[7px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[30%] text-left pl-1">Team Record</div>
+                                <div className="text-[7px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[30%] text-left pl-1">Team NRFI</div>
                                 <div className="text-[7px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[20%] text-center">Season</div>
                                 <div className="text-[7px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[30%] text-center">Away/Home</div>
                                 <div className="text-[7px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[20%] text-center">L10</div>
                             </div>
                             <div className="flex justify-between items-center px-2 md:px-4 py-2 border-b border-slate-700/30">
                                 <div className="w-[30%] text-[9px] md:text-[10px] font-bold text-gray-400 flex items-center gap-1.5 min-w-0 pr-1"><span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-blue-500 flex-shrink-0"></span><span className="truncate">{matchup.away_team}</span></div>
-                                <div className="w-[20%] text-center text-[9px] md:text-[10px] font-black text-gray-300">{matchup.away_stats?.record}</div>
-                                <div className="w-[30%] text-center text-[9px] md:text-[10px] font-black text-gray-300"><span className="text-[8px] text-gray-500 mr-1">A</span>{matchup.away_stats?.away_record || '-'}</div>
-                                <div className="w-[20%] text-center text-[9px] md:text-[10px] font-black text-gray-300">{matchup.away_stats?.l10}</div>
+                                <div className="w-[20%] flex justify-center">{renderNrfiStat(awayTeamNrfi.season_nrfi_pct, awayTeamNrfi.season_record)}</div>
+                                <div className="w-[30%] flex justify-center items-center"><span className="text-[8px] text-gray-500 font-bold mr-1">A</span>{renderNrfiStat(awayTeamNrfi.location_nrfi_pct, awayTeamNrfi.location_record)}</div>
+                                <div className="w-[20%] flex justify-center">{renderNrfiStat(awayTeamNrfi.last10_nrfi_pct, awayTeamNrfi.last10_record)}</div>
                             </div>
                             <div className="flex justify-between items-center px-2 md:px-4 py-2">
                                 <div className="w-[30%] text-[9px] md:text-[10px] font-bold text-gray-400 flex items-center gap-1.5 min-w-0 pr-1"><span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-red-500 flex-shrink-0"></span><span className="truncate">{matchup.home_team}</span></div>
-                                <div className="w-[20%] text-center text-[9px] md:text-[10px] font-black text-gray-300">{matchup.home_stats?.record}</div>
-                                <div className="w-[30%] text-center text-[9px] md:text-[10px] font-black text-gray-300"><span className="text-[8px] text-gray-500 mr-1">H</span>{matchup.home_stats?.home_record || '-'}</div>
-                                <div className="w-[20%] text-center text-[9px] md:text-[10px] font-black text-gray-300">{matchup.home_stats?.l10}</div>
+                                <div className="w-[20%] flex justify-center">{renderNrfiStat(homeTeamNrfi.season_nrfi_pct, homeTeamNrfi.season_record)}</div>
+                                <div className="w-[30%] flex justify-center items-center"><span className="text-[8px] text-gray-500 font-bold mr-1">H</span>{renderNrfiStat(homeTeamNrfi.location_nrfi_pct, homeTeamNrfi.location_record)}</div>
+                                <div className="w-[20%] flex justify-center">{renderNrfiStat(homeTeamNrfi.last10_nrfi_pct, homeTeamNrfi.last10_record)}</div>
                             </div>
                         </div>
                     </div>

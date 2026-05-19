@@ -1,9 +1,12 @@
+import React, { useState } from 'react';
 import { usePredictions } from './hooks/usePredictions';
 import MatchupCard from './components/MatchupCard';
 import MatchupSkeleton from './components/MatchupSkeleton';
 import Footer from './components/Footer';
+import NrfiRow from './components/NrfiRow';
 
 function App() {
+  const [activeModel, setActiveModel] = useState('full'); // 'full', 'nrfi', 'f5'
   const { data, loading, error } = usePredictions();
 
   if (error) return <div className="p-10 text-red-500 text-center font-black">❌ Connection Error: {error}</div>;
@@ -49,6 +52,30 @@ function App() {
         </div>
       </header>
 
+      {/* ================= MODEL TOGGLE BUTTONS ================= */}
+      <div className="flex justify-center items-center gap-2 mb-8 bg-slate-900/60 p-2 rounded-xl border border-gray-800/80 max-w-lg mx-auto">
+        <button
+          onClick={() => setActiveModel('full')}
+          className={`flex-1 py-2 px-4 rounded-lg text-xs font-black uppercase tracking-widest transition-all duration-300 ${
+            activeModel === 'full' 
+              ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/50' 
+              : 'text-gray-500 hover:text-gray-300 hover:bg-slate-800'
+          }`}
+        >
+          Full Game
+        </button>
+        <button
+          onClick={() => setActiveModel('nrfi')}
+          className={`flex-1 py-2 px-4 rounded-lg text-xs font-black uppercase tracking-widest transition-all duration-300 ${
+            activeModel === 'nrfi' 
+              ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-900/50' 
+              : 'text-gray-500 hover:text-gray-300 hover:bg-slate-800'
+          }`}
+        >
+          NRFI Model
+        </button>
+      </div>
+
       {/* ================= KARTLARIN OLDUĞU BÖLÜM ================= */}
       <div className="grid grid-cols-1 gap-4">
         {loading ? (
@@ -70,10 +97,17 @@ function App() {
           </div>
         ) : (
           predictions.map((game) => (
-            <MatchupCard 
-              key={`${game.matchup.away_team}-${game.matchup.home_team}`} 
-              prediction={game} 
-            />
+            activeModel === 'full' ? (
+              <MatchupCard 
+                key={`${game.matchup.away_team}-${game.matchup.home_team}`} 
+                prediction={game} 
+              />
+            ) : (
+              <NrfiRow 
+                key={`${game.matchup.away_team}-${game.matchup.home_team}`} 
+                prediction={game} 
+              />
+            )
           ))
         )}
       </div>

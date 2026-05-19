@@ -4,7 +4,7 @@ Tyler'ın gönderdiği geri bildirimler ve yeni özellik talepleri (Milestone 2)
 
 ---
 
-## 1. 🟢 Hemen Yapılabilecekler (Hızlı UI ve Prompt Güncellemeleri)
+## 1. 🟢 Hemen Yapılabilecekler (Hızlı UI ve Prompt Güncellemeleri) (YAPILDI)
 
 Bu gruptaki istekler mevcut mimariyi bozmadan, çok kısa sürede arayüz ve yapay zeka prompt güncellemeleriyle çözülecek konulardır:
 
@@ -18,7 +18,7 @@ Bu gruptaki istekler mevcut mimariyi bozmadan, çok kısa sürede arayüz ve yap
 
 Tyler'ın görseldeki gibi nokta atışı veriler istemesi, veri toplama (scraper) botlarımıza bazı yeni özellikler eklememizi gerektiriyor:
 
-*   **Takım NRFI Rekorları:** Sadece atıcıların değil, takımların da hücum anlamındaki NRFI/YRFI (ilk ining sayı atma/atamama) rekorlarını, ev/deplasman ve son 10 maç kırılımlarıyla birlikte çekmemiz gerekecek.
+*   **Takım NRFI Rekorları:** Sadece atıcıların değil, takımların da hücum anlamındaki NRFI/YRFI (ilk ining sayı atma/atamama) rekorlarını, ev/deplasman ve son 10 maç kırılımlarıyla birlikte çekmemiz gerekecek. (YAPILDI)
 *   **Spesifik Bahis Oranlarının (Odds) Çekilmesi:** Şu an sadece maç sonu (Moneyline) oranlarını çekiyoruz. Sisteme "First 5 (İlk 5 İning)" ve spesifik olarak "NRFI / YRFI" oranlarını (Örn: YRFI -120, NRFI +110) çekecek yeni bir API/Scraper entegrasyonu yapılacak.
 *   **Sadece Seçili Bahis Şirketlerinin (Sportsbooks) Filtrelenmesi:** API'den tüm dünyadaki bahis sitelerini çekmek yerine, Tyler'ın istediği gibi sorguyu sadece **FanDuel, DraftKings, Fanatics ve Caesars** ile sınırlandıracağız. Hem sistem hızlanacak hem de API maliyetleri/limitleri optimize edilecek.
 *   **Team to Not Score (Takım Bazlı NRFI):** İki takımın da sayı atamaması yerine, sadece tek bir takımın sayı atamaması durumunun analizi sisteme dahil edilecek.
