@@ -18,8 +18,8 @@ function App() {
           <span className="text-5xl block mb-4">⏳</span>
           <h2 className="text-lg font-black text-amber-400 uppercase tracking-wider mb-2">Veri Hazırlanıyor</h2>
           <p className="text-gray-400 text-sm font-medium">
-            Sistem her gün <strong className="text-white">00:00 ve 12:00 ET</strong> saatlerinde verileri otomatik günceller.
-            İlk açılışta veriler hazırlanıyor olabilir. Birkaç dakika içinde tekrar deneyin.
+            The system automatically updates data daily at <strong className="text-white">12:00 AM and 12:00 PM ET</strong>.
+            If data is still loading, please check back in a few minutes.
           </p>
           <p className="text-[10px] text-gray-600 mt-4 font-bold uppercase tracking-wider">
             Legends Sports MLB Predictor Engine
