@@ -9,6 +9,7 @@ class GroqPredictor(BaseAIPredictor):
     def __init__(self):
         self.api_key = settings.GROQ_API_KEY
         self.model_name = settings.GROQ_MODEL_NAME
+        self.quota_exhausted = False
         
         if self.api_key:
             # Asenkron operasyonlar için AsyncGroq istemcisini başlatıyoruz
@@ -78,12 +79,25 @@ class GroqPredictor(BaseAIPredictor):
                 return completion.choices[0].message.content.strip()
 
             except Exception as e:
-                error_msg = str(e)
-                if "429" in error_msg and attempt < max_retries - 1:
-                    print(f"⚠️ Groq 429 Kota Sınırı (TPM/RPM). {base_delay} sn bekleniyor... (Deneme {attempt + 1}/{max_retries})")
-                    await asyncio.sleep(base_delay)
-                    base_delay *= 1.5
-                    continue
+                error_msg = str(e).lower()
+                is_429 = "429" in error_msg or "rate_limit" in error_msg or "rate limit" in error_msg
+                is_daily_limit = "tpd" in error_msg or "tokens per day" in error_msg or "daily limit" in error_msg or "quota" in error_msg
+                
+                if is_429:
+                    if is_daily_limit:
+                        print(f"🛑 Groq Günlük/Kalıcı Limit Aşıldı (TPD). Circuit breaker devreye giriyor...")
+                        self.quota_exhausted = True
+                        return "AI analysis is temporarily unavailable due to daily API limits."
+                    
+                    if attempt < max_retries - 1:
+                        print(f"⚠️ Groq 429 Kota Sınırı (TPM/RPM). {base_delay} sn bekleniyor... (Deneme {attempt + 1}/{max_retries})")
+                        await asyncio.sleep(base_delay)
+                        base_delay *= 1.5
+                        continue
+                    else:
+                        print(f"🛑 Groq 429 limit denemeleri tükendi. Circuit breaker devreye giriyor...")
+                        self.quota_exhausted = True
+                        return "AI analysis is temporarily unavailable due to upstream API limits."
                 else:
                     print(f"❌ Groq AI Hatası: {e}")
-                    return "AI analysis is temporarily unavailable due to upstream API limits."
+                    return f"AI analysis is temporarily unavailable: {e}"

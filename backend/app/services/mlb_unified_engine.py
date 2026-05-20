@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 from app.models.nrfi_model import NRFIModel
 from app.models.f5_model import F5Model
 from app.models.mlb_model import MLBModel
-from app.models.schemas import NRFITrendSchema
+from app.models.schemas import NRFITrendSchema, PitcherTrendData
 
 
 # --- Pydantic Schema --- (FastAPI Endpoint'i için gerekli yapı)
@@ -101,7 +101,14 @@ class MLBUnifiedEngine:
                 "is_fallback": False
             }
         else:
-            nrfi_result["scraped_trends"] = {"is_fallback": True}
+            _default_trend = PitcherTrendData()
+            nrfi_result["scraped_trends"] = {
+                "away_pitcher": _default_trend.model_dump(),
+                "home_pitcher": _default_trend.model_dump(),
+                "away_team_nrfi": _default_trend.model_dump(),
+                "home_team_nrfi": _default_trend.model_dump(),
+                "is_fallback": True
+            }
 
         f5_result = self.f5_model.calculate(
             game.away_team, game.home_team, game.away_pitcher, game.home_pitcher

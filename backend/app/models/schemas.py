@@ -8,6 +8,7 @@ class PitcherStatsSchema(BaseModel):
     fip: float = Field(default=4.20)
     k_bb_pct: float = Field(default=0.14)
     is_fallback: bool = Field(default=False)
+    record: str = Field(default="0-0")
 
     @model_validator(mode="before")
     @classmethod
@@ -36,6 +37,7 @@ class PitcherStatsSchema(BaseModel):
                 normalized[field_name] = default
                 fallback = True
 
+        normalized["record"] = str(values.get("record", "0-0"))
         normalized["is_fallback"] = bool(values.get("is_fallback", False)) or fallback
         return normalized
 

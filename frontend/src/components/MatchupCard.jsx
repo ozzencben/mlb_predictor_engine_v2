@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { formatAmericanOdds, getTeamLogo } from '../utils/formatters';
+import SportsbookLogo from './SportsbookLogo';
 
 const getWeatherIcon = (condition) => {
     if (!condition) return '🏟️';
@@ -20,8 +21,22 @@ const getNrfiColor = (pct) => {
     return 'bg-slate-700 text-gray-300 border-slate-600'; // Neutral
 };
 
-const renderNrfiStat = (pct, record) => {
-    if (pct === 'N/A' || !pct) return <span className="text-gray-600 font-bold text-xs">-</span>;
+const getEraClass = (era) => {
+    if (!era || era === 'N/A' || era === '-') return 'text-gray-400 font-bold';
+    const val = parseFloat(era);
+    if (isNaN(val)) return 'text-gray-400 font-bold';
+    if (val < 3.00) return 'text-green-400 font-extrabold';
+    if (val > 3.00) return 'text-red-400 font-extrabold';
+    return 'text-gray-200 font-bold';
+};
+
+const renderNrfiStat = (pct, record, isFallback) => {
+    if (isFallback) {
+        return (
+            <span className="text-[8px] font-bold text-slate-600 italic">N/A</span>
+        );
+    }
+    if (pct === 'N/A' || pct === undefined || pct === null) return <span className="text-gray-600 font-bold text-xs">-</span>;
     return (
         <div className="flex flex-col items-center justify-center">
             <span className={`px-1.5 md:px-2 py-0.5 rounded text-[10px] md:text-xs font-black border tracking-wider shadow-sm ${getNrfiColor(pct)}`}>
@@ -45,11 +60,16 @@ const MatchupCard = ({ prediction }) => {
 
     // Yeni Trend Verilerini Çıkar (Fallback güvenliği ile)
     const trends = NRFI?.scraped_trends || {};
+    const isFallback = trends?.is_fallback === true;
     const awayTrends = trends?.away_pitcher || {};
     const homeTrends = trends?.home_pitcher || {};
     const awayTeamNrfi = trends?.away_team_nrfi || {};
     const homeTeamNrfi = trends?.home_team_nrfi || {};
     const isTrendsFallback = trends?.is_fallback ?? true;
+
+    // Atıcının bu sezon verisi yoksa (Lig Ort. ile doldurulmuş - Zach Thornton gibi)
+    const awayPitcherNoData = awayTrends?.season_record === '0-0' && !isFallback;
+    const homePitcherNoData = homeTrends?.season_record === '0-0' && !isFallback;
 
     // Odds Barem Güvenlik Kontrolü
     const isOddsAvailable = Odds && Odds.over_under > 0;
@@ -110,46 +130,54 @@ const MatchupCard = ({ prediction }) => {
                 )}
 
                 {/* LOGOLAR, SAAT VE ATICILAR */}
-                <div className="flex w-full justify-between items-start mb-5">
+                <div className="flex w-full justify-between items-start mb-5 gap-1">
                     {/* DEPLASMAN */}
-                    <div className="flex-1 flex flex-col items-center text-center w-0 px-1">
-                        <img src={getTeamLogo(matchup.away_team)} alt={matchup.away_team} className="w-14 h-14 md:w-20 md:h-20 mb-2 drop-shadow-lg" />
+                    <div className="flex-1 flex flex-col items-center text-center w-0 px-0.5">
+                        <img src={getTeamLogo(matchup.away_team)} alt={matchup.away_team} className="w-11 h-11 xs:w-14 xs:h-14 md:w-20 md:h-20 mb-2 drop-shadow-lg" />
                         <div className="min-h-[40px] md:min-h-[48px] flex items-center justify-center w-full mb-2">
-                            <h2 className="text-[13px] md:text-lg font-black leading-tight balance-text">{matchup.away_team}</h2>
+                            <h2 className="text-[10px] xs:text-[13px] md:text-lg font-black leading-tight balance-text whitespace-normal break-words">{matchup.away_team}</h2>
                         </div>
-                        <div className="bg-slate-800/80 border border-slate-700 rounded-lg px-1.5 md:px-2 py-1.5 w-full max-w-[120px] md:max-w-[140px] shadow-inner mx-auto relative">
+                        <div className="bg-slate-800/80 border border-slate-700 rounded-lg px-1 xs:px-2 py-1.5 w-full max-w-[110px] xs:max-w-[130px] md:max-w-[165px] shadow-inner mx-auto relative">
                             {pitcherAway.is_fallback && (
-                                <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[7px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider shadow animate-pulse whitespace-nowrap">
+                                <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[7px] font-black px-1 py-0.5 rounded uppercase tracking-wider shadow animate-pulse whitespace-nowrap">
                                     ⚠️ Fallback SP
                                 </span>
                             )}
-                            <p className={`text-[11px] md:text-xs text-gray-200 truncate font-bold ${pitcherAway.is_fallback ? 'mt-1' : ''}`}>{matchup.away_pitcher}</p>
-                            <p className="text-[9px] md:text-[10px] text-gray-400 truncate">{matchup.away_stats?.record} | {pitcherAway.era} ERA</p>
+                            <p className={`text-[9px] xs:text-[11px] md:text-xs text-gray-200 font-bold whitespace-normal break-words leading-tight ${pitcherAway.is_fallback ? 'mt-1' : ''}`}>{matchup.away_pitcher}</p>
+                            <div className="text-[8px] xs:text-[10px] text-gray-400 mt-1 font-semibold leading-tight flex flex-col xs:flex-row items-center justify-center gap-0.5 xs:gap-1.5">
+                                <span>({pitcherAway.record || '0-0'})</span>
+                                <span className="hidden xs:inline text-gray-500">|</span>
+                                <span className={getEraClass(pitcherAway.era)}>{pitcherAway.era || '0.00'} ERA</span>
+                            </div>
                         </div>
                     </div>
 
                     {/* ORTA: SAAT */}
-                    <div className="flex-shrink-0 flex flex-col items-center justify-start pt-2 px-1">
-                        <span className="text-[8px] md:text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1 text-center">Game Time</span>
-                        <span className="text-[10px] md:text-sm font-black text-gray-300 bg-slate-900/50 px-2.5 py-1 rounded-full border border-slate-700/50 whitespace-nowrap">
+                    <div className="flex-shrink-0 flex flex-col items-center justify-start pt-2 px-0.5">
+                        <span className="text-[7px] xs:text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1 text-center">Game Time</span>
+                        <span className="text-[9px] xs:text-xs md:text-sm font-black text-gray-300 bg-slate-900/50 px-2 py-1 rounded-full border border-slate-700/50 whitespace-nowrap">
                             {matchup.game_time || "TBD"}
                         </span>
                     </div>
 
                     {/* EV SAHİBİ */}
-                    <div className="flex-1 flex flex-col items-center text-center w-0 px-1">
-                        <img src={getTeamLogo(matchup.home_team)} alt={matchup.home_team} className="w-14 h-14 md:w-20 md:h-20 mb-2 drop-shadow-lg" />
+                    <div className="flex-1 flex flex-col items-center text-center w-0 px-0.5">
+                        <img src={getTeamLogo(matchup.home_team)} alt={matchup.home_team} className="w-11 h-11 xs:w-14 xs:h-14 md:w-20 md:h-20 mb-2 drop-shadow-lg" />
                         <div className="min-h-[40px] md:min-h-[48px] flex items-center justify-center w-full mb-2">
-                            <h2 className="text-[13px] md:text-lg font-black leading-tight balance-text">{matchup.home_team}</h2>
+                            <h2 className="text-[10px] xs:text-[13px] md:text-lg font-black leading-tight balance-text whitespace-normal break-words">{matchup.home_team}</h2>
                         </div>
-                        <div className="bg-slate-800/80 border border-slate-700 rounded-lg px-1.5 md:px-2 py-1.5 w-full max-w-[120px] md:max-w-[140px] shadow-inner mx-auto relative">
+                        <div className="bg-slate-800/80 border border-slate-700 rounded-lg px-1 xs:px-2 py-1.5 w-full max-w-[110px] xs:max-w-[130px] md:max-w-[165px] shadow-inner mx-auto relative">
                             {pitcherHome.is_fallback && (
-                                <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[7px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider shadow animate-pulse whitespace-nowrap">
+                                <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[7px] font-black px-1 py-0.5 rounded uppercase tracking-wider shadow animate-pulse whitespace-nowrap">
                                     ⚠️ Fallback SP
                                 </span>
                             )}
-                            <p className={`text-[11px] md:text-xs text-gray-200 truncate font-bold ${pitcherHome.is_fallback ? 'mt-1' : ''}`}>{matchup.home_pitcher}</p>
-                            <p className="text-[9px] md:text-[10px] text-gray-400 truncate">{matchup.home_stats?.record} | {pitcherHome.era} ERA</p>
+                            <p className={`text-[9px] xs:text-[11px] md:text-xs text-gray-200 font-bold whitespace-normal break-words leading-tight ${pitcherHome.is_fallback ? 'mt-1' : ''}`}>{matchup.home_pitcher}</p>
+                            <div className="text-[8px] xs:text-[10px] text-gray-400 mt-1 font-semibold leading-tight flex flex-col xs:flex-row items-center justify-center gap-0.5 xs:gap-1.5">
+                                <span>({pitcherHome.record || '0-0'})</span>
+                                <span className="hidden xs:inline text-gray-500">|</span>
+                                <span className={getEraClass(pitcherHome.era)}>{pitcherHome.era || '0.00'} ERA</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -158,20 +186,17 @@ const MatchupCard = ({ prediction }) => {
                 <div className="flex justify-center items-center w-full mb-6 bg-slate-900/40 rounded-lg py-3 border border-slate-700/50 max-w-[320px] mx-auto shadow-inner px-2">
                     <div className="flex flex-col flex-1 text-right pr-3 md:pr-4 gap-2">
                         <span className="text-[10px] md:text-[11px] font-black text-gray-300">{matchup.away_stats?.record || "0-0"}</span>
-                        <span className="text-[10px] md:text-[11px] font-black text-gray-400">{matchup.away_stats?.home_record || "0-0"}</span>
                         <span className="text-[10px] md:text-[11px] font-black text-gray-400">{matchup.away_stats?.away_record || "0-0"}</span>
                         <span className="text-[10px] md:text-[11px] font-black text-gray-400">{matchup.away_stats?.l10 || "0-0"}</span>
                     </div>
                     <div className="flex flex-col flex-shrink-0 text-center gap-2 border-x border-slate-700/50 px-3 md:px-4">
                         <span className="text-[8px] md:text-[9px] text-gray-500 font-black uppercase tracking-widest">Overall</span>
-                        <span className="text-[8px] md:text-[9px] text-gray-500 font-black uppercase tracking-widest">Home</span>
-                        <span className="text-[8px] md:text-[9px] text-gray-500 font-black uppercase tracking-widest">Away</span>
+                        <span className="text-[8px] md:text-[9px] text-gray-500 font-black uppercase tracking-widest">A/H</span>
                         <span className="text-[8px] md:text-[9px] text-gray-500 font-black uppercase tracking-widest">L 10</span>
                     </div>
                     <div className="flex flex-col flex-1 text-left pl-3 md:pl-4 gap-2">
                         <span className="text-[10px] md:text-[11px] font-black text-gray-300">{matchup.home_stats?.record || "0-0"}</span>
                         <span className="text-[10px] md:text-[11px] font-black text-gray-400">{matchup.home_stats?.home_record || "0-0"}</span>
-                        <span className="text-[10px] md:text-[11px] font-black text-gray-400">{matchup.home_stats?.away_record || "0-0"}</span>
                         <span className="text-[10px] md:text-[11px] font-black text-gray-400">{matchup.home_stats?.l10 || "0-0"}</span>
                     </div>
                 </div>
@@ -198,21 +223,33 @@ const MatchupCard = ({ prediction }) => {
                     </div>
 
                     {/* ML Odds & Book O/U */}
-                    <div className="bg-slate-900/80 border border-slate-700 rounded-xl px-5 pt-4 pb-3 w-full max-w-[280px] flex items-center justify-between relative shadow-lg">
+                    <div className="bg-slate-900/80 border border-slate-700 rounded-xl px-4 pt-4 pb-3 w-full max-w-[290px] flex items-center justify-between relative shadow-lg">
                         <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-800 border border-slate-600 px-4 py-0.5 rounded-full text-[10px] font-black text-gray-300 shadow-md whitespace-nowrap">
                             Book O/U: {isOddsAvailable ? Odds.over_under : 'N/A'}
                         </div>
 
-                        <div className="flex flex-col items-center w-2/5">
-                            <span className={`text-xl font-black tracking-tight ${Odds.away_edge_pct > 5 ? 'text-mlb-green' : 'text-gray-200'}`}>
+                        <div className="flex flex-col items-center w-2/5 min-w-0">
+                            <span className={`text-lg xs:text-xl font-black tracking-tight truncate ${Odds.away_edge_pct > 5 ? 'text-mlb-green' : 'text-gray-200'}`}>
                                 {formatAmericanOdds(Odds.best_away_odds)}
                             </span>
+                            {Odds.away_book && (
+                                <div className="mt-1 flex items-center gap-1 max-w-full justify-center">
+                                    <SportsbookLogo bookmaker={Odds.away_book} size="xs" />
+                                    <span className="text-[8px] text-gray-500 font-bold uppercase truncate max-w-[55px] xs:max-w-[75px] md:max-w-none">{Odds.away_book}</span>
+                                </div>
+                            )}
                         </div>
-                        <div className="text-[10px] font-bold text-gray-600 uppercase tracking-widest w-1/5 text-center">ML</div>
-                        <div className="flex flex-col items-center w-2/5">
-                            <span className={`text-xl font-black tracking-tight ${Odds.home_edge_pct > 5 ? 'text-mlb-green' : 'text-gray-200'}`}>
+                        <div className="text-[10px] font-bold text-gray-600 uppercase tracking-widest w-1/5 text-center flex-shrink-0">ML</div>
+                        <div className="flex flex-col items-center w-2/5 min-w-0">
+                            <span className={`text-lg xs:text-xl font-black tracking-tight truncate ${Odds.home_edge_pct > 5 ? 'text-mlb-green' : 'text-gray-200'}`}>
                                 {formatAmericanOdds(Odds.best_home_odds)}
                             </span>
+                            {Odds.home_book && (
+                                <div className="mt-1 flex items-center gap-1 max-w-full justify-center">
+                                    <SportsbookLogo bookmaker={Odds.home_book} size="xs" />
+                                    <span className="text-[8px] text-gray-500 font-bold uppercase truncate max-w-[55px] xs:max-w-[75px] md:max-w-none">{Odds.home_book}</span>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -270,7 +307,10 @@ const MatchupCard = ({ prediction }) => {
                         <div className="w-full bg-slate-900/40">
                             {/* Table Header */}
                             <div className="flex justify-between items-center bg-slate-900/80 px-2 md:px-3 py-2 border-b border-slate-700/50">
-                                <div className="text-[8px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest w-[40%] text-left pl-1">Pitcher NRFI</div>
+                                <div className="text-[8px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest w-[40%] text-left pl-1 flex items-center gap-1.5">
+                                    Pitcher NRFI
+                                    {isFallback && <span className="text-[6px] font-black text-amber-500 bg-amber-500/10 border border-amber-500/20 px-1 py-0.5 rounded uppercase tracking-wider">⚠️ No Data</span>}
+                                </div>
                                 <div className="text-[8px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest w-[20%] text-center">Season</div>
                                 <div className="text-[8px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest w-[20%] text-center">Location</div>
                                 <div className="text-[8px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest w-[20%] text-center">Last 10</div>
@@ -282,7 +322,9 @@ const MatchupCard = ({ prediction }) => {
                                     <img src={getTeamLogo(matchup.away_team)} alt={matchup.away_team} className="w-5 h-5 md:w-8 md:h-8 drop-shadow-md flex-shrink-0" />
                                     <div className="flex flex-col min-w-0">
                                         <span className="text-[10px] md:text-sm font-black text-gray-200 truncate">{matchup.away_pitcher}</span>
-                                        {awayTrends.streak_score > 0 ? (
+                                        {awayPitcherNoData ? (
+                                            <span className="text-[7px] font-black text-amber-500/80 bg-amber-500/10 border border-amber-500/20 px-1 py-0.5 rounded uppercase tracking-wider leading-none mt-0.5 w-fit">Lig Ort.</span>
+                                        ) : !isFallback && awayTrends.streak_score > 0 ? (
                                             <span className="text-[8px] md:text-[10px] font-bold text-gray-400 flex items-center gap-0.5 md:gap-1 mt-0.5">
                                                 {awayTrends.streak_emoji} <span className="text-white font-black">{awayTrends.streak_score}W</span>
                                             </span>
@@ -291,9 +333,9 @@ const MatchupCard = ({ prediction }) => {
                                         )}
                                     </div>
                                 </div>
-                                <div className="w-[20%] flex justify-center">{renderNrfiStat(awayTrends.season_nrfi_pct, awayTrends.season_record)}</div>
-                                <div className="w-[20%] flex justify-center">{renderNrfiStat(awayTrends.location_nrfi_pct, awayTrends.location_record)}</div>
-                                <div className="w-[20%] flex justify-center">{renderNrfiStat(awayTrends.last10_nrfi_pct, awayTrends.last10_record)}</div>
+                                <div className="w-[20%] flex justify-center">{renderNrfiStat(awayTrends.season_nrfi_pct, awayTrends.season_record, isFallback)}</div>
+                                <div className="w-[20%] flex justify-center">{renderNrfiStat(awayTrends.location_nrfi_pct, awayTrends.location_record, isFallback)}</div>
+                                <div className="w-[20%] flex justify-center">{renderNrfiStat(awayTrends.last10_nrfi_pct, awayTrends.last10_record, isFallback)}</div>
                             </div>
 
                             {/* Home Pitcher Row */}
@@ -302,7 +344,9 @@ const MatchupCard = ({ prediction }) => {
                                     <img src={getTeamLogo(matchup.home_team)} alt={matchup.home_team} className="w-5 h-5 md:w-8 md:h-8 drop-shadow-md flex-shrink-0" />
                                     <div className="flex flex-col min-w-0">
                                         <span className="text-[10px] md:text-sm font-black text-gray-200 truncate">{matchup.home_pitcher}</span>
-                                        {homeTrends.streak_score > 0 ? (
+                                        {homePitcherNoData ? (
+                                            <span className="text-[7px] font-black text-amber-500/80 bg-amber-500/10 border border-amber-500/20 px-1 py-0.5 rounded uppercase tracking-wider leading-none mt-0.5 w-fit">Lig Ort.</span>
+                                        ) : !isFallback && homeTrends.streak_score > 0 ? (
                                             <span className="text-[8px] md:text-[10px] font-bold text-gray-400 flex items-center gap-0.5 md:gap-1 mt-0.5">
                                                 {homeTrends.streak_emoji} <span className="text-white font-black">{homeTrends.streak_score}W</span>
                                             </span>
@@ -311,31 +355,34 @@ const MatchupCard = ({ prediction }) => {
                                         )}
                                     </div>
                                 </div>
-                                <div className="w-[20%] flex justify-center">{renderNrfiStat(homeTrends.season_nrfi_pct, homeTrends.season_record)}</div>
-                                <div className="w-[20%] flex justify-center">{renderNrfiStat(homeTrends.location_nrfi_pct, homeTrends.location_record)}</div>
-                                <div className="w-[20%] flex justify-center">{renderNrfiStat(homeTrends.last10_nrfi_pct, homeTrends.last10_record)}</div>
+                                <div className="w-[20%] flex justify-center">{renderNrfiStat(homeTrends.season_nrfi_pct, homeTrends.season_record, isFallback)}</div>
+                                <div className="w-[20%] flex justify-center">{renderNrfiStat(homeTrends.location_nrfi_pct, homeTrends.location_record, isFallback)}</div>
+                                <div className="w-[20%] flex justify-center">{renderNrfiStat(homeTrends.last10_nrfi_pct, homeTrends.last10_record, isFallback)}</div>
                             </div>
                         </div>
 
                         {/* Team NRFI Records Footer Table */}
                         <div className="w-full bg-slate-900/60 mt-auto border-t border-slate-700">
                             <div className="flex justify-between items-center bg-slate-800/40 px-2 md:px-3 py-1.5 border-b border-slate-700/50">
-                                <div className="text-[7px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[30%] text-left pl-1">Team NRFI</div>
+                                <div className="text-[7px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[30%] text-left pl-1 flex items-center gap-1.5">
+                                    Team NRFI
+                                    {isFallback && <span className="text-[6px] font-black text-amber-500 bg-amber-500/10 border border-amber-500/20 px-1 py-0.5 rounded uppercase">⚠️ N/A</span>}
+                                </div>
                                 <div className="text-[7px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[20%] text-center">Season</div>
                                 <div className="text-[7px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[30%] text-center">Away/Home</div>
                                 <div className="text-[7px] md:text-[9px] font-black text-gray-500 uppercase tracking-widest w-[20%] text-center">L10</div>
                             </div>
                             <div className="flex justify-between items-center px-2 md:px-4 py-2 border-b border-slate-700/30">
                                 <div className="w-[30%] text-[9px] md:text-[10px] font-bold text-gray-400 flex items-center gap-1.5 min-w-0 pr-1"><span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-blue-500 flex-shrink-0"></span><span className="truncate">{matchup.away_team}</span></div>
-                                <div className="w-[20%] flex justify-center">{renderNrfiStat(awayTeamNrfi.season_nrfi_pct, awayTeamNrfi.season_record)}</div>
-                                <div className="w-[30%] flex justify-center items-center"><span className="text-[8px] text-gray-500 font-bold mr-1">A</span>{renderNrfiStat(awayTeamNrfi.location_nrfi_pct, awayTeamNrfi.location_record)}</div>
-                                <div className="w-[20%] flex justify-center">{renderNrfiStat(awayTeamNrfi.last10_nrfi_pct, awayTeamNrfi.last10_record)}</div>
+                                <div className="w-[20%] flex justify-center">{renderNrfiStat(awayTeamNrfi.season_nrfi_pct, awayTeamNrfi.season_record, isFallback)}</div>
+                                <div className="w-[30%] flex justify-center items-center"><span className="text-[8px] text-gray-500 font-bold mr-1">A</span>{renderNrfiStat(awayTeamNrfi.location_nrfi_pct, awayTeamNrfi.location_record, isFallback)}</div>
+                                <div className="w-[20%] flex justify-center">{renderNrfiStat(awayTeamNrfi.last10_nrfi_pct, awayTeamNrfi.last10_record, isFallback)}</div>
                             </div>
                             <div className="flex justify-between items-center px-2 md:px-4 py-2">
                                 <div className="w-[30%] text-[9px] md:text-[10px] font-bold text-gray-400 flex items-center gap-1.5 min-w-0 pr-1"><span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-red-500 flex-shrink-0"></span><span className="truncate">{matchup.home_team}</span></div>
-                                <div className="w-[20%] flex justify-center">{renderNrfiStat(homeTeamNrfi.season_nrfi_pct, homeTeamNrfi.season_record)}</div>
-                                <div className="w-[30%] flex justify-center items-center"><span className="text-[8px] text-gray-500 font-bold mr-1">H</span>{renderNrfiStat(homeTeamNrfi.location_nrfi_pct, homeTeamNrfi.location_record)}</div>
-                                <div className="w-[20%] flex justify-center">{renderNrfiStat(homeTeamNrfi.last10_nrfi_pct, homeTeamNrfi.last10_record)}</div>
+                                <div className="w-[20%] flex justify-center">{renderNrfiStat(homeTeamNrfi.season_nrfi_pct, homeTeamNrfi.season_record, isFallback)}</div>
+                                <div className="w-[30%] flex justify-center items-center"><span className="text-[8px] text-gray-500 font-bold mr-1">H</span>{renderNrfiStat(homeTeamNrfi.location_nrfi_pct, homeTeamNrfi.location_record, isFallback)}</div>
+                                <div className="w-[20%] flex justify-center">{renderNrfiStat(homeTeamNrfi.last10_nrfi_pct, homeTeamNrfi.last10_record, isFallback)}</div>
                             </div>
                         </div>
                     </div>
@@ -357,14 +404,26 @@ const MatchupCard = ({ prediction }) => {
                                 {isOddsAvailable && Odds.f5_away_odds !== 0.0 ? (
                                     <div className="flex justify-between text-[11px] md:text-sm mb-4 items-center bg-slate-900/50 p-2 md:p-3 rounded-lg border border-slate-700/50">
                                         <span className="text-gray-400 font-semibold leading-tight">Vegas F5 ML:</span>
-                                        <div className="flex gap-4">
-                                            <div className="flex flex-col items-center">
-                                                <span className="text-[10px] text-gray-500 font-black tracking-wider">{matchup.away_team}</span>
-                                                <span className={`font-black text-sm md:text-base ${Odds.f5_away_edge_pct > 5 ? 'text-mlb-green' : 'text-white'}`}>{formatAmericanOdds(Odds.f5_away_odds)}</span>
+                                        <div className="flex gap-3 xs:gap-4">
+                                            <div className="flex flex-col items-center min-w-[50px]">
+                                                <span className="text-[8px] xs:text-[10px] text-gray-500 font-black tracking-wider truncate max-w-[60px]">{matchup.away_team}</span>
+                                                <span className={`font-black text-xs xs:text-sm md:text-base ${Odds.f5_away_edge_pct > 5 ? 'text-mlb-green' : 'text-white'}`}>{formatAmericanOdds(Odds.f5_away_odds)}</span>
+                                                {Odds.f5_away_book && (
+                                                    <div className="mt-0.5 flex items-center gap-0.5">
+                                                        <SportsbookLogo bookmaker={Odds.f5_away_book} size="xs" />
+                                                        <span className="text-[7px] text-gray-600 font-bold uppercase truncate max-w-[45px] xs:max-w-[65px] md:max-w-none">{Odds.f5_away_book}</span>
+                                                    </div>
+                                                )}
                                             </div>
-                                            <div className="flex flex-col items-center">
-                                                <span className="text-[10px] text-gray-500 font-black tracking-wider">{matchup.home_team}</span>
-                                                <span className={`font-black text-sm md:text-base ${Odds.f5_home_edge_pct > 5 ? 'text-mlb-green' : 'text-white'}`}>{formatAmericanOdds(Odds.f5_home_odds)}</span>
+                                            <div className="flex flex-col items-center min-w-[50px]">
+                                                <span className="text-[8px] xs:text-[10px] text-gray-500 font-black tracking-wider truncate max-w-[60px]">{matchup.home_team}</span>
+                                                <span className={`font-black text-xs xs:text-sm md:text-base ${Odds.f5_home_edge_pct > 5 ? 'text-mlb-green' : 'text-white'}`}>{formatAmericanOdds(Odds.f5_home_odds)}</span>
+                                                {Odds.f5_home_book && (
+                                                    <div className="mt-0.5 flex items-center gap-0.5">
+                                                        <SportsbookLogo bookmaker={Odds.f5_home_book} size="xs" />
+                                                        <span className="text-[7px] text-gray-600 font-bold uppercase truncate max-w-[45px] xs:max-w-[65px] md:max-w-none">{Odds.f5_home_book}</span>
+                                                    </div>
+                                                )}
                                             </div>
                                         </div>
                                     </div>

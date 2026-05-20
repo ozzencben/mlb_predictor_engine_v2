@@ -244,16 +244,22 @@ class PredictionRunner:
                     "over_under": best_odds["over_under"],
                     "away_edge_pct": round(away_edge * 100, 1),
                     "home_edge_pct": round(home_edge * 100, 1),
+                    "away_book": best_odds.get("away_book", ""),
+                    "home_book": best_odds.get("home_book", ""),
                     
                     "f5_away_odds": best_odds["f5_away_odds"],
                     "f5_home_odds": best_odds["f5_home_odds"],
                     "f5_away_edge_pct": round(f5_away_edge * 100, 1),
                     "f5_home_edge_pct": round(f5_home_edge * 100, 1),
+                    "f5_away_book": best_odds.get("f5_away_book", ""),
+                    "f5_home_book": best_odds.get("f5_home_book", ""),
                     
                     "nrfi_odds": best_odds["nrfi_odds"],
                     "yrfi_odds": best_odds["yrfi_odds"],
                     "nrfi_edge_pct": round(nrfi_edge * 100, 1),
                     "yrfi_edge_pct": round(yrfi_edge * 100, 1),
+                    "nrfi_book": best_odds.get("nrfi_book", ""),
+                    "yrfi_book": best_odds.get("yrfi_book", ""),
                 }
 
                 weather_info = weather_db.get(home_team, {})
@@ -273,9 +279,17 @@ class PredictionRunner:
         # 3 & 4. AI verilerini SIRALI (Sequential) çekme - Free Tier Koruması
         print("\n🤖 Maçlar için AI analizleri üretiliyor (Rate Limit Korumalı)...")
         
+        skipped_count = 0
         for pred in all_predictions:
             away = pred['matchup']['away_team']
             home = pred['matchup']['home_team']
+
+            # --- CIRCUIT BREAKER: Günlük veya kalıcı kota dolduysa kalan maçları direkt atla ---
+            if getattr(ai_service, 'quota_exhausted', False):
+                skipped_count += 1
+                pred["Details"]["ai_insight"] = "AI analysis skipped: Daily token quota exhausted or rate limit tripped."
+                continue
+
             print(f"   ➤ Processing AI for: {away} vs {home}")
             try:
                 insight = await ai_service.generate_insight_async(pred)
@@ -284,10 +298,15 @@ class PredictionRunner:
                 print(f"❌ AI Insight Hatası ({away} @ {home}): {e}")
                 pred["Details"]["ai_insight"] = "AI analysis is temporarily unavailable."
             finally:
-                # Gemini Free Tier (15 RPM) limiti için her maç arası kesin olarak 4.5 saniye bekle
-                # Bu sayede 1 dakika içinde atılan istek sayısı 13-14 civarında kalır, 429 yemez.
-                await asyncio.sleep(4.5)
+                # Kota dolmadıysa istekler arası bekleme uygula
+                # Circuit açıksa bekleme gereksiz — zaten atlanıyor
+                if not getattr(ai_service, 'quota_exhausted', False):
+                    # Gemini Free Tier (15 RPM) limiti için her maç arası kesin olarak 4.5 saniye bekle
+                    # Bu sayede 1 dakika içinde atılan istek sayısı 13-14 civarında kalır, 429 yemez.
+                    await asyncio.sleep(4.5)
 
+        if skipped_count > 0:
+            print(f"⚡ {skipped_count} maç için AI analizi atlandı (kota/sınır aşımı).")
         print("✅ Tüm AI analizleri tamamlandı.")
 
         output_path = os.path.join(self.data_dir, "todays_predictions.json")

@@ -6,6 +6,7 @@ from app.core.config import settings
 class GeminiPredictor(BaseAIPredictor):
     def __init__(self):
         self.api_key = settings.GEMINI_API_KEY
+        self.quota_exhausted = False
         if self.api_key:
             self.client = genai.Client(api_key=self.api_key)
             self.model_name = 'gemini-1.5-flash'
@@ -73,12 +74,25 @@ class GeminiPredictor(BaseAIPredictor):
                 )
                 return response.text.strip()
             except Exception as e:
-                error_msg = str(e)
-                if "429" in error_msg and attempt < max_retries - 1:
-                    print(f"⚠️ Gemini 429 Kota Sınırı. {base_delay} sn bekleniyor... (Deneme {attempt + 1}/{max_retries})")
-                    await asyncio.sleep(base_delay)
-                    base_delay *= 1.5  # Exponential backoff
-                    continue
+                error_msg = str(e).lower()
+                is_429 = "429" in error_msg or "rate_limit" in error_msg or "rate limit" in error_msg or "quota" in error_msg
+                is_daily_limit = "daily" in error_msg or "tpd" in error_msg or "quota" in error_msg or "user limit" in error_msg
+                
+                if is_429:
+                    if is_daily_limit:
+                        print(f"🛑 Gemini Günlük/Kalıcı Limit Aşıldı. Circuit breaker devreye giriyor...")
+                        self.quota_exhausted = True
+                        return "AI analysis is temporarily unavailable due to daily API limits."
+                        
+                    if attempt < max_retries - 1:
+                        print(f"⚠️ Gemini 429 Kota Sınırı. {base_delay} sn bekleniyor... (Deneme {attempt + 1}/{max_retries})")
+                        await asyncio.sleep(base_delay)
+                        base_delay *= 1.5  # Exponential backoff
+                        continue
+                    else:
+                        print(f"🛑 Gemini 429 limit denemeleri tükendi. Circuit breaker devreye giriyor...")
+                        self.quota_exhausted = True
+                        return "AI analysis is temporarily unavailable due to upstream API limits."
                 else:
                     print(f"❌ Gemini AI Hatası: {e}")
-                    return "AI analysis is temporarily unavailable due to network/API restrictions."
+                    return f"AI analysis is temporarily unavailable: {e}"
