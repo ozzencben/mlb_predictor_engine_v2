@@ -112,36 +112,63 @@ def resolve_team_id(team_name: str) -> int | None:
 
 
 async def fetch_team_history_async(client: httpx.AsyncClient, team_id: int, opponent_id: int = None) -> list:
-    today = datetime.now()
-    yesterday = today - timedelta(days=1)
-    start_date = "2025-03-20"
-    end_date = yesterday.strftime("%Y-%m-%d")
-    
+    current_year = datetime.now().year
     url = "https://statsapi.mlb.com/api/v1/schedule"
+    
+    # 1. Fetch current year schedule
     params = {
         "sportId": 1,
-        "startDate": start_date,
-        "endDate": end_date,
+        "season": current_year,
         "teamId": team_id,
     }
     if opponent_id:
         params["opponentId"] = opponent_id
         
     try:
+        games = []
         response = await client.get(url, params=params, timeout=10.0)
         if response.status_code == 200:
             data = response.json()
-            games = []
             for date_node in data.get("dates", []):
                 for g in date_node.get("games", []):
-                    if g.get('status', {}).get('statusCode') == 'F':
+                    if g.get('status', {}).get('statusCode') == 'F' and g.get('gameType') == 'R':
                         games.append(g)
+                        
             # Sort by date descending
             games.sort(key=lambda x: x.get('gameDate', ''), reverse=True)
-            return games
         else:
-            print(f"⚠️ [statsapi] Error fetching history for team {team_id} (status: {response.status_code})")
-            return []
+            print(f"⚠️ [statsapi] Error fetching current history for team {team_id} (status: {response.status_code})")
+            
+        # 2. If we have less than 10 games, fetch the previous year's schedule as fallback
+        if len(games) < 10:
+            prev_year = current_year - 1
+            prev_params = {
+                "sportId": 1,
+                "season": prev_year,
+                "teamId": team_id,
+            }
+            if opponent_id:
+                prev_params["opponentId"] = opponent_id
+                
+            response_prev = await client.get(url, params=prev_params, timeout=10.0)
+            if response_prev.status_code == 200:
+                data_prev = response_prev.json()
+                prev_games = []
+                for date_node in data_prev.get("dates", []):
+                    for g in date_node.get("games", []):
+                        if g.get('status', {}).get('statusCode') == 'F' and g.get('gameType') == 'R':
+                            prev_games.append(g)
+                            
+                # Sort previous games descending and extend
+                prev_games.sort(key=lambda x: x.get('gameDate', ''), reverse=True)
+                games.extend(prev_games)
+                
+                # Re-sort combined list descending
+                games.sort(key=lambda x: x.get('gameDate', ''), reverse=True)
+            else:
+                print(f"⚠️ [statsapi] Error fetching fallback history for team {team_id} (status: {response_prev.status_code})")
+                
+        return games
     except Exception as e:
         print(f"⚠️ [statsapi] Exception fetching history for team {team_id}: {e}")
         return []
