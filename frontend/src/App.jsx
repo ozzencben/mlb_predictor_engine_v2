@@ -10,6 +10,21 @@ function App() {
   const [activeModel, setActiveModel] = useState('full'); // 'full', 'nrfi', 'f5'
   const { data, loading, error } = usePredictions();
 
+  const onNavigateToNrfi = (gameKey) => {
+    setActiveModel('nrfi');
+    setTimeout(() => {
+      const element = document.getElementById(`nrfi-card-${gameKey}`);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Add dynamic glowing indicator for visual delight
+        element.classList.add('ring-4', 'ring-indigo-500/80', 'shadow-[0_0_30px_rgba(99,102,241,0.6)]', 'transition-all', 'duration-500', 'scale-[1.015]');
+        setTimeout(() => {
+          element.classList.remove('ring-4', 'ring-indigo-500/80', 'shadow-[0_0_30px_rgba(99,102,241,0.6)]', 'scale-[1.015]');
+        }, 3000);
+      }
+    }, 150);
+  };
+
   // 503: Veri hazırlanıyor (zamanlayıcı henüz çalışmamış)
   if (error && error.includes('hazır değil')) {
     return (
@@ -137,6 +152,7 @@ function App() {
               <MatchupCard
                 key={`${game.matchup.away_team}-${game.matchup.home_team}`}
                 prediction={game}
+                onNavigateToNrfi={() => onNavigateToNrfi(`${game.matchup.away_team}-${game.matchup.home_team}`)}
               />
             ) : (
               <NrfiRow

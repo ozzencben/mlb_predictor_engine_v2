@@ -53,7 +53,7 @@ const NrfiRow = ({ prediction }) => {
     const scoreColor = isNrfiFavored ? "text-green-400 bg-green-500/10 border-green-500/30" : "text-red-400 bg-red-500/10 border-red-500/30";
 
     return (
-        <div className="bg-mlb-card rounded-xl border border-gray-700 shadow-lg overflow-hidden mb-3 md:mb-4 transition-all duration-300 hover:border-gray-500 w-full relative">
+        <div id={`nrfi-card-${matchup.away_team}-${matchup.home_team}`} className="bg-mlb-card rounded-xl border border-gray-700 shadow-lg overflow-hidden mb-3 md:mb-4 transition-all duration-300 hover:border-gray-500 w-full relative">
 
             {/* ABSOLUTE TIME BADGE (Kartın Sol Üstüne Taşındı) */}
             <div className="absolute top-0 left-0 bg-slate-800/80 backdrop-blur-sm border-b border-r border-gray-700 px-2.5 py-1 rounded-br-lg z-10 flex items-center justify-center shadow-sm">
@@ -143,13 +143,13 @@ const NrfiRow = ({ prediction }) => {
                                 )}
                             </h3>
                             <div className="bg-slate-800/50 rounded-lg p-2 border border-slate-700/50">
-                                <div className="grid grid-cols-4 gap-2 text-center items-center mb-2">
+                                <div className="grid grid-cols-[1.8fr_1fr_1fr_1fr] gap-2 text-center items-center mb-2">
                                     <div className="text-left text-[8px] md:text-[9px] font-black text-gray-500 uppercase">Pitcher</div>
                                     <div className="text-[8px] md:text-[9px] font-black text-gray-500 uppercase">Season</div>
                                     <div className="text-[8px] md:text-[9px] font-black text-gray-500 uppercase">Loc</div>
                                     <div className="text-[8px] md:text-[9px] font-black text-gray-500 uppercase">L10</div>
                                 </div>
-                                <div className="grid grid-cols-4 gap-2 text-center items-center mb-2 border-b border-slate-700/30 pb-2">
+                                <div className="grid grid-cols-[1.8fr_1fr_1fr_1fr] gap-2 text-center items-center mb-2 border-b border-slate-700/30 pb-2">
                                     <div className="text-left text-[9px] md:text-[10px] font-bold text-gray-300 truncate pr-1 flex flex-col gap-0.5">
                                         {matchup.away_pitcher}
                                         {awayPitcherNoData && <span className="text-[7px] font-black text-amber-500/80 bg-amber-500/10 border border-amber-500/20 px-1 py-0.5 rounded uppercase tracking-wider leading-none">Lig Ort.</span>}
@@ -161,7 +161,7 @@ const NrfiRow = ({ prediction }) => {
                                         {!isFallback && awayTrends.streak_emoji && <span className="text-xs">{awayTrends.streak_emoji}</span>}
                                     </div>
                                 </div>
-                                <div className="grid grid-cols-4 gap-2 text-center items-center">
+                                <div className="grid grid-cols-[1.8fr_1fr_1fr_1fr] gap-2 text-center items-center">
                                     <div className="text-left text-[9px] md:text-[10px] font-bold text-gray-300 truncate pr-1 flex flex-col gap-0.5">
                                         {matchup.home_pitcher}
                                         {homePitcherNoData && <span className="text-[7px] font-black text-amber-500/80 bg-amber-500/10 border border-amber-500/20 px-1 py-0.5 rounded uppercase tracking-wider leading-none">Lig Ort.</span>}
@@ -182,19 +182,19 @@ const NrfiRow = ({ prediction }) => {
                                 )}
                             </h3>
                             <div className="bg-slate-800/50 rounded-lg p-2 border border-slate-700/50">
-                                <div className="grid grid-cols-4 gap-2 text-center items-center mb-2">
+                                <div className="grid grid-cols-[1.8fr_1fr_1fr_1fr] gap-2 text-center items-center mb-2">
                                     <div className="text-left text-[8px] md:text-[9px] font-black text-gray-500 uppercase">Team</div>
                                     <div className="text-[8px] md:text-[9px] font-black text-gray-500 uppercase">Season</div>
                                     <div className="text-[8px] md:text-[9px] font-black text-gray-500 uppercase">Loc</div>
                                     <div className="text-[8px] md:text-[9px] font-black text-gray-500 uppercase">L10</div>
                                 </div>
-                                <div className="grid grid-cols-4 gap-2 text-center items-center mb-2 border-b border-slate-700/30 pb-2">
+                                <div className="grid grid-cols-[1.8fr_1fr_1fr_1fr] gap-2 text-center items-center mb-2 border-b border-slate-700/30 pb-2">
                                     <div className="text-left text-[9px] md:text-[10px] font-bold text-gray-300 truncate pr-1">{matchup.away_team}</div>
                                     <div>{renderNrfiStat(awayTeamNrfi.season_nrfi_pct, awayTeamNrfi.season_record, isFallback)}</div>
                                     <div>{renderNrfiStat(awayTeamNrfi.location_nrfi_pct, awayTeamNrfi.location_record, isFallback)}</div>
                                     <div>{renderNrfiStat(awayTeamNrfi.last10_nrfi_pct, awayTeamNrfi.last10_record, isFallback)}</div>
                                 </div>
-                                <div className="grid grid-cols-4 gap-2 text-center items-center">
+                                <div className="grid grid-cols-[1.8fr_1fr_1fr_1fr] gap-2 text-center items-center">
                                     <div className="text-left text-[9px] md:text-[10px] font-bold text-gray-300 truncate pr-1">{matchup.home_team}</div>
                                     <div>{renderNrfiStat(homeTeamNrfi.season_nrfi_pct, homeTeamNrfi.season_record, isFallback)}</div>
                                     <div>{renderNrfiStat(homeTeamNrfi.location_nrfi_pct, homeTeamNrfi.location_record, isFallback)}</div>
