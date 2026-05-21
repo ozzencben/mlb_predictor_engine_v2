@@ -125,6 +125,8 @@ class MatchupScraper:
                         "game_id": game['gamePk'],
                         "away_team": away_team,
                         "home_team": home_team,
+                        "away_team_id": away_node['team']['id'],
+                        "home_team_id": home_node['team']['id'],
                         "away_pitcher": away_pitcher,
                         "home_pitcher": home_pitcher,
                         "game_time": game_time,

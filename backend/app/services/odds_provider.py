@@ -60,13 +60,13 @@ class OddsProvider:
             print(f"⚠️ DETAY: {response_text}")
         print("-" * 60 + "\n")
 
-    # DİKKAT: 422 Hatasını önlemek için markets="h2h,totals" olarak daraltıldı.
-    def fetch_live_odds(self, regions="us", markets="h2h,totals", bookmakers="fanduel,draftkings,caesars,betmgm,fanatics,pointsbetus") -> list:
+    # DİKKAT: 422 Hatasını önlemek için markets="h2h,spreads,totals" olarak güncellendi.
+    def fetch_live_odds(self, regions="us", markets="h2h,spreads,totals", bookmakers="fanduel,draftkings,caesars,betmgm,fanatics,pointsbetus") -> list:
         """API'den Tyler'ın Bookie filtreleriyle birlikte taze oranları çeker."""
         if not self.api_key:
             return []
 
-        print("💰 The Odds API'den filtrelenmiş oranlar (ML ve Totals) çekiliyor...")
+        print("💰 The Odds API'den filtrelenmiş oranlar (ML, Spreads ve Totals) çekiliyor...")
 
         params = {
             "apiKey": self.api_key,
@@ -101,13 +101,13 @@ class OddsProvider:
             print(f"❌ [OddsProvider] Beklenmeyen Hata: {e}")
             return []
 
-    # DİKKAT: 422 Hatasını önlemek için markets="h2h,totals" olarak daraltıldı.
-    async def fetch_live_odds_async(self, client: httpx.AsyncClient, regions="us", markets="h2h,totals", bookmakers="fanduel,draftkings,caesars,betmgm,fanatics,pointsbetus") -> list:
+    # DİKKAT: 422 Hatasını önlemek için markets="h2h,spreads,totals" olarak güncellendi.
+    async def fetch_live_odds_async(self, client: httpx.AsyncClient, regions="us", markets="h2h,spreads,totals", bookmakers="fanduel,draftkings,caesars,betmgm,fanatics,pointsbetus") -> list:
         """API'den taze oranları asenkron olarak çeker, atomik kaydeder."""
         if not self.api_key:
             return []
 
-        print("💰 The Odds API'den filtrelenmiş oranlar (ML ve Totals) çekiliyor... (Async)")
+        print("💰 The Odds API'den filtrelenmiş oranlar (ML, Spreads ve Totals) çekiliyor... (Async)")
 
         params = {
             "apiKey": self.api_key,
@@ -146,7 +146,7 @@ class OddsProvider:
     def get_best_odds_for_game(self, away_team_tr: str, home_team_tr: str, odds_data: list) -> dict:
         """
         Piyasadaki (Filtrelenmiş Bookieler arasından) en yüksek oranları bulur.
-        Dönen Veri: Match ML, F5 ML, NRFI/YRFI ve Book O/U ile bookmaker isimleri.
+        Dönen Veri: Match ML, F5 ML, NRFI/YRFI, Book O/U, Spread bilgisi ve detaylı 3-column bahis tablosu verisi.
         """
         result = {
             "away_odds": 0.0, "home_odds": 0.0, "over_under": 0.0,
@@ -154,7 +154,8 @@ class OddsProvider:
             "nrfi_odds": 0.0, "yrfi_odds": 0.0,
             "away_book": "", "home_book": "",
             "f5_away_book": "", "f5_home_book": "",
-            "nrfi_book": "", "yrfi_book": ""
+            "nrfi_book": "", "yrfi_book": "",
+            "bookmakers": []
         }
 
         if not odds_data:
@@ -166,9 +167,21 @@ class OddsProvider:
 
             if api_away_tr == away_team_tr and api_home_tr == home_team_tr:
                 bookmakers = game.get("bookmakers", [])
+                bookmaker_lines = []
 
                 for bookie in bookmakers:
                     bookie_title = bookie.get("title", bookie.get("key", ""))
+                    
+                    away_ml = None
+                    home_ml = None
+                    away_spread = None
+                    away_spread_price = None
+                    home_spread = None
+                    home_spread_price = None
+                    total_line = None
+                    over_price = None
+                    under_price = None
+
                     for market in bookie.get("markets", []):
                         market_key = market["key"]
 
@@ -177,18 +190,42 @@ class OddsProvider:
                                 outcome_name_tr = self.mlb_to_tr_map.get(outcome["name"], outcome["name"])
                                 price = float(outcome.get("price", 0))
 
-                                if outcome_name_tr == away_team_tr and price > result["away_odds"]:
-                                    result["away_odds"] = price
-                                    result["away_book"] = bookie_title
-                                elif outcome_name_tr == home_team_tr and price > result["home_odds"]:
-                                    result["home_odds"] = price
-                                    result["home_book"] = bookie_title
+                                if outcome_name_tr == away_team_tr:
+                                    away_ml = price
+                                    if price > result["away_odds"]:
+                                        result["away_odds"] = price
+                                        result["away_book"] = bookie_title
+                                elif outcome_name_tr == home_team_tr:
+                                    home_ml = price
+                                    if price > result["home_odds"]:
+                                        result["home_odds"] = price
+                                        result["home_book"] = bookie_title
 
-                        elif market_key == "totals" and result["over_under"] == 0.0:
+                        elif market_key == "totals":
                             for outcome in market["outcomes"]:
-                                if "point" in outcome:
-                                    result["over_under"] = float(outcome["point"])
-                                    break 
+                                price = float(outcome.get("price", 0))
+                                point = float(outcome.get("point", 0))
+                                total_line = point
+                                if result["over_under"] == 0.0:
+                                    result["over_under"] = point
+                                
+                                if outcome["name"] == "Over":
+                                    over_price = price
+                                elif outcome["name"] == "Under":
+                                    under_price = price
+
+                        elif market_key == "spreads":
+                            for outcome in market["outcomes"]:
+                                outcome_name_tr = self.mlb_to_tr_map.get(outcome["name"], outcome["name"])
+                                price = float(outcome.get("price", 0))
+                                point = float(outcome.get("point", 0))
+                                
+                                if outcome_name_tr == away_team_tr:
+                                    away_spread = point
+                                    away_spread_price = price
+                                elif outcome_name_tr == home_team_tr:
+                                    home_spread = point
+                                    home_spread_price = price
 
                         elif market_key == "h2h_h1":
                             for outcome in market["outcomes"]:
@@ -213,8 +250,23 @@ class OddsProvider:
                                         result["nrfi_odds"] = price
                                         result["nrfi_book"] = bookie_title
 
+                    bookmaker_lines.append({
+                        "bookmaker": bookie_title,
+                        "away_ml": away_ml,
+                        "home_ml": home_ml,
+                        "away_spread": away_spread,
+                        "away_spread_price": away_spread_price,
+                        "home_spread": home_spread,
+                        "home_spread_price": home_spread_price,
+                        "total_line": total_line,
+                        "over_price": over_price,
+                        "under_price": under_price
+                    })
+
+                result["bookmakers"] = bookmaker_lines
                 break
         return result
+
 
     def convert_decimal_to_prob(self, decimal_odds: float) -> float:
         if decimal_odds <= 1.0:

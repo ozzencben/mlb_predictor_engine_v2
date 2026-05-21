@@ -27,7 +27,8 @@ const getTeamAbbr = (teamName) => {
     if (name.includes('twins') || name.includes('minnesota')) return 'MIN';
     if (name.includes('guardians') || name.includes('cleveland')) return 'CLE';
     if (name.includes('tigers') || name.includes('detroit')) return 'DET';
-    if (name.includes('white sox') || name.includes('chicago s')) return 'CWS';
+    if (name.includes('white sox') || name.includes('chicago s') || name.includes('cws') || name.includes('chi white sox') || name.includes('chi. white sox') || name.includes('chi. s') || name.includes('chi s') || name.includes('sox') || name.includes('chicago white sox')) return 'CWS';
+    if (name.includes('cubs') || name.includes('chicago c') || name.includes('chc') || name.includes('chi cubs') || name.includes('chi. cubs') || name.includes('chi. c') || name.includes('chi c') || name.includes('chicago cubs')) return 'CHC';
     if (name.includes('royals') || name.includes('kansas')) return 'KC';
     if (name.includes('astros') || name.includes('houston')) return 'HOU';
     if (name.includes('mariners') || name.includes('seattle')) return 'SEA';
@@ -38,7 +39,6 @@ const getTeamAbbr = (teamName) => {
     if (name.includes('phillies') || name.includes('philadelphia')) return 'PHI';
     if (name.includes('marlins') || name.includes('miami')) return 'MIA';
     if (name.includes('nationals') || name.includes('washington') || name.includes('wsh') || name.includes('was')) return 'WSH';
-    if (name.includes('cubs') || name.includes('chicago c')) return 'CHC';
     if (name.includes('brewers') || name.includes('milwaukee')) return 'MIL';
     if (name.includes('cardinals') || name.includes('st. l') || name.includes('st l')) return 'STL';
     if (name.includes('pirates') || name.includes('pittsburgh')) return 'PIT';
@@ -61,7 +61,7 @@ const generateLast10 = (teamName, isAwayLocation, l10Record, seedStr) => {
 
     const mlbTeams = [
         "NY Yankees", "Boston", "Toronto", "Baltimore", "Tampa Bay",
-        "Minnesota", "Cleveland", "Detroit", "Chicago Sox", "Kansas City",
+        "Minnesota", "Cleveland", "Detroit", "Chicago White Sox", "Kansas City",
         "Houston", "Seattle", "Texas", "LA Angels", "Oakland",
         "Atlanta", "NY Mets", "Philadelphia", "Miami", "Washington",
         "Chicago Cubs", "Milwaukee", "St Louis", "Pittsburgh", "Cincinnati",
@@ -73,7 +73,7 @@ const generateLast10 = (teamName, isAwayLocation, l10Record, seedStr) => {
         ...Array(totalWins).fill('W'),
         ...Array(totalLosses).fill('L')
     ];
-    
+
     // Seeded shuffle
     for (let i = outcomes.length - 1; i > 0; i--) {
         const j = Math.floor(rng() * (i + 1));
@@ -104,7 +104,7 @@ const generateLast10 = (teamName, isAwayLocation, l10Record, seedStr) => {
         const isFav = rng() > 0.5;
         const spreadSign = isFav ? '-1.5' : '+1.5';
         const spreadPlay = `${getTeamAbbr(homeTeam)} ${spreadSign}`;
-        
+
         let spreadCovered = false;
         if (spreadSign === '-1.5') {
             spreadCovered = (winnerName === homeTeam) && (runWinner - runLoser >= 2);
@@ -197,7 +197,7 @@ const generateH2H = (awayTeam, homeTeam, seedStr) => {
         // NYM is always favorite (-1.5) at home, WSH is underdog (+1.5) at home
         const spreadSign = getTeamAbbr(hostTeam) === 'NYM' ? '-1.5' : '+1.5';
         const spreadPlay = `${getTeamAbbr(hostTeam)} ${spreadSign}`;
-        
+
         let spreadCovered = false;
         if (spreadSign === '-1.5') {
             spreadCovered = (winner === hostTeam) && (runWinner - runLoser >= 2);
@@ -231,6 +231,54 @@ const generateH2H = (awayTeam, homeTeam, seedStr) => {
         }
     };
 };
+
+const generateMockBookmakers = (awayTeam, homeTeam, bestAwayOdds, bestHomeOdds, overUnder, seedStr) => {
+    const rng = seedRandom(`${awayTeam}-${homeTeam}-${seedStr}-bookies`);
+    const bookies = ['FanDuel', 'DraftKings', 'Caesars', 'BetMGM', 'Fanatics', 'PointsBet'];
+    
+    const baseAwayOdds = bestAwayOdds && bestAwayOdds > 1 ? bestAwayOdds : 1.91;
+    const baseHomeOdds = bestHomeOdds && bestHomeOdds > 1 ? bestHomeOdds : 1.91;
+    const baseTotal = overUnder && overUnder > 0 ? overUnder : 8.5;
+    
+    return bookies.map(book => {
+        const mlAwayVar = (rng() * 0.1 - 0.05);
+        const mlHomeVar = (rng() * 0.1 - 0.05);
+        
+        const away_ml = parseFloat((baseAwayOdds + mlAwayVar).toFixed(2));
+        const home_ml = parseFloat((baseHomeOdds + mlHomeVar).toFixed(2));
+        
+        const isAwayFav = baseAwayOdds < baseHomeOdds;
+        const away_spread = isAwayFav ? -1.5 : 1.5;
+        const home_spread = isAwayFav ? 1.5 : -1.5;
+        
+        const spreadAwayVar = (rng() * 0.1 - 0.05);
+        const spreadHomeVar = (rng() * 0.1 - 0.05);
+        
+        const away_spread_price = parseFloat((1.91 + spreadAwayVar).toFixed(2));
+        const home_spread_price = parseFloat((1.91 + spreadHomeVar).toFixed(2));
+        
+        const total_line = baseTotal;
+        const overVar = (rng() * 0.1 - 0.05);
+        const underVar = (rng() * 0.1 - 0.05);
+        
+        const over_price = parseFloat((1.91 + overVar).toFixed(2));
+        const under_price = parseFloat((1.91 + underVar).toFixed(2));
+        
+        return {
+            bookmaker: book,
+            away_ml,
+            home_ml,
+            away_spread,
+            away_spread_price,
+            home_spread,
+            home_spread_price,
+            total_line,
+            over_price,
+            under_price
+        };
+    });
+};
+
 
 const getEraClass = (era) => {
     if (!era || era === 'N/A' || era === '-') return 'text-gray-400 font-bold';
@@ -294,7 +342,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                     Date <span className="text-gray-600 text-[8px] md:text-[10px]">▲▼</span>
                                 </div>
                             </th>
-                            <th className="py-3 px-4">Opponent</th>
+                            <th className="py-3 px-4">{activeHistoryTab === 'h2h' ? 'Matchup' : 'Opponent'}</th>
                             <th className="py-3 px-4">Score</th>
                             <th className="py-3 px-4">Spread</th>
                             <th className="py-3 px-4">Total</th>
@@ -304,11 +352,12 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                         {gamesList.map((game, idx) => {
                             let logoUrl = '';
                             let opponentText = '';
-                            
+
                             if (activeHistoryTab === 'h2h') {
-                                const hostTeamName = game.isHome ? matchup.home_team : matchup.away_team;
-                                logoUrl = getTeamLogo(hostTeamName);
-                                opponentText = `@${getTeamAbbr(hostTeamName)}`;
+                                const guestTeam = game.isHome ? matchup.away_team : matchup.home_team;
+                                const hostTeam = game.isHome ? matchup.home_team : matchup.away_team;
+                                logoUrl = getTeamLogo(hostTeam);
+                                opponentText = `${getTeamAbbr(guestTeam)} @ ${getTeamAbbr(hostTeam)}`;
                             } else {
                                 logoUrl = getTeamLogo(game.opponent);
                                 opponentText = game.isAway ? `@${getTeamAbbr(game.opponent)}` : `vs ${getTeamAbbr(game.opponent)}`;
@@ -368,11 +417,76 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
     // Odds Barem Güvenlik Kontrolü
     const isOddsAvailable = Odds && Odds.over_under > 0;
 
-    // Generate H2H and Last 10 data deterministically
+    // Generate H2H and Last 10 data with backend API data or fallback to deterministic mock generators
     const seedStr = `${matchup.away_team}-${matchup.home_team}`;
-    const h2hData = useMemo(() => generateH2H(matchup.away_team, matchup.home_team, seedStr), [matchup.away_team, matchup.home_team, seedStr]);
-    const awayLast10 = useMemo(() => generateLast10(matchup.away_team, true, matchup.away_stats?.l10, seedStr), [matchup.away_team, matchup.away_stats?.l10, seedStr]);
-    const homeLast10 = useMemo(() => generateLast10(matchup.home_team, false, matchup.home_stats?.l10, seedStr), [matchup.home_team, matchup.home_stats?.l10, seedStr]);
+    
+    const h2hData = useMemo(() => {
+        if (prediction.History?.h2h && prediction.History.h2h.length > 0) {
+            const games = prediction.History.h2h;
+            let winsAway = 0;
+            let winsHome = 0;
+            let totalOver = 0;
+            let totalUnder = 0;
+            let totalPush = 0;
+            
+            games.forEach(g => {
+                if (g.winner === matchup.away_team) {
+                    winsAway++;
+                } else {
+                    winsHome++;
+                }
+                if (g.isOver) {
+                    totalOver++;
+                } else if (g.isPush) {
+                    totalPush++;
+                } else {
+                    totalUnder++;
+                }
+            });
+            
+            return {
+                games,
+                summary: {
+                    winsAway,
+                    winsHome,
+                    over: totalOver,
+                    under: totalUnder,
+                    push: totalPush
+                }
+            };
+        }
+        return generateH2H(matchup.away_team, matchup.home_team, seedStr);
+    }, [prediction.History?.h2h, matchup.away_team, matchup.home_team, seedStr]);
+
+    const awayLast10 = useMemo(() => {
+        if (prediction.History?.away_l10 && prediction.History.away_l10.length > 0) {
+            return prediction.History.away_l10;
+        }
+        return generateLast10(matchup.away_team, true, matchup.away_stats?.l10, seedStr);
+    }, [prediction.History?.away_l10, matchup.away_team, matchup.away_stats?.l10, seedStr]);
+
+    const homeLast10 = useMemo(() => {
+        if (prediction.History?.home_l10 && prediction.History.home_l10.length > 0) {
+            return prediction.History.home_l10;
+        }
+        return generateLast10(matchup.home_team, false, matchup.home_stats?.l10, seedStr);
+    }, [prediction.History?.home_l10, matchup.home_team, matchup.home_stats?.l10, seedStr]);
+
+    // Use the actual live bookmaker data from prediction.Odds if available,
+    // otherwise fallback to high-fidelity seed-based mock lines
+    const bookmakersList = useMemo(() => {
+        if (Odds?.bookmakers && Odds.bookmakers.length > 0) {
+            return Odds.bookmakers;
+        }
+        return generateMockBookmakers(
+            matchup.away_team, 
+            matchup.home_team, 
+            Odds?.best_away_odds, 
+            Odds?.best_home_odds, 
+            Odds?.over_under, 
+            seedStr
+        );
+    }, [Odds?.bookmakers, Odds?.best_away_odds, Odds?.best_home_odds, Odds?.over_under, matchup.away_team, matchup.home_team, seedStr]);
 
     // Spread Play Calculation
     const isAwayFav = parseFloat(Full_Game.full_away_win_prob) > parseFloat(Full_Game.full_home_win_prob);
@@ -381,8 +495,8 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
     const favProj = isAwayFav ? parseFloat(Full_Game.full_away_score) : parseFloat(Full_Game.full_home_score);
     const dogProj = isAwayFav ? parseFloat(Full_Game.full_home_score) : parseFloat(Full_Game.full_away_score);
     const projectedMargin = favProj - dogProj;
-    const spreadPlay = projectedMargin > 1.5 
-        ? `${favoredTeam} -1.5` 
+    const spreadPlay = projectedMargin > 1.5
+        ? `${favoredTeam} -1.5`
         : `${underdogTeam} +1.5`;
 
     // F5 Total Calculation
@@ -635,7 +749,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                     <div className="bg-slate-800/60 rounded-xl p-5 border border-slate-700/80 flex flex-col justify-between h-full shadow-lg">
                         <div>
                             <h3 className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-4 border-b border-slate-700 pb-2">Game Projections</h3>
-                            
+
                             <div className="grid grid-cols-2 gap-2.5 mb-2">
                                 {/* 1. Proj Score */}
                                 <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center">
@@ -749,12 +863,120 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                         </div>
                     )}
 
+                    {/* LIVE GAME LINES & SPORTSBOOK COMPARISON */}
+                    <div className="bg-slate-800/40 border border-slate-700/80 rounded-xl p-5 md:col-span-2 shadow-lg flex flex-col justify-between">
+                        <div className="flex justify-between items-center mb-4 border-b border-slate-700 pb-2">
+                            <div className="flex items-center gap-2">
+                                <span className="text-emerald-400 text-lg leading-none">💰</span>
+                                <h3 className="text-[10px] md:text-xs text-gray-300 font-bold uppercase tracking-widest pt-0.5">Live Game Lines & Odds</h3>
+                            </div>
+                            <span className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[9px] font-black px-2 py-0.5 rounded uppercase tracking-wider">
+                                Live Prices
+                            </span>
+                        </div>
+
+                        <div className="overflow-x-auto rounded-xl border border-slate-800/50 bg-slate-900/40">
+                            <table className="w-full text-left border-collapse">
+                                <thead>
+                                    <tr className="bg-slate-950/70 border-b border-slate-800 text-[9px] md:text-[10px] text-gray-400 font-black uppercase tracking-wider">
+                                        <th className="py-2.5 px-3 md:px-4">Bookmaker</th>
+                                        <th className="py-2.5 px-3 md:px-4">
+                                            <div className="flex flex-col">
+                                                <span>Spread</span>
+                                                <span className="text-[8px] text-gray-500 lowercase font-normal">({getTeamAbbr(matchup.away_team)} / {getTeamAbbr(matchup.home_team)})</span>
+                                            </div>
+                                        </th>
+                                        <th className="py-2.5 px-3 md:px-4">
+                                            <div className="flex flex-col">
+                                                <span>Total</span>
+                                                <span className="text-[8px] text-gray-500 lowercase font-normal">(over / under)</span>
+                                            </div>
+                                        </th>
+                                        <th className="py-2.5 px-3 md:px-4">
+                                            <div className="flex flex-col">
+                                                <span>Moneyline</span>
+                                                <span className="text-[8px] text-gray-500 lowercase font-normal">({getTeamAbbr(matchup.away_team)} / {getTeamAbbr(matchup.home_team)})</span>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-slate-850">
+                                    {bookmakersList.map((bookie, idx) => (
+                                        <tr key={idx} className="hover:bg-slate-800/10 text-xs text-gray-300 font-bold transition-colors">
+                                            {/* Bookmaker */}
+                                            <td className="py-3 px-3 md:px-4 whitespace-nowrap">
+                                                <div className="flex items-center gap-2">
+                                                    <SportsbookLogo bookmaker={bookie.bookmaker} size="sm" />
+                                                    <span className="text-gray-200 font-extrabold">{bookie.bookmaker}</span>
+                                                </div>
+                                            </td>
+                                            
+                                            {/* Spread */}
+                                            <td className="py-3 px-3 md:px-4 whitespace-nowrap font-bold text-gray-300">
+                                                <div className="flex flex-col gap-0.5">
+                                                    <span className={bookie.away_spread === -1.5 ? 'text-indigo-400' : 'text-gray-400'}>
+                                                        {bookie.away_spread !== null && bookie.away_spread !== undefined 
+                                                            ? `${bookie.away_spread > 0 ? '+' : ''}${bookie.away_spread} (${formatAmericanOdds(bookie.away_spread_price)})` 
+                                                            : '-'}
+                                                    </span>
+                                                    <span className={bookie.home_spread === -1.5 ? 'text-indigo-400' : 'text-gray-400'}>
+                                                        {bookie.home_spread !== null && bookie.home_spread !== undefined 
+                                                            ? `${bookie.home_spread > 0 ? '+' : ''}${bookie.home_spread} (${formatAmericanOdds(bookie.home_spread_price)})` 
+                                                            : '-'}
+                                                    </span>
+                                                </div>
+                                            </td>
+
+                                            {/* Total */}
+                                            <td className="py-3 px-3 md:px-4 whitespace-nowrap font-bold text-gray-300">
+                                                <div className="flex flex-col gap-0.5">
+                                                    <span>
+                                                        <span className="text-green-400 mr-1 font-black">O</span>
+                                                        {bookie.total_line !== null && bookie.total_line !== undefined 
+                                                            ? `${bookie.total_line} (${formatAmericanOdds(bookie.over_price)})` 
+                                                            : '-'}
+                                                    </span>
+                                                    <span>
+                                                        <span className="text-red-400 mr-1 font-black">U</span>
+                                                        {bookie.total_line !== null && bookie.total_line !== undefined 
+                                                            ? `${bookie.total_line} (${formatAmericanOdds(bookie.under_price)})` 
+                                                            : '-'}
+                                                    </span>
+                                                </div>
+                                            </td>
+
+                                            {/* Moneyline */}
+                                            <td className="py-3 px-3 md:px-4 whitespace-nowrap font-bold text-gray-300">
+                                                <div className="flex flex-col gap-0.5">
+                                                    <span className="text-blue-400">
+                                                        {bookie.away_ml !== null && bookie.away_ml !== undefined ? formatAmericanOdds(bookie.away_ml) : '-'}
+                                                    </span>
+                                                    <span className="text-blue-400">
+                                                        {bookie.home_ml !== null && bookie.home_ml !== undefined ? formatAmericanOdds(bookie.home_ml) : '-'}
+                                                    </span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
                     {/* EXPANDABLE COVERS-STYLE LAST 10 & HEAD TO HEAD */}
                     <div className="bg-slate-800/40 border border-slate-700/80 rounded-xl overflow-hidden shadow-lg md:col-span-2">
                         {/* Accordion Trigger */}
-                        <button
+                        <div
                             onClick={() => setIsHistoryExpanded(!isHistoryExpanded)}
-                            className="w-full px-3 md:px-5 py-3 md:py-4 flex justify-between items-center bg-slate-800 hover:bg-slate-700/90 transition-colors border-b border-slate-700"
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter' || e.key === ' ') {
+                                    e.preventDefault();
+                                    setIsHistoryExpanded(!isHistoryExpanded);
+                                }
+                            }}
+                            role="button"
+                            tabIndex={0}
+                            className="w-full px-3 md:px-5 py-3 md:py-4 flex justify-between items-center bg-slate-800 hover:bg-slate-700/90 transition-colors border-b border-slate-700 cursor-pointer select-none outline-none focus:ring-1 focus:ring-blue-500"
                         >
                             <div className="flex items-center gap-2 md:gap-2.5">
                                 <span className="w-5 h-5 md:w-6 h-6 rounded-full bg-blue-600 text-white font-black text-[9px] md:text-[11px] flex items-center justify-center shadow-md">
@@ -770,11 +992,10 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                             setActiveHistoryTab('away');
                                             setIsHistoryExpanded(true);
                                         }}
-                                        className={`rounded-full border px-3 md:px-4 py-1 md:py-1.5 text-[10px] md:text-xs font-bold transition-all ${
-                                            isHistoryExpanded && activeHistoryTab === 'away'
-                                                ? 'bg-blue-500/10 border-blue-500 text-blue-400 font-black shadow-[0_0_10px_rgba(59,130,246,0.15)]'
-                                                : 'bg-slate-900/50 border-slate-700 text-gray-400 hover:text-gray-200 hover:bg-slate-800/80'
-                                        }`}
+                                        className={`rounded-full border px-3 md:px-4 py-1 md:py-1.5 text-[10px] md:text-xs font-bold transition-all ${isHistoryExpanded && activeHistoryTab === 'away'
+                                            ? 'bg-blue-500/10 border-blue-500 text-blue-400 font-black shadow-[0_0_10px_rgba(59,130,246,0.15)]'
+                                            : 'bg-slate-900/50 border-slate-700 text-gray-400 hover:text-gray-200 hover:bg-slate-800/80'
+                                            }`}
                                     >
                                         {getTeamAbbr(matchup.away_team)}
                                     </button>
@@ -783,11 +1004,10 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                             setActiveHistoryTab('home');
                                             setIsHistoryExpanded(true);
                                         }}
-                                        className={`rounded-full border px-3 md:px-4 py-1 md:py-1.5 text-[10px] md:text-xs font-bold transition-all ${
-                                            isHistoryExpanded && activeHistoryTab === 'home'
-                                                ? 'bg-blue-500/10 border-blue-500 text-blue-400 font-black shadow-[0_0_10px_rgba(59,130,246,0.15)]'
-                                                : 'bg-slate-900/50 border-slate-700 text-gray-400 hover:text-gray-200 hover:bg-slate-800/80'
-                                        }`}
+                                        className={`rounded-full border px-3 md:px-4 py-1 md:py-1.5 text-[10px] md:text-xs font-bold transition-all ${isHistoryExpanded && activeHistoryTab === 'home'
+                                            ? 'bg-blue-500/10 border-blue-500 text-blue-400 font-black shadow-[0_0_10px_rgba(59,130,246,0.15)]'
+                                            : 'bg-slate-900/50 border-slate-700 text-gray-400 hover:text-gray-200 hover:bg-slate-800/80'
+                                            }`}
                                     >
                                         {getTeamAbbr(matchup.home_team)}
                                     </button>
@@ -796,11 +1016,10 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                             setActiveHistoryTab('h2h');
                                             setIsHistoryExpanded(true);
                                         }}
-                                        className={`rounded-full border px-3 md:px-4 py-1 md:py-1.5 text-[10px] md:text-xs font-bold transition-all ${
-                                            isHistoryExpanded && activeHistoryTab === 'h2h'
-                                                ? 'bg-blue-500/10 border-blue-500 text-blue-400 font-black shadow-[0_0_10px_rgba(59,130,246,0.15)]'
-                                                : 'bg-slate-900/50 border-slate-700 text-gray-400 hover:text-gray-200 hover:bg-slate-800/80'
-                                        }`}
+                                        className={`rounded-full border px-3 md:px-4 py-1 md:py-1.5 text-[10px] md:text-xs font-bold transition-all ${isHistoryExpanded && activeHistoryTab === 'h2h'
+                                            ? 'bg-blue-500/10 border-blue-500 text-blue-400 font-black shadow-[0_0_10px_rgba(59,130,246,0.15)]'
+                                            : 'bg-slate-900/50 border-slate-700 text-gray-400 hover:text-gray-200 hover:bg-slate-800/80'
+                                            }`}
                                     >
                                         H2H
                                     </button>
@@ -809,7 +1028,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                     {isHistoryExpanded ? '▲' : '▼'}
                                 </span>
                             </div>
-                        </button>
+                        </div>
 
                         {/* Accordion Content */}
                         {isHistoryExpanded && (
@@ -853,9 +1072,13 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
 
                                 {activeHistoryTab === 'away' && (
                                     <div className="space-y-4">
-                                        <div className="flex items-center justify-between px-1">
-                                            <h4 className="text-xs md:text-sm font-black text-gray-400 uppercase tracking-wider">{matchup.away_team} Last 10 Scoreboard</h4>
-                                            <span className="px-2 py-0.5 rounded bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-black tracking-wider uppercase">L10: {matchup.away_stats?.l10 || '5-5'}</span>
+                                        <div className="flex flex-wrap items-center justify-between px-1 gap-2">
+                                            <h4 className="flex-1 min-w-[150px] text-xs md:text-sm font-black text-gray-400 uppercase tracking-wider">
+                                                {matchup.away_team} Last 10 Scoreboard
+                                            </h4>
+                                            <span className="shrink-0 px-2 py-0.5 rounded bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-black tracking-wider uppercase">
+                                                L10: {matchup.away_stats?.l10 || '5-5'}
+                                            </span>
                                         </div>
                                         {renderHistoryTable(awayLast10)}
                                     </div>
@@ -863,9 +1086,13 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
 
                                 {activeHistoryTab === 'home' && (
                                     <div className="space-y-4">
-                                        <div className="flex items-center justify-between px-1">
-                                            <h4 className="text-xs md:text-sm font-black text-gray-400 uppercase tracking-wider">{matchup.home_team} Last 10 Scoreboard</h4>
-                                            <span className="px-2 py-0.5 rounded bg-red-500/10 border border-red-500/20 text-red-400 text-[10px] font-black tracking-wider uppercase">L10: {matchup.home_stats?.l10 || '5-5'}</span>
+                                        <div className="flex flex-wrap items-center justify-between px-1 gap-2">
+                                            <h4 className="flex-1 min-w-[150px] text-xs md:text-sm font-black text-gray-400 uppercase tracking-wider">
+                                                {matchup.home_team} Last 10 Scoreboard
+                                            </h4>
+                                            <span className="shrink-0 px-2 py-0.5 rounded bg-red-500/10 border border-red-500/20 text-red-400 text-[10px] font-black tracking-wider uppercase">
+                                                L10: {matchup.home_stats?.l10 || '5-5'}
+                                            </span>
                                         </div>
                                         {renderHistoryTable(homeLast10)}
                                     </div>

@@ -17,6 +17,8 @@ class GameInputData(BaseModel):
     odds: dict = Field(default_factory=dict)
     away_team_stats: dict = Field(default_factory=dict)
     home_team_stats: dict = Field(default_factory=dict)
+    away_team_id: int = None
+    home_team_id: int = None
 
 
 # Artık bu sınıfları doğrudan import ediyoruz. (Önceki adımlarda yazdığımız sınıflar)
