@@ -15,6 +15,42 @@ const seedRandom = (str) => {
     };
 };
 
+const getTeamAbbr = (teamName) => {
+    if (!teamName) return '';
+    const name = teamName.toLowerCase();
+    if (name.includes('yankee')) return 'NYY';
+    if (name.includes('mets') || name.includes('met')) return 'NYM';
+    if (name.includes('red sox') || name.includes('boston')) return 'BOS';
+    if (name.includes('blue jays') || name.includes('toronto')) return 'TOR';
+    if (name.includes('orioles') || name.includes('baltimore')) return 'BAL';
+    if (name.includes('tampa') || name.includes('rays')) return 'TB';
+    if (name.includes('twins') || name.includes('minnesota')) return 'MIN';
+    if (name.includes('guardians') || name.includes('cleveland')) return 'CLE';
+    if (name.includes('tigers') || name.includes('detroit')) return 'DET';
+    if (name.includes('white sox') || name.includes('chicago s')) return 'CWS';
+    if (name.includes('royals') || name.includes('kansas')) return 'KC';
+    if (name.includes('astros') || name.includes('houston')) return 'HOU';
+    if (name.includes('mariners') || name.includes('seattle')) return 'SEA';
+    if (name.includes('rangers') || name.includes('texas')) return 'TEX';
+    if (name.includes('angels') || name.includes('laa')) return 'LAA';
+    if (name.includes('athletics') || name.includes('oakland') || name.includes('a\'s')) return 'OAK';
+    if (name.includes('braves') || name.includes('atlanta')) return 'ATL';
+    if (name.includes('phillies') || name.includes('philadelphia')) return 'PHI';
+    if (name.includes('marlins') || name.includes('miami')) return 'MIA';
+    if (name.includes('nationals') || name.includes('washington') || name.includes('wsh') || name.includes('was')) return 'WSH';
+    if (name.includes('cubs') || name.includes('chicago c')) return 'CHC';
+    if (name.includes('brewers') || name.includes('milwaukee')) return 'MIL';
+    if (name.includes('cardinals') || name.includes('st. l') || name.includes('st l')) return 'STL';
+    if (name.includes('pirates') || name.includes('pittsburgh')) return 'PIT';
+    if (name.includes('reds') || name.includes('cincinnati')) return 'CIN';
+    if (name.includes('dodgers') || name.includes('los a')) return 'LAD';
+    if (name.includes('giants') || name.includes('san f')) return 'SF';
+    if (name.includes('padres') || name.includes('san d')) return 'SD';
+    if (name.includes('diamondbacks') || name.includes('arizona')) return 'ARI';
+    if (name.includes('rockies') || name.includes('colorado')) return 'COL';
+    return teamName.substring(0, 3).toUpperCase();
+};
+
 const generateLast10 = (teamName, isAwayLocation, l10Record, seedStr) => {
     const l10 = l10Record || "5-5";
     const [winsCount, lossesCount] = l10.split('-').map(Number);
@@ -51,7 +87,7 @@ const generateLast10 = (teamName, isAwayLocation, l10Record, seedStr) => {
     for (let i = 0; i < 10; i++) {
         const dateObj = new Date(baseDate);
         dateObj.setDate(baseDate.getDate() - (i + 1));
-        const dateStr = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        const dateStr = `${dateObj.getMonth() + 1}/${dateObj.getDate()}/${dateObj.getFullYear().toString().slice(-2)}`;
 
         const opponent = filteredOpponents[Math.floor(rng() * filteredOpponents.length)];
         const isAway = rng() > 0.5;
@@ -59,20 +95,44 @@ const generateLast10 = (teamName, isAwayLocation, l10Record, seedStr) => {
 
         const runWinner = Math.floor(rng() * 6) + 3; // 3 to 8
         const runLoser = Math.max(1, runWinner - (Math.floor(rng() * 4) + 1)); // 1 to runWinner-1
+
+        const winnerName = outcome === 'W' ? teamName : opponent;
+        const score = `${getTeamAbbr(winnerName)} ${runWinner}-${runLoser}`;
+
+        // Spread calculations
+        const homeTeam = isAway ? opponent : teamName;
+        const isFav = rng() > 0.5;
+        const spreadSign = isFav ? '-1.5' : '+1.5';
+        const spreadPlay = `${getTeamAbbr(homeTeam)} ${spreadSign}`;
         
-        let scoreStr;
-        if (outcome === 'W') {
-            scoreStr = `${runWinner} - ${runLoser}`;
+        let spreadCovered = false;
+        if (spreadSign === '-1.5') {
+            spreadCovered = (winnerName === homeTeam) && (runWinner - runLoser >= 2);
         } else {
-            scoreStr = `${runLoser} - ${runWinner}`;
+            spreadCovered = (winnerName === homeTeam) || (winnerName !== homeTeam && (runWinner - runLoser === 1));
         }
+
+        // Total calculations
+        const ouLines = [6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0];
+        const ouLine = ouLines[Math.floor(rng() * ouLines.length)];
+        const runTotal = runWinner + runLoser;
+        const isOver = runTotal > ouLine;
+        const isPush = runTotal === ouLine;
 
         list.push({
             date: dateStr,
             opponent,
             isAway,
             outcome,
-            score: scoreStr
+            winner: winnerName,
+            runWinner,
+            runLoser,
+            score,
+            spreadPlay,
+            spreadCovered,
+            ouLine,
+            isOver,
+            isPush
         });
     }
     return list;
@@ -81,7 +141,6 @@ const generateLast10 = (teamName, isAwayLocation, l10Record, seedStr) => {
 const generateH2H = (awayTeam, homeTeam, seedStr) => {
     const rng = seedRandom(`${awayTeam}-${homeTeam}-${seedStr}-h2h`);
 
-    // CLE vs DET -> e.g. CLE wins 6, DET wins 4
     const winsAway = Math.floor(rng() * 4) + 4; // 4 to 7 wins for Away
     const outcomes = [
         ...Array(winsAway).fill('away'),
@@ -103,15 +162,10 @@ const generateH2H = (awayTeam, homeTeam, seedStr) => {
     let totalUnder = 0;
     let totalPush = 0;
 
-    const pitchersList = [
-        "T. Bibee", "P. Messick", "S. Cecconi", "G. Williams", "T. Skubal",
-        "C. Mize", "J. Flaherty", "D. Anderson", "K. Maeda", "R. Olson"
-    ];
-
     for (let i = 0; i < 10; i++) {
         const dateObj = new Date(baseDate);
         dateObj.setDate(baseDate.getDate() - (i * 3 + 1));
-        const dateStr = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: '2-digit' });
+        const dateStr = `${dateObj.getMonth() + 1}/${dateObj.getDate()}/${dateObj.getFullYear().toString().slice(-2)}`;
 
         const outcome = outcomes[i];
         const winner = outcome === 'away' ? awayTeam : homeTeam;
@@ -120,36 +174,49 @@ const generateH2H = (awayTeam, homeTeam, seedStr) => {
         const runLoser = Math.max(1, runWinner - (Math.floor(rng() * 3) + 1)); // 1 to runWinner-1
         const runTotal = runWinner + runLoser;
 
-        const ouLines = [6.5, 7.0, 7.5, 8.0, 8.5];
+        const ouLines = [6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0];
         const ouLine = ouLines[Math.floor(rng() * ouLines.length)];
 
-        let ouOutcome = 'Push';
-        if (runTotal > ouLine) {
-            ouOutcome = 'Over';
+        let isOver = runTotal > ouLine;
+        let isPush = runTotal === ouLine;
+        if (isOver) {
             totalOver++;
-        } else if (runTotal < ouLine) {
-            ouOutcome = 'Under';
+        } else if (!isPush) {
             totalUnder++;
         } else {
             totalPush++;
         }
 
-        const winnerMl = -110 - Math.floor(rng() * 80);
+        const isHome = rng() > 0.5;
+        const hostTeam = isHome ? homeTeam : awayTeam;
+        const guestTeam = isHome ? awayTeam : homeTeam;
+
+        const score = `${getTeamAbbr(winner)} ${runWinner}-${runLoser}`;
+
+        // Spread play and cover logic for H2H
+        // NYM is always favorite (-1.5) at home, WSH is underdog (+1.5) at home
+        const spreadSign = getTeamAbbr(hostTeam) === 'NYM' ? '-1.5' : '+1.5';
+        const spreadPlay = `${getTeamAbbr(hostTeam)} ${spreadSign}`;
         
-        const awayStarter = pitchersList[Math.floor(rng() * 5)];
-        const homeStarter = pitchersList[Math.floor(rng() * 5) + 5];
-        const ipAway = (rng() * 2 + 5).toFixed(1);
-        const ipHome = (rng() * 2 + 5).toFixed(1);
+        let spreadCovered = false;
+        if (spreadSign === '-1.5') {
+            spreadCovered = (winner === hostTeam) && (runWinner - runLoser >= 2);
+        } else {
+            spreadCovered = (winner === hostTeam) || (winner === guestTeam && (runWinner - runLoser === 1));
+        }
 
         list.push({
             date: dateStr,
-            isHome: rng() > 0.5,
+            isHome,
             winner,
-            score: outcome === 'away' ? `${runWinner}-${runLoser}` : `${runLoser}-${runWinner}`,
-            winnerMl: `${winner.substring(0, 3).toUpperCase()} ${winnerMl}`,
-            ouLine: `${ouOutcome.substring(0, 1).toLowerCase()}${ouLine.toFixed(1)}`,
-            awayStarter: `${awayStarter} (${ipAway})`,
-            homeStarter: `${homeStarter} (${ipHome})`,
+            runWinner,
+            runLoser,
+            score,
+            spreadPlay,
+            spreadCovered,
+            ouLine,
+            isOver,
+            isPush
         });
     }
 
@@ -215,6 +282,69 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
     const [isHistoryExpanded, setIsHistoryExpanded] = useState(false);
 
     const { matchup, NRFI, F5, Full_Game, Details, Odds, Weather } = prediction;
+
+    const renderHistoryTable = (gamesList) => {
+        return (
+            <div className="overflow-x-auto rounded-xl border border-slate-800/50 bg-slate-900/40">
+                <table className="w-full text-left border-collapse">
+                    <thead>
+                        <tr className="bg-slate-950/70 border-b border-slate-800 text-[10px] md:text-[11px] text-gray-400 font-black uppercase tracking-wider">
+                            <th className="py-3 px-4">
+                                <div className="flex items-center gap-1">
+                                    Date <span className="text-gray-600 text-[8px] md:text-[10px]">▲▼</span>
+                                </div>
+                            </th>
+                            <th className="py-3 px-4">Opponent</th>
+                            <th className="py-3 px-4">Score</th>
+                            <th className="py-3 px-4">Spread</th>
+                            <th className="py-3 px-4">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-850">
+                        {gamesList.map((game, idx) => {
+                            let logoUrl = '';
+                            let opponentText = '';
+                            
+                            if (activeHistoryTab === 'h2h') {
+                                const hostTeamName = game.isHome ? matchup.home_team : matchup.away_team;
+                                logoUrl = getTeamLogo(hostTeamName);
+                                opponentText = `@${getTeamAbbr(hostTeamName)}`;
+                            } else {
+                                logoUrl = getTeamLogo(game.opponent);
+                                opponentText = game.isAway ? `@${getTeamAbbr(game.opponent)}` : `vs ${getTeamAbbr(game.opponent)}`;
+                            }
+
+                            return (
+                                <tr key={idx} className="hover:bg-slate-800/20 text-xs md:text-sm text-gray-300 font-medium transition-colors">
+                                    <td className="py-3.5 px-4 text-gray-400 font-bold whitespace-nowrap">{game.date}</td>
+                                    <td className="py-3.5 px-4 whitespace-nowrap">
+                                        <div className="flex items-center gap-2">
+                                            <img src={logoUrl} alt={opponentText} className="w-5 h-5 md:w-6 h-6 object-contain drop-shadow-sm" />
+                                            <span className="font-extrabold text-blue-400">{opponentText}</span>
+                                        </div>
+                                    </td>
+                                    <td className="py-3.5 px-4 font-extrabold text-blue-400 whitespace-nowrap">{game.score}</td>
+                                    <td className={`py-3.5 px-4 font-black whitespace-nowrap ${game.spreadCovered ? 'text-green-400' : 'text-red-400'}`}>
+                                        {game.spreadPlay}
+                                    </td>
+                                    <td className="py-3.5 px-4 whitespace-nowrap">
+                                        <div className="flex items-center gap-1">
+                                            <span className={`font-black ${game.isOver ? 'text-green-400' : game.isPush ? 'text-gray-400' : 'text-red-400'}`}>
+                                                {game.isOver ? 'O' : game.isPush ? 'P' : 'U'}
+                                            </span>
+                                            <span className="text-gray-400 font-bold">
+                                                {game.ouLine}
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table>
+            </div>
+        );
+    };
     const pitcherAway = Details?.pitcher_analysis?.away || {};
     const pitcherHome = Details?.pitcher_analysis?.home || {};
     const isLive = matchup.status === "In Progress";
@@ -627,43 +757,63 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                             className="w-full px-3 md:px-5 py-3 md:py-4 flex justify-between items-center bg-slate-800 hover:bg-slate-700/90 transition-colors border-b border-slate-700"
                         >
                             <div className="flex items-center gap-2 md:gap-2.5">
-                                <span className="text-indigo-400 text-base md:text-lg leading-none">📊</span>
-                                <span className="text-[10px] md:text-sm font-black text-gray-200 uppercase tracking-wider pt-0.5">Son 10 & H2H History</span>
+                                <span className="w-5 h-5 md:w-6 h-6 rounded-full bg-blue-600 text-white font-black text-[9px] md:text-[11px] flex items-center justify-center shadow-md">
+                                    vs
+                                </span>
+                                <span className="text-[11px] md:text-sm font-black text-gray-200 uppercase tracking-wider pt-0.5">Last 10 Games</span>
                             </div>
-                            <span className="text-gray-400 font-black text-[9px] md:text-sm uppercase tracking-wider">
-                                {isHistoryExpanded ? 'Hide ⬆' : 'Show ⬇'}
-                            </span>
+
+                            <div className="flex items-center gap-3">
+                                <div className="flex items-center gap-1.5 md:gap-2" onClick={(e) => e.stopPropagation()}>
+                                    <button
+                                        onClick={() => {
+                                            setActiveHistoryTab('away');
+                                            setIsHistoryExpanded(true);
+                                        }}
+                                        className={`rounded-full border px-3 md:px-4 py-1 md:py-1.5 text-[10px] md:text-xs font-bold transition-all ${
+                                            isHistoryExpanded && activeHistoryTab === 'away'
+                                                ? 'bg-blue-500/10 border-blue-500 text-blue-400 font-black shadow-[0_0_10px_rgba(59,130,246,0.15)]'
+                                                : 'bg-slate-900/50 border-slate-700 text-gray-400 hover:text-gray-200 hover:bg-slate-800/80'
+                                        }`}
+                                    >
+                                        {getTeamAbbr(matchup.away_team)}
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            setActiveHistoryTab('home');
+                                            setIsHistoryExpanded(true);
+                                        }}
+                                        className={`rounded-full border px-3 md:px-4 py-1 md:py-1.5 text-[10px] md:text-xs font-bold transition-all ${
+                                            isHistoryExpanded && activeHistoryTab === 'home'
+                                                ? 'bg-blue-500/10 border-blue-500 text-blue-400 font-black shadow-[0_0_10px_rgba(59,130,246,0.15)]'
+                                                : 'bg-slate-900/50 border-slate-700 text-gray-400 hover:text-gray-200 hover:bg-slate-800/80'
+                                        }`}
+                                    >
+                                        {getTeamAbbr(matchup.home_team)}
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            setActiveHistoryTab('h2h');
+                                            setIsHistoryExpanded(true);
+                                        }}
+                                        className={`rounded-full border px-3 md:px-4 py-1 md:py-1.5 text-[10px] md:text-xs font-bold transition-all ${
+                                            isHistoryExpanded && activeHistoryTab === 'h2h'
+                                                ? 'bg-blue-500/10 border-blue-500 text-blue-400 font-black shadow-[0_0_10px_rgba(59,130,246,0.15)]'
+                                                : 'bg-slate-900/50 border-slate-700 text-gray-400 hover:text-gray-200 hover:bg-slate-800/80'
+                                        }`}
+                                    >
+                                        H2H
+                                    </button>
+                                </div>
+                                <span className="text-gray-400 font-bold text-xs md:text-sm ml-2">
+                                    {isHistoryExpanded ? '▲' : '▼'}
+                                </span>
+                            </div>
                         </button>
 
                         {/* Accordion Content */}
                         {isHistoryExpanded && (
                             <div className="p-4 md:p-6 bg-slate-900/60">
-                                {/* Sub-Tabs Navigation */}
-                                <div className="flex border-b border-slate-800 mb-6 gap-1 md:gap-2">
-                                    <button
-                                        onClick={() => setActiveHistoryTab('h2h')}
-                                        className={`pb-3 px-2 md:px-3 text-xs md:text-sm font-black uppercase tracking-wider relative transition-colors ${activeHistoryTab === 'h2h' ? 'text-indigo-400 border-b-2 border-indigo-500' : 'text-gray-500 hover:text-gray-300'}`}
-                                    >
-                                        <span className="md:hidden">H2H</span>
-                                        <span className="hidden md:inline">H2H History</span>
-                                    </button>
-                                    <button
-                                        onClick={() => setActiveHistoryTab('away')}
-                                        className={`pb-3 px-2 md:px-3 text-xs md:text-sm font-black uppercase tracking-wider relative transition-colors ${activeHistoryTab === 'away' ? 'text-indigo-400 border-b-2 border-indigo-500' : 'text-gray-500 hover:text-gray-300'}`}
-                                    >
-                                        <span className="md:hidden">{matchup.away_team.substring(0, 4).toUpperCase()}</span>
-                                        <span className="hidden md:inline">{matchup.away_team} Last 10</span>
-                                    </button>
-                                    <button
-                                        onClick={() => setActiveHistoryTab('home')}
-                                        className={`pb-3 px-2 md:px-3 text-xs md:text-sm font-black uppercase tracking-wider relative transition-colors ${activeHistoryTab === 'home' ? 'text-indigo-400 border-b-2 border-indigo-500' : 'text-gray-500 hover:text-gray-300'}`}
-                                    >
-                                        <span className="md:hidden">{matchup.home_team.substring(0, 4).toUpperCase()}</span>
-                                        <span className="hidden md:inline">{matchup.home_team} Last 10</span>
-                                    </button>
-                                </div>
-
-                                {/* Tab Content */}
                                 {activeHistoryTab === 'h2h' && (
                                     <div className="space-y-6">
                                         {/* H2H Aggregated Stats Bar */}
@@ -673,7 +823,6 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                                     <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">Win/Loss Record</span>
                                                     <div className="flex items-baseline gap-2">
                                                         <span className="text-xl font-black text-white">{h2hData.summary.winsAway}-{h2hData.summary.winsHome}</span>
-                                                        <span className="text-[10px] text-gray-400 font-semibold md:hidden">({matchup.away_team.substring(0, 3).toUpperCase()} v {matchup.home_team.substring(0, 3).toUpperCase()})</span>
                                                         <span className="text-[10px] text-gray-400 font-semibold hidden md:inline">({matchup.away_team} vs {matchup.home_team})</span>
                                                     </div>
                                                 </div>
@@ -681,13 +830,13 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                                 <div className="flex flex-col">
                                                     <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">Over / Under</span>
                                                     <div className="flex items-baseline gap-1.5">
-                                                        <span className="text-lg font-black text-mlb-green">{h2hData.summary.over} Over</span>
+                                                        <span className="text-lg font-black text-green-400">{h2hData.summary.over} Over</span>
                                                         <span className="text-xs text-gray-600 font-bold">/</span>
                                                         <span className="text-lg font-black text-blue-400">{h2hData.summary.under} Under</span>
                                                         {h2hData.summary.push > 0 && (
                                                             <>
                                                                 <span className="text-xs text-gray-600 font-bold">/</span>
-                                                                <span className="text-sm font-black text-gray-400">{h2hData.summary.push} P</span>
+                                                                <span className="text-sm font-black text-gray-400">{h2hData.summary.push} Push</span>
                                                             </>
                                                         )}
                                                     </div>
@@ -698,59 +847,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                             </div>
                                         </div>
 
-                                        {/* H2H Scoreboard Table */}
-                                        <div className="overflow-x-auto rounded-xl border border-slate-800/50 bg-slate-900/40">
-                                            <table className="w-full text-left border-collapse">
-                                                <thead>
-                                                    <tr className="bg-slate-950/70 border-b border-slate-800 text-[9px] md:text-[10px] text-gray-400 font-black uppercase tracking-wider">
-                                                        <th className="py-3 px-4">Date</th>
-                                                        <th className="py-3 px-4">Matchup</th>
-                                                        <th className="py-3 px-4">Result</th>
-                                                        <th className="py-3 px-4">Score</th>
-                                                        <th className="py-3 px-4">Moneyline</th>
-                                                        <th className="py-3 px-4">O/U Line</th>
-                                                        <th className="py-3 px-4">Starting Pitchers (IP)</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody className="divide-y divide-slate-850">
-                                                    {h2hData.games.map((game, idx) => {
-                                                        const isAwayWinner = game.winner === matchup.away_team;
-                                                        return (
-                                                            <tr key={idx} className="hover:bg-slate-800/20 text-xs md:text-sm text-gray-300 font-medium transition-colors">
-                                                                <td className="py-3.5 px-4 text-gray-400 font-bold whitespace-nowrap">{game.date}</td>
-                                                                <td className="py-3.5 px-4 whitespace-nowrap">
-                                                                    <div className="flex items-center gap-1.5">
-                                                                        <span className="font-semibold text-xs md:text-sm">{matchup.away_team.substring(0, 3).toUpperCase()}</span>
-                                                                        <span className="text-[10px] text-gray-500 font-black uppercase">@</span>
-                                                                        <span className="font-semibold text-xs md:text-sm">{matchup.home_team.substring(0, 3).toUpperCase()}</span>
-                                                                    </div>
-                                                                </td>
-                                                                <td className="py-3.5 px-4 whitespace-nowrap">
-                                                                    <div className="flex items-center gap-1.5">
-                                                                        <span className={`px-2 py-0.5 rounded text-[10px] font-black border ${isAwayWinner ? 'bg-blue-500/10 text-blue-400 border-blue-500/20' : 'bg-red-500/10 text-red-400 border-red-500/20'}`}>
-                                                                            {game.winner.substring(0, 3).toUpperCase()} WIN
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td className="py-3.5 px-4 font-black text-white whitespace-nowrap">{game.score}</td>
-                                                                <td className="py-3.5 px-4 font-bold text-gray-300 whitespace-nowrap">{game.winnerMl}</td>
-                                                                <td className="py-3.5 px-4 whitespace-nowrap">
-                                                                    <span className={`font-black px-1.5 py-0.5 rounded text-[10px] border uppercase ${game.ouLine.startsWith('o') ? 'bg-green-500/10 text-mlb-green border-green-500/20' : 'bg-blue-500/10 text-blue-400 border-blue-500/20'}`}>
-                                                                        {game.ouLine}
-                                                                    </span>
-                                                                </td>
-                                                                <td className="py-3.5 px-4 text-xs text-gray-400 font-medium whitespace-nowrap">
-                                                                    <div className="flex flex-col gap-0.5 text-[10px] leading-tight">
-                                                                        <div><span className="text-gray-600 font-bold mr-1">Away:</span>{game.awayStarter}</div>
-                                                                        <div><span className="text-gray-600 font-bold mr-1">Home:</span>{game.homeStarter}</div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        );
-                                                    })}
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                        {renderHistoryTable(h2hData.games)}
                                     </div>
                                 )}
 
@@ -760,38 +857,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                             <h4 className="text-xs md:text-sm font-black text-gray-400 uppercase tracking-wider">{matchup.away_team} Last 10 Scoreboard</h4>
                                             <span className="px-2 py-0.5 rounded bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-black tracking-wider uppercase">L10: {matchup.away_stats?.l10 || '5-5'}</span>
                                         </div>
-                                        <div className="overflow-x-auto rounded-xl border border-slate-800/50 bg-slate-900/40">
-                                            <table className="w-full text-left border-collapse">
-                                                <thead>
-                                                    <tr className="bg-slate-950/70 border-b border-slate-800 text-[9px] md:text-[10px] text-gray-400 font-black uppercase tracking-wider">
-                                                        <th className="py-3 px-4">Date</th>
-                                                        <th className="py-3 px-4">Opponent</th>
-                                                        <th className="py-3 px-4">Outcome</th>
-                                                        <th className="py-3 px-4">Score</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody className="divide-y divide-slate-850">
-                                                    {awayLast10.map((game, idx) => (
-                                                        <tr key={idx} className="hover:bg-slate-800/20 text-xs md:text-sm text-gray-300 font-medium transition-colors">
-                                                            <td className="py-3 px-4 text-gray-400 font-bold whitespace-nowrap">{game.date}</td>
-                                                            <td className="py-3 px-4 whitespace-nowrap">
-                                                                <div className="flex items-center gap-2">
-                                                                    <span className="text-gray-500 font-black text-[10px] w-6 uppercase text-center">{game.isAway ? '@' : 'vs'}</span>
-                                                                    <img src={getTeamLogo(game.opponent)} alt={game.opponent} className="w-5 h-5 drop-shadow-sm" />
-                                                                    <span className="font-semibold">{game.opponent}</span>
-                                                                </div>
-                                                            </td>
-                                                            <td className="py-3 px-4 whitespace-nowrap">
-                                                                <span className={`px-2 py-0.5 rounded text-[10px] font-black border ${game.outcome === 'W' ? 'bg-green-500/10 text-mlb-green border-green-500/20' : 'bg-red-500/10 text-red-400 border-red-500/20'}`}>
-                                                                    {game.outcome === 'W' ? 'WIN' : 'LOSS'}
-                                                                </span>
-                                                            </td>
-                                                            <td className="py-3 px-4 font-black text-white whitespace-nowrap">{game.score}</td>
-                                                        </tr>
-                                                    ))}
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                        {renderHistoryTable(awayLast10)}
                                     </div>
                                 )}
 
@@ -801,40 +867,19 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                             <h4 className="text-xs md:text-sm font-black text-gray-400 uppercase tracking-wider">{matchup.home_team} Last 10 Scoreboard</h4>
                                             <span className="px-2 py-0.5 rounded bg-red-500/10 border border-red-500/20 text-red-400 text-[10px] font-black tracking-wider uppercase">L10: {matchup.home_stats?.l10 || '5-5'}</span>
                                         </div>
-                                        <div className="overflow-x-auto rounded-xl border border-slate-800/50 bg-slate-900/40">
-                                            <table className="w-full text-left border-collapse">
-                                                <thead>
-                                                    <tr className="bg-slate-950/70 border-b border-slate-800 text-[9px] md:text-[10px] text-gray-400 font-black uppercase tracking-wider">
-                                                        <th className="py-3 px-4">Date</th>
-                                                        <th className="py-3 px-4">Opponent</th>
-                                                        <th className="py-3 px-4">Outcome</th>
-                                                        <th className="py-3 px-4">Score</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody className="divide-y divide-slate-850">
-                                                    {homeLast10.map((game, idx) => (
-                                                        <tr key={idx} className="hover:bg-slate-800/20 text-xs md:text-sm text-gray-300 font-medium transition-colors">
-                                                            <td className="py-3 px-4 text-gray-400 font-bold whitespace-nowrap">{game.date}</td>
-                                                            <td className="py-3 px-4 whitespace-nowrap">
-                                                                <div className="flex items-center gap-2">
-                                                                    <span className="text-gray-500 font-black text-[10px] w-6 uppercase text-center">{game.isAway ? '@' : 'vs'}</span>
-                                                                    <img src={getTeamLogo(game.opponent)} alt={game.opponent} className="w-5 h-5 drop-shadow-sm" />
-                                                                    <span className="font-semibold">{game.opponent}</span>
-                                                                </div>
-                                                            </td>
-                                                            <td className="py-3 px-4 whitespace-nowrap">
-                                                                <span className={`px-2 py-0.5 rounded text-[10px] font-black border ${game.outcome === 'W' ? 'bg-green-500/10 text-mlb-green border-green-500/20' : 'bg-red-500/10 text-red-400 border-red-500/20'}`}>
-                                                                    {game.outcome === 'W' ? 'WIN' : 'LOSS'}
-                                                                </span>
-                                                            </td>
-                                                            <td className="py-3 px-4 font-black text-white whitespace-nowrap">{game.score}</td>
-                                                        </tr>
-                                                    ))}
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                        {renderHistoryTable(homeLast10)}
                                     </div>
                                 )}
+
+                                {/* Centered game trends scroll trigger */}
+                                <div className="mt-6 flex justify-center w-full">
+                                    <button
+                                        onClick={onNavigateToNrfi}
+                                        className="text-blue-400 hover:text-blue-300 font-black text-xs md:text-sm underline transition-colors cursor-pointer"
+                                    >
+                                        View and Filter More MLB Game Trends
+                                    </button>
+                                </div>
                             </div>
                         )}
                     </div>

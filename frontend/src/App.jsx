@@ -31,7 +31,7 @@ function App() {
       <div className="min-h-screen flex items-center justify-center p-8">
         <div className="bg-slate-900 border border-amber-500/30 rounded-2xl p-8 text-center max-w-md shadow-2xl">
           <span className="text-5xl block mb-4">⏳</span>
-          <h2 className="text-lg font-black text-amber-400 uppercase tracking-wider mb-2">Veri Hazırlanıyor</h2>
+          <h2 className="text-lg font-black text-amber-400 uppercase tracking-wider mb-2">Data is being prepared.</h2>
           <p className="text-gray-400 text-sm font-medium">
             The system automatically updates data daily at <strong className="text-white">12:00 AM and 12:00 PM ET</strong>.
             If data is still loading, please check back in a few minutes.
