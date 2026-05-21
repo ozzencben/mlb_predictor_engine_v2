@@ -651,35 +651,46 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                     </div>
 
                     {/* ML Odds & Book O/U */}
-                    <div className="bg-slate-900/80 border border-slate-700 rounded-xl px-4 pt-4 pb-3 w-full max-w-[290px] flex items-center justify-between relative shadow-lg">
-                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-800 border border-slate-600 px-4 py-0.5 rounded-full text-[10px] font-black text-gray-300 shadow-md whitespace-nowrap">
-                            Book O/U: {isOddsAvailable ? Odds.over_under : 'N/A'}
+                    {matchup.status === 'Final' ? (
+                        <div className="bg-slate-950/40 border border-slate-800/80 rounded-xl px-4 py-4 w-full max-w-[290px] flex flex-col items-center justify-center shadow-md select-none">
+                            <span className="text-gray-500 text-[11px] font-extrabold uppercase tracking-wider mb-1 flex items-center gap-1">
+                                🔒 Markets Closed
+                            </span>
+                            <span className="text-[9px] text-gray-600 font-bold uppercase tracking-widest">
+                                Game Completed
+                            </span>
                         </div>
+                    ) : (
+                        <div className="bg-slate-900/80 border border-slate-700 rounded-xl px-4 pt-4 pb-3 w-full max-w-[290px] flex items-center justify-between relative shadow-lg">
+                            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-800 border border-slate-600 px-4 py-0.5 rounded-full text-[10px] font-black text-gray-300 shadow-md whitespace-nowrap">
+                                Book O/U: {isOddsAvailable ? Odds.over_under : 'N/A'}
+                            </div>
 
-                        <div className="flex flex-col items-center w-2/5 min-w-0">
-                            <span className={`text-lg xs:text-xl font-black tracking-tight truncate ${Odds.away_edge_pct > 5 ? 'text-mlb-green' : 'text-gray-200'}`}>
-                                {formatAmericanOdds(Odds.best_away_odds)}
-                            </span>
-                            {Odds.away_book && (
-                                <div className="mt-1 flex items-center gap-1 max-w-full justify-center">
-                                    <SportsbookLogo bookmaker={Odds.away_book} size="xs" />
-                                    <span className="text-[8px] text-gray-500 font-bold uppercase truncate max-w-[55px] xs:max-w-[75px] md:max-w-none">{Odds.away_book}</span>
-                                </div>
-                            )}
+                            <div className="flex flex-col items-center w-2/5 min-w-0">
+                                <span className={`text-lg xs:text-xl font-black tracking-tight truncate ${Odds.away_edge_pct > 5 ? 'text-mlb-green' : 'text-gray-200'}`}>
+                                    {formatAmericanOdds(Odds.best_away_odds)}
+                                </span>
+                                {Odds.away_book && (
+                                    <div className="mt-1 flex items-center gap-1 max-w-full justify-center">
+                                        <SportsbookLogo bookmaker={Odds.away_book} size="xs" />
+                                        <span className="text-[8px] text-gray-500 font-bold uppercase truncate max-w-[55px] xs:max-w-[75px] md:max-w-none">{Odds.away_book}</span>
+                                    </div>
+                                )}
+                            </div>
+                            <div className="text-[10px] font-bold text-gray-600 uppercase tracking-widest w-1/5 text-center flex-shrink-0">ML</div>
+                            <div className="flex flex-col items-center w-2/5 min-w-0">
+                                <span className={`text-lg xs:text-xl font-black tracking-tight truncate ${Odds.home_edge_pct > 5 ? 'text-mlb-green' : 'text-gray-200'}`}>
+                                    {formatAmericanOdds(Odds.best_home_odds)}
+                                </span>
+                                {Odds.home_book && (
+                                    <div className="mt-1 flex items-center gap-1 max-w-full justify-center">
+                                        <SportsbookLogo bookmaker={Odds.home_book} size="xs" />
+                                        <span className="text-[8px] text-gray-500 font-bold uppercase truncate max-w-[55px] xs:max-w-[75px] md:max-w-none">{Odds.home_book}</span>
+                                    </div>
+                                )}
+                            </div>
                         </div>
-                        <div className="text-[10px] font-bold text-gray-600 uppercase tracking-widest w-1/5 text-center flex-shrink-0">ML</div>
-                        <div className="flex flex-col items-center w-2/5 min-w-0">
-                            <span className={`text-lg xs:text-xl font-black tracking-tight truncate ${Odds.home_edge_pct > 5 ? 'text-mlb-green' : 'text-gray-200'}`}>
-                                {formatAmericanOdds(Odds.best_home_odds)}
-                            </span>
-                            {Odds.home_book && (
-                                <div className="mt-1 flex items-center gap-1 max-w-full justify-center">
-                                    <SportsbookLogo bookmaker={Odds.home_book} size="xs" />
-                                    <span className="text-[8px] text-gray-500 font-bold uppercase truncate max-w-[55px] xs:max-w-[75px] md:max-w-none">{Odds.home_book}</span>
-                                </div>
-                            )}
-                        </div>
-                    </div>
+                    )}
                 </div>
 
                 {/* ================= ALT BİLGİ VE BUTONLAR ================= */}
