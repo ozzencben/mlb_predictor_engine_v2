@@ -920,7 +920,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                         {Weather && (
                             <div className="relative flex flex-col items-center justify-center bg-slate-900/70 border border-slate-700/60 p-4 rounded-xl mt-4 md:mt-0 w-full md:w-auto min-w-[150px] shadow-inner select-none">
                                 <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest mb-1.5 self-start">Ballpark Compass</span>
-                                <svg viewBox="0 0 120 120" className="w-24 h-24 md:w-28 md:h-28 drop-shadow-lg">
+                                <svg viewBox="0 0 120 120" className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 drop-shadow-lg">
                                     {/* Outfield Grass */}
                                     <path d="M 60 110 L 25 61.3 A 60 60 0 0 1 95 61.3 Z" fill="#14532d" stroke="#16a34a" strokeWidth="1.5" />
                                     

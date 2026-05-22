@@ -139,9 +139,13 @@ async def fetch_team_history_async(client: httpx.AsyncClient, team_id: int, oppo
         else:
             print(f"⚠️ [statsapi] Error fetching current history for team {team_id} (status: {response.status_code})")
             
-        # 2. If we have less than 10 games, fetch the previous year's schedule as fallback
-        if len(games) < 10:
-            prev_year = current_year - 1
+        # 2. If we have less than 10 games, fetch previous years' schedule as fallback
+        # If opponent_id is provided (H2H), go back up to 10 years until we have 10 games
+        max_years_to_check = 10 if opponent_id else 1
+        year_offset = 1
+        
+        while len(games) < 10 and year_offset <= max_years_to_check:
+            prev_year = current_year - year_offset
             prev_params = {
                 "sportId": 1,
                 "season": prev_year,
@@ -159,15 +163,19 @@ async def fetch_team_history_async(client: httpx.AsyncClient, team_id: int, oppo
                         if g.get('status', {}).get('statusCode') == 'F' and g.get('gameType') == 'R':
                             prev_games.append(g)
                             
-                # Sort previous games descending and extend
-                prev_games.sort(key=lambda x: x.get('gameDate', ''), reverse=True)
-                games.extend(prev_games)
-                
-                # Re-sort combined list descending
-                games.sort(key=lambda x: x.get('gameDate', ''), reverse=True)
+                if prev_games:
+                    # Sort previous games descending and extend
+                    prev_games.sort(key=lambda x: x.get('gameDate', ''), reverse=True)
+                    games.extend(prev_games)
+                    
+                    # Re-sort combined list descending
+                    games.sort(key=lambda x: x.get('gameDate', ''), reverse=True)
             else:
-                print(f"⚠️ [statsapi] Error fetching fallback history for team {team_id} (status: {response_prev.status_code})")
+                print(f"⚠️ [statsapi] Error fetching fallback history for team {team_id} for season {prev_year} (status: {response_prev.status_code})")
+                break
                 
+            year_offset += 1
+            
         return games
     except Exception as e:
         print(f"⚠️ [statsapi] Exception fetching history for team {team_id}: {e}")
