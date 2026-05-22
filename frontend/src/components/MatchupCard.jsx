@@ -1018,26 +1018,26 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                             </span>
                         </div>
                         <div className="overflow-x-auto rounded-xl border border-slate-800/50 bg-slate-900/40">
-                            <table className="w-full text-left border-collapse">
+                            <table className="w-full min-w-[550px] sm:min-w-full text-left border-collapse">
                                 <thead>
-                                    <tr className="bg-slate-950/70 border-b border-slate-800 text-[9px] xs:text-[10px] md:text-xs text-gray-400 font-black uppercase tracking-wider">
-                                        <th className="py-2 px-1 xs:px-2 md:px-4">Teams</th>
-                                        <th className="py-2 px-1 xs:px-2 md:px-4">Spread</th>
-                                        <th className="py-2 px-1 xs:px-2 md:px-4">
+                                    <tr className="bg-slate-950/70 border-b border-slate-800 text-[10px] xs:text-[11px] md:text-xs text-gray-400 font-black uppercase tracking-wider">
+                                        <th className="py-2 px-2 xs:px-3 md:px-4">Teams</th>
+                                        <th className="py-2 px-2 xs:px-3 md:px-4">Spread</th>
+                                        <th className="py-2 px-2 xs:px-3 md:px-4">
                                             <div className="flex flex-col">
                                                 <span>Total</span>
                                                 <span className="text-[8px] text-gray-500 lowercase font-normal">(over / under)</span>
                                             </div>
                                         </th>
-                                        <th className="py-2 px-1 xs:px-2 md:px-4">Moneyline</th>
-                                        <th className="py-2 px-1 xs:px-2 md:px-4">Bookmaker</th>
+                                        <th className="py-2 px-2 xs:px-3 md:px-4">Moneyline</th>
+                                        <th className="py-2 px-2 xs:px-3 md:px-4">Bookmaker</th>
                                     </tr>
                                 </thead>
                                 <tbody className="divide-y divide-slate-850">
                                     {bookmakersList.map((bookie, idx) => (
                                         <tr key={idx} className="hover:bg-slate-800/10 text-[10px] xs:text-xs md:text-sm text-gray-300 font-bold transition-colors">
                                             {/* Teams (Away top, Home bottom) */}
-                                            <td className="py-2 px-1 xs:px-2 md:px-4 whitespace-nowrap">
+                                            <td className="py-2 px-2 xs:px-3 md:px-4 whitespace-nowrap">
                                                 <div className="flex flex-col gap-1.5">
                                                     <div className="flex items-center gap-1.5">
                                                         <img src={getTeamLogo(matchup.away_team)} alt={matchup.away_team} className="w-4 h-4 object-contain" />
@@ -1051,7 +1051,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                             </td>
                                             
                                             {/* Spread */}
-                                            <td className="py-2 px-1 xs:px-2 md:px-4 whitespace-nowrap font-bold text-gray-300">
+                                            <td className="py-2 px-2 xs:px-3 md:px-4 whitespace-nowrap font-bold text-gray-300">
                                                 <div className="flex flex-col gap-1.5">
                                                     <span className={bookie.away_spread === -1.5 ? 'text-indigo-400' : 'text-gray-400'}>
                                                         {bookie.away_spread !== null && bookie.away_spread !== undefined 
@@ -1067,7 +1067,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                             </td>
 
                                             {/* Total */}
-                                            <td className="py-2 px-1 xs:px-2 md:px-4 whitespace-nowrap font-bold text-gray-300">
+                                            <td className="py-2 px-2 xs:px-3 md:px-4 whitespace-nowrap font-bold text-gray-300">
                                                 <div className="flex flex-col gap-1.5">
                                                     <span>
                                                         <span className="text-green-400 mr-1 font-black">O</span>
@@ -1085,7 +1085,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                             </td>
 
                                             {/* Moneyline */}
-                                            <td className="py-2 px-1 xs:px-2 md:px-4 whitespace-nowrap font-bold text-gray-300">
+                                            <td className="py-2 px-2 xs:px-3 md:px-4 whitespace-nowrap font-bold text-gray-300">
                                                 <div className="flex flex-col gap-1.5">
                                                     <span className="text-blue-400">
                                                         {bookie.away_ml !== null && bookie.away_ml !== undefined ? formatAmericanOdds(bookie.away_ml) : '-'}
@@ -1097,10 +1097,10 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                             </td>
 
                                             {/* Bookmaker */}
-                                            <td className="py-2 px-1 xs:px-2 md:px-4 whitespace-nowrap">
+                                            <td className="py-2 px-2 xs:px-3 md:px-4 whitespace-nowrap">
                                                 <div className="flex items-center gap-2">
                                                     <SportsbookLogo bookmaker={bookie.bookmaker} size="sm" />
-                                                    <span className="text-gray-300 font-extrabold text-[10px] xs:text-[11px] md:text-xs hidden sm:inline">{bookie.bookmaker}</span>
+                                                    <span className="text-gray-300 font-extrabold text-[10px] xs:text-[11px] md:text-xs inline-block">{bookie.bookmaker}</span>
                                                 </div>
                                             </td>
                                         </tr>
