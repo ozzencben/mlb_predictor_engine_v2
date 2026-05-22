@@ -399,16 +399,16 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
             <div className="overflow-x-auto rounded-xl border border-slate-800/50 bg-slate-900/40">
                 <table className="w-full text-left border-collapse">
                     <thead>
-                        <tr className="bg-slate-950/70 border-b border-slate-800 text-[10px] md:text-[11px] text-gray-400 font-black uppercase tracking-wider">
-                            <th className="py-3 px-4">
+                        <tr className="bg-slate-950/70 border-b border-slate-800 text-[9px] md:text-[11px] text-gray-400 font-black uppercase tracking-wider">
+                            <th className="py-2 px-1.5 sm:px-2.5 md:py-3 md:px-4">
                                 <div className="flex items-center gap-1">
                                     Date <span className="text-gray-600 text-[8px] md:text-[10px]">▲▼</span>
                                 </div>
                             </th>
-                            <th className="py-3 px-4">{activeHistoryTab === 'h2h' ? 'Matchup' : 'Opponent'}</th>
-                            <th className="py-3 px-4">Score</th>
-                            <th className="py-3 px-4">Spread</th>
-                            <th className="py-3 px-4">Total</th>
+                            <th className="py-2 px-1.5 sm:px-2.5 md:py-3 md:px-4">{activeHistoryTab === 'h2h' ? 'Matchup' : 'Opponent'}</th>
+                            <th className="py-2 px-1.5 sm:px-2.5 md:py-3 md:px-4">Score</th>
+                            <th className="py-2 px-1.5 sm:px-2.5 md:py-3 md:px-4">Spread</th>
+                            <th className="py-2 px-1.5 sm:px-2.5 md:py-3 md:px-4">Total</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-850">
@@ -427,19 +427,19 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                             }
 
                             return (
-                                <tr key={idx} className="hover:bg-slate-800/20 text-xs md:text-sm text-gray-300 font-medium transition-colors">
-                                    <td className="py-3.5 px-4 text-gray-400 font-bold whitespace-nowrap">{game.date}</td>
-                                    <td className="py-3.5 px-4 whitespace-nowrap">
-                                        <div className="flex items-center gap-2">
-                                            <img src={logoUrl} alt={opponentText} className="w-5 h-5 md:w-6 h-6 object-contain drop-shadow-sm" />
+                                <tr key={idx} className="hover:bg-slate-800/20 text-[11px] md:text-sm text-gray-300 font-medium transition-colors">
+                                    <td className="py-2 px-1.5 sm:px-2.5 md:py-3.5 md:px-4 text-gray-400 font-bold whitespace-nowrap">{game.date}</td>
+                                    <td className="py-2 px-1.5 sm:px-2.5 md:py-3.5 md:px-4 whitespace-nowrap">
+                                        <div className="flex items-center gap-1.5 md:gap-2">
+                                            <img src={logoUrl} alt={opponentText} className="w-4.5 h-4.5 md:w-6 h-6 object-contain drop-shadow-sm" />
                                             <span className="font-extrabold text-blue-400">{opponentText}</span>
                                         </div>
                                     </td>
-                                    <td className="py-3.5 px-4 font-extrabold text-blue-400 whitespace-nowrap">{game.score}</td>
-                                    <td className={`py-3.5 px-4 font-black whitespace-nowrap ${game.spreadCovered ? 'text-green-400' : 'text-red-400'}`}>
+                                    <td className="py-2 px-1.5 sm:px-2.5 md:py-3.5 md:px-4 font-extrabold text-blue-400 whitespace-nowrap">{game.score}</td>
+                                    <td className={`py-2 px-1.5 sm:px-2.5 md:py-3.5 md:px-4 font-black whitespace-nowrap ${game.spreadCovered ? 'text-green-400' : 'text-red-400'}`}>
                                         {game.spreadPlay}
                                     </td>
-                                    <td className="py-3.5 px-4 whitespace-nowrap">
+                                    <td className="py-2 px-1.5 sm:px-2.5 md:py-3.5 md:px-4 whitespace-nowrap">
                                         <div className="flex items-center gap-1">
                                             <span className={`font-black ${game.isOver ? 'text-green-400' : game.isPush ? 'text-gray-400' : 'text-red-400'}`}>
                                                 {game.isOver ? 'O' : game.isPush ? 'P' : 'U'}
@@ -1139,7 +1139,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                             setActiveHistoryTab('away');
                                             setIsHistoryExpanded(true);
                                         }}
-                                        className={`rounded-full border px-3 md:px-4 py-1 md:py-1.5 text-[10px] md:text-xs font-bold transition-all ${isHistoryExpanded && activeHistoryTab === 'away'
+                                        className={`rounded-full border px-2 xs:px-3 md:px-4 py-0.5 xs:py-1 md:py-1.5 text-[9px] xs:text-[10px] md:text-xs font-bold transition-all ${isHistoryExpanded && activeHistoryTab === 'away'
                                             ? 'bg-blue-500/10 border-blue-500 text-blue-400 font-black shadow-[0_0_10px_rgba(59,130,246,0.15)]'
                                             : 'bg-slate-900/50 border-slate-700 text-gray-400 hover:text-gray-200 hover:bg-slate-800/80'
                                             }`}
@@ -1151,7 +1151,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                             setActiveHistoryTab('home');
                                             setIsHistoryExpanded(true);
                                         }}
-                                        className={`rounded-full border px-3 md:px-4 py-1 md:py-1.5 text-[10px] md:text-xs font-bold transition-all ${isHistoryExpanded && activeHistoryTab === 'home'
+                                        className={`rounded-full border px-2 xs:px-3 md:px-4 py-0.5 xs:py-1 md:py-1.5 text-[9px] xs:text-[10px] md:text-xs font-bold transition-all ${isHistoryExpanded && activeHistoryTab === 'home'
                                             ? 'bg-blue-500/10 border-blue-500 text-blue-400 font-black shadow-[0_0_10px_rgba(59,130,246,0.15)]'
                                             : 'bg-slate-900/50 border-slate-700 text-gray-400 hover:text-gray-200 hover:bg-slate-800/80'
                                             }`}
@@ -1163,7 +1163,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                             setActiveHistoryTab('h2h');
                                             setIsHistoryExpanded(true);
                                         }}
-                                        className={`rounded-full border px-3 md:px-4 py-1 md:py-1.5 text-[10px] md:text-xs font-bold transition-all ${isHistoryExpanded && activeHistoryTab === 'h2h'
+                                        className={`rounded-full border px-2 xs:px-3 md:px-4 py-0.5 xs:py-1 md:py-1.5 text-[9px] xs:text-[10px] md:text-xs font-bold transition-all ${isHistoryExpanded && activeHistoryTab === 'h2h'
                                             ? 'bg-blue-500/10 border-blue-500 text-blue-400 font-black shadow-[0_0_10px_rgba(59,130,246,0.15)]'
                                             : 'bg-slate-900/50 border-slate-700 text-gray-400 hover:text-gray-200 hover:bg-slate-800/80'
                                             }`}
@@ -1179,36 +1179,36 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
 
                         {/* Accordion Content */}
                         {isHistoryExpanded && (
-                            <div className="p-4 md:p-6 bg-slate-900/60">
+                            <div className="p-3 sm:p-4 md:p-6 bg-slate-900/60">
                                 {activeHistoryTab === 'h2h' && (
                                     <div className="space-y-6">
                                         {/* H2H Aggregated Stats Bar */}
-                                        <div className="flex flex-wrap items-center justify-between gap-4 bg-slate-950/60 border border-slate-800/80 p-4 rounded-xl shadow-inner">
-                                            <div className="flex items-center gap-6">
+                                        <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-4 bg-slate-950/60 border border-slate-800/80 p-2 sm:p-4 rounded-xl shadow-inner">
+                                            <div className="flex items-center gap-1.5 xs:gap-2.5 sm:gap-6">
                                                 <div className="flex flex-col">
-                                                    <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">Win/Loss Record</span>
-                                                    <div className="flex items-baseline gap-2">
-                                                        <span className="text-xl font-black text-white">{h2hData.summary.winsAway}-{h2hData.summary.winsHome}</span>
+                                                    <span className="text-[8px] sm:text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">Win/Loss Record</span>
+                                                    <div className="flex items-baseline gap-1 sm:gap-2">
+                                                        <span className="text-xs xs:text-sm sm:text-xl font-black text-white whitespace-nowrap">{h2hData.summary.winsAway}-{h2hData.summary.winsHome}</span>
                                                         <span className="text-[10px] text-gray-400 font-semibold hidden md:inline">({matchup.away_team} vs {matchup.home_team})</span>
                                                     </div>
                                                 </div>
-                                                <div className="h-8 w-px bg-slate-800"></div>
+                                                <div className="h-6 sm:h-8 w-px bg-slate-800"></div>
                                                 <div className="flex flex-col">
-                                                    <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">Over / Under</span>
-                                                    <div className="flex items-baseline gap-1.5">
-                                                        <span className="text-lg font-black text-green-400">{h2hData.summary.over} Over</span>
-                                                        <span className="text-xs text-gray-600 font-bold">/</span>
-                                                        <span className="text-lg font-black text-blue-400">{h2hData.summary.under} Under</span>
+                                                    <span className="text-[8px] sm:text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">Over / Under</span>
+                                                    <div className="flex items-baseline gap-0.5 xs:gap-1 sm:gap-1.5">
+                                                        <span className="text-[10px] xs:text-xs sm:text-lg font-black text-green-400 whitespace-nowrap">{h2hData.summary.over} Over</span>
+                                                        <span className="text-[8px] xs:text-[9px] sm:text-xs text-gray-600 font-bold">/</span>
+                                                        <span className="text-[10px] xs:text-xs sm:text-lg font-black text-blue-400 whitespace-nowrap">{h2hData.summary.under} Under</span>
                                                         {h2hData.summary.push > 0 && (
                                                             <>
-                                                                <span className="text-xs text-gray-600 font-bold">/</span>
-                                                                <span className="text-sm font-black text-gray-400">{h2hData.summary.push} Push</span>
+                                                                <span className="text-[8px] xs:text-[9px] sm:text-xs text-gray-600 font-bold">/</span>
+                                                                <span className="text-[9px] xs:text-[10px] sm:text-sm font-black text-gray-400 whitespace-nowrap">{h2hData.summary.push} Push</span>
                                                             </>
                                                         )}
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="text-[9px] text-gray-500 font-semibold tracking-wider italic">
+                                            <div className="text-[8px] sm:text-[9px] text-gray-500 font-semibold tracking-wider italic w-full md:w-auto">
                                                 *Seeded H2H scoreboard matching team strengths and active metrics
                                             </div>
                                         </div>
