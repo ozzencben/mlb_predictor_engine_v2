@@ -62,6 +62,9 @@ const SportsbookLogo = ({ bookmaker, size = 'sm' }) => {
                 className={`inline-block rounded bg-slate-800 p-[2px] object-contain border border-slate-700/50 ${size === 'xs' ? 'w-4 h-4' : size === 'sm' ? 'w-5 h-5' : 'w-6 h-6'}`}
                 onError={() => setImgError(true)}
                 title={bookmaker}
+                loading="lazy"
+                width={size === 'xs' ? 16 : size === 'sm' ? 20 : 24}
+                height={size === 'xs' ? 16 : size === 'sm' ? 20 : 24}
             />
         </span>
     );

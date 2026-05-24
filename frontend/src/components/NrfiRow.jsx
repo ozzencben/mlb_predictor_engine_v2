@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { getTeamLogo, formatAmericanOdds, getTeamAbbr } from '../utils/formatters';
 import SportsbookLogo from './SportsbookLogo';
+import CountUp from './CountUp';
+import CircularProgress from './CircularProgress';
+import { formatAiInsight } from '../utils/textFormatter';
 
 const getNrfiColor = (pct) => {
     if (pct === 'N/A' || !pct) return 'bg-slate-800 text-gray-500 border-slate-700';
@@ -15,11 +18,11 @@ const renderNrfiStat = (pct, record, isFallback) => {
             <span className="text-[8px] font-bold text-slate-600 italic">N/A</span>
         );
     }
-    if (pct === 'N/A' || pct === undefined || pct === null) return <span className="text-gray-600 font-bold text-xs">-</span>;
+    if (pct === 'N/A' || pct === undefined || pct === null) return <span className="text-slate-400 font-bold text-xs">-</span>;
     return (
         <div className="flex flex-col items-center justify-center">
             <span className={`px-1.5 py-0.5 rounded text-[10px] md:text-xs font-black border tracking-wider shadow-sm ${getNrfiColor(pct)}`}>
-                {pct}%
+                <CountUp end={pct} decimals={1} suffix="%" />
             </span>
             {record && record !== "0-0" && <span className="text-[8px] md:text-[9px] text-gray-400 font-bold mt-1 tracking-wider whitespace-nowrap">{record}</span>}
         </div>
@@ -53,7 +56,7 @@ const NrfiRow = ({ prediction }) => {
     const scoreColor = isNrfiFavored ? "text-green-400 bg-green-500/10 border-green-500/30" : "text-red-400 bg-red-500/10 border-red-500/30";
 
     return (
-        <div id={`nrfi-card-${matchup.away_team}-${matchup.home_team}`} className="bg-mlb-card rounded-xl border border-gray-700 shadow-lg overflow-hidden mb-3 md:mb-4 transition-all duration-300 hover:border-gray-500 w-full relative">
+        <div id={`nrfi-card-${matchup.away_team}-${matchup.home_team}`} className="bg-slate-900/40 backdrop-blur-xl border border-slate-700/60 shadow-[0_8px_32px_rgba(0,0,0,0.37)] rounded-2xl overflow-hidden mb-3 md:mb-4 transition-all duration-500 hover:-translate-y-0.5 hover:border-indigo-500/50 hover:shadow-[0_12px_24px_rgba(99,102,241,0.15)] w-full relative">
 
             {/* ABSOLUTE TIME BADGE (Kartın Sol Üstüne Taşındı) */}
             <div className="absolute top-0 left-0 bg-slate-800/80 backdrop-blur-sm border-b border-r border-gray-700 px-2.5 py-1 rounded-br-lg z-10 flex items-center justify-center shadow-sm">
@@ -69,13 +72,13 @@ const NrfiRow = ({ prediction }) => {
                 {/* Team Matchup & Logos */}
                 <div className="flex items-center gap-2 xs:gap-3 w-full sm:w-auto flex-1 justify-center sm:justify-start mt-1 sm:mt-0">
                     <div className="flex items-center gap-1.5 xs:gap-2">
-                        <img src={getTeamLogo(matchup.away_team)} alt={matchup.away_team} className="w-7 h-7 xs:w-8 xs:h-8 md:w-10 md:h-10 drop-shadow-md flex-shrink-0" />
+                        <img src={getTeamLogo(matchup.away_team)} alt={matchup.away_team} className="w-7 h-7 xs:w-8 xs:h-8 md:w-10 md:h-10 drop-shadow-md flex-shrink-0" loading="lazy" width="40" height="40" />
                         <span className="text-[11px] xs:text-xs md:text-sm font-black text-white hidden xs:inline">{matchup.away_team}</span>
                         <span className="text-[11px] xs:text-xs md:text-sm font-black text-white xs:hidden">{getTeamAbbr(matchup.away_team)}</span>
                     </div>
-                    <span className="text-[9px] md:text-xs font-black text-gray-500 flex-shrink-0">@</span>
+                    <span className="text-[9px] md:text-xs font-black text-slate-400 flex-shrink-0">@</span>
                     <div className="flex items-center gap-1.5 xs:gap-2">
-                        <img src={getTeamLogo(matchup.home_team)} alt={matchup.home_team} className="w-7 h-7 xs:w-8 xs:h-8 md:w-10 md:h-10 drop-shadow-md flex-shrink-0" />
+                        <img src={getTeamLogo(matchup.home_team)} alt={matchup.home_team} className="w-7 h-7 xs:w-8 xs:h-8 md:w-10 md:h-10 drop-shadow-md flex-shrink-0" loading="lazy" width="40" height="40" />
                         <span className="text-[11px] xs:text-xs md:text-sm font-black text-white hidden xs:inline">{matchup.home_team}</span>
                         <span className="text-[11px] xs:text-xs md:text-sm font-black text-white xs:hidden">{getTeamAbbr(matchup.home_team)}</span>
                     </div>
@@ -87,7 +90,7 @@ const NrfiRow = ({ prediction }) => {
                     {/* Vegas Odds Block */}
                     {hasNrfiOdds ? (
                         <div className="bg-slate-900/50 border border-slate-800/60 p-1.5 xs:p-2 sm:p-2.5 rounded-lg flex flex-col items-center justify-center flex-1 sm:flex-none">
-                            <span className="text-[7px] md:text-[8px] text-gray-500 font-bold uppercase tracking-widest mb-0.5">Vegas</span>
+                            <span className="text-[7px] md:text-[8px] text-slate-400 font-bold uppercase tracking-widest mb-0.5">Vegas</span>
                             <div className="flex items-center gap-1.5 md:gap-2">
                                 <div className="flex flex-col items-center">
                                     <span className={`text-[9px] xs:text-[10px] md:text-xs font-black leading-tight ${Odds.nrfi_edge_pct > 5 ? 'text-mlb-green' : 'text-gray-300'}`}>
@@ -104,18 +107,21 @@ const NrfiRow = ({ prediction }) => {
                         </div>
                     ) : (
                         <div className="bg-slate-900/50 border border-slate-800/60 p-1.5 xs:p-2 sm:p-2.5 rounded-lg flex flex-col items-center justify-center flex-1 sm:flex-none">
-                            <span className="text-[7px] md:text-[8px] text-gray-500 font-bold uppercase tracking-widest mb-0.5">Vegas</span>
+                            <span className="text-[7px] md:text-[8px] text-slate-400 font-bold uppercase tracking-widest mb-0.5">Vegas</span>
                             <span className="text-[8px] xs:text-[9px] font-black text-amber-500 px-1.5 py-0.5 rounded whitespace-nowrap">
                                 🔒 Locked
                             </span>
                         </div>
                     )}
 
-                    {/* AI Score Block */}
-                    <div className="bg-slate-900/50 border border-slate-800/60 p-1.5 xs:p-2 sm:p-2.5 rounded-lg flex flex-col items-center justify-center flex-1 sm:flex-none">
-                        <span className="text-[7px] md:text-[8px] text-gray-500 font-bold uppercase tracking-widest mb-0.5">AI Score</span>
-                        <div className={`px-1.5 py-0.5 rounded border font-black text-[9px] xs:text-[10px] md:text-xs whitespace-nowrap ${scoreColor}`}>
-                            {pick} {isNrfiFavored ? nrfiScore : yrfiScore}%
+                    {/* AI Score Block (with beautiful neon Circular Progress) */}
+                    <div className="bg-slate-900/40 backdrop-blur-md border border-slate-800/60 p-1.5 xs:p-2 rounded-xl flex items-center gap-2 flex-1 sm:flex-none shadow-inner">
+                        <CircularProgress percentage={isNrfiFavored ? nrfiScore : yrfiScore} size={36} strokeWidth={3} />
+                        <div className="flex flex-col items-start justify-center">
+                            <span className="text-[7px] md:text-[8px] text-slate-400 font-extrabold uppercase tracking-widest leading-none mb-1">AI Pick</span>
+                            <span className={`px-1.5 py-0.5 rounded border text-[9px] xs:text-[10px] md:text-xs font-black leading-none whitespace-nowrap ${scoreColor}`}>
+                                {pick}
+                            </span>
                         </div>
                     </div>
 
@@ -131,105 +137,106 @@ const NrfiRow = ({ prediction }) => {
                 </div>
             </div>
 
-            {/* Dropdown Detail View */}
-            {isExpanded && (
-                <div className="border-t border-gray-700/50 bg-slate-900/40 p-3 md:p-4 animate-in fade-in slide-in-from-top-2 duration-200">
+            {/* Smooth Dropdown Detail View (CSS Grid Accordion) */}
+            <div className={`grid transition-all duration-500 ease-in-out ${isExpanded ? 'grid-rows-[1fr] opacity-100 border-t border-gray-700/50 bg-slate-900/20' : 'grid-rows-[0fr] opacity-0 pointer-events-none'}`}>
+                <div className="overflow-hidden">
+                    <div className="p-3 md:p-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {/* LEFT: Pitcher & Team NRFI Records */}
+                            <div className="flex flex-col gap-3">
+                                <h3 className="text-[10px] text-gray-400 font-bold uppercase tracking-widest border-b border-slate-700 pb-1 flex items-center gap-2">
+                                    Pitcher NRFI Trends
+                                    {isFallback && (
+                                        <span className="text-[7px] font-black text-amber-500 bg-amber-500/10 border border-amber-500/20 px-1.5 py-0.5 rounded uppercase tracking-wider">⚠️ No Trend Data</span>
+                                    )}
+                                </h3>
+                                <div className="bg-slate-800/50 rounded-lg p-2 border border-slate-700/50">
+                                    <div className="grid grid-cols-[1.8fr_1fr_1fr_1fr] gap-2 text-center items-center mb-2">
+                                        <div className="text-left text-[8px] md:text-[9px] font-black text-slate-400 uppercase">Pitcher</div>
+                                        <div className="text-[8px] md:text-[9px] font-black text-slate-400 uppercase">Season</div>
+                                        <div className="text-[8px] md:text-[9px] font-black text-slate-400 uppercase">Loc</div>
+                                        <div className="text-[8px] md:text-[9px] font-black text-slate-400 uppercase">L10</div>
+                                    </div>
+                                    <div className="grid grid-cols-[1.8fr_1fr_1fr_1fr] gap-2 text-center items-center mb-2 border-b border-slate-700/30 pb-2">
+                                        <div className="text-left text-[9px] md:text-[10px] font-bold text-gray-300 truncate pr-1 flex flex-col gap-0.5">
+                                            {matchup.away_pitcher}
+                                            {awayPitcherNoData && <span className="text-[7px] font-black text-amber-500/80 bg-amber-500/10 border border-amber-500/20 px-1 py-0.5 rounded uppercase tracking-wider leading-none">Lig Ort.</span>}
+                                        </div>
+                                        <div>{renderNrfiStat(awayTrends.season_nrfi_pct, awayTrends.season_record, isFallback)}</div>
+                                        <div>{renderNrfiStat(awayTrends.location_nrfi_pct, awayTrends.location_record, isFallback)}</div>
+                                        <div className="flex justify-center items-center gap-1">
+                                            {renderNrfiStat(awayTrends.last10_nrfi_pct, awayTrends.last10_record, isFallback)}
+                                            {!isFallback && awayTrends.streak_emoji && <span className="text-xs">{awayTrends.streak_emoji}</span>}
+                                        </div>
+                                    </div>
+                                    <div className="grid grid-cols-[1.8fr_1fr_1fr_1fr] gap-2 text-center items-center">
+                                        <div className="text-left text-[9px] md:text-[10px] font-bold text-gray-300 truncate pr-1 flex flex-col gap-0.5">
+                                            {matchup.home_pitcher}
+                                            {homePitcherNoData && <span className="text-[7px] font-black text-amber-500/80 bg-amber-500/10 border border-amber-500/20 px-1 py-0.5 rounded uppercase tracking-wider leading-none">Lig Ort.</span>}
+                                        </div>
+                                        <div>{renderNrfiStat(homeTrends.season_nrfi_pct, homeTrends.season_record, isFallback)}</div>
+                                        <div>{renderNrfiStat(homeTrends.location_nrfi_pct, homeTrends.location_record, isFallback)}</div>
+                                        <div className="flex justify-center items-center gap-1">
+                                            {renderNrfiStat(homeTrends.last10_nrfi_pct, homeTrends.last10_record, isFallback)}
+                                            {!isFallback && homeTrends.streak_emoji && <span className="text-xs">{homeTrends.streak_emoji}</span>}
+                                        </div>
+                                    </div>
+                                </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {/* LEFT: Pitcher & Team NRFI Records */}
-                        <div className="flex flex-col gap-3">
-                            <h3 className="text-[10px] text-gray-400 font-bold uppercase tracking-widest border-b border-slate-700 pb-1 flex items-center gap-2">
-                                Pitcher NRFI Trends
-                                {isFallback && (
-                                    <span className="text-[7px] font-black text-amber-500 bg-amber-500/10 border border-amber-500/20 px-1.5 py-0.5 rounded uppercase tracking-wider">⚠️ No Trend Data</span>
-                                )}
-                            </h3>
-                            <div className="bg-slate-800/50 rounded-lg p-2 border border-slate-700/50">
-                                <div className="grid grid-cols-[1.8fr_1fr_1fr_1fr] gap-2 text-center items-center mb-2">
-                                    <div className="text-left text-[8px] md:text-[9px] font-black text-gray-500 uppercase">Pitcher</div>
-                                    <div className="text-[8px] md:text-[9px] font-black text-gray-500 uppercase">Season</div>
-                                    <div className="text-[8px] md:text-[9px] font-black text-gray-500 uppercase">Loc</div>
-                                    <div className="text-[8px] md:text-[9px] font-black text-gray-500 uppercase">L10</div>
-                                </div>
-                                <div className="grid grid-cols-[1.8fr_1fr_1fr_1fr] gap-2 text-center items-center mb-2 border-b border-slate-700/30 pb-2">
-                                    <div className="text-left text-[9px] md:text-[10px] font-bold text-gray-300 truncate pr-1 flex flex-col gap-0.5">
-                                        {matchup.away_pitcher}
-                                        {awayPitcherNoData && <span className="text-[7px] font-black text-amber-500/80 bg-amber-500/10 border border-amber-500/20 px-1 py-0.5 rounded uppercase tracking-wider leading-none">Lig Ort.</span>}
+                                <h3 className="text-[10px] text-gray-400 font-bold uppercase tracking-widest border-b border-slate-700 pb-1 mt-2 flex items-center gap-2">
+                                    Team Offense NRFI Trends
+                                    {isFallback && (
+                                        <span className="text-[7px] font-black text-amber-500 bg-amber-500/10 border border-amber-500/20 px-1.5 py-0.5 rounded uppercase tracking-wider">⚠️ No Trend Data</span>
+                                    )}
+                                </h3>
+                                <div className="bg-slate-800/50 rounded-lg p-2 border border-slate-700/50">
+                                    <div className="grid grid-cols-[1.8fr_1fr_1fr_1fr] gap-2 text-center items-center mb-2">
+                                        <div className="text-left text-[8px] md:text-[9px] font-black text-slate-400 uppercase">Team</div>
+                                        <div className="text-[8px] md:text-[9px] font-black text-slate-400 uppercase">Season</div>
+                                        <div className="text-[8px] md:text-[9px] font-black text-slate-400 uppercase">Loc</div>
+                                        <div className="text-[8px] md:text-[9px] font-black text-slate-400 uppercase">L10</div>
                                     </div>
-                                    <div>{renderNrfiStat(awayTrends.season_nrfi_pct, awayTrends.season_record, isFallback)}</div>
-                                    <div>{renderNrfiStat(awayTrends.location_nrfi_pct, awayTrends.location_record, isFallback)}</div>
-                                    <div className="flex justify-center items-center gap-1">
-                                        {renderNrfiStat(awayTrends.last10_nrfi_pct, awayTrends.last10_record, isFallback)}
-                                        {!isFallback && awayTrends.streak_emoji && <span className="text-xs">{awayTrends.streak_emoji}</span>}
+                                    <div className="grid grid-cols-[1.8fr_1fr_1fr_1fr] gap-2 text-center items-center mb-2 border-b border-slate-700/30 pb-2">
+                                        <div className="text-left text-[9px] md:text-[10px] font-bold text-gray-300 truncate pr-1">
+                                            <span className="hidden xs:inline">{matchup.away_team}</span>
+                                            <span className="xs:hidden">{getTeamAbbr(matchup.away_team)}</span>
+                                        </div>
+                                        <div>{renderNrfiStat(awayTeamNrfi.season_nrfi_pct, awayTeamNrfi.season_record, isFallback)}</div>
+                                        <div>{renderNrfiStat(awayTeamNrfi.location_nrfi_pct, awayTeamNrfi.location_record, isFallback)}</div>
+                                        <div>{renderNrfiStat(awayTeamNrfi.last10_nrfi_pct, awayTeamNrfi.last10_record, isFallback)}</div>
                                     </div>
-                                </div>
-                                <div className="grid grid-cols-[1.8fr_1fr_1fr_1fr] gap-2 text-center items-center">
-                                    <div className="text-left text-[9px] md:text-[10px] font-bold text-gray-300 truncate pr-1 flex flex-col gap-0.5">
-                                        {matchup.home_pitcher}
-                                        {homePitcherNoData && <span className="text-[7px] font-black text-amber-500/80 bg-amber-500/10 border border-amber-500/20 px-1 py-0.5 rounded uppercase tracking-wider leading-none">Lig Ort.</span>}
-                                    </div>
-                                    <div>{renderNrfiStat(homeTrends.season_nrfi_pct, homeTrends.season_record, isFallback)}</div>
-                                    <div>{renderNrfiStat(homeTrends.location_nrfi_pct, homeTrends.location_record, isFallback)}</div>
-                                    <div className="flex justify-center items-center gap-1">
-                                        {renderNrfiStat(homeTrends.last10_nrfi_pct, homeTrends.last10_record, isFallback)}
-                                        {!isFallback && homeTrends.streak_emoji && <span className="text-xs">{homeTrends.streak_emoji}</span>}
+                                    <div className="grid grid-cols-[1.8fr_1fr_1fr_1fr] gap-2 text-center items-center">
+                                        <div className="text-left text-[9px] md:text-[10px] font-bold text-gray-300 truncate pr-1">
+                                            <span className="hidden xs:inline">{matchup.home_team}</span>
+                                            <span className="xs:hidden">{getTeamAbbr(matchup.home_team)}</span>
+                                        </div>
+                                        <div>{renderNrfiStat(homeTeamNrfi.season_nrfi_pct, homeTeamNrfi.season_record, isFallback)}</div>
+                                        <div>{renderNrfiStat(homeTeamNrfi.location_nrfi_pct, homeTeamNrfi.location_record, isFallback)}</div>
+                                        <div>{renderNrfiStat(homeTeamNrfi.last10_nrfi_pct, homeTeamNrfi.last10_record, isFallback)}</div>
                                     </div>
                                 </div>
                             </div>
 
-                            <h3 className="text-[10px] text-gray-400 font-bold uppercase tracking-widest border-b border-slate-700 pb-1 mt-2 flex items-center gap-2">
-                                Team Offense NRFI Trends
-                                {isFallback && (
-                                    <span className="text-[7px] font-black text-amber-500 bg-amber-500/10 border border-amber-500/20 px-1.5 py-0.5 rounded uppercase tracking-wider">⚠️ No Trend Data</span>
-                                )}
-                            </h3>
-                            <div className="bg-slate-800/50 rounded-lg p-2 border border-slate-700/50">
-                                <div className="grid grid-cols-[1.8fr_1fr_1fr_1fr] gap-2 text-center items-center mb-2">
-                                    <div className="text-left text-[8px] md:text-[9px] font-black text-gray-500 uppercase">Team</div>
-                                    <div className="text-[8px] md:text-[9px] font-black text-gray-500 uppercase">Season</div>
-                                    <div className="text-[8px] md:text-[9px] font-black text-gray-500 uppercase">Loc</div>
-                                    <div className="text-[8px] md:text-[9px] font-black text-gray-500 uppercase">L10</div>
+                            {/* RIGHT: AI Insight & Weather */}
+                            <div className="flex flex-col gap-3">
+                                <h3 className="text-[10px] text-gray-400 font-bold uppercase tracking-widest border-b border-slate-700 pb-1 flex items-center justify-between">
+                                    AI Edge Insight
+                                    {Weather?.cbs_alert_word && Weather?.cbs_alert_word !== "None" && (
+                                        <span className={`px-1.5 py-0.5 rounded text-[8px] font-black tracking-wider ${Weather?.red_flag_alert ? 'bg-red-500/20 text-red-400' : 'bg-amber-500/20 text-amber-400'}`}>
+                                            {Weather.cbs_alert_word}
+                                        </span>
+                                    )}
+                                </h3>
+                                <div className="bg-slate-800/40 rounded-lg p-3 border border-slate-700/50 flex-grow shadow-inner flex flex-col justify-start">
+                                    <p className="text-[11px] md:text-xs text-gray-300 leading-relaxed font-semibold whitespace-pre-wrap">
+                                        {formatAiInsight(aiInsight)}
+                                    </p>
                                 </div>
-                                <div className="grid grid-cols-[1.8fr_1fr_1fr_1fr] gap-2 text-center items-center mb-2 border-b border-slate-700/30 pb-2">
-                                    <div className="text-left text-[9px] md:text-[10px] font-bold text-gray-300 truncate pr-1">
-                                        <span className="hidden xs:inline">{matchup.away_team}</span>
-                                        <span className="xs:hidden">{getTeamAbbr(matchup.away_team)}</span>
-                                    </div>
-                                    <div>{renderNrfiStat(awayTeamNrfi.season_nrfi_pct, awayTeamNrfi.season_record, isFallback)}</div>
-                                    <div>{renderNrfiStat(awayTeamNrfi.location_nrfi_pct, awayTeamNrfi.location_record, isFallback)}</div>
-                                    <div>{renderNrfiStat(awayTeamNrfi.last10_nrfi_pct, awayTeamNrfi.last10_record, isFallback)}</div>
-                                </div>
-                                <div className="grid grid-cols-[1.8fr_1fr_1fr_1fr] gap-2 text-center items-center">
-                                    <div className="text-left text-[9px] md:text-[10px] font-bold text-gray-300 truncate pr-1">
-                                        <span className="hidden xs:inline">{matchup.home_team}</span>
-                                        <span className="xs:hidden">{getTeamAbbr(matchup.home_team)}</span>
-                                    </div>
-                                    <div>{renderNrfiStat(homeTeamNrfi.season_nrfi_pct, homeTeamNrfi.season_record, isFallback)}</div>
-                                    <div>{renderNrfiStat(homeTeamNrfi.location_nrfi_pct, homeTeamNrfi.location_record, isFallback)}</div>
-                                    <div>{renderNrfiStat(homeTeamNrfi.last10_nrfi_pct, homeTeamNrfi.last10_record, isFallback)}</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* RIGHT: AI Insight & Weather */}
-                        <div className="flex flex-col gap-3">
-                            <h3 className="text-[10px] text-gray-400 font-bold uppercase tracking-widest border-b border-slate-700 pb-1 flex items-center justify-between">
-                                AI Edge Insight
-                                {Weather?.cbs_alert_word && Weather?.cbs_alert_word !== "None" && (
-                                    <span className={`px-1.5 py-0.5 rounded text-[8px] font-black tracking-wider ${Weather?.red_flag_alert ? 'bg-red-500/20 text-red-400' : 'bg-amber-500/20 text-amber-400'}`}>
-                                        {Weather.cbs_alert_word}
-                                    </span>
-                                )}
-                            </h3>
-                            <div className="bg-slate-800/40 rounded-lg p-3 border border-slate-700/50 flex-grow shadow-inner">
-                                <p className="text-[11px] md:text-xs text-gray-300 leading-relaxed font-medium whitespace-pre-wrap">
-                                    {aiInsight || "No AI insight available for this matchup."}
-                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
-            )}
+            </div>
         </div>
     );
 };

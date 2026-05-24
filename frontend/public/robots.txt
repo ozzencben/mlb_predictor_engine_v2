@@ -1,0 +1,6 @@
+# robots.txt for Legends Sports MLB Predictor Engine
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: http://localhost:5173/sitemap.xml

@@ -1,6 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import { formatAmericanOdds, getTeamLogo } from '../utils/formatters';
 import SportsbookLogo from './SportsbookLogo';
+import CountUp from './CountUp';
+import CircularProgress from './CircularProgress';
+import { formatAiInsight } from '../utils/textFormatter';
 
 // Seedable pseudo-random number generator for consistent and high-fidelity history data
 const seedRandom = (str) => {
@@ -362,7 +365,7 @@ const renderNrfiStat = (pct, record, isFallback) => {
     return (
         <div className="flex flex-col items-center justify-center">
             <span className={`px-1.5 md:px-2 py-0.5 rounded text-[10px] md:text-xs font-black border tracking-wider shadow-sm ${getNrfiColor(pct)}`}>
-                {pct}%
+                <CountUp end={pct} decimals={1} suffix="%" />
             </span>
             {record && record !== "0-0" && <span className="text-[8px] md:text-[9px] text-gray-400 font-bold mt-1 tracking-wider whitespace-nowrap">{record}</span>}
         </div>
@@ -431,7 +434,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                     <td className="py-2 px-1.5 sm:px-2.5 md:py-3.5 md:px-4 text-gray-400 font-bold whitespace-nowrap">{game.date}</td>
                                     <td className="py-2 px-1.5 sm:px-2.5 md:py-3.5 md:px-4 whitespace-nowrap">
                                         <div className="flex items-center gap-1.5 md:gap-2">
-                                            <img src={logoUrl} alt={opponentText} className="w-4.5 h-4.5 md:w-6 h-6 object-contain drop-shadow-sm" />
+                                            <img src={logoUrl} alt={opponentText} className="w-4.5 h-4.5 md:w-6 h-6 object-contain drop-shadow-sm" loading="lazy" width="24" height="24" />
                                             <span className="font-extrabold text-blue-400">{opponentText}</span>
                                         </div>
                                     </td>
@@ -566,7 +569,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
     const f5Total = (parseFloat(F5.f5_away_score) + parseFloat(F5.f5_home_score)).toFixed(1);
 
     return (
-        <div className="bg-mlb-card rounded-xl border border-gray-700 shadow-2xl overflow-hidden mb-4 sm:mb-6 md:mb-8 transition-all duration-300 hover:border-gray-500 w-full">
+        <div className="bg-slate-900/40 backdrop-blur-xl border border-slate-700/60 shadow-[0_8px_32px_rgba(0,0,0,0.37)] rounded-2xl overflow-hidden mb-4 sm:mb-6 md:mb-8 transition-all duration-500 hover:-translate-y-0.5 hover:border-indigo-500/50 hover:shadow-[0_15px_30px_rgba(99,102,241,0.15)] w-full">
 
             {/* ================= 1. ÜST BAR ================= */}
             <div className="bg-slate-800/90 px-3 py-2.5 flex flex-wrap justify-between items-center border-b border-gray-700/50 gap-y-2 gap-x-2">
@@ -623,7 +626,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                 <div className="flex w-full justify-between items-start mb-5 gap-1">
                     {/* DEPLASMAN */}
                     <div className="flex-1 flex flex-col items-center text-center w-0 px-0.5">
-                        <img src={getTeamLogo(matchup.away_team)} alt={matchup.away_team} className="w-11 h-11 xs:w-14 xs:h-14 md:w-20 md:h-20 mb-2 drop-shadow-lg" />
+                        <img src={getTeamLogo(matchup.away_team)} alt={matchup.away_team} className="w-11 h-11 xs:w-14 xs:h-14 md:w-20 md:h-20 mb-2 drop-shadow-lg" loading="lazy" width="80" height="80" />
                         <div className="min-h-[40px] md:min-h-[48px] flex items-center justify-center w-full mb-2">
                             <h2 className="text-[10px] xs:text-[13px] md:text-lg font-black leading-tight balance-text whitespace-normal break-words">{matchup.away_team}</h2>
                         </div>
@@ -637,14 +640,14 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                             <div className="text-[8px] xs:text-[10px] text-gray-400 mt-1 font-semibold leading-tight flex flex-col xs:flex-row items-center justify-center gap-0.5 xs:gap-1.5">
                                 <span>({pitcherAway.record || '0-0'})</span>
                                 <span className="hidden xs:inline text-gray-500">|</span>
-                                <span className={getEraClass(pitcherAway.era)}>{pitcherAway.era || '0.00'} ERA</span>
+                                <span className={getEraClass(pitcherAway.era)}><CountUp end={pitcherAway.era || '0.00'} decimals={2} /> ERA</span>
                             </div>
                         </div>
                     </div>
 
                     {/* ORTA: SAAT */}
                     <div className="flex-shrink-0 flex flex-col items-center justify-start pt-2 px-0.5">
-                        <span className="text-[7px] xs:text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1 text-center">Game Time</span>
+                        <span className="text-[7px] xs:text-[9px] text-slate-400 font-bold uppercase tracking-widest mb-1 text-center">Game Time</span>
                         <span className="text-[9px] xs:text-xs md:text-sm font-black text-gray-300 bg-slate-900/50 px-2 py-1 rounded-full border border-slate-700/50 whitespace-nowrap">
                             {matchup.game_time || "TBD"}
                         </span>
@@ -652,7 +655,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
 
                     {/* EV SAHİBİ */}
                     <div className="flex-1 flex flex-col items-center text-center w-0 px-0.5">
-                        <img src={getTeamLogo(matchup.home_team)} alt={matchup.home_team} className="w-11 h-11 xs:w-14 xs:h-14 md:w-20 md:h-20 mb-2 drop-shadow-lg" />
+                        <img src={getTeamLogo(matchup.home_team)} alt={matchup.home_team} className="w-11 h-11 xs:w-14 xs:h-14 md:w-20 md:h-20 mb-2 drop-shadow-lg" loading="lazy" width="80" height="80" />
                         <div className="min-h-[40px] md:min-h-[48px] flex items-center justify-center w-full mb-2">
                             <h2 className="text-[10px] xs:text-[13px] md:text-lg font-black leading-tight balance-text whitespace-normal break-words">{matchup.home_team}</h2>
                         </div>
@@ -666,7 +669,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                             <div className="text-[8px] xs:text-[10px] text-gray-400 mt-1 font-semibold leading-tight flex flex-col xs:flex-row items-center justify-center gap-0.5 xs:gap-1.5">
                                 <span>({pitcherHome.record || '0-0'})</span>
                                 <span className="hidden xs:inline text-gray-500">|</span>
-                                <span className={getEraClass(pitcherHome.era)}>{pitcherHome.era || '0.00'} ERA</span>
+                                <span className={getEraClass(pitcherHome.era)}><CountUp end={pitcherHome.era || '0.00'} decimals={2} /> ERA</span>
                             </div>
                         </div>
                     </div>
@@ -696,9 +699,9 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
 
                     {/* Proj Score */}
                     <div className="text-center mb-4">
-                        <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest block mb-1.5">Proj. Score</span>
+                        <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest block mb-1.5">Proj. Score</span>
                         <div className="text-3xl md:text-4xl font-black text-white bg-slate-900/80 px-6 md:px-8 py-2 rounded-xl border border-slate-700 shadow-[0_0_15px_rgba(0,0,0,0.5)] tracking-tight">
-                            {Full_Game.full_away_score} <span className="text-gray-600 font-medium mx-2">-</span> {Full_Game.full_home_score}
+                            {Full_Game.full_away_score} <span className="text-slate-400 font-medium mx-2">-</span> {Full_Game.full_home_score}
                         </div>
                     </div>
 
@@ -715,10 +718,10 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                     {/* ML Odds & Book O/U */}
                     {matchup.status === 'Final' ? (
                         <div className="bg-slate-950/40 border border-slate-800/80 rounded-xl px-4 py-4 w-full max-w-[270px] sm:max-w-[290px] flex flex-col items-center justify-center shadow-md select-none">
-                            <span className="text-gray-500 text-[11px] font-extrabold uppercase tracking-wider mb-1 flex items-center gap-1">
+                            <span className="text-slate-400 text-[11px] font-extrabold uppercase tracking-wider mb-1 flex items-center gap-1">
                                 🔒 Markets Closed
                             </span>
-                            <span className="text-[9px] text-gray-600 font-bold uppercase tracking-widest">
+                            <span className="text-[9px] text-slate-400 font-bold uppercase tracking-widest">
                                 Game Completed
                             </span>
                         </div>
@@ -735,11 +738,11 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                 {Odds.away_book && (
                                     <div className="mt-1 flex items-center gap-1 max-w-full justify-center">
                                         <SportsbookLogo bookmaker={Odds.away_book} size="xs" />
-                                        <span className="text-[8px] text-gray-500 font-bold uppercase truncate max-w-[55px] xs:max-w-[75px] md:max-w-none">{Odds.away_book}</span>
+                                        <span className="text-[8px] text-slate-400 font-bold uppercase truncate max-w-[55px] xs:max-w-[75px] md:max-w-none">{Odds.away_book}</span>
                                     </div>
                                 )}
                             </div>
-                            <div className="text-[10px] font-bold text-gray-600 uppercase tracking-widest w-1/5 text-center flex-shrink-0">ML</div>
+                            <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest w-1/5 text-center flex-shrink-0">ML</div>
                             <div className="flex flex-col items-center w-2/5 min-w-0">
                                 <span className={`text-lg xs:text-xl font-black tracking-tight truncate ${Odds.home_edge_pct > 5 ? 'text-mlb-green' : 'text-gray-200'}`}>
                                     {formatAmericanOdds(Odds.best_home_odds)}
@@ -747,7 +750,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                 {Odds.home_book && (
                                     <div className="mt-1 flex items-center gap-1 max-w-full justify-center">
                                         <SportsbookLogo bookmaker={Odds.home_book} size="xs" />
-                                        <span className="text-[8px] text-gray-500 font-bold uppercase truncate max-w-[55px] xs:max-w-[75px] md:max-w-none">{Odds.home_book}</span>
+                                        <span className="text-[8px] text-slate-400 font-bold uppercase truncate max-w-[55px] xs:max-w-[75px] md:max-w-none">{Odds.home_book}</span>
                                     </div>
                                 )}
                             </div>
@@ -780,24 +783,28 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
             </div>
 
             {/* ================= 3. EXPAND ALANI (IN-DEPTH) ================= */}
-            <div className={`bg-slate-900 border-t border-slate-700 overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? 'max-h-[3500px] opacity-100 p-4 md:p-6' : 'max-h-0 opacity-0 p-0'}`}>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <div className={`grid transition-all duration-500 ease-in-out ${isExpanded ? 'grid-rows-[1fr] opacity-100 border-t border-slate-700/80 bg-slate-950/20' : 'grid-rows-[0fr] opacity-0 pointer-events-none'}`}>
+                <div className="overflow-hidden">
+                    <div className="p-4 md:p-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
 
                     {/* NRFI/YRFI CARD (DECLUTTERED) */}
                     <div className="bg-slate-800/60 rounded-xl overflow-hidden border border-slate-700/80 flex flex-col justify-between h-full shadow-lg">
                         {/* Header: Probability */}
                         <div className="p-4 md:p-5 flex justify-between items-center bg-slate-800/90 border-b border-slate-700">
-                            <div>
-                                <h3 className={`text-3xl md:text-4xl font-black tracking-tighter leading-none ${NRFI.pick === 'NRFI' ? 'text-mlb-green' : 'text-red-400'}`}>
-                                    {Math.round(NRFI.confidence * 100)}%
-                                </h3>
-                                <p className={`text-[9px] font-black uppercase tracking-widest mt-1 ${NRFI.pick === 'NRFI' ? 'text-mlb-green/80' : 'text-red-500/80'}`}>
-                                    {NRFI.pick} Probability
-                                </p>
+                            <div className="flex items-center gap-3">
+                                <CircularProgress percentage={Math.round(NRFI.confidence * 100)} size={44} strokeWidth={3} />
+                                <div>
+                                    <h3 className={`text-xl md:text-2xl font-black tracking-tighter leading-none ${NRFI.pick === 'NRFI' ? 'text-mlb-green' : 'text-red-400'}`}>
+                                        {NRFI.pick}
+                                    </h3>
+                                    <p className="text-[8px] md:text-[9px] font-black uppercase text-slate-400 tracking-widest mt-1">
+                                        AI Score Confidence
+                                    </p>
+                                </div>
                             </div>
                             <div className="text-right flex flex-col items-end">
-                                <span className="text-[9px] font-bold text-gray-500 uppercase tracking-widest block mb-1">Outcome</span>
+                                <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block mb-1">Outcome</span>
                                 <div className={`text-sm font-black italic border px-3 py-1 rounded-md shadow-inner ${NRFI.pick === 'NRFI' ? 'text-mlb-green border-mlb-green/30 bg-green-900/20' : 'text-red-400 border-red-500/30 bg-red-900/20'}`}>
                                     {NRFI.pick}
                                 </div>
@@ -826,7 +833,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                             <div className="grid grid-cols-2 gap-2.5 mb-2">
                                 {/* 1. Proj Score */}
                                 <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center">
-                                    <span className="text-[8px] md:text-[9px] text-gray-500 font-bold uppercase tracking-wider mb-0.5">Proj Score</span>
+                                    <span className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">Proj Score</span>
                                     <span className="text-[11px] md:text-sm font-black text-white whitespace-nowrap">
                                         {Full_Game.full_away_score} - {Full_Game.full_home_score}
                                     </span>
@@ -834,7 +841,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
 
                                 {/* 2. Model Total */}
                                 <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center">
-                                    <span className="text-[8px] md:text-[9px] text-gray-500 font-bold uppercase tracking-wider mb-0.5">Model Total</span>
+                                    <span className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">Model Total</span>
                                     <span className="text-[11px] md:text-sm font-black text-white whitespace-nowrap">
                                         {Full_Game.full_total} runs
                                     </span>
@@ -842,7 +849,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
 
                                 {/* 3. Book Total */}
                                 <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center">
-                                    <span className="text-[8px] md:text-[9px] text-gray-500 font-bold uppercase tracking-wider mb-0.5">Book Total</span>
+                                    <span className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">Book Total</span>
                                     <span className="text-[11px] md:text-sm font-black text-white whitespace-nowrap">
                                         {isOddsAvailable ? `${Odds.over_under} runs` : 'N/A'}
                                     </span>
@@ -850,7 +857,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
 
                                 {/* 4. Total Diff */}
                                 <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center">
-                                    <span className="text-[8px] md:text-[9px] text-gray-500 font-bold uppercase tracking-wider mb-0.5">Total Diff</span>
+                                    <span className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">Total Diff</span>
                                     {isOddsAvailable ? (
                                         <span className={`text-[11px] md:text-sm font-black whitespace-nowrap ${Full_Game.full_total > Odds.over_under ? 'text-mlb-green' : 'text-blue-400'}`}>
                                             {Math.abs(Full_Game.full_total - Odds.over_under).toFixed(1)} {Full_Game.full_total > Odds.over_under ? 'O' : 'U'}
@@ -862,7 +869,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
 
                                 {/* 5. Spread Play */}
                                 <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center col-span-2">
-                                    <span className="text-[8px] md:text-[9px] text-gray-500 font-bold uppercase tracking-wider mb-0.5">Spread Play</span>
+                                    <span className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">Spread Play</span>
                                     <span className="text-xs md:text-sm font-black text-indigo-400">
                                         {spreadPlay}
                                     </span>
@@ -870,7 +877,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
 
                                 {/* 6. F5 Score */}
                                 <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center">
-                                    <span className="text-[8px] md:text-[9px] text-gray-500 font-bold uppercase tracking-wider mb-0.5">F5 Score</span>
+                                    <span className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">F5 Score</span>
                                     <span className="text-[11px] md:text-sm font-black text-white whitespace-nowrap">
                                         {F5.f5_away_score} - {F5.f5_home_score}
                                     </span>
@@ -878,7 +885,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
 
                                 {/* 7. F5 Total */}
                                 <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center">
-                                    <span className="text-[8px] md:text-[9px] text-gray-500 font-bold uppercase tracking-wider mb-0.5">F5 Total</span>
+                                    <span className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">F5 Total</span>
                                     <span className="text-[11px] md:text-sm font-black text-white whitespace-nowrap">
                                         {f5Total} runs
                                     </span>
@@ -897,13 +904,13 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                         {getWeatherIcon(Weather.condition)} {Weather.temp_f}°F
                                     </div>
                                     <div className="text-sm font-medium text-gray-300 bg-slate-900/60 px-3 py-1.5 rounded-md inline-block">
-                                        <span className="text-gray-500 mr-2">WIND</span> {Weather.wind_mph} mph ({Weather.wind_direction})
+                                        <span className="text-slate-400 mr-2">WIND</span> {Weather.wind_mph} mph ({Weather.wind_direction})
                                     </div>
                                     <div className="text-sm font-medium text-gray-300 mt-2">
                                         {Weather.condition}
                                     </div>
                                     <div className="text-sm font-medium text-gray-300 mt-1">
-                                        <span className="text-gray-500 mr-2">HUMIDITY</span> {Weather.humidity}%
+                                        <span className="text-slate-400 mr-2">HUMIDITY</span> {Weather.humidity}%
                                     </div>
                                     {Weather.cbs_alert_word && Weather.cbs_alert_word !== "Clear" && (
                                         <div className={`mt-3 inline-block px-3 py-1 rounded text-[10px] font-black uppercase tracking-widest border ${Weather.red_flag_alert ? 'bg-red-900/30 text-red-400 border-red-500/50' : (Weather.cbs_alert_word.includes('Ideal') ? 'bg-green-900/30 text-green-400 border-green-500/50' : 'bg-amber-900/30 text-amber-400 border-amber-500/50')}`}>
@@ -985,7 +992,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                 <span className={`text-[10px] font-black uppercase tracking-wider mt-2.5 text-center px-2 w-full break-words leading-tight ${getWindMetrics(Weather.wind_direction).isCalm ? 'text-emerald-400' : 'text-cyan-400'}`}>
                                     {getWindMetrics(Weather.wind_direction).desc}
                                 </span>
-                                <span className="text-[8px] font-bold text-gray-500 uppercase tracking-widest mt-0.5">
+                                <span className="text-[8px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">
                                     {Weather.wind_mph} MPH WIND
                                 </span>
                             </div>
@@ -1000,8 +1007,8 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                 <span className="text-indigo-400 text-lg leading-none">👑</span>
                                 <h3 className="text-[10px] md:text-xs text-indigo-400 font-black uppercase tracking-widest pt-0.5">Legends AI Predictions</h3>
                             </div>
-                            <div className="text-xs md:text-sm text-gray-300 leading-relaxed font-medium whitespace-pre-wrap">
-                                {aiInsight}
+                            <div className="text-xs md:text-sm text-gray-300 leading-relaxed font-semibold whitespace-pre-wrap">
+                                {formatAiInsight(aiInsight)}
                             </div>
                         </div>
                     )}
@@ -1040,11 +1047,11 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                             <td className="py-2 px-2 xs:px-3 md:px-4 whitespace-nowrap">
                                                 <div className="flex flex-col gap-1.5">
                                                     <div className="flex items-center gap-1.5">
-                                                        <img src={getTeamLogo(matchup.away_team)} alt={matchup.away_team} className="w-4 h-4 object-contain" />
+                                                        <img src={getTeamLogo(matchup.away_team)} alt={matchup.away_team} className="w-4 h-4 object-contain" loading="lazy" width="16" height="16" />
                                                         <span className="text-gray-200 font-extrabold text-[10px] xs:text-[11px] md:text-xs">{getTeamAbbr(matchup.away_team)}</span>
                                                     </div>
                                                     <div className="flex items-center gap-1.5">
-                                                        <img src={getTeamLogo(matchup.home_team)} alt={matchup.home_team} className="w-4 h-4 object-contain" />
+                                                        <img src={getTeamLogo(matchup.home_team)} alt={matchup.home_team} className="w-4 h-4 object-contain" loading="lazy" width="16" height="16" />
                                                         <span className="text-gray-200 font-extrabold text-[10px] xs:text-[11px] md:text-xs">{getTeamAbbr(matchup.home_team)}</span>
                                                     </div>
                                                 </div>
@@ -1186,7 +1193,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                         <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-4 bg-slate-950/60 border border-slate-800/80 p-2 sm:p-4 rounded-xl shadow-inner">
                                             <div className="flex items-center gap-1.5 xs:gap-2.5 sm:gap-6">
                                                 <div className="flex flex-col">
-                                                    <span className="text-[8px] sm:text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">Win/Loss Record</span>
+                                                    <span className="text-[8px] sm:text-[9px] text-slate-400 font-bold uppercase tracking-widest mb-1">Win/Loss Record</span>
                                                     <div className="flex items-baseline gap-1 sm:gap-2">
                                                         <span className="text-xs xs:text-sm sm:text-xl font-black text-white whitespace-nowrap">{h2hData.summary.winsAway}-{h2hData.summary.winsHome}</span>
                                                         <span className="text-[10px] text-gray-400 font-semibold hidden md:inline">({matchup.away_team} vs {matchup.home_team})</span>
@@ -1194,7 +1201,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                                 </div>
                                                 <div className="h-6 sm:h-8 w-px bg-slate-800"></div>
                                                 <div className="flex flex-col">
-                                                    <span className="text-[8px] sm:text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">Over / Under</span>
+                                                    <span className="text-[8px] sm:text-[9px] text-slate-400 font-bold uppercase tracking-widest mb-1">Over / Under</span>
                                                     <div className="flex items-baseline gap-0.5 xs:gap-1 sm:gap-1.5">
                                                         <span className="text-[10px] xs:text-xs sm:text-lg font-black text-green-400 whitespace-nowrap">{h2hData.summary.over} Over</span>
                                                         <span className="text-[8px] xs:text-[9px] sm:text-xs text-gray-600 font-bold">/</span>
@@ -1260,7 +1267,8 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
 
                 </div>
             </div>
-
+                </div>
+            </div>
         </div>
     );
 };
