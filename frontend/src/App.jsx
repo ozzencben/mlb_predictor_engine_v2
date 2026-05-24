@@ -164,16 +164,16 @@ function App() {
             </p>
           </div>
         ) : (
-          displayPredictions.map((game) => (
+          displayPredictions.map((game, idx) => (
             activeModel === 'full' ? (
               <MatchupCard
-                key={`${game.matchup.away_team}-${game.matchup.home_team}`}
+                key={`full-${game.matchup.away_team}-${game.matchup.home_team}-${idx}`}
                 prediction={game}
                 onNavigateToNrfi={() => onNavigateToNrfi(`${game.matchup.away_team}-${game.matchup.home_team}`)}
               />
             ) : (
               <NrfiRow
-                key={`${game.matchup.away_team}-${game.matchup.home_team}`}
+                key={`nrfi-${game.matchup.away_team}-${game.matchup.home_team}-${idx}`}
                 prediction={game}
               />
             )
