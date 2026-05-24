@@ -129,8 +129,11 @@ class OddlySpecificScraper:
             data = json.loads(match.group(1))
 
             for game in data:
-                t_away = (game.get('away', {}).get('teamName', '') or '').strip()
-                t_home = (game.get('home', {}).get('teamName', '') or '').strip()
+                away_data = game.get('away') or {}
+                home_data = game.get('home') or {}
+                
+                t_away = (away_data.get('teamName', '') or '').strip()
+                t_home = (home_data.get('teamName', '') or '').strip()
                 
                 if not t_away or not t_home:
                     continue
@@ -138,8 +141,8 @@ class OddlySpecificScraper:
                 match_key = f"{t_away}-{t_home}".lower()
 
                 pitchers = {
-                    "away_pitcher": game.get('away', {}).get('pitcher', {}), 
-                    "home_pitcher": game.get('home', {}).get('pitcher', {})
+                    "away_pitcher": away_data.get('pitcher') or {}, 
+                    "home_pitcher": home_data.get('pitcher') or {}
                 }
                 
                 # Takım verilerini ham loglardan dinamik olarak hesaplıyoruz
@@ -152,6 +155,7 @@ class OddlySpecificScraper:
 
                 # Helper fonksiyonu: Hem pitcher hem de takım verilerini aynı formata sokar
                 def process_stats(stats_dict):
+                    stats_dict = stats_dict or {}
                     s_starts = safe_int(stats_dict.get('seasonStarts'))
                     s_pct = safe_float(stats_dict.get('seasonNrfiPct'))
                     l_starts = safe_int(stats_dict.get('locationStarts'))
@@ -177,7 +181,8 @@ class OddlySpecificScraper:
 
                 # Pitcher verilerini kaydet
                 for side, pitcher_data in pitchers.items():
-                    trends_master_db[match_key][side] = process_stats(pitcher_data.get('stats') or {})
+                    pitcher_dict = pitcher_data or {}
+                    trends_master_db[match_key][side] = process_stats(pitcher_dict.get('stats'))
 
                 # Takım verilerini kaydet (Yeni Eklenti)
                 for side, t_stats in teams_raw.items():
