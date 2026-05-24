@@ -66,9 +66,10 @@ function App() {
   const systemDate = data?.data?.date || '';
   const lastUpdated = data?.last_updated;
 
-  // Sort NRFI predictions from highest AI score to least when active
+  // Sort NRFI predictions from highest AI score to least when active, filtering out games without NRFI data
   const displayPredictions = activeModel === 'nrfi'
-    ? [...predictions].sort((a, b) => (b.NRFI?.confidence || 0) - (a.NRFI?.confidence || 0))
+    ? predictions.filter(game => game.NRFI && game.NRFI.pick)
+                 .sort((a, b) => (b.NRFI?.confidence || 0) - (a.NRFI?.confidence || 0))
     : predictions;
 
   return (

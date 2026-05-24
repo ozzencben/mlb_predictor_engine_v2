@@ -46,3 +46,40 @@ export const getTeamLogo = (teamName) => {
 
     return "https://www.mlbstatic.com/team-logos/league/mlb.svg";
 };
+
+// Takım Kısaltmaları
+export const getTeamAbbr = (teamName) => {
+    if (!teamName) return '';
+    const name = teamName.toLowerCase();
+    if (name.includes('yankee')) return 'NYY';
+    if (name.includes('mets') || name.includes('met')) return 'NYM';
+    if (name.includes('red sox') || name.includes('boston')) return 'BOS';
+    if (name.includes('blue jays') || name.includes('toronto')) return 'TOR';
+    if (name.includes('orioles') || name.includes('baltimore')) return 'BAL';
+    if (name.includes('tampa') || name.includes('rays')) return 'TB';
+    if (name.includes('twins') || name.includes('minnesota')) return 'MIN';
+    if (name.includes('guardians') || name.includes('cleveland')) return 'CLE';
+    if (name.includes('tigers') || name.includes('detroit')) return 'DET';
+    if (name.includes('white sox') || name.includes('chicago s') || name.includes('cws') || name.includes('chi white sox') || name.includes('chi. white sox') || name.includes('chi. s') || name.includes('chi s') || name.includes('sox') || name.includes('chicago white sox')) return 'CWS';
+    if (name.includes('cubs') || name.includes('chicago c') || name.includes('chc') || name.includes('chi cubs') || name.includes('chi. cubs') || name.includes('chi. c') || name.includes('chi c') || name.includes('chicago cubs')) return 'CHC';
+    if (name.includes('royals') || name.includes('kansas')) return 'KC';
+    if (name.includes('astros') || name.includes('houston')) return 'HOU';
+    if (name.includes('mariners') || name.includes('seattle')) return 'SEA';
+    if (name.includes('rangers') || name.includes('texas')) return 'TEX';
+    if (name.includes('angels') || name.includes('laa')) return 'LAA';
+    if (name.includes('athletics') || name.includes('oakland') || name.includes('a\'s')) return 'OAK';
+    if (name.includes('braves') || name.includes('atlanta')) return 'ATL';
+    if (name.includes('phillies') || name.includes('philadelphia')) return 'PHI';
+    if (name.includes('marlins') || name.includes('miami')) return 'MIA';
+    if (name.includes('nationals') || name.includes('washington') || name.includes('wsh') || name.includes('was')) return 'WSH';
+    if (name.includes('brewers') || name.includes('milwaukee')) return 'MIL';
+    if (name.includes('cardinals') || name.includes('st. l') || name.includes('st l')) return 'STL';
+    if (name.includes('pirates') || name.includes('pittsburgh')) return 'PIT';
+    if (name.includes('reds') || name.includes('cincinnati')) return 'CIN';
+    if (name.includes('dodgers') || name.includes('los a')) return 'LAD';
+    if (name.includes('giants') || name.includes('san f')) return 'SF';
+    if (name.includes('padres') || name.includes('san d')) return 'SD';
+    if (name.includes('diamondbacks') || name.includes('arizona')) return 'ARI';
+    if (name.includes('rockies') || name.includes('colorado')) return 'COL';
+    return teamName.substring(0, 3).toUpperCase();
+};

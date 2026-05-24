@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getTeamLogo, formatAmericanOdds } from '../utils/formatters';
+import { getTeamLogo, formatAmericanOdds, getTeamAbbr } from '../utils/formatters';
 import SportsbookLogo from './SportsbookLogo';
 
 const getNrfiColor = (pct) => {
@@ -70,12 +70,14 @@ const NrfiRow = ({ prediction }) => {
                 <div className="flex items-center gap-2 xs:gap-3 w-full sm:w-auto flex-1 justify-center sm:justify-start mt-1 sm:mt-0">
                     <div className="flex items-center gap-1.5 xs:gap-2">
                         <img src={getTeamLogo(matchup.away_team)} alt={matchup.away_team} className="w-7 h-7 xs:w-8 xs:h-8 md:w-10 md:h-10 drop-shadow-md flex-shrink-0" />
-                        <span className="text-[11px] xs:text-xs md:text-sm font-black text-white truncate max-w-[85px] xs:max-w-[100px] md:max-w-none">{matchup.away_team}</span>
+                        <span className="text-[11px] xs:text-xs md:text-sm font-black text-white hidden xs:inline">{matchup.away_team}</span>
+                        <span className="text-[11px] xs:text-xs md:text-sm font-black text-white xs:hidden">{getTeamAbbr(matchup.away_team)}</span>
                     </div>
                     <span className="text-[9px] md:text-xs font-black text-gray-500 flex-shrink-0">@</span>
                     <div className="flex items-center gap-1.5 xs:gap-2">
                         <img src={getTeamLogo(matchup.home_team)} alt={matchup.home_team} className="w-7 h-7 xs:w-8 xs:h-8 md:w-10 md:h-10 drop-shadow-md flex-shrink-0" />
-                        <span className="text-[11px] xs:text-xs md:text-sm font-black text-white truncate max-w-[85px] xs:max-w-[100px] md:max-w-none">{matchup.home_team}</span>
+                        <span className="text-[11px] xs:text-xs md:text-sm font-black text-white hidden xs:inline">{matchup.home_team}</span>
+                        <span className="text-[11px] xs:text-xs md:text-sm font-black text-white xs:hidden">{getTeamAbbr(matchup.home_team)}</span>
                     </div>
                 </div>
 
@@ -189,13 +191,19 @@ const NrfiRow = ({ prediction }) => {
                                     <div className="text-[8px] md:text-[9px] font-black text-gray-500 uppercase">L10</div>
                                 </div>
                                 <div className="grid grid-cols-[1.8fr_1fr_1fr_1fr] gap-2 text-center items-center mb-2 border-b border-slate-700/30 pb-2">
-                                    <div className="text-left text-[9px] md:text-[10px] font-bold text-gray-300 truncate pr-1">{matchup.away_team}</div>
+                                    <div className="text-left text-[9px] md:text-[10px] font-bold text-gray-300 truncate pr-1">
+                                        <span className="hidden xs:inline">{matchup.away_team}</span>
+                                        <span className="xs:hidden">{getTeamAbbr(matchup.away_team)}</span>
+                                    </div>
                                     <div>{renderNrfiStat(awayTeamNrfi.season_nrfi_pct, awayTeamNrfi.season_record, isFallback)}</div>
                                     <div>{renderNrfiStat(awayTeamNrfi.location_nrfi_pct, awayTeamNrfi.location_record, isFallback)}</div>
                                     <div>{renderNrfiStat(awayTeamNrfi.last10_nrfi_pct, awayTeamNrfi.last10_record, isFallback)}</div>
                                 </div>
                                 <div className="grid grid-cols-[1.8fr_1fr_1fr_1fr] gap-2 text-center items-center">
-                                    <div className="text-left text-[9px] md:text-[10px] font-bold text-gray-300 truncate pr-1">{matchup.home_team}</div>
+                                    <div className="text-left text-[9px] md:text-[10px] font-bold text-gray-300 truncate pr-1">
+                                        <span className="hidden xs:inline">{matchup.home_team}</span>
+                                        <span className="xs:hidden">{getTeamAbbr(matchup.home_team)}</span>
+                                    </div>
                                     <div>{renderNrfiStat(homeTeamNrfi.season_nrfi_pct, homeTeamNrfi.season_record, isFallback)}</div>
                                     <div>{renderNrfiStat(homeTeamNrfi.location_nrfi_pct, homeTeamNrfi.location_record, isFallback)}</div>
                                     <div>{renderNrfiStat(homeTeamNrfi.last10_nrfi_pct, homeTeamNrfi.last10_record, isFallback)}</div>
