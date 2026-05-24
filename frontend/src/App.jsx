@@ -8,7 +8,7 @@ import logo2Img from './assets/logo2.png';
 
 function App() {
   const [activeModel, setActiveModel] = useState('full'); // 'full', 'nrfi', 'f5'
-  const { data, loading, error } = usePredictions();
+  const { data, loading, error, isPreparing } = usePredictions();
 
   const onNavigateToNrfi = (gameKey) => {
     setActiveModel('nrfi');
@@ -25,18 +25,34 @@ function App() {
     }, 150);
   };
 
-  // 503: Veri hazırlanıyor (zamanlayıcı henüz çalışmamış)
-  if (error && error.includes('hazır değil')) {
+  // 503: Veri hazırlanıyor (zamanlayıcı henüz çalışmamış) veya polling durumunda
+  if (isPreparing) {
     return (
-      <div className="min-h-screen flex items-center justify-center p-8">
-        <div className="bg-slate-900 border border-amber-500/30 rounded-2xl p-8 text-center max-w-md shadow-2xl">
-          <span className="text-5xl block mb-4">⏳</span>
-          <h2 className="text-lg font-black text-amber-400 uppercase tracking-wider mb-2">Data is being prepared.</h2>
-          <p className="text-gray-400 text-sm font-medium">
-            The system automatically updates data daily at <strong className="text-white">12:00 AM and 12:00 PM ET</strong>.
-            If data is still loading, please check back in a few minutes.
+      <div className="min-h-screen flex items-center justify-center p-6 bg-slate-950 text-gray-100 selection:bg-indigo-500 selection:text-white">
+        <div className="bg-slate-900/60 backdrop-blur-xl border border-indigo-500/30 rounded-3xl p-8 md:p-10 text-center max-w-lg shadow-[0_0_50px_rgba(99,102,241,0.15)] flex flex-col items-center">
+          <div className="relative mb-6">
+            <span className="text-6xl inline-block animate-spin [animation-duration:3s]">⚾</span>
+            <div className="absolute inset-0 rounded-full bg-indigo-500/10 blur-xl animate-pulse"></div>
+          </div>
+          <h2 className="text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400 uppercase tracking-widest mb-3">
+            Legends AI Warming Up
+          </h2>
+          <p className="text-gray-300 text-sm md:text-base font-semibold leading-relaxed mb-6">
+            Calculations are in progress! The model is active and updating lineups, live betting lines, and ballpark wind metrics for today's matches.
           </p>
-          <p className="text-[10px] text-gray-600 mt-4 font-bold uppercase tracking-wider">
+          <div className="w-full bg-slate-950/80 rounded-full h-1.5 p-[1px] border border-slate-800 mb-6 relative overflow-hidden">
+            <div className="h-full bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-full w-2/3 animate-pulse shadow-[0_0_10px_rgba(99,102,241,0.5)]"></div>
+          </div>
+          <div className="flex items-center gap-2 px-4 py-1.5 bg-indigo-500/10 border border-indigo-500/20 rounded-full">
+            <span className="flex h-2 w-2 relative">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+            </span>
+            <span className="text-[10px] md:text-xs text-indigo-300 font-extrabold uppercase tracking-widest animate-pulse">
+              Polling Server... Dashboard Autoload Active
+            </span>
+          </div>
+          <p className="text-[9px] text-gray-500 mt-8 font-black uppercase tracking-[0.2em]">
             Legends Sports MLB Predictor Engine
           </p>
         </div>
