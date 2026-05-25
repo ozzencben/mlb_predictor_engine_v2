@@ -28,7 +28,19 @@ function App() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [activeModel, setActiveModel] = useState('full'); // 'full', 'nrfi', 'f5'
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [isSlowLoading, setIsSlowLoading] = useState(false);
   const { data, loading, error, isPreparing } = usePredictions(selectedDate);
+
+  useEffect(() => {
+    if (loading) {
+      const timer = setTimeout(() => {
+        setIsSlowLoading(true);
+      }, 3000);
+      return () => clearTimeout(timer);
+    } else {
+      setIsSlowLoading(false);
+    }
+  }, [loading]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -346,6 +358,29 @@ function App() {
             );
           })}
         </div>
+
+        {/* ================= BACKEND COLD START WARNING ================= */}
+        {loading && isSlowLoading && (
+          <div className="mb-8 p-6 bg-indigo-950/40 backdrop-blur-xl border border-indigo-500/30 rounded-2xl text-center flex flex-col items-center justify-center shadow-[0_0_30px_rgba(99,102,241,0.15)] animate-pulse select-none">
+            <span className="text-4xl block mb-3 animate-spin [animation-duration:4s]">⚡</span>
+            <h4 className="text-sm md:text-base font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-400 uppercase tracking-widest mb-1.5">
+              Waking Up Predictor Server
+            </h4>
+            <p className="text-gray-300 text-xs md:text-sm max-w-md font-semibold leading-relaxed mb-4">
+              Since the engine is hosted on Render's free tier, the backend container automatically hibernates after inactivity. We are waking it up now—this process typically takes about 45-60 seconds. Thank you for your patience!
+            </p>
+            <div className="flex items-center gap-2 px-3 py-1 bg-cyan-500/10 border border-cyan-500/20 rounded-full">
+              <span className="flex h-1.5 w-1.5 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-500"></span>
+              </span>
+              <span className="text-[9px] text-cyan-300 font-extrabold uppercase tracking-wider">
+                Connecting to API container...
+              </span>
+            </div>
+          </div>
+        )}
+
         {!loading && dailyEdges && predictions.length > 0 && (
           <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl p-4 sm:p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] mb-8 select-none border-t border-t-indigo-500/30">
             <div className="flex justify-between items-center mb-4 border-b border-slate-800 pb-2.5">
