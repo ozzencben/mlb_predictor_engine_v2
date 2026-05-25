@@ -15,6 +15,9 @@ import asyncio
 import logging
 import os
 import time
+import json
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
@@ -32,11 +35,27 @@ STARTUP_MAX_AGE_SECONDS = 43200
 
 def _predictions_file_is_stale() -> bool:
     """
-    todays_predictions.json dosyası yoksa veya 12 saatten eskiyse True döner.
-    Bu sadece startup kontrolü içindir.
+    todays_predictions.json dosyası yoksa, bugünün takvim tarihini taşımıyorsa veya 
+    12 saatten eskiyse True döner (akıllı takvim günü kontrolü ile API kota koruması).
     """
     if not os.path.exists(PREDICTIONS_FILE):
         return True
+
+    try:
+        # Önbellek dosyasını oku ve bugünün takvim tarihiyle karşılaştır
+        with open(PREDICTIONS_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        file_date = data.get("date")
+        et_today = datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d")
+
+        # Eğer dosyadaki tahmin tarihi bugüne aitse, KESİNLİKLE internet kazıması yapma (Bypass)
+        if file_date == et_today:
+            logger.info(f"⚡ Akıllı Kota Koruması: Önbellekteki tahminler bugünün takvim gününe ({et_today}) ait. Sıfırdan kazıma bypass edildi.")
+            return False
+    except Exception as e:
+        logger.warning(f"⚠️ Önbellek tarihi okunamadı, standart yaş kontrole dönülüyor: {e}")
+
     age = time.time() - os.path.getmtime(PREDICTIONS_FILE)
     return age > STARTUP_MAX_AGE_SECONDS
 

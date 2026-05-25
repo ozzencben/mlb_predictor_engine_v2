@@ -1,3 +1,4 @@
+import math
 from pydantic import BaseModel, Field
 
 from app.models.nrfi_model import NRFIModel
@@ -64,7 +65,121 @@ class MLBUnifiedEngine:
 
         return a_pow / total_pow, h_pow / total_pow
 
-    def predict_matchup(self, game: GameInputData, trends: NRFITrendSchema = None) -> dict:
+    def calculate_weather_impact(self, weather: dict, home_team: str) -> dict:
+        """
+        Yerel fiziksel model: Rüzgar yönü/hızı, sıcaklık, nem ve rakıma dayalı
+        topun havada süzülme mesafesini ve Runs/HR/K etkisini $0 API maliyetiyle hesaplar.
+        """
+        stadium_metrics = {
+            "Colorado": {"altitude": 5200, "bearing": 10},
+            "Boston": {"altitude": 20, "bearing": 45},
+            "Cincinnati": {"altitude": 480, "bearing": 40},
+            "Atlanta": {"altitude": 1050, "bearing": 20},
+            "Kansas City": {"altitude": 270, "bearing": 0},
+            "LA Dodgers": {"altitude": 270, "bearing": 25},
+            "Texas": {"altitude": 500, "bearing": 0},
+            "Chi White Sox": {"altitude": 590, "bearing": 35},
+            "Philadelphia": {"altitude": 20, "bearing": 15},
+            "Arizona": {"altitude": 1080, "bearing": 10},
+            "Chi Cubs": {"altitude": 600, "bearing": 55},
+            "Houston": {"altitude": 40, "bearing": 0},
+            "Miami": {"altitude": 10, "bearing": 0},
+            "Milwaukee": {"altitude": 600, "bearing": 0},
+            "NY Yankees": {"altitude": 50, "bearing": 55},
+            "Pittsburgh": {"altitude": 740, "bearing": 70},
+            "Toronto": {"altitude": 250, "bearing": 0},
+            "Washington": {"altitude": 25, "bearing": 0},
+            "Baltimore": {"altitude": 30, "bearing": 45},
+            "Detroit": {"altitude": 600, "bearing": -5},
+            "LA Angels": {"altitude": 160, "bearing": 65},
+            "Minnesota": {"altitude": 840, "bearing": 55},
+            "NY Mets": {"altitude": 15, "bearing": 40},
+            "Tampa Bay": {"altitude": 10, "bearing": 0},
+            "Cleveland": {"altitude": 650, "bearing": 35},
+            "Athletics": {"altitude": 30, "bearing": 30},
+            "San Diego": {"altitude": 15, "bearing": 30},
+            "SF Giants": {"altitude": 10, "bearing": 45},
+            "St Louis": {"altitude": 460, "bearing": -20},
+            "Seattle": {"altitude": 10, "bearing": 40}
+        }
+
+        # Varsayılanlar
+        temp = float(weather.get("temp_f", 72.0))
+        wind = float(weather.get("wind_mph", 0.0))
+        direction = str(weather.get("wind_direction", "Calm"))
+        humidity = float(weather.get("humidity", 50.0))
+        
+        is_dome = False
+        if "calm" in direction.lower() or "dome" in direction.lower() or "roof" in direction.lower() or "closed" in direction.lower():
+            is_dome = True
+            
+        metrics = stadium_metrics.get(home_team, {"altitude": 0, "bearing": 0})
+        
+        if is_dome:
+            return {
+                "ball_carry_ft": 0.0,
+                "runs_impact_pct": 0.0,
+                "hr_impact_pct": 0.0,
+                "k_impact_pct": 0.0,
+                "wind_out_mph": 0.0,
+                "is_dome": True
+            }
+            
+        # 1. Hava sıcaklığı, nem ve rakım etkisi
+        carry_temp = (temp - 72.0) * 0.35
+        carry_altitude = metrics["altitude"] * 0.005
+        carry_humid = -(humidity - 50.0) * 0.04
+        
+        # 2. Rüzgar yönü vektör izdüşümü
+        to_dir = direction
+        if " TO " in direction.upper():
+            parts = direction.upper().split(" TO ")
+            if len(parts) > 1:
+                to_dir = parts[1].strip()
+        elif "→" in direction:
+            parts = direction.split("→")
+            if len(parts) > 1:
+                to_dir = parts[1].strip()
+                
+        mapping = {
+            'N': 0.0, 'NNE': 22.5, 'NE': 45.0, 'ENE': 67.5,
+            'E': 90.0, 'ESE': 112.5, 'SE': 135.0, 'SSE': 157.5,
+            'S': 180.0, 'SSW': 202.5, 'SW': 225.0, 'WSW': 247.5,
+            'W': 270.0, 'WNW': 292.5, 'NW': 315.0, 'NNW': 337.5
+        }
+        
+        wind_angle = mapping.get(to_dir, 0.0)
+        stadium_angle = float(metrics["bearing"])
+        
+        # Vektör farkı radyan cinsinden
+        alpha_rad = math.radians(wind_angle - stadium_angle)
+        
+        # Merkez sahaya esen rüzgar izdüşümü (Outward wind component)
+        wind_out = wind * math.cos(alpha_rad)
+        carry_wind = wind_out * 1.8
+        
+        # Toplam süzülme mesafesi değişimi
+        total_carry = carry_temp + carry_humid + carry_wind + carry_altitude
+        
+        # Yüzdesel etkiler
+        runs_impact = total_carry * 0.3
+        hr_impact = total_carry * 0.7
+        k_impact = -total_carry * 0.1
+        
+        # Aşırı soğuklarda atıcı parmak tutuşu zorluğu
+        if temp < 50.0:
+            k_impact -= 5.0
+            
+        return {
+            "ball_carry_ft": round(total_carry, 1),
+            "runs_impact_pct": round(runs_impact, 1),
+            "hr_impact_pct": round(hr_impact, 1),
+            "k_impact_pct": round(k_impact, 1),
+            "wind_out_mph": round(wind_out, 1),
+            "is_dome": False
+        }
+
+    def predict_matchup(self, game: GameInputData, trends: NRFITrendSchema = None, weather: dict = None) -> dict:
         """
         Bütün tahmin motorlarını çalıştırır, mantık hatalarını düzeltir (Safety Check)
         ve FastAPI için uygun JSON payload'unu oluşturur.
@@ -125,6 +240,34 @@ class MLBUnifiedEngine:
         full_away = full_result["full_away_score"]
         full_home = full_result["full_home_score"]
 
+        # Weather Impact Engine
+        weather_impact = self.calculate_weather_impact(weather or {}, game.home_team)
+        runs_mult = 1.0 + (weather_impact["runs_impact_pct"] / 100.0)
+        
+        full_away = round(max(0.5, full_away * runs_mult), 1)
+        full_home = round(max(0.5, full_home * runs_mult), 1)
+
+        # Recalculate Pythagorean Win Probabilities after weather adjustment
+        if full_away == 0 and full_home == 0:
+            away_prob, home_prob = 0.5, 0.5
+        else:
+            away_pow = full_away**self.mlb_model.offExp
+            home_pow = full_home**self.mlb_model.offExp
+            total_pow = away_pow + home_pow
+            away_prob = away_pow / total_pow
+            home_prob = home_pow / total_pow
+
+        full_result.update(
+            {
+                "full_away_score": full_away,
+                "full_home_score": full_home,
+                "full_total": round(full_away + full_home, 2),
+                "full_away_win_prob": round(away_prob, 3),
+                "full_home_win_prob": round(home_prob, 3),
+                "full_spread_adv": round(abs(full_home - full_away) - 1.5, 2),
+            }
+        )
+
         # 3. SABERMETRİK GÜVENLİK KONTROLÜ (INNING-WEIGHTED CONSTRAINT)
         # Mantık: Bir takım maçın tamamında, ilk 5 inning'de attığı sayıdan daha az sayı atmış olamaz.
         # Bullpen (son 4 inning) en kötü senaryoda bile ham skoru %20 kadar artırması beklenir.
@@ -166,6 +309,31 @@ class MLBUnifiedEngine:
                 }
             )
 
+        # 3.5 Spread Cover Olasılığı Hesaplama (Normal Dağılım ve CDF - Görev 5)
+        # Skor farkı X ~ N(mu, sigma^2) standard sapması sigma = 4.0 run
+        mu = full_home - full_away
+        sigma = 4.0
+
+        def standard_normal_cdf(val: float) -> float:
+            return 0.5 * (1.0 + math.erf(val / math.sqrt(2.0)))
+
+        def normal_cdf(x: float, mean: float, std_dev: float) -> float:
+            return standard_normal_cdf((x - mean) / std_dev)
+
+        home_cover_minus_1_5 = round((1 - normal_cdf(1.5, mu, sigma)) * 100, 1)
+        home_cover_plus_1_5 = round((1 - normal_cdf(-1.5, mu, sigma)) * 100, 1)
+        away_cover_minus_1_5 = round(normal_cdf(-1.5, mu, sigma) * 100, 1)
+        away_cover_plus_1_5 = round(normal_cdf(1.5, mu, sigma) * 100, 1)
+
+        full_result.update(
+            {
+                "home_cover_minus_1_5_prob": home_cover_minus_1_5,
+                "home_cover_plus_1_5_prob": home_cover_plus_1_5,
+                "away_cover_minus_1_5_prob": away_cover_minus_1_5,
+                "away_cover_plus_1_5_prob": away_cover_plus_1_5,
+            }
+        )
+
         # 4. Value Bet Yakalayıcı (Market Oranlarına Karşı)
         value_alerts = []
         book_total = game.odds.get("over_under", 0)
@@ -193,5 +361,6 @@ class MLBUnifiedEngine:
                 "pitcher_analysis": raw_pitcher_data,
                 "value_alerts": value_alerts,
                 "model_anomalies": model_anomalies,
+                "weather_impact": weather_impact,
             },
         }

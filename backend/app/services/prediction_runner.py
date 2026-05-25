@@ -452,11 +452,11 @@ class PredictionRunner:
         if isinstance(results[2], Exception):
             print(f"⚠️ Uyarı: WeatherScraper hatası. Standart hava atandı. ({results[2]})")
             
-        if not isinstance(results[3], Exception):
+        if not isinstance(results[3], Exception) and results[3]:
             self._atomic_save(os.path.join(self.data_dir, "nrfi_trends.json"), results[3])
         else:
-            print(f"⚠️ Uyarı: OddlySpecificScraper hatası. ({results[3]})")
-            self._atomic_save(os.path.join(self.data_dir, "nrfi_trends.json"), {})
+            reason = results[3] if isinstance(results[3], Exception) else "Boş veri döndü"
+            print(f"⚠️ Uyarı: OddlySpecificScraper başarısız oldu veya boş veri döndü ({reason}). Mevcut önbellek dosyası korunuyor.")
 
         return True
 
@@ -465,6 +465,20 @@ class PredictionRunner:
         
         # 1. AI Servisini başlat
         ai_service = get_ai_predictor()
+
+        # 1.5 Eski tahminleri yükle (AI Yorumlarını ve diğer kalıcı verileri korumak için)
+        old_predictions_db = {}
+        try:
+            old_file = os.path.join(self.data_dir, "todays_predictions.json")
+            if os.path.exists(old_file):
+                with open(old_file, "r", encoding="utf-8") as f:
+                    old_data = json.load(f)
+                    for p in old_data.get("predictions", []):
+                        key = (p["matchup"]["away_team"], p["matchup"]["home_team"])
+                        old_predictions_db[key] = p
+                print(f"✅ AI Önbellek Sistemi: {len(old_predictions_db)} eski maç tahmini diskten başarıyla kurtarıldı.")
+        except Exception as e:
+            print(f"⚠️ Eski tahminler yüklenirken hata oluştu: {e}")
 
         async with httpx.AsyncClient() as client:
             if not await self._run_scrapers_async(client):
@@ -589,7 +603,8 @@ class PredictionRunner:
                 else:
                     trends_schema = NRFITrendSchema(is_scraper_fallback=True)
 
-                prediction = engine.predict_matchup(game_input, trends=trends_schema)
+                weather_info = weather_db.get(game_input.home_team, {})
+                prediction = engine.predict_matchup(game_input, trends=trends_schema, weather=weather_info)
 
                 away_team = game_input.away_team
                 home_team = game_input.home_team
@@ -670,6 +685,20 @@ class PredictionRunner:
         for pred in all_predictions:
             away = pred['matchup']['away_team']
             home = pred['matchup']['home_team']
+
+            # --- AI Önbelleği Kurtarma (Seçenek A) ---
+            # Eğer eski başarılı bir önbellek analizi varsa, API kotalarını korumak için doğrudan oradan oku!
+            key = (away, home)
+            old_pred = old_predictions_db.get(key)
+            old_insight = None
+            if old_pred and "Details" in old_pred:
+                old_insight = old_pred["Details"].get("ai_insight")
+                
+            # Eğer eski analiz geçerliyse, "skipped" veya hata içermiyorsa aynen koru
+            if old_insight and not old_insight.startswith("AI analysis"):
+                print(f"   ⚡ AI Önbelleği Koruması: {away} vs {home} için mevcut geçerli AI yorumu başarıyla korundu.")
+                pred["Details"]["ai_insight"] = old_insight
+                continue
 
             # --- CIRCUIT BREAKER: Günlük veya kalıcı kota dolduysa kalan maçları direkt atla ---
             if getattr(ai_service, 'quota_exhausted', False):

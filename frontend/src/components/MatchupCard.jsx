@@ -117,6 +117,23 @@ const getWindMetrics = (dir) => {
     return { angle: 0, desc: 'Unknown Direction', isCalm: false };
 };
 
+// Cumulative normal distribution CDF using math approximation for erf (to support Spread Probability)
+const normalCDF = (x, mean = 0, stdDev = 1) => {
+    const z = (x - mean) / stdDev;
+    const t = 1.0 / (1.0 + 0.5 * Math.abs(z));
+    const ans = 1.0 - t * Math.exp(-z * z - 1.26551223 +
+        t * (1.00002368 +
+        t * (0.37409196 +
+        t * (0.09678418 +
+        t * (-0.18628806 +
+        t * (0.27886807 +
+        t * (-1.13520398 +
+        t * (1.48851587 +
+        t * (-0.82215223 +
+        t * 0.17087277)))))))));
+    return z >= 0 ? 0.5 + 0.5 * ans : 0.5 - 0.5 * ans;
+};
+
 const generateLast10 = (teamName, isAwayLocation, l10Record, seedStr) => {
     const l10 = l10Record || "5-5";
     const [winsCount, lossesCount] = l10.split('-').map(Number);
@@ -554,46 +571,90 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
         );
     }, [Odds?.bookmakers, Odds?.best_away_odds, Odds?.best_home_odds, Odds?.over_under, matchup.away_team, matchup.home_team, seedStr]);
 
-    // Spread Play Calculation
-    const isAwayFav = parseFloat(Full_Game.full_away_win_prob) > parseFloat(Full_Game.full_home_win_prob);
-    const favoredTeam = isAwayFav ? matchup.away_team : matchup.home_team;
-    const underdogTeam = isAwayFav ? matchup.home_team : matchup.away_team;
-    const favProj = isAwayFav ? parseFloat(Full_Game.full_away_score) : parseFloat(Full_Game.full_home_score);
-    const dogProj = isAwayFav ? parseFloat(Full_Game.full_home_score) : parseFloat(Full_Game.full_away_score);
-    const projectedMargin = favProj - dogProj;
-    const spreadPlay = projectedMargin > 1.5
-        ? `${favoredTeam} -1.5`
-        : `${underdogTeam} +1.5`;
+    // Moneyline Consensus Choice
+    const awayProb = parseFloat(Full_Game.full_away_win_prob);
+    const homeProb = parseFloat(Full_Game.full_home_win_prob);
+    const mlChoiceText = awayProb >= homeProb ? `${getTeamAbbr(matchup.away_team)} ML` : `${getTeamAbbr(matchup.home_team)} ML`;
+    const mlChoiceProb = awayProb >= homeProb ? awayProb : homeProb;
+
+    // Spread Probability calculations (using normal CDF based on projected score difference)
+    const awayScore = parseFloat(Full_Game.full_away_score);
+    const homeScore = parseFloat(Full_Game.full_home_score);
+    const mu = homeScore - awayScore; // Home score minus Away score
+    const sigma = 4.0; // standard deviation in MLB run differentials
+
+    const homeCoverMinus1_5 = 1 - normalCDF(1.5, mu, sigma);
+    const homeCoverPlus1_5 = 1 - normalCDF(-1.5, mu, sigma);
+    const awayCoverMinus1_5 = normalCDF(-1.5, mu, sigma);
+    const awayCoverPlus1_5 = normalCDF(1.5, mu, sigma);
+
+    // Identify standard bookmaker options (Favorite -1.5 / Underdog +1.5)
+    const bookAwaySpread = Odds?.away_spread !== undefined ? Odds.away_spread : (awayScore > homeScore ? -1.5 : 1.5);
+    const isAwaySpreadFav = bookAwaySpread < 0;
+    const spreadLineFav = isAwaySpreadFav ? matchup.away_team : matchup.home_team;
+    const spreadLineDog = isAwaySpreadFav ? matchup.home_team : matchup.away_team;
+
+    const pMinus1_5_Fav = isAwaySpreadFav ? awayCoverMinus1_5 : homeCoverMinus1_5;
+    const pPlus1_5_Dog = isAwaySpreadFav ? homeCoverPlus1_5 : awayCoverPlus1_5;
+
+    let spreadChoiceText = "";
+    let spreadChoiceProb = 0;
+    if (pMinus1_5_Fav >= 0.5) {
+        spreadChoiceText = `${getTeamAbbr(spreadLineFav)} -1.5`;
+        spreadChoiceProb = pMinus1_5_Fav;
+    } else {
+        spreadChoiceText = `${getTeamAbbr(spreadLineDog)} +1.5`;
+        spreadChoiceProb = pPlus1_5_Dog;
+    }
+
+    const spreadPlay = `${spreadChoiceText} (${Math.round(spreadChoiceProb * 100)}% Cover)`;
+
+    // Over/Under Consensus Choice
+    const bookTotal = isOddsAvailable ? Odds.over_under : 8.5;
+    const modelTotal = parseFloat(Full_Game.full_total);
+    const ouChoiceText = modelTotal >= bookTotal ? `OVER ${bookTotal}` : `UNDER ${bookTotal}`;
+    const ouChoiceValue = modelTotal;
 
     // F5 Total Calculation
     const f5Total = (parseFloat(F5.f5_away_score) + parseFloat(F5.f5_home_score)).toFixed(1);
 
     return (
-        <div className="bg-slate-900/40 backdrop-blur-xl border border-slate-700/60 shadow-[0_8px_32px_rgba(0,0,0,0.37)] rounded-2xl overflow-hidden mb-4 sm:mb-6 md:mb-8 transition-all duration-500 hover:-translate-y-0.5 hover:border-indigo-500/50 hover:shadow-[0_15px_30px_rgba(99,102,241,0.15)] w-full">
+        <div id={`matchup-card-${matchup.away_team}-${matchup.home_team}`} className="bg-slate-900/40 backdrop-blur-xl border border-slate-700/60 shadow-[0_8px_32px_rgba(0,0,0,0.37)] rounded-2xl overflow-hidden mb-4 sm:mb-6 md:mb-8 transition-all duration-500 hover:-translate-y-0.5 hover:border-indigo-500/50 hover:shadow-[0_15px_30px_rgba(99,102,241,0.15)] w-full">
 
-            {/* ================= 1. ÜST BAR ================= */}
-            <div className="bg-slate-800/90 px-3 py-2.5 flex flex-wrap justify-between items-center border-b border-gray-700/50 gap-y-2 gap-x-2">
-                <div className="flex items-center gap-1.5 min-w-[140px] flex-1">
-                    <span className="bg-blue-600/20 text-blue-400 border border-blue-500/30 px-1.5 py-0.5 rounded text-[9px] font-black tracking-widest flex-shrink-0">MLB</span>
-                    <span className="text-[10px] md:text-xs text-gray-300 font-bold uppercase tracking-wider truncate">
-                        {matchup.away_team} @ {matchup.home_team}
+            {/* ================= 1. ÜST BAR (STANDOUT HEADLINER REDESIGN) ================= */}
+            <div className="bg-slate-950/80 px-4 py-3 flex flex-wrap justify-between items-center border-b border-indigo-500/20 gap-y-2 gap-x-2 relative overflow-hidden select-none">
+                {/* Visual Neon Highlight Strip */}
+                <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400 opacity-80"></div>
+                
+                <div className="flex items-center gap-2 min-w-[140px] flex-grow sm:flex-none">
+                    <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-2 py-0.5 rounded text-[8px] md:text-[9px] font-black tracking-widest flex-shrink-0 shadow-md animate-pulse">
+                        MLB Cons
+                    </span>
+                    <span className="text-xs md:text-sm text-gray-100 font-extrabold uppercase tracking-wide truncate flex items-center gap-1">
+                        <span className="text-blue-400 font-black">{getTeamAbbr(matchup.away_team)}</span>
+                        <span className="text-slate-500 font-bold text-[10px]">@</span>
+                        <span className="text-indigo-400 font-black">{getTeamAbbr(matchup.home_team)}</span>
+                        <span className="text-slate-600 text-[10px] hidden sm:inline ml-1">|</span>
+                        <span className="text-[10px] text-slate-400 font-bold hidden sm:inline truncate max-w-[180px]">
+                            {matchup.away_team} @ {matchup.home_team}
+                        </span>
                     </span>
                 </div>
 
                 <div className="flex items-center justify-end gap-2 flex-wrap sm:flex-nowrap">
                     {isLive && (
-                        <span className="text-green-400 text-[10px] md:text-xs font-black flex items-center gap-1 animate-pulse mr-1">
-                            <span className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]"></span> LIVE
+                        <span className="text-green-400 text-[9px] md:text-[10px] font-black bg-green-500/10 border border-green-500/25 px-2 py-0.5 rounded-full flex items-center gap-1.5 animate-pulse">
+                            <span className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]"></span> LIVE
                         </span>
                     )}
                     {Weather && Weather.cbs_alert_word && Weather.cbs_alert_word !== "Clear" && (
-                        <span className={`px-1.5 md:px-2 py-1 rounded text-[8px] md:text-[10px] font-black uppercase tracking-widest border flex items-center gap-1 shadow-sm ${Weather.red_flag_alert ? 'bg-red-900/80 text-red-100 border-red-500' : (Weather.cbs_alert_word.includes('Ideal') ? 'bg-green-900/50 text-green-300 border-green-500/50' : 'bg-amber-900/50 text-amber-300 border-amber-500/50')}`}>
+                        <span className={`px-1.5 md:px-2 py-0.5 rounded text-[8px] md:text-[9px] font-black uppercase tracking-widest border flex items-center gap-1 shadow-sm ${Weather.red_flag_alert ? 'bg-red-900/80 text-red-100 border-red-500/30' : (Weather.cbs_alert_word.includes('Ideal') ? 'bg-green-900/30 text-green-300 border-green-500/25' : 'bg-amber-900/30 text-amber-300 border-amber-500/25')}`}>
                             {Weather.red_flag_alert ? '🚩' : (Weather.cbs_alert_word.includes('Ideal') ? '✅' : '⚠️')}
                             <span className="whitespace-nowrap">{Weather.cbs_alert_word}</span>
                         </span>
                     )}
                     {Weather && (
-                        <span className="flex items-center gap-1 text-gray-200 bg-slate-900/80 px-2 py-1 rounded border border-slate-600 shadow-sm text-[9px] md:text-[10px] font-bold whitespace-nowrap">
+                        <span className="flex items-center gap-1 text-gray-200 bg-slate-900/80 px-2 py-0.5 rounded border border-slate-700/60 shadow-sm text-[8px] md:text-[10px] font-bold whitespace-nowrap">
                             {getWeatherIcon(Weather.condition)} {Weather.temp_f}°F
                         </span>
                     )}
@@ -713,6 +774,52 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                             <div style={{ width: `${Full_Game.full_home_win_prob * 100}%` }} className="bg-red-500 h-full"></div>
                         </div>
                         <div className="text-[11px] font-black text-gray-400 w-8 text-left">{Math.round(Full_Game.full_home_win_prob * 100)}%</div>
+                    </div>
+
+                    {/* Covers-Style Predictions Box (Feature 3) */}
+                    <div className="w-full max-w-[340px] xs:max-w-[380px] sm:max-w-[420px] bg-slate-950/60 backdrop-blur-md border border-slate-800/80 rounded-xl p-3 sm:p-4 mb-6 shadow-[0_4px_20px_rgba(0,0,0,0.4)] select-none border-t-2 border-t-indigo-500/80 transition-all duration-300 hover:border-t-indigo-400">
+                        <div className="flex justify-between items-center mb-3 border-b border-slate-850 pb-2">
+                            <span className="text-[9px] text-indigo-400 font-black uppercase tracking-widest flex items-center gap-1">
+                                📊 Consensus Picks
+                            </span>
+                            <span className="text-[8px] text-slate-500 font-black uppercase tracking-widest">
+                                Sportsbook Notation
+                            </span>
+                        </div>
+                        <div className="grid grid-cols-3 gap-2">
+                            {/* Column 1: Moneyline */}
+                            <div className="bg-slate-900/40 border border-slate-850 rounded-lg p-1.5 xs:p-2 flex flex-col items-center justify-center text-center transition-all duration-200 hover:-translate-y-0.5 hover:bg-slate-900/60 hover:border-slate-800 shadow-sm">
+                                <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-1">Moneyline</span>
+                                <span className="text-[10px] xs:text-xs sm:text-[13px] font-black text-emerald-400 tracking-tight whitespace-nowrap">
+                                    {mlChoiceText}
+                                </span>
+                                <span className="text-[8px] xs:text-[9px] text-gray-400 font-bold mt-0.5">
+                                    {Math.round(mlChoiceProb * 100)}% Win
+                                </span>
+                            </div>
+
+                            {/* Column 2: Spread */}
+                            <div className="bg-slate-900/40 border border-slate-850 rounded-lg p-1.5 xs:p-2 flex flex-col items-center justify-center text-center transition-all duration-200 hover:-translate-y-0.5 hover:bg-slate-900/60 hover:border-slate-800 shadow-sm">
+                                <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-1">Spread</span>
+                                <span className="text-[10px] xs:text-xs sm:text-[13px] font-black text-indigo-400 tracking-tight whitespace-nowrap">
+                                    {spreadChoiceText}
+                                </span>
+                                <span className="text-[8px] xs:text-[9px] text-gray-400 font-bold mt-0.5">
+                                    {Math.round(spreadChoiceProb * 100)}% Cover
+                                </span>
+                            </div>
+
+                            {/* Column 3: Total */}
+                            <div className="bg-slate-900/40 border border-slate-850 rounded-lg p-1.5 xs:p-2 flex flex-col items-center justify-center text-center transition-all duration-200 hover:-translate-y-0.5 hover:bg-slate-900/60 hover:border-slate-800 shadow-sm">
+                                <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-1">Total Runs</span>
+                                <span className="text-[10px] xs:text-xs sm:text-[13px] font-black text-blue-400 tracking-tight whitespace-nowrap">
+                                    {ouChoiceText}
+                                </span>
+                                <span className="text-[8px] xs:text-[9px] text-gray-400 font-bold mt-0.5">
+                                    {ouChoiceValue.toFixed(1)} Proj
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
                     {/* ML Odds & Book O/U */}
@@ -895,30 +1002,63 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                     </div>
 
                     {/* BALLPARK CONTEXT */}
-                    <div className="bg-slate-800/60 rounded-xl p-5 border border-slate-700/80 md:col-span-2 flex flex-col md:flex-row items-center justify-between overflow-hidden relative shadow-lg">
-                        <div className="relative z-10 w-full md:w-auto text-center md:text-left">
-                            <h3 className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-3">Ballpark Context</h3>
+                    <div className="bg-slate-800/60 rounded-xl p-5 border border-slate-700/80 md:col-span-2 flex flex-col lg:flex-row items-center justify-between overflow-hidden relative shadow-lg gap-6">
+                        <div className="relative z-10 w-full lg:w-3/5 text-center lg:text-left">
+                            <h3 className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-3 flex items-center justify-center lg:justify-start gap-1">
+                                🏟️ Ballpark & Weather Impact Engine
+                            </h3>
                             {Weather ? (
-                                <>
-                                    <div className="text-2xl md:text-3xl font-black text-white flex justify-center md:justify-start items-center gap-3 mb-2">
-                                        {getWeatherIcon(Weather.condition)} {Weather.temp_f}°F
+                                <div className="space-y-4">
+                                    <div className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4">
+                                        <div className="text-2xl md:text-3xl font-black text-white flex items-center gap-3">
+                                            {getWeatherIcon(Weather.condition)} {Weather.temp_f}°F
+                                        </div>
+                                        <div className="text-xs font-semibold text-gray-300 bg-slate-900/60 px-3 py-1.5 rounded-md inline-block border border-slate-800">
+                                            <span className="text-slate-500 mr-1.5">WIND:</span> {Weather.wind_mph} mph ({Weather.wind_direction})
+                                        </div>
                                     </div>
-                                    <div className="text-sm font-medium text-gray-300 bg-slate-900/60 px-3 py-1.5 rounded-md inline-block">
-                                        <span className="text-slate-400 mr-2">WIND</span> {Weather.wind_mph} mph ({Weather.wind_direction})
-                                    </div>
-                                    <div className="text-sm font-medium text-gray-300 mt-2">
-                                        {Weather.condition}
-                                    </div>
-                                    <div className="text-sm font-medium text-gray-300 mt-1">
-                                        <span className="text-slate-400 mr-2">HUMIDITY</span> {Weather.humidity}%
-                                    </div>
+                                    
+                                    {/* Weather Impact Telemetry Grid */}
+                                    {Details?.weather_impact && (
+                                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-4 select-none">
+                                            {/* Carry Distance */}
+                                            <div className="bg-slate-950/60 p-2.5 rounded-xl border border-slate-850 flex flex-col justify-center text-center lg:text-left">
+                                                <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">Ball Carry</span>
+                                                <span className={`text-[13px] font-black ${Details.weather_impact.ball_carry_ft > 0 ? 'text-cyan-400 animate-pulse' : (Details.weather_impact.ball_carry_ft < 0 ? 'text-red-400' : 'text-gray-400')}`}>
+                                                    {Details.weather_impact.ball_carry_ft > 0 ? '+' : ''}{Details.weather_impact.ball_carry_ft} ft
+                                                </span>
+                                            </div>
+                                            {/* Runs expected */}
+                                            <div className="bg-slate-950/60 p-2.5 rounded-xl border border-slate-850 flex flex-col justify-center text-center lg:text-left">
+                                                <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">Runs Proj</span>
+                                                <span className={`text-[13px] font-black ${Details.weather_impact.runs_impact_pct > 0 ? 'text-emerald-400' : (Details.weather_impact.runs_impact_pct < 0 ? 'text-red-400' : 'text-gray-400')}`}>
+                                                    {Details.weather_impact.runs_impact_pct > 0 ? '+' : ''}{Details.weather_impact.runs_impact_pct}%
+                                                </span>
+                                            </div>
+                                            {/* HR power */}
+                                            <div className="bg-slate-950/60 p-2.5 rounded-xl border border-slate-850 flex flex-col justify-center text-center lg:text-left">
+                                                <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">HR Chance</span>
+                                                <span className={`text-[13px] font-black ${Details.weather_impact.hr_impact_pct > 0 ? 'text-emerald-400 animate-pulse' : (Details.weather_impact.hr_impact_pct < 0 ? 'text-red-400' : 'text-gray-400')}`}>
+                                                    {Details.weather_impact.hr_impact_pct > 0 ? '+' : ''}{Details.weather_impact.hr_impact_pct}%
+                                                </span>
+                                            </div>
+                                            {/* K's */}
+                                            <div className="bg-slate-950/60 p-2.5 rounded-xl border border-slate-850 flex flex-col justify-center text-center lg:text-left">
+                                                <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">K's Proj</span>
+                                                <span className={`text-[13px] font-black ${Details.weather_impact.k_impact_pct > 0 ? 'text-emerald-400' : (Details.weather_impact.k_impact_pct < 0 ? 'text-red-400' : 'text-gray-400')}`}>
+                                                    {Details.weather_impact.k_impact_pct > 0 ? '+' : ''}{Details.weather_impact.k_impact_pct}%
+                                                </span>
+                                            </div>
+                                        </div>
+                                    )}
+
                                     {Weather.cbs_alert_word && Weather.cbs_alert_word !== "Clear" && (
-                                        <div className={`mt-3 inline-block px-3 py-1 rounded text-[10px] font-black uppercase tracking-widest border ${Weather.red_flag_alert ? 'bg-red-900/30 text-red-400 border-red-500/50' : (Weather.cbs_alert_word.includes('Ideal') ? 'bg-green-900/30 text-green-400 border-green-500/50' : 'bg-amber-900/30 text-amber-400 border-amber-500/50')}`}>
+                                        <div className={`mt-2 inline-block px-3 py-1 rounded-md text-[10px] font-black uppercase tracking-widest border ${Weather.red_flag_alert ? 'bg-red-900/30 text-red-400 border-red-500/50' : (Weather.cbs_alert_word.includes('Ideal') ? 'bg-green-900/30 text-green-400 border-green-500/50' : 'bg-amber-900/30 text-amber-400 border-amber-500/50')}`}>
                                             {Weather.red_flag_alert ? '🚩 ' : (Weather.cbs_alert_word.includes('Ideal') ? '✅ ' : '⚠️ ')}
                                             {Weather.cbs_alert_word}
                                         </div>
                                     )}
-                                </>
+                                </div>
                             ) : (
                                 <span className="text-sm text-gray-500">Weather data unavailable</span>
                             )}

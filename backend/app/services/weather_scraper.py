@@ -72,6 +72,15 @@ class WeatherScraper:
             "humidity": 50,
             "condition": "Unknown",
         }
+        self.open_meteo_blocked = False
+
+        # Önbellek dosyasını yükle (Seçenek A - Soft-Fail kalıcılık için)
+        weather_file = os.path.join(self.data_dir, "live_weather.json")
+        try:
+            with open(weather_file, "r", encoding="utf-8") as f:
+                self.cached_weather = json.load(f)
+        except Exception:
+            self.cached_weather = {}
 
     def _atomic_save(self, filepath: str, data: dict):
         """Dosyanın bozulmasını önleyen atomik yazma işlemi."""
@@ -105,6 +114,110 @@ class WeatherScraper:
         ]
         return arr[(val % 16)]
 
+    def _get_fallback_weather(self, home_team: str) -> dict:
+        """Stadyum havası alınamadığında önbellekten kurtarmayı dener, yoksa nötr değer döner."""
+        if hasattr(self, 'cached_weather') and self.cached_weather and home_team in self.cached_weather:
+            print(f"ℹ️ {home_team} stadyum havası çekilemedi, eski önbellekteki veri başarıyla korundu.")
+            return self.cached_weather[home_team]
+        
+        print(f"❌ {home_team} stadyum havası önbellekte de bulunamadı. Varsayılan nötr değer atanıyor.")
+        fallback = self.fallback_weather.copy()
+        fallback.update(WeatherAnalyzer.generate_alerts(72.0, 0.0, "Unknown"))
+        return fallback
+
+    def _parse_gov_wind(self, wind_str: str) -> float:
+        if not wind_str or "calm" in wind_str.lower():
+            return 0.0
+        try:
+            parts = wind_str.strip().split()
+            if len(parts) >= 3 and parts[1].lower() == "to":
+                return (float(parts[0]) + float(parts[2])) / 2.0
+            return float(parts[0])
+        except Exception:
+            return 0.0
+
+    def _fetch_from_weather_gov(self, lat: float, lon: float) -> dict | None:
+        """weather.gov (US National Weather Service) API'sinden canlı hava durumu çeker (Open-Meteo engellendiğinde yedek)."""
+        headers = {"User-Agent": "mlb-predictor/1.0"}
+        try:
+            # 1. Koordinatları gridpoint'e çevir
+            url = f"https://api.weather.gov/points/{lat},{lon}"
+            res1 = self.session.get(url, headers=headers, timeout=5.0)
+            if res1.status_code != 200:
+                return None
+            
+            hourly_url = res1.json().get("properties", {}).get("forecastHourly")
+            if not hourly_url:
+                return None
+            
+            # 2. Saatlik tahmini çek
+            res2 = self.session.get(hourly_url, headers=headers, timeout=5.0)
+            if res2.status_code != 200:
+                return None
+                
+            periods = res2.json().get("properties", {}).get("periods", [])
+            if not periods:
+                return None
+                
+            period = periods[0]
+            temp = float(period.get("temperature", 72.0))
+            wind_str = period.get("windSpeed", "0 mph")
+            wind_mph = self._parse_gov_wind(wind_str)
+            wind_dir = period.get("windDirection", "Calm")
+            humidity = float(period.get("relativeHumidity", {}).get("value", 50.0))
+            condition = period.get("shortForecast", "Unknown")
+            
+            return {
+                "temp_f": temp,
+                "wind_mph": wind_mph,
+                "wind_direction": wind_dir,
+                "humidity": humidity,
+                "condition": condition
+            }
+        except Exception:
+            return None
+
+    async def _fetch_from_weather_gov_async(self, client: httpx.AsyncClient, lat: float, lon: float) -> dict | None:
+        """Asenkron weather.gov API yedek çekicisi."""
+        headers = {"User-Agent": "mlb-predictor/1.0"}
+        try:
+            # 1. Gridpoint URL bul
+            url = f"https://api.weather.gov/points/{lat},{lon}"
+            res1 = await client.get(url, headers=headers, timeout=5.0)
+            if res1.status_code != 200:
+                return None
+            
+            hourly_url = res1.json().get("properties", {}).get("forecastHourly")
+            if not hourly_url:
+                return None
+            
+            # 2. Saatlik tahmini çek
+            res2 = await client.get(hourly_url, headers=headers, timeout=5.0)
+            if res2.status_code != 200:
+                return None
+                
+            periods = res2.json().get("properties", {}).get("periods", [])
+            if not periods:
+                return None
+                
+            period = periods[0]
+            temp = float(period.get("temperature", 72.0))
+            wind_str = period.get("windSpeed", "0 mph")
+            wind_mph = self._parse_gov_wind(wind_str)
+            wind_dir = period.get("windDirection", "Calm")
+            humidity = float(period.get("relativeHumidity", {}).get("value", 50.0))
+            condition = period.get("shortForecast", "Unknown")
+            
+            return {
+                "temp_f": temp,
+                "wind_mph": wind_mph,
+                "wind_direction": wind_dir,
+                "humidity": humidity,
+                "condition": condition
+            }
+        except Exception:
+            return None
+
     def fetch_todays_weather(self, matchups_data: dict) -> dict:
         print("☁️ Stadyumların canlı hava durumu verileri çekiliyor... (Senkron)")
 
@@ -120,10 +233,8 @@ class WeatherScraper:
             park_info = self.ballpark_db.get(home_team)
 
             if not park_info or "lat" not in park_info:
-                print(f"⚠️ {home_team} stadyum koordinatları bulunamadı, varsayılan atanıyor.")
-                fallback = self.fallback_weather.copy()
-                fallback.update(WeatherAnalyzer.generate_alerts(72.0, 0.0, "Unknown"))
-                weather_data[home_team] = fallback
+                print(f"⚠️ {home_team} stadyum koordinatları bulunamadı.")
+                weather_data[home_team] = self._get_fallback_weather(home_team)
                 continue
 
             roof_type = park_info.get("roof_type", "Open")
@@ -139,6 +250,38 @@ class WeatherScraper:
                 }
                 continue
 
+            if self.open_meteo_blocked:
+                # Direct fast bypass to weather.gov
+                gov_data = self._fetch_from_weather_gov(park_info["lat"], park_info["lon"])
+                if gov_data:
+                    temp = gov_data["temp_f"]
+                    wind_mph = gov_data["wind_mph"]
+                    wind_dir_str = gov_data["wind_direction"]
+                    humidity = gov_data["humidity"]
+                    condition = gov_data["condition"]
+                    
+                    if roof_type == "Retractable" and any(x in condition for x in ["Rain", "Snow", "Thunderstorm"]):
+                        condition = f"Roof Closed (Expected {condition})"
+                        wind_mph = 0.0
+                        wind_dir_str = "Calm (Roof Closed)"
+                        alerts = {"cbs_alert_word": "Ideal (Roof Closed)", "red_flag_alert": False}
+                    else:
+                        alerts = WeatherAnalyzer.generate_alerts(temp, wind_mph, condition)
+                        
+                    weather_data[home_team] = {
+                        "temp_f": round(temp, 1),
+                        "wind_mph": round(wind_mph, 1),
+                        "wind_direction": wind_dir_str,
+                        "humidity": humidity,
+                        "condition": condition,
+                        **alerts
+                    }
+                    print(f"✅ {home_team} Hava durumu weather.gov üzerinden (Hızlı Bypass) başarıyla çekildi.")
+                else:
+                    print(f"❌ {home_team} Bypass yedek weather.gov da başarısız oldu.")
+                    weather_data[home_team] = self._get_fallback_weather(home_team)
+                continue
+
             params = {
                 "latitude": park_info["lat"],
                 "longitude": park_info["lon"],
@@ -149,7 +292,7 @@ class WeatherScraper:
             }
 
             try:
-                response = self.session.get(self.base_url, params=params, timeout=10.0)
+                response = self.session.get(self.base_url, params=params, timeout=2.0)
                 response.raise_for_status()
                 data = response.json()
 
@@ -181,10 +324,36 @@ class WeatherScraper:
                 }
 
             except Exception as e:
-                print(f"❌ {home_team} Hava Durumu Hatası: {e}. Varsayılan değer atanıyor.")
-                fallback = self.fallback_weather.copy()
-                fallback.update(WeatherAnalyzer.generate_alerts(72.0, 0.0, "Unknown"))
-                weather_data[home_team] = fallback
+                print(f"⚠️ {home_team} Open-Meteo Hatası: {e}. weather.gov yedek planı devreye alınıyor...")
+                self.open_meteo_blocked = True
+                gov_data = self._fetch_from_weather_gov(park_info["lat"], park_info["lon"])
+                if gov_data:
+                    temp = gov_data["temp_f"]
+                    wind_mph = gov_data["wind_mph"]
+                    wind_dir_str = gov_data["wind_direction"]
+                    humidity = gov_data["humidity"]
+                    condition = gov_data["condition"]
+                    
+                    if roof_type == "Retractable" and any(x in condition for x in ["Rain", "Snow", "Thunderstorm"]):
+                        condition = f"Roof Closed (Expected {condition})"
+                        wind_mph = 0.0
+                        wind_dir_str = "Calm (Roof Closed)"
+                        alerts = {"cbs_alert_word": "Ideal (Roof Closed)", "red_flag_alert": False}
+                    else:
+                        alerts = WeatherAnalyzer.generate_alerts(temp, wind_mph, condition)
+                        
+                    weather_data[home_team] = {
+                        "temp_f": round(temp, 1),
+                        "wind_mph": round(wind_mph, 1),
+                        "wind_direction": wind_dir_str,
+                        "humidity": humidity,
+                        "condition": condition,
+                        **alerts
+                    }
+                    print(f"✅ {home_team} Hava durumu weather.gov üzerinden başarıyla çekildi.")
+                else:
+                    print(f"❌ {home_team} Yedek weather.gov da başarısız oldu.")
+                    weather_data[home_team] = self._get_fallback_weather(home_team)
 
         output_path = os.path.join(self.data_dir, "live_weather.json")
         self._atomic_save(output_path, weather_data)
@@ -207,10 +376,8 @@ class WeatherScraper:
             park_info = self.ballpark_db.get(home_team)
 
             if not park_info or "lat" not in park_info:
-                print(f"⚠️ {home_team} stadyum koordinatları bulunamadı, varsayılan atanıyor.")
-                fallback = self.fallback_weather.copy()
-                fallback.update(WeatherAnalyzer.generate_alerts(72.0, 0.0, "Unknown"))
-                weather_data[home_team] = fallback
+                print(f"⚠️ {home_team} stadyum koordinatları bulunamadı.")
+                weather_data[home_team] = self._get_fallback_weather(home_team)
                 continue
 
             roof_type = park_info.get("roof_type", "Open")
@@ -226,6 +393,38 @@ class WeatherScraper:
                 }
                 continue
 
+            if self.open_meteo_blocked:
+                # Direct fast bypass to weather.gov (async)
+                gov_data = await self._fetch_from_weather_gov_async(client, park_info["lat"], park_info["lon"])
+                if gov_data:
+                    temp = gov_data["temp_f"]
+                    wind_mph = gov_data["wind_mph"]
+                    wind_dir_str = gov_data["wind_direction"]
+                    humidity = gov_data["humidity"]
+                    condition = gov_data["condition"]
+                    
+                    if roof_type == "Retractable" and any(x in condition for x in ["Rain", "Snow", "Thunderstorm"]):
+                        condition = f"Roof Closed (Expected {condition})"
+                        wind_mph = 0.0
+                        wind_dir_str = "Calm (Roof Closed)"
+                        alerts = {"cbs_alert_word": "Ideal (Roof Closed)", "red_flag_alert": False}
+                    else:
+                        alerts = WeatherAnalyzer.generate_alerts(temp, wind_mph, condition)
+                        
+                    weather_data[home_team] = {
+                        "temp_f": round(temp, 1),
+                        "wind_mph": round(wind_mph, 1),
+                        "wind_direction": wind_dir_str,
+                        "humidity": humidity,
+                        "condition": condition,
+                        **alerts
+                    }
+                    print(f"✅ {home_team} Hava durumu weather.gov üzerinden (Hızlı Bypass) başarıyla çekildi.")
+                else:
+                    print(f"❌ {home_team} Bypass yedek weather.gov da başarısız oldu.")
+                    weather_data[home_team] = self._get_fallback_weather(home_team)
+                continue
+
             params = {
                 "latitude": park_info["lat"],
                 "longitude": park_info["lon"],
@@ -236,7 +435,7 @@ class WeatherScraper:
             }
 
             try:
-                response = await client.get(self.base_url, params=params, timeout=10.0)
+                response = await client.get(self.base_url, params=params, timeout=2.0)
                 response.raise_for_status()
                 data = response.json()
 
@@ -268,10 +467,36 @@ class WeatherScraper:
                 }
 
             except Exception as e:
-                print(f"❌ {home_team} Hava Durumu Hatası: {e}. Varsayılan değer atanıyor.")
-                fallback = self.fallback_weather.copy()
-                fallback.update(WeatherAnalyzer.generate_alerts(72.0, 0.0, "Unknown"))
-                weather_data[home_team] = fallback
+                print(f"⚠️ {home_team} Open-Meteo Hatası: {e}. weather.gov yedek planı devreye alınıyor...")
+                self.open_meteo_blocked = True
+                gov_data = await self._fetch_from_weather_gov_async(client, park_info["lat"], park_info["lon"])
+                if gov_data:
+                    temp = gov_data["temp_f"]
+                    wind_mph = gov_data["wind_mph"]
+                    wind_dir_str = gov_data["wind_direction"]
+                    humidity = gov_data["humidity"]
+                    condition = gov_data["condition"]
+                    
+                    if roof_type == "Retractable" and any(x in condition for x in ["Rain", "Snow", "Thunderstorm"]):
+                        condition = f"Roof Closed (Expected {condition})"
+                        wind_mph = 0.0
+                        wind_dir_str = "Calm (Roof Closed)"
+                        alerts = {"cbs_alert_word": "Ideal (Roof Closed)", "red_flag_alert": False}
+                    else:
+                        alerts = WeatherAnalyzer.generate_alerts(temp, wind_mph, condition)
+                        
+                    weather_data[home_team] = {
+                        "temp_f": round(temp, 1),
+                        "wind_mph": round(wind_mph, 1),
+                        "wind_direction": wind_dir_str,
+                        "humidity": humidity,
+                        "condition": condition,
+                        **alerts
+                    }
+                    print(f"✅ {home_team} Hava durumu weather.gov üzerinden başarıyla çekildi.")
+                else:
+                    print(f"❌ {home_team} Yedek weather.gov da başarısız oldu.")
+                    weather_data[home_team] = self._get_fallback_weather(home_team)
 
         output_path = os.path.join(self.data_dir, "live_weather.json")
         loop = asyncio.get_running_loop()
