@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import apiClient from '../api/client';
 
-export const usePredictions = () => {
+export const usePredictions = (date = null) => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -14,7 +14,8 @@ export const usePredictions = () => {
         const fetchPredictions = async (showLoading = true) => {
             if (showLoading) setLoading(true);
             try {
-                const response = await apiClient.get('/predictions');
+                const url = date ? `/predictions?date=${date}` : '/predictions';
+                const response = await apiClient.get(url);
                 if (isMounted) {
                     setData(response.data);
                     setError(null);
@@ -49,7 +50,7 @@ export const usePredictions = () => {
             isMounted = false;
             if (timer) clearTimeout(timer);
         };
-    }, []);
+    }, [date]);
 
     return { data, loading, error, isPreparing };
 };

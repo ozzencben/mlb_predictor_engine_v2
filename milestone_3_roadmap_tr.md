@@ -126,9 +126,9 @@ Tüm 7 lansman görevini **En Kolaydan (Görsel/CSS)** **En Zora (Karmaşık Mat
         return 0.5 * (1.0 + math.erf(x / math.sqrt(2.0)))
     ```
   * Hesaplanan yüzdeler (örn. `%62.5`) API verisiyle taşınacak ve arayüzde CountUp ile canlandırılacaktır.
-
 ---
 
+(YAPILDI)
 ### Görev 6: Weather Impact Engine & UI (Hava Durumu Etki Motoru)
 > **Zorluk**: 🔴 **ZOR (Fizik Modeli & Grafikler)**  
 > **Bileşen**: `mlb_model.py` (Fizik formülleri) & `MatchupCard.jsx` (Stadyum Arayüzü)

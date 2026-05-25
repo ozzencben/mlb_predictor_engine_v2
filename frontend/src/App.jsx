@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { usePredictions } from './hooks/usePredictions';
 import MatchupCard from './components/MatchupCard';
 import MatchupSkeleton from './components/MatchupSkeleton';
@@ -25,8 +25,60 @@ const normalCDF = (x, mean = 0, stdDev = 1) => {
 };
 
 function App() {
+  const [selectedDate, setSelectedDate] = useState(null);
   const [activeModel, setActiveModel] = useState('full'); // 'full', 'nrfi', 'f5'
-  const { data, loading, error, isPreparing } = usePredictions();
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const { data, loading, error, isPreparing } = usePredictions(selectedDate);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const getOffsetDateString = (offset) => {
+    const d = new Date();
+    const etString = d.toLocaleString("en-US", { timeZone: "America/New_York" });
+    const etDate = new Date(etString);
+    etDate.setDate(etDate.getDate() + offset);
+    
+    const yyyy = etDate.getFullYear();
+    const mm = String(etDate.getMonth() + 1).padStart(2, '0');
+    const dd = String(etDate.getDate()).padStart(2, '0');
+    return `${yyyy}-${mm}-${dd}`;
+  };
+
+  const formatDateLabel = (dateStr) => {
+    if (!dateStr) return '';
+    const parts = dateStr.split('-');
+    if (parts.length !== 3) return dateStr;
+    const year = parseInt(parts[0]);
+    const month = parseInt(parts[1]) - 1;
+    const day = parseInt(parts[2]);
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    return `${months[month]} ${day}`;
+  };
+
+  const calendarDays = useMemo(() => {
+    const days = [];
+    for (let i = -2; i <= 2; i++) {
+      days.push({
+        dateStr: getOffsetDateString(i),
+        offset: i,
+      });
+    }
+    return days;
+  }, []);
 
   const onNavigateToNrfi = (gameKey) => {
     setActiveModel('nrfi');
@@ -256,7 +308,44 @@ function App() {
           </div>
         </header>
 
-        {/* ================= VIP DAILY EDGES BANNER ================= */}
+        {/* ================= CALENDAR TAPE ================= */}
+        <div className="mb-8 p-1.5 bg-slate-900/40 backdrop-blur-md border border-slate-800/80 rounded-2xl flex items-center justify-between gap-1 overflow-x-auto no-scrollbar scroll-smooth">
+          {calendarDays.map((day) => {
+            const isToday = day.offset === 0;
+            const isSelected = selectedDate === day.dateStr || (selectedDate === null && isToday);
+            
+            let relativeLabel = '';
+            if (day.offset === -2) relativeLabel = '2 DAYS AGO';
+            else if (day.offset === -1) relativeLabel = 'YESTERDAY';
+            else if (day.offset === 0) relativeLabel = 'TODAY';
+            else if (day.offset === 1) relativeLabel = 'TOMORROW';
+            else if (day.offset === 2) relativeLabel = '2 DAYS AWAY';
+
+            return (
+              <button
+                key={day.dateStr}
+                onClick={() => setSelectedDate(isToday ? null : day.dateStr)}
+                className={`flex-1 min-w-[90px] md:min-w-[120px] py-2 px-3 flex flex-col items-center justify-center rounded-xl transition-all duration-300 relative group cursor-pointer ${
+                  isSelected
+                    ? 'bg-gradient-to-br from-indigo-600/90 to-blue-600/90 text-white font-extrabold shadow-[0_0_15px_rgba(99,102,241,0.4)] border border-indigo-400/40 scale-[1.02]'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40 border border-transparent'
+                }`}
+              >
+                <span className={`text-[9px] md:text-[10px] uppercase font-black tracking-widest ${
+                  isSelected ? 'text-cyan-200' : 'text-slate-500 group-hover:text-slate-400'
+                }`}>
+                  {relativeLabel}
+                </span>
+                <span className="text-xs md:text-sm font-bold mt-0.5">
+                  {formatDateLabel(day.dateStr)}
+                </span>
+                {isSelected && (
+                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)] animate-pulse"></span>
+                )}
+              </button>
+            );
+          })}
+        </div>
         {!loading && dailyEdges && predictions.length > 0 && (
           <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl p-4 sm:p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] mb-8 select-none border-t border-t-indigo-500/30">
             <div className="flex justify-between items-center mb-4 border-b border-slate-800 pb-2.5">
@@ -430,6 +519,26 @@ function App() {
 
         <Footer />
       </main>
+
+      {/* Floating Back to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-50 p-3 md:p-3.5 bg-indigo-600/90 hover:bg-indigo-500 text-white rounded-full shadow-[0_4px_20px_rgba(99,102,241,0.4)] border border-indigo-400/30 hover:scale-110 active:scale-95 transition-all duration-300 backdrop-blur-md cursor-pointer group flex items-center justify-center animate-fade-in"
+          aria-label="Scroll to top"
+        >
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            strokeWidth={3} 
+            stroke="currentColor" 
+            className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform duration-300"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
+          </svg>
+        </button>
+      )}
     </div>
   );
 }

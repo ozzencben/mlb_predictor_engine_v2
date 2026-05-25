@@ -759,12 +759,21 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                 <div className="flex flex-col items-center justify-center w-full border-t border-slate-700/50 pt-5 relative z-10">
 
                     {/* Proj Score */}
-                    <div className="text-center mb-4">
-                        <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest block mb-1.5">Proj. Score</span>
-                        <div className="text-3xl md:text-4xl font-black text-white bg-slate-900/80 px-6 md:px-8 py-2 rounded-xl border border-slate-700 shadow-[0_0_15px_rgba(0,0,0,0.5)] tracking-tight">
-                            {Full_Game.full_away_score} <span className="text-slate-400 font-medium mx-2">-</span> {Full_Game.full_home_score}
+                    {prediction.result ? (
+                        <div className="text-center mb-4">
+                            <span className="text-[10px] text-emerald-400 font-extrabold uppercase tracking-widest block mb-1.5 animate-pulse">🏆 Actual Final Score</span>
+                            <div className="text-3xl md:text-4xl font-black text-white bg-emerald-950/20 px-6 md:px-8 py-2 rounded-xl border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.15)] tracking-tight">
+                                {prediction.result.away_actual_score} <span className="text-emerald-400/40 font-medium mx-2">-</span> {prediction.result.home_actual_score}
+                            </div>
                         </div>
-                    </div>
+                    ) : (
+                        <div className="text-center mb-4">
+                            <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest block mb-1.5">Proj. Score</span>
+                            <div className="text-3xl md:text-4xl font-black text-white bg-slate-900/80 px-6 md:px-8 py-2 rounded-xl border border-slate-700 shadow-[0_0_15px_rgba(0,0,0,0.5)] tracking-tight">
+                                {Full_Game.full_away_score} <span className="text-slate-400 font-medium mx-2">-</span> {Full_Game.full_home_score}
+                            </div>
+                        </div>
+                    )}
 
                     {/* Win Prob Bar */}
                     <div className="flex items-center justify-center gap-3 mb-5 w-full max-w-[280px]">
@@ -821,6 +830,69 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                             </div>
                         </div>
                     </div>
+
+                    {/* ================= MODEL PERFORMANCE VALIDATION BADGES ================= */}
+                    {prediction.result && (
+                        <div className="w-full max-w-[340px] xs:max-w-[380px] sm:max-w-[420px] bg-slate-950/70 border border-slate-800/80 rounded-xl p-3 sm:p-4 mb-6 shadow-md select-none border-t-2 border-t-emerald-500/80">
+                            <div className="flex justify-between items-center mb-2.5 border-b border-slate-900 pb-2">
+                                <span className="text-[9px] text-emerald-400 font-black uppercase tracking-widest flex items-center gap-1">
+                                    🎯 Model Accuracy Check
+                                </span>
+                                <span className="text-[8px] text-slate-500 font-black uppercase tracking-widest">
+                                    AI Accuracy Telemetry
+                                </span>
+                            </div>
+                            <div className="grid grid-cols-2 gap-2 text-center text-[10px] font-black uppercase">
+                                {/* ML Validation */}
+                                <div className={`py-1.5 px-2.5 border rounded-lg flex items-center justify-between gap-1 shadow-sm ${
+                                    prediction.result.ml_correct 
+                                      ? 'bg-emerald-950/20 text-emerald-400 border-emerald-500/30' 
+                                      : 'bg-red-950/20 text-red-400 border-red-500/20'
+                                }`}>
+                                    <span className="text-slate-500 text-[8px] tracking-wider">Moneyline</span>
+                                    <span className="flex items-center gap-1">
+                                        {prediction.result.ml_correct ? '✅ HIT' : '❌ MISS'}
+                                    </span>
+                                </div>
+                                
+                                {/* Spread Validation */}
+                                <div className={`py-1.5 px-2.5 border rounded-lg flex items-center justify-between gap-1 shadow-sm ${
+                                    prediction.result.spread_correct 
+                                      ? 'bg-emerald-950/20 text-emerald-400 border-emerald-500/30' 
+                                      : 'bg-red-950/20 text-red-400 border-red-500/20'
+                                }`}>
+                                    <span className="text-slate-500 text-[8px] tracking-wider">Spread</span>
+                                    <span className="flex items-center gap-1">
+                                        {prediction.result.spread_correct ? '✅ HIT' : '❌ MISS'}
+                                    </span>
+                                </div>
+
+                                {/* Total Validation */}
+                                <div className={`py-1.5 px-2.5 border rounded-lg flex items-center justify-between gap-1 shadow-sm ${
+                                    prediction.result.total_correct 
+                                      ? 'bg-emerald-950/20 text-emerald-400 border-emerald-500/30' 
+                                      : 'bg-red-950/20 text-red-400 border-red-500/20'
+                                }`}>
+                                    <span className="text-slate-500 text-[8px] tracking-wider">Total O/U</span>
+                                    <span className="flex items-center gap-1">
+                                        {prediction.result.total_correct ? '✅ HIT' : '❌ MISS'}
+                                    </span>
+                                </div>
+
+                                {/* NRFI Validation */}
+                                <div className={`py-1.5 px-2.5 border rounded-lg flex items-center justify-between gap-1 shadow-sm ${
+                                    prediction.result.nrfi_correct 
+                                      ? 'bg-emerald-950/20 text-emerald-400 border-emerald-500/30' 
+                                      : 'bg-red-950/20 text-red-400 border-red-500/20'
+                                }`}>
+                                    <span className="text-slate-500 text-[8px] tracking-wider">NRFI</span>
+                                    <span className="flex items-center gap-1">
+                                        {prediction.result.nrfi_correct ? '✅ HIT' : '❌ MISS'}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    )}
 
                     {/* ML Odds & Book O/U */}
                     {matchup.status === 'Final' ? (
@@ -1008,63 +1080,73 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                 🏟️ Ballpark & Weather Impact Engine
                             </h3>
                             {Weather ? (
-                                <div className="space-y-4">
-                                    <div className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4">
-                                        <div className="text-2xl md:text-3xl font-black text-white flex items-center gap-3">
-                                            {getWeatherIcon(Weather.condition)} {Weather.temp_f}°F
-                                        </div>
-                                        <div className="text-xs font-semibold text-gray-300 bg-slate-900/60 px-3 py-1.5 rounded-md inline-block border border-slate-800">
-                                            <span className="text-slate-500 mr-1.5">WIND:</span> {Weather.wind_mph} mph ({Weather.wind_direction})
-                                        </div>
+                                Weather.forecast_pending ? (
+                                    <div className="py-5 px-4 bg-slate-900/50 rounded-xl border border-indigo-500/10 text-center lg:text-left shadow-inner flex flex-col justify-center h-full select-none">
+                                        <span className="text-3xl block mb-2 animate-bounce">🌤️</span>
+                                        <h4 className="text-xs md:text-sm font-black text-indigo-400 uppercase tracking-wider mb-1">Weather Forecast Pending</h4>
+                                        <p className="text-gray-400 text-[10px] sm:text-xs leading-relaxed max-w-md font-medium">
+                                            Wind vector trajectories and ballpark carry physics are not processed yet. Live stadium weather metrics will load dynamically once this game day arrives.
+                                        </p>
                                     </div>
-                                    
-                                    {/* Weather Impact Telemetry Grid */}
-                                    {Details?.weather_impact && (
-                                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-4 select-none">
-                                            {/* Carry Distance */}
-                                            <div className="bg-slate-950/60 p-2.5 rounded-xl border border-slate-850 flex flex-col justify-center text-center lg:text-left">
-                                                <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">Ball Carry</span>
-                                                <span className={`text-[13px] font-black ${Details.weather_impact.ball_carry_ft > 0 ? 'text-cyan-400 animate-pulse' : (Details.weather_impact.ball_carry_ft < 0 ? 'text-red-400' : 'text-gray-400')}`}>
-                                                    {Details.weather_impact.ball_carry_ft > 0 ? '+' : ''}{Details.weather_impact.ball_carry_ft} ft
-                                                </span>
+                                ) : (
+                                    <div className="space-y-4">
+                                        <div className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4">
+                                            <div className="text-2xl md:text-3xl font-black text-white flex items-center gap-3">
+                                                {getWeatherIcon(Weather.condition)} {Weather.temp_f}°F
                                             </div>
-                                            {/* Runs expected */}
-                                            <div className="bg-slate-950/60 p-2.5 rounded-xl border border-slate-850 flex flex-col justify-center text-center lg:text-left">
-                                                <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">Runs Proj</span>
-                                                <span className={`text-[13px] font-black ${Details.weather_impact.runs_impact_pct > 0 ? 'text-emerald-400' : (Details.weather_impact.runs_impact_pct < 0 ? 'text-red-400' : 'text-gray-400')}`}>
-                                                    {Details.weather_impact.runs_impact_pct > 0 ? '+' : ''}{Details.weather_impact.runs_impact_pct}%
-                                                </span>
-                                            </div>
-                                            {/* HR power */}
-                                            <div className="bg-slate-950/60 p-2.5 rounded-xl border border-slate-850 flex flex-col justify-center text-center lg:text-left">
-                                                <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">HR Chance</span>
-                                                <span className={`text-[13px] font-black ${Details.weather_impact.hr_impact_pct > 0 ? 'text-emerald-400 animate-pulse' : (Details.weather_impact.hr_impact_pct < 0 ? 'text-red-400' : 'text-gray-400')}`}>
-                                                    {Details.weather_impact.hr_impact_pct > 0 ? '+' : ''}{Details.weather_impact.hr_impact_pct}%
-                                                </span>
-                                            </div>
-                                            {/* K's */}
-                                            <div className="bg-slate-950/60 p-2.5 rounded-xl border border-slate-850 flex flex-col justify-center text-center lg:text-left">
-                                                <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">K's Proj</span>
-                                                <span className={`text-[13px] font-black ${Details.weather_impact.k_impact_pct > 0 ? 'text-emerald-400' : (Details.weather_impact.k_impact_pct < 0 ? 'text-red-400' : 'text-gray-400')}`}>
-                                                    {Details.weather_impact.k_impact_pct > 0 ? '+' : ''}{Details.weather_impact.k_impact_pct}%
-                                                </span>
+                                            <div className="text-xs font-semibold text-gray-300 bg-slate-900/60 px-3 py-1.5 rounded-md inline-block border border-slate-800">
+                                                <span className="text-slate-500 mr-1.5">WIND:</span> {Weather.wind_mph} mph ({Weather.wind_direction})
                                             </div>
                                         </div>
-                                    )}
-
-                                    {Weather.cbs_alert_word && Weather.cbs_alert_word !== "Clear" && (
-                                        <div className={`mt-2 inline-block px-3 py-1 rounded-md text-[10px] font-black uppercase tracking-widest border ${Weather.red_flag_alert ? 'bg-red-900/30 text-red-400 border-red-500/50' : (Weather.cbs_alert_word.includes('Ideal') ? 'bg-green-900/30 text-green-400 border-green-500/50' : 'bg-amber-900/30 text-amber-400 border-amber-500/50')}`}>
-                                            {Weather.red_flag_alert ? '🚩 ' : (Weather.cbs_alert_word.includes('Ideal') ? '✅ ' : '⚠️ ')}
-                                            {Weather.cbs_alert_word}
-                                        </div>
-                                    )}
-                                </div>
+                                        
+                                        {/* Weather Impact Telemetry Grid */}
+                                        {Details?.weather_impact && (
+                                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-4 select-none">
+                                                {/* Carry Distance */}
+                                                <div className="bg-slate-950/60 p-2.5 rounded-xl border border-slate-850 flex flex-col justify-center text-center lg:text-left">
+                                                    <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">Ball Carry</span>
+                                                    <span className={`text-[13px] font-black ${Details.weather_impact.ball_carry_ft > 0 ? 'text-cyan-400 animate-pulse' : (Details.weather_impact.ball_carry_ft < 0 ? 'text-red-400' : 'text-gray-400')}`}>
+                                                        {Details.weather_impact.ball_carry_ft > 0 ? '+' : ''}{Details.weather_impact.ball_carry_ft} ft
+                                                    </span>
+                                                </div>
+                                                {/* Runs expected */}
+                                                <div className="bg-slate-950/60 p-2.5 rounded-xl border border-slate-850 flex flex-col justify-center text-center lg:text-left">
+                                                    <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">Runs Proj</span>
+                                                    <span className={`text-[13px] font-black ${Details.weather_impact.runs_impact_pct > 0 ? 'text-emerald-400' : (Details.weather_impact.runs_impact_pct < 0 ? 'text-red-400' : 'text-gray-400')}`}>
+                                                        {Details.weather_impact.runs_impact_pct > 0 ? '+' : ''}{Details.weather_impact.runs_impact_pct}%
+                                                    </span>
+                                                </div>
+                                                {/* HR power */}
+                                                <div className="bg-slate-950/60 p-2.5 rounded-xl border border-slate-850 flex flex-col justify-center text-center lg:text-left">
+                                                    <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">HR Chance</span>
+                                                    <span className={`text-[13px] font-black ${Details.weather_impact.hr_impact_pct > 0 ? 'text-emerald-400 animate-pulse' : (Details.weather_impact.hr_impact_pct < 0 ? 'text-red-400' : 'text-gray-400')}`}>
+                                                        {Details.weather_impact.hr_impact_pct > 0 ? '+' : ''}{Details.weather_impact.hr_impact_pct}%
+                                                    </span>
+                                                </div>
+                                                {/* K's */}
+                                                <div className="bg-slate-950/60 p-2.5 rounded-xl border border-slate-850 flex flex-col justify-center text-center lg:text-left">
+                                                    <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">K's Proj</span>
+                                                    <span className={`text-[13px] font-black ${Details.weather_impact.k_impact_pct > 0 ? 'text-emerald-400' : (Details.weather_impact.k_impact_pct < 0 ? 'text-red-400' : 'text-gray-400')}`}>
+                                                        {Details.weather_impact.k_impact_pct > 0 ? '+' : ''}{Details.weather_impact.k_impact_pct}%
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        )}
+    
+                                        {Weather.cbs_alert_word && Weather.cbs_alert_word !== "Clear" && (
+                                            <div className={`mt-2 inline-block px-3 py-1 rounded-md text-[10px] font-black uppercase tracking-widest border ${Weather.red_flag_alert ? 'bg-red-900/30 text-red-400 border-red-500/50' : (Weather.cbs_alert_word.includes('Ideal') ? 'bg-green-900/30 text-green-400 border-green-500/50' : 'bg-amber-900/30 text-amber-400 border-amber-500/50')}`}>
+                                                {Weather.red_flag_alert ? '🚩 ' : (Weather.cbs_alert_word.includes('Ideal') ? '✅ ' : '⚠️ ')}
+                                                {Weather.cbs_alert_word}
+                                            </div>
+                                        )}
+                                    </div>
+                                )
                             ) : (
                                 <span className="text-sm text-gray-500">Weather data unavailable</span>
                             )}
                         </div>
-
-                        {Weather && (
+                        
+                        {Weather && !Weather.forecast_pending && (
                             <div className="relative flex flex-col items-center justify-center bg-slate-900/70 border border-slate-700/60 p-4 rounded-xl mt-4 md:mt-0 w-full md:w-auto min-w-[150px] shadow-inner select-none">
                                 <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest mb-1.5 self-start">Ballpark Compass</span>
                                 <svg viewBox="0 0 120 120" className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 drop-shadow-lg">
