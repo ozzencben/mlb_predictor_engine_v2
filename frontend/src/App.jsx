@@ -413,13 +413,13 @@ function App() {
               </span>
             </div>
 
-            {/* Flex layout that is scrollable on mobile */}
-            <div className="flex flex-row overflow-x-auto no-scrollbar gap-4 pb-1 -mx-2 px-2 scroll-smooth snap-x snap-mandatory">
+            {/* Flex layout that is scrollable on mobile & desktop */}
+            <div className="flex flex-row overflow-x-auto gap-4 pb-3 pt-1 -mx-2 px-2 scroll-smooth snap-x snap-mandatory scrollbar-thin scrollbar-thumb-slate-800/80 scrollbar-track-transparent">
               {/* ML Edge Card */}
               {dailyEdges.ml && (
                 <div 
                   onClick={() => scrollToMatchup(dailyEdges.ml.game.matchup.away_team, dailyEdges.ml.game.matchup.home_team)}
-                  className="flex-1 min-w-[240px] sm:min-w-0 bg-slate-950/50 border border-emerald-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/50 hover:shadow-[0_8px_20px_rgba(16,185,129,0.15)] snap-start relative overflow-hidden group"
+                  className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-emerald-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/50 hover:shadow-[0_8px_20px_rgba(16,185,129,0.15)] snap-start relative overflow-hidden group"
                 >
                   <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 rounded-full blur-xl group-hover:bg-emerald-500/10 transition-colors pointer-events-none"></div>
                   <div className="flex justify-between items-start mb-2 gap-2">
@@ -450,7 +450,7 @@ function App() {
               {dailyEdges.spread && (
                 <div 
                   onClick={() => scrollToMatchup(dailyEdges.spread.game.matchup.away_team, dailyEdges.spread.game.matchup.home_team)}
-                  className="flex-1 min-w-[240px] sm:min-w-0 bg-slate-950/50 border border-indigo-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/50 hover:shadow-[0_8px_20px_rgba(99,102,241,0.15)] snap-start relative overflow-hidden group"
+                  className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-indigo-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/50 hover:shadow-[0_8px_20px_rgba(99,102,241,0.15)] snap-start relative overflow-hidden group"
                 >
                   <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-full blur-xl group-hover:bg-indigo-500/10 transition-colors pointer-events-none"></div>
                   <div className="flex justify-between items-start mb-2 gap-2">
@@ -481,7 +481,7 @@ function App() {
               {dailyEdges.total && (
                 <div 
                   onClick={() => scrollToMatchup(dailyEdges.total.game.matchup.away_team, dailyEdges.total.game.matchup.home_team)}
-                  className="flex-1 min-w-[240px] sm:min-w-0 bg-slate-950/50 border border-blue-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/50 hover:shadow-[0_8px_20px_rgba(59,130,246,0.15)] snap-start relative overflow-hidden group"
+                  className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-blue-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/50 hover:shadow-[0_8px_20px_rgba(59,130,246,0.15)] snap-start relative overflow-hidden group"
                 >
                   <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full blur-xl group-hover:bg-blue-500/10 transition-colors pointer-events-none"></div>
                   <div className="flex justify-between items-start mb-2 gap-2">
@@ -507,12 +507,13 @@ function App() {
                   </div>
                 </div>
               )}
+
               {/* Most Confident ML plays (Görev 10) */}
               {dailyEdges.most_confident_ml && dailyEdges.most_confident_ml.map((play, index) => play.game && (
                 <div 
                   key={`confident-ml-${index}`}
                   onClick={() => scrollToMatchup(play.game.matchup.away_team, play.game.matchup.home_team)}
-                  className="flex-1 min-w-[240px] sm:min-w-0 bg-slate-950/50 border border-purple-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/50 hover:shadow-[0_8px_20px_rgba(168,85,247,0.15)] snap-start relative overflow-hidden group animate-fade-in"
+                  className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-purple-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/50 hover:shadow-[0_8px_20px_rgba(168,85,247,0.15)] snap-start relative overflow-hidden group animate-fade-in"
                 >
                   <div className="absolute top-0 right-0 w-24 h-24 bg-purple-500/5 rounded-full blur-xl group-hover:bg-purple-500/10 transition-colors pointer-events-none"></div>
                   <div className="flex justify-between items-start mb-2 gap-2">
@@ -544,7 +545,7 @@ function App() {
                 <div 
                   key={`team-total-${index}`}
                   onClick={() => scrollToMatchup(total.game.matchup.away_team, total.game.matchup.home_team)}
-                  className="flex-1 min-w-[240px] sm:min-w-0 bg-slate-950/50 border border-amber-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/50 hover:shadow-[0_8px_20px_rgba(245,158,11,0.15)] snap-start relative overflow-hidden group animate-fade-in"
+                  className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-amber-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/50 hover:shadow-[0_8px_20px_rgba(245,158,11,0.15)] snap-start relative overflow-hidden group animate-fade-in"
                 >
                   <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full blur-xl group-hover:bg-amber-500/10 transition-colors pointer-events-none"></div>
                   <div className="flex justify-between items-start mb-2 gap-2">

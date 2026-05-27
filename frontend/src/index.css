@@ -22,3 +22,28 @@ body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+/* Custom premium scrollbar for horizontal card lists (Consensus Edges) */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 5px; /* Ultra-thin scrollbar */
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.25); /* Indigo transparent glow */
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.6); /* Glow on hover */
+}
+
+/* Support Firefox */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(99, 102, 241, 0.25) transparent;
+}
