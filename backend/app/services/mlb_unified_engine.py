@@ -206,6 +206,26 @@ class MLBUnifiedEngine:
             
             nrfi_result["nrfi_score"] = round(nrfi_result["nrfi_score"] + total_bump, 4)
             nrfi_result["yrfi_score"] = round(nrfi_result["yrfi_score"] - total_bump, 4)
+
+            # --- YENİ M3.5 GELİŞTİRMELERİ ---
+            
+            # Görev 12: Vegas O/U <= 8.0 NRFI Boost
+            book_total = float(game.odds.get("over_under", 0.0))
+            if book_total > 0.0 and book_total <= 8.0:
+                boost = (8.5 - book_total) * 0.02
+                nrfi_result["nrfi_score"] += boost
+                nrfi_result["yrfi_score"] -= boost
+                print(f"🔥 [Vegas O/U Boost] O/U: {book_total} (<= 8.0). NRFI skoruna +{boost:.4f} boost eklendi.")
+
+            # Görev 13: "Weakest-Link Penalty" (David Peterson Zayıf Atıcı Cezalandırması)
+            min_l10 = min(a_pitcher.last10_nrfi_pct, h_pitcher.last10_nrfi_pct)
+            if min_l10 < 50.0:
+                penalty_factor = (50.0 - min_l10) * 0.006
+                penalty_pct = penalty_factor * 100
+                nrfi_result["nrfi_score"] = round(nrfi_result["nrfi_score"] * (1.0 - penalty_factor), 4)
+                print(f"🔒 [Weakest-Link Penalty] Zayıf Atıcı Tespit Edildi (L10: {min_l10}% < 50%). NRFI skoru %{penalty_pct:.1f} oranında cezalandırıldı.")
+
+            # Yeniden normalize et
             nrfi_result["confidence"] = round(max(nrfi_result["nrfi_score"], nrfi_result["yrfi_score"]), 4)
             nrfi_result["pick"] = "NRFI" if nrfi_result["nrfi_score"] >= nrfi_result["yrfi_score"] else "YRFI"
 

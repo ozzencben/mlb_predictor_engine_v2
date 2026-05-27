@@ -480,6 +480,8 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
     const pitcherAway = Details?.pitcher_analysis?.away || {};
     const pitcherHome = Details?.pitcher_analysis?.home || {};
     const isLive = matchup.status === "In Progress";
+    const isCompleted = matchup.status === "Final" || matchup.status?.toLowerCase().includes("final");
+    const isStarted = isLive || isCompleted;
 
     // AI Insight Verisi
     const aiInsight = Details?.ai_insight;
@@ -1240,10 +1242,12 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                         <div className="flex justify-between items-center mb-4 border-b border-slate-700 pb-2">
                             <div className="flex items-center gap-2">
                                 <span className="text-emerald-400 text-lg leading-none">💰</span>
-                                <h3 className="text-[10px] md:text-xs text-gray-300 font-bold uppercase tracking-widest pt-0.5">Live Game Lines & Odds</h3>
+                                <h3 className="text-[10px] md:text-xs text-gray-300 font-bold uppercase tracking-widest pt-0.5">
+                                    {isStarted ? 'Pregame Closing Odds' : 'Live Game Lines & Odds'}
+                                </h3>
                             </div>
-                            <span className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[9px] font-black px-2 py-0.5 rounded uppercase tracking-wider">
-                                Live Prices
+                            <span className={`border text-[9px] font-black px-2 py-0.5 rounded uppercase tracking-wider ${isStarted ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20' : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'}`}>
+                                {isStarted ? 'Pregame Closing' : 'Live Prices'}
                             </span>
                         </div>
                         <div className="overflow-x-auto rounded-xl border border-slate-800/50 bg-slate-900/40">

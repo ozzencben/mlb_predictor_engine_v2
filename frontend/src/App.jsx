@@ -166,6 +166,24 @@ function App() {
   const dailyEdges = useMemo(() => {
     if (!predictions || predictions.length === 0) return null;
 
+    // 1. Backend'den kilitli consensus_edges geliyorsa doğrudan onu kullan (Görev 9 & 10)
+    if (data?.data?.consensus_edges) {
+      const edges = data.data.consensus_edges;
+      
+      const findGame = (away, home) => {
+        return predictions.find(p => p.matchup.away_team === away && p.matchup.home_team === home) || null;
+      };
+
+      return {
+        ml: edges.ml ? { ...edges.ml, game: findGame(edges.ml.away_team, edges.ml.home_team) } : null,
+        spread: edges.spread ? { ...edges.spread, game: findGame(edges.spread.away_team, edges.spread.home_team) } : null,
+        total: edges.total ? { ...edges.total, game: findGame(edges.total.away_team, edges.total.home_team) } : null,
+        most_confident_ml: edges.most_confident_ml ? edges.most_confident_ml.map(item => ({ ...item, game: findGame(item.away_team, item.home_team) })) : null,
+        team_totals: edges.team_totals ? edges.team_totals.map(item => ({ ...item, game: findGame(item.away_team, item.home_team) })) : null
+      };
+    }
+
+    // 2. Fallback: Eski önbellekler için dinamik hesaplama
     let topMlGame = null;
     let topMlEdgeVal = -999;
     let topMlChoice = '';
@@ -489,6 +507,69 @@ function App() {
                   </div>
                 </div>
               )}
+              {/* Most Confident ML plays (Görev 10) */}
+              {dailyEdges.most_confident_ml && dailyEdges.most_confident_ml.map((play, index) => play.game && (
+                <div 
+                  key={`confident-ml-${index}`}
+                  onClick={() => scrollToMatchup(play.game.matchup.away_team, play.game.matchup.home_team)}
+                  className="flex-1 min-w-[240px] sm:min-w-0 bg-slate-950/50 border border-purple-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/50 hover:shadow-[0_8px_20px_rgba(168,85,247,0.15)] snap-start relative overflow-hidden group animate-fade-in"
+                >
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-purple-500/5 rounded-full blur-xl group-hover:bg-purple-500/10 transition-colors pointer-events-none"></div>
+                  <div className="flex justify-between items-start mb-2 gap-2">
+                    <span className="text-[9px] text-purple-400 font-black uppercase tracking-widest bg-purple-950/60 border border-purple-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
+                      Most Confident ML
+                    </span>
+                    <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
+                      {getTeamAbbr(play.game.matchup.away_team)} @ {getTeamAbbr(play.game.matchup.home_team)}
+                    </span>
+                  </div>
+                  <div className="mt-1">
+                    <div className="text-sm font-extrabold text-gray-200">
+                      {play.choice}
+                    </div>
+                    <div className="text-xl font-black text-purple-400 mt-0.5 tracking-tight flex items-baseline gap-1">
+                      <span>{Math.round(play.prob * 100)}%</span>
+                      <span className="text-[10px] text-gray-400 font-bold">Confidence</span>
+                    </div>
+                  </div>
+                  <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
+                    <span className="font-semibold text-slate-400">Edge: {play.edge > 0 ? '+' : ''}{play.edge.toFixed(1)}%</span>
+                    <span className="text-slate-500 group-hover:text-purple-400 font-black transition-colors uppercase tracking-widest">Analyze →</span>
+                  </div>
+                </div>
+              ))}
+
+              {/* Team Totals Target plays (Görev 10) */}
+              {dailyEdges.team_totals && dailyEdges.team_totals.map((total, index) => total.game && (
+                <div 
+                  key={`team-total-${index}`}
+                  onClick={() => scrollToMatchup(total.game.matchup.away_team, total.game.matchup.home_team)}
+                  className="flex-1 min-w-[240px] sm:min-w-0 bg-slate-950/50 border border-amber-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/50 hover:shadow-[0_8px_20px_rgba(245,158,11,0.15)] snap-start relative overflow-hidden group animate-fade-in"
+                >
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full blur-xl group-hover:bg-amber-500/10 transition-colors pointer-events-none"></div>
+                  <div className="flex justify-between items-start mb-2 gap-2">
+                    <span className="text-[9px] text-amber-400 font-black uppercase tracking-widest bg-amber-950/60 border border-amber-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
+                      Team Total Target
+                    </span>
+                    <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
+                      {getTeamAbbr(total.game.matchup.away_team)} @ {getTeamAbbr(total.game.matchup.home_team)}
+                    </span>
+                  </div>
+                  <div className="mt-1">
+                    <div className="text-sm font-extrabold text-gray-200">
+                      {getTeamAbbr(total.team)} Over 4.5
+                    </div>
+                    <div className="text-xl font-black text-amber-400 mt-0.5 tracking-tight flex items-baseline gap-1">
+                      <span>{total.projected_runs.toFixed(1)} Runs</span>
+                      <span className="text-[10px] text-gray-400 font-bold">Proj</span>
+                    </div>
+                  </div>
+                  <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
+                    <span className="font-semibold text-slate-400">Target Line: 4.5</span>
+                    <span className="text-slate-500 group-hover:text-amber-400 font-black transition-colors uppercase tracking-widest">Analyze →</span>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         )}

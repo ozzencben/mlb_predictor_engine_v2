@@ -157,7 +157,7 @@ Tüm 7 lansman görevini **En Kolaydan (Görsel/CSS)** **En Zora (Karmaşık Mat
     * `📉 Atıcı Tutuşu: -%4 K (Yüksek Nem)`
 
 ---
-
+(YAPILDI)
 ### Görev 7: Historical Match Results & Calendar Navigation (Tarihsel Sonuçlar ve Takvim)
 > **Zorluk**: 🔴 **ZOR (Karmaşık Rotalar, Önbellekleme & StatsAPI Entegrasyonu)**  
 > **Bileşen**: `api.py`, `prediction_runner.py`, `App.jsx`
@@ -183,11 +183,85 @@ Tüm 7 lansman görevini **En Kolaydan (Görsel/CSS)** **En Zora (Karmaşık Mat
 
 ---
 
+---
+(YAPILDI)
+### Görev 8: Pregame Odds Freeze (Maç Öncesi Oran Sabitleme)
+> **Zorluk**: 🟢 **KOLAY (Arayüz Düzenleme)**  
+> **Bileşen**: `MatchupCard.jsx`, `client.js`
+
+* **Hedef**: Canlı veya tamamlanmış maçlarda dinamik olarak değişen canlı oranlar yerine, maç başlamadan hemen önceki **Pregame Closing (Kapanış) Oranlarını** arayüzde sabitlemek.
+* **Teknik Plan**:
+  * Maç kartlarında oran verisini çekerken eğer maç başlamışsa (`Live` veya `Final`), API'den gelen canlı ML (Moneyline) oran güncellemelerini yansıtmak yerine backend'de kaydedilen son maç öncesi oran verisini (`pregame_home_ml`, `pregame_away_ml`) kilitlemek.
+
+---
+(YAPILDI)
+### Görev 9: Consensus Edges Lock (Günün En İyi Avantajları Sabitleme)
+> **Zorluk**: 🟡 **ORTA (Önbellek & Memoization)**  
+> **Bileşen**: `api.py`, `App.jsx`, `prediction_runner.py`
+
+* **Hedef**: Sayfanın en üstünde yer alan Günün En İyi Avantajları (Consensus Edges) listesindeki en iyi 3 oyunun gün içinde maçlar oynandıkça veya oranlar dalgalandıkça yer değiştirmesini/güncellenmesini engellemek. Sabah ne belirlendiyse gün boyu sabit kalmasını sağlamak.
+* **Teknik Plan**:
+  * Günlük tahminler ilk kez oluşturulup diske yazıldığında (`predictions_YYYY-MM-DD.json`), o günün en iyi consensus edges listesini de bu dosyanın içine bir anahtar (`consensus_edges`) olarak kaydedeceğiz.
+  * API üzerinden veriyi çekerken her istekte dinamik hesaplamak yerine, dosyanın içindeki bu kilitli listeyi sunarak gün boyu kararlılığı koruyacağız.
+
+---
+(YAPILDI)
+### Görev 10: Consensus Edges Genişletmesi: "Most Confident ML Plays" & "Team Totals to Target"
+> **Zorluk**: 🟡 **ORTA (Backend Entegrasyonu & Frontend Tasarımı)**  
+> **Bileşen**: `mlb_unified_engine.py`, `App.jsx`
+
+* **Hedef**: Consensus Edges kutusunu genişleterek Tyler'ın talep ettiği 2 yeni premium kategoriyi eklemek:
+  1. **Most Confident ML Plays**: Modelin o gün için en yüksek güven yüzdesine sahip 2 galibiyet (Moneyline) oyununu listeleyecek.
+  2. **Team Totals to Target**: Kitap çizgileri elimizde tam olmadığı için sabit 4.5 veya 5.0 sayı barajını baz alıp, projeksiyonlarda bu barajın çok üzerinde (örn. 5.8 runs, 6.2 runs) sayı atması beklenen en güvenilir 2 takımı hedef gösterecek.
+* **Teknik Plan**:
+  * `mlb_unified_engine.py` içinde o günkü tüm takımların `projected_runs` değerlerini inceleyeceğiz. Takım sayı beklentisi > 4.5/5.0 olan ve modelin en yüksek güvende olduğu iki takımı filtreleyip `team_totals` olarak consensus yapısına ekleyeceğiz.
+  * Arayüze bu yeni iki başlık için şık, neon tasarımlı yeni bilgi kartları ekleyeceğiz.
+
+---
+(YAPILDI)
+### Görev 11: NRFI/YRFI 70%+ Crown Badge (👑 Taç Rozeti)
+> **Zorluk**: 🟢 **KOLAY (Görsel / CSS)**  
+> **Bileşen**: `MatchupCard.jsx` (NRFI Modeli Sekmesi)
+
+* **Hedef**: Tyler'ın asıl takip edeceği ve kaydını tutacağı **%70 ve üzeri** güven skoruna sahip premium NRFI/YRFI tahminlerinin yanına özel bir taç (**👑**) emojisi yerleştirmek.
+* **Teknik Plan**:
+  * `MatchupCard` içerisindeki NRFI listelemesinde, confidence skoru `>= 0.70` (veya `%70`) ise ilgili maçın yanına parlayan bir taç rozeti ekleyeceğiz.
+
+---
+(YAPILDI)
+### Görev 12: Vegas O/U <= 8.0 NRFI Boost (Matematiksel Güncelleme)
+> **Zorluk**: 🟡 **ORTA (Matematik / Tahmin Motoru)**  
+> **Bileşen**: `mlb_unified_engine.py`
+
+* **Hedef**: Eğer bahis bürolarının belirlediği toplam sayı limiti (Vegas Over/Under) **8.0 veya daha düşükse**, bu durum zaten az skorlu bir maç beklentisini kanıtladığı için modelin NRFI güven skoruna otomatik bir destek (boost) katsayısı eklemek.
+* **Matematiksel Formül**:
+  * Vegas O/U limitini ($OU$) kontrol edeceğiz. Eğer $OU \le 8.0$ ise, NRFI güven skoruna ($C_{\text{nrfi}}$) Vegas katsayısı ekleyeceğiz:
+    $$C_{\text{nrfi\_boosted}} = C_{\text{nrfi}} + (8.5 - OU) \cdot 0.02$$
+  * Böylece limit 8.0 olduğunda $+0.01$ (%1), limit 7.0 olduğunda ise $+0.03$ (%3) ek güven puanı doğrudan formüle yansıtılacak.
+
+---
+
+(YAPILDI)
+### Görev 13: "Weakest-Link Penalty" (David Peterson Zayıf Atıcı Cezalandırması)
+> **Zorluk**: 🔴 **ZOR (İstatistiksel Agregasyon Algoritması)**  
+> **Bileşen**: `mlb_unified_engine.py`
+
+* **Hedef**: David Peterson örneğinde olduğu gibi, atıcılardan birinin bile L10 (Son 10 maç) NRFI hit rate'i berbat durumdaysa (örn. < %50), diğer atıcı ne kadar iyi olursa olsun o maçı en üst sıralardan aşağıya süpürmek (cezalandırmak).
+* **Matematiksel Formül**:
+  * Mevcut sistemde iki atıcının yüzdeleri toplanıp basitçe ortalanıyorsa, bu durum Chase Burns (%100) ile David Peterson (%40) birleştiğinde ortalamayı yanıltıcı şekilde %70 seviyelerine çıkarıyordu.
+  * Bunu çözmek için **"Zayıf Halka Cezası" (Weakest-Link Penalty - $P_{\text{weak}}$)** katsayısını entegre edeceğiz:
+    * İki atıcının L10 yüzdelerini karşılaştır: $P_{\text{min}} = \min(SP_1, SP_2)$
+    * Eğer $P_{\text{min}} < 0.50$ (yani atıcılardan biri yarı yarıyadan daha az NRFI yapıyorsa), toplam skora ceza uygula:
+      $$C_{\text{nrfi\_final}} = C_{\text{nrfi}} \cdot (1.0 - (0.50 - P_{\text{min}}) \cdot 0.6)$$
+    * *Örnek*: Bir atıcı %40 ise ($P_{\text{min}} = 0.40$), ceza çarpanı: $1.0 - (0.10 \cdot 0.6) = 0.94$ (Skor %6 oranında doğrudan cezalandırılır ve geriye düşer). Atıcı %30 ise ceza çarpanı $0.88$ (%12 ceza) olur.
+  * Bu sayede tek yönlü zayıf atıcıya sahip hiçbir maç en üst sıradaki taçlı premium maçlar arasına giremeyecektir.
+
+---
+
 ## 🏁 Uygulama ve Faz Planı
 
-Onayınızın ardından geliştirmeyi aşamalı olarak başlatacağız:
-1. **Aşama 1: Backend Fizik & Matematik Entegrasyonu** (Görev 5, 6). Balistik rüzgar taşıma mesafesi ve normal CDF spread olasılık kodlamalarının yazılması.
-2. **Aşama 2: Tarih Rotaları ve Geçmiş Önbellek** (Görev 7). `/predictions?date=` ve StatsAPI nihai maç sonuç eşleştiricilerinin yazılması.
-3. **Aşama 3: Arayüz Düzeni ve Tasarımlar** (Görev 1, 2, 3, 4). Günün En İyi Seçimleri banner'ı, headliner, Covers tahmin kutuları ve en iyi açı rozetlerinin görselleştirilmesi.
-4. **Aşama 4: Stadyum SVG Pusulası** (Görev 1). Rüzgar telemetrisi ve SVG beyzbol diamond çiziminin etkileşimli hale getirilmesi.
-5. **Aşama 5: Yerel Test ve Üretim Raporu**. Uygulamanın derlenmesi, yerel olarak test edilip onayınıza sunulması.
+M3 aşamasında 1-7. görevler başarıyla tamamlanmıştır. Tyler'ın geri bildirimleri doğrultusunda **Faz 6 (M3.5 Cilalaması)** süreci eklenmiştir:
+
+1. **Aşama 1-5 [TAMAMLANDI]**: 1-7. Lansman Görevlerinin backend balistik motoru, stadyum pusulası SVG'si, normal CDF handikap hesaplayıcısı, takvim navigasyonu, covers kutuları ve Render cold-start UX geliştirmeleri tamamlanmış ve canlıya basılmıştır.
+2. **Aşama 6 [YENİ - M3.5 Cilalaması]**: Tyler'ın talepleri olan 8-13. Görevlerin (Pregame odds freeze, consensus edges lock, team totals & most confident ML plays, taç emojisi, Vegas O/U boost formülü ve weakest-link atıcı cezalandırması) backend/frontend implementasyonlarının tamamlanması ve test edilmesi.
+3. **Aşama 7 [Final Onay]**: Cilalanmış M3.5 sürümünün derlenip canlıya basılarak Tyler'ın onayına sunulması.

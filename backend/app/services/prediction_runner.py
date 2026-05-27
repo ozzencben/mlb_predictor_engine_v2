@@ -111,6 +111,187 @@ def resolve_team_id(team_name: str) -> int | None:
     return None
 
 
+def calculate_consensus_edges(predictions: list) -> dict:
+    if not predictions:
+        return {}
+
+    # 1. Moneyline Edge
+    top_ml_game = None
+    top_ml_edge_val = -999.0
+    top_ml_choice = ""
+    top_ml_prob = 0.0
+
+    # 2. Spread Edge (Probability)
+    top_spread_game = None
+    top_spread_prob_val = 0.0
+    top_spread_choice = ""
+
+    # 3. Total Edge
+    top_total_game = None
+    top_total_gap_val = -1.0
+    top_total_choice = ""
+    top_total_model_val = 0.0
+
+    # 4. (Görev 10) - Most Confident ML Plays
+    ml_plays = []
+
+    # 5. (Görev 10) - Team Totals to Target
+    team_totals = []
+
+    for game in predictions:
+        matchup = game.get("matchup")
+        full_game = game.get("Full_Game")
+        odds = game.get("Odds")
+        if not matchup or not full_game or not odds:
+            continue
+
+        away_team = matchup.get("away_team")
+        home_team = matchup.get("home_team")
+
+        # --- 1. Moneyline Edge ---
+        away_prob = float(full_game.get("full_away_win_prob", 0))
+        home_prob = float(full_game.get("full_home_win_prob", 0))
+        away_edge = float(odds.get("away_edge_pct", 0))
+        home_edge = float(odds.get("home_edge_pct", 0))
+
+        is_away_ml_better = away_edge >= home_edge
+        max_ml_edge = away_edge if is_away_ml_better else home_edge
+        ml_choice = f"{get_team_abbr(away_team)} ML" if is_away_ml_better else f"{get_team_abbr(home_team)} ML"
+        ml_prob = away_prob if is_away_ml_better else home_prob
+
+        if max_ml_edge > top_ml_edge_val:
+            top_ml_edge_val = max_ml_edge
+            top_ml_game = game
+            top_ml_choice = ml_choice
+            top_ml_prob = ml_prob
+
+        # --- ML Plays List (for Most Confident ML) ---
+        ml_plays.append({
+            "away_team": away_team,
+            "home_team": home_team,
+            "team": away_team if away_prob >= home_prob else home_team,
+            "choice": f"{get_team_abbr(away_team)} ML" if away_prob >= home_prob else f"{get_team_abbr(home_team)} ML",
+            "prob": max(away_prob, home_prob),
+            "edge": away_edge if away_prob >= home_prob else home_edge
+        })
+
+        # --- Team Totals to Target List ---
+        away_projected = float(full_game.get("full_away_score", 0))
+        home_projected = float(full_game.get("full_home_score", 0))
+        
+        if away_projected > 4.5:
+            team_totals.append({
+                "away_team": away_team,
+                "home_team": home_team,
+                "team": away_team,
+                "projected_runs": away_projected,
+                "confidence": away_prob
+            })
+        if home_projected > 4.5:
+            team_totals.append({
+                "away_team": away_team,
+                "home_team": home_team,
+                "team": home_team,
+                "projected_runs": home_projected,
+                "confidence": home_prob
+            })
+
+        # --- 2. Spread Edge ---
+        away_score = float(full_game.get("full_away_score", 0))
+        home_score = float(full_game.get("full_home_score", 0))
+        mu = home_score - away_score
+        sigma = 4.0
+
+        def standard_normal_cdf(x: float) -> float:
+            return 0.5 * (1.0 + math.erf(x / math.sqrt(2.0)))
+
+        home_cover_minus1_5 = 1.0 - standard_normal_cdf((1.5 - mu) / sigma)
+        home_cover_plus1_5 = 1.0 - standard_normal_cdf((-1.5 - mu) / sigma)
+        away_cover_minus1_5 = standard_normal_cdf((-1.5 - mu) / sigma)
+        away_cover_plus1_5 = standard_normal_cdf((1.5 - mu) / sigma)
+
+        book_away_spread = odds.get("away_spread") if odds.get("away_spread") is not None else (-1.5 if away_score > home_score else 1.5)
+        is_away_spread_fav = book_away_spread < 0
+        spread_line_fav = away_team if is_away_spread_fav else home_team
+        spread_line_dog = home_team if is_away_spread_fav else away_team
+
+        p_minus1_5_fav = away_cover_minus1_5 if is_away_spread_fav else home_cover_minus1_5
+        p_plus1_5_dog = home_cover_plus1_5 if is_away_spread_fav else away_cover_plus1_5
+
+        if p_minus1_5_fav >= 0.5:
+            spread_choice = f"{get_team_abbr(spread_line_fav)} -1.5"
+            spread_prob = p_minus1_5_fav
+        else:
+            spread_choice = f"{get_team_abbr(spread_line_dog)} +1.5"
+            spread_prob = p_plus1_5_dog
+
+        if spread_prob > top_spread_prob_val:
+            top_spread_prob_val = spread_prob
+            top_spread_game = game
+            top_spread_choice = spread_choice
+
+        # --- 3. Total Edge ---
+        book_total = odds.get("over_under") if odds.get("over_under") is not None and odds.get("over_under") > 0 else 8.5
+        model_total = float(full_game.get("full_total", 0))
+        total_gap = abs(model_total - book_total)
+        total_choice = f"OVER {book_total}" if model_total >= book_total else f"UNDER {book_total}"
+
+        if total_gap > top_total_gap_val:
+            top_total_gap_val = total_gap
+            top_total_game = game
+            top_total_choice = total_choice
+            top_total_model_val = model_total
+
+    # Sort & Filter
+    ml_plays.sort(key=lambda x: x["prob"], reverse=True)
+    top_2_ml = ml_plays[:2] if len(ml_plays) >= 2 else ml_plays
+
+    team_totals.sort(key=lambda x: x["projected_runs"], reverse=True)
+    top_2_totals = team_totals[:2] if len(team_totals) >= 2 else team_totals
+
+    return {
+        "ml": {
+            "away_team": top_ml_game["matchup"]["away_team"],
+            "home_team": top_ml_game["matchup"]["home_team"],
+            "choice": top_ml_choice,
+            "edge": top_ml_edge_val,
+            "prob": top_ml_prob
+        } if top_ml_game else None,
+        "spread": {
+            "away_team": top_spread_game["matchup"]["away_team"],
+            "home_team": top_spread_game["matchup"]["home_team"],
+            "choice": top_spread_choice,
+            "prob": top_spread_prob_val
+        } if top_spread_game else None,
+        "total": {
+            "away_team": top_total_game["matchup"]["away_team"],
+            "home_team": top_total_game["matchup"]["home_team"],
+            "choice": top_total_choice,
+            "gap": top_total_gap_val,
+            "modelTotal": top_total_model_val
+        } if top_total_game else None,
+        "most_confident_ml": [
+            {
+                "away_team": play["away_team"],
+                "home_team": play["home_team"],
+                "team": play["team"],
+                "choice": play["choice"],
+                "prob": play["prob"],
+                "edge": play["edge"]
+            } for play in top_2_ml
+        ],
+        "team_totals": [
+            {
+                "away_team": total["away_team"],
+                "home_team": total["home_team"],
+                "team": total["team"],
+                "projected_runs": total["projected_runs"],
+                "confidence": total["confidence"]
+            } for total in top_2_totals
+        ]
+    }
+
+
 async def fetch_team_history_async(client: httpx.AsyncClient, team_id: int, opponent_id: int = None) -> list:
     current_year = datetime.now().year
     url = "https://statsapi.mlb.com/api/v1/schedule"
@@ -468,11 +649,13 @@ class PredictionRunner:
 
         # 1.5 Eski tahminleri yükle (AI Yorumlarını ve diğer kalıcı verileri korumak için)
         old_predictions_db = {}
+        old_consensus_edges = None
         try:
             old_file = os.path.join(self.data_dir, "todays_predictions.json")
             if os.path.exists(old_file):
                 with open(old_file, "r", encoding="utf-8") as f:
                     old_data = json.load(f)
+                    old_consensus_edges = old_data.get("consensus_edges")
                     for p in old_data.get("predictions", []):
                         key = (p["matchup"]["away_team"], p["matchup"]["home_team"])
                         old_predictions_db[key] = p
@@ -609,52 +792,67 @@ class PredictionRunner:
                 away_team = game_input.away_team
                 home_team = game_input.home_team
 
-                best_odds = self.odds_provider.get_best_odds_for_game(
-                    away_team, home_team, live_odds_data
-                )
+                # Pregame Odds Freeze: Eğer maç başladıysa oranları dondur (eski oranları koru)
+                status = game_dict.get("status", "Scheduled")
+                is_started = status not in ["Scheduled", "Pre-Game", "Warm-up", "Preview"]
+                old_game_key = (away_team, home_team)
+                
+                old_odds = None
+                if is_started and old_game_key in old_predictions_db:
+                    old_prediction_data = old_predictions_db[old_game_key]
+                    if "Odds" in old_prediction_data:
+                        old_odds = old_prediction_data["Odds"]
 
-                away_prob = prediction["Full_Game"]["full_away_win_prob"]
-                home_prob = prediction["Full_Game"]["full_home_win_prob"]
+                if old_odds:
+                    prediction["Odds"] = old_odds
+                    print(f"🔒 [Pregame Odds Freeze] Maç başladı ({status}). {away_team} vs {home_team} maçının pregame oranları donduruldu.")
+                else:
+                    best_odds = self.odds_provider.get_best_odds_for_game(
+                        away_team, home_team, live_odds_data
+                    )
 
-                f5_away_prob = prediction["F5"]["f5_away_win_prob"]
-                f5_home_prob = prediction["F5"]["f5_home_win_prob"]
+                    away_prob = prediction["Full_Game"]["full_away_win_prob"]
+                    home_prob = prediction["Full_Game"]["full_home_win_prob"]
 
-                nrfi_prob = prediction["NRFI"]["nrfi_score"]
-                yrfi_prob = prediction["NRFI"]["yrfi_score"]
+                    f5_away_prob = prediction["F5"]["f5_away_win_prob"]
+                    f5_home_prob = prediction["F5"]["f5_home_win_prob"]
 
-                away_edge = self.odds_provider.calculate_edge(away_prob, best_odds["away_odds"])
-                home_edge = self.odds_provider.calculate_edge(home_prob, best_odds["home_odds"])
+                    nrfi_prob = prediction["NRFI"]["nrfi_score"]
+                    yrfi_prob = prediction["NRFI"]["yrfi_score"]
 
-                f5_away_edge = self.odds_provider.calculate_edge(f5_away_prob, best_odds["f5_away_odds"])
-                f5_home_edge = self.odds_provider.calculate_edge(f5_home_prob, best_odds["f5_home_odds"])
+                    away_edge = self.odds_provider.calculate_edge(away_prob, best_odds["away_odds"])
+                    home_edge = self.odds_provider.calculate_edge(home_prob, best_odds["home_odds"])
 
-                nrfi_edge = self.odds_provider.calculate_edge(nrfi_prob, best_odds["nrfi_odds"])
-                yrfi_edge = self.odds_provider.calculate_edge(yrfi_prob, best_odds["yrfi_odds"])
+                    f5_away_edge = self.odds_provider.calculate_edge(f5_away_prob, best_odds["f5_away_odds"])
+                    f5_home_edge = self.odds_provider.calculate_edge(f5_home_prob, best_odds["f5_home_odds"])
 
-                prediction["Odds"] = {
-                    "best_away_odds": best_odds["away_odds"],
-                    "best_home_odds": best_odds["home_odds"],
-                    "over_under": best_odds["over_under"],
-                    "away_edge_pct": round(away_edge * 100, 1),
-                    "home_edge_pct": round(home_edge * 100, 1),
-                    "away_book": best_odds.get("away_book", ""),
-                    "home_book": best_odds.get("home_book", ""),
-                    
-                    "f5_away_odds": best_odds["f5_away_odds"],
-                    "f5_home_odds": best_odds["f5_home_odds"],
-                    "f5_away_edge_pct": round(f5_away_edge * 100, 1),
-                    "f5_home_edge_pct": round(f5_home_edge * 100, 1),
-                    "f5_away_book": best_odds.get("f5_away_book", ""),
-                    "f5_home_book": best_odds.get("f5_home_book", ""),
-                    
-                    "nrfi_odds": best_odds["nrfi_odds"],
-                    "yrfi_odds": best_odds["yrfi_odds"],
-                    "nrfi_edge_pct": round(nrfi_edge * 100, 1),
-                    "yrfi_edge_pct": round(yrfi_edge * 100, 1),
-                    "nrfi_book": best_odds.get("nrfi_book", ""),
-                    "yrfi_book": best_odds.get("yrfi_book", ""),
-                    "bookmakers": best_odds.get("bookmakers", []),
-                }
+                    nrfi_edge = self.odds_provider.calculate_edge(nrfi_prob, best_odds["nrfi_odds"])
+                    yrfi_edge = self.odds_provider.calculate_edge(yrfi_prob, best_odds["yrfi_odds"])
+
+                    prediction["Odds"] = {
+                        "best_away_odds": best_odds["away_odds"],
+                        "best_home_odds": best_odds["home_odds"],
+                        "over_under": best_odds["over_under"],
+                        "away_edge_pct": round(away_edge * 100, 1),
+                        "home_edge_pct": round(home_edge * 100, 1),
+                        "away_book": best_odds.get("away_book", ""),
+                        "home_book": best_odds.get("home_book", ""),
+                        
+                        "f5_away_odds": best_odds["f5_away_odds"],
+                        "f5_home_odds": best_odds["f5_home_odds"],
+                        "f5_away_edge_pct": round(f5_away_edge * 100, 1),
+                        "f5_home_edge_pct": round(f5_home_edge * 100, 1),
+                        "f5_away_book": best_odds.get("f5_away_book", ""),
+                        "f5_home_book": best_odds.get("f5_home_book", ""),
+                        
+                        "nrfi_odds": best_odds["nrfi_odds"],
+                        "yrfi_odds": best_odds["yrfi_odds"],
+                        "nrfi_edge_pct": round(nrfi_edge * 100, 1),
+                        "yrfi_edge_pct": round(yrfi_edge * 100, 1),
+                        "nrfi_book": best_odds.get("nrfi_book", ""),
+                        "yrfi_book": best_odds.get("yrfi_book", ""),
+                        "bookmakers": best_odds.get("bookmakers", []),
+                    }
 
                 # Attach History
                 history_data = history_lookup.get((away_team, home_team), {
@@ -725,10 +923,19 @@ class PredictionRunner:
             print(f"⚡ {skipped_count} maç için AI analizi atlandı (kota/sınır aşımı).")
         print("✅ Tüm AI analizleri tamamlandı.")
 
+        # Consensus Edges Lock (Görev 9 & Görev 10): Eğer önbellekte edges listesi zaten varsa onu koru, yoksa sıfırdan hesapla
+        if old_consensus_edges:
+            consensus_edges = old_consensus_edges
+            print("🔒 [Consensus Edges Lock] Günün en iyi avantajları (Consensus Edges) kilitli kalarak korundu.")
+        else:
+            consensus_edges = calculate_consensus_edges(all_predictions)
+            print("⚡ [Consensus Edges Lock] Bugünün Consensus Edges listesi sıfırdan hesaplandı.")
+
         output_path = os.path.join(self.data_dir, "todays_predictions.json")
         payload = {
             "date": matchups_data.get("date"),
             "total_games": len(all_predictions),
+            "consensus_edges": consensus_edges,
             "predictions": all_predictions,
         }
 

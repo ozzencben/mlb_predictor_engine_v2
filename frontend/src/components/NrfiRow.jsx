@@ -115,10 +115,15 @@ const NrfiRow = ({ prediction }) => {
                     )}
 
                     {/* AI Score Block (with beautiful neon Circular Progress) */}
-                    <div className="bg-slate-900/40 backdrop-blur-md border border-slate-800/60 p-1.5 xs:p-2 rounded-xl flex items-center gap-2 flex-1 sm:flex-none shadow-inner">
+                    <div className="bg-slate-900/40 backdrop-blur-md border border-slate-800/60 p-1.5 xs:p-2 rounded-xl flex items-center gap-2 flex-1 sm:flex-none shadow-inner relative">
                         <CircularProgress percentage={isNrfiFavored ? nrfiScore : yrfiScore} size={36} strokeWidth={3} />
                         <div className="flex flex-col items-start justify-center">
-                            <span className="text-[7px] md:text-[8px] text-slate-400 font-extrabold uppercase tracking-widest leading-none mb-1">AI Pick</span>
+                            <div className="text-[7px] md:text-[8px] text-slate-400 font-extrabold uppercase tracking-widest leading-none mb-1 flex items-center gap-1">
+                                <span>AI Pick</span>
+                                {parseFloat(isNrfiFavored ? nrfiScore : yrfiScore) >= 70 && (
+                                    <span className="text-[10px] leading-none text-amber-400 animate-bounce">👑</span>
+                                )}
+                            </div>
                             <span className={`px-1.5 py-0.5 rounded border text-[9px] xs:text-[10px] md:text-xs font-black leading-none whitespace-nowrap ${scoreColor}`}>
                                 {pick}
                             </span>

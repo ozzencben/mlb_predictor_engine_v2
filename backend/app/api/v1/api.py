@@ -21,7 +21,7 @@ from zoneinfo import ZoneInfo
 import httpx
 
 from app.core.config import settings
-from app.services.prediction_runner import PredictionRunner
+from app.services.prediction_runner import PredictionRunner, calculate_consensus_edges
 
 api_router = APIRouter()
 
@@ -306,9 +306,12 @@ async def get_historical_predictions(date_str: str):
                 
             predictions.append(prediction)
             
+    consensus_edges = calculate_consensus_edges(predictions)
+
     payload = {
         "date": date_str,
         "total_games": len(predictions),
+        "consensus_edges": consensus_edges,
         "predictions": predictions
     }
     
