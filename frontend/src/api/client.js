@@ -1,8 +1,18 @@
 import axios from 'axios';
 
+// Detect if the browser is running on localhost
+const isLocalhost = typeof window !== 'undefined' && 
+  (window.location.hostname === 'localhost' || 
+   window.location.hostname === '127.0.0.1');
+
+// Auto-switch baseURL: local offline dev queries local backend, production queries Render production API.
+const baseURL = isLocalhost 
+  ? "http://localhost:8000/api/v1" 
+  : "https://mlb-predictor-engine-v2.onrender.com/api/v1";
+
 // Tüm istekler için temel ayarlar
 const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:8000/api/v1",
+  baseURL,
   headers: {
     'Content-Type': 'application/json',
   },
