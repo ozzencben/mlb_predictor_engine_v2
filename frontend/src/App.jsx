@@ -598,10 +598,12 @@ function App() {
               )}
 
               {/* Most Confident ML plays (Görev 10) */}
-              {dailyEdges.most_confident_ml && dailyEdges.most_confident_ml.map((play, index) => play.game && (
+              {dailyEdges.most_confident_ml && dailyEdges.most_confident_ml.length > 0 && (
                 <div 
-                  key={`confident-ml-${index}`}
-                  onClick={() => scrollToMatchup(play.game.matchup.away_team, play.game.matchup.home_team)}
+                  onClick={() => {
+                    const firstGame = dailyEdges.most_confident_ml[0]?.game;
+                    if (firstGame) scrollToMatchup(firstGame.matchup.away_team, firstGame.matchup.home_team);
+                  }}
                   className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-purple-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/50 hover:shadow-[0_8px_20px_rgba(168,85,247,0.15)] snap-start relative overflow-hidden group animate-fade-in"
                 >
                   <div className="absolute top-0 right-0 w-24 h-24 bg-purple-500/5 rounded-full blur-xl group-hover:bg-purple-500/10 transition-colors pointer-events-none"></div>
@@ -609,57 +611,71 @@ function App() {
                     <span className="text-[9px] text-purple-400 font-black uppercase tracking-widest bg-purple-950/60 border border-purple-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
                       Most Confident ML
                     </span>
-                    <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
-                      {getTeamAbbr(play.game.matchup.away_team)} @ {getTeamAbbr(play.game.matchup.home_team)}
+                    <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest">
+                      🔥 Top 2 Plays
                     </span>
                   </div>
-                  <div className="mt-1">
-                    <div className="text-sm font-extrabold text-gray-200">
-                      {play.choice}
-                    </div>
-                    <div className="text-xl font-black text-purple-400 mt-0.5 tracking-tight flex items-baseline gap-1">
-                      <span>{Math.round(play.prob * 100)}%</span>
-                      <span className="text-[10px] text-gray-400 font-bold">Confidence</span>
-                    </div>
+                  
+                  <div className="mt-2 space-y-2 flex-grow">
+                    {dailyEdges.most_confident_ml.map((play, index) => play.game && (
+                      <div key={index} className="flex justify-between items-center text-xs border-b border-slate-900/60 pb-1.5 last:border-0 last:pb-0">
+                        <div>
+                          <div className="font-extrabold text-gray-200">{play.choice}</div>
+                          <div className="text-[9px] text-gray-500 font-semibold">{getTeamAbbr(play.game.matchup.away_team)} @ {getTeamAbbr(play.game.matchup.home_team)}</div>
+                        </div>
+                        <div className="text-right">
+                          <div className="font-black text-purple-400">{Math.round(play.prob * 100)}%</div>
+                          <div className="text-[8px] text-gray-500 font-bold">Confidence</div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                  <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
-                    <span className="font-semibold text-slate-400">Edge: {play.edge > 0 ? '+' : ''}{play.edge.toFixed(1)}%</span>
-                    <span className="text-slate-500 group-hover:text-purple-400 font-black transition-colors uppercase tracking-widest">Analyze →</span>
+
+                  <div className="mt-3 flex justify-end text-[9px] text-slate-500 group-hover:text-purple-400 font-black transition-colors uppercase tracking-widest pt-2 border-t border-slate-900/60">
+                    Analyze →
                   </div>
                 </div>
-              ))}
+              )}
 
               {/* Team Totals Target plays (Görev 10) */}
-              {dailyEdges.team_totals && dailyEdges.team_totals.map((total, index) => total.game && (
+              {dailyEdges.team_totals && dailyEdges.team_totals.length > 0 && (
                 <div 
-                  key={`team-total-${index}`}
-                  onClick={() => scrollToMatchup(total.game.matchup.away_team, total.game.matchup.home_team)}
+                  onClick={() => {
+                    const firstGame = dailyEdges.team_totals[0]?.game;
+                    if (firstGame) scrollToMatchup(firstGame.matchup.away_team, firstGame.matchup.home_team);
+                  }}
                   className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-amber-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/50 hover:shadow-[0_8px_20px_rgba(245,158,11,0.15)] snap-start relative overflow-hidden group animate-fade-in"
                 >
                   <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full blur-xl group-hover:bg-amber-500/10 transition-colors pointer-events-none"></div>
                   <div className="flex justify-between items-start mb-2 gap-2">
                     <span className="text-[9px] text-amber-400 font-black uppercase tracking-widest bg-amber-950/60 border border-amber-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
-                      Team Total Target
+                      Team Total Targets
                     </span>
-                    <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
-                      {getTeamAbbr(total.game.matchup.away_team)} @ {getTeamAbbr(total.game.matchup.home_team)}
+                    <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest">
+                      🎯 Target 4.5
                     </span>
                   </div>
-                  <div className="mt-1">
-                    <div className="text-sm font-extrabold text-gray-200">
-                      {getTeamAbbr(total.team)} Over 4.5
-                    </div>
-                    <div className="text-xl font-black text-amber-400 mt-0.5 tracking-tight flex items-baseline gap-1">
-                      <span>{total.projected_runs.toFixed(1)} Runs</span>
-                      <span className="text-[10px] text-gray-400 font-bold">Proj</span>
-                    </div>
+                  
+                  <div className="mt-2 space-y-2 flex-grow">
+                    {dailyEdges.team_totals.map((total, index) => total.game && (
+                      <div key={index} className="flex justify-between items-center text-xs border-b border-slate-900/60 pb-1.5 last:border-0 last:pb-0">
+                        <div>
+                          <div className="font-extrabold text-gray-200">{getTeamAbbr(total.team)} Over 4.5</div>
+                          <div className="text-[9px] text-gray-500 font-semibold">{getTeamAbbr(total.game.matchup.away_team)} @ {getTeamAbbr(total.game.matchup.home_team)}</div>
+                        </div>
+                        <div className="text-right">
+                          <div className="font-black text-amber-400">{total.projected_runs.toFixed(1)} Runs</div>
+                          <div className="text-[8px] text-gray-500 font-bold">Projected</div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                  <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
-                    <span className="font-semibold text-slate-400">Target Line: 4.5</span>
-                    <span className="text-slate-500 group-hover:text-amber-400 font-black transition-colors uppercase tracking-widest">Analyze →</span>
+
+                  <div className="mt-3 flex justify-end text-[9px] text-slate-500 group-hover:text-amber-400 font-black transition-colors uppercase tracking-widest pt-2 border-t border-slate-900/60">
+                    Analyze →
                   </div>
                 </div>
-              ))}
+              )}
             </div>
           </div>
         )}

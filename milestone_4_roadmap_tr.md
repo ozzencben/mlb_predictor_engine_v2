@@ -107,6 +107,17 @@ graph TD
 
 ---
 
+### Görev 6: Mid-Game Live Edge Runner & Telegram / SMS Alerts Engine (Canlı Bildirim Motoru)
+> **Zorluk**: 🔴 **ZOR (Gerçek Zamanlı Algoritma & Üçüncü Parti API'ler)**  
+> **Bileşen**: `app/services/prediction_runner.py`, `app/api/v1/api.py`, Telegram Bot API / SMS Gateway Integration
+
+* **Hedef**: Tyler'ın harika vizyonu doğrultusunda, maçlar canlı oynanırken modelin arka planda belirli aralıklarla çalışarak (örneğin bir favori takım geriye düştüğünde ama modelimiz hala geri dönüşe yüksek olasılık veriyorsa) **canlı mid-game bahis fırsatlarını (live edges) yakalaması** ve bu fırsatları anında kullanıcılara **Telegram veya SMS bildirimleri** olarak göndermesi.
+* **Teknik Detaylar**:
+  * **Mid-Game Re-runner**: Canlı skor kazıyıcı (live score scraper) bir takımın geriye düştüğünü algıladığında, güncel canlı skor ve inning verilerini alarak modelimizi mid-game simülasyonu ile çalıştıracak. Eğer pregame'e kıyasla ciddi bir "Live Edge" avantajı doğarsa bildirim tetiklenecek.
+  * **Telegram / SMS Gateway**: Bir Telegram Botu kurularak backend API ile entegre edilecek. Kullanıcılar botu başlatarak günlük Consensus Picks, En İyi 5 NRFI Tahmini veya canlı Live Edges bildirimlerine abone olabilecekler. Canlı bildirimler doğrudan Telegram veya Twilio/SMS üzerinden abonelere anlık mesaj olarak iletilecek.
+
+---
+
 ## 🏁 M4 Uygulama ve Faz Planı
 
 Milestone 3.5 (M3 Cilalamaları) tamamlanıp Tyler'dan onay alındıktan sonra Milestone 4 geliştirmesi şu fazlarla başlatılacaktır:
@@ -115,4 +126,5 @@ Milestone 3.5 (M3 Cilalamaları) tamamlanıp Tyler'dan onay alındıktan sonra M
 2. **Aşama 2: Yeni Weather Sheet Mimarisi** (Görev 1). Frontend üzerinde yeni sayfa sekmesinin açılması ve maçların gecikme/iptal olasılıklarına göre dinamik listelenmesi.
 3. **Aşama 3: Recharts Grafik Entegrasyonu** (Görev 4). Günün tüm stadyum projeksiyonlarını kıyaslayan interaktif genişleyebilir grafiklerin çizilmesi.
 4. **Aşama 4: Balistik Detay Modalları** (Görev 2). "Details" pop-up ekranının şık, animasyonlu SVG stadyum compass'ı ile süslenmesi.
-5. **Aşama 5: Kapsamlı Test & Tyler Lansmanı**. Sistem stabilizasyonu, Render deployment ve Tyler'ın kullanımına sunum.
+5. **Aşama 5: Canlı Telegram & SMS Alerts Entegrasyonu** (Görev 6). Canlı mid-game re-runner altyapısının kurulması, Telegram Bot API bağlantısı ve Twilio/SMS gateway entegrasyonu.
+6. **Aşama 6: Kapsamlı Test & Tyler Lansmanı**. Sistem stabilizasyonu, Render deployment ve Tyler'ın kullanımına sunum.
