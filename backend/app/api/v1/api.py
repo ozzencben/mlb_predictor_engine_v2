@@ -139,7 +139,7 @@ async def get_historical_predictions(date_str: str):
     
     async with httpx.AsyncClient() as client:
         for game in games:
-            if game['status']['statusCode'] not in ['P', 'S', 'I', 'F', 'O']:
+            if game['status']['statusCode'] not in ['P', 'S', 'I', 'F', 'O', 'PW', 'W', 'D', 'DH', 'DR', 'A']:
                 continue
                 
             away_node = game['teams']['away']
@@ -353,6 +353,12 @@ async def get_predictions(date: str | None = None):
 
         with open(PREDICTIONS_FILE, "r", encoding="utf-8") as f:
             data = json.load(f)
+
+        # consensus_edges'i her zaman mevcut predictions'dan dinamik hesapla.
+        # Dosyadaki consensus_edges eski oyun eşleşmelerini içerebileceğinden
+        # (örn. oyun iptali/erteleme sonrası), bunu yeniden üretmek gerekiyor.
+        predictions_list = data.get("predictions", [])
+        data["consensus_edges"] = calculate_consensus_edges(predictions_list)
 
         last_modified = _get_file_modified_time(PREDICTIONS_FILE)
         return {
