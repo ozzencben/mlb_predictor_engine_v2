@@ -792,24 +792,41 @@ class PredictionRunner:
                 away_team = game_input.away_team
                 home_team = game_input.home_team
 
-                # Pregame Odds Freeze: Eğer maç başladıysa oranları dondur (eski oranları koru)
-                status = game_dict.get("status", "Scheduled")
-                is_started = status not in ["Scheduled", "Pre-Game", "Warm-up", "Preview"]
+                # Load old odds as fallback if present
                 old_game_key = (away_team, home_team)
-                
                 old_odds = None
-                if is_started and old_game_key in old_predictions_db:
+                if old_game_key in old_predictions_db:
                     old_prediction_data = old_predictions_db[old_game_key]
                     if "Odds" in old_prediction_data:
                         old_odds = old_prediction_data["Odds"]
 
-                if old_odds:
-                    prediction["Odds"] = old_odds
-                    print(f"🔒 [Pregame Odds Freeze] Maç başladı ({status}). {away_team} vs {home_team} maçının pregame oranları donduruldu.")
+                status = game_dict.get("status", "Scheduled")
+                status_lower = status.lower().replace("-", "")
+                is_started = status_lower not in ["scheduled", "pregame", "warmup", "preview"]
+
+                # Get latest odds from live odds data
+                best_odds = self.odds_provider.get_best_odds_for_game(
+                    away_team, home_team, live_odds_data
+                )
+
+                # Determine if we should fall back to cached old odds
+                use_old_odds = False
+                if is_started:
+                    # If game started, always freeze pre-game closing odds
+                    if old_odds and old_odds.get("best_away_odds", 0) > 0:
+                        use_old_odds = True
                 else:
-                    best_odds = self.odds_provider.get_best_odds_for_game(
-                        away_team, home_team, live_odds_data
-                    )
+                    # If game hasn't started but scraper yielded empty/zero odds (due to API key failure)
+                    if (best_odds["away_odds"] == 0.0 or best_odds["home_odds"] == 0.0) and old_odds and old_odds.get("best_away_odds", 0) > 0:
+                        use_old_odds = True
+
+                if use_old_odds:
+                    prediction["Odds"] = old_odds
+                    if is_started:
+                        print(f"🔒 [Pregame Odds Freeze] Maç başladı ({status}). {away_team} vs {home_team} maçının pregame oranları donduruldu.")
+                    else:
+                        print(f"🔄 [Odds Fallback Cache] API oranları çekilemedi, {away_team} vs {home_team} için eski oranlar korundu.")
+                else:
 
                     away_prob = prediction["Full_Game"]["full_away_win_prob"]
                     home_prob = prediction["Full_Game"]["full_home_win_prob"]

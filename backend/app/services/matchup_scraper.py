@@ -95,7 +95,7 @@ class MatchupScraper:
             games = data['dates'][0].get('games', [])
             
             for game in games:
-                if game['status']['statusCode'] in ['P', 'S', 'I', 'F', 'O']: 
+                if game['status']['statusCode'] in ['P', 'S', 'I', 'F', 'O', 'PW', 'W', 'D', 'DH', 'DR', 'A']: 
                     away_node = game['teams']['away']
                     home_node = game['teams']['home']
                     

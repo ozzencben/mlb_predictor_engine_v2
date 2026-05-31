@@ -505,7 +505,7 @@ function App() {
             {/* Flex layout that is scrollable on mobile & desktop */}
             <div className="flex flex-row overflow-x-auto gap-4 pb-3 pt-1 -mx-2 px-2 scroll-smooth snap-x snap-mandatory scrollbar-thin scrollbar-thumb-slate-800/80 scrollbar-track-transparent">
               {/* ML Edge Card */}
-              {dailyEdges.ml && (
+              {dailyEdges.ml && dailyEdges.ml.game && (
                 <div 
                   onClick={() => scrollToMatchup(dailyEdges.ml.game.matchup.away_team, dailyEdges.ml.game.matchup.home_team)}
                   className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-emerald-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/50 hover:shadow-[0_8px_20px_rgba(16,185,129,0.15)] snap-start relative overflow-hidden group"
@@ -536,7 +536,7 @@ function App() {
               )}
 
               {/* Spread Cover Card */}
-              {dailyEdges.spread && (
+              {dailyEdges.spread && dailyEdges.spread.game && (
                 <div 
                   onClick={() => scrollToMatchup(dailyEdges.spread.game.matchup.away_team, dailyEdges.spread.game.matchup.home_team)}
                   className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-indigo-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/50 hover:shadow-[0_8px_20px_rgba(99,102,241,0.15)] snap-start relative overflow-hidden group"
@@ -567,7 +567,7 @@ function App() {
               )}
 
               {/* O/U Variance Card */}
-              {dailyEdges.total && (
+              {dailyEdges.total && dailyEdges.total.game && (
                 <div 
                   onClick={() => scrollToMatchup(dailyEdges.total.game.matchup.away_team, dailyEdges.total.game.matchup.home_team)}
                   className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-blue-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/50 hover:shadow-[0_8px_20px_rgba(59,130,246,0.15)] snap-start relative overflow-hidden group"
