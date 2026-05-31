@@ -500,7 +500,32 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
     const homePitcherNoData = homeTrends?.season_record === '0-0' && !isFallback;
 
     // Odds Barem Güvenlik Kontrolü
-    const isOddsAvailable = Odds && Odds.over_under > 0;
+    // Eğer ana odds alanları 0 ise (API kredisi bitmiş olabilir) bookmakers array'inden fallback çek
+    const normalizedOdds = (() => {
+        if (!Odds) return Odds;
+        // Ana alanlar dolu ise direkt kullan
+        if (Odds.best_away_odds > 0 && Odds.best_home_odds > 0 && Odds.over_under > 0) return Odds;
+        // bookmakers array'inden en iyi değerleri çek
+        const bks = Odds.bookmakers || [];
+        if (bks.length === 0) return Odds;
+        let bestAwayOdds = 0, bestHomeOdds = 0, overUnder = 0;
+        let bestAwayBook = '', bestHomeBook = '';
+        for (const bk of bks) {
+            if (bk.away_ml && bk.away_ml > bestAwayOdds) { bestAwayOdds = bk.away_ml; bestAwayBook = bk.bookmaker || ''; }
+            if (bk.home_ml && bk.home_ml > bestHomeOdds) { bestHomeOdds = bk.home_ml; bestHomeBook = bk.bookmaker || ''; }
+            if (bk.total_line && bk.total_line > 0 && overUnder === 0) { overUnder = bk.total_line; }
+        }
+        return {
+            ...Odds,
+            best_away_odds: Odds.best_away_odds > 0 ? Odds.best_away_odds : bestAwayOdds,
+            best_home_odds: Odds.best_home_odds > 0 ? Odds.best_home_odds : bestHomeOdds,
+            over_under: Odds.over_under > 0 ? Odds.over_under : overUnder,
+            away_book: Odds.away_book || bestAwayBook,
+            home_book: Odds.home_book || bestHomeBook,
+        };
+    })();
+
+    const isOddsAvailable = normalizedOdds && normalizedOdds.over_under > 0;
 
     // Generate H2H and Last 10 data with backend API data or fallback to deterministic mock generators
     const seedStr = `${matchup.away_team}-${matchup.home_team}`;
@@ -612,7 +637,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
     const spreadPlay = `${spreadChoiceText} (${Math.round(spreadChoiceProb * 100)}% Cover)`;
 
     // Over/Under Consensus Choice
-    const bookTotal = isOddsAvailable ? Odds.over_under : 8.5;
+    const bookTotal = isOddsAvailable ? normalizedOdds.over_under : 8.5;
     const modelTotal = parseFloat(Full_Game.full_total);
     const ouChoiceText = modelTotal >= bookTotal ? `OVER ${bookTotal}` : `UNDER ${bookTotal}`;
     const ouChoiceValue = modelTotal;
@@ -909,29 +934,29 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                     ) : (
                         <div className="bg-slate-900/80 border border-slate-700 rounded-xl px-3 xs:px-4 pt-4 pb-3 w-full max-w-[270px] sm:max-w-[290px] flex items-center justify-between relative shadow-lg">
                             <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-800 border border-slate-600 px-4 py-0.5 rounded-full text-[10px] font-black text-gray-300 shadow-md whitespace-nowrap">
-                                Book O/U: {isOddsAvailable ? Odds.over_under : 'N/A'}
+                                Book O/U: {isOddsAvailable ? normalizedOdds.over_under : 'N/A'}
                             </div>
 
                             <div className="flex flex-col items-center w-2/5 min-w-0">
-                                <span className={`text-lg xs:text-xl font-black tracking-tight truncate ${Odds.away_edge_pct > 5 ? 'text-mlb-green' : 'text-gray-200'}`}>
-                                    {formatAmericanOdds(Odds.best_away_odds)}
+                                <span className={`text-lg xs:text-xl font-black tracking-tight truncate ${Odds?.away_edge_pct > 5 ? 'text-mlb-green' : 'text-gray-200'}`}>
+                                    {formatAmericanOdds(normalizedOdds?.best_away_odds)}
                                 </span>
-                                {Odds.away_book && (
+                                {normalizedOdds?.away_book && (
                                     <div className="mt-1 flex items-center gap-1 max-w-full justify-center">
-                                        <SportsbookLogo bookmaker={Odds.away_book} size="xs" />
-                                        <span className="text-[8px] text-slate-400 font-bold uppercase truncate max-w-[55px] xs:max-w-[75px] md:max-w-none">{Odds.away_book}</span>
+                                        <SportsbookLogo bookmaker={normalizedOdds.away_book} size="xs" />
+                                        <span className="text-[8px] text-slate-400 font-bold uppercase truncate max-w-[55px] xs:max-w-[75px] md:max-w-none">{normalizedOdds.away_book}</span>
                                     </div>
                                 )}
                             </div>
                             <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest w-1/5 text-center flex-shrink-0">ML</div>
                             <div className="flex flex-col items-center w-2/5 min-w-0">
-                                <span className={`text-lg xs:text-xl font-black tracking-tight truncate ${Odds.home_edge_pct > 5 ? 'text-mlb-green' : 'text-gray-200'}`}>
-                                    {formatAmericanOdds(Odds.best_home_odds)}
+                                <span className={`text-lg xs:text-xl font-black tracking-tight truncate ${Odds?.home_edge_pct > 5 ? 'text-mlb-green' : 'text-gray-200'}`}>
+                                    {formatAmericanOdds(normalizedOdds?.best_home_odds)}
                                 </span>
-                                {Odds.home_book && (
+                                {normalizedOdds?.home_book && (
                                     <div className="mt-1 flex items-center gap-1 max-w-full justify-center">
-                                        <SportsbookLogo bookmaker={Odds.home_book} size="xs" />
-                                        <span className="text-[8px] text-slate-400 font-bold uppercase truncate max-w-[55px] xs:max-w-[75px] md:max-w-none">{Odds.home_book}</span>
+                                        <SportsbookLogo bookmaker={normalizedOdds.home_book} size="xs" />
+                                        <span className="text-[8px] text-slate-400 font-bold uppercase truncate max-w-[55px] xs:max-w-[75px] md:max-w-none">{normalizedOdds.home_book}</span>
                                     </div>
                                 )}
                             </div>
@@ -1032,7 +1057,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                 <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center">
                                     <span className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">Book Total</span>
                                     <span className="text-[11px] md:text-sm font-black text-white whitespace-nowrap">
-                                        {isOddsAvailable ? `${Odds.over_under} runs` : 'N/A'}
+                                        {isOddsAvailable ? `${normalizedOdds.over_under} runs` : 'N/A'}
                                     </span>
                                 </div>
 
@@ -1040,8 +1065,8 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                 <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center">
                                     <span className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">Total Diff</span>
                                     {isOddsAvailable ? (
-                                        <span className={`text-[11px] md:text-sm font-black whitespace-nowrap ${Full_Game.full_total > Odds.over_under ? 'text-mlb-green' : 'text-blue-400'}`}>
-                                            {Math.abs(Full_Game.full_total - Odds.over_under).toFixed(1)} {Full_Game.full_total > Odds.over_under ? 'O' : 'U'}
+                                        <span className={`text-[11px] md:text-sm font-black whitespace-nowrap ${Full_Game.full_total > normalizedOdds.over_under ? 'text-mlb-green' : 'text-blue-400'}`}>
+                                            {Math.abs(Full_Game.full_total - normalizedOdds.over_under).toFixed(1)} {Full_Game.full_total > normalizedOdds.over_under ? 'O' : 'U'}
                                         </span>
                                     ) : (
                                         <span className="text-[11px] md:text-sm font-black text-gray-400">N/A</span>
