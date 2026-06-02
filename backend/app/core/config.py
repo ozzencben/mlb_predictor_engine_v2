@@ -21,6 +21,7 @@ except ImportError:
 class BaseSettingsFallback:
     def __init__(self):
         self.ODDS_API_KEY = os.getenv("ODDS_API_KEY", "")
+        self.ODDS_API_IO_KEY = os.getenv("ODDS_API_IO_KEY", "")
         self.CORS_ORIGINS = os.getenv("CORS_ORIGINS", "*")
         self.PORT = int(os.getenv("PORT", 8000))
         self.CACHE_EXPIRY_SECONDS = int(os.getenv("CACHE_EXPIRY_SECONDS", 3600))
@@ -39,6 +40,7 @@ if PYDANTIC_AVAILABLE:
 
     class Settings(BaseSettings):
         ODDS_API_KEY: str = Field(default="")
+        ODDS_API_IO_KEY: str = Field(default="")
         CORS_ORIGINS: str = Field(default="*")
         PORT: int = Field(default=8000)
         CACHE_EXPIRY_SECONDS: int = Field(default=3600)
