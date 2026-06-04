@@ -766,6 +766,7 @@ class PredictionRunner:
 
         all_predictions = []
         games = matchups_data.get("games", [])
+        target_date = matchups_data.get("date")
 
         print(f"\n⚾ Bugünün {len(games)} maçı için EDGE (Avantaj) analizleri yapılıyor...\n")
         print("=" * 75)
@@ -806,7 +807,7 @@ class PredictionRunner:
 
                 # Get latest odds from live odds data
                 best_odds = self.odds_provider.get_best_odds_for_game(
-                    away_team, home_team, live_odds_data
+                    away_team, home_team, live_odds_data, target_date
                 )
 
                 # Determine if we should fall back to cached old odds

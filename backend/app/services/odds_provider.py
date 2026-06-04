@@ -4,7 +4,10 @@ import os
 import tempfile
 import requests
 import httpx
+from datetime import datetime, timezone, timedelta
+from zoneinfo import ZoneInfo
 from app.core.config import settings
+
 
 class OddsProvider:
     """
@@ -31,6 +34,31 @@ class OddsProvider:
         except FileNotFoundError:
             print("⚠️ [OddsProvider] Uyarı: team_mappings.json bulunamadı.")
             self.mlb_to_tr_map = {}
+
+    def convert_utc_to_est_date(self, time_str: str) -> str:
+        """UTC tarih stringini ABD Doğu Zaman Dilimi'ne (Eastern Time) çevirir ve YYYY-MM-DD olarak döner."""
+        if not time_str:
+            return ""
+        # Clean string to get standard format (strip Z and milliseconds)
+        cleaned_str = time_str.replace("Z", "").split(".")[0]
+        try:
+            dt_utc = datetime.strptime(cleaned_str, "%Y-%m-%dT%H:%M:%S").replace(tzinfo=timezone.utc)
+        except ValueError:
+            try:
+                dt_utc = datetime.strptime(cleaned_str, "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc)
+            except ValueError:
+                # Fallback: naive string split
+                return cleaned_str.split("T")[0]
+        
+        try:
+            dt_est = dt_utc.astimezone(ZoneInfo("America/New_York"))
+        except Exception:
+            # Fallback if ZoneInfo fails (June is always DST -> UTC-4)
+            is_dst = 3 < dt_utc.month < 11
+            offset = -4 if is_dst else -5
+            dt_est = dt_utc + timedelta(hours=offset)
+            
+        return dt_est.strftime("%Y-%m-%d")
 
     def _atomic_save(self, filepath: str, data: list):
         """Dosya kilitleme ve bozulmaları önleyen atomik yazma işlemi."""
@@ -288,7 +316,7 @@ class OddsProvider:
             
         return []
 
-    def get_best_odds_for_game(self, away_team_tr: str, home_team_tr: str, odds_data: list) -> dict:
+    def get_best_odds_for_game(self, away_team_tr: str, home_team_tr: str, odds_data: list, target_date: str = None) -> dict:
         """
         Piyasadaki (Filtrelenmiş Bookieler arasından) en yüksek oranları bulur.
         Dönen Veri: Match ML, F5 ML, NRFI/YRFI, Book O/U, Spread bilgisi ve detaylı 3-column bahis tablosu verisi.
@@ -310,6 +338,12 @@ class OddsProvider:
                 api_home_tr = self.mlb_to_tr_map.get(game["home_team"], game["home_team"])
 
                 if api_away_tr == away_team_tr and api_home_tr == home_team_tr:
+                    if target_date:
+                        commence_time_str = game.get("commence_time")
+                        if commence_time_str:
+                            game_date = self.convert_utc_to_est_date(commence_time_str)
+                            if game_date != target_date:
+                                continue  # Farklı güne ait maç, atla
                     bookmakers = game.get("bookmakers", [])
                     bookmaker_lines = []
 
@@ -425,6 +459,12 @@ class OddsProvider:
                     api_home_tr = self.mlb_to_tr_map.get(io_home, io_home)
                     
                     if api_away_tr == away_team_tr and api_home_tr == home_team_tr:
+                        if target_date:
+                            io_date_str = io_game.get("date")
+                            if io_date_str:
+                                game_date = self.convert_utc_to_est_date(io_date_str)
+                                if game_date != target_date:
+                                    continue  # Farklı güne ait maç, atla
                         io_bookmakers = io_game.get("bookmakers", {})
                         for bookie_name, markets in io_bookmakers.items():
                             
