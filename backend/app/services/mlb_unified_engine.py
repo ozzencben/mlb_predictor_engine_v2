@@ -362,6 +362,24 @@ class MLBUnifiedEngine:
             if diff > 0.7:
                 value_alerts.append("🔥 SIGNIFICANT TOTAL EDGE")
 
+        # Extract advanced team metrics for AI analysis
+        away_t = self.team_db.get(game.away_team, {})
+        home_t = self.team_db.get(game.home_team, {})
+        team_analysis = {
+            "away": {
+                "wrc_plus": away_t.get("advanced_metrics", {}).get("wrc_plus", 100.0),
+                "off_current": away_t.get("rpg_offense", {}).get("current", 4.5),
+                "off_last3": away_t.get("rpg_offense", {}).get("last_3", 4.5),
+                "def_current": away_t.get("rpg_defense", {}).get("current", 4.5),
+            },
+            "home": {
+                "wrc_plus": home_t.get("advanced_metrics", {}).get("wrc_plus", 100.0),
+                "off_current": home_t.get("rpg_offense", {}).get("current", 4.5),
+                "off_last3": home_t.get("rpg_offense", {}).get("last_3", 4.5),
+                "def_current": home_t.get("rpg_defense", {}).get("current", 4.5),
+            }
+        }
+
         # 5. Frontend İçin Nihai JSON Payload
         return {
             "matchup": {
@@ -379,6 +397,7 @@ class MLBUnifiedEngine:
             "Full_Game": full_result,
             "Details": {
                 "pitcher_analysis": raw_pitcher_data,
+                "team_analysis": team_analysis,
                 "value_alerts": value_alerts,
                 "model_anomalies": model_anomalies,
                 "weather_impact": weather_impact,

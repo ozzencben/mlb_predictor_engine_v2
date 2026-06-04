@@ -25,28 +25,27 @@ class GroqPredictor(BaseAIPredictor):
         matchup = prediction_data.get("matchup", {})
         full = prediction_data.get("Full_Game", {})
         odds = prediction_data.get("Odds", {})
-        nrfi = prediction_data.get("NRFI", {})
         weather = prediction_data.get("Weather", {})
         
-        trends = nrfi.get("scraped_trends", {})
-        is_fallback = trends.get("is_fallback", True)
+        # Atıcı ve takım detaylarını çıkar (Details altından)
+        pitcher_analysis = prediction_data.get("Details", {}).get("pitcher_analysis", {})
+        a_pitcher_data = pitcher_analysis.get("away") or {}
+        h_pitcher_data = pitcher_analysis.get("home") or {}
         
-        a_pitcher = trends.get("away_pitcher", {}) if not is_fallback else {"location_nrfi_pct": "N/A", "streak_score": "N/A", "season_record": "N/A", "location_record": "N/A", "last10_record": "N/A", "streak_emoji": ""}
-        h_pitcher = trends.get("home_pitcher", {}) if not is_fallback else {"location_nrfi_pct": "N/A", "streak_score": "N/A", "season_record": "N/A", "location_record": "N/A", "last10_record": "N/A", "streak_emoji": ""}
-        a_team_nrfi = trends.get("away_team_nrfi", {}) if not is_fallback else {"season_nrfi_pct": "N/A", "season_record": "N/A"}
-        h_team_nrfi = trends.get("home_team_nrfi", {}) if not is_fallback else {"season_nrfi_pct": "N/A", "season_record": "N/A"}
+        team_analysis = prediction_data.get("Details", {}).get("team_analysis") or {}
+        a_team_data = team_analysis.get("away") or {}
+        h_team_data = team_analysis.get("home") or {}
 
         # Ham veri paketinin string formata dönüştürülmesi
         context = (
-            f"Matchup: {matchup.get('away_team')} vs {matchup.get('home_team')}\n"
-            f"Full Game Proj: {full.get('full_away_score')}-{full.get('full_home_score')} (Total: {full.get('full_total')}).\n"
-            f"Vegas Lines: O/U {odds.get('over_under', 'N/A')}. ML Edge -> Away: {odds.get('away_edge_pct', '0')}%, Home: {odds.get('home_edge_pct', '0')}%. F5 Edge -> Away: {odds.get('f5_away_edge_pct', '0')}%, Home: {odds.get('f5_home_edge_pct', '0')}%. NRFI Edge -> NRFI: {odds.get('nrfi_edge_pct', '0')}%, YRFI: {odds.get('yrfi_edge_pct', '0')}%.\n"
-            f"NRFI Confidence: {nrfi.get('confidence')} (Pick: {nrfi.get('pick')}).\n"
-            f"Away SP: Loc NRFI {a_pitcher.get('location_nrfi_pct')}% ({a_pitcher.get('location_record')}), Season Record: {a_pitcher.get('season_record')}, L10: {a_pitcher.get('last10_record')}, Streak: {a_pitcher.get('streak_score')} {a_pitcher.get('streak_emoji')}.\n"
-            f"Home SP: Loc NRFI {h_pitcher.get('location_nrfi_pct')}% ({h_pitcher.get('location_record')}), Season Record: {h_pitcher.get('season_record')}, L10: {h_pitcher.get('last10_record')}, Streak: {h_pitcher.get('streak_score')} {h_pitcher.get('streak_emoji')}.\n"
-            f"Away Team Offense NRFI: {a_team_nrfi.get('season_nrfi_pct')}% ({a_team_nrfi.get('season_record')}).\n"
-            f"Home Team Offense NRFI: {h_team_nrfi.get('season_nrfi_pct')}% ({h_team_nrfi.get('season_record')}).\n"
-            f"Weather: {weather.get('temp_f', 'N/A')}F, Wind {weather.get('wind_mph', 'N/A')}mph {weather.get('wind_direction', 'N/A')}. Alert: {weather.get('cbs_alert_word', 'None')} (Red Flag: {weather.get('red_flag_alert', False)})."
+            f"Matchup: {matchup.get('away_team')} ({matchup.get('away_pitcher')}) at {matchup.get('home_team')} ({matchup.get('home_pitcher')})\n"
+            f"Full Game Score Projection: {full.get('full_away_score')}-{full.get('full_home_score')} (Total: {full.get('full_total')})\n"
+            f"Vegas Lines: O/U {odds.get('over_under', 'N/A')}. ML Edge -> Away: {odds.get('away_edge_pct', '0')}%, Home: {odds.get('home_edge_pct', '0')}%. F5 Edge -> Away: {odds.get('f5_away_edge_pct', '0')}%, Home: {odds.get('f5_home_edge_pct', '0')}%.\n"
+            f"Away Starter ({matchup.get('away_pitcher')}): ERA: {a_pitcher_data.get('era', 'N/A')}, FIP: {a_pitcher_data.get('fip', 'N/A')}, K-BB%: {round(a_pitcher_data.get('k_bb_pct', 0) * 100, 1) if isinstance(a_pitcher_data.get('k_bb_pct'), (int, float)) else 'N/A'}%, Record: {a_pitcher_data.get('record', 'N/A')}\n"
+            f"Home Starter ({matchup.get('home_pitcher')}): ERA: {h_pitcher_data.get('era', 'N/A')}, FIP: {h_pitcher_data.get('fip', 'N/A')}, K-BB%: {round(h_pitcher_data.get('k_bb_pct', 0) * 100, 1) if isinstance(h_pitcher_data.get('k_bb_pct'), (int, float)) else 'N/A'}%, Record: {h_pitcher_data.get('record', 'N/A')}\n"
+            f"Away Offense: wRC+: {a_team_data.get('wrc_plus', 100.0)}, RPG: {a_team_data.get('off_current', 4.5)} (Last 3 Games RPG: {a_team_data.get('off_last3', 4.5)}), Bullpen ERA proxy: {a_team_data.get('def_current', 4.5)}\n"
+            f"Home Offense: wRC+: {h_team_data.get('wrc_plus', 100.0)}, RPG: {h_team_data.get('off_current', 4.5)} (Last 3 Games RPG: {h_team_data.get('off_last3', 4.5)}), Bullpen ERA proxy: {h_team_data.get('def_current', 4.5)}\n"
+            f"Weather: {weather.get('temp_f', 'N/A')}F, Wind {weather.get('wind_mph', 'N/A')}mph {weather.get('wind_direction', 'N/A')}. Alert: {weather.get('cbs_alert_word', 'None')}."
         )
 
         # Groq/Llama modelleri için optimize edilmiş System Instruction
@@ -54,9 +53,9 @@ class GroqPredictor(BaseAIPredictor):
             "You are a highly analytical, professional MLB Sabermetrics expert providing betting insights for a high-end sports betting terminal.\n"
             "Your task is to analyze the provided data and return EXACTLY 3 BULLET POINTS. Do not use conversational filler.\n\n"
             "Follow this strict structure using markdown bullet points (-):\n"
-            "- Bullet 1 (Anomaly/Pitching): Identify the most significant statistical edge or anomaly, focusing on run projections or recent trends.\n"
-            "- Bullet 2 (Trends/Environment): State how the specific Ballpark Weather (Wind/Temp) or the pitchers' NRFI/YRFI trends (Location/Streak) influence the game context.\n"
-            "- Bullet 3 (The Action): Clearly declare the most mathematically sound betting action (Moneyline, Total, or NRFI/YRFI) based strictly on the highest calculated Edge percentage or confidence score.\n\n"
+            "- Bullet 1 (Starting Pitchers): Analyze and compare the starting pitchers (ERA, FIP, K-BB%, record), highlighting who has the advantage and why.\n"
+            "- Bullet 2 (Offense & Bullpen): Compare the team offenses (wRC+, RPG momentum) and bullpen strength (Bullpen ERA proxy), factoring in weather impact if significant.\n"
+            "- Bullet 3 (The Action): Clearly declare the most mathematically sound betting action (Moneyline or Over/Under Total) based strictly on the highest calculated Edge percentage or model score difference.\n\n"
             "CRITICAL: Avoid using the word 'Bookie', use 'Book' instead."
         )
 
