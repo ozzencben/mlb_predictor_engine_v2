@@ -536,6 +536,67 @@ class OddsProvider:
             except Exception as e:
                 print(f"⚠️ [OddsProvider] Error merging F5 odds from live_odds_io.json: {e}")
 
+        # 3. VERİ EKLEME: player_props_odds.json içindeki h2h_h1 ve totals_1st_1_innings verilerini işle
+        props_path = os.path.join(self.data_dir, "player_props_odds.json")
+        if os.path.exists(props_path):
+            try:
+                with open(props_path, "r", encoding="utf-8") as f:
+                    props_data_dict = json.load(f)
+                
+                # Matchup anahtarını bul (away-home veya home-away)
+                match_key = f"{away_team_tr}-{home_team_tr}"
+                event_data = props_data_dict.get(match_key)
+                if not event_data:
+                    # Fallback check (tersten arama)
+                    for k, v in props_data_dict.items():
+                        if away_team_tr.lower() in k.lower() and home_team_tr.lower() in k.lower():
+                            event_data = v
+                            break
+                            
+                if event_data:
+                    bookmakers = event_data.get("bookmakers", [])
+                    for bookie in bookmakers:
+                        bookie_title = bookie.get("title", bookie.get("key", ""))
+                        
+                        # Eşleşen bookmaker satırı bul veya oluştur
+                        bookie_line = next((b for b in result["bookmakers"] if b["bookmaker"].lower() == bookie_title.lower()), None)
+                        if not bookie_line:
+                            bookie_line = {
+                                "bookmaker": bookie_title,
+                                "away_ml": None, "home_ml": None,
+                                "away_spread": None, "away_spread_price": None,
+                                "home_spread": None, "home_spread_price": None,
+                                "total_line": None, "over_price": None, "under_price": None
+                            }
+                            result["bookmakers"].append(bookie_line)
+                            
+                        for market in bookie.get("markets", []):
+                            market_key = market["key"]
+                            
+                            if market_key == "h2h_h1":
+                                for outcome in market["outcomes"]:
+                                    outcome_name_tr = self.mlb_to_tr_map.get(outcome["name"], outcome["name"])
+                                    price = float(outcome.get("price", 0))
+                                    if outcome_name_tr == away_team_tr and price > result["f5_away_odds"]:
+                                        result["f5_away_odds"] = price
+                                        result["f5_away_book"] = bookie_title
+                                    elif outcome_name_tr == home_team_tr and price > result["f5_home_odds"]:
+                                        result["f5_home_odds"] = price
+                                        result["f5_home_book"] = bookie_title
+                                        
+                            elif market_key == "totals_1st_1_innings":
+                                for outcome in market["outcomes"]:
+                                    if outcome.get("point") == 0.5:
+                                        price = float(outcome.get("price", 0))
+                                        if outcome["name"] == "Over" and price > result["yrfi_odds"]:
+                                            result["yrfi_odds"] = price
+                                            result["yrfi_book"] = bookie_title
+                                        elif outcome["name"] == "Under" and price > result["nrfi_odds"]:
+                                            result["nrfi_odds"] = price
+                                            result["nrfi_book"] = bookie_title
+            except Exception as e:
+                print(f"⚠️ [OddsProvider] Error merging props odds from player_props_odds.json: {e}")
+
         return result
 
 
@@ -586,7 +647,7 @@ class OddsProvider:
                 params = {
                     "apiKey": self.api_key,
                     "regions": "us",
-                    "markets": "pitcher_strikeouts,pitcher_outs",
+                    "markets": "pitcher_strikeouts,pitcher_outs,h2h_h1,totals_1st_1_innings",
                     "oddsFormat": "decimal"
                 }
                 tasks.append(client.get(url, params=params, timeout=10.0))
