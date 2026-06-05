@@ -238,6 +238,8 @@ const PitcherCard = ({ p, metricFilter = 'ALL' }) => {
                 ? 'bg-blue-500/10 border-blue-500/30 text-blue-400'
                 : p.matchup_grade.startsWith('C')
                 ? 'bg-amber-500/10 border-amber-500/30 text-amber-400'
+                : p.matchup_grade.startsWith('D') || p.matchup_grade.startsWith('F')
+                ? 'bg-rose-500/10 border-rose-500/30 text-rose-400'
                 : 'bg-slate-800 border-slate-700 text-slate-400'}`}>
               Grade: {p.matchup_grade}
             </span>
