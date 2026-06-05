@@ -7,6 +7,8 @@ class PitcherStatsSchema(BaseModel):
     era: float = Field(default=4.20)
     fip: float = Field(default=4.20)
     k_bb_pct: float = Field(default=0.14)
+    xera: float = Field(default=4.20)
+    xfip: float = Field(default=4.20)
     is_fallback: bool = Field(default=False)
     record: str = Field(default="0-0")
 
@@ -18,7 +20,7 @@ class PitcherStatsSchema(BaseModel):
 
         fallback = False
         normalized = {}
-        defaults = {"era": 4.20, "fip": 4.20, "k_bb_pct": 0.14}
+        defaults = {"era": 4.20, "fip": 4.20, "k_bb_pct": 0.14, "xera": 4.20, "xfip": 4.20}
 
         for field_name, default in defaults.items():
             raw = values.get(field_name, None)

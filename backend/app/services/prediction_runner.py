@@ -18,6 +18,7 @@ from app.services.odds_provider import OddsProvider
 from app.services.pitcher_scraper import PitcherScraper
 from app.services.weather_scraper import WeatherScraper
 from app.services.ai.factory import get_ai_predictor
+from app.services.pitcher_props_engine import PitcherPropsEngine
 
 
 class SeededRNG:
@@ -519,6 +520,364 @@ class PredictionRunner:
             self.mlb_to_tr_map = {}
             self.tr_to_mlb_map = {}
 
+        # Load lineups and player stats cache
+        self.lineups_cache_path = os.path.join(self.data_dir, "lineups_cache.json")
+        self.player_stats_cache_path = os.path.join(self.data_dir, "player_stats_cache.json")
+        
+        try:
+            with open(self.lineups_cache_path, "r", encoding="utf-8") as f:
+                self.lineups_cache = json.load(f)
+        except Exception:
+            self.lineups_cache = {}
+            
+        try:
+            with open(self.player_stats_cache_path, "r", encoding="utf-8") as f:
+                self.player_stats_cache = json.load(f)
+        except Exception:
+            self.player_stats_cache = {}
+
+    def _save_json(self, path, data):
+        try:
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump(data, f, indent=4, ensure_ascii=False)
+        except Exception as e:
+            print(f"Error saving {path}: {e}")
+
+    async def fetch_last_completed_game_pk(self, client: httpx.AsyncClient, team_id: int) -> int | None:
+        current_year = datetime.now().year
+        url = f"https://statsapi.mlb.com/api/v1/schedule?sportId=1&season={current_year}&teamId={team_id}"
+        try:
+            r = await client.get(url, timeout=10.0)
+            if r.status_code == 200:
+                data = r.json()
+                dates = data.get("dates", [])
+                for date_node in reversed(dates):
+                    for g in reversed(date_node.get("games", [])):
+                        if g["status"]["statusCode"] in ["F", "O"]:
+                            return g["gamePk"]
+        except Exception as e:
+            print(f"Error fetching last completed game for team {team_id}: {e}")
+        return None
+
+    async def get_lineup_for_game(self, client: httpx.AsyncClient, game_pk: int, away_id: int, home_id: int) -> tuple[list, list]:
+        today_str = datetime.now().strftime('%Y-%m-%d')
+        cache_key = str(game_pk)
+        
+        if cache_key in self.lineups_cache:
+            cached = self.lineups_cache[cache_key]
+            if cached.get("date") == today_str and cached.get("is_official", False):
+                return cached["away_lineup"], cached["home_lineup"]
+                
+        url = f"https://statsapi.mlb.com/api/v1/game/{game_pk}/boxscore"
+        away_lineup = []
+        home_lineup = []
+        is_official = False
+        
+        try:
+            r = await client.get(url, timeout=10.0)
+            if r.status_code == 200:
+                data = r.json()
+                temp_away = []
+                temp_home = []
+                for side, lineup in [("away", temp_away), ("home", temp_home)]:
+                    team_data = data.get("teams", {}).get(side, {})
+                    batting_order = team_data.get("battingOrder", [])
+                    players = team_data.get("players", {})
+                    
+                    for pid in batting_order[:9]:
+                        p_info = players.get(f"ID{pid}", {})
+                        p_name = p_info.get("person", {}).get("fullName", "Unknown")
+                        p_pos = p_info.get("position", {}).get("abbreviation", "N/A")
+                        lineup.append({"id": pid, "name": p_name, "position": p_pos})
+                
+                if len(temp_away) >= 9 and len(temp_home) >= 9:
+                    away_lineup = temp_away
+                    home_lineup = temp_home
+                    is_official = True
+                    print(f"[Official Lineups Found] {game_pk} icin resmi kadrolar StatsAPI'den cekildi.")
+        except Exception as e:
+            print(f"Error fetching boxscore for game {game_pk}: {e}")
+            
+        if not is_official:
+            # 2. Resmi kadro yoksa ve önbellekte bugünün fallback verisi varsa doğrudan onu kullan
+            if cache_key in self.lineups_cache:
+                cached = self.lineups_cache[cache_key]
+                if cached.get("date") == today_str:
+                    print(f"[Cached Fallback Lineups Used] {game_pk} icin resmi kadro henuz aciklanmamis. Onbellekteki yedek kadrolar kullaniliyor.")
+                    return cached["away_lineup"], cached["home_lineup"]
+            
+            # 3. Önbellekte bugüne ait veri yoksa ilk kez fallback oluştur
+            print(f"[Generating Fallback Lineups] {game_pk} icin resmi kadrolar aciklanmamis, StatsAPI uzerinden fallback kadrolari olusturuluyor...")
+            if away_id:
+                last_pk = await self.fetch_last_completed_game_pk(client, away_id)
+                if last_pk:
+                    fallback_url = f"https://statsapi.mlb.com/api/v1/game/{last_pk}/boxscore"
+                    try:
+                        fb_r = await client.get(fallback_url, timeout=10.0)
+                        if fb_r.status_code == 200:
+                            fb_data = fb_r.json()
+                            team_data = fb_data.get("teams", {}).get("away", {})
+                            batting_order = team_data.get("battingOrder", [])
+                            players = team_data.get("players", {})
+                            for pid in batting_order[:9]:
+                                p_info = players.get(f"ID{pid}", {})
+                                p_name = p_info.get("person", {}).get("fullName", "Unknown")
+                                p_pos = p_info.get("position", {}).get("abbreviation", "N/A")
+                                away_lineup.append({"id": pid, "name": p_name, "position": p_pos})
+                    except Exception as e:
+                        print(f"Error fetching fallback away lineup: {e}")
+                        
+            if home_id:
+                last_pk = await self.fetch_last_completed_game_pk(client, home_id)
+                if last_pk:
+                    fallback_url = f"https://statsapi.mlb.com/api/v1/game/{last_pk}/boxscore"
+                    try:
+                        fb_r = await client.get(fallback_url, timeout=10.0)
+                        if fb_r.status_code == 200:
+                            fb_data = fb_r.json()
+                            team_data = fb_data.get("teams", {}).get("home", {})
+                            batting_order = team_data.get("battingOrder", [])
+                            players = team_data.get("players", {})
+                            for pid in batting_order[:9]:
+                                p_info = players.get(f"ID{pid}", {})
+                                p_name = p_info.get("person", {}).get("fullName", "Unknown")
+                                p_pos = p_info.get("position", {}).get("abbreviation", "N/A")
+                                home_lineup.append({"id": pid, "name": p_name, "position": p_pos})
+                    except Exception as e:
+                        print(f"Error fetching fallback home lineup: {e}")
+                        
+        self.lineups_cache[cache_key] = {
+            "date": today_str,
+            "away_lineup": away_lineup,
+            "home_lineup": home_lineup,
+            "is_official": is_official
+        }
+        self._save_json(self.lineups_cache_path, self.lineups_cache)
+        return away_lineup, home_lineup
+
+    async def fetch_team_splits_async(self, client: httpx.AsyncClient) -> dict:
+        splits_file = os.path.join(self.data_dir, "team_splits.json")
+        today_str = datetime.now().strftime('%Y-%m-%d')
+        
+        if os.path.exists(splits_file):
+            try:
+                with open(splits_file, "r", encoding="utf-8") as f:
+                    cached = json.load(f)
+                    if cached.get("date") == today_str:
+                        return cached.get("splits")
+            except Exception:
+                pass
+                
+        print("📡 Fetching team splits vs LHP/RHP in parallel...")
+        url_teams = "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+        try:
+            res = await client.get(url_teams)
+            teams = res.json().get("teams", [])
+            
+            tasks = []
+            team_info = []
+            for t in teams:
+                team_id = t["id"]
+                team_name = t["name"]
+                url_splits = f"https://statsapi.mlb.com/api/v1/teams/{team_id}/stats?stats=statSplits&group=hitting&sitCodes=vl,vr&season={datetime.now().year}"
+                tasks.append(client.get(url_splits, timeout=15.0))
+                team_info.append((team_id, team_name))
+                
+            responses = await asyncio.gather(*tasks, return_exceptions=True)
+            
+            splits_db = {}
+            for (team_id, team_name), resp in zip(team_info, responses):
+                if isinstance(resp, Exception) or resp.status_code != 200:
+                    continue
+                    
+                data = resp.json()
+                splits = data.get("stats", [{}])[0].get("splits", [])
+                
+                vs_LHP = {"avg": 0.250, "obp": 0.320, "slg": 0.400, "ops": 0.720, "k_pct": 22.0}
+                vs_RHP = {"avg": 0.250, "obp": 0.320, "slg": 0.400, "ops": 0.720, "k_pct": 22.0}
+                
+                for s in splits:
+                    code = s.get("split", {}).get("code")
+                    stat = s.get("stat", {})
+                    
+                    def safe_float(k, default):
+                        v = stat.get(k)
+                        if v is None: return default
+                        try: return float(str(v).replace("%", ""))
+                        except ValueError: return default
+                            
+                    pa = safe_float("plateAppearances", 1.0)
+                    so = safe_float("strikeOuts", 0.0)
+                    k_pct = round((so / pa) * 100.0, 1) if pa > 0 else 22.0
+                    
+                    parsed_split = {
+                        "avg": safe_float("avg", 0.250),
+                        "obp": safe_float("obp", 0.320),
+                        "slg": safe_float("slg", 0.400),
+                        "ops": safe_float("ops", 0.720),
+                        "k_pct": k_pct
+                    }
+                    
+                    if code == "vl":
+                        vs_LHP = parsed_split
+                    elif code == "vr":
+                        vs_RHP = parsed_split
+                        
+                tr_name = self.mlb_to_tr_map.get(team_name, team_name)
+                splits_db[tr_name] = {
+                    "vs_LHP": vs_LHP,
+                    "vs_RHP": vs_RHP
+                }
+                
+            payload = {"date": today_str, "splits": splits_db}
+            self._save_json(splits_file, payload)
+            return splits_db
+        except Exception as e:
+            print(f"⚠️ Failed to fetch team splits: {e}")
+            return {}
+
+    async def get_player_stats_async(self, client: httpx.AsyncClient, player_id: int, group: str) -> dict:
+        today_str = datetime.now().strftime('%Y-%m-%d')
+        cache_key = f"{player_id}_{group}"
+        
+        if cache_key in self.player_stats_cache:
+            cached = self.player_stats_cache[cache_key]
+            if cached.get("date") == today_str:
+                return cached.get("stats")
+                
+        url = f"https://statsapi.mlb.com/api/v1/people/{player_id}/stats?stats=season&group={group}&season={datetime.now().year}"
+        stats_data = {}
+        try:
+            resp = await client.get(url, timeout=10.0)
+            if resp.status_code == 200:
+                data = resp.json()
+                splits = data.get("stats", [{}])[0].get("splits", [])
+                if splits:
+                    stats_data = splits[0].get("stat", {})
+        except Exception as e:
+            print(f"Error fetching player stats for {player_id}: {e}")
+            
+        self.player_stats_cache[cache_key] = {
+            "date": today_str,
+            "stats": stats_data
+        }
+        self._save_json(self.player_stats_cache_path, self.player_stats_cache)
+        return stats_data
+
+    def calculate_hitter_metrics(self, stat: dict) -> dict:
+        avg = float(stat.get("avg", 0.250))
+        obp = float(stat.get("obp", 0.320))
+        slg = float(stat.get("slg", 0.400))
+        ops = float(stat.get("ops", 0.720))
+        
+        bb = int(stat.get("baseOnBalls", 0))
+        ibb = int(stat.get("intentionalWalks", 0))
+        hbp = int(stat.get("hitByPitch", 0))
+        h = int(stat.get("hits", 0))
+        hr = int(stat.get("homeRuns", 0))
+        double = int(stat.get("doubles", 0))
+        triple = int(stat.get("triples", 0))
+        ab = int(stat.get("atBats", 0))
+        sf = int(stat.get("sacFlies", 0))
+        pa = int(stat.get("plateAppearances", 0))
+        so = int(stat.get("strikeOuts", 0))
+        
+        single = h - double - triple - hr
+        denom = (ab + bb - ibb + sf + hbp)
+        
+        if denom > 0:
+            woba = (0.69 * (bb - ibb) + 0.72 * hbp + 0.89 * single + 1.27 * double + 1.62 * triple + 2.10 * hr) / denom
+        else:
+            woba = obp
+            
+        wrc_plus = (woba / 0.315) * 100.0
+        
+        k_pct = (so / pa * 100.0) if pa > 0 else 22.0
+        bb_pct = (bb / pa * 100.0) if pa > 0 else 8.0
+        pitches_per_pa = float(stat.get("numberOfPitches", 0)) / pa if pa > 0 else 3.8
+        
+        swstr_pct = 0.45 * k_pct + 2.0
+        csw_pct = 0.55 * k_pct + 15.0
+        whiff_pct = 0.9 * k_pct + 5.0
+        oswing_pct = k_pct * 0.8 + 12.0
+        in_zone_contact_pct = 95.0 - (swstr_pct * 1.5)
+        swing_pct = 47.0
+        
+        return {
+            "avg": round(avg, 3),
+            "obp": round(obp, 3),
+            "slg": round(slg, 3),
+            "ops": round(ops, 3),
+            "woba": round(woba, 3),
+            "wrc_plus": round(wrc_plus, 1),
+            "k_pct": round(k_pct, 1),
+            "bb_pct": round(bb_pct, 1),
+            "pitches_per_pa": round(pitches_per_pa, 2),
+            "swstr_pct": round(swstr_pct, 1),
+            "csw_pct": round(csw_pct, 1),
+            "whiff_pct": round(whiff_pct, 1),
+            "oswing_pct": round(oswing_pct, 1),
+            "in_zone_contact_pct": round(in_zone_contact_pct, 1),
+            "swing_pct": swing_pct
+        }
+
+    def calculate_pitcher_metrics(self, stat: dict) -> dict:
+        era = float(stat.get("era", 4.20))
+        fip = float(stat.get("fip", 4.20))
+        xera = float(stat.get("xera", 4.20))
+        xfip = float(stat.get("xfip", 4.20))
+        
+        bf = int(stat.get("battersFaced", 1))
+        ip = float(stat.get("inningsPitched", 1.0))
+        bb = int(stat.get("baseOnBalls", 0))
+        k = int(stat.get("strikeOuts", 0))
+        games = int(stat.get("gamesPitched", 1))
+        pitches = int(stat.get("numberOfPitches", 0))
+        
+        k_pct = (k / bf * 100.0) if bf > 0 else 20.0
+        bb_pct = (bb / bf * 100.0) if bf > 0 else 8.0
+        k_bb_pct = k_pct - bb_pct
+        
+        pitches_per_pa = pitches / bf if bf > 0 else 3.8
+        avg_bf = bf / games if games > 0 else 22.5
+        avg_ip = ip / games if games > 0 else 5.2
+        
+        swstr_pct = 0.45 * k_pct + 2.0
+        csw_pct = 0.55 * k_pct + 15.0
+        whiff_pct = 0.9 * k_pct + 5.0
+        putaway_pct = 1.2 * k_pct
+        throws = stat.get("throws", "R")
+        
+        return {
+            "era": era,
+            "fip": fip,
+            "xera": xera,
+            "xfip": xfip,
+            "k_pct": round(k_pct, 1),
+            "bb_pct": round(bb_pct, 1),
+            "k_bb_pct": round(k_bb_pct, 1),
+            "pitches_per_pa": round(pitches_per_pa, 2),
+            "avg_bf": round(avg_bf, 1),
+            "avg_ip": round(avg_ip, 1),
+            "swstr_pct": round(swstr_pct, 1),
+            "csw_pct": round(csw_pct, 1),
+            "whiff_pct": round(whiff_pct, 1),
+            "putaway_pct": round(putaway_pct, 1),
+            "throws": throws
+        }
+
+    def _poisson_cdf(self, k: int, lamb: float) -> float:
+        if lamb <= 0:
+            return 1.0
+        sum_prob = 0.0
+        for i in range(k + 1):
+            log_term = -lamb + i * math.log(lamb) - math.lgamma(i + 1)
+            sum_prob += math.exp(log_term)
+        return min(1.0, sum_prob)
+
+    def _normal_cdf(self, x: float, mean: float, std_dev: float) -> float:
+        return 0.5 * (1.0 + math.erf((x - mean) / (std_dev * math.sqrt(2.0))))
+
     def _atomic_save(self, filepath: str, data: dict):
         """Nihai çıktının bozulmasını önleyen atomik yazma işlemi."""
         dir_name = os.path.dirname(filepath)
@@ -559,7 +918,6 @@ class PredictionRunner:
         def is_match(short_name, full_name, db_side):
             if short_name in db_side or full_name in db_side:
                 return True
-            # Oakland -> "athletics" vs "oakland athletics"
             last_word = full_name.split()[-1]
             if last_word in db_side:
                 return True
@@ -668,12 +1026,97 @@ class PredictionRunner:
                 print("🛑 Zincirleme hata tespit edildi. Tahmin motoru durduruldu.")
                 return []
 
-            # Perform parallel history fetching
-            print("📡 MLB API'den takımların geçmiş performansları çekiliyor (Parallel History)...")
-            matchups_data = self.data_dir
+            # 1. Fetch splits & lineups & player stats
+            team_splits_db = await self.fetch_team_splits_async(client)
+            
+            # Load daily matchups
             matchups_data = self._load_json("daily_matchups.json")
             games = matchups_data.get("games", [])
+            target_date = matchups_data.get("date")
             
+            # Gather starting lineup rosters
+            print("⚾ Starting lineups çözümleniyor...")
+            unique_player_ids = set()
+            for game_dict in games:
+                game_pk = game_dict["game_id"]
+                away_id = game_dict.get("away_team_id") or resolve_team_id(game_dict.get("away_team"))
+                home_id = game_dict.get("home_team_id") or resolve_team_id(game_dict.get("home_team"))
+                
+                away_lineup, home_lineup = await self.get_lineup_for_game(client, game_pk, away_id, home_id)
+                game_dict["away_lineup"] = away_lineup
+                game_dict["home_lineup"] = home_lineup
+                
+                for p in away_lineup + home_lineup:
+                    unique_player_ids.add(p["id"])
+                    
+            # Fetch all player hitting stats in parallel
+            player_stats_db = {}
+            if unique_player_ids:
+                print(f"📡 Fetching hit stats for {len(unique_player_ids)} starting batters...")
+                p_ids = list(unique_player_ids)
+                p_tasks = [self.get_player_stats_async(client, pid, "hitting") for pid in p_ids]
+                p_results = await asyncio.gather(*p_tasks, return_exceptions=True)
+                for pid, res in zip(p_ids, p_results):
+                    player_stats_db[pid] = {} if isinstance(res, Exception) else res
+                    
+            # Hydrate matchups with lineup averages and splits
+            for game_dict in games:
+                for side in ["away", "home"]:
+                    lineup = game_dict[f"{side}_lineup"]
+                    wrc_sum, woba_sum, k_sum, bb_sum, pitches_pa_sum = 0.0, 0.0, 0.0, 0.0, 0.0
+                    swstr_sum, csw_sum, whiff_sum, oswing_sum, swing_sum = 0.0, 0.0, 0.0, 0.0, 0.0
+                    count = 0
+                    
+                    hydrated = []
+                    for player in lineup[:9]:
+                        pid = player["id"]
+                        raw_stat = player_stats_db.get(pid, {})
+                        metrics = self.calculate_hitter_metrics(raw_stat)
+                        
+                        player_stat = player.copy()
+                        player_stat.update(metrics)
+                        hydrated.append(player_stat)
+                        
+                        wrc_sum += metrics["wrc_plus"]
+                        woba_sum += metrics["woba"]
+                        k_sum += metrics["k_pct"]
+                        bb_sum += metrics["bb_pct"]
+                        pitches_pa_sum += metrics["pitches_per_pa"]
+                        swstr_sum += metrics["swstr_pct"]
+                        csw_sum += metrics["csw_pct"]
+                        whiff_sum += metrics["whiff_pct"]
+                        oswing_sum += metrics["oswing_pct"]
+                        swing_sum += metrics["swing_pct"]
+                        count += 1
+                        
+                    if count > 0:
+                        lineup_avg = {
+                            "wrc_plus": round(wrc_sum / count, 1),
+                            "woba": round(woba_sum / count, 3),
+                            "k_pct": round(k_sum / count, 1),
+                            "bb_pct": round(bb_sum / count, 1),
+                            "pitches_per_pa": round(pitches_pa_sum / count, 2),
+                            "swstr_pct": round(swstr_sum / count, 1),
+                            "csw_pct": round(csw_sum / count, 1),
+                            "whiff_pct": round(whiff_sum / count, 1),
+                            "oswing_pct": round(oswing_sum / count, 1),
+                            "swing_pct": round(swing_sum / count, 1)
+                        }
+                    else:
+                        lineup_avg = {
+                            "wrc_plus": 100.0, "woba": 0.315, "k_pct": 22.0, "bb_pct": 8.0,
+                            "pitches_per_pa": 3.8, "swstr_pct": 11.9, "csw_pct": 27.1,
+                            "whiff_pct": 24.8, "oswing_pct": 29.6, "swing_pct": 47.0
+                        }
+                        
+                    game_dict[f"{side}_lineup_hydrated"] = hydrated
+                    game_dict[f"{side}_lineup_avg"] = lineup_avg
+                    
+            # 2. Fetch Player Props Odds
+            player_props_odds_db = await self.odds_provider.fetch_player_props_for_games_async(client, games)
+
+            # Perform parallel history fetching
+            print("📡 MLB API'den takımların geçmiş performansları çekiliyor (Parallel History)...")
             history_tasks = []
             history_keys = []
             for game_dict in games:
@@ -765,9 +1208,8 @@ class PredictionRunner:
         )
 
         all_predictions = []
-        games = matchups_data.get("games", [])
-        target_date = matchups_data.get("date")
-
+        all_pitcher_projs = []
+        
         print(f"\n⚾ Bugünün {len(games)} maçı için EDGE (Avantaj) analizleri yapılıyor...\n")
         print("=" * 75)
 
@@ -779,7 +1221,6 @@ class PredictionRunner:
                     print(f"❌ Veri Formatı Hatası ({game_dict.get('away_team')} vs {game_dict.get('home_team')}): {ve}")
                     continue
 
-                # TAKIM İSMİ UYUMSUZLUĞU (FUZZY MATCH) ÇÖZÜMÜ
                 trend_data = self._find_trend_data(game_input.away_team, game_input.home_team, trends_db)
                 
                 if trend_data:
@@ -788,7 +1229,19 @@ class PredictionRunner:
                     trends_schema = NRFITrendSchema(is_scraper_fallback=True)
 
                 weather_info = weather_db.get(game_input.home_team, {})
-                prediction = engine.predict_matchup(game_input, trends=trends_schema, weather=weather_info)
+                
+                # Fetch splits and lineup averages for this game
+                away_lineup_avg = game_dict.get("away_lineup_avg")
+                home_lineup_avg = game_dict.get("home_lineup_avg")
+                away_splits = team_splits_db.get(game_input.away_team)
+                home_splits = team_splits_db.get(game_input.home_team)
+
+                # Predict Matchup with splits & lineups
+                prediction = engine.predict_matchup(
+                    game_input, trends=trends_schema, weather=weather_info,
+                    away_lineup_avg=away_lineup_avg, home_lineup_avg=home_lineup_avg,
+                    away_splits=away_splits, home_splits=home_splits
+                )
 
                 away_team = game_input.away_team
                 home_team = game_input.home_team
@@ -805,19 +1258,15 @@ class PredictionRunner:
                 status_lower = status.lower().replace("-", "")
                 is_started = status_lower not in ["scheduled", "pregame", "warmup", "preview"]
 
-                # Get latest odds from live odds data
                 best_odds = self.odds_provider.get_best_odds_for_game(
                     away_team, home_team, live_odds_data, target_date
                 )
 
-                # Determine if we should fall back to cached old odds
                 use_old_odds = False
                 if is_started:
-                    # If game started, always freeze pre-game closing odds
                     if old_odds and old_odds.get("best_away_odds", 0) > 0:
                         use_old_odds = True
                 else:
-                    # If game hasn't started but scraper yielded empty/zero odds (due to API key failure)
                     if (best_odds["away_odds"] == 0.0 or best_odds["home_odds"] == 0.0) and old_odds and old_odds.get("best_away_odds", 0) > 0:
                         use_old_odds = True
 
@@ -828,7 +1277,6 @@ class PredictionRunner:
                     else:
                         print(f"🔄 [Odds Fallback Cache] API oranları çekilemedi, {away_team} vs {home_team} için eski oranlar korundu.")
                 else:
-
                     away_prob = prediction["Full_Game"]["full_away_win_prob"]
                     home_prob = prediction["Full_Game"]["full_home_win_prob"]
 
@@ -872,18 +1320,105 @@ class PredictionRunner:
                         "bookmakers": best_odds.get("bookmakers", []),
                     }
 
-                # Attach History
+                # Attach History & Weather
                 history_data = history_lookup.get((away_team, home_team), {
-                    "away_l10": [],
-                    "home_l10": [],
-                    "h2h": []
+                    "away_l10": [], "home_l10": [], "h2h": []
                 })
                 prediction["History"] = history_data
-
-                weather_info = weather_db.get(home_team, {})
                 prediction["Weather"] = weather_info
-                
-                # 2. AI asenkron döngüsünden önce None ataması yap
+
+                # ----------------------------------------------------
+                # PITCHER PROPS PROJECTION & ODDS MATCHING (XGBoost/RF style)
+                # ----------------------------------------------------
+                props_engine = PitcherPropsEngine(engine.ballpark_db)
+                props_odds_data = player_props_odds_db.get((away_team, home_team))
+                if not props_odds_data:
+                    props_odds_data = player_props_odds_db.get(f"{away_team}-{home_team}")
+                    
+                pitcher_projs = []
+                for side, p_name in [("away", game_input.away_pitcher), ("home", game_input.home_pitcher)]:
+                    if p_name and p_name != "TBD":
+                        p_stat_raw = pitcher_db.get(p_name, {"era": 4.20, "fip": 4.20, "xera": 4.20, "xfip": 4.20, "k_bb_pct": 0.14, "throws": "R"})
+                        p_features = self.calculate_pitcher_metrics(p_stat_raw)
+                        
+                        opp_side = "home" if side == "away" else "away"
+                        opp_lineup_avg = game_dict.get(f"{opp_side}_lineup_avg")
+                        opp_team_name = home_team if side == "away" else away_team
+                        
+                        projs = props_engine.project_pitcher_props(p_features, opp_lineup_avg, weather_info, home_team)
+                        proj_k = projs["projected_k"]
+                        proj_outs = projs["projected_outs"]
+                        
+                        odds_matched = self.odds_provider.parse_pitcher_props_odds(props_odds_data, p_name)
+                        
+                        k_line = odds_matched["k_line"]
+                        k_choice = "PASS"
+                        k_edge = 0.0
+                        if k_line is not None:
+                            p_under = self._poisson_cdf(int(k_line), proj_k)
+                            p_over = 1.0 - p_under
+                            
+                            implied_over = 1.0 / odds_matched["k_over_odds"] if odds_matched["k_over_odds"] > 0 else 0.0
+                            implied_under = 1.0 / odds_matched["k_under_odds"] if odds_matched["k_under_odds"] > 0 else 0.0
+                            
+                            edge_over = p_over - implied_over
+                            edge_under = p_under - implied_under
+                            
+                            if edge_over >= 0.05:
+                                k_choice = "OVER"
+                                k_edge = round(edge_over * 100, 1)
+                            elif edge_under >= 0.05:
+                                k_choice = "UNDER"
+                                k_edge = round(edge_under * 100, 1)
+                                
+                        outs_line = odds_matched["outs_line"]
+                        outs_choice = "PASS"
+                        outs_edge = 0.0
+                        if outs_line is not None:
+                            p_over = 1.0 - self._normal_cdf(outs_line, proj_outs, 1.5)
+                            p_under = self._normal_cdf(outs_line, proj_outs, 1.5)
+                            
+                            implied_over = 1.0 / odds_matched["outs_over_odds"] if odds_matched["outs_over_odds"] > 0 else 0.0
+                            implied_under = 1.0 / odds_matched["outs_under_odds"] if odds_matched["outs_under_odds"] > 0 else 0.0
+                            
+                            edge_over = p_over - implied_over
+                            edge_under = p_under - implied_under
+                            
+                            if edge_over >= 0.05:
+                                outs_choice = "OVER"
+                                outs_edge = round(edge_over * 100, 1)
+                            elif edge_under >= 0.05:
+                                outs_choice = "UNDER"
+                                outs_edge = round(edge_under * 100, 1)
+                                
+                        proj_dict = {
+                            "pitcher": p_name,
+                            "team": away_team if side == "away" else home_team,
+                            "opponent": opp_team_name,
+                            "throws": p_features["throws"],
+                            "proj_k": proj_k,
+                            "proj_outs": proj_outs,
+                            
+                            "k_line": k_line,
+                            "k_over_odds": odds_matched["k_over_odds"],
+                            "k_under_odds": odds_matched["k_under_odds"],
+                            "k_book": odds_matched["k_book"],
+                            "k_choice": k_choice,
+                            "k_edge": k_edge,
+                            
+                            "outs_line": outs_line,
+                            "outs_over_odds": odds_matched["outs_over_odds"],
+                            "outs_under_odds": odds_matched["outs_under_odds"],
+                            "outs_book": odds_matched["outs_book"],
+                            "outs_choice": outs_choice,
+                            "outs_edge": outs_edge
+                        }
+                        pitcher_projs.append(proj_dict)
+                        all_pitcher_projs.append(proj_dict)
+                        
+                prediction["pitcher_projs"] = pitcher_projs
+                # ----------------------------------------------------
+
                 if "Details" not in prediction:
                     prediction["Details"] = {}
                 prediction["Details"]["ai_insight"] = None
@@ -902,21 +1437,17 @@ class PredictionRunner:
             away = pred['matchup']['away_team']
             home = pred['matchup']['home_team']
 
-            # --- AI Önbelleği Kurtarma (Seçenek A) ---
-            # Eğer eski başarılı bir önbellek analizi varsa, API kotalarını korumak için doğrudan oradan oku!
             key = (away, home)
             old_pred = old_predictions_db.get(key)
             old_insight = None
             if old_pred and "Details" in old_pred:
                 old_insight = old_pred["Details"].get("ai_insight")
                 
-            # Eğer eski analiz geçerliyse, "skipped" veya hata içermiyorsa aynen koru
             if old_insight and not old_insight.startswith("AI analysis"):
                 print(f"   ⚡ AI Önbelleği Koruması: {away} vs {home} için mevcut geçerli AI yorumu başarıyla korundu.")
                 pred["Details"]["ai_insight"] = old_insight
                 continue
 
-            # --- CIRCUIT BREAKER: Günlük veya kalıcı kota dolduysa kalan maçları direkt atla ---
             if getattr(ai_service, 'quota_exhausted', False):
                 skipped_count += 1
                 pred["Details"]["ai_insight"] = "AI analysis skipped: Daily token quota exhausted or rate limit tripped."
@@ -930,18 +1461,14 @@ class PredictionRunner:
                 print(f"❌ AI Insight Hatası ({away} @ {home}): {e}")
                 pred["Details"]["ai_insight"] = "AI analysis is temporarily unavailable."
             finally:
-                # Kota dolmadıysa istekler arası bekleme uygula
-                # Circuit açıksa bekleme gereksiz — zaten atlanıyor
                 if not getattr(ai_service, 'quota_exhausted', False):
-                    # Gemini Free Tier (15 RPM) limiti için her maç arası kesin olarak 4.5 saniye bekle
-                    # Bu sayede 1 dakika içinde atılan istek sayısı 13-14 civarında kalır, 429 yemez.
                     await asyncio.sleep(4.5)
 
         if skipped_count > 0:
             print(f"⚡ {skipped_count} maç için AI analizi atlandı (kota/sınır aşımı).")
         print("✅ Tüm AI analizleri tamamlandı.")
 
-        # Consensus Edges Lock (Görev 9 & Görev 10): Eğer önbellekte edges listesi zaten varsa onu koru, yoksa sıfırdan hesapla
+        # Consensus Edges Lock
         if old_consensus_edges:
             consensus_edges = old_consensus_edges
             print("🔒 [Consensus Edges Lock] Günün en iyi avantajları (Consensus Edges) kilitli kalarak korundu.")
@@ -954,6 +1481,7 @@ class PredictionRunner:
             "date": matchups_data.get("date"),
             "total_games": len(all_predictions),
             "consensus_edges": consensus_edges,
+            "pitcher_projections": all_pitcher_projs,
             "predictions": all_predictions,
         }
 

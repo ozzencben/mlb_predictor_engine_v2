@@ -549,3 +549,157 @@ class OddsProvider:
         if market_prob == 0.0:
             return 0.0
         return round(model_prob - market_prob, 3)
+
+    async def fetch_player_props_for_games_async(self, client: httpx.AsyncClient, matchups: list) -> dict:
+        """
+        For each matchup, finds the corresponding event ID from live_odds.json,
+        queries the player props (pitcher_strikeouts and pitcher_outs),
+        and returns a dict mapping (away_team, home_team) -> props_data.
+        """
+        live_odds_file = os.path.join(self.data_dir, "live_odds.json")
+        if not os.path.exists(live_odds_file):
+            print("⚠️ [OddsProvider] live_odds.json not found, skipping player props fetch.")
+            return {}
+            
+        try:
+            with open(live_odds_file, "r", encoding="utf-8") as f:
+                live_odds = json.load(f)
+        except Exception:
+            return {}
+            
+        event_map = {}
+        for event in live_odds:
+            api_away_tr = self.mlb_to_tr_map.get(event["away_team"], event["away_team"])
+            api_home_tr = self.mlb_to_tr_map.get(event["home_team"], event["home_team"])
+            event_map[(api_away_tr, api_home_tr)] = event["id"]
+            
+        tasks = []
+        keys = []
+        for game in matchups:
+            away = game.get("away_team")
+            home = game.get("home_team")
+            event_id = event_map.get((away, home))
+            if event_id:
+                url = f"https://api.the-odds-api.com/v4/sports/baseball_mlb/events/{event_id}/odds"
+                params = {
+                    "apiKey": self.api_key,
+                    "regions": "us",
+                    "markets": "pitcher_strikeouts,pitcher_outs",
+                    "oddsFormat": "decimal"
+                }
+                tasks.append(client.get(url, params=params, timeout=10.0))
+                keys.append((away, home))
+                
+        props_db = {}
+        if tasks:
+            print(f"💰 Fetching player props for {len(tasks)} matches in parallel...")
+            responses = await asyncio.gather(*tasks, return_exceptions=True)
+            
+            for key, resp in zip(keys, responses):
+                if isinstance(resp, Exception) or resp.status_code != 200:
+                    print(f"⚠️ Failed to fetch player props for {key[0]} @ {key[1]}")
+                    continue
+                props_db[key] = resp.json()
+            
+            if props_db:
+                # Save as string keys for JSON serialization
+                output_path = os.path.join(self.data_dir, "player_props_odds.json")
+                serialized = {f"{k[0]}-{k[1]}": v for k, v in props_db.items()}
+                self._atomic_save(output_path, serialized)
+                print(f"✅ [OddsProvider] Player props odds fetched and saved for {len(props_db)} matches.")
+                
+        # Fallback to cache if empty or failed
+        if not props_db:
+            cache_path = os.path.join(self.data_dir, "player_props_odds.json")
+            if os.path.exists(cache_path):
+                try:
+                    with open(cache_path, "r", encoding="utf-8") as f:
+                        cached_data = json.load(f)
+                        for k, v in cached_data.items():
+                            parts = k.split("-")
+                            if len(parts) == 2:
+                                props_db[(parts[0], parts[1])] = v
+                    print("🔄 [OddsProvider] Fallback cache used: Player props loaded from player_props_odds.json.")
+                except Exception:
+                    pass
+                    
+        return props_db
+
+    def parse_pitcher_props_odds(self, props_data: dict, pitcher_name: str) -> dict:
+        """
+        Parses pitcher strikeouts and pitcher outs lines and prices from the API response
+        for a given pitcher name.
+        """
+        result = {
+            "k_line": None, "k_over_odds": 0.0, "k_under_odds": 0.0, "k_book": "",
+            "outs_line": None, "outs_over_odds": 0.0, "outs_under_odds": 0.0, "outs_book": ""
+        }
+        if not props_data:
+            return result
+            
+        bookmakers = props_data.get("bookmakers", [])
+        
+        def is_name_match(p_name, outcome_desc):
+            if not p_name or not outcome_desc:
+                return False
+            p_clean = "".join(c for c in p_name.lower() if c.isalnum())
+            o_clean = "".join(c for c in outcome_desc.lower() if c.isalnum())
+            return p_clean in o_clean or o_clean in p_clean
+            
+        primary_books = ["draftkings", "fanduel", "betmgm", "caesars", "bovada"]
+        
+        # 1. Parse Strikeouts Prop
+        k_found = False
+        for book_key in primary_books:
+            for b in bookmakers:
+                if b["key"] == book_key:
+                    for market in b.get("markets", []):
+                        if market["key"] == "pitcher_strikeouts":
+                            over_outcome = None
+                            under_outcome = None
+                            for o in market.get("outcomes", []):
+                                if is_name_match(pitcher_name, o.get("description")):
+                                    if o.get("name") == "Over":
+                                        over_outcome = o
+                                    elif o.get("name") == "Under":
+                                        under_outcome = o
+                            if over_outcome and under_outcome:
+                                result["k_line"] = float(over_outcome.get("point", 0))
+                                result["k_over_odds"] = float(over_outcome.get("price", 0.0))
+                                result["k_under_odds"] = float(under_outcome.get("price", 0.0))
+                                result["k_book"] = b.get("title", book_key)
+                                k_found = True
+                                break
+                    if k_found:
+                        break
+            if k_found:
+                break
+                
+        # 2. Parse Outs Prop
+        outs_found = False
+        for book_key in primary_books:
+            for b in bookmakers:
+                if b["key"] == book_key:
+                    for market in b.get("markets", []):
+                        if market["key"] == "pitcher_outs":
+                            over_outcome = None
+                            under_outcome = None
+                            for o in market.get("outcomes", []):
+                                if is_name_match(pitcher_name, o.get("description")):
+                                    if o.get("name") == "Over":
+                                        over_outcome = o
+                                    elif o.get("name") == "Under":
+                                        under_outcome = o
+                            if over_outcome and under_outcome:
+                                result["outs_line"] = float(over_outcome.get("point", 0))
+                                result["outs_over_odds"] = float(over_outcome.get("price", 0.0))
+                                result["outs_under_odds"] = float(under_outcome.get("price", 0.0))
+                                result["outs_book"] = b.get("title", book_key)
+                                outs_found = True
+                                break
+                    if outs_found:
+                        break
+            if outs_found:
+                break
+                
+        return result

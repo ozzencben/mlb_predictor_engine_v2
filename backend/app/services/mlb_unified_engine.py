@@ -179,7 +179,9 @@ class MLBUnifiedEngine:
             "is_dome": False
         }
 
-    def predict_matchup(self, game: GameInputData, trends: NRFITrendSchema = None, weather: dict = None) -> dict:
+    def predict_matchup(self, game: GameInputData, trends: NRFITrendSchema = None, weather: dict = None,
+                        away_lineup_avg: dict = None, home_lineup_avg: dict = None,
+                        away_splits: dict = None, home_splits: dict = None) -> dict:
         """
         Bütün tahmin motorlarını çalıştırır, mantık hatalarını düzeltir (Safety Check)
         ve FastAPI için uygun JSON payload'unu oluşturur.
@@ -215,7 +217,7 @@ class MLBUnifiedEngine:
                 boost = (8.5 - book_total) * 0.02
                 nrfi_result["nrfi_score"] += boost
                 nrfi_result["yrfi_score"] -= boost
-                print(f"🔥 [Vegas O/U Boost] O/U: {book_total} (<= 8.0). NRFI skoruna +{boost:.4f} boost eklendi.")
+                print(f"[Vegas O/U Boost] O/U: {book_total} (<= 8.0). NRFI score boosted by +{boost:.4f}")
 
             # Görev 13: "Weakest-Link Penalty" (David Peterson Zayıf Atıcı Cezalandırması)
             min_l10 = min(a_pitcher.last10_nrfi_pct, h_pitcher.last10_nrfi_pct)
@@ -223,7 +225,7 @@ class MLBUnifiedEngine:
                 penalty_factor = (50.0 - min_l10) * 0.006
                 penalty_pct = penalty_factor * 100
                 nrfi_result["nrfi_score"] = round(nrfi_result["nrfi_score"] * (1.0 - penalty_factor), 4)
-                print(f"🔒 [Weakest-Link Penalty] Zayıf Atıcı Tespit Edildi (L10: {min_l10}% < 50%). NRFI skoru %{penalty_pct:.1f} oranında cezalandırıldı.")
+                print(f"[Weakest-Link Penalty] Weak Pitcher Detected (L10: {min_l10}% < 50%). NRFI score penalized by {penalty_pct:.1f}%")
 
             # Yeniden normalize et
             nrfi_result["confidence"] = round(max(nrfi_result["nrfi_score"], nrfi_result["yrfi_score"]), 4)
@@ -251,7 +253,9 @@ class MLBUnifiedEngine:
             game.away_team, game.home_team, game.away_pitcher, game.home_pitcher
         )
         full_result, raw_pitcher_data = self.mlb_model.calculate(
-            game.away_team, game.home_team, game.away_pitcher, game.home_pitcher
+            game.away_team, game.home_team, game.away_pitcher, game.home_pitcher,
+            away_lineup_avg=away_lineup_avg, home_lineup_avg=home_lineup_avg,
+            away_splits=away_splits, home_splits=home_splits
         )
 
         # 2. Değişkenlerin Çıkartılması

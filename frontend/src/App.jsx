@@ -7,6 +7,7 @@ import NrfiRow from './components/NrfiRow';
 import logo2Img from './assets/logo2.png';
 import { getTeamAbbr } from './utils/formatters';
 import DropdownNavigation from './components/DropdownNavigation';
+import PitcherProjections from './components/PitcherProjections';
 
 // Cumulative normal distribution CDF using math approximation for erf (to support Spread Probability)
 const normalCDF = (x, mean = 0, stdDev = 1) => {
@@ -380,9 +381,9 @@ function App() {
       <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none animate-pulse duration-[12s]"></div>
       <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl pointer-events-none"></div>
 
-      <main className="max-w-4xl mx-auto p-4 md:p-8 relative z-10">
-        {/* ================= HEADER ================= */}
-        <header className="mb-10 flex justify-between items-center border-b border-gray-800 pb-6 relative select-none">
+      {/* Full-width sticky premium glass navbar */}
+      <header className="sticky top-0 z-50 w-full bg-slate-950/80 backdrop-blur-md border-b border-slate-900/80 shadow-[0_4px_30px_rgba(0,0,0,0.4)] select-none">
+        <div className="max-w-7xl xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
           {/* Sol Kısım: Logo ve Başlık */}
           <div className="flex flex-col">
             <h1 className="flex items-center justify-start gap-2 md:gap-3 flex-wrap">
@@ -401,31 +402,89 @@ function App() {
             </p>
           </div>
 
-          {/* Sağ Kısım: Hamburger Menü Simgesi */}
-          <div className="relative flex-shrink-0 flex items-center">
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="p-2.5 rounded-xl border border-slate-800 bg-slate-900/40 text-slate-400 hover:text-slate-200 hover:bg-slate-800/80 hover:border-slate-700 active:scale-95 transition-all duration-300 backdrop-blur-md cursor-pointer flex items-center justify-center focus:outline-none"
-              aria-label="Toggle navigation menu"
-            >
-              <div className="w-5 h-4 flex flex-col justify-between items-center relative">
-                <span className={`w-5 h-0.5 bg-current rounded-full transition-all duration-300 transform origin-center ${menuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
-                <span className={`w-5 h-0.5 bg-current rounded-full transition-all duration-300 ${menuOpen ? 'opacity-0 scale-0' : ''}`} />
-                <span className={`w-5 h-0.5 bg-current rounded-full transition-all duration-300 transform origin-center ${menuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
-              </div>
-            </button>
+          {/* Sağ Kısım: Navigation & Menu Controls */}
+          <div className="flex items-center gap-4">
+            {/* Desktop Navbar Links */}
+            <nav className="hidden md:flex items-center gap-1 bg-slate-900/50 border border-slate-800/80 p-1 rounded-xl backdrop-blur-md select-none">
+              <button
+                onClick={() => setActiveModel('full')}
+                className={`px-3.5 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all duration-200 cursor-pointer ${
+                  activeModel === 'full'
+                    ? 'bg-blue-600/20 border border-blue-500/30 text-blue-400 font-extrabold shadow-[0_0_12px_rgba(59,130,246,0.1)]'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40 border border-transparent'
+                }`}
+              >
+                ⚾ Predictions
+              </button>
+              <button
+                onClick={() => setActiveModel('nrfi')}
+                className={`px-3.5 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all duration-200 cursor-pointer ${
+                  activeModel === 'nrfi'
+                    ? 'bg-indigo-600/20 border border-indigo-500/30 text-indigo-400 shadow-[0_0_12px_rgba(99,102,241,0.1)]'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40 border border-transparent'
+                }`}
+              >
+                📈 NRFI Model
+              </button>
+              <button
+                onClick={() => setActiveModel('pitcher_props')}
+                className={`px-3.5 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all duration-200 cursor-pointer ${
+                  activeModel === 'pitcher_props'
+                    ? 'bg-cyan-600/20 border border-cyan-500/30 text-cyan-400 shadow-[0_0_12px_rgba(6,182,212,0.1)]'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40 border border-transparent'
+                }`}
+              >
+                🎯 Pitchers
+              </button>
+            </nav>
 
-            {/* Dropdown Navigation Overlay */}
-            <DropdownNavigation
-              activeModel={activeModel}
-              setActiveModel={setActiveModel}
-              lastUpdated={lastUpdated}
-              loading={loading}
-              menuOpen={menuOpen}
-              setMenuOpen={setMenuOpen}
-            />
+            {/* Desktop System Status */}
+            <div className="hidden md:flex flex-col items-end text-right select-none pr-1">
+              <div className="flex items-center gap-1.5">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${loading ? 'bg-amber-400' : 'bg-green-400'}`}></span>
+                  <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${loading ? 'bg-amber-500' : 'bg-green-500'}`}></span>
+                </span>
+                <span className={`text-[9px] font-black uppercase tracking-wider ${loading ? 'text-amber-500' : 'text-green-500'}`}>
+                  {loading ? 'Syncing...' : 'Live'}
+                </span>
+              </div>
+              {lastUpdated && (
+                <span className="text-[9px] text-slate-500 font-bold mt-0.5">
+                  Updated: {lastUpdated.split(' ')[1] || lastUpdated}
+                </span>
+              )}
+            </div>
+
+            {/* Hamburger Menü Simgesi (Mobile Only) */}
+            <div className="md:hidden relative flex items-center">
+              <button
+                onClick={() => setMenuOpen(!menuOpen)}
+                className="p-2.5 rounded-xl border border-slate-800 bg-slate-900/40 text-slate-400 hover:text-slate-200 hover:bg-slate-800/80 hover:border-slate-700 active:scale-95 transition-all duration-300 backdrop-blur-md cursor-pointer flex items-center justify-center focus:outline-none"
+                aria-label="Toggle navigation menu"
+              >
+                <div className="w-5 h-5 relative">
+                  <span className={`absolute left-0 w-5 h-0.5 bg-current rounded-full transition-all duration-300 ${menuOpen ? 'top-1/2 -translate-y-1/2 rotate-45' : 'top-1 -translate-y-0'}`} />
+                  <span className={`absolute left-0 w-5 h-0.5 bg-current rounded-full transition-all duration-300 ${menuOpen ? 'opacity-0 scale-0' : 'top-1/2 -translate-y-1/2'}`} />
+                  <span className={`absolute left-0 w-5 h-0.5 bg-current rounded-full transition-all duration-300 ${menuOpen ? 'top-1/2 -translate-y-1/2 -rotate-45' : 'bottom-1 -translate-y-0'}`} />
+                </div>
+              </button>
+
+              {/* Dropdown Navigation Overlay (Mobile Only) */}
+              <DropdownNavigation
+                activeModel={activeModel}
+                setActiveModel={setActiveModel}
+                lastUpdated={lastUpdated}
+                loading={loading}
+                menuOpen={menuOpen}
+                setMenuOpen={setMenuOpen}
+              />
+            </div>
           </div>
-        </header>
+        </div>
+      </header>
+
+      <main className="max-w-7xl xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto p-4 md:p-8 pt-6 relative z-10">
 
         {/* ================= CALENDAR TAPE ================= */}
         <div className="mb-8 p-1.5 bg-slate-900/40 backdrop-blur-md border border-slate-800/80 rounded-2xl flex items-center justify-between gap-1 overflow-x-auto no-scrollbar scroll-smooth">
@@ -488,8 +547,9 @@ function App() {
           </div>
         )}
 
+        {/* VIP Consensus Edges (Mobile Only - Horizontal Scroll List) */}
         {!loading && dailyEdges && predictions.length > 0 && (
-          <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl p-4 sm:p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] mb-8 select-none border-t border-t-indigo-500/30">
+          <div className="block lg:hidden bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl p-4 sm:p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] mb-8 select-none border-t border-t-indigo-500/30">
             <div className="flex justify-between items-center mb-4 border-b border-slate-800 pb-2.5">
               <div className="flex items-center gap-2">
                 <span className="text-xl leading-none animate-pulse">⚡</span>
@@ -502,7 +562,6 @@ function App() {
               </span>
             </div>
 
-            {/* Flex layout that is scrollable on mobile & desktop */}
             <div className="flex flex-row overflow-x-auto gap-4 pb-3 pt-1 -mx-2 px-2 scroll-smooth snap-x snap-mandatory scrollbar-thin scrollbar-thumb-slate-800/80 scrollbar-track-transparent">
               {/* ML Edge Card */}
               {dailyEdges.ml && dailyEdges.ml.game && (
@@ -597,7 +656,7 @@ function App() {
                 </div>
               )}
 
-              {/* Most Confident ML plays (Görev 10) */}
+              {/* Most Confident ML plays */}
               {dailyEdges.most_confident_ml && dailyEdges.most_confident_ml.length > 0 && (
                 <div 
                   onClick={() => {
@@ -637,7 +696,7 @@ function App() {
                 </div>
               )}
 
-              {/* Team Totals Target plays (Görev 10) */}
+              {/* Team Totals Target plays */}
               {dailyEdges.team_totals && dailyEdges.team_totals.length > 0 && (
                 <div 
                   onClick={() => {
@@ -680,61 +739,263 @@ function App() {
           </div>
         )}
 
-        {/* ================= KARTLARIN OLDUĞU BÖLÜM ================= */}
-        <div className="grid grid-cols-1 gap-4">
-          {loading ? (
-            <>
-              <MatchupSkeleton />
-              <MatchupSkeleton />
-              <MatchupSkeleton />
-            </>
-          ) : predictions.length === 0 ? (
-            /* Empty State Entegrasyonu */
-            <div className="bg-slate-900 border border-dashed border-gray-700 rounded-xl p-10 text-center my-6 shadow-inner">
-              <span className="text-5xl block mb-4" role="img" aria-label="baseball">⚾</span>
-              <h3 className="text-lg font-black text-white uppercase tracking-wider mb-2">
-                No Games Scheduled Today
-              </h3>
-              <p className="text-gray-400 text-sm max-w-md mx-auto font-medium">
-                There are no active MLB matchups processed by the engine for {systemDate || 'today'}. This might be due to a league rest day or game postponements.
-              </p>
-            </div>
-          ) : activeModel === 'pitcher_props' ? (
-            /* Pitcher Projections Table Sheet Placeholder (Task 5) */
-            <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl p-8 text-center shadow-[0_8px_32px_rgba(0,0,0,0.4)] border-t border-t-cyan-500/30">
-              <span className="text-5xl block mb-4 animate-bounce">🎯</span>
-              <h3 className="text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400 uppercase tracking-widest mb-2">
-                Pitcher Projections Sheet
-              </h3>
-              <p className="text-gray-300 text-xs md:text-sm max-w-lg mx-auto font-semibold leading-relaxed mb-6">
-                This section will house our custom machine learning model predictions for Pitcher Strikeouts (K's) and Total Outs. We will blend starting lineup statistics (Oswing%, Whiff%, K%) and match them against odds fetched from your the-odds-api plan.
-              </p>
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-cyan-500/10 border border-cyan-500/20 rounded-full animate-pulse">
-                <span className="flex h-1.5 w-1.5 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-500"></span>
-                </span>
-                <span className="text-[10px] text-cyan-300 font-extrabold uppercase tracking-wider">
-                  Deploying ML Model Engine (M4 Task 4 & 5)...
-                </span>
-              </div>
-            </div>
-          ) : (
-            displayPredictions.map((game, idx) => (
-              activeModel === 'full' ? (
-                <MatchupCard
-                  key={`full-${game.matchup.away_team}-${game.matchup.home_team}-${idx}`}
-                  prediction={game}
-                  onNavigateToNrfi={() => onNavigateToNrfi(`${game.matchup.away_team}-${game.matchup.home_team}`)}
-                />
+        {/* ================= TWO COLUMN RESPONSIVE GRID ================= */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Column: Main predictions / pitcher sheets (col-span-8) */}
+          <div className="lg:col-span-8 space-y-6">
+            {/* ================= KARTLARIN OLDUĞU BÖLÜM ================= */}
+            <div className="grid grid-cols-1 gap-4">
+              {loading ? (
+                <>
+                  <MatchupSkeleton />
+                  <MatchupSkeleton />
+                  <MatchupSkeleton />
+                </>
+              ) : predictions.length === 0 ? (
+                /* Empty State Entegrasyonu */
+                <div className="bg-slate-900 border border-dashed border-gray-700 rounded-xl p-10 text-center my-6 shadow-inner">
+                  <span className="text-5xl block mb-4" role="img" aria-label="baseball">⚾</span>
+                  <h3 className="text-lg font-black text-white uppercase tracking-wider mb-2">
+                    No Games Scheduled Today
+                  </h3>
+                  <p className="text-gray-400 text-sm max-w-md mx-auto font-medium">
+                    There are no active MLB matchups processed by the engine for {systemDate || 'today'}. This might be due to a league rest day or game postponements.
+                  </p>
+                </div>
+              ) : activeModel === 'pitcher_props' ? (
+                <PitcherProjections pitcherProjections={data?.data?.pitcher_projections || []} />
               ) : (
-                <NrfiRow
-                  key={`nrfi-${game.matchup.away_team}-${game.matchup.home_team}-${idx}`}
-                  prediction={game}
-                />
-              )
-            ))
-          )}
+                displayPredictions.map((game, idx) => (
+                  activeModel === 'full' ? (
+                    <MatchupCard
+                      key={`full-${game.matchup.away_team}-${game.matchup.home_team}-${idx}`}
+                      prediction={game}
+                      onNavigateToNrfi={() => onNavigateToNrfi(`${game.matchup.away_team}-${game.matchup.home_team}`)}
+                    />
+                  ) : (
+                    <NrfiRow
+                      key={`nrfi-${game.matchup.away_team}-${game.matchup.home_team}-${idx}`}
+                      prediction={game}
+                    />
+                  )
+                ))
+              )}
+            </div>
+          </div>
+
+          {/* Right Column: Sidebar content (col-span-4 - Hidden on mobile) */}
+          <div className="hidden lg:block lg:col-span-4 lg:sticky lg:top-8 space-y-6">
+            {/* VIP Consensus Edges (Desktop Sidebar View) */}
+            {!loading && dailyEdges && predictions.length > 0 && (
+              <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] border-t border-t-indigo-500/30 select-none">
+                <div className="flex justify-between items-center mb-4 border-b border-slate-800 pb-2.5">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl leading-none animate-pulse">⚡</span>
+                    <span className="text-xs font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400 uppercase tracking-widest">
+                      VIP Consensus Edges
+                    </span>
+                  </div>
+                  <span className="text-[9px] text-indigo-400 font-extrabold uppercase tracking-widest bg-indigo-950/80 border border-indigo-500/25 px-2 py-0.5 rounded-full animate-bounce">
+                    🔥 Top Picks
+                  </span>
+                </div>
+
+                <div className="flex flex-col gap-4">
+                  {/* ML Edge Card */}
+                  {dailyEdges.ml && dailyEdges.ml.game && (
+                    <div 
+                      onClick={() => scrollToMatchup(dailyEdges.ml.game.matchup.away_team, dailyEdges.ml.game.matchup.home_team)}
+                      className="w-full bg-slate-950/50 border border-emerald-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/50 hover:shadow-[0_8px_20px_rgba(16,185,129,0.15)] relative overflow-hidden group animate-fade-in"
+                    >
+                      <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 rounded-full blur-xl group-hover:bg-emerald-500/10 transition-colors pointer-events-none"></div>
+                      <div className="flex justify-between items-start mb-2 gap-2">
+                        <span className="text-[9px] text-emerald-400 font-black uppercase tracking-widest bg-emerald-950/60 border border-emerald-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
+                          ML Value Edge
+                        </span>
+                        <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
+                          {getTeamAbbr(dailyEdges.ml.game.matchup.away_team)} @ {getTeamAbbr(dailyEdges.ml.game.matchup.home_team)}
+                        </span>
+                      </div>
+                      <div className="mt-1">
+                        <div className="text-sm font-extrabold text-gray-200">
+                          {dailyEdges.ml.choice}
+                        </div>
+                        <div className="text-xl font-black text-emerald-400 mt-0.5 tracking-tight flex items-baseline gap-1">
+                          <span>+{dailyEdges.ml.edge.toFixed(1)}%</span>
+                          <span className="text-[10px] text-gray-400 font-bold">Edge</span>
+                        </div>
+                      </div>
+                      <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
+                        <span className="font-semibold text-slate-400">Proj Win: {Math.round(dailyEdges.ml.prob * 100)}%</span>
+                        <span className="text-slate-500 group-hover:text-emerald-400 font-black transition-colors uppercase tracking-widest">Analyze →</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Spread Cover Card */}
+                  {dailyEdges.spread && dailyEdges.spread.game && (
+                    <div 
+                      onClick={() => scrollToMatchup(dailyEdges.spread.game.matchup.away_team, dailyEdges.spread.game.matchup.home_team)}
+                      className="w-full bg-slate-950/50 border border-indigo-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/50 hover:shadow-[0_8px_20px_rgba(99,102,241,0.15)] relative overflow-hidden group animate-fade-in"
+                    >
+                      <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-full blur-xl group-hover:bg-indigo-500/10 transition-colors pointer-events-none"></div>
+                      <div className="flex justify-between items-start mb-2 gap-2">
+                        <span className="text-[9px] text-indigo-400 font-black uppercase tracking-widest bg-indigo-950/60 border border-indigo-500/25 px-1.5 py-0.5 rounded flex-shrink-0">
+                          Spread Cover
+                        </span>
+                        <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
+                          {getTeamAbbr(dailyEdges.spread.game.matchup.away_team)} @ {getTeamAbbr(dailyEdges.spread.game.matchup.home_team)}
+                        </span>
+                      </div>
+                      <div className="mt-1">
+                        <div className="text-sm font-extrabold text-gray-200">
+                          {dailyEdges.spread.choice}
+                        </div>
+                        <div className="text-xl font-black text-indigo-400 mt-0.5 tracking-tight flex items-baseline gap-1">
+                          <span>{Math.round(dailyEdges.spread.prob * 100)}%</span>
+                          <span className="text-[10px] text-gray-400 font-bold">Cover Prob</span>
+                        </div>
+                      </div>
+                      <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
+                        <span className="font-semibold text-slate-400">Normal CDF Model</span>
+                        <span className="text-slate-500 group-hover:text-indigo-400 font-black transition-colors uppercase tracking-widest">Analyze →</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* O/U Variance Card */}
+                  {dailyEdges.total && dailyEdges.total.game && (
+                    <div 
+                      onClick={() => scrollToMatchup(dailyEdges.total.game.matchup.away_team, dailyEdges.total.game.matchup.home_team)}
+                      className="w-full bg-slate-950/50 border border-blue-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/50 hover:shadow-[0_8px_20px_rgba(59,130,246,0.15)] relative overflow-hidden group animate-fade-in"
+                    >
+                      <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full blur-xl group-hover:bg-blue-500/10 transition-colors pointer-events-none"></div>
+                      <div className="flex justify-between items-start mb-2 gap-2">
+                        <span className="text-[9px] text-blue-400 font-black uppercase tracking-widest bg-blue-950/60 border border-blue-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
+                          Total Variance
+                        </span>
+                        <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
+                          {getTeamAbbr(dailyEdges.total.game.matchup.away_team)} @ {getTeamAbbr(dailyEdges.total.game.matchup.home_team)}
+                        </span>
+                      </div>
+                      <div className="mt-1">
+                        <div className="text-sm font-extrabold text-gray-200">
+                          {dailyEdges.total.choice}
+                        </div>
+                        <div className="text-xl font-black text-blue-400 mt-0.5 tracking-tight flex items-baseline gap-1">
+                          <span>{dailyEdges.total.gap.toFixed(1)} Runs</span>
+                          <span className="text-[10px] text-gray-400 font-bold">Diff</span>
+                        </div>
+                      </div>
+                      <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
+                        <span className="font-semibold text-slate-400">Proj Total: {dailyEdges.total.modelTotal.toFixed(1)}</span>
+                        <span className="text-slate-500 group-hover:text-blue-400 font-black transition-colors uppercase tracking-widest">Analyze →</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Most Confident ML plays */}
+                  {dailyEdges.most_confident_ml && dailyEdges.most_confident_ml.length > 0 && (
+                    <div 
+                      onClick={() => {
+                        const firstGame = dailyEdges.most_confident_ml[0]?.game;
+                        if (firstGame) scrollToMatchup(firstGame.matchup.away_team, firstGame.matchup.home_team);
+                      }}
+                      className="w-full bg-slate-950/50 border border-purple-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/50 hover:shadow-[0_8px_20px_rgba(168,85,247,0.15)] relative overflow-hidden group animate-fade-in"
+                    >
+                      <div className="absolute top-0 right-0 w-24 h-24 bg-purple-500/5 rounded-full blur-xl group-hover:bg-purple-500/10 transition-colors pointer-events-none"></div>
+                      <div className="flex justify-between items-start mb-2 gap-2">
+                        <span className="text-[9px] text-purple-400 font-black uppercase tracking-widest bg-purple-950/60 border border-purple-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
+                          Most Confident ML
+                        </span>
+                        <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest">
+                          🔥 Top 2 Plays
+                        </span>
+                      </div>
+                      
+                      <div className="mt-2 space-y-2 flex-grow">
+                        {dailyEdges.most_confident_ml.map((play, index) => play.game && (
+                          <div key={index} className="flex justify-between items-center text-xs border-b border-slate-900/60 pb-1.5 last:border-0 last:pb-0">
+                            <div>
+                              <div className="font-extrabold text-gray-200">{play.choice}</div>
+                              <div className="text-[9px] text-gray-500 font-semibold">{getTeamAbbr(play.game.matchup.away_team)} @ {getTeamAbbr(play.game.matchup.home_team)}</div>
+                            </div>
+                            <div className="text-right">
+                              <div className="font-black text-purple-400">{Math.round(play.prob * 100)}%</div>
+                              <div className="text-[8px] text-gray-500 font-bold">Confidence</div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="mt-3 flex justify-end text-[9px] text-slate-500 group-hover:text-purple-400 font-black transition-colors uppercase tracking-widest pt-2 border-t border-slate-900/60">
+                        Analyze →
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Team Totals Target plays */}
+                  {dailyEdges.team_totals && dailyEdges.team_totals.length > 0 && (
+                    <div 
+                      onClick={() => {
+                        const firstGame = dailyEdges.team_totals[0]?.game;
+                        if (firstGame) scrollToMatchup(firstGame.matchup.away_team, firstGame.matchup.home_team);
+                      }}
+                      className="w-full bg-slate-950/50 border border-amber-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/50 hover:shadow-[0_8px_20px_rgba(245,158,11,0.15)] relative overflow-hidden group animate-fade-in"
+                    >
+                      <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full blur-xl group-hover:bg-amber-500/10 transition-colors pointer-events-none"></div>
+                      <div className="flex justify-between items-start mb-2 gap-2">
+                        <span className="text-[9px] text-amber-400 font-black uppercase tracking-widest bg-amber-950/60 border border-amber-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
+                          Team Total Targets
+                        </span>
+                        <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest">
+                          🎯 Target 4.5
+                        </span>
+                      </div>
+                      
+                      <div className="mt-2 space-y-2 flex-grow">
+                        {dailyEdges.team_totals.map((total, index) => total.game && (
+                          <div key={index} className="flex justify-between items-center text-xs border-b border-slate-900/60 pb-1.5 last:border-0 last:pb-0">
+                            <div>
+                              <div className="font-extrabold text-gray-200">{getTeamAbbr(total.team)} Over 4.5</div>
+                              <div className="text-[9px] text-gray-500 font-semibold">{getTeamAbbr(total.game.matchup.away_team)} @ {getTeamAbbr(total.game.matchup.home_team)}</div>
+                            </div>
+                            <div className="text-right">
+                              <div className="font-black text-amber-400">{total.projected_runs.toFixed(1)} Runs</div>
+                              <div className="text-[8px] text-gray-500 font-bold">Projected</div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="mt-3 flex justify-end text-[9px] text-slate-500 group-hover:text-amber-400 font-black transition-colors uppercase tracking-widest pt-2 border-t border-slate-900/60">
+                        Analyze →
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Sticky Model Info Block */}
+            <div className="bg-slate-900/40 backdrop-blur-md border border-slate-800/80 rounded-2xl p-5 shadow-lg select-none">
+              <h4 className="text-[10px] text-slate-500 font-black uppercase tracking-[0.2em] mb-3">Model Architecture</h4>
+              <ul className="text-slate-400 text-xs font-semibold space-y-2.5 leading-relaxed">
+                <li className="flex items-start gap-2">
+                  <span className="text-cyan-400 text-sm">⚾</span>
+                  <span><strong>Daily Model</strong> evaluates Starting Pitcher splits, stadium ballistics, weather carries, and bullpen SIERA ratings.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-indigo-400 text-sm">📈</span>
+                  <span><strong>NRFI Model</strong> uses a custom-trained algorithm calculating top-order strikeout, walk, and first-inning home/away metrics.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-400 text-sm">🎯</span>
+                  <span><strong>Pitcher Props</strong> uses Poisson (Ks) and Normal (Outs) probability curves matched against bookmaker lines.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <Footer />

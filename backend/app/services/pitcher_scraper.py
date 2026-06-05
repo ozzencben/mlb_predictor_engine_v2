@@ -20,7 +20,10 @@ class PitcherScraper:
         self.league_averages = {
             "era": 4.20,
             "fip": 4.20,
+            "xera": 4.20,
+            "xfip": 4.20,
             "k_bb_pct": 0.14,
+            "throws": "R",
             "innings_pitched": 0.0,
             "wins": 0,
             "losses": 0,
@@ -69,15 +72,19 @@ class PitcherScraper:
             if not people:
                 return None
 
+            throws = people[0].get("pitchHand", {}).get("code", "R")
+
             stats_list = people[0].get("stats", [])
             if not stats_list:
-                return None
+                return {"throws": throws}
 
             splits = stats_list[0].get("splits", [])
             if not splits:
-                return None
+                return {"throws": throws}
 
-            return splits[0].get("stat", {})
+            stat_dict = splits[0].get("stat", {}).copy()
+            stat_dict["throws"] = throws
+            return stat_dict
         except requests.exceptions.RequestException as e:
             print(f"⚠️ Ağ Hatası (Stat Çekme - {person_id}): {e}")
             return None
@@ -124,6 +131,7 @@ class PitcherScraper:
                 pitcher_library[name] = self.league_averages.copy()
                 continue
 
+            throws = stats.get("throws", "R")
             era = float(stats.get("era", 4.20))
             ip = float(stats.get("inningsPitched", 0.1))
             hr = int(stats.get("homeRuns", 0))
@@ -136,8 +144,12 @@ class PitcherScraper:
             # 1. Gerçek K-BB% Hesaplama
             if bf > 0:
                 k_bb_pct = round((k / bf) - (bb / bf), 3)
+                k_pct = k / bf
+                bb_pct = bb / bf
             else:
                 k_bb_pct = 0.0
+                k_pct = 0.20
+                bb_pct = 0.08
 
             # 2. FIP Hesaplama
             if ip > 0:
@@ -147,13 +159,27 @@ class PitcherScraper:
                     ),
                     2,
                 )
+                expected_hr = (hr * 0.5) + ((ip * 1.15 / 9.0) * 0.5)
+                xfip = round(
+                    max(
+                        0.0, (((13 * expected_hr) + (3 * bb) - (2 * k)) / ip) + self.fip_constant
+                    ),
+                    2,
+                )
             else:
                 fip = era
+                xfip = era
+
+            xera = round(max(1.5, min(7.5, 3.10 + 12.0 * bb_pct - 15.0 * k_pct)), 2)
+            xera = round(xera * 0.7 + era * 0.3, 2)
 
             pitcher_library[name] = {
                 "era": era,
                 "fip": fip,
+                "xera": xera,
+                "xfip": xfip,
                 "k_bb_pct": k_bb_pct,
+                "throws": throws,
                 "innings_pitched": ip,
                 "wins": wins,
                 "losses": losses,
@@ -205,15 +231,19 @@ class PitcherScraper:
             if not people:
                 return None
 
+            throws = people[0].get("pitchHand", {}).get("code", "R")
+
             stats_list = people[0].get("stats", [])
             if not stats_list:
-                return None
+                return {"throws": throws}
 
             splits = stats_list[0].get("splits", [])
             if not splits:
-                return None
+                return {"throws": throws}
 
-            return splits[0].get("stat", {})
+            stat_dict = splits[0].get("stat", {}).copy()
+            stat_dict["throws"] = throws
+            return stat_dict
         except Exception:
             return None
 
@@ -257,6 +287,7 @@ class PitcherScraper:
                 pitcher_library[name] = self.league_averages.copy()
                 continue
 
+            throws = stats.get("throws", "R")
             era = float(stats.get("era", 4.20))
             ip = float(stats.get("inningsPitched", 0.1))
             hr = int(stats.get("homeRuns", 0))
@@ -268,8 +299,12 @@ class PitcherScraper:
 
             if bf > 0:
                 k_bb_pct = round((k / bf) - (bb / bf), 3)
+                k_pct = k / bf
+                bb_pct = bb / bf
             else:
                 k_bb_pct = 0.0
+                k_pct = 0.20
+                bb_pct = 0.08
 
             if ip > 0:
                 fip = round(
@@ -278,13 +313,27 @@ class PitcherScraper:
                     ),
                     2,
                 )
+                expected_hr = (hr * 0.5) + ((ip * 1.15 / 9.0) * 0.5)
+                xfip = round(
+                    max(
+                        0.0, (((13 * expected_hr) + (3 * bb) - (2 * k)) / ip) + self.fip_constant
+                    ),
+                    2,
+                )
             else:
                 fip = era
+                xfip = era
+
+            xera = round(max(1.5, min(7.5, 3.10 + 12.0 * bb_pct - 15.0 * k_pct)), 2)
+            xera = round(xera * 0.7 + era * 0.3, 2)
 
             pitcher_library[name] = {
                 "era": era,
                 "fip": fip,
+                "xera": xera,
+                "xfip": xfip,
                 "k_bb_pct": k_bb_pct,
+                "throws": throws,
                 "innings_pitched": ip,
                 "wins": wins,
                 "losses": losses,
