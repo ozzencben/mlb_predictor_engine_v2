@@ -27,6 +27,7 @@ class PitcherPropsEngine:
         lineup_avg_stats: dict,
         weather: dict,
         ballpark_name: str,
+        is_home: bool = False,
     ) -> dict:
         # ------------------------------------------------------------------
         # PART 1: Strikeout Projection via PitcherKModel
@@ -81,7 +82,6 @@ class PitcherPropsEngine:
         # We don't have a direct "is_home" flag here, so we default to False
         # (away) as a safe neutral; the K% difference is minor when home/away
         # splits are the same proxy value derived from overall k_pct.
-        is_home = False
 
         k_result = PitcherKModel.calculate_projection(pitcher_schema, lineup_schema, is_home)
         proj_k = k_result.projected_k

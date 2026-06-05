@@ -1,166 +1,106 @@
-# MLB Predictor Engine - Milestone 4 Güncellenmiş Yol Haritası ve Son Durum
-
-Tyler'ın 120$'lık yeni mikro yükseltme (small upgrade) planını onaylamasının ve paylaştığı el yazısı notların ardından, geliştirme kapsamı ve yol haritası güncellenmiştir.
-
-Sitedeki tüm görsel grafikler, hava durumu kartları ve bildirim botları **Milestone 5**'e devredilmiş; Milestone 4 ise tamamen Tyler'ın ilettiği **Atıcı Özel Projeksiyon Modeli (Strikeouts & Outs)**, **Kadro (Lineup) Harmanlama ve Ana Model İyileştirmelerine** odaklanmıştır. Ayrıca bu yeni sayfanın ana ekranı kirletmemesi için navigasyonu sadeleştirecek **Hamburger Menü** de M4 kapsamına alınmıştır.
+# MLB Predictor Engine — Milestone 4 Yol Haritası (Güncel)
 
 ---
 
-## 🏁 M4: Core Model Extensions & Pitcher Props ML Engine
-**Bütçe:** $120  
-**Odak:** Hamburger Navigasyon Menüsü, 5 Yeni Model İstatistiği + Kadro Bazlı wRC+/wOBA Harmanlama, Atıcı Projeksiyon ML Modeli, Kadro (Lineup) Kazıma ve Oran Entegrasyonu.
+## ✅ YAPILDI
+
+### Görev 1 — Hamburger / Dropdown Navigasyon Menüsü
+- `DropdownNavigation.jsx` bileşeni oluşturuldu
+- App.jsx'teki yatay sekmeler kaldırıldı, hamburger menü entegre edildi
+- "Pitcher Projections" sekmesi menüye eklendi
+- Mobil uyumlu animasyonlar tamamlandı
 
 ---
 
-## 📊 Genel Tamamlanma Durumu
+### Görev 2 — Günlük Kadro Veri Toplayıcı (Confirmed Lineups)
+- `get_lineup_for_game()` → MLB StatsAPI boxscore ile 9 kişilik resmi kadro çekimi
+- `fetch_last_completed_game_pk()` → Resmi kadro yoksa son maçtan fallback kadro
+- `lineups_cache.json` → Tarih bazlı cache, resmi kadrolar `is_official: true`
+- Tüm başlangıç vurucuların bireysel hitting istatistikleri paralel çekiliyor
+- `away_lineup_hydrated / home_lineup_hydrated` + `lineup_avg` engine'e besleniyor
 
-| Görev | Kapsam | Durum |
+---
+
+### Görev 3 (Kısmi) — Ana Model Güçlendirmesi
+
+**Tamamlanan:**
+- ✅ xERA / xFIP pitcher expected stats → `pitcher_scraper.py` + engine
+- ✅ LHP/RHP team hitting splits → `fetch_team_splits_async()`, tüm takımlar paralel
+- ✅ Lineup wRC+ / wOBA harmanlaması → 9 oyuncu ortalaması, engine'e besleniyor
+- ✅ `predict_matchup()` imzası güncellendi: `away_splits`, `home_splits`, `lineup_avg` parametreleri eklendi
+
+**Henüz Yapılmadı:**
+- 🔲 Bullpen SIERA → FanGraphs veri kaynağı gerekiyor
+- 🔲 HFA dinamik stadyum katsayısı → Stadyum bazlı tarihsel dataset gerekiyor
+- 🔲 Sonny Moore Power Ranking diferansiyeli → Scraping + haftalık güncelleme gerekiyor
+
+---
+
+### Görev 4 — Atıcı Props Hesaplama Motoru
+
+**Tamamlanan:**
+- ✅ `pitcher_k_model.py` → K Model.ods tersine mühendislik (Pydantic schemas + formüller)
+  - Home/Away K% ağırlıklı Expected K% (Pitcher %65, Opponent %45)
+  - CSW% + SwStr% lig ortalaması fark düzeltmesi (%35'er ağırlık)
+  - Baseball notasyonu IP dönüşümü (5.2 → 5.667)
+  - ODS dosyasındaki "volume squaring" hatası düzeltildi
+- ✅ `pitcher_props_engine.py` → K için KModel, Outs için xFIP×wRC+ regresyon
+- ✅ `test_pitcher_k_model.py` → 3 test sınıfı, tümü geçiyor
+
+**Bug Düzeltmesi (v1.1 — 5 Haziran 2026):**
+- ✅ `pitcher_scraper.py` → `k_pct`, `avg_ip`, `avg_bf`, `swstr_pct`, `csw_pct` artık `pitcher_stats.json`'a kaydediliyor (önceden kaydedilmiyordu)
+- ✅ `calculate_pitcher_metrics()` → Pre-computed değerleri öncelikli kullanıyor; sıfır fallback sorunu giderildi
+- ✅ `pitcher_stats.json` → 29 atıcı MLB StatsAPI'den backfill edildi (0 hata)
+- **Sonuç:** "1.5 K / 3 IP floor" bug'ı çözüldü; gerçek projeksiyonlar: Framber Valdez 4.83 K · Ryan Weathers 7.14 K
+
+---
+
+### Görev 5 — Bahis Oranları Entegrasyonu & Props Tablosu UI
+
+**Tamamlanan:**
+- ✅ `odds_provider.py` → `fetch_player_props_for_games_async()` the-odds-api `pitcher_strikeouts` + `pitcher_outs` market
+- ✅ `parse_pitcher_props_odds()` → Pitcher isim fuzzy match, Over/Under ayrıştırma, birincil kitap önceliği
+- ✅ `prediction_runner.py` → Poisson CDF (K) + Normal CDF (Outs) edge hesabı, `pitcher_projections` JSON'a ekleniyor
+- ✅ `PitcherProjections.jsx` → Mobile-first card grid yeniden tasarlandı:
+  - 1 sütun (mobil) → 2 sütun (tablet+)
+  - Kompakt pitcher header (isim + HP badge + matchup tek satır)
+  - PropBar: model proj vs book line görsel karşılaştırması
+  - Over **ve** Under odds her iki taraf gösteriliyor
+  - Edge highlighting: %5+ için glowing border + top accent bar
+  - Filtre toolbar: Search + Hand + Sort (Edge/K/IP) + Edges Only
+
+**Beklemede:**
+- ⚠️ Player Props API → the-odds-api **$30 Starter Plan** gerekiyor (Tyler'ın onayı bekleniyor). API key gelince veriler otomatik dolacak. Kod tamamen hazır.
+
+---
+
+## 🔲 YAPILACAK (M4 Kapsamında Devam)
+
+### Kısa Vadeli (Öncelikli)
+- [x] **Tyler'ın Geri Bildirimi 1 — Pitcher VIP Consensus Edges (Top 3 Edges)**: "Pitcher Projections" sekmesi aktifken sayfanın üstündeki "VIP Consensus Edges" bölümünde maç sonuçları yerine günlük en yüksek edge yüzdesine sahip ilk 3 atıcı prop (K veya Outs) edge'inin dinamik gösterilmesi ve kartlara tıklandığında yumuşak geçişle ilgili atıcının kartına kaydırılıp vurgulanması.
+- [x] **Tyler'ın Geri Bildirimi 2 — Model Sabermetrik Açıklama Metni**: UI üzerindeki model açıklamasının revize edilmesi. Modelin sadece basit bir CSW/SwStr ayarı değil; atıcı iç/dış saha K%, rakip lineup'ın LHP/RHP splitleri, rakip iç/dış saha K% splitleri, beklenen Batters Faced (BF) hacmi ve hava sıcaklığı katsayılarını harmanlayan çok faktörlü bir sabermetrik motor olduğunun belirtilmesi.
+- [x] **Bizim Bulduğumuz Düzeltme A — Pitcher Ev/Deplasman Dinamik Durumu (`is_home`)**: `pitcher_props_engine.py`'daki hardcode `is_home = False` atamasının kaldırılıp `prediction_runner.py`'dan atıcının gerçekten ev sahibi (`side == "home"`) veya deplasman olup olmadığının dinamik geçirilmesi.
+- [x] **Bizim Bulduğumuz Düzeltme B — Rakip Lineup LHP/RHP Splitlerinin Aktarılması**: `team_splits.json`'daki `vs_LHP` ve `vs_RHP` takımsal K% splitlerinin `prediction_runner.py`'da atıcının fırlatış eline (L/R) göre seçilip `opp_lineup_avg` parametresi üzerinden K Model'e beslenmesi (şu an split verileri gitmediği için model genel `k_pct` fallback'ini kullanıyor).
+- [x] **Opposing team K rank** → Her kart üzerinde "Opp K Rank: #3 vs RHP" badge'i (veri zaten mevcut)
+- [x] **Matchup grade / Confidence score** → Edge % + proj vs line farkı + opp K rank kombinasyonu → A+/A/A-/B/C/D/F veya 1-100
+- [x] **Pitcher last 3-5 K** → MLB StatsAPI game log endpoint ile son maçların K sayıları
+- [x] **K / IP filter → tek metrik göster** → Filtre seçilince diğer prop bölümü gizleniyor
+- [x] **Takıma göre filter** → Opponent dropdown ile belirli takıma karşı pitching yapanları listele
+
+### Orta Vadeli
+- [ ] **Bullpen SIERA entegrasyonu** → FanGraphs veri kaynağı çözümü
+- [ ] **HFA dinamik stadyum katsayısı** → Park bazlı tarihsel ev/deplasman diferansiyeli
+- [ ] **Sonny Moore Power Rankings** → Haftalık güncelleme mekanizması
+
+### API Bağımlı
+- [ ] **Player Props API aktivasyonu** → Tyler $30 plan yükseltmesi + API key iletimi
+
+---
+
+## Versiyon Geçmişi
+
+| Versiyon | Tarih | Değişiklik |
 |---|---|---|
-| Görev 1 | Hamburger / Dropdown Navigasyon Menüsü | ✅ TAMAMLANDI |
-| Görev 2 | Günlük Kadro Veri Toplayıcı | ✅ TAMAMLANDI |
-| Görev 3 | Ana Model Güçlendirmesi (5 yeni istatistik + Lineup blend) | 🟡 KISMI |
-| Görev 4 | Atıcı Props ML Motoru (Strikeouts & Outs) | ✅ TAMAMLANDI |
-| Görev 5 | Bahis Oranları Entegrasyonu & Props Tablosu UI | ✅ TAMAMLANDI |
-
----
-
-## Görev Detayları
-
----
-
-### ✅ Görev 1 — TAMAMLANDI: Header Dropdown / Hamburger Navigasyon Menüsü
-
-**İmplementasyon:**
-- `frontend/src/components/DropdownNavigation.jsx` → Modern hamburger menü bileşeni oluşturuldu.
-- `frontend/src/App.jsx` → Yatay sekmeler kaldırıldı, hamburger menü entegre edildi.
-- **"Pitcher Projections"** sekmesi menüye eklendi.
-- Mobil uyumlu animasyonlar ve backdrop blur efekti uygulandı.
-
----
-
-### ✅ Görev 2 — TAMAMLANDI: Günlük Kadro Veri Toplayıcı (Confirmed Lineups Scraper)
-
-**İmplementasyon:**
-- `backend/app/services/prediction_runner.py` → `get_lineup_for_game()` ve `fetch_last_completed_game_pk()` metodları yazıldı.
-- MLB StatsAPI `/api/v1/game/{gamePk}/boxscore` endpointi ile günlük 9 kişilik başlangıç kadrosu çekiliyor.
-- Resmi kadro açıklanmamışsa son tamamlanan maçtaki kadro **fallback** olarak kullanılıyor.
-- Kadro verisi `lineups_cache.json` üzerinde tarih bazlı cache'leniyor; resmi kadrolar `is_official: true` ile işaretlenip günde bir kez fetch yapılıyor.
-- Her oyuncunun bireysel vurma istatistikleri (hitting) MLB StatsAPI'den paralel olarak çekiliyor.
-- `away_lineup_hydrated` / `home_lineup_hydrated` + `away_lineup_avg` / `home_lineup_avg` alanları game_dict'e eklenerek engine'e besleniyor.
-
----
-
-### 🟡 Görev 3 — KISMİ TAMAMLANDI: Ana Model Güçlendirmesi ve Kadro Harmanlama
-
-**Tamamlanan Alt Görevler:**
-
-#### ✅ Pitcher Expected Stats (xERA, xFIP) — TAMAMLANDI
-- `backend/app/services/pitcher_scraper.py` → `xfip` ve `xera` değerleri ESPN / StatsAPI'den çekilerek `pitcher_stats.json`'a ekleniyor.
-- `prediction_runner.py` → `calculate_pitcher_metrics()` içinde `xfip`, `xera` hesaplanıp atıcı feature vektörüne dahil ediliyor.
-- `pitcher_props_engine.py` → Outs projeksiyonunda `xfip` kullanılıyor.
-
-#### ✅ Teams Hitting Stats vs Handedness (LHP/RHP Splits) — TAMAMLANDI
-- `prediction_runner.py` → `fetch_team_splits_async()` metodu ile tüm takımların LHP/RHP split istatistikleri (avg, obp, slg, ops, k_pct) MLB StatsAPI'den çekiliyor.
-- `mlb_unified_engine.py` → `predict_matchup()` imzasına `away_splits` ve `home_splits` parametreleri eklendi.
-- Splits verisi game döngüsünde engine'e besleniyor.
-
-#### ✅ Lineup wRC+ & wOBA Harmanlaması — TAMAMLANDI
-- `prediction_runner.py` → Kadrodaki 9 oyuncunun bireysel wRC+, wOBA, K%, BB%, Pitches/PA, SwStr%, CSW%, Whiff%, Oswing%, Swing% ortalaması alınıyor.
-- `mlb_unified_engine.py` → `away_lineup_avg` ve `home_lineup_avg` parametreleri ile engine günlük kadro bazlı dinamik analiz yapabiliyor.
-
-#### 🔴 Bullpen SIERA — YAPILMADI
-- Gereksinim: Rölyef atıcıların beceriye dayalı ERA değerleri (SIERA).
-- Mevcut durum: Bu veri ne StatsAPI'de ne de mevcut scraper'larda bulunuyor.
-- Blokaj: FanGraphs API erişimi veya CSV upload gerektirir; M5'e ertelendi.
-
-#### 🔴 HFA (Home Field Advantage) Dinamik Katsayı — YAPILMADI
-- Gereksinim: Stadyum bazlı dinamik ev sahibi avantajı çarpanı.
-- Mevcut durum: Ana modelde sabit bir genel HFA var (`ballpark_stats.json` park factor kullanılıyor) ancak Tyler'ın istediği gibi **dinamik** ve **stadyum bazlı esneme** henüz uygulanmadı.
-- Blokaj: Stadyum-spesifik tarihsel veri gerektirir.
-
-#### 🔴 Power Ranking (Sonny Moore) Diferansiyeli — YAPILMADI
-- Gereksinim: Sonny Moore güç sıralaması farkına göre çarpan.
-- Mevcut durum: Statik veri kaynağı yok; web scraping gerektiriyor.
-- Blokaj: Dış kaynak scraping + weekly güncelleme mekanizması gerektirir.
-
----
-
-### ✅ Görev 4 — TAMAMLANDI: Atıcı Props ML Motoru (Strikeouts & Total Outs)
-
-**İmplementasyon:**
-
-#### `backend/app/models/pitcher_k_model.py` [YENİ]
-- Tyler'ın el yazısı `K Model.ods` dosyasından tersine mühendislikle çözülen matematiksel model Python'a aktarıldı.
-- **Pydantic Şemaları:** `PitcherStats`, `LineupAvg`, `ProjectionResult` oluşturuldu.
-- **Hesaplama Motoru:** `PitcherKModel.calculate_projection()` metodu:
-  - Home/Away K% ağırlıklı Expected K% hesabı (Pitcher: %65, Opponent: %45)
-  - CSW% ve SwStr% lig ortalaması farklarının K% üzerine eklenmesi (%35'er ağırlık)
-  - Baseball notasyonunu (5.2 IP) gerçek matematiksel değere (5.667) çeviren `baseball_ip_to_math_ip()`
-  - Volume bazlı Projected K ve Projected Outs hesabı
-  - ODS dosyasındaki "volume squaring" ve "relative reference" hataları düzeltildi
-
-#### `backend/app/services/pitcher_props_engine.py` [GÜNCELLENDI]
-- **K projeksiyonu** → `PitcherKModel`'e devredildi (CSW/SwStr lig ortalaması ayarlı)
-- **Outs projeksiyonu** → xFIP × wRC+ regresyon modeli (değiştirilmedi)
-- Arayüz değişmedi: `prediction_runner.py`'de sıfır değişiklik
-
-#### `backend/test_pitcher_k_model.py` [YENİ]
-- 3 test sınıfı: Pydantic validasyon + IP dönüşümü + Giolito mock matchup
-- Tüm testler geçiyor
-
----
-
-### ✅ Görev 5 — TAMAMLANDI: Bahis Oranları Entegrasyonu & Props Tablosu UI
-
-**İmplementasyon:**
-
-#### Backend — `backend/app/services/odds_provider.py`
-- `fetch_player_props_for_games_async()` → the-odds-api `pitcher_strikeouts` ve `pitcher_outs` market verilerini paralel olarak çekiyor.
-- `parse_pitcher_props_odds()` → Pitcher ismi eşleşmesi (fuzzy), Over/Under odds ayrıştırma, birincil kitapçılar (DK, FD, BetMGM, Caesars, Bovada) öncelikli.
-- Cache mekanizması: `player_props_odds.json` fallback olarak kullanılıyor.
-- **Not:** The-odds-api'nin `pitcher_strikeouts` / `pitcher_outs` market endpointleri $30 Starter Plan gerektiriyor. API key mevcut ancak plan yükseltilmediyse veriler boş geliyor (model yine de hata vermeden çalışıyor).
-
-#### Backend — `prediction_runner.py`
-- Props engine döngüye dahil edildi: Her başlangıç atıcısı için `proj_k`, `proj_outs`, `k_line`, `k_choice`, `k_edge`, `outs_line`, `outs_choice`, `outs_edge` hesaplanıyor.
-- Poisson CDF (K için) ve Normal CDF (Outs için) ile model olasılığı → book implied olasılığı farkı (Edge) hesabı yapılıyor.
-- `pitcher_projections` listesi `todays_predictions.json`'a ekleniyor.
-
-#### Frontend — `frontend/src/components/PitcherProjections.jsx` [YENİ / YENİDEN TASARLANDI]
-Tyler'ın el yazısı tablosunu tam karşılayan mobil-öncelikli card grid tasarımı:
-- **Mobile-first:** Tek sütun (mobil) → 2 sütun (tablet ve üzeri)
-- **Kompakt pitch header:** Pitcher ismi + handedness badge + "TEX vs HOU" matchup tek satırda
-- **PropSection:** Her prop (K ve Outs) için görsel progress bar (model proj vs book line karşılaştırması)
-- **Over ve Under odds** her iki taraf için ayrı ayrı gösteriliyor
-- **Edge highlighting:** %5+ edge olan kartlar glowing border + top accent bar ile vurgulanıyor
-- **Filtre toolbar:** Search + Hand (All/RHP/LHP) + Sort (Edge/K/IP) + Edges Only toggle
-- **Özet pills:** Toplam pitcher sayısı + bulunan edge sayısı
-
-**Tablo kolonları (Tyler'ın şemasıyla birebir):**
-> `Pitcher | Book's K Line | Proj K's | O/U/Pass | Outs Book Line | Outs Proj | O/U/Pass | Edge`
-
----
-
-## 📋 Milestone 4 Özet Değerlendirmesi
-
-### Tamamlanan (%83)
-1. ✅ Hamburger navigasyon menüsü
-2. ✅ Günlük kadro veri toplayıcı (StatsAPI, fallback, cache)
-3. ✅ xERA/xFIP pitcher expected stats
-4. ✅ LHP/RHP team hitting splits
-5. ✅ Lineup wRC+ / wOBA harmanlama
-6. ✅ `PitcherKModel` (K Model.ods tersine mühendislik)
-7. ✅ `PitcherPropsEngine` (xFIP × wRC+ outs, PitcherKModel K)
-8. ✅ Player props odds API entegrasyonu (pitcher_strikeouts, pitcher_outs)
-9. ✅ `PitcherProjections.jsx` UI (mobile-first card grid)
-
-### Eksik Kalan (%17)
-- 🔴 Bullpen SIERA → M5'e ertelendi (dış veri kaynağı gerekiyor)
-- 🔴 HFA dinamik katsayı → M5'e ertelendi (stadyum bazlı tarihsel veri gerekiyor)
-- 🔴 Sonny Moore Power Rankings → M5'e ertelendi (web scraping gerekiyor)
-- ⚠️ Player Props API aktivasyonu → The-odds-api $30 Starter Plan gerekiyor (Tyler'ın onayı bekleniyor)
-
----
-
-## 🏁 M5: Interactive Ballistics, Graphs & Alerts
-**Bütçe:** Sonra Konuşulacak  
-**Odak:** weathermlb.com Tarzı Genişleyen Kompakt Liste, Kapanabilir Recharts Stadyum Karşılaştırma Grafikleri, DraftKings -1 Spread Formülü, Telegram & SMS Bildirim Servisi, Canlı Edges, Bullpen SIERA, Dinamik HFA, Sonny Moore Power Rankings.
+| v1.0 | ~28 May 2026 | M4 ilk çıktı: hamburger menü, lineup scraper, K model, props UI |
+| v1.1 | 5 Haz 2026 | Bug fix: pitcher_stats.json backfill, k_pct/avg_ip kayıt sorunu, calculate_pitcher_metrics güncelleme |
+| v1.2 (Planlanan) | 6 Haz 2026 | Tyler geri bildirimleri (VIP Top 3 Pitchers, Model Tanımı) ve internal split (is_home, vs LHP/RHP split) düzeltmeleri |

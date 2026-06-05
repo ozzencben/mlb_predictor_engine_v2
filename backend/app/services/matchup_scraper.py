@@ -106,7 +106,9 @@ class MatchupScraper:
                     home_team = self.mlb_to_tr_map.get(home_team_full, home_team_full)
                     
                     away_pitcher = away_node.get('probablePitcher', {}).get('fullName', 'TBD')
+                    away_pitcher_id = away_node.get('probablePitcher', {}).get('id')
                     home_pitcher = home_node.get('probablePitcher', {}).get('fullName', 'TBD')
+                    home_pitcher_id = home_node.get('probablePitcher', {}).get('id')
                     
                     raw_date = game.get('gameDate')
                     game_time = "TBD"
@@ -128,7 +130,9 @@ class MatchupScraper:
                         "away_team_id": away_node['team']['id'],
                         "home_team_id": home_node['team']['id'],
                         "away_pitcher": away_pitcher,
+                        "away_pitcher_id": away_pitcher_id,
                         "home_pitcher": home_pitcher,
+                        "home_pitcher_id": home_pitcher_id,
                         "game_time": game_time,
                         "status": game['status']['detailedState'],
                         "away_team_stats": away_stats,

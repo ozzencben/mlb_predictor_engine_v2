@@ -736,6 +736,66 @@ class PredictionRunner:
             print(f"⚠️ Failed to fetch team splits: {e}")
             return {}
 
+    async def get_pitcher_last_5_k_async(self, client: httpx.AsyncClient, pitcher_id: int) -> list:
+        if not pitcher_id:
+            return []
+            
+        today_str = datetime.now().strftime('%Y-%m-%d')
+        cache_file = os.path.join(self.data_dir, "pitcher_logs_cache.json")
+        cache_data = {}
+        if os.path.exists(cache_file):
+            try:
+                with open(cache_file, "r", encoding="utf-8") as f:
+                    cache_data = json.load(f)
+            except Exception:
+                pass
+                
+        if cache_data.get("date") == today_str:
+            cached_logs = cache_data.get("logs", {}).get(str(pitcher_id))
+            if cached_logs is not None:
+                return cached_logs
+                
+        current_year = datetime.now().year
+        url = f"https://statsapi.mlb.com/api/v1/people/{pitcher_id}/stats?stats=gameLog&group=pitching&season={current_year}"
+        
+        local_client = client
+        created_client = False
+        if client is None or client.is_closed:
+            local_client = httpx.AsyncClient()
+            created_client = True
+            
+        try:
+            res = await local_client.get(url, timeout=10.0)
+            k_counts = []
+            if res.status_code == 200:
+                data = res.json()
+                splits = data.get("stats", [{}])[0].get("splits", [])
+                recent_games = splits[-5:]
+                k_counts = [int(g.get("stat", {}).get("strikeOuts", 0)) for g in recent_games]
+                
+            if len(k_counts) < 3:
+                prev_url = f"https://statsapi.mlb.com/api/v1/people/{pitcher_id}/stats?stats=gameLog&group=pitching&season={current_year - 1}"
+                prev_res = await local_client.get(prev_url, timeout=10.0)
+                if prev_res.status_code == 200:
+                    prev_data = prev_res.json()
+                    prev_splits = prev_data.get("stats", [{}])[0].get("splits", [])
+                    prev_recent = prev_splits[-5:]
+                    prev_k_counts = [int(g.get("stat", {}).get("strikeOuts", 0)) for g in prev_recent]
+                    k_counts = (prev_k_counts + k_counts)[-5:]
+                    
+            if "logs" not in cache_data or cache_data.get("date") != today_str:
+                cache_data = {"date": today_str, "logs": {}}
+            cache_data["logs"][str(pitcher_id)] = k_counts
+            self._save_json(cache_file, cache_data)
+            return k_counts
+        except Exception as e:
+            print(f"⚠️ Failed to fetch game logs for pitcher {pitcher_id}: {e}")
+        finally:
+            if created_client:
+                await local_client.aclose()
+            
+        return []
+
     async def get_player_stats_async(self, client: httpx.AsyncClient, player_id: int, group: str) -> dict:
         today_str = datetime.now().strftime('%Y-%m-%d')
         cache_key = f"{player_id}_{group}"
@@ -1043,8 +1103,25 @@ class PredictionRunner:
                 print("🛑 Zincirleme hata tespit edildi. Tahmin motoru durduruldu.")
                 return []
 
-            # 1. Fetch splits & lineups & player stats
             team_splits_db = await self.fetch_team_splits_async(client)
+            
+            # Pre-calculate team offensive strikeout ranks vs LHP and RHP (higher rank = strikes out more)
+            team_k_rank_vs_lhp = {}
+            team_k_rank_vs_rhp = {}
+            if team_splits_db:
+                lhp_sorted = sorted(
+                    [(t_name, t_val.get("vs_LHP", {}).get("k_pct", 22.0)) for t_name, t_val in team_splits_db.items()],
+                    key=lambda x: x[1],
+                    reverse=True
+                )
+                team_k_rank_vs_lhp = {t_name: rank + 1 for rank, (t_name, _) in enumerate(lhp_sorted)}
+
+                rhp_sorted = sorted(
+                    [(t_name, t_val.get("vs_RHP", {}).get("k_pct", 22.0)) for t_name, t_val in team_splits_db.items()],
+                    key=lambda x: x[1],
+                    reverse=True
+                )
+                team_k_rank_vs_rhp = {t_name: rank + 1 for rank, (t_name, _) in enumerate(rhp_sorted)}
             
             # Load daily matchups
             matchups_data = self._load_json("daily_matchups.json")
@@ -1362,7 +1439,20 @@ class PredictionRunner:
                         opp_lineup_avg = game_dict.get(f"{opp_side}_lineup_avg")
                         opp_team_name = home_team if side == "away" else away_team
                         
-                        projs = props_engine.project_pitcher_props(p_features, opp_lineup_avg, weather_info, home_team)
+                        # Fix A: Determine actual is_home
+                        is_home = (side == "home")
+                        
+                        # Fix B: Get opponent splits vs LHP/RHP and inject
+                        opp_splits = team_splits_db.get(opp_team_name, {}) if team_splits_db else {}
+                        opp_lineup_avg_copy = opp_lineup_avg.copy() if opp_lineup_avg else {}
+                        
+                        k_pct_vs_lhp = opp_splits.get("vs_LHP", {}).get("k_pct", opp_lineup_avg_copy.get("k_pct", 22.0))
+                        k_pct_vs_rhp = opp_splits.get("vs_RHP", {}).get("k_pct", opp_lineup_avg_copy.get("k_pct", 22.0))
+                        
+                        opp_lineup_avg_copy["k_pct_vs_lhp"] = k_pct_vs_lhp
+                        opp_lineup_avg_copy["k_pct_vs_rhp"] = k_pct_vs_rhp
+                        
+                        projs = props_engine.project_pitcher_props(p_features, opp_lineup_avg_copy, weather_info, home_team, is_home=is_home)
                         proj_k = projs["projected_k"]
                         proj_outs = projs["projected_outs"]
                         
@@ -1407,12 +1497,62 @@ class PredictionRunner:
                             elif edge_under >= 0.05:
                                 outs_choice = "UNDER"
                                 outs_edge = round(edge_under * 100, 1)
+
+                        # Task 3: Opp K Rank & K% vs pitcher throws
+                        p_throws = p_features.get("throws", "R")
+                        opp_k_rank = 15
+                        opp_k_pct = 22.0
+                        if p_throws == "L" and opp_team_name in team_k_rank_vs_lhp:
+                            opp_k_rank = team_k_rank_vs_lhp[opp_team_name]
+                            opp_k_pct = k_pct_vs_lhp
+                        elif p_throws == "R" and opp_team_name in team_k_rank_vs_rhp:
+                            opp_k_rank = team_k_rank_vs_rhp[opp_team_name]
+                            opp_k_pct = k_pct_vs_rhp
+
+                        # Task 4: Matchup Grade & Confidence Score
+                        score = 72.0
+                        score += (p_features.get("k_pct", 22.0) - 22.0) * 1.0
+                        score += (opp_k_pct - 22.0) * 1.5
+                        
+                        temp_val = float(weather_info.get("temp_f", 72.0))
+                        if temp_val > 80.0:
+                            score += 2.0
+                        elif temp_val < 50.0:
+                            score -= 3.0
+                            
+                        max_edge = max(k_edge, outs_edge)
+                        if max_edge > 0.0:
+                            score += max_edge * 1.2
+                            
+                        confidence_score = int(max(50, min(99, score)))
+                        
+                        if confidence_score >= 95:
+                            matchup_grade = "A+"
+                        elif confidence_score >= 90:
+                            matchup_grade = "A"
+                        elif confidence_score >= 85:
+                            matchup_grade = "A-"
+                        elif confidence_score >= 80:
+                            matchup_grade = "B"
+                        elif confidence_score >= 72:
+                            matchup_grade = "C"
+                        elif confidence_score >= 60:
+                            matchup_grade = "D"
+                        else:
+                            matchup_grade = "F"
+
+                        # Task 5: Pitcher recent K game logs
+                        pitcher_id = game_dict.get(f"{side}_pitcher_id")
+                        last_5_k = []
+                        if pitcher_id:
+                            last_5_k = await self.get_pitcher_last_5_k_async(client, pitcher_id)
                                 
                         proj_dict = {
                             "pitcher": p_name,
+                            "pitcher_id": pitcher_id,
                             "team": away_team if side == "away" else home_team,
                             "opponent": opp_team_name,
-                            "throws": p_features["throws"],
+                            "throws": p_throws,
                             "proj_k": proj_k,
                             "proj_outs": proj_outs,
                             
@@ -1428,7 +1568,13 @@ class PredictionRunner:
                             "outs_under_odds": odds_matched["outs_under_odds"],
                             "outs_book": odds_matched["outs_book"],
                             "outs_choice": outs_choice,
-                            "outs_edge": outs_edge
+                            "outs_edge": outs_edge,
+                            
+                            "opp_k_rank": opp_k_rank,
+                            "opp_k_pct": opp_k_pct,
+                            "matchup_grade": matchup_grade,
+                            "confidence_score": confidence_score,
+                            "last_5_k": last_5_k
                         }
                         pitcher_projs.append(proj_dict)
                         all_pitcher_projs.append(proj_dict)

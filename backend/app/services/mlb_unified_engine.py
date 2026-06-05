@@ -1,4 +1,5 @@
 import math
+from typing import Optional
 from pydantic import BaseModel, Field
 
 from app.models.nrfi_model import NRFIModel
@@ -20,6 +21,8 @@ class GameInputData(BaseModel):
     home_team_stats: dict = Field(default_factory=dict)
     away_team_id: int = None
     home_team_id: int = None
+    away_pitcher_id: Optional[int] = None
+    home_pitcher_id: Optional[int] = None
 
 
 # Artık bu sınıfları doğrudan import ediyoruz. (Önceki adımlarda yazdığımız sınıflar)

@@ -177,7 +177,7 @@ const PropSection = ({ icon, label, projVal, projLabel, lineVal, color, choice, 
 
 // ─── Single Pitcher Card ───────────────────────────────────────────────────────
 
-const PitcherCard = ({ p }) => {
+const PitcherCard = ({ p, metricFilter = 'ALL' }) => {
   const hasKEdge = p.k_choice !== 'PASS';
   const hasOutsEdge = p.outs_choice !== 'PASS';
   const hasAnyEdge = hasKEdge || hasOutsEdge;
@@ -189,6 +189,7 @@ const PitcherCard = ({ p }) => {
 
   return (
     <div
+      id={`pitcher-card-${p.pitcher.replace(/\s+/g, '-').toLowerCase()}`}
       className={`relative bg-slate-900/50 backdrop-blur-sm border rounded-2xl overflow-hidden transition-all duration-300 ${borderClass}`}
     >
       {/* Edge accent bar at top */}
@@ -213,53 +214,94 @@ const PitcherCard = ({ p }) => {
             </span>
           </div>
           {/* Matchup */}
-          <p className="mt-0.5 text-[11px] font-bold text-slate-400 tracking-wide">
-            <span className="text-slate-200 font-black">{p.team}</span>
-            <span className="text-slate-600 mx-1">vs</span>
-            <span className="text-slate-300">{p.opponent}</span>
+          <p className="mt-0.5 text-[11px] font-bold text-slate-400 tracking-wide flex flex-col gap-1">
+            <span>
+              <span className="text-slate-200 font-black">{p.team}</span>
+              <span className="text-slate-600 mx-1">vs</span>
+              <span className="text-slate-300">{p.opponent}</span>
+            </span>
+            {p.opp_k_rank && (
+              <span className="inline-flex items-center w-fit gap-1 px-1.5 py-0.5 rounded bg-slate-950 border border-slate-800/80 text-[8px] font-black text-slate-400 tracking-wider">
+                Opp K Rank: <span className="text-cyan-400">#{p.opp_k_rank}</span> vs {p.throws}HP
+              </span>
+            )}
           </p>
         </div>
 
-        {/* Edge summary pill (if any edge) */}
-        {hasAnyEdge && (
-          <div className="shrink-0 px-2.5 py-1 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center gap-1">
-            <span className="text-indigo-400 text-[9px] font-black uppercase tracking-wider">EDGE</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
-          </div>
-        )}
+        {/* Edge summary pill / Matchup Grade */}
+        <div className="shrink-0 flex flex-col items-end gap-1">
+          {p.matchup_grade && (
+            <span className={`px-2 py-0.5 rounded-lg text-[10px] font-black tracking-wider border uppercase
+              ${p.matchup_grade.startsWith('A') 
+                ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400 shadow-[0_0_10px_rgba(16,185,129,0.2)]'
+                : p.matchup_grade.startsWith('B')
+                ? 'bg-blue-500/10 border-blue-500/30 text-blue-400'
+                : p.matchup_grade.startsWith('C')
+                ? 'bg-amber-500/10 border-amber-500/30 text-amber-400'
+                : 'bg-slate-800 border-slate-700 text-slate-400'}`}>
+              Grade: {p.matchup_grade}
+            </span>
+          )}
+          {p.confidence_score && (
+            <span className="text-[8px] text-slate-500 font-extrabold uppercase tracking-widest">
+              Conf: {p.confidence_score}%
+            </span>
+          )}
+        </div>
       </div>
+
+      {/* ── Last 5 Games Ks ── */}
+      {p.last_5_k && p.last_5_k.length > 0 && (
+        <div className="px-4 pb-3 flex items-center gap-2 border-b border-slate-850 pb-3 mb-3">
+          <span className="text-[9px] text-slate-500 font-black uppercase tracking-wider">Last 5 Ks:</span>
+          <div className="flex gap-1.5">
+            {p.last_5_k.map((kCount, idx) => (
+              <span 
+                key={idx} 
+                className="w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-black bg-slate-950 border border-slate-800 text-slate-300 shadow-sm"
+              >
+                {kCount}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* ── Props Grid ── */}
       <div className="px-3 pb-3 grid grid-cols-1 gap-2.5">
         {/* Strikeouts */}
-        <PropSection
-          icon="🎯"
-          label="Strikeouts (K)"
-          projVal={p.proj_k}
-          projLabel="Projected Strikeouts"
-          lineVal={p.k_line}
-          color="#22d3ee"
-          choice={p.k_choice}
-          edge={p.k_edge}
-          overOdds={p.k_over_odds}
-          underOdds={p.k_under_odds}
-          book={p.k_book}
-        />
+        {(metricFilter === 'ALL' || metricFilter === 'K') && (
+          <PropSection
+            icon="🎯"
+            label="Strikeouts (K)"
+            projVal={p.proj_k}
+            projLabel="Projected Strikeouts"
+            lineVal={p.k_line}
+            color="#22d3ee"
+            choice={p.k_choice}
+            edge={p.k_edge}
+            overOdds={p.k_over_odds}
+            underOdds={p.k_under_odds}
+            book={p.k_book}
+          />
+        )}
 
         {/* Total Outs */}
-        <PropSection
-          icon="⚡"
-          label={`Total Outs — ${p.proj_outs != null ? outsToIP(p.proj_outs) : '—'}`}
-          projVal={p.proj_outs}
-          projLabel="Projected Outs"
-          lineVal={p.outs_line}
-          color="#818cf8"
-          choice={p.outs_choice}
-          edge={p.outs_edge}
-          overOdds={p.outs_over_odds}
-          underOdds={p.outs_under_odds}
-          book={p.outs_book}
-        />
+        {(metricFilter === 'ALL' || metricFilter === 'IP') && (
+          <PropSection
+            icon="⚡"
+            label={`Total Outs — ${p.proj_outs != null ? outsToIP(p.proj_outs) : '—'}`}
+            projVal={p.proj_outs}
+            projLabel="Projected Outs"
+            lineVal={p.outs_line}
+            color="#818cf8"
+            choice={p.outs_choice}
+            edge={p.outs_edge}
+            overOdds={p.outs_over_odds}
+            underOdds={p.outs_under_odds}
+            book={p.outs_book}
+          />
+        )}
       </div>
     </div>
   );
@@ -270,8 +312,18 @@ const PitcherCard = ({ p }) => {
 function PitcherProjections({ pitcherProjections = [] }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [handFilter, setHandFilter] = useState('ALL');
+  const [metricFilter, setMetricFilter] = useState('ALL'); // 'ALL' | 'K' | 'IP'
+  const [opponentFilter, setOpponentFilter] = useState('ALL'); // 'ALL' | teamName
   const [edgesOnly, setEdgesOnly] = useState(false);
   const [sortBy, setSortBy] = useState('edge'); // 'edge' | 'k' | 'outs'
+
+  const uniqueOpponents = useMemo(() => {
+    const opps = new Set();
+    pitcherProjections.forEach(p => {
+      if (p.opponent) opps.add(p.opponent);
+    });
+    return Array.from(opps).sort();
+  }, [pitcherProjections]);
 
   const filteredSorted = useMemo(() => {
     let list = pitcherProjections.filter((p) => {
@@ -283,25 +335,26 @@ function PitcherProjections({ pitcherProjections = [] }) {
         (p.opponent || '').toLowerCase().includes(q);
 
       const matchHand = handFilter === 'ALL' || p.throws === handFilter;
+      const matchOpponent = opponentFilter === 'ALL' || p.opponent === opponentFilter;
 
       const hasEdge = p.k_choice !== 'PASS' || p.outs_choice !== 'PASS';
       const matchEdge = !edgesOnly || hasEdge;
 
-      return matchSearch && matchHand && matchEdge;
+      return matchSearch && matchHand && matchOpponent && matchEdge;
     });
 
     // Sort
     list = [...list].sort((a, b) => {
       if (sortBy === 'k') return (b.proj_k || 0) - (a.proj_k || 0);
       if (sortBy === 'outs') return (b.proj_outs || 0) - (a.proj_outs || 0);
-      // 'edge': prioritize cards with picks
+      
       const aEdge = Math.max(a.k_edge || 0, a.outs_edge || 0);
       const bEdge = Math.max(b.k_edge || 0, b.outs_edge || 0);
       return bEdge - aEdge;
     });
 
     return list;
-  }, [pitcherProjections, searchTerm, handFilter, edgesOnly, sortBy]);
+  }, [pitcherProjections, searchTerm, handFilter, opponentFilter, edgesOnly, sortBy]);
 
   // Summary stats
   const totalWithEdge = pitcherProjections.filter(
@@ -323,7 +376,7 @@ function PitcherProjections({ pitcherProjections = [] }) {
                 Pitcher Props Model
               </h2>
               <p className="text-slate-500 text-[10px] md:text-xs font-semibold mt-0.5 leading-relaxed max-w-lg">
-                K% projected via CSW/SwStr adjustments vs league avg · Outs via xFIP × wRC+ regression · Edge = model prob − book implied prob
+                K% projected via pitcher H/A splits, opponent vs LHP/RHP splits, opponent H/A splits, CSW/SwStr deviations, expected batters faced (BF) volume & weather temp · Outs via xFIP × wRC+ regression · Edge = model prob − book implied prob
               </p>
             </div>
             <div className="shrink-0 flex items-center gap-1.5 px-2.5 py-1 bg-cyan-500/10 border border-cyan-500/20 rounded-xl">
@@ -353,9 +406,9 @@ function PitcherProjections({ pitcherProjections = [] }) {
       </div>
 
       {/* ── Filter + Sort Toolbar ── */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-2">
         {/* Search */}
-        <div className="relative col-span-2 sm:col-span-1">
+        <div className="relative col-span-2 md:col-span-1">
           <input
             type="text"
             placeholder="Search pitcher, team…"
@@ -383,6 +436,44 @@ function PitcherProjections({ pitcherProjections = [] }) {
           ))}
         </div>
 
+        {/* Metric Filter */}
+        <div className="flex p-1 bg-slate-900/60 border border-slate-800 rounded-xl h-10 col-span-1">
+          {[
+            { key: 'ALL', label: 'All Props' },
+            { key: 'K', label: 'K Only' },
+            { key: 'IP', label: 'IP Only' },
+          ].map((m) => (
+            <button
+              key={m.key}
+              onClick={() => setMetricFilter(m.key)}
+              className={`flex-1 rounded-lg text-[9px] font-black uppercase tracking-wider transition-all duration-200 ${
+                metricFilter === m.key
+                  ? 'bg-cyan-500/15 border border-cyan-500/30 text-cyan-400'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              {m.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Opponent Filter */}
+        <div className="relative col-span-1 h-10">
+          <select
+            value={opponentFilter}
+            onChange={(e) => setOpponentFilter(e.target.value)}
+            className="w-full h-full px-3 bg-slate-900/60 border border-slate-800 focus:border-cyan-500/50 rounded-xl text-[9px] font-black uppercase tracking-widest text-slate-300 outline-none appearance-none cursor-pointer pr-8"
+          >
+            <option value="ALL">Opp: All Teams</option>
+            {uniqueOpponents.map((opp) => (
+              <option key={opp} value={opp}>
+                Vs {opp}
+              </option>
+            ))}
+          </select>
+          <span className="absolute right-2.5 top-3.5 text-slate-500 text-[8px] pointer-events-none">▼</span>
+        </div>
+
         {/* Sort */}
         <div className="flex p-1 bg-slate-900/60 border border-slate-800 rounded-xl h-10 col-span-1">
           {[
@@ -407,7 +498,7 @@ function PitcherProjections({ pitcherProjections = [] }) {
         {/* Edges Only */}
         <button
           onClick={() => setEdgesOnly(!edgesOnly)}
-          className={`flex items-center justify-center gap-1.5 h-10 px-3 border rounded-xl transition-all duration-300 text-[9px] font-black uppercase tracking-wider col-span-2 sm:col-span-1 ${
+          className={`flex items-center justify-center gap-1.5 h-10 px-3 border rounded-xl transition-all duration-300 text-[9px] font-black uppercase tracking-wider col-span-2 md:col-span-1 ${
             edgesOnly
               ? 'bg-indigo-500/15 border-indigo-500/40 text-indigo-400 shadow-[0_0_12px_rgba(99,102,241,0.15)]'
               : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200'
@@ -430,7 +521,7 @@ function PitcherProjections({ pitcherProjections = [] }) {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {filteredSorted.map((p, idx) => (
-            <PitcherCard key={`pp-${p.pitcher}-${idx}`} p={p} />
+            <PitcherCard key={`pp-${p.pitcher}-${idx}`} p={p} metricFilter={metricFilter} />
           ))}
         </div>
       )}
