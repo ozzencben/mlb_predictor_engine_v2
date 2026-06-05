@@ -3,7 +3,7 @@ import asyncio
 from app.core.config import settings
 
 async def main():
-    api_key = "0d0dc3ee89d686ebd81213ac126c9af6"
+    api_key = "b3a487948be2d9a948b2010337118b2c"
     url = "https://api.the-odds-api.com/v4/sports/baseball_mlb/odds"
     params = {
         "apiKey": api_key,

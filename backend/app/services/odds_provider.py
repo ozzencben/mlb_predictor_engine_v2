@@ -571,7 +571,9 @@ class OddsProvider:
         for event in live_odds:
             api_away_tr = self.mlb_to_tr_map.get(event["away_team"], event["away_team"])
             api_home_tr = self.mlb_to_tr_map.get(event["home_team"], event["home_team"])
-            event_map[(api_away_tr, api_home_tr)] = event["id"]
+            key = (api_away_tr, api_home_tr)
+            if key not in event_map:
+                event_map[key] = event["id"]
             
         tasks = []
         keys = []
