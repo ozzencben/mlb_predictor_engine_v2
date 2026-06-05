@@ -826,28 +826,44 @@ class PredictionRunner:
         fip = float(stat.get("fip", 4.20))
         xera = float(stat.get("xera", 4.20))
         xfip = float(stat.get("xfip", 4.20))
-        
-        bf = int(stat.get("battersFaced", 1))
-        ip = float(stat.get("inningsPitched", 1.0))
+
+        bf = int(stat.get("battersFaced", 1)) or 1
+        ip = float(stat.get("inningsPitched", stat.get("innings_pitched", 1.0)))
         bb = int(stat.get("baseOnBalls", 0))
         k = int(stat.get("strikeOuts", 0))
-        games = int(stat.get("gamesPitched", 1))
+        games = int(stat.get("gamesPitched", 1)) or 1
         pitches = int(stat.get("numberOfPitches", 0))
-        
-        k_pct = (k / bf * 100.0) if bf > 0 else 20.0
-        bb_pct = (bb / bf * 100.0) if bf > 0 else 8.0
+
+        # Prefer pre-computed values from pitcher_stats.json (set by PitcherScraper).
+        # Fall back to formula-derived values only when absent or zero.
+        stored_k_pct = stat.get("k_pct")
+        if stored_k_pct is not None and float(stored_k_pct) > 0:
+            k_pct = float(stored_k_pct)
+        else:
+            k_pct = (k / bf * 100.0) if bf > 1 else 20.0
+
+        stored_bb_pct = stat.get("bb_pct")
+        bb_pct = float(stored_bb_pct) if stored_bb_pct is not None else (bb / bf * 100.0 if bf > 1 else 8.0)
+
         k_bb_pct = k_pct - bb_pct
-        
-        pitches_per_pa = pitches / bf if bf > 0 else 3.8
-        avg_bf = bf / games if games > 0 else 22.5
-        avg_ip = ip / games if games > 0 else 5.2
-        
-        swstr_pct = 0.45 * k_pct + 2.0
-        csw_pct = 0.55 * k_pct + 15.0
+        pitches_per_pa = pitches / bf if bf > 1 else 3.8
+
+        stored_avg_bf = stat.get("avg_bf")
+        avg_bf = float(stored_avg_bf) if stored_avg_bf is not None else (bf / games if games > 0 else 22.5)
+
+        stored_avg_ip = stat.get("avg_ip")
+        avg_ip = float(stored_avg_ip) if stored_avg_ip is not None else (ip / games if games > 0 else 5.2)
+
+        stored_swstr = stat.get("swstr_pct")
+        swstr_pct = float(stored_swstr) if stored_swstr is not None else (0.45 * k_pct + 2.0)
+
+        stored_csw = stat.get("csw_pct")
+        csw_pct = float(stored_csw) if stored_csw is not None else (0.55 * k_pct + 15.0)
+
         whiff_pct = 0.9 * k_pct + 5.0
         putaway_pct = 1.2 * k_pct
         throws = stat.get("throws", "R")
-        
+
         return {
             "era": era,
             "fip": fip,
@@ -865,6 +881,7 @@ class PredictionRunner:
             "putaway_pct": round(putaway_pct, 1),
             "throws": throws
         }
+
 
     def _poisson_cdf(self, k: int, lamb: float) -> float:
         if lamb <= 0:

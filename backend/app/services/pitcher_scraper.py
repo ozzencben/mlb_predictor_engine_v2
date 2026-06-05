@@ -173,19 +173,36 @@ class PitcherScraper:
             xera = round(max(1.5, min(7.5, 3.10 + 12.0 * bb_pct - 15.0 * k_pct)), 2)
             xera = round(xera * 0.7 + era * 0.3, 2)
 
+            games = int(stats.get("gamesPitched", 1)) or 1
+            avg_ip = round(ip / games, 2)
+            avg_bf = round(bf / games, 1)
+            # SwStr% ve CSW% tahmin formülleri (pitcher_props_engine ile uyumlu)
+            k_pct_pct = round(k_pct * 100, 1)  # 0-100 scale
+            swstr_pct = round(0.45 * k_pct_pct + 2.0, 1)
+            csw_pct = round(0.55 * k_pct_pct + 15.0, 1)
+
             pitcher_library[name] = {
                 "era": era,
                 "fip": fip,
                 "xera": xera,
                 "xfip": xfip,
                 "k_bb_pct": k_bb_pct,
+                "k_pct": k_pct_pct,
+                "bb_pct": round(bb_pct * 100, 1),
+                "avg_ip": avg_ip,
+                "avg_bf": avg_bf,
+                "swstr_pct": swstr_pct,
+                "csw_pct": csw_pct,
                 "throws": throws,
                 "innings_pitched": ip,
+                "strikeOuts": k,
+                "battersFaced": bf,
+                "gamesPitched": games,
                 "wins": wins,
                 "losses": losses,
                 "record": f"{wins}-{losses}",
             }
-            print(f"✅ Başarılı (W-L: {wins}-{losses} | FIP: {fip})")
+            print(f"✅ Başarılı (W-L: {wins}-{losses} | K%: {k_pct_pct}% | avgIP: {avg_ip})")
 
         # Güvenli Kayıt (Atomik)
         output_path = os.path.join(self.data_dir, "pitcher_stats.json")
@@ -327,19 +344,35 @@ class PitcherScraper:
             xera = round(max(1.5, min(7.5, 3.10 + 12.0 * bb_pct - 15.0 * k_pct)), 2)
             xera = round(xera * 0.7 + era * 0.3, 2)
 
+            games = int(stats.get("gamesPitched", 1)) or 1
+            avg_ip = round(ip / games, 2)
+            avg_bf = round(bf / games, 1)
+            k_pct_pct = round(k_pct * 100, 1)  # 0-100 scale
+            swstr_pct = round(0.45 * k_pct_pct + 2.0, 1)
+            csw_pct = round(0.55 * k_pct_pct + 15.0, 1)
+
             pitcher_library[name] = {
                 "era": era,
                 "fip": fip,
                 "xera": xera,
                 "xfip": xfip,
                 "k_bb_pct": k_bb_pct,
+                "k_pct": k_pct_pct,
+                "bb_pct": round(bb_pct * 100, 1),
+                "avg_ip": avg_ip,
+                "avg_bf": avg_bf,
+                "swstr_pct": swstr_pct,
+                "csw_pct": csw_pct,
                 "throws": throws,
                 "innings_pitched": ip,
+                "strikeOuts": k,
+                "battersFaced": bf,
+                "gamesPitched": games,
                 "wins": wins,
                 "losses": losses,
                 "record": f"{wins}-{losses}",
             }
-            print(f"✅ Başarılı (W-L: {wins}-{losses} | FIP: {fip})")
+            print(f"✅ Başarılı (W-L: {wins}-{losses} | K%: {k_pct_pct}% | avgIP: {avg_ip})")
 
         output_path = os.path.join(self.data_dir, "pitcher_stats.json")
         history_dir = os.path.join(self.data_dir, "history")
