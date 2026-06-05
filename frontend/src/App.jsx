@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import NrfiRow from './components/NrfiRow';
 import logo2Img from './assets/logo2.png';
 import { getTeamAbbr } from './utils/formatters';
+import DropdownNavigation from './components/DropdownNavigation';
 
 // Cumulative normal distribution CDF using math approximation for erf (to support Spread Probability)
 const normalCDF = (x, mean = 0, stdDev = 1) => {
@@ -47,6 +48,7 @@ function App() {
   const [isSlowLoading, setIsSlowLoading] = useState(false);
   const [loadingStepIdx, setLoadingStepIdx] = useState(0);
   const [randomTipIdx] = useState(() => Math.floor(Math.random() * mlbTips.length));
+  const [menuOpen, setMenuOpen] = useState(false);
   const { data, loading, error, isPreparing } = usePredictions(selectedDate);
 
   useEffect(() => {
@@ -380,7 +382,7 @@ function App() {
 
       <main className="max-w-4xl mx-auto p-4 md:p-8 relative z-10">
         {/* ================= HEADER ================= */}
-        <header className="mb-10 flex flex-col md:flex-row justify-between md:items-center border-b border-gray-800 pb-6 gap-4 md:gap-0">
+        <header className="mb-10 flex justify-between items-center border-b border-gray-800 pb-6 relative select-none">
           {/* Sol Kısım: Logo ve Başlık */}
           <div className="flex flex-col">
             <h1 className="flex items-center justify-start gap-2 md:gap-3 flex-wrap">
@@ -394,36 +396,34 @@ function App() {
                 MLB Predictions
               </span>
             </h1>
-            {/* Masaüstünde logonun altına değil, yazının altına hizalamak istiyorsan buraya ml eklenebilir ama şu anki yapı en temizidir */}
             <p className="text-gray-400 text-sm font-bold tracking-tight mt-1 md:mt-2">
               Data-Driven Insights for {loading ? 'Loading...' : systemDate || 'No Date'}
             </p>
           </div>
 
-          {/* Sağ Kısım: Status ve Update */}
-          <div className="flex flex-col items-start md:items-end w-full md:w-auto mt-2 md:mt-0">
-            {!loading && lastUpdated && (
-              <div className="mb-1">
-                <span className="text-[9px] text-slate-400 font-black uppercase tracking-[0.2em]">
-                  Last Update: <span className="text-gray-300">{lastUpdated}</span>
-                </span>
+          {/* Sağ Kısım: Hamburger Menü Simgesi */}
+          <div className="relative flex-shrink-0 flex items-center">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="p-2.5 rounded-xl border border-slate-800 bg-slate-900/40 text-slate-400 hover:text-slate-200 hover:bg-slate-800/80 hover:border-slate-700 active:scale-95 transition-all duration-300 backdrop-blur-md cursor-pointer flex items-center justify-center focus:outline-none"
+              aria-label="Toggle navigation menu"
+            >
+              <div className="w-5 h-4 flex flex-col justify-between items-center relative">
+                <span className={`w-5 h-0.5 bg-current rounded-full transition-all duration-300 transform origin-center ${menuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
+                <span className={`w-5 h-0.5 bg-current rounded-full transition-all duration-300 ${menuOpen ? 'opacity-0 scale-0' : ''}`} />
+                <span className={`w-5 h-0.5 bg-current rounded-full transition-all duration-300 transform origin-center ${menuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
               </div>
-            )}
+            </button>
 
-            <div className="flex flex-col items-start md:items-end">
-              <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">
-                System Status
-              </span>
-              <div className="flex items-center gap-2 mt-0.5">
-                <div className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                </div>
-                <span className="text-xs font-bold text-green-500 uppercase tracking-tighter">
-                  {loading ? 'Syncing...' : 'Live & Ready'}
-                </span>
-              </div>
-            </div>
+            {/* Dropdown Navigation Overlay */}
+            <DropdownNavigation
+              activeModel={activeModel}
+              setActiveModel={setActiveModel}
+              lastUpdated={lastUpdated}
+              loading={loading}
+              menuOpen={menuOpen}
+              setMenuOpen={setMenuOpen}
+            />
           </div>
         </header>
 
@@ -680,28 +680,6 @@ function App() {
           </div>
         )}
 
-        {/* ================= MODEL TOGGLE BUTTONS ================= */}
-        <div className="flex justify-center items-center gap-2 mb-8 bg-slate-900/60 p-2 rounded-xl border border-gray-800/80 max-w-lg mx-auto">
-          <button
-            onClick={() => setActiveModel('full')}
-            className={`flex-1 py-2 px-4 rounded-lg text-xs font-black uppercase tracking-widest transition-all duration-300 ${activeModel === 'full'
-              ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/50'
-              : 'text-gray-400 hover:text-gray-200 hover:bg-slate-800'
-              }`}
-          >
-            Daily Games
-          </button>
-          <button
-            onClick={() => setActiveModel('nrfi')}
-            className={`flex-1 py-2 px-4 rounded-lg text-xs font-black uppercase tracking-widest transition-all duration-300 ${activeModel === 'nrfi'
-              ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-900/50'
-              : 'text-gray-400 hover:text-gray-200 hover:bg-slate-800'
-              }`}
-          >
-            NRFI Model
-          </button>
-        </div>
-
         {/* ================= KARTLARIN OLDUĞU BÖLÜM ================= */}
         <div className="grid grid-cols-1 gap-4">
           {loading ? (
@@ -720,6 +698,26 @@ function App() {
               <p className="text-gray-400 text-sm max-w-md mx-auto font-medium">
                 There are no active MLB matchups processed by the engine for {systemDate || 'today'}. This might be due to a league rest day or game postponements.
               </p>
+            </div>
+          ) : activeModel === 'pitcher_props' ? (
+            /* Pitcher Projections Table Sheet Placeholder (Task 5) */
+            <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl p-8 text-center shadow-[0_8px_32px_rgba(0,0,0,0.4)] border-t border-t-cyan-500/30">
+              <span className="text-5xl block mb-4 animate-bounce">🎯</span>
+              <h3 className="text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400 uppercase tracking-widest mb-2">
+                Pitcher Projections Sheet
+              </h3>
+              <p className="text-gray-300 text-xs md:text-sm max-w-lg mx-auto font-semibold leading-relaxed mb-6">
+                This section will house our custom machine learning model predictions for Pitcher Strikeouts (K's) and Total Outs. We will blend starting lineup statistics (Oswing%, Whiff%, K%) and match them against odds fetched from your the-odds-api plan.
+              </p>
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-cyan-500/10 border border-cyan-500/20 rounded-full animate-pulse">
+                <span className="flex h-1.5 w-1.5 relative">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-500"></span>
+                </span>
+                <span className="text-[10px] text-cyan-300 font-extrabold uppercase tracking-wider">
+                  Deploying ML Model Engine (M4 Task 4 & 5)...
+                </span>
+              </div>
             </div>
           ) : (
             displayPredictions.map((game, idx) => (
