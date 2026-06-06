@@ -313,27 +313,33 @@ function App() {
       const mu = homeScore - awayScore;
       const sigma = 4.0;
 
-      const homeCoverMinus1_5 = 1 - normalCDF(1.5, mu, sigma);
-      const homeCoverPlus1_5 = 1 - normalCDF(-1.5, mu, sigma);
-      const awayCoverMinus1_5 = normalCDF(-1.5, mu, sigma);
-      const awayCoverPlus1_5 = normalCDF(1.5, mu, sigma);
+      const awayCoverProb = (S) => {
+        return normalCDF(S, mu, sigma);
+      };
 
+      const homeCoverProb = (S) => {
+        return 1.0 - normalCDF(-S, mu, sigma);
+      };
+
+      // Determine predicted winner
+      const modelWinner = awayScore > homeScore ? matchup.away_team : matchup.home_team;
+
+      // Identify bookmaker spread for Away team
       const bookAwaySpread = Odds?.away_spread !== undefined ? Odds.away_spread : (awayScore > homeScore ? -1.5 : 1.5);
-      const isAwaySpreadFav = bookAwaySpread < 0;
-      const spreadLineFav = isAwaySpreadFav ? matchup.away_team : matchup.home_team;
-      const spreadLineDog = isAwaySpreadFav ? matchup.home_team : matchup.away_team;
-
-      const pMinus1_5_Fav = isAwaySpreadFav ? awayCoverMinus1_5 : homeCoverMinus1_5;
-      const pPlus1_5_Dog = isAwaySpreadFav ? homeCoverPlus1_5 : awayCoverPlus1_5;
 
       let spreadChoice = "";
       let spreadProb = 0;
-      if (pMinus1_5_Fav >= 0.5) {
-        spreadChoice = `${getTeamAbbr(spreadLineFav)} -1.5`;
-        spreadProb = pMinus1_5_Fav;
+
+      if (modelWinner === matchup.away_team) {
+        const spreadVal = bookAwaySpread;
+        const signStr = spreadVal >= 0 ? `+${spreadVal}` : `${spreadVal}`;
+        spreadChoice = `${getTeamAbbr(matchup.away_team)} ${signStr}`;
+        spreadProb = awayCoverProb(spreadVal);
       } else {
-        spreadChoice = `${getTeamAbbr(spreadLineDog)} +1.5`;
-        spreadProb = pPlus1_5_Dog;
+        const spreadVal = -bookAwaySpread;
+        const signStr = spreadVal >= 0 ? `+${spreadVal}` : `${spreadVal}`;
+        spreadChoice = `${getTeamAbbr(matchup.home_team)} ${signStr}`;
+        spreadProb = homeCoverProb(spreadVal);
       }
 
       if (spreadProb > topSpreadProbVal) {

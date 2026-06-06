@@ -206,25 +206,23 @@ def calculate_consensus_edges(predictions: list) -> dict:
         def standard_normal_cdf(x: float) -> float:
             return 0.5 * (1.0 + math.erf(x / math.sqrt(2.0)))
 
-        home_cover_minus1_5 = 1.0 - standard_normal_cdf((1.5 - mu) / sigma)
-        home_cover_plus1_5 = 1.0 - standard_normal_cdf((-1.5 - mu) / sigma)
-        away_cover_minus1_5 = standard_normal_cdf((-1.5 - mu) / sigma)
-        away_cover_plus1_5 = standard_normal_cdf((1.5 - mu) / sigma)
+        def away_cover_prob(S: float) -> float:
+            return standard_normal_cdf((S - mu) / sigma)
 
+        def home_cover_prob(S: float) -> float:
+            return 1.0 - standard_normal_cdf((-S - mu) / sigma)
+
+        model_winner = away_team if away_score > home_score else home_team
         book_away_spread = odds.get("away_spread") if odds.get("away_spread") is not None else (-1.5 if away_score > home_score else 1.5)
-        is_away_spread_fav = book_away_spread < 0
-        spread_line_fav = away_team if is_away_spread_fav else home_team
-        spread_line_dog = home_team if is_away_spread_fav else away_team
 
-        p_minus1_5_fav = away_cover_minus1_5 if is_away_spread_fav else home_cover_minus1_5
-        p_plus1_5_dog = home_cover_plus1_5 if is_away_spread_fav else away_cover_plus1_5
-
-        if p_minus1_5_fav >= 0.5:
-            spread_choice = f"{get_team_abbr(spread_line_fav)} -1.5"
-            spread_prob = p_minus1_5_fav
+        if model_winner == away_team:
+            spread_val = book_away_spread
+            spread_choice = f"{get_team_abbr(away_team)} {spread_val:+.1f}"
+            spread_prob = away_cover_prob(spread_val)
         else:
-            spread_choice = f"{get_team_abbr(spread_line_dog)} +1.5"
-            spread_prob = p_plus1_5_dog
+            spread_val = -book_away_spread
+            spread_choice = f"{get_team_abbr(home_team)} {spread_val:+.1f}"
+            spread_prob = home_cover_prob(spread_val)
 
         if spread_prob > top_spread_prob_val:
             top_spread_prob_val = spread_prob

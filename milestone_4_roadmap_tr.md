@@ -116,7 +116,7 @@
     * [mlb_unified_engine.py](file:///c:/Users/ozzenc/Desktop/mlb_predictor_engine_v2/backend/app/services/mlb_unified_engine.py) (`calculate_weather_impact` metodu: ~90 satır değişiklik)
   * **Zorluk Derecesi**: Orta. (Kök sebep tespiti ve kalibrasyonu gerektirdi; unit testlerle doğrulandı).
 
-- [ ] **Görev 3 — Konsensüs Spread Seçim Mantığının Düzeltilmesi (Consensus Spread Pick Alignment)**:
+- [x] **Görev 3 — Konsensüs Spread Seçim Mantığının Düzeltilmesi (Consensus Spread Pick Alignment)**:
   * **Yapılacak Değişiklik**: Modelin galip tahmin ettiği veya desteklediği takımın (+1.5 veya -1.5) spread seçeneğini göstermek yerine, rakip takımın spread'ini çelişkili bir şekilde önermesi sorunu giderilecektir. Örneğin model Pittsburgh'un kazanacağını öngörürken (PIT ML), spread olarak `ATL +1.5` göstermesi yerine, modelin lehine olan ve daha yüksek odds/olasılık sunan `PIT +1.5` seçeneğini gösterecektir.
   * **Sorunun Kaynağı & Çözüm Mantığı**:
     * Bahis verisi gelmediğinde veya spread çizgisi tanımsız olduğunda uygulanan fallback mantığının (`awayScore > homeScore ? -1.5 : 1.5`) hatalı bir şekilde deplasmanı favori (-1.5) olarak varsayması ve bu durumun ev sahibini underdog (+1.5) yaparak çelişkili spread pick'ler üretmesi.
