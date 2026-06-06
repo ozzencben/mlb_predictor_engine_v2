@@ -103,7 +103,7 @@ class BallparkStatsSchema(BaseModel):
         return {
             "nrfi_pct": _coerce("nrfi_pct", values.get("nrfi_pct"), 0.50),
             "yrfi_pct": _coerce("yrfi_pct", values.get("yrfi_pct"), 0.50),
-            "park_factor": _coerce("park_factor", values.get("park_factor"), 1.0),
+            "park_factor": _coerce("park_factor", values.get("park_factor") or values.get("run_factor"), 1.0),
         }
 
 class PitcherTrendData(BaseModel):

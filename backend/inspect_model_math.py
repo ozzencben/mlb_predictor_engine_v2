@@ -200,8 +200,8 @@ def run_simulations():
     home_rpg = bos_stats["rpg_offense"]["home"]
     away_rpg = bos_stats["rpg_offense"]["away"]
     ratio = home_rpg / away_rpg
-    hfa_mult = 1.01 + (ratio - 1.0) * 0.05
-    hfa_mult = max(1.01, min(1.06, hfa_mult))
+    hfa_mult = 1.01 + (ratio - 1.0) * 0.10
+    hfa_mult = max(1.01, min(1.08, hfa_mult))
     print(f"Red Sox Home HFA (Home RPG: {home_rpg}, Away RPG: {away_rpg}):")
     print(f"  Home/Away RPG Ratio: {ratio:.4f} -> Calculated HFA Multiplier: {hfa_mult:.4f}")
     

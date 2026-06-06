@@ -40,7 +40,7 @@ class F5Model:
             def_current=validated.def_current,
         )
 
-    def calculate_score(self, offense_team: str, pitcher: str, is_home: bool) -> float:
+    def calculate_score(self, offense_team: str, pitching_team: str, pitcher: str, is_home: bool) -> float:
         pitcher_data = self._get_pitcher_data(pitcher)
         off_stats = self._get_team_data(offense_team)
 
@@ -49,8 +49,29 @@ class F5Model:
 
         raw_score = 4.5 * off_stats.offense_rating * (1.0 / pitching_defense_strength)
 
+        # Dynamic stadyum HFA
+        hfa_modifier = self.hfa
+        home_team_name = offense_team if is_home else pitching_team
+        home_stats = self.team_db.get(home_team_name, {})
+
         if is_home:
-            raw_score *= self.hfa
+            # Home team scoring (offense_team is home_team_name)
+            home_off_rpg = home_stats.get("rpg_offense", {}).get("home", 4.5)
+            away_off_rpg = home_stats.get("rpg_offense", {}).get("away", 4.5)
+            if away_off_rpg > 0:
+                ratio = home_off_rpg / away_off_rpg
+                hfa_modifier = 1.01 + (ratio - 1.0) * 0.10
+                hfa_modifier = max(1.01, min(1.08, hfa_modifier))
+            raw_score *= hfa_modifier
+        else:
+            # Away team scoring (pitching_team is home_team_name)
+            home_def_rpg = home_stats.get("rpg_defense", {}).get("home", 4.5)
+            away_def_rpg = home_stats.get("rpg_defense", {}).get("away", 4.5)
+            if away_def_rpg > 0:
+                ratio = home_def_rpg / away_def_rpg
+                hfa_modifier = 0.99 - (1.0 - ratio) * 0.10
+                hfa_modifier = max(0.92, min(0.99, hfa_modifier))
+            raw_score *= hfa_modifier
 
         # Scale to 5 innings
         f5_score = raw_score * (5.0 / 9.0)
@@ -60,9 +81,8 @@ class F5Model:
     def calculate(
         self, away_team: str, home_team: str, away_pitcher: str, home_pitcher: str
     ) -> dict:
-        # GEREKSİZ PARAMETRE KALDIRILDI: pitching_team F5'te kullanılmadığı için metoddan çıkartıldı.
-        away_score = self.calculate_score(away_team, home_pitcher, is_home=False)
-        home_score = self.calculate_score(home_team, away_pitcher, is_home=True)
+        away_score = self.calculate_score(away_team, home_team, home_pitcher, is_home=False)
+        home_score = self.calculate_score(home_team, away_team, away_pitcher, is_home=True)
 
         # Pythagorean Optimizasyonu (total_pow ile CPU kazancı)
         if away_score == 0 and home_score == 0:

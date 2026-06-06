@@ -131,7 +131,7 @@ class MLBModel:
         pitcher_data, p_raw = self._get_pitcher_data(pitcher)
         off_stats = self._get_team_data(offense_team)
         def_stats = self._get_team_data(pitching_team)
-        park_f = self._get_park_factor(pitching_team if is_home else offense_team)
+        park_f = self._get_park_factor(offense_team if is_home else pitching_team)
 
         # Apply Base Weights: 66% SP and 34% BP
         pitching_defense_strength = (pitcher_data.sp_rating * 0.66) + (
@@ -172,14 +172,26 @@ class MLBModel:
         
         # Dynamic stadyum HFA
         hfa_modifier = self.hfa
+        home_team_name = offense_team if is_home else pitching_team
+        home_stats = self.team_db.get(home_team_name, {})
+
         if is_home:
-            home_stats = self.team_db.get(pitching_team, {})
-            home_rpg = home_stats.get("rpg_offense", {}).get("home", 4.5)
-            away_rpg = home_stats.get("rpg_offense", {}).get("away", 4.5)
-            if away_rpg > 0:
-                ratio = home_rpg / away_rpg
-                hfa_modifier = 1.01 + (ratio - 1.0) * 0.05
-                hfa_modifier = max(1.01, min(1.06, hfa_modifier))
+            # Home team scoring (offense_team is home_team_name)
+            home_off_rpg = home_stats.get("rpg_offense", {}).get("home", 4.5)
+            away_off_rpg = home_stats.get("rpg_offense", {}).get("away", 4.5)
+            if away_off_rpg > 0:
+                ratio = home_off_rpg / away_off_rpg
+                hfa_modifier = 1.01 + (ratio - 1.0) * 0.10
+                hfa_modifier = max(1.01, min(1.08, hfa_modifier))
+            score *= hfa_modifier
+        else:
+            # Away team scoring (pitching_team is home_team_name)
+            home_def_rpg = home_stats.get("rpg_defense", {}).get("home", 4.5)
+            away_def_rpg = home_stats.get("rpg_defense", {}).get("away", 4.5)
+            if away_def_rpg > 0:
+                ratio = home_def_rpg / away_def_rpg
+                hfa_modifier = 0.99 - (1.0 - ratio) * 0.10
+                hfa_modifier = max(0.92, min(0.99, hfa_modifier))
             score *= hfa_modifier
 
         # Sonny Moore Power Rankings Differential Bump

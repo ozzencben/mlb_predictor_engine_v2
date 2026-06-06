@@ -29,9 +29,9 @@
 - ✅ Lineup wRC+ / wOBA harmanlaması → 9 oyuncu ortalaması, engine'e besleniyor
 - ✅ `predict_matchup()` imzası güncellendi: `away_splits`, `home_splits`, `lineup_avg` parametreleri eklendi
 - ✅ Bullpen SIERA → Covers.com üzerinden dinamik bullpen verilerinin (ERA, WHIP, H, SO, BB, vb.) çekilerek SIERA proxy formülü ile hesaplanması ve modele entegrasyonu (statik json yerine dinamik günlük güncelleme)
+- ✅ HFA dinamik stadyum katsayısı & Ballpark Factor Düzeltmesi → Ballpark stats run_factor/park_factor eşleşme bug'ı giderildi; simetrik dinamik HFA (ev sahibi hücum artış katsayısı, misafir takım runs-allowed kısıtlama katsayısı) hem F5 hem de Full Game modellerine entegre edildi.
 
 **Henüz Yapılmadı:**
-- 🔲 HFA dinamik stadyum katsayısı → Stadyum bazlı tarihsel dataset gerekiyor
 - 🔲 Sonny Moore Power Ranking diferansiyeli → Scraping + haftalık güncelleme gerekiyor
 
 ---
@@ -94,7 +94,7 @@
 
 ### Orta Vadeli
 - [x] **Bullpen SIERA entegrasyonu** → Covers.com veri kaynağı ve SIERA proxy hesabı ile dinamik entegrasyon (Tamamlandı)
-- [ ] **HFA dinamik stadyum katsayısı** → Park bazlı tarihsel ev/deplasman diferansiyeli
+- [x] **HFA dinamik stadyum katsayısı** → Park bazlı tarihsel ev/deplasman diferansiyeli (Tamamlandı)
 - [ ] **Sonny Moore Power Rankings** → Haftalık güncelleme mekanizması
 
 ---
