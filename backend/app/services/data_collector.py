@@ -49,7 +49,7 @@ class DataCollector:
                 }
             return data
         except Exception as e:
-            print(f"❌ Hata (URL: {url}): {e}")
+            print(f"Error (URL: {url}): {e}")
             return {}
 
     def _atomic_save(self, filepath: str, data: dict):
@@ -67,7 +67,7 @@ class DataCollector:
             raise e
 
     def collect_all_stats(self) -> dict:
-        print(f"🚀 VERİ TOPLAMA BAŞLADI: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+        print(f"DATA COLLECTION STARTED: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
 
         # 1. Ham Verileri Çek
         rpg_off = self._scrape_teamrankings_table(
@@ -86,10 +86,10 @@ class DataCollector:
             "https://www.teamrankings.com/mlb/stat/strikeouts-per-game"
         )
 
-        # MANTIKSAL GÜVENLİK: Herhangi bir scraping başarısız olursa iyi veriyi ezmeyi reddet.
+        # Check that all stats were fetched successfully before saving
         if not all([rpg_off, rpg_def, ba_data, ops_data, so_data]):
             print(
-                "❌ Eksik veri çekildi. Sistem bütünlüğü için mevcut JSON güncellenmeyecek."
+                "Warning: Missing data. Existing JSON will not be overwritten."
             )
             return {}
 
@@ -118,5 +118,111 @@ class DataCollector:
         self._atomic_save(live_path, unified_stats)
         self._atomic_save(history_path, unified_stats)
 
-        print(f"✅ Canlı veri güncellendi: {live_path}")
+        # Scrape and update bullpen SIERA
+        try:
+            self._scrape_covers_bullpen_siera()
+        except Exception as e:
+            print(f"Bullpen SIERA update failed: {e}")
+
+        print(f"Live stats updated: {live_path}")
         return unified_stats
+
+    def _scrape_covers_bullpen_siera(self) -> dict:
+        current_year = datetime.now().year
+        url = f"https://www.covers.com/sport/baseball/mlb/statistics/team-bullpenERA/{current_year}"
+        
+        COVERS_TO_TR = {
+            "LAA": "LA Angels",
+            "HOU": "Houston",
+            "OAK": "Oakland",
+            "ATH": "Oakland",
+            "TOR": "Toronto",
+            "ATL": "Atlanta",
+            "MIL": "Milwaukee",
+            "STL": "St Louis",
+            "CHC": "Chi Cubs",
+            "AZ": "Arizona",
+            "LAD": "LA Dodgers",
+            "SF": "SF Giants",
+            "CLE": "Cleveland",
+            "SEA": "Seattle",
+            "MIA": "Miami",
+            "NYM": "NY Mets",
+            "WAS": "Washington",
+            "BAL": "Baltimore",
+            "SD": "San Diego",
+            "PHI": "Philadelphia",
+            "PIT": "Pittsburgh",
+            "TEX": "Texas",
+            "TB": "Tampa Bay",
+            "BOS": "Boston",
+            "CIN": "Cincinnati",
+            "COL": "Colorado",
+            "KC": "Kansas City",
+            "DET": "Detroit",
+            "MIN": "Minnesota",
+            "CHW": "Chi White Sox",
+            "NYY": "NY Yankees"
+        }
+        
+        print(f"Fetching bullpen data from Covers.com: {url}")
+        try:
+            response = requests.get(url, headers=self.headers, timeout=10)
+            response.raise_for_status()
+            soup = BeautifulSoup(response.text, "html.parser")
+            
+            tables = soup.find_all("table")
+            bullpen_siera = {}
+            
+            for table in tables:
+                thead = table.find("thead")
+                if thead and "Team" in thead.text:
+                    tbody = table.find("tbody")
+                    if tbody:
+                        rows = tbody.find_all("tr")
+                        for row in rows:
+                            cols = [td.text.strip() for td in row.find_all("td")]
+                            if len(cols) >= 9:
+                                covers_team = cols[0]
+                                tr_team = COVERS_TO_TR.get(covers_team, covers_team)
+                                
+                                era = float(cols[1])
+                                er = int(cols[4])
+                                h = int(cols[3])
+                                bb = int(cols[7])
+                                so = int(cols[8])
+                                
+                                # innings pitched calculation
+                                if era > 0:
+                                    ip = (er * 9) / era
+                                else:
+                                    ip = 50.0  # safe fallback
+                                    
+                                bf = (ip * 2.9) + h + bb
+                                
+                                k_pct = so / bf if bf > 0 else 0.20
+                                bb_pct = bb / bf if bf > 0 else 0.08
+                                
+                                # standard SIERA-like formula
+                                siera = (6.145 
+                                         - 16.986 * k_pct 
+                                         + 11.434 * bb_pct 
+                                         - 1.858 * 0.10 
+                                         + 7.653 * (k_pct ** 2) 
+                                         + 10.130 * k_pct * 0.10 
+                                         - 5.195 * bb_pct * 0.10)
+                                
+                                bullpen_siera[tr_team] = round(max(2.0, min(6.0, siera)), 2)
+                        break
+            
+            if bullpen_siera and len(bullpen_siera) >= 28:
+                siera_path = os.path.join(self.base_dir, "bullpen_siera.json")
+                self._atomic_save(siera_path, bullpen_siera)
+                print(f"Bullpen SIERA data updated: {siera_path} ({len(bullpen_siera)} teams)")
+                return bullpen_siera
+            else:
+                print("Warning: Bullpen data missing or table not found. Update skipped.")
+                return {}
+        except Exception as e:
+            print(f"Error: Covers.com bullpen SIERA retrieval error: {e}")
+            return {}

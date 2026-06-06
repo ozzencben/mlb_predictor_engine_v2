@@ -21,16 +21,16 @@
 
 ---
 
-### Görev 3 (Kısmi) — Ana Model Güçlendirmesi
+### Görev 3 — Ana Model Güçlendirmesi
 
 **Tamamlanan:**
 - ✅ xERA / xFIP pitcher expected stats → `pitcher_scraper.py` + engine
 - ✅ LHP/RHP team hitting splits → `fetch_team_splits_async()`, tüm takımlar paralel
 - ✅ Lineup wRC+ / wOBA harmanlaması → 9 oyuncu ortalaması, engine'e besleniyor
 - ✅ `predict_matchup()` imzası güncellendi: `away_splits`, `home_splits`, `lineup_avg` parametreleri eklendi
+- ✅ Bullpen SIERA → Covers.com üzerinden dinamik bullpen verilerinin (ERA, WHIP, H, SO, BB, vb.) çekilerek SIERA proxy formülü ile hesaplanması ve modele entegrasyonu (statik json yerine dinamik günlük güncelleme)
 
 **Henüz Yapılmadı:**
-- 🔲 Bullpen SIERA → FanGraphs veri kaynağı gerekiyor
 - 🔲 HFA dinamik stadyum katsayısı → Stadyum bazlı tarihsel dataset gerekiyor
 - 🔲 Sonny Moore Power Ranking diferansiyeli → Scraping + haftalık güncelleme gerekiyor
 
@@ -93,7 +93,7 @@
 - [ ] **Daily Model Ek Verileri Doğrulaması**: Günlük model için henüz entegre edilmemiş olan ek sabermetrik verilerin (Bullpen SIERA, HFA, Sonny Moore) orta vadeli yol haritası kapsamında geliştirilmeye devam etmesi.
 
 ### Orta Vadeli
-- [ ] **Bullpen SIERA entegrasyonu** → FanGraphs veri kaynağı çözümü
+- [x] **Bullpen SIERA entegrasyonu** → Covers.com veri kaynağı ve SIERA proxy hesabı ile dinamik entegrasyon (Tamamlandı)
 - [ ] **HFA dinamik stadyum katsayısı** → Park bazlı tarihsel ev/deplasman diferansiyeli
 - [ ] **Sonny Moore Power Rankings** → Haftalık güncelleme mekanizması
 
