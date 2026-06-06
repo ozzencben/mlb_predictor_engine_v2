@@ -1,4 +1,4 @@
-import requests
+from curl_cffi import requests
 import json
 import os
 import tempfile # Atomik yazma için eklendi
@@ -38,7 +38,7 @@ class MatchupScraper:
         team_records = {}
         try:
             # timeout eklendi, ağ sorunlarında sonsuza kadar beklemez
-            response = requests.get(url, timeout=10) 
+            response = requests.get(url, timeout=10, impersonate="chrome110") 
             response.raise_for_status()
             data = response.json()
             
@@ -81,7 +81,7 @@ class MatchupScraper:
         url = f"https://statsapi.mlb.com/api/v1/schedule?sportId=1&date={today_str}&hydrate=probablePitcher"
         
         try:
-            response = requests.get(url, timeout=10)
+            response = requests.get(url, timeout=10, impersonate="chrome110")
             response.raise_for_status()
             data = response.json()
             

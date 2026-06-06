@@ -2,7 +2,7 @@ import asyncio
 import httpx
 import json
 import os
-import requests
+from curl_cffi import requests
 import tempfile
 from datetime import datetime
 
@@ -31,7 +31,7 @@ class PitcherScraper:
         }
 
         # TCP/SSL Handshake maliyetini düşürmek için Session kullanımı
-        self.session = requests.Session()
+        self.session = requests.Session(impersonate="chrome110")
         self.session.headers.update({"User-Agent": settings.SCRAPER_USER_AGENT})
 
     def _atomic_save(self, filepath: str, data: dict):

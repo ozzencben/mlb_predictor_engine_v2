@@ -2,7 +2,7 @@ import asyncio
 import json
 import os
 import tempfile
-import requests
+from curl_cffi import requests
 import httpx
 from datetime import datetime, timezone, timedelta
 from zoneinfo import ZoneInfo
@@ -105,7 +105,7 @@ class OddsProvider:
         }
 
         try:
-            response = requests.get(self.base_url, params=params, timeout=10)
+            response = requests.get(self.base_url, params=params, timeout=10, impersonate="chrome110")
             response.raise_for_status()
             odds_data = response.json()
 
@@ -122,7 +122,7 @@ class OddsProvider:
         except requests.exceptions.HTTPError as e:
             self._log_api_error(e.response.status_code, e.response.text)
             return []
-        except requests.RequestException as e:
+        except requests.exceptions.RequestException as e:
             print(f"❌ [OddsProvider] Ağ Hatası: İnternet bağlantınızı kontrol edin. Detay: {str(e)}")
             return []
         except Exception as e:
@@ -247,7 +247,7 @@ class OddsProvider:
             event_chunks = [filtered_events[i:i + chunk_size] for i in range(0, len(filtered_events), chunk_size)]
             
             for chunk in event_chunks:
-                event_ids = ",".join([e["id"] for e in chunk])
+                event_ids = ",".join([str(e["id"]) for e in chunk])
                 odds_url = f"{base_url_io}/odds/multi"
                 odds_params = {
                     "apiKey": api_key_io,

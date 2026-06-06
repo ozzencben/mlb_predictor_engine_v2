@@ -1,4 +1,4 @@
-import requests
+from curl_cffi import requests
 from bs4 import BeautifulSoup
 import json
 import os
@@ -30,8 +30,8 @@ class DataCollector:
     def _scrape_teamrankings_table(self, url: str) -> dict:
         try:
             response = requests.get(
-                url, headers=self.headers, timeout=10
-            )  # Timeout eklendi (Zorunlu)
+                url, headers=self.headers, timeout=10, impersonate="chrome110"
+            )
             response.raise_for_status()
             soup = BeautifulSoup(response.text, "html.parser")
             table = soup.find("table", {"class": "datatable"})
@@ -173,7 +173,7 @@ class DataCollector:
         
         print(f"Fetching bullpen data from Covers.com: {url}")
         try:
-            response = requests.get(url, headers=self.headers, timeout=10)
+            response = requests.get(url, headers=self.headers, timeout=10, impersonate="chrome110")
             response.raise_for_status()
             soup = BeautifulSoup(response.text, "html.parser")
             
@@ -270,7 +270,7 @@ class DataCollector:
         
         print(f"Fetching Sonny Moore Power Rankings from: {url}")
         try:
-            response = requests.get(url, headers=self.headers, timeout=10)
+            response = requests.get(url, headers=self.headers, timeout=10, impersonate="chrome110")
             response.raise_for_status()
             
             soup = BeautifulSoup(response.text, "html.parser")

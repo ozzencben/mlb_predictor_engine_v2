@@ -1604,7 +1604,14 @@ class PredictionRunner:
             old_pred = old_predictions_db.get(key)
             old_insight = None
             if old_pred and "Details" in old_pred:
-                old_insight = old_pred["Details"].get("ai_insight")
+                # Verify that starting pitchers have not changed before using cached AI insight
+                old_away_sp = old_pred.get("matchup", {}).get("away_pitcher")
+                old_home_sp = old_pred.get("matchup", {}).get("home_pitcher")
+                curr_away_sp = pred.get("matchup", {}).get("away_pitcher")
+                curr_home_sp = pred.get("matchup", {}).get("home_pitcher")
+                
+                if old_away_sp == curr_away_sp and old_home_sp == curr_home_sp:
+                    old_insight = old_pred["Details"].get("ai_insight")
                 
             if old_insight and not old_insight.startswith("AI analysis"):
                 print(f"   ⚡ AI Önbelleği Koruması: {away} vs {home} için mevcut geçerli AI yorumu başarıyla korundu.")
