@@ -124,6 +124,12 @@ class DataCollector:
         except Exception as e:
             print(f"Bullpen SIERA update failed: {e}")
 
+        # Scrape and update Sonny Moore PR
+        try:
+            self._scrape_sonny_moore_pr()
+        except Exception as e:
+            print(f"Sonny Moore PR update failed: {e}")
+
         print(f"Live stats updated: {live_path}")
         return unified_stats
 
@@ -225,4 +231,82 @@ class DataCollector:
                 return {}
         except Exception as e:
             print(f"Error: Covers.com bullpen SIERA retrieval error: {e}")
+            return {}
+
+    def _scrape_sonny_moore_pr(self) -> dict:
+        url = "https://www.sonnymoorepowerratings.com/mlb.htm"
+        MOORE_TO_TR = {
+            "LOS ANGELES DODGERS": "LA Dodgers",
+            "ATLANTA BRAVES": "Atlanta",
+            "MILWAUKEE BREWERS": "Milwaukee",
+            "NEW YORK YANKEES": "NY Yankees",
+            "TAMPA BAY RAYS": "Tampa Bay",
+            "TEXAS RANGERS": "Texas",
+            "SEATTLE MARINERS": "Seattle",
+            "ARIZONA DIAMONDBACKS": "Arizona",
+            "PHILADELPHIA PHILLIES": "Philadelphia",
+            "CLEVELAND GUARDIANS": "Cleveland",
+            "SAN DIEGO PADRES": "San Diego",
+            "ST. LOUIS CARDINALS": "St Louis",
+            "PITTSBURGH PIRATES": "Pittsburgh",
+            "WASHINGTON NATIONALS": "Washington",
+            "CHICAGO WHITE SOX": "Chi White Sox",
+            "BALTIMORE ORIOLES": "Baltimore",
+            "CHICAGO CUBS": "Chi Cubs",
+            "BOSTON RED SOX": "Boston",
+            "TORONTO BLUE JAYS": "Toronto",
+            "OAKLAND ATHLETICS": "Oakland",
+            "DETROIT TIGERS": "Detroit",
+            "NEW YORK METS": "NY Mets",
+            "MINNESOTA TWINS": "Minnesota",
+            "MIAMI MARLINS": "Miami",
+            "CINCINNATI REDS": "Cincinnati",
+            "SAN FRANCISCO GIANTS": "SF Giants",
+            "HOUSTON ASTROS": "Houston",
+            "KANSAS CITY ROYALS": "Kansas City",
+            "LOS ANGELES ANGELS": "LA Angels",
+            "COLORADO ROCKIES": "Colorado"
+        }
+        
+        print(f"Fetching Sonny Moore Power Rankings from: {url}")
+        try:
+            response = requests.get(url, headers=self.headers, timeout=10)
+            response.raise_for_status()
+            
+            soup = BeautifulSoup(response.text, "html.parser")
+            pre = soup.find("pre")
+            if not pre:
+                print("Warning: No pre tag found in Sonny Moore page.")
+                return {}
+                
+            lines = pre.text.split("\n")
+            sonny_moore_pr = {}
+            
+            for line in lines:
+                parts = line.strip().split()
+                if not parts:
+                    continue
+                    
+                if parts[0].isdigit():
+                    if len(parts) >= 7:
+                        pr_str = parts[-1]
+                        team_raw = " ".join(parts[1:-5])
+                        
+                        try:
+                            pr = float(pr_str)
+                            tr_team = MOORE_TO_TR.get(team_raw.upper(), team_raw)
+                            sonny_moore_pr[tr_team] = pr
+                        except ValueError:
+                            continue
+                            
+            if sonny_moore_pr and len(sonny_moore_pr) >= 28:
+                moore_path = os.path.join(self.base_dir, "sonny_moore.json")
+                self._atomic_save(moore_path, sonny_moore_pr)
+                print(f"Sonny Moore PR data updated: {moore_path} ({len(sonny_moore_pr)} teams)")
+                return sonny_moore_pr
+            else:
+                print("Warning: Sonny Moore parsed data missing or insufficient teams. Update skipped.")
+                return {}
+        except Exception as e:
+            print(f"Error: Sonny Moore PR retrieval error: {e}")
             return {}

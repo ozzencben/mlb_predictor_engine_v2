@@ -85,6 +85,11 @@ class MLBModel:
         except Exception:
             self.sonny_moore = {}
 
+        if self.sonny_moore:
+            self.sonny_moore_avg = sum(self.sonny_moore.values()) / len(self.sonny_moore)
+        else:
+            self.sonny_moore_avg = 100.0
+
     def _get_pitcher_data(self, pitcher_name: str) -> tuple[PitcherStats, dict]:
         p = self.pitcher_db.get(
             pitcher_name, {"era": 4.2, "fip": 4.2, "k_bb_pct": 0.14, "xera": 4.20, "xfip": 4.20, "throws": "R"}
@@ -195,8 +200,8 @@ class MLBModel:
             score *= hfa_modifier
 
         # Sonny Moore Power Rankings Differential Bump
-        sm_off = self.sonny_moore.get(offense_team, 100.0)
-        sm_def = self.sonny_moore.get(pitching_team, 100.0)
+        sm_off = self.sonny_moore.get(offense_team, self.sonny_moore_avg)
+        sm_def = self.sonny_moore.get(pitching_team, self.sonny_moore_avg)
         sm_diff = sm_off - sm_def
         sm_bump = 1.0 + (sm_diff * 0.003)
         score *= sm_bump

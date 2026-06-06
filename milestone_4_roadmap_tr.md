@@ -30,9 +30,10 @@
 - ✅ `predict_matchup()` imzası güncellendi: `away_splits`, `home_splits`, `lineup_avg` parametreleri eklendi
 - ✅ Bullpen SIERA → Covers.com üzerinden dinamik bullpen verilerinin (ERA, WHIP, H, SO, BB, vb.) çekilerek SIERA proxy formülü ile hesaplanması ve modele entegrasyonu (statik json yerine dinamik günlük güncelleme)
 - ✅ HFA dinamik stadyum katsayısı & Ballpark Factor Düzeltmesi → Ballpark stats run_factor/park_factor eşleşme bug'ı giderildi; simetrik dinamik HFA (ev sahibi hücum artış katsayısı, misafir takım runs-allowed kısıtlama katsayısı) hem F5 hem de Full Game modellerine entegre edildi.
+- ✅ Sonny Moore Power Rankings → Sonny Moore resmi web sitesinden (`sonnymoorepowerratings.com/mlb.htm`) en güncel power ranking verilerinin dinamik çekilip ayrıştırılması, lig ortalaması bazlı güvenli fallback mimarisiyle model tahminlerine dahil edilmesi.
 
 **Henüz Yapılmadı:**
-- 🔲 Sonny Moore Power Ranking diferansiyeli → Scraping + haftalık güncelleme gerekiyor
+- (Tüm ana model güçlendirme görevleri tamamlandı)
 
 ---
 
@@ -95,7 +96,7 @@
 ### Orta Vadeli
 - [x] **Bullpen SIERA entegrasyonu** → Covers.com veri kaynağı ve SIERA proxy hesabı ile dinamik entegrasyon (Tamamlandı)
 - [x] **HFA dinamik stadyum katsayısı** → Park bazlı tarihsel ev/deplasman diferansiyeli (Tamamlandı)
-- [ ] **Sonny Moore Power Rankings** → Haftalık güncelleme mekanizması
+- [x] **Sonny Moore Power Rankings** → Haftalık/Günlük güncelleme mekanizması (Tamamlandı)
 
 ---
 
