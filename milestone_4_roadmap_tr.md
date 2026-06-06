@@ -91,7 +91,7 @@
 ### Kısa Vadeli (Öncelikli — Tyler'ın Yeni Talepleri)
 - [x] **Tyler'ın Geri Bildirimi 3 — Atıcı Kartlarına Son 5 Maç Başarı Oranı (Hit Rate)**: Atıcı kartındaki "Last 5 Ks" başlığının yanına, mevcut bookmaker K çizgisine göre atıcının son 5 maçta çizgiyi geçme (veya altında kalma) yüzdesini dinamik ekleme. Örn: `Last 5 Ks (80% Over)` veya `Last 5 Ks (100% Under)`.
 - [x] **Tyler'ın Geri Bildirimi 4 — NRFI VIP Consensus Edges (Top 3 Edges)**: "NRFI Model" sekmesi aktifken sayfanın üstündeki banner'da günün en yüksek avantaja sahip ilk 3 NRFI veya YRFI edge'inin dinamik listelenmesi ve tıklandığında ilgili NRFI maç satırına yumuşak geçişle kaydırılıp vurgulanması.
-- [ ] **Daily Model Ek Verileri Doğrulaması**: Günlük model için henüz entegre edilmemiş olan ek sabermetrik verilerin (Bullpen SIERA, HFA, Sonny Moore) orta vadeli yol haritası kapsamında geliştirilmeye devam etmesi.
+- [x] **Daily Model Ek Verileri Doğrulaması**: Günlük model için dinamik sabermetrik verilerin (Bullpen SIERA, HFA, Sonny Moore) entegrasyonu başarıyla tamamlandı ve tüm modeller üzerinden doğrulandı.
 
 ### Orta Vadeli
 - [x] **Bullpen SIERA entegrasyonu** → Covers.com veri kaynağı ve SIERA proxy hesabı ile dinamik entegrasyon (Tamamlandı)
@@ -107,4 +107,5 @@
 | v1.0 | ~28 May 2026 | M4 ilk çıktı: hamburger menü, lineup scraper, K model, props UI |
 | v1.1 | 5 Haz 2026 | Bug fix: pitcher_stats.json backfill, k_pct/avg_ip kayıt sorunu, calculate_pitcher_metrics güncelleme |
 | v1.2 | 6 Haz 2026 | Tyler geri bildirimleri (VIP Top 3 Pitchers, Model Tanımı), internal split (is_home, LHP/RHP) ve **ücretli API anahtarı entegrasyonu** (Props + NRFI + F5 Vegas kilitleri açıldı) |
-| v1.3 (Planlanan) | 6 Haz 2026 | Tyler yeni talepleri: Son 5 K Hit Rate gösterimi, NRFI VIP Consensus Edges entegrasyonu ve kaydırma efekti |
+| v1.3 | 6 Haz 2026 | Tyler yeni talepleri: Son 5 K Hit Rate gösterimi, NRFI VIP Consensus Edges entegrasyonu ve kaydırma efekti |
+| v1.4 | 6 Haz 2026 | Daily Model Sabermetrik Güçlendirmeleri: Dinamik Bullpen SIERA, Simetrik Stadium HFA, Ballpark Factor düzeltmesi ve Dinamik Sonny Moore PR entegrasyonları. |
