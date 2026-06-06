@@ -586,7 +586,15 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
     // otherwise fallback to high-fidelity seed-based mock lines
     const bookmakersList = useMemo(() => {
         if (Odds?.bookmakers && Odds.bookmakers.length > 0) {
-            return Odds.bookmakers;
+            const filtered = Odds.bookmakers.filter(bk => 
+                (bk.away_ml !== null && bk.away_ml !== undefined && bk.away_ml !== 0) ||
+                (bk.home_ml !== null && bk.home_ml !== undefined && bk.home_ml !== 0) ||
+                (bk.away_spread !== null && bk.away_spread !== undefined && bk.away_spread !== 0) ||
+                (bk.total_line !== null && bk.total_line !== undefined && bk.total_line !== 0)
+            );
+            if (filtered.length > 0) {
+                return filtered;
+            }
         }
         return generateMockBookmakers(
             matchup.away_team, 

@@ -597,6 +597,17 @@ class OddsProvider:
             except Exception as e:
                 print(f"⚠️ [OddsProvider] Error merging props odds from player_props_odds.json: {e}")
 
+        # Clean up bookmakers: filter out bookmakers that have no full game lines (all key fields are None or 0)
+        result["bookmakers"] = [
+            b for b in result["bookmakers"]
+            if not (
+                (b.get("away_ml") is None or b.get("away_ml") == 0) and
+                (b.get("home_ml") is None or b.get("home_ml") == 0) and
+                (b.get("away_spread") is None or b.get("away_spread") == 0) and
+                (b.get("total_line") is None or b.get("total_line") == 0)
+            )
+        ]
+
         return result
 
 
