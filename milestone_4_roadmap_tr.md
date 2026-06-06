@@ -87,13 +87,15 @@
 - [x] **K / IP filter → tek metrik göster** → Filtre seçilince diğer prop bölümü gizleniyor
 - [x] **Takıma göre filter** → Opponent dropdown ile belirli takıma karşı pitching yapanları listele
 
+### Kısa Vadeli (Öncelikli — Tyler'ın Yeni Talepleri)
+- [x] **Tyler'ın Geri Bildirimi 3 — Atıcı Kartlarına Son 5 Maç Başarı Oranı (Hit Rate)**: Atıcı kartındaki "Last 5 Ks" başlığının yanına, mevcut bookmaker K çizgisine göre atıcının son 5 maçta çizgiyi geçme (veya altında kalma) yüzdesini dinamik ekleme. Örn: `Last 5 Ks (80% Over)` veya `Last 5 Ks (100% Under)`.
+- [x] **Tyler'ın Geri Bildirimi 4 — NRFI VIP Consensus Edges (Top 3 Edges)**: "NRFI Model" sekmesi aktifken sayfanın üstündeki banner'da günün en yüksek avantaja sahip ilk 3 NRFI veya YRFI edge'inin dinamik listelenmesi ve tıklandığında ilgili NRFI maç satırına yumuşak geçişle kaydırılıp vurgulanması.
+- [ ] **Daily Model Ek Verileri Doğrulaması**: Günlük model için henüz entegre edilmemiş olan ek sabermetrik verilerin (Bullpen SIERA, HFA, Sonny Moore) orta vadeli yol haritası kapsamında geliştirilmeye devam etmesi.
+
 ### Orta Vadeli
 - [ ] **Bullpen SIERA entegrasyonu** → FanGraphs veri kaynağı çözümü
 - [ ] **HFA dinamik stadyum katsayısı** → Park bazlı tarihsel ev/deplasman diferansiyeli
 - [ ] **Sonny Moore Power Rankings** → Haftalık güncelleme mekanizması
-
-### API Bağımlı
-- [ ] **Player Props API aktivasyonu** → Tyler $30 plan yükseltmesi + API key iletimi
 
 ---
 
@@ -103,4 +105,5 @@
 |---|---|---|
 | v1.0 | ~28 May 2026 | M4 ilk çıktı: hamburger menü, lineup scraper, K model, props UI |
 | v1.1 | 5 Haz 2026 | Bug fix: pitcher_stats.json backfill, k_pct/avg_ip kayıt sorunu, calculate_pitcher_metrics güncelleme |
-| v1.2 (Planlanan) | 6 Haz 2026 | Tyler geri bildirimleri (VIP Top 3 Pitchers, Model Tanımı) ve internal split (is_home, vs LHP/RHP split) düzeltmeleri |
+| v1.2 | 6 Haz 2026 | Tyler geri bildirimleri (VIP Top 3 Pitchers, Model Tanımı), internal split (is_home, LHP/RHP) ve **ücretli API anahtarı entegrasyonu** (Props + NRFI + F5 Vegas kilitleri açıldı) |
+| v1.3 (Planlanan) | 6 Haz 2026 | Tyler yeni talepleri: Son 5 K Hit Rate gösterimi, NRFI VIP Consensus Edges entegrasyonu ve kaydırma efekti |

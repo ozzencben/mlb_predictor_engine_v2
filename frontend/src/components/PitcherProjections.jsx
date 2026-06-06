@@ -187,6 +187,24 @@ const PitcherCard = ({ p, metricFilter = 'ALL' }) => {
     ? 'border-indigo-500/25 shadow-[0_0_20px_rgba(99,102,241,0.06)]'
     : 'border-slate-800/70';
 
+  const kHitRateInfo = useMemo(() => {
+    if (!p.last_5_k || p.last_5_k.length === 0 || p.k_line == null) return null;
+    const line = Number(p.k_line);
+    const direction = p.k_choice !== 'PASS' ? p.k_choice : (p.proj_k > line ? 'OVER' : 'UNDER');
+    
+    let hits = 0;
+    for (const val of p.last_5_k) {
+      if (direction === 'OVER' && val > line) {
+        hits++;
+      } else if (direction === 'UNDER' && val < line) {
+        hits++;
+      }
+    }
+    const pct = Math.round((hits / p.last_5_k.length) * 100);
+    return { pct, direction: direction === 'OVER' ? 'Over' : 'Under' };
+  }, [p.last_5_k, p.k_line, p.k_choice, p.proj_k]);
+
+
   return (
     <div
       id={`pitcher-card-${p.pitcher.replace(/\s+/g, '-').toLowerCase()}`}
@@ -254,17 +272,34 @@ const PitcherCard = ({ p, metricFilter = 'ALL' }) => {
 
       {/* ── Last 5 Games Ks ── */}
       {p.last_5_k && p.last_5_k.length > 0 && (
-        <div className="px-4 pb-3 flex items-center gap-2 border-b border-slate-850 pb-3 mb-3">
-          <span className="text-[9px] text-slate-500 font-black uppercase tracking-wider">Last 5 Ks:</span>
+        <div className="px-4 pb-3 flex items-center gap-2 border-b border-slate-850 pb-3 mb-3 animate-fade-in">
+          <span className="text-[9px] text-slate-500 font-black uppercase tracking-wider">
+            {kHitRateInfo ? (
+              <>
+                Last 5 ({kHitRateInfo.pct}%) Hits <span className="text-cyan-400 font-black">{kHitRateInfo.direction}</span>:
+              </>
+            ) : (
+              'Last 5 Ks:'
+            )}
+          </span>
           <div className="flex gap-1.5">
-            {p.last_5_k.map((kCount, idx) => (
-              <span 
-                key={idx} 
-                className="w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-black bg-slate-950 border border-slate-800 text-slate-300 shadow-sm"
-              >
-                {kCount}
-              </span>
-            ))}
+            {p.last_5_k.map((kCount, idx) => {
+              const isHit = kHitRateInfo && (
+                (kHitRateInfo.direction === 'Over' && kCount > p.k_line) ||
+                (kHitRateInfo.direction === 'Under' && kCount < p.k_line)
+              );
+              return (
+                <span 
+                  key={idx} 
+                  className={`w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-black border shadow-sm transition-all duration-300
+                    ${isHit 
+                      ? 'bg-emerald-950/40 border-emerald-500/40 text-emerald-400 font-black shadow-[0_0_6px_rgba(16,185,129,0.2)]' 
+                      : 'bg-slate-950 border-slate-800 text-slate-400'}`}
+                >
+                  {kCount}
+                </span>
+              );
+            })}
           </div>
         </div>
       )}

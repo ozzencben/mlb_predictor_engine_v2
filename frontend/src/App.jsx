@@ -5,7 +5,7 @@ import MatchupSkeleton from './components/MatchupSkeleton';
 import Footer from './components/Footer';
 import NrfiRow from './components/NrfiRow';
 import logo2Img from './assets/logo2.png';
-import { getTeamAbbr } from './utils/formatters';
+import { getTeamAbbr, formatAmericanOdds } from './utils/formatters';
 import DropdownNavigation from './components/DropdownNavigation';
 import PitcherProjections from './components/PitcherProjections';
 
@@ -177,6 +177,62 @@ function App() {
 
     return edges.sort((a, b) => b.edge - a.edge).slice(0, 3);
   }, [data]);
+
+  const nrfiEdges = useMemo(() => {
+    if (!predictions || predictions.length === 0) return [];
+
+    const edges = [];
+    predictions.forEach((p) => {
+      const Odds = p.Odds || {};
+      const nrfiScoreVal = p.NRFI?.nrfi_score || 0;
+      const yrfiScoreVal = p.NRFI?.yrfi_score || 0;
+      const pick = p.NRFI?.pick; // 'NRFI' or 'YRFI'
+
+      const hasNrfiOdds = Odds.nrfi_odds && Odds.nrfi_odds !== 0;
+      if (!hasNrfiOdds) return;
+
+      const nrfiEdgeVal = Odds.nrfi_edge_pct || 0;
+      const yrfiEdgeVal = Odds.yrfi_edge_pct || 0;
+
+      if (pick === 'NRFI' && nrfiEdgeVal > 0) {
+        edges.push({
+          awayTeam: p.matchup.away_team,
+          homeTeam: p.matchup.home_team,
+          choice: 'NRFI',
+          odds: Odds.nrfi_odds,
+          edge: nrfiEdgeVal,
+          score: nrfiScoreVal * 100,
+          book: Odds.nrfi_book || 'Best Line'
+        });
+      } else if (pick === 'YRFI' && yrfiEdgeVal > 0) {
+        edges.push({
+          awayTeam: p.matchup.away_team,
+          homeTeam: p.matchup.home_team,
+          choice: 'YRFI',
+          odds: Odds.yrfi_odds,
+          edge: yrfiEdgeVal,
+          score: yrfiScoreVal * 100,
+          book: Odds.yrfi_book || 'Best Line'
+        });
+      } else {
+        const maxEdge = Math.max(nrfiEdgeVal, yrfiEdgeVal);
+        if (maxEdge > 0) {
+          const isNrfi = nrfiEdgeVal >= yrfiEdgeVal;
+          edges.push({
+            awayTeam: p.matchup.away_team,
+            homeTeam: p.matchup.home_team,
+            choice: isNrfi ? 'NRFI' : 'YRFI',
+            odds: isNrfi ? Odds.nrfi_odds : Odds.yrfi_odds,
+            edge: maxEdge,
+            score: (isNrfi ? nrfiScoreVal : yrfiScoreVal) * 100,
+            book: (isNrfi ? Odds.nrfi_book : Odds.yrfi_book) || 'Best Line'
+          });
+        }
+      }
+    });
+
+    return edges.sort((a, b) => b.edge - a.edge).slice(0, 3);
+  }, [predictions]);
 
   const scrollToPitcher = (pitcherName) => {
     // Navigate to pitcher props tab if not active
@@ -607,7 +663,7 @@ function App() {
               <div className="flex items-center gap-2">
                 <span className="text-xl leading-none animate-pulse">⚡</span>
                 <span className="text-xs md:text-sm font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400 uppercase tracking-widest">
-                  {activeModel === 'pitcher_props' ? 'VIP Pitcher Edges' : 'VIP Consensus Edges'}
+                  {activeModel === 'pitcher_props' ? 'VIP Pitcher Edges' : activeModel === 'nrfi' ? 'VIP NRFI Edges' : 'VIP Consensus Edges'}
                 </span>
               </div>
               <span className="text-[9px] text-indigo-400 font-extrabold uppercase tracking-widest bg-indigo-950/80 border border-indigo-500/25 px-2 py-0.5 rounded-full animate-bounce">
@@ -653,6 +709,48 @@ function App() {
                       </div>
                       <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
                         <span className="font-semibold text-slate-400">Proj: {edge.proj.toFixed(1)} (Book: {edge.line})</span>
+                        <span className="text-slate-500 group-hover:text-indigo-400 font-black transition-colors uppercase tracking-widest">Locate →</span>
+                      </div>
+                    </div>
+                  ))
+                )
+              ) : activeModel === 'nrfi' ? (
+                /* NRFI/YRFI Edges List */
+                nrfiEdges.length === 0 ? (
+                  <div className="w-full text-center py-6 text-xs font-bold text-slate-500">
+                    No NRFI/YRFI Edges Found Today
+                  </div>
+                ) : (
+                  nrfiEdges.map((edge, idx) => (
+                    <div
+                      key={`nrfi-edge-mob-${idx}`}
+                      onClick={() => onNavigateToNrfi(`${edge.awayTeam}-${edge.homeTeam}`)}
+                      className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-indigo-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/50 hover:shadow-[0_8px_20px_rgba(99,102,241,0.15)] snap-start relative overflow-hidden group animate-fade-in"
+                    >
+                      <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-full blur-xl group-hover:bg-indigo-500/10 transition-colors pointer-events-none"></div>
+                      <div className="flex justify-between items-start mb-2 gap-2">
+                        <span className={`text-[9px] font-black uppercase tracking-widest bg-slate-900 border px-1.5 py-0.5 rounded flex-shrink-0
+                          ${edge.choice === 'NRFI' ? 'text-green-400 border-green-500/20' : 'text-amber-400 border-amber-500/20'}`}>
+                          {edge.choice} Edge
+                        </span>
+                        <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
+                          {getTeamAbbr(edge.awayTeam)} vs {getTeamAbbr(edge.homeTeam)}
+                        </span>
+                      </div>
+                      <div className="mt-1">
+                        <div className="text-sm font-extrabold text-gray-300 truncate">
+                          {edge.awayTeam} @ {edge.homeTeam}
+                        </div>
+                        <div className="text-sm font-black text-white mt-1">
+                          {edge.choice} {formatAmericanOdds(edge.odds)}
+                        </div>
+                        <div className="text-xl font-black text-indigo-400 mt-1 tracking-tight flex items-baseline gap-1">
+                          <span>+{edge.edge.toFixed(1)}%</span>
+                          <span className="text-[10px] text-gray-400 font-bold">Edge</span>
+                        </div>
+                      </div>
+                      <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
+                        <span className="font-semibold text-slate-400">Score: {edge.score.toFixed(1)}% ({edge.book})</span>
                         <span className="text-slate-500 group-hover:text-indigo-400 font-black transition-colors uppercase tracking-widest">Locate →</span>
                       </div>
                     </div>
@@ -887,7 +985,7 @@ function App() {
                   <div className="flex items-center gap-2">
                     <span className="text-xl leading-none animate-pulse">⚡</span>
                     <span className="text-xs font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400 uppercase tracking-widest">
-                      {activeModel === 'pitcher_props' ? 'VIP Pitcher Edges' : 'VIP Consensus Edges'}
+                      {activeModel === 'pitcher_props' ? 'VIP Pitcher Edges' : activeModel === 'nrfi' ? 'VIP NRFI Edges' : 'VIP Consensus Edges'}
                     </span>
                   </div>
                   <span className="text-[9px] text-indigo-400 font-extrabold uppercase tracking-widest bg-indigo-950/80 border border-indigo-500/25 px-2 py-0.5 rounded-full animate-bounce">
@@ -933,6 +1031,48 @@ function App() {
                           </div>
                           <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
                             <span className="font-semibold text-slate-400">Proj: {edge.proj.toFixed(1)} (Book: {edge.line})</span>
+                            <span className="text-slate-500 group-hover:text-indigo-400 font-black transition-colors uppercase tracking-widest">Locate →</span>
+                          </div>
+                        </div>
+                      ))
+                    )
+                  ) : activeModel === 'nrfi' ? (
+                    /* NRFI/YRFI Edges Desktop List */
+                    nrfiEdges.length === 0 ? (
+                      <div className="w-full text-center py-8 text-xs font-bold text-slate-500">
+                        No NRFI/YRFI Edges Found Today
+                      </div>
+                    ) : (
+                      nrfiEdges.map((edge, idx) => (
+                        <div
+                          key={`nrfi-edge-desk-${idx}`}
+                          onClick={() => onNavigateToNrfi(`${edge.awayTeam}-${edge.homeTeam}`)}
+                          className="w-full bg-slate-950/50 border border-indigo-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/50 hover:shadow-[0_8px_20px_rgba(99,102,241,0.15)] relative overflow-hidden group animate-fade-in"
+                        >
+                          <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-full blur-xl group-hover:bg-indigo-500/10 transition-colors pointer-events-none"></div>
+                          <div className="flex justify-between items-start mb-2 gap-2">
+                            <span className={`text-[9px] font-black uppercase tracking-widest bg-slate-900 border px-1.5 py-0.5 rounded flex-shrink-0
+                              ${edge.choice === 'NRFI' ? 'text-green-400 border-green-500/20' : 'text-amber-400 border-amber-500/20'}`}>
+                              {edge.choice} Edge
+                            </span>
+                            <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
+                              {getTeamAbbr(edge.awayTeam)} vs {getTeamAbbr(edge.homeTeam)}
+                            </span>
+                          </div>
+                          <div className="mt-1">
+                            <div className="text-sm font-extrabold text-gray-300 truncate">
+                              {edge.awayTeam} @ {edge.homeTeam}
+                            </div>
+                            <div className="text-sm font-black text-white mt-1">
+                              {edge.choice} {formatAmericanOdds(edge.odds)}
+                            </div>
+                            <div className="text-xl font-black text-indigo-400 mt-1 tracking-tight flex items-baseline gap-1">
+                              <span>+{edge.edge.toFixed(1)}%</span>
+                              <span className="text-[10px] text-gray-400 font-bold">Edge</span>
+                            </div>
+                          </div>
+                          <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
+                            <span className="font-semibold text-slate-400">Score: {edge.score.toFixed(1)}% ({edge.book})</span>
                             <span className="text-slate-500 group-hover:text-indigo-400 font-black transition-colors uppercase tracking-widest">Locate →</span>
                           </div>
                         </div>
