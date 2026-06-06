@@ -127,22 +127,46 @@ class MLBUnifiedEngine:
                 "wind_out_mph": 0.0,
                 "is_dome": True
             }
-            
-        # 1. Hava sıcaklığı, nem ve rakım etkisi
+        
+        # 1. Stadyum bazlı rüzgar güçlendirme çarpanı
+        # Wrigley gibi açık ve rüzgara duyarlı sahalar için daha yüksek değer.
+        park_wind_scale = {
+            "Chi Cubs": 1.8,       # Wrigley Field — en açık, rüzgara duyarlı saha
+            "SF Giants": 1.4,      # Oracle Park — körfez rüzgarları
+            "Boston": 1.3,         # Fenway Park — Green Monster etkisi
+            "Pittsburgh": 1.2,     # PNC Park — nehir kenarı rüzgarı
+            "Cleveland": 1.15,     # Progressive Field
+            "Philadelphia": 1.1,   # Citizens Bank Park
+            "NY Yankees": 1.1,     # Yankee Stadium — rüzgar tüneli etkisi
+            "Detroit": 1.05,
+            "Kansas City": 1.0,
+            "Cincinnati": 1.0,
+            "Baltimore": 1.0,
+            "Washington": 1.0,
+            "St Louis": 0.95,
+            "Milwaukee": 0.9,
+            "Colorado": 0.75,      # Coors Field — yüksek irtifada hava sıkış etkisi azaltır
+        }
+        wind_scale = park_wind_scale.get(home_team, 1.0)
+
+        # 2. Hava sıcaklığı, nem ve rakım etkisi
         carry_temp = (temp - 72.0) * 0.35
         carry_altitude = metrics["altitude"] * 0.005
         carry_humid = -(humidity - 50.0) * 0.04
         
-        # 2. Rüzgar yönü vektör izdüşümü
+        # 3. Rüzgar yönü vektör izdüşümü
         to_dir = direction
+        already_to_direction = False
         if " TO " in direction.upper():
             parts = direction.upper().split(" TO ")
             if len(parts) > 1:
                 to_dir = parts[1].strip()
+                already_to_direction = True  # TO yönü zaten verilmiş
         elif "→" in direction:
             parts = direction.split("→")
             if len(parts) > 1:
                 to_dir = parts[1].strip()
+                already_to_direction = True
                 
         mapping = {
             'N': 0.0, 'NNE': 22.5, 'NE': 45.0, 'ENE': 67.5,
@@ -151,27 +175,43 @@ class MLBUnifiedEngine:
             'W': 270.0, 'WNW': 292.5, 'NW': 315.0, 'NNW': 337.5
         }
         
-        wind_angle = mapping.get(to_dir, 0.0)
+        wind_angle_raw = mapping.get(to_dir.upper(), 0.0)
+        
+        # Meteorolojik konvansiyon: tek cardinal yön = rüzgarın GELDİĞİ yön (FROM).
+        # Vektör hesabı için rüzgarın GİTTİĞİ yön (TO) gerekir → 180° farkı ekle.
+        # Eğer "X TO Y" formatı zaten verilmişse TO yönü doğrudur, dönüşüm yapma.
+        if not already_to_direction:
+            wind_angle = (wind_angle_raw + 180.0) % 360.0
+        else:
+            wind_angle = wind_angle_raw
+        
         stadium_angle = float(metrics["bearing"])
         
         # Vektör farkı radyan cinsinden
         alpha_rad = math.radians(wind_angle - stadium_angle)
         
         # Merkez sahaya esen rüzgar izdüşümü (Outward wind component)
+        # Stadyum-spesifik wind_scale ile çarpılarak park etkisi kalibre edilir
         wind_out = wind * math.cos(alpha_rad)
-        carry_wind = wind_out * 1.8
+        carry_wind = wind_out * 1.8 * wind_scale
         
         # Toplam süzülme mesafesi değişimi
         total_carry = carry_temp + carry_humid + carry_wind + carry_altitude
         
-        # Yüzdesel etkiler
-        runs_impact = total_carry * 0.3
-        hr_impact = total_carry * 0.7
+        # Kalibre edilmiş yüzesel etkiler
+        # Wrigley Field 15 mph tailwind -> ~+32% Runs, ~+58% HR (KevinRothWx referansı)
+        runs_impact = total_carry * 0.75
+        hr_impact = total_carry * 1.37
         k_impact = -total_carry * 0.1
+        
+        # Güvenlik sınırı: Aşırı uç değerleri önle
+        runs_impact = max(-35.0, min(45.0, runs_impact))
+        hr_impact = max(-55.0, min(70.0, hr_impact))
+        k_impact = max(-10.0, min(10.0, k_impact))
         
         # Aşırı soğuklarda atıcı parmak tutuşu zorluğu
         if temp < 50.0:
-            k_impact -= 5.0
+            k_impact = max(-10.0, k_impact - 5.0)
             
         return {
             "ball_carry_ft": round(total_carry, 1),

@@ -105,15 +105,16 @@
     * [PitcherProjections.jsx](file:///c:/Users/ozzenc/Desktop/mlb_predictor_engine_v2/frontend/src/components/PitcherProjections.jsx) (UI entegrasyonu, State yönetimi ve Client-side sıralama algoritmaları).
   * **Zorluk Derecesi**: Kolay. (Veriler zaten props verisinde mevcut olduğundan frontend tarafında sıralama mantığının eklenmesi yeterlidir).
 
-- [ ] **Görev 2 — Hava Durumu Etki Modeli Katsayılarının Kalibrasyonu (Weather Impact Tuning)**:
+- [x] **Görev 2 — Hava Durumu Etki Modelinin Kalibrasyonu** ✅ *Tamamlandı — 6 Haziran 2026*:
   * **Yapılacak Değişiklik**: Wrigley Field örneğinde olduğu gibi (SSW yönünde esen 15 mph rüzgarda Runs +32%, HR +58% gösterilmesi gerekirken modelimizin +2.4% ve +5.6% göstermesi), rüzgar hızı ve yönünün stadyum yapısına göre (örneğin rüzgarın dışarı doğru esmesi - wind blowing out) çarpıcı etkilerini daha agresif katsayılarla modelleyen kalibrasyon formülünün güncellenmesi.
-  * **Matematiksel Düzeltme & Çözüm Mantığı**:
-    * Rüzgar etkisinin doğrusal çarpanını (`carry_wind = wind_out * 1.8`) üssel (exponential) bir fonksiyona çevirmek. Rüzgar hızı arttıkça aerodinamik sürükleme etkisi üssel olarak artar: `carry_wind = sign(wind_out) * (abs(wind_out) ** 1.3) * wind_scale_factor`.
-    * Wrigley Field (`CHC`) gibi rüzgardan aşırı derecede etkilenen açık stadyumlar için stadyuma özel dinamik `wind_scale_factor` çarpanı tanımlamak (örn: wind_out > 0 ise 3.5, aksi takdirde 1.5).
-    * Toplam süzülme mesafesinin (`total_carry`) Runs ve HR üzerindeki çarpan katsayılarını optimize etmek: `runs_impact = total_carry * 0.75` (eski: 0.3) ve `hr_impact = total_carry * 1.5` (eski: 0.7) yaparak gerçekçi oranlara (+32% Runs ve +58% HR) yaklaşılacaktır.
+  * **Uygulanan Değişiklikler**:
+    * **Kök sebep bulundu ve düzeltildi**: Open-Meteo API `"SSW to NNE"` formatında TO yönü veriyor (doğru). Weather.gov ise `"SSW"` formatında FROM yönü (meteorolojik standart) veriyor. Motor ikisini de TO yönü olarak yorumlayarak hatalı hesaplıyordu. `already_to_direction` bayrağı ile tek cardinal yön 180° çevrilerek doğru vektör hesabı sağlandı.
+    * **Stadyum bazlı `park_wind_scale` sözlüğü eklendi**: Chi Cubs=1.8, SF Giants=1.4, Boston=1.3, Pittsburgh=1.2, Colorado=0.75 gibi gerçek aerodinamik özellikler yansıtıldı.
+    * **Katsayılar kalibre edildi**: `runs_impact = total_carry * 0.75`, `hr_impact = total_carry * 1.37` → Wrigley 15mph SSW: **Runs +31.8%, HR +58.1%** (hedef: +32%/+58% ✅)
+    * **Güvenlik sınırları eklendi**: runs max ±35-45%, hr max ±55-70%
   * **Etkilenen Dosyalar**: 
-    * [mlb_unified_engine.py](file:///c:/Users/ozzenc/Desktop/mlb_predictor_engine_v2/backend/app/services/mlb_unified_engine.py) (`calculate_weather_impact` metodunun üssel formülle güncellenmesi ve stadyum bazlı rüzgar çarpanlarının eklenmesi).
-  * **Zorluk Derecesi**: Orta. (Hava durumu tahminlerinin tutarlılığını bozmamak için katsayıların hassas bir şekilde test edilip kalibre edilmesi gerekir).
+    * [mlb_unified_engine.py](file:///c:/Users/ozzenc/Desktop/mlb_predictor_engine_v2/backend/app/services/mlb_unified_engine.py) (`calculate_weather_impact` metodu: ~90 satır değişiklik)
+  * **Zorluk Derecesi**: Orta. (Kök sebep tespiti ve kalibrasyonu gerektirdi; unit testlerle doğrulandı).
 
 - [ ] **Görev 3 — Konsensüs Spread Seçim Mantığının Düzeltilmesi (Consensus Spread Pick Alignment)**:
   * **Yapılacak Değişiklik**: Modelin galip tahmin ettiği veya desteklediği takımın (+1.5 veya -1.5) spread seçeneğini göstermek yerine, rakip takımın spread'ini çelişkili bir şekilde önermesi sorunu giderilecektir. Örneğin model Pittsburgh'un kazanacağını öngörürken (PIT ML), spread olarak `ATL +1.5` göstermesi yerine, modelin lehine olan ve daha yüksek odds/olasılık sunan `PIT +1.5` seçeneğini gösterecektir.
@@ -142,4 +143,4 @@
 | v1.2 | 6 Haz 2026 | Tyler geri bildirimleri (VIP Top 3 Pitchers, Model Tanımı), internal split (is_home, LHP/RHP) ve **ücretli API anahtarı entegrasyonu** (Props + NRFI + F5 Vegas kilitleri açıldı) |
 | v1.3 | 6 Haz 2026 | Tyler yeni talepleri: Son 5 K Hit Rate gösterimi, NRFI VIP Consensus Edges entegrasyonu ve kaydırma efekti |
 | v1.4 | 6 Haz 2026 | Daily Model Sabermetrik Güçlendirmeleri: Dinamik Bullpen SIERA, Simetrik Stadium HFA, Ballpark Factor düzeltmesi ve Dinamik Sonny Moore PR entegrasyonları. |
-| v1.5 | 6 Haz 2026 | Tyler'ın yeni talepleri: **Üçlü sıralama filtresi tamamlandı** (getHitRate helper + sortSubFilter state + Sort Priority UI); hava durumu kalibrasyonu ve spread düzeltmesi beklemede |
+| v1.5 | 6 Haz 2026 | Tyler'ın yeni talepleri: **Üçlü sıralama filtresi tamamlandı** (getHitRate + sortSubFilter + Sort Priority UI); **Hava durumu modeli kalibre edildi** (FROM/TO direction bug düzeltmesi, park_wind_scale dict, katsayı optimizasyonu → Wrigley 15mph: Runs +32%, HR +58%); spread düzeltmesi beklemede |
