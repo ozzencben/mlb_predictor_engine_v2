@@ -93,6 +93,39 @@
 - [x] **Tyler'ın Geri Bildirimi 4 — NRFI VIP Consensus Edges (Top 3 Edges)**: "NRFI Model" sekmesi aktifken sayfanın üstündeki banner'da günün en yüksek avantaja sahip ilk 3 NRFI veya YRFI edge'inin dinamik listelenmesi ve tıklandığında ilgili NRFI maç satırına yumuşak geçişle kaydırılıp vurgulanması.
 - [x] **Daily Model Ek Verileri Doğrulaması**: Günlük model için dinamik sabermetrik verilerin (Bullpen SIERA, HFA, Sonny Moore) entegrasyonu başarıyla tamamlandı ve tüm modeller üzerinden doğrulandı.
 
+### Tyler'ın Yeni Talepleri (v1.5 — 6 Haziran 2026)
+
+- [x] **Görev 1 — Pitcher Projections Arayüzüne Üçlü Sıralama Filtresi (`All | Hit Rate | OPP K Rank`)** ✅ *Tamamlandı — 6 Haziran 2026*:
+  * **Yapılacak Değişiklik**: "Edges Only" butonunun hemen üstüne yatay buton grubu (`All | Hit Rate | OPP K Rank`) eklenecektir. Butonlar aktif filtre durumuna göre görsel olarak (indigo glow efekti vb.) vurgulanacaktır.
+  * **Sıralama Mantığı**:
+    * `All`: Varsayılan sıralama (Edge yüzdesine göre veya oyuncu adına göre alfabetik).
+    * `Hit Rate`: Pitcher kartlarındaki son 5 maçlık başarı oranını (L5 Hit Rate - örn: %80 Over) hesaplayıp, en yüksek başarı oranından en düşüğe (azalan sırada) sıralar.
+    * `OPP K Rank`: Rakip takımın K% (strikeout) disiplin sıralamasına göre sıralar. K-disiplini en zayıf olan (en çok strikeout yapan, yani atıcı için en avantajlı olan) takım en üstte olacak şekilde sıralama yapılacaktır.
+  * **Etkilenen Dosyalar**: 
+    * [PitcherProjections.jsx](file:///c:/Users/ozzenc/Desktop/mlb_predictor_engine_v2/frontend/src/components/PitcherProjections.jsx) (UI entegrasyonu, State yönetimi ve Client-side sıralama algoritmaları).
+  * **Zorluk Derecesi**: Kolay. (Veriler zaten props verisinde mevcut olduğundan frontend tarafında sıralama mantığının eklenmesi yeterlidir).
+
+- [ ] **Görev 2 — Hava Durumu Etki Modeli Katsayılarının Kalibrasyonu (Weather Impact Tuning)**:
+  * **Yapılacak Değişiklik**: Wrigley Field örneğinde olduğu gibi (SSW yönünde esen 15 mph rüzgarda Runs +32%, HR +58% gösterilmesi gerekirken modelimizin +2.4% ve +5.6% göstermesi), rüzgar hızı ve yönünün stadyum yapısına göre (örneğin rüzgarın dışarı doğru esmesi - wind blowing out) çarpıcı etkilerini daha agresif katsayılarla modelleyen kalibrasyon formülünün güncellenmesi.
+  * **Matematiksel Düzeltme & Çözüm Mantığı**:
+    * Rüzgar etkisinin doğrusal çarpanını (`carry_wind = wind_out * 1.8`) üssel (exponential) bir fonksiyona çevirmek. Rüzgar hızı arttıkça aerodinamik sürükleme etkisi üssel olarak artar: `carry_wind = sign(wind_out) * (abs(wind_out) ** 1.3) * wind_scale_factor`.
+    * Wrigley Field (`CHC`) gibi rüzgardan aşırı derecede etkilenen açık stadyumlar için stadyuma özel dinamik `wind_scale_factor` çarpanı tanımlamak (örn: wind_out > 0 ise 3.5, aksi takdirde 1.5).
+    * Toplam süzülme mesafesinin (`total_carry`) Runs ve HR üzerindeki çarpan katsayılarını optimize etmek: `runs_impact = total_carry * 0.75` (eski: 0.3) ve `hr_impact = total_carry * 1.5` (eski: 0.7) yaparak gerçekçi oranlara (+32% Runs ve +58% HR) yaklaşılacaktır.
+  * **Etkilenen Dosyalar**: 
+    * [mlb_unified_engine.py](file:///c:/Users/ozzenc/Desktop/mlb_predictor_engine_v2/backend/app/services/mlb_unified_engine.py) (`calculate_weather_impact` metodunun üssel formülle güncellenmesi ve stadyum bazlı rüzgar çarpanlarının eklenmesi).
+  * **Zorluk Derecesi**: Orta. (Hava durumu tahminlerinin tutarlılığını bozmamak için katsayıların hassas bir şekilde test edilip kalibre edilmesi gerekir).
+
+- [ ] **Görev 3 — Konsensüs Spread Seçim Mantığının Düzeltilmesi (Consensus Spread Pick Alignment)**:
+  * **Yapılacak Değişiklik**: Modelin galip tahmin ettiği veya desteklediği takımın (+1.5 veya -1.5) spread seçeneğini göstermek yerine, rakip takımın spread'ini çelişkili bir şekilde önermesi sorunu giderilecektir. Örneğin model Pittsburgh'un kazanacağını öngörürken (PIT ML), spread olarak `ATL +1.5` göstermesi yerine, modelin lehine olan ve daha yüksek odds/olasılık sunan `PIT +1.5` seçeneğini gösterecektir.
+  * **Sorunun Kaynağı & Çözüm Mantığı**:
+    * Bahis verisi gelmediğinde veya spread çizgisi tanımsız olduğunda uygulanan fallback mantığının (`awayScore > homeScore ? -1.5 : 1.5`) hatalı bir şekilde deplasmanı favori (-1.5) olarak varsayması ve bu durumun ev sahibini underdog (+1.5) yaparak çelişkili spread pick'ler üretmesi.
+    * Spread pick belirleme mantığının sadece favori/underdog olasılıklarına göre değil, modelin doğrudan galip gördüğü (Moneyline kazananı) takıma göre hizalanması (`alignment`). Eğer model A takımının kazanacağını düşünüyorsa, spread pick olarak A takımının spread çizgisi (A -1.5 veya A +1.5) seçilmeli ve olasılığı buna göre hesaplanmalıdır.
+  * **Etkilenen Dosyalar**: 
+    * [prediction_runner.py](file:///c:/Users/ozzenc/Desktop/mlb_predictor_engine_v2/backend/app/services/prediction_runner.py) (Konsensüs spread edge hesaplama algoritması ve fallback spread belirleme mantığı).
+    * [MatchupCard.jsx](file:///c:/Users/ozzenc/Desktop/mlb_predictor_engine_v2/frontend/src/components/MatchupCard.jsx) (Kart içi consensus picks render hesabı ve fallback mantığı).
+    * [App.jsx](file:///c:/Users/ozzenc/Desktop/mlb_predictor_engine_v2/frontend/src/App.jsx) (Ana sayfa üst barındaki spread edge hesaplamaları).
+  * **Zorluk Derecesi**: Orta. (Farklı 3 dosyada yer alan spread hesaplama ve cover olasılık CDF mantıklarının birbiriyle ve model kazananıyla senkronize edilmesi gerekmektedir).
+
 ### Orta Vadeli
 - [x] **Bullpen SIERA entegrasyonu** → Covers.com veri kaynağı ve SIERA proxy hesabı ile dinamik entegrasyon (Tamamlandı)
 - [x] **HFA dinamik stadyum katsayısı** → Park bazlı tarihsel ev/deplasman diferansiyeli (Tamamlandı)
@@ -109,3 +142,4 @@
 | v1.2 | 6 Haz 2026 | Tyler geri bildirimleri (VIP Top 3 Pitchers, Model Tanımı), internal split (is_home, LHP/RHP) ve **ücretli API anahtarı entegrasyonu** (Props + NRFI + F5 Vegas kilitleri açıldı) |
 | v1.3 | 6 Haz 2026 | Tyler yeni talepleri: Son 5 K Hit Rate gösterimi, NRFI VIP Consensus Edges entegrasyonu ve kaydırma efekti |
 | v1.4 | 6 Haz 2026 | Daily Model Sabermetrik Güçlendirmeleri: Dinamik Bullpen SIERA, Simetrik Stadium HFA, Ballpark Factor düzeltmesi ve Dinamik Sonny Moore PR entegrasyonları. |
+| v1.5 | 6 Haz 2026 | Tyler'ın yeni talepleri: **Üçlü sıralama filtresi tamamlandı** (getHitRate helper + sortSubFilter state + Sort Priority UI); hava durumu kalibrasyonu ve spread düzeltmesi beklemede |

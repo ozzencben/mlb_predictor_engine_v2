@@ -31,6 +31,23 @@ const edgeHeat = (edge) => {
   return 'none';
 };
 
+/** L5 Hit Rate calculation based on K choice and line */
+const getHitRate = (p) => {
+  if (!p.last_5_k || p.last_5_k.length === 0 || p.k_line == null) return 0;
+  const line = Number(p.k_line);
+  const direction = p.k_choice !== 'PASS' ? p.k_choice : (p.proj_k > line ? 'OVER' : 'UNDER');
+  
+  let hits = 0;
+  for (const val of p.last_5_k) {
+    if (direction === 'OVER' && val > line) {
+      hits++;
+    } else if (direction === 'UNDER' && val < line) {
+      hits++;
+    }
+  }
+  return Math.round((hits / p.last_5_k.length) * 100);
+};
+
 // ─── Sub-components ───────────────────────────────────────────────────────────
 
 /** Glowing OVER / UNDER / PASS badge */
@@ -353,6 +370,7 @@ function PitcherProjections({ pitcherProjections = [] }) {
   const [opponentFilter, setOpponentFilter] = useState('ALL'); // 'ALL' | teamName
   const [edgesOnly, setEdgesOnly] = useState(false);
   const [sortBy, setSortBy] = useState('edge'); // 'edge' | 'k' | 'outs'
+  const [sortSubFilter, setSortSubFilter] = useState('ALL'); // 'ALL' | 'HIT_RATE' | 'OPP_K_RANK'
 
   const uniqueOpponents = useMemo(() => {
     const opps = new Set();
@@ -382,6 +400,21 @@ function PitcherProjections({ pitcherProjections = [] }) {
 
     // Sort
     list = [...list].sort((a, b) => {
+      if (sortSubFilter === 'HIT_RATE') {
+        const aHit = getHitRate(a);
+        const bHit = getHitRate(b);
+        if (bHit !== aHit) {
+          return bHit - aHit;
+        }
+      }
+      if (sortSubFilter === 'OPP_K_RANK') {
+        const aRank = a.opp_k_rank != null ? Number(a.opp_k_rank) : 999;
+        const bRank = b.opp_k_rank != null ? Number(b.opp_k_rank) : 999;
+        if (aRank !== bRank) {
+          return aRank - bRank; // Worst discipline first: en kucuk rank en uste (#1 vs RHP en uste)
+        }
+      }
+
       if (sortBy === 'k') return (b.proj_k || 0) - (a.proj_k || 0);
       if (sortBy === 'outs') return (b.proj_outs || 0) - (a.proj_outs || 0);
       
@@ -391,7 +424,7 @@ function PitcherProjections({ pitcherProjections = [] }) {
     });
 
     return list;
-  }, [pitcherProjections, searchTerm, handFilter, opponentFilter, edgesOnly, sortBy]);
+  }, [pitcherProjections, searchTerm, handFilter, opponentFilter, edgesOnly, sortBy, sortSubFilter]);
 
   // Summary stats
   const totalWithEdge = pitcherProjections.filter(
@@ -439,6 +472,32 @@ function PitcherProjections({ pitcherProjections = [] }) {
               </div>
             </div>
           )}
+        </div>
+      </div>
+
+      {/* ── Sort Sub-Filter Button Group (All | Hit Rate | OPP K Rank) ── */}
+      <div className="flex flex-wrap items-center justify-between gap-2 bg-slate-900/40 border border-slate-800 rounded-xl p-2.5">
+        <span className="text-[10px] text-slate-400 font-black uppercase tracking-wider flex items-center gap-1.5">
+          <span>⚡</span> Sort Priority:
+        </span>
+        <div className="flex p-0.5 bg-slate-950/60 border border-slate-800/80 rounded-lg h-8 w-full sm:w-80">
+          {[
+            { key: 'ALL', label: 'All' },
+            { key: 'HIT_RATE', label: 'Hit Rate (L5)' },
+            { key: 'OPP_K_RANK', label: 'OPP K Rank' },
+          ].map((item) => (
+            <button
+              key={item.key}
+              onClick={() => setSortSubFilter(item.key)}
+              className={`flex-1 rounded-md text-[9px] font-black uppercase tracking-wider transition-all duration-250 border ${
+                sortSubFilter === item.key
+                  ? 'bg-indigo-500/15 border-indigo-500/30 text-indigo-400 shadow-[0_0_8px_rgba(99,102,241,0.15)]'
+                  : 'text-slate-400 hover:text-slate-200 border-transparent'
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
         </div>
       </div>
 
