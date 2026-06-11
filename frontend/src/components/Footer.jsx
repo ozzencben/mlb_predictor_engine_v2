@@ -3,11 +3,11 @@ import logo2Img from '../assets/logo2.png';
 
 const Footer = () => {
     return (
-        <footer className="w-full py-8 mt-12 border-t border-slate-900 bg-slate-950/60 backdrop-blur-md">
-            <div className="max-w-7xl mx-auto px-4 flex flex-col gap-8">
+        <footer className="w-full py-10 mt-12 border-t border-slate-900 bg-slate-950/60 backdrop-blur-md">
+            <div className="max-w-4xl mx-auto px-4 flex flex-col items-center gap-8 text-center">
 
                 {/* Sleek Venmo Donation Card */}
-                <div className="bg-gradient-to-r from-blue-950/20 via-slate-950/40 to-blue-950/20 border border-blue-900/35 rounded-2xl p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-lg shadow-black/30">
+                <div className="w-full bg-gradient-to-r from-blue-950/20 via-slate-950/40 to-blue-950/20 border border-blue-900/35 rounded-2xl p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-lg shadow-black/30">
                     <div className="flex flex-col sm:flex-row items-center gap-3">
                         <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center text-xl shadow-[0_0_12px_rgba(59,130,246,0.2)] flex-shrink-0">
                             💙
@@ -29,88 +29,72 @@ const Footer = () => {
                     </a>
                 </div>
 
-                {/* Main Footer Content Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-2">
-                    {/* Left Column: Title, 21+ Warning, Disclaimer */}
-                    <div className="lg:col-span-7 space-y-6">
+                {/* 1. Contact Us Card (First) */}
+                <div className="bg-slate-900/30 border border-slate-900 rounded-2xl p-5 space-y-4 max-w-md w-full shadow-inner text-left">
+                    {/* Contact Us Header */}
+                    <div className="flex items-center gap-2.5">
+                        <img src={logo2Img} alt="Legends Sports" className="h-8 w-auto object-contain rounded" />
                         <div>
-                            <p className="text-sm font-black text-white uppercase tracking-widest flex items-center gap-2">
-                                <img src={logo2Img} alt="Mongoose Bets" className="h-6 w-auto object-contain" />
-                                Mongoose Bets
-                            </p>
-                            <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest mt-1">
-                                MLB Predictor Engine <span className="text-cyan-400 ml-1">v2.0</span>
-                            </p>
+                            <h4 className="text-xs sm:text-sm font-black text-white uppercase tracking-wider">Contact Us</h4>
+                            <p className="text-[9px] sm:text-[10px] text-slate-500 font-bold">Get in touch with the Legends Sports team</p>
                         </div>
-
-                        {/* 21+ circle badge & Gambling problem message */}
-                        <div className="flex items-center gap-3 bg-slate-900/20 border border-slate-900 rounded-xl p-3 w-fit">
-                            <div className="border-2 border-red-500/80 rounded-full w-8 h-8 flex items-center justify-center text-[10px] font-black text-red-500 flex-shrink-0">
-                                21+
-                            </div>
-                            <div className="text-[10px] sm:text-xs font-semibold text-slate-400 leading-tight">
-                                <p>Gambling Problem?</p>
-                                <p className="text-slate-500">Call 1-800-522-4700</p>
-                            </div>
-                        </div>
-
-                        {/* Disclaimer */}
-                        <p className="text-[10px] sm:text-xs text-slate-500 leading-relaxed text-justify max-w-2xl font-medium border-t border-slate-900/60 pt-4">
-                            BetLogic AI cannot be held liable for any losses incurred. These tools provide data-driven insights only and do not constitude financial or gambling advice. Please bet responsibly. By using BetLogic, you confirm you are of legal bettings age in your jurisdiction.
-                        </p>
                     </div>
 
-                    {/* Right Column: Contact Us Card */}
-                    <div className="lg:col-span-5 flex justify-start lg:justify-end">
-                        <div className="bg-slate-900/30 border border-slate-900 rounded-2xl p-5 space-y-4 max-w-md w-full shadow-inner">
-                            {/* Contact Us Header */}
-                            <div className="flex items-center gap-2.5">
-                                <img src={logo2Img} alt="Mongoose Bets" className="h-8 w-auto object-contain rounded" />
-                                <div>
-                                    <h4 className="text-xs sm:text-sm font-black text-white uppercase tracking-wider">Contact Us</h4>
-                                    <p className="text-[9px] sm:text-[10px] text-slate-500 font-bold">Get in touch with the Mongoose Bets team</p>
-                                </div>
-                            </div>
+                    {/* Issue bubble */}
+                    <div className="bg-emerald-950/10 border border-emerald-500/10 rounded-xl p-3 flex gap-2.5">
+                        <svg className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v5.03Z" />
+                        </svg>
+                        <div>
+                            <h5 className="text-[10px] font-bold text-emerald-400">Have an issue or question?</h5>
+                            <p className="text-[9px] text-slate-400 mt-1 leading-relaxed">
+                                We'd love to hear from you! Whether you've found a bug, have a feature request, or just want to share feedback about Legends Sports, please don't hesitate to reach out.
+                            </p>
+                        </div>
+                    </div>
 
-                            {/* Issue bubble */}
-                            <div className="bg-emerald-950/10 border border-emerald-500/10 rounded-xl p-3 flex gap-2.5">
-                                <svg className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v5.03Z" />
-                                </svg>
-                                <div>
-                                    <h5 className="text-[10px] font-bold text-emerald-400">Have an issue or question?</h5>
-                                    <p className="text-[9px] text-slate-400 mt-1 leading-relaxed">
-                                        We'd love to hear from you! Whether you've found a bug, have a feature request, or just want to share feedback about Mongoose Bets, please don't hesitate to reach out.
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Email display (No open/copy buttons as requested) */}
-                            <div className="bg-slate-950/60 border border-slate-900 rounded-xl p-3 text-center">
-                                <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest flex items-center justify-center gap-1.5">
-                                    <svg className="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
-                                    </svg>
-                                    Email Us
-                                </span>
-                                <div className="bg-white rounded-lg py-2 px-3 mt-2 select-all shadow-inner">
-                                    <span className="text-slate-950 font-extrabold text-[11px] sm:text-xs tracking-wide">
-                                        mongoosebets@gmail.com
-                                    </span>
-                                </div>
-                            </div>
+                    {/* Email display (No open/copy buttons as requested) */}
+                    <div className="bg-slate-950/60 border border-slate-900 rounded-xl p-3 text-center">
+                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest flex items-center justify-center gap-1.5">
+                            <svg className="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                            </svg>
+                            Email Us
+                        </span>
+                        <div className="bg-white rounded-lg py-2 px-3 mt-2 select-all shadow-inner">
+                            <span className="text-slate-950 font-extrabold text-[11px] sm:text-xs tracking-wide">
+                                legendsbrandcompany@gmail.com
+                            </span>
                         </div>
                     </div>
                 </div>
 
+                {/* 2. Liability Disclaimer (Second) */}
+                <div className="border-t border-slate-900/60 pt-6 w-full flex flex-col items-center">
+                    <p className="text-[10px] sm:text-xs text-slate-500 leading-relaxed text-center max-w-2xl font-medium">
+                        Legends Sports cannot be held liable for any losses incurred. These tools provide data-driven insights only and do not constitute financial or gambling advice. Please bet responsibly. By using Legends Sports, you confirm you are of legal betting age in your jurisdiction.
+                    </p>
+                </div>
+
+                {/* 3. 21+ circular badge & Gambling problem message (Last) */}
+                <div className="flex items-center gap-3 bg-slate-900/20 border border-slate-900 rounded-xl p-3 w-fit">
+                    <div className="border-2 border-red-500/80 rounded-full w-8 h-8 flex items-center justify-center text-[10px] font-black text-red-500 flex-shrink-0">
+                        21+
+                    </div>
+                    <div className="text-[10px] sm:text-xs font-semibold text-slate-400 leading-tight text-left">
+                        <p>Gambling Problem?</p>
+                        <p className="text-slate-500">Call 1-800-522-4700</p>
+                    </div>
+                </div>
+
                 {/* Bottom Signature Row */}
-                <div className="flex flex-col md:flex-row items-center justify-between gap-4 border-t border-slate-900 pt-6">
-                    <p className="text-[10px] text-slate-600 font-bold uppercase tracking-wider text-center md:text-left">
-                        © {new Date().getFullYear()} Mongoose Bets. All Rights Reserved.
+                <div className="w-full flex flex-col md:flex-row items-center justify-between gap-4 border-t border-slate-900 pt-6 text-[10px] text-slate-600">
+                    <p className="font-bold uppercase tracking-wider text-center md:text-left">
+                        © {new Date().getFullYear()} Legends Sports. All Rights Reserved.
                     </p>
 
                     <div className="text-center md:text-right flex flex-col items-center md:items-end">
-                        <p className="text-[9px] text-slate-600 font-bold uppercase tracking-wider mb-1">
+                        <p className="font-bold uppercase tracking-wider mb-1">
                             Engineered & Developed By
                         </p>
                         <div className="flex items-center gap-3">
