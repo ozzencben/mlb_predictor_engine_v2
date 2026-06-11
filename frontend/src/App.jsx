@@ -424,7 +424,7 @@ function App() {
           </div>
 
           <p className="text-[8px] text-gray-500 mt-8 font-black uppercase tracking-[0.25em] select-none">
-            Legends Sports MLB Predictor Engine
+            Mongoose Bets MLB Predictor Engine
           </p>
         </div>
       </div>
@@ -441,7 +441,7 @@ function App() {
             <div className="absolute inset-0 rounded-full bg-indigo-500/10 blur-xl animate-pulse"></div>
           </div>
           <h2 className="text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400 uppercase tracking-widest mb-3">
-            Legends AI Warming Up
+            Mongoose AI Warming Up
           </h2>
           <p className="text-gray-300 text-sm md:text-base font-semibold leading-relaxed mb-6">
             Calculations are in progress! The model is active and updating lineups, live betting lines, and ballpark wind metrics for today's matches.
@@ -459,7 +459,7 @@ function App() {
             </span>
           </div>
           <p className="text-[9px] text-gray-400 mt-8 font-black uppercase tracking-[0.2em]">
-            Legends Sports MLB Predictor Engine
+            Mongoose Bets MLB Predictor Engine
           </p>
         </div>
       </div>
@@ -504,7 +504,7 @@ function App() {
             <h1 className="flex items-center justify-start gap-2 md:gap-3 flex-wrap">
               <img
                 src={logo2Img}
-                alt="Legends Sports"
+                alt="Mongoose Bets"
                 className="h-10 md:h-14 lg:h-16 w-auto object-contain drop-shadow-[0_0_15px_rgba(59,130,246,0.35)] filter brightness-110"
               />
               <span className="text-slate-400 mx-1 md:mx-2 font-light hidden sm:inline text-xl md:text-3xl">|</span>
