@@ -983,7 +983,7 @@ function App() {
           </div>
 
           {/* Right Column: Sidebar content (col-span-4 - Hidden on mobile) */}
-          <div className="hidden lg:block lg:col-span-4 lg:sticky lg:top-8 space-y-6">
+          <div className="hidden lg:block lg:col-span-4 space-y-6">
             {/* VIP Consensus Edges (Desktop Sidebar View) */}
             {!loading && predictions.length > 0 && (
               <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] border-t border-t-indigo-500/30 select-none">
