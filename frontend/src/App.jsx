@@ -664,7 +664,7 @@ function App() {
 
         {/* VIP Consensus Edges (Mobile Only - Horizontal Scroll List) */}
         {!loading && predictions.length > 0 && (
-          <div className="block lg:hidden bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl p-4 sm:p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] mb-8 select-none border-t border-t-indigo-500/30">
+          <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl p-4 sm:p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] mb-8 select-none border-t border-t-indigo-500/30">
             <div className="flex justify-between items-center mb-4 border-b border-slate-800 pb-2.5">
               <div className="flex items-center gap-2">
                 <span className="text-xl leading-none animate-pulse">⚡</span>
@@ -938,10 +938,29 @@ function App() {
           </div>
         )}
 
-        {/* ================= TWO COLUMN RESPONSIVE GRID ================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* ================= MODEL ARCHITECTURE (Full Width) ================= */}
+        <div className="bg-slate-900/40 backdrop-blur-md border border-slate-800/80 rounded-2xl p-5 shadow-lg select-none mb-8">
+          <h4 className="text-[10px] text-slate-500 font-black uppercase tracking-[0.2em] mb-4">Model Architecture</h4>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="flex items-start gap-2.5">
+              <span className="text-cyan-400 text-base flex-shrink-0 mt-0.5">⚾</span>
+              <span className="text-xs text-slate-400 font-semibold leading-relaxed"><strong className="text-slate-300">Daily Model</strong> evaluates Starting Pitcher splits, stadium ballistics, weather carries, and bullpen SIERA ratings.</span>
+            </div>
+            <div className="flex items-start gap-2.5">
+              <span className="text-indigo-400 text-base flex-shrink-0 mt-0.5">📈</span>
+              <span className="text-xs text-slate-400 font-semibold leading-relaxed"><strong className="text-slate-300">NRFI Model</strong> uses a custom-trained algorithm calculating top-order strikeout, walk, and first-inning home/away metrics.</span>
+            </div>
+            <div className="flex items-start gap-2.5">
+              <span className="text-purple-400 text-base flex-shrink-0 mt-0.5">🎯</span>
+              <span className="text-xs text-slate-400 font-semibold leading-relaxed"><strong className="text-slate-300">Pitcher Props</strong> uses Poisson (Ks) and Normal (Outs) probability curves matched against bookmaker lines.</span>
+            </div>
+          </div>
+        </div>
+
+        {/* ================= MAIN CARDS AREA (Full Width) ================= */}
+        <div className="">
           {/* Left Column: Main predictions / pitcher sheets (col-span-8) */}
-          <div className="lg:col-span-8 space-y-6">
+          <div className="space-y-6">
             {/* ================= KARTLARIN OLDUĞU BÖLÜM ================= */}
             <div className="grid grid-cols-1 gap-4">
               {loading ? (
@@ -983,7 +1002,7 @@ function App() {
           </div>
 
           {/* Right Column: Sidebar content (col-span-4 - Hidden on mobile) */}
-          <div className="hidden lg:block lg:col-span-4 space-y-6">
+          <div className="hidden">
             {/* VIP Consensus Edges (Desktop Sidebar View) */}
             {!loading && predictions.length > 0 && (
               <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] border-t border-t-indigo-500/30 select-none">
