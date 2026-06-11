@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <footer className="w-full py-8 mt-12 border-t border-slate-900 bg-slate-950/60 backdrop-blur-md">
             <div className="max-w-7xl mx-auto px-4 flex flex-col gap-8">
-                
+
                 {/* Sleek Venmo Donation Card */}
                 <div className="bg-gradient-to-r from-blue-950/20 via-slate-950/40 to-blue-950/20 border border-blue-900/35 rounded-2xl p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-lg shadow-black/30">
                     <div className="flex flex-col sm:flex-row items-center gap-3">
@@ -56,7 +56,7 @@ const Footer = () => {
 
                         {/* Disclaimer */}
                         <p className="text-[10px] sm:text-xs text-slate-500 leading-relaxed text-justify max-w-2xl font-medium border-t border-slate-900/60 pt-4">
-                            Mongoose Bets cannot be held liable for any losses incurred. These tools provide data-driven insights only and do not constitute financial or gambling advice. Please bet responsibly. By using Mongoose Bets, you confirm you are of legal betting age in your jurisdiction.
+                            BetLogic AI cannot be held liable for any losses incurred. These tools provide data-driven insights only and do not constitude financial or gambling advice. Please bet responsibly. By using BetLogic, you confirm you are of legal bettings age in your jurisdiction.
                         </p>
                     </div>
 
