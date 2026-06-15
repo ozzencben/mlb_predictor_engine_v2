@@ -8,6 +8,9 @@ import logo2Img from './assets/logo2.png';
 import { getTeamAbbr, formatAmericanOdds } from './utils/formatters';
 import DropdownNavigation from './components/DropdownNavigation';
 import PitcherProjections from './components/PitcherProjections';
+import { SPORTS_CONFIG } from './utils/sports_config';
+import CentralDashboard from './components/CentralDashboard';
+import TennisDashboard from './components/TennisDashboard';
 
 // Cumulative normal distribution CDF using math approximation for erf (to support Spread Probability)
 const normalCDF = (x, mean = 0, stdDev = 1) => {
@@ -15,1315 +18,1517 @@ const normalCDF = (x, mean = 0, stdDev = 1) => {
     const t = 1.0 / (1.0 + 0.5 * Math.abs(z));
     const ans = 1.0 - t * Math.exp(-z * z - 1.26551223 +
         t * (1.00002368 +
-        t * (0.37409196 +
-        t * (0.09678418 +
-        t * (-0.18628806 +
-        t * (0.27886807 +
-        t * (-1.13520398 +
-        t * (1.48851587 +
-        t * (-0.82215223 +
-        t * 0.17087277)))))))));
+            t * (0.37409196 +
+                t * (0.09678418 +
+                    t * (-0.18628806 +
+                        t * (0.27886807 +
+                            t * (-1.13520398 +
+                                t * (1.48851587 +
+                                    t * (-0.82215223 +
+                                        t * 0.17087277)))))))));
     return z >= 0 ? 0.5 + 0.5 * ans : 0.5 - 0.5 * ans;
 };
 
 const loadingSteps = [
-  "📡 Waking up backend API container on Render...",
-  "🧠 Initializing mathematical ballistics model...",
-  "☁️ Scraping ballpark weather conditions...",
-  "⚾ Parsing probable pitcher matchups...",
-  "📈 Computing normal CDF spread probabilities...",
-  "🚀 Finalizing premium sabermetric daily predictions..."
+    "📡 Waking up backend API container on Render...",
+    "🧠 Initializing mathematical ballistics model...",
+    "☁️ Scraping ballpark weather conditions...",
+    "⚾ Parsing probable pitcher matchups...",
+    "📈 Computing normal CDF spread probabilities...",
+    "🚀 Finalizing premium sabermetric daily predictions..."
 ];
 
 const mlbTips = [
-  "Ballpark altitude and humidity are calculated in real-time to adjust ball carry distance by up to 15%!",
-  "A Vegas O/U line of 8.0 or less automatically triggers our pitcher-friendly model boost.",
-  "First-inning NRFI predictions use a custom-trained model evaluating top-order strikeout and walk percentages.",
-  "Spread cover probabilities are modulated using a standard deviation of 4.0 runs, customized for modern MLB differential math."
+    "Ballpark altitude and humidity are calculated in real-time to adjust ball carry distance by up to 15%!",
+    "A Vegas O/U line of 8.0 or less automatically triggers our pitcher-friendly model boost.",
+    "First-inning NRFI predictions use a custom-trained model evaluating top-order strikeout and walk percentages.",
+    "Spread cover probabilities are modulated using a standard deviation of 4.0 runs, customized for modern MLB differential math."
 ];
 
 function App() {
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [activeModel, setActiveModel] = useState('full'); // 'full', 'nrfi', 'f5'
-  const [showScrollTop, setShowScrollTop] = useState(false);
-  const [isSlowLoading, setIsSlowLoading] = useState(false);
-  const [loadingStepIdx, setLoadingStepIdx] = useState(0);
-  const [randomTipIdx] = useState(() => Math.floor(Math.random() * mlbTips.length));
-  const [menuOpen, setMenuOpen] = useState(false);
-  const { data, loading, error, isPreparing } = usePredictions(selectedDate);
+    const [activeSport, setActiveSport] = useState('home'); // 'home', 'mlb', 'tennis', etc.
+    const [showAboutModal, setShowAboutModal] = useState(false);
+    const [showContactModal, setShowContactModal] = useState(false);
+    const [selectedDate, setSelectedDate] = useState(null);
+    const [activeModel, setActiveModel] = useState('full'); // 'full', 'nrfi', 'f5'
+    const [showScrollTop, setShowScrollTop] = useState(false);
+    const [isSlowLoading, setIsSlowLoading] = useState(false);
+    const [loadingStepIdx, setLoadingStepIdx] = useState(0);
+    const [randomTipIdx] = useState(() => Math.floor(Math.random() * mlbTips.length));
+    const [menuOpen, setMenuOpen] = useState(false);
+    const { data, loading, error, isPreparing } = usePredictions(selectedDate);
 
-  useEffect(() => {
-    if (loading) {
-      const timer = setTimeout(() => {
-        setIsSlowLoading(true);
-      }, 3000);
-      return () => clearTimeout(timer);
-    } else {
-      setIsSlowLoading(false);
-    }
-  }, [loading]);
-
-  useEffect(() => {
-    if (loading && isSlowLoading) {
-      const stepTimer = setInterval(() => {
-        setLoadingStepIdx((prev) => (prev + 1) % loadingSteps.length);
-      }, 7000);
-      return () => clearInterval(stepTimer);
-    }
-  }, [loading, isSlowLoading]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 300) {
-        setShowScrollTop(true);
-      } else {
-        setShowScrollTop(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const getOffsetDateString = (offset) => {
-    const d = new Date();
-    const etString = d.toLocaleString("en-US", { timeZone: "America/New_York" });
-    const etDate = new Date(etString);
-    etDate.setDate(etDate.getDate() + offset);
-    
-    const yyyy = etDate.getFullYear();
-    const mm = String(etDate.getMonth() + 1).padStart(2, '0');
-    const dd = String(etDate.getDate()).padStart(2, '0');
-    return `${yyyy}-${mm}-${dd}`;
-  };
-
-  const formatDateLabel = (dateStr) => {
-    if (!dateStr) return '';
-    const parts = dateStr.split('-');
-    if (parts.length !== 3) return dateStr;
-    const year = parseInt(parts[0]);
-    const month = parseInt(parts[1]) - 1;
-    const day = parseInt(parts[2]);
-    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    return `${months[month]} ${day}`;
-  };
-
-  const calendarDays = useMemo(() => {
-    const days = [];
-    for (let i = -2; i <= 2; i++) {
-      days.push({
-        dateStr: getOffsetDateString(i),
-        offset: i,
-      });
-    }
-    return days;
-  }, []);
-
-  const onNavigateToNrfi = (gameKey) => {
-    setActiveModel('nrfi');
-    setTimeout(() => {
-      const element = document.getElementById(`nrfi-card-${gameKey}`);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        // Add dynamic glowing indicator for visual delight
-        element.classList.add('ring-4', 'ring-indigo-500/80', 'shadow-[0_0_30px_rgba(99,102,241,0.6)]', 'transition-all', 'duration-500', 'scale-[1.015]');
-        setTimeout(() => {
-          element.classList.remove('ring-4', 'ring-indigo-500/80', 'shadow-[0_0_30px_rgba(99,102,241,0.6)]', 'scale-[1.015]');
-        }, 3000);
-      }
-    }, 150);
-  };
-
-  const predictions = data?.data?.predictions || [];
-  const systemDate = data?.data?.date || '';
-  const lastUpdated = data?.last_updated;
-
-  const pitcherEdges = useMemo(() => {
-    const pitcherProjs = data?.data?.pitcher_projections || [];
-    if (pitcherProjs.length === 0) return [];
-
-    const edges = [];
-    pitcherProjs.forEach((p) => {
-      if (p.k_choice !== 'PASS' && p.k_edge > 0) {
-        edges.push({
-          pitcher: p.pitcher,
-          team: p.team,
-          opponent: p.opponent,
-          type: 'Strikeouts',
-          choice: p.k_choice,
-          line: p.k_line,
-          edge: p.k_edge,
-          proj: p.proj_k,
-          book: p.k_book
-        });
-      }
-      if (p.outs_choice !== 'PASS' && p.outs_edge > 0) {
-        edges.push({
-          pitcher: p.pitcher,
-          team: p.team,
-          opponent: p.opponent,
-          type: 'Total Outs',
-          choice: p.outs_choice,
-          line: p.outs_line,
-          edge: p.outs_edge,
-          proj: p.proj_outs,
-          book: p.outs_book
-        });
-      }
-    });
-
-    return edges.sort((a, b) => b.edge - a.edge).slice(0, 3);
-  }, [data]);
-
-  const nrfiEdges = useMemo(() => {
-    if (!predictions || predictions.length === 0) return [];
-
-    const edges = [];
-    predictions.forEach((p) => {
-      const Odds = p.Odds || {};
-      const nrfiScoreVal = p.NRFI?.nrfi_score || 0;
-      const yrfiScoreVal = p.NRFI?.yrfi_score || 0;
-      const pick = p.NRFI?.pick; // 'NRFI' or 'YRFI'
-
-      const hasNrfiOdds = Odds.nrfi_odds && Odds.nrfi_odds !== 0;
-      if (!hasNrfiOdds) return;
-
-      const nrfiEdgeVal = Odds.nrfi_edge_pct || 0;
-      const yrfiEdgeVal = Odds.yrfi_edge_pct || 0;
-
-      if (pick === 'NRFI' && nrfiEdgeVal > 0) {
-        edges.push({
-          awayTeam: p.matchup.away_team,
-          homeTeam: p.matchup.home_team,
-          choice: 'NRFI',
-          odds: Odds.nrfi_odds,
-          edge: nrfiEdgeVal,
-          score: nrfiScoreVal * 100,
-          book: Odds.nrfi_book || 'Best Line'
-        });
-      } else if (pick === 'YRFI' && yrfiEdgeVal > 0) {
-        edges.push({
-          awayTeam: p.matchup.away_team,
-          homeTeam: p.matchup.home_team,
-          choice: 'YRFI',
-          odds: Odds.yrfi_odds,
-          edge: yrfiEdgeVal,
-          score: yrfiScoreVal * 100,
-          book: Odds.yrfi_book || 'Best Line'
-        });
-      } else {
-        const maxEdge = Math.max(nrfiEdgeVal, yrfiEdgeVal);
-        if (maxEdge > 0) {
-          const isNrfi = nrfiEdgeVal >= yrfiEdgeVal;
-          edges.push({
-            awayTeam: p.matchup.away_team,
-            homeTeam: p.matchup.home_team,
-            choice: isNrfi ? 'NRFI' : 'YRFI',
-            odds: isNrfi ? Odds.nrfi_odds : Odds.yrfi_odds,
-            edge: maxEdge,
-            score: (isNrfi ? nrfiScoreVal : yrfiScoreVal) * 100,
-            book: (isNrfi ? Odds.nrfi_book : Odds.yrfi_book) || 'Best Line'
-          });
+    useEffect(() => {
+        if (loading) {
+            const timer = setTimeout(() => {
+                setIsSlowLoading(true);
+            }, 3000);
+            return () => clearTimeout(timer);
+        } else {
+            setIsSlowLoading(false);
         }
-      }
-    });
+    }, [loading]);
 
-    return edges.sort((a, b) => b.edge - a.edge).slice(0, 3);
-  }, [predictions]);
+    useEffect(() => {
+        if (loading && isSlowLoading) {
+            const stepTimer = setInterval(() => {
+                setLoadingStepIdx((prev) => (prev + 1) % loadingSteps.length);
+            }, 7000);
+            return () => clearInterval(stepTimer);
+        }
+    }, [loading, isSlowLoading]);
 
-  const scrollToPitcher = (pitcherName) => {
-    // Navigate to pitcher props tab if not active
-    setActiveModel('pitcher_props');
-    setTimeout(() => {
-      const cardId = `pitcher-card-${pitcherName.replace(/\s+/g, '-').toLowerCase()}`;
-      const element = document.getElementById(cardId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        element.classList.add('ring-4', 'ring-indigo-500/80', 'shadow-[0_0_30px_rgba(99,102,241,0.6)]', 'scale-[1.015]');
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 300) {
+                setShowScrollTop(true);
+            } else {
+                setShowScrollTop(false);
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    const getOffsetDateString = (offset) => {
+        const d = new Date();
+        const etString = d.toLocaleString("en-US", { timeZone: "America/New_York" });
+        const etDate = new Date(etString);
+        etDate.setDate(etDate.getDate() + offset);
+
+        const yyyy = etDate.getFullYear();
+        const mm = String(etDate.getMonth() + 1).padStart(2, '0');
+        const dd = String(etDate.getDate()).padStart(2, '0');
+        return `${yyyy}-${mm}-${dd}`;
+    };
+
+    const formatDateLabel = (dateStr) => {
+        if (!dateStr) return '';
+        const parts = dateStr.split('-');
+        if (parts.length !== 3) return dateStr;
+        const year = parseInt(parts[0]);
+        const month = parseInt(parts[1]) - 1;
+        const day = parseInt(parts[2]);
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        return `${months[month]} ${day}`;
+    };
+
+    const calendarDays = useMemo(() => {
+        const days = [];
+        for (let i = -2; i <= 2; i++) {
+            days.push({
+                dateStr: getOffsetDateString(i),
+                offset: i,
+            });
+        }
+        return days;
+    }, []);
+
+    const onNavigateToNrfi = (gameKey) => {
+        setActiveModel('nrfi');
         setTimeout(() => {
-          element.classList.remove('ring-4', 'ring-indigo-500/80', 'shadow-[0_0_30px_rgba(99,102,241,0.6)]', 'scale-[1.015]');
-        }, 3000);
-      }
-    }, 150);
-  };
+            const element = document.getElementById(`nrfi-card-${gameKey}`);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Add dynamic glowing indicator for visual delight
+                element.classList.add('ring-4', 'ring-indigo-500/80', 'shadow-[0_0_30px_rgba(99,102,241,0.6)]', 'transition-all', 'duration-500', 'scale-[1.015]');
+                setTimeout(() => {
+                    element.classList.remove('ring-4', 'ring-indigo-500/80', 'shadow-[0_0_30px_rgba(99,102,241,0.6)]', 'scale-[1.015]');
+                }, 3000);
+            }
+        }, 150);
+    };
 
-  const dailyEdges = useMemo(() => {
-    if (!predictions || predictions.length === 0) return null;
+    const predictions = data?.data?.predictions || [];
+    const systemDate = data?.data?.date || '';
+    const lastUpdated = data?.last_updated;
 
-    // 1. Backend'den kilitli consensus_edges geliyorsa doğrudan onu kullan (Görev 9 & 10)
-    if (data?.data?.consensus_edges) {
-      const edges = data.data.consensus_edges;
-      
-      const findGame = (away, home) => {
-        return predictions.find(p => p.matchup.away_team === away && p.matchup.home_team === home) || null;
-      };
+    const pitcherEdges = useMemo(() => {
+        const pitcherProjs = data?.data?.pitcher_projections || [];
+        if (pitcherProjs.length === 0) return [];
 
-      return {
-        ml: edges.ml ? { ...edges.ml, game: findGame(edges.ml.away_team, edges.ml.home_team) } : null,
-        spread: edges.spread ? { ...edges.spread, game: findGame(edges.spread.away_team, edges.spread.home_team) } : null,
-        total: edges.total ? { ...edges.total, game: findGame(edges.total.away_team, edges.total.home_team) } : null,
-        most_confident_ml: edges.most_confident_ml ? edges.most_confident_ml.map(item => ({ ...item, game: findGame(item.away_team, item.home_team) })) : null,
-        team_totals: edges.team_totals ? edges.team_totals.map(item => ({ ...item, game: findGame(item.away_team, item.home_team) })) : null
-      };
+        const edges = [];
+        pitcherProjs.forEach((p) => {
+            if (p.k_choice !== 'PASS' && p.k_edge > 0) {
+                edges.push({
+                    pitcher: p.pitcher,
+                    team: p.team,
+                    opponent: p.opponent,
+                    type: 'Strikeouts',
+                    choice: p.k_choice,
+                    line: p.k_line,
+                    edge: p.k_edge,
+                    proj: p.proj_k,
+                    book: p.k_book
+                });
+            }
+            if (p.outs_choice !== 'PASS' && p.outs_edge > 0) {
+                edges.push({
+                    pitcher: p.pitcher,
+                    team: p.team,
+                    opponent: p.opponent,
+                    type: 'Total Outs',
+                    choice: p.outs_choice,
+                    line: p.outs_line,
+                    edge: p.outs_edge,
+                    proj: p.proj_outs,
+                    book: p.outs_book
+                });
+            }
+        });
+
+        return edges.sort((a, b) => b.edge - a.edge).slice(0, 3);
+    }, [data]);
+
+    const nrfiEdges = useMemo(() => {
+        if (!predictions || predictions.length === 0) return [];
+
+        const edges = [];
+        predictions.forEach((p) => {
+            const Odds = p.Odds || {};
+            const nrfiScoreVal = p.NRFI?.nrfi_score || 0;
+            const yrfiScoreVal = p.NRFI?.yrfi_score || 0;
+            const pick = p.NRFI?.pick; // 'NRFI' or 'YRFI'
+
+            const hasNrfiOdds = Odds.nrfi_odds && Odds.nrfi_odds !== 0;
+            if (!hasNrfiOdds) return;
+
+            const nrfiEdgeVal = Odds.nrfi_edge_pct || 0;
+            const yrfiEdgeVal = Odds.yrfi_edge_pct || 0;
+
+            if (pick === 'NRFI' && nrfiEdgeVal > 0) {
+                edges.push({
+                    awayTeam: p.matchup.away_team,
+                    homeTeam: p.matchup.home_team,
+                    choice: 'NRFI',
+                    odds: Odds.nrfi_odds,
+                    edge: nrfiEdgeVal,
+                    score: nrfiScoreVal * 100,
+                    book: Odds.nrfi_book || 'Best Line'
+                });
+            } else if (pick === 'YRFI' && yrfiEdgeVal > 0) {
+                edges.push({
+                    awayTeam: p.matchup.away_team,
+                    homeTeam: p.matchup.home_team,
+                    choice: 'YRFI',
+                    odds: Odds.yrfi_odds,
+                    edge: yrfiEdgeVal,
+                    score: yrfiScoreVal * 100,
+                    book: Odds.yrfi_book || 'Best Line'
+                });
+            } else {
+                const maxEdge = Math.max(nrfiEdgeVal, yrfiEdgeVal);
+                if (maxEdge > 0) {
+                    const isNrfi = nrfiEdgeVal >= yrfiEdgeVal;
+                    edges.push({
+                        awayTeam: p.matchup.away_team,
+                        homeTeam: p.matchup.home_team,
+                        choice: isNrfi ? 'NRFI' : 'YRFI',
+                        odds: isNrfi ? Odds.nrfi_odds : Odds.yrfi_odds,
+                        edge: maxEdge,
+                        score: (isNrfi ? nrfiScoreVal : yrfiScoreVal) * 100,
+                        book: (isNrfi ? Odds.nrfi_book : Odds.yrfi_book) || 'Best Line'
+                    });
+                }
+            }
+        });
+
+        return edges.sort((a, b) => b.edge - a.edge).slice(0, 3);
+    }, [predictions]);
+
+    const scrollToPitcher = (pitcherName) => {
+        // Navigate to pitcher props tab if not active
+        setActiveModel('pitcher_props');
+        setTimeout(() => {
+            const cardId = `pitcher-card-${pitcherName.replace(/\s+/g, '-').toLowerCase()}`;
+            const element = document.getElementById(cardId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                element.classList.add('ring-4', 'ring-indigo-500/80', 'shadow-[0_0_30px_rgba(99,102,241,0.6)]', 'scale-[1.015]');
+                setTimeout(() => {
+                    element.classList.remove('ring-4', 'ring-indigo-500/80', 'shadow-[0_0_30px_rgba(99,102,241,0.6)]', 'scale-[1.015]');
+                }, 3000);
+            }
+        }, 150);
+    };
+
+    const dailyEdges = useMemo(() => {
+        if (!predictions || predictions.length === 0) return null;
+
+        // 1. Backend'den kilitli consensus_edges geliyorsa doğrudan onu kullan (Görev 9 & 10)
+        if (data?.data?.consensus_edges) {
+            const edges = data.data.consensus_edges;
+
+            const findGame = (away, home) => {
+                return predictions.find(p => p.matchup.away_team === away && p.matchup.home_team === home) || null;
+            };
+
+            return {
+                ml: edges.ml ? { ...edges.ml, game: findGame(edges.ml.away_team, edges.ml.home_team) } : null,
+                spread: edges.spread ? { ...edges.spread, game: findGame(edges.spread.away_team, edges.spread.home_team) } : null,
+                total: edges.total ? { ...edges.total, game: findGame(edges.total.away_team, edges.total.home_team) } : null,
+                most_confident_ml: edges.most_confident_ml ? edges.most_confident_ml.map(item => ({ ...item, game: findGame(item.away_team, item.home_team) })) : null,
+                team_totals: edges.team_totals ? edges.team_totals.map(item => ({ ...item, game: findGame(item.away_team, item.home_team) })) : null
+            };
+        }
+
+        // 2. Fallback: Eski önbellekler için dinamik hesaplama
+        let topMlGame = null;
+        let topMlEdgeVal = -999;
+        let topMlChoice = '';
+        let topMlProb = 0;
+
+        let topSpreadGame = null;
+        let topSpreadProbVal = 0;
+        let topSpreadChoice = '';
+
+        let topTotalGame = null;
+        let topTotalGapVal = -1;
+        let topTotalChoice = '';
+        let topTotalModelVal = 0;
+
+        predictions.forEach((game) => {
+            const { matchup, Full_Game, Odds } = game;
+            if (!matchup || !Full_Game) return;
+
+            // --- 1. Moneyline Edge ---
+            const awayProb = parseFloat(Full_Game.full_away_win_prob || 0);
+            const homeProb = parseFloat(Full_Game.full_home_win_prob || 0);
+            const awayEdge = parseFloat(Odds?.away_edge_pct || 0);
+            const homeEdge = parseFloat(Odds?.home_edge_pct || 0);
+
+            const isAwayMlBetter = awayEdge >= homeEdge;
+            const maxMlEdge = isAwayMlBetter ? awayEdge : homeEdge;
+            const mlChoice = isAwayMlBetter ? `${getTeamAbbr(matchup.away_team)} ML` : `${getTeamAbbr(matchup.home_team)} ML`;
+            const mlProb = isAwayMlBetter ? awayProb : homeProb;
+
+            if (maxMlEdge > topMlEdgeVal) {
+                topMlEdgeVal = maxMlEdge;
+                topMlGame = game;
+                topMlChoice = mlChoice;
+                topMlProb = mlProb;
+            }
+
+            // --- 2. Spread Edge (Probability) ---
+            const awayScore = parseFloat(Full_Game.full_away_score || 0);
+            const homeScore = parseFloat(Full_Game.full_home_score || 0);
+            const mu = homeScore - awayScore;
+            const sigma = 4.0;
+
+            const awayCoverProb = (S) => {
+                return normalCDF(S, mu, sigma);
+            };
+
+            const homeCoverProb = (S) => {
+                return 1.0 - normalCDF(-S, mu, sigma);
+            };
+
+            // Determine predicted winner
+            const modelWinner = awayScore > homeScore ? matchup.away_team : matchup.home_team;
+
+            // Identify bookmaker spread for Away team
+            const bookAwaySpread = Odds?.away_spread !== undefined ? Odds.away_spread : (awayScore > homeScore ? -1.5 : 1.5);
+
+            let spreadChoice = "";
+            let spreadProb = 0;
+
+            if (modelWinner === matchup.away_team) {
+                const spreadVal = bookAwaySpread;
+                const signStr = spreadVal >= 0 ? `+${spreadVal}` : `${spreadVal}`;
+                spreadChoice = `${getTeamAbbr(matchup.away_team)} ${signStr}`;
+                spreadProb = awayCoverProb(spreadVal);
+            } else {
+                const spreadVal = -bookAwaySpread;
+                const signStr = spreadVal >= 0 ? `+${spreadVal}` : `${spreadVal}`;
+                spreadChoice = `${getTeamAbbr(matchup.home_team)} ${signStr}`;
+                spreadProb = homeCoverProb(spreadVal);
+            }
+
+            if (spreadProb > topSpreadProbVal) {
+                topSpreadProbVal = spreadProb;
+                topSpreadGame = game;
+                topSpreadChoice = spreadChoice;
+            }
+
+            // --- 3. Total Edge ---
+            const bookTotal = Odds?.over_under !== undefined && Odds.over_under > 0 ? Odds.over_under : 8.5;
+            const modelTotal = parseFloat(Full_Game.full_total || 0);
+            const totalGap = Math.abs(modelTotal - bookTotal);
+            const totalChoice = modelTotal >= bookTotal ? `OVER ${bookTotal}` : `UNDER ${bookTotal}`;
+
+            if (totalGap > topTotalGapVal) {
+                topTotalGapVal = totalGap;
+                topTotalGame = game;
+                topTotalChoice = totalChoice;
+                topTotalModelVal = modelTotal;
+            }
+        });
+
+        return {
+            ml: topMlGame ? { game: topMlGame, edge: topMlEdgeVal, choice: topMlChoice, prob: topMlProb } : null,
+            spread: topSpreadGame ? { game: topSpreadGame, prob: topSpreadProbVal, choice: topSpreadChoice } : null,
+            total: topTotalGame ? { game: topTotalGame, gap: topTotalGapVal, choice: topTotalChoice, modelTotal: topTotalModelVal } : null
+        };
+    }, [predictions]);
+
+    // Dynamic descriptive cold start loader (initial load is slow)
+    if (loading && !data && isSlowLoading) {
+        return (
+            <div className="min-h-screen flex items-center justify-center p-6 bg-slate-950 text-gray-100 selection:bg-indigo-500 selection:text-white relative overflow-hidden">
+                {/* Neon Backdrop Blobs */}
+                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-[100px] pointer-events-none animate-pulse duration-[8s]"></div>
+                <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none animate-pulse duration-[12s]"></div>
+
+                <div className="bg-slate-900/60 backdrop-blur-2xl border border-slate-800/80 rounded-3xl p-8 md:p-10 text-center max-w-lg w-full shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col items-center relative z-10 border-t border-t-indigo-500/20">
+
+                    {/* Animated 3D-looking Spinning Baseball */}
+                    <div className="relative mb-8">
+                        <span className="text-7xl inline-block animate-spin [animation-duration:4s] select-none">⚾</span>
+                        <div className="absolute inset-0 rounded-full bg-indigo-500/20 blur-2xl animate-pulse"></div>
+                        <div className="absolute -top-1 -right-1 flex h-4 w-4">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-4 w-4 bg-cyan-500 shadow-[0_0_10px_rgba(34,211,238,0.8)]"></span>
+                        </div>
+                    </div>
+
+                    <h2 className="text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400 uppercase tracking-widest mb-3">
+                        Waking Up AI Predictor
+                    </h2>
+
+                    <p className="text-gray-300 text-xs md:text-sm font-semibold leading-relaxed mb-6">
+                        Our backend service is hosted on Render's free tier and is currently waking up from hibernation. This cold start process takes <span className="text-indigo-400 font-extrabold">45-60 seconds</span>. Thank you for your patience!
+                    </p>
+
+                    {/* Glowing Animated Loading Bar */}
+                    <div className="w-full bg-slate-950/80 rounded-full h-2 p-[2px] border border-slate-800/80 mb-6 relative overflow-hidden shadow-inner">
+                        <div className="h-full bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 rounded-full w-4/5 animate-pulse shadow-[0_0_15px_rgba(99,102,241,0.6)]"></div>
+                    </div>
+
+                    {/* Dynamic Active Step Indicator */}
+                    <div className="w-full py-3 px-4 bg-slate-950/50 border border-slate-850 rounded-xl mb-6 shadow-inner text-left flex items-center gap-3">
+                        <span className="flex h-2.5 w-2.5 relative flex-shrink-0">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-300"></span>
+                        </span>
+                        <span className="text-[10px] md:text-xs text-cyan-300 font-black uppercase tracking-wider animate-pulse transition-all duration-500">
+                            {loadingSteps[loadingStepIdx]}
+                        </span>
+                    </div>
+
+                    {/* Fun Fact / Pro Tip Segment */}
+                    <div className="w-full pt-4 border-t border-slate-800 text-left">
+                        <span className="text-[9px] text-indigo-400 font-black uppercase tracking-widest block mb-1">
+                            💡 MLB Predictor Tip:
+                        </span>
+                        <p className="text-[10px] text-gray-400 font-medium leading-relaxed italic">
+                            "{mlbTips[randomTipIdx]}"
+                        </p>
+                    </div>
+
+                    <p className="text-[8px] text-gray-500 mt-8 font-black uppercase tracking-[0.25em] select-none">
+                        Legends Sports MLB Predictor Engine
+                    </p>
+                </div>
+            </div>
+        );
     }
 
-    // 2. Fallback: Eski önbellekler için dinamik hesaplama
-    let topMlGame = null;
-    let topMlEdgeVal = -999;
-    let topMlChoice = '';
-    let topMlProb = 0;
-
-    let topSpreadGame = null;
-    let topSpreadProbVal = 0;
-    let topSpreadChoice = '';
-
-    let topTotalGame = null;
-    let topTotalGapVal = -1;
-    let topTotalChoice = '';
-    let topTotalModelVal = 0;
-
-    predictions.forEach((game) => {
-      const { matchup, Full_Game, Odds } = game;
-      if (!matchup || !Full_Game) return;
-
-      // --- 1. Moneyline Edge ---
-      const awayProb = parseFloat(Full_Game.full_away_win_prob || 0);
-      const homeProb = parseFloat(Full_Game.full_home_win_prob || 0);
-      const awayEdge = parseFloat(Odds?.away_edge_pct || 0);
-      const homeEdge = parseFloat(Odds?.home_edge_pct || 0);
-
-      const isAwayMlBetter = awayEdge >= homeEdge;
-      const maxMlEdge = isAwayMlBetter ? awayEdge : homeEdge;
-      const mlChoice = isAwayMlBetter ? `${getTeamAbbr(matchup.away_team)} ML` : `${getTeamAbbr(matchup.home_team)} ML`;
-      const mlProb = isAwayMlBetter ? awayProb : homeProb;
-
-      if (maxMlEdge > topMlEdgeVal) {
-        topMlEdgeVal = maxMlEdge;
-        topMlGame = game;
-        topMlChoice = mlChoice;
-        topMlProb = mlProb;
-      }
-
-      // --- 2. Spread Edge (Probability) ---
-      const awayScore = parseFloat(Full_Game.full_away_score || 0);
-      const homeScore = parseFloat(Full_Game.full_home_score || 0);
-      const mu = homeScore - awayScore;
-      const sigma = 4.0;
-
-      const awayCoverProb = (S) => {
-        return normalCDF(S, mu, sigma);
-      };
-
-      const homeCoverProb = (S) => {
-        return 1.0 - normalCDF(-S, mu, sigma);
-      };
-
-      // Determine predicted winner
-      const modelWinner = awayScore > homeScore ? matchup.away_team : matchup.home_team;
-
-      // Identify bookmaker spread for Away team
-      const bookAwaySpread = Odds?.away_spread !== undefined ? Odds.away_spread : (awayScore > homeScore ? -1.5 : 1.5);
-
-      let spreadChoice = "";
-      let spreadProb = 0;
-
-      if (modelWinner === matchup.away_team) {
-        const spreadVal = bookAwaySpread;
-        const signStr = spreadVal >= 0 ? `+${spreadVal}` : `${spreadVal}`;
-        spreadChoice = `${getTeamAbbr(matchup.away_team)} ${signStr}`;
-        spreadProb = awayCoverProb(spreadVal);
-      } else {
-        const spreadVal = -bookAwaySpread;
-        const signStr = spreadVal >= 0 ? `+${spreadVal}` : `${spreadVal}`;
-        spreadChoice = `${getTeamAbbr(matchup.home_team)} ${signStr}`;
-        spreadProb = homeCoverProb(spreadVal);
-      }
-
-      if (spreadProb > topSpreadProbVal) {
-        topSpreadProbVal = spreadProb;
-        topSpreadGame = game;
-        topSpreadChoice = spreadChoice;
-      }
-
-      // --- 3. Total Edge ---
-      const bookTotal = Odds?.over_under !== undefined && Odds.over_under > 0 ? Odds.over_under : 8.5;
-      const modelTotal = parseFloat(Full_Game.full_total || 0);
-      const totalGap = Math.abs(modelTotal - bookTotal);
-      const totalChoice = modelTotal >= bookTotal ? `OVER ${bookTotal}` : `UNDER ${bookTotal}`;
-
-      if (totalGap > topTotalGapVal) {
-        topTotalGapVal = totalGap;
-        topTotalGame = game;
-        topTotalChoice = totalChoice;
-        topTotalModelVal = modelTotal;
-      }
-    });
-
-    return {
-      ml: topMlGame ? { game: topMlGame, edge: topMlEdgeVal, choice: topMlChoice, prob: topMlProb } : null,
-      spread: topSpreadGame ? { game: topSpreadGame, prob: topSpreadProbVal, choice: topSpreadChoice } : null,
-      total: topTotalGame ? { game: topTotalGame, gap: topTotalGapVal, choice: topTotalChoice, modelTotal: topTotalModelVal } : null
-    };
-  }, [predictions]);
-
-  // Dynamic descriptive cold start loader (initial load is slow)
-  if (loading && !data && isSlowLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center p-6 bg-slate-950 text-gray-100 selection:bg-indigo-500 selection:text-white relative overflow-hidden">
-        {/* Neon Backdrop Blobs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-[100px] pointer-events-none animate-pulse duration-[8s]"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none animate-pulse duration-[12s]"></div>
-
-        <div className="bg-slate-900/60 backdrop-blur-2xl border border-slate-800/80 rounded-3xl p-8 md:p-10 text-center max-w-lg w-full shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col items-center relative z-10 border-t border-t-indigo-500/20">
-          
-          {/* Animated 3D-looking Spinning Baseball */}
-          <div className="relative mb-8">
-            <span className="text-7xl inline-block animate-spin [animation-duration:4s] select-none">⚾</span>
-            <div className="absolute inset-0 rounded-full bg-indigo-500/20 blur-2xl animate-pulse"></div>
-            <div className="absolute -top-1 -right-1 flex h-4 w-4">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-4 w-4 bg-cyan-500 shadow-[0_0_10px_rgba(34,211,238,0.8)]"></span>
+    // 503: Veri hazırlanıyor (zamanlayıcı henüz çalışmamış) veya polling durumunda
+    if (isPreparing) {
+        return (
+            <div className="min-h-screen flex items-center justify-center p-6 bg-slate-950 text-gray-100 selection:bg-indigo-500 selection:text-white">
+                <div className="bg-slate-900/60 backdrop-blur-xl border border-indigo-500/30 rounded-3xl p-8 md:p-10 text-center max-w-lg shadow-[0_0_50px_rgba(99,102,241,0.15)] flex flex-col items-center">
+                    <div className="relative mb-6">
+                        <span className="text-6xl inline-block animate-spin [animation-duration:3s]">⚾</span>
+                        <div className="absolute inset-0 rounded-full bg-indigo-500/10 blur-xl animate-pulse"></div>
+                    </div>
+                    <h2 className="text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400 uppercase tracking-widest mb-3">
+                        Legends AI Warming Up
+                    </h2>
+                    <p className="text-gray-300 text-sm md:text-base font-semibold leading-relaxed mb-6">
+                        Calculations are in progress! The model is active and updating lineups, live betting lines, and ballpark wind metrics for today's matches.
+                    </p>
+                    <div className="w-full bg-slate-950/80 rounded-full h-1.5 p-[1px] border border-slate-800 mb-6 relative overflow-hidden">
+                        <div className="h-full bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-full w-2/3 animate-pulse shadow-[0_0_10px_rgba(99,102,241,0.5)]"></div>
+                    </div>
+                    <div className="flex items-center gap-2 px-4 py-1.5 bg-indigo-500/10 border border-indigo-500/20 rounded-full">
+                        <span className="flex h-2 w-2 relative">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                        </span>
+                        <span className="text-[10px] md:text-xs text-indigo-300 font-extrabold uppercase tracking-widest animate-pulse">
+                            Polling Server... Dashboard Autoload Active
+                        </span>
+                    </div>
+                    <p className="text-[9px] text-gray-400 mt-8 font-black uppercase tracking-[0.2em]">
+                        Legends Sports MLB Predictor Engine
+                    </p>
+                </div>
             </div>
-          </div>
+        );
+    }
 
-          <h2 className="text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400 uppercase tracking-widest mb-3">
-            Waking Up AI Predictor
-          </h2>
-          
-          <p className="text-gray-300 text-xs md:text-sm font-semibold leading-relaxed mb-6">
-            Our backend service is hosted on Render's free tier and is currently waking up from hibernation. This cold start process takes <span className="text-indigo-400 font-extrabold">45-60 seconds</span>. Thank you for your patience!
-          </p>
+    if (error) return <div className="p-10 text-red-500 text-center font-black">❌ Connection Error: {error}</div>;
 
-          {/* Glowing Animated Loading Bar */}
-          <div className="w-full bg-slate-950/80 rounded-full h-2 p-[2px] border border-slate-800/80 mb-6 relative overflow-hidden shadow-inner">
-            <div className="h-full bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 rounded-full w-4/5 animate-pulse shadow-[0_0_15px_rgba(99,102,241,0.6)]"></div>
-          </div>
-
-          {/* Dynamic Active Step Indicator */}
-          <div className="w-full py-3 px-4 bg-slate-950/50 border border-slate-850 rounded-xl mb-6 shadow-inner text-left flex items-center gap-3">
-            <span className="flex h-2.5 w-2.5 relative flex-shrink-0">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-300"></span>
-            </span>
-            <span className="text-[10px] md:text-xs text-cyan-300 font-black uppercase tracking-wider animate-pulse transition-all duration-500">
-              {loadingSteps[loadingStepIdx]}
-            </span>
-          </div>
-
-          {/* Fun Fact / Pro Tip Segment */}
-          <div className="w-full pt-4 border-t border-slate-800 text-left">
-            <span className="text-[9px] text-indigo-400 font-black uppercase tracking-widest block mb-1">
-              💡 MLB Predictor Tip:
-            </span>
-            <p className="text-[10px] text-gray-400 font-medium leading-relaxed italic">
-              "{mlbTips[randomTipIdx]}"
-            </p>
-          </div>
-
-          <p className="text-[8px] text-gray-500 mt-8 font-black uppercase tracking-[0.25em] select-none">
-            Legends Sports MLB Predictor Engine
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  // 503: Veri hazırlanıyor (zamanlayıcı henüz çalışmamış) veya polling durumunda
-  if (isPreparing) {
-    return (
-      <div className="min-h-screen flex items-center justify-center p-6 bg-slate-950 text-gray-100 selection:bg-indigo-500 selection:text-white">
-        <div className="bg-slate-900/60 backdrop-blur-xl border border-indigo-500/30 rounded-3xl p-8 md:p-10 text-center max-w-lg shadow-[0_0_50px_rgba(99,102,241,0.15)] flex flex-col items-center">
-          <div className="relative mb-6">
-            <span className="text-6xl inline-block animate-spin [animation-duration:3s]">⚾</span>
-            <div className="absolute inset-0 rounded-full bg-indigo-500/10 blur-xl animate-pulse"></div>
-          </div>
-          <h2 className="text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400 uppercase tracking-widest mb-3">
-            Legends AI Warming Up
-          </h2>
-          <p className="text-gray-300 text-sm md:text-base font-semibold leading-relaxed mb-6">
-            Calculations are in progress! The model is active and updating lineups, live betting lines, and ballpark wind metrics for today's matches.
-          </p>
-          <div className="w-full bg-slate-950/80 rounded-full h-1.5 p-[1px] border border-slate-800 mb-6 relative overflow-hidden">
-            <div className="h-full bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-full w-2/3 animate-pulse shadow-[0_0_10px_rgba(99,102,241,0.5)]"></div>
-          </div>
-          <div className="flex items-center gap-2 px-4 py-1.5 bg-indigo-500/10 border border-indigo-500/20 rounded-full">
-            <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
-            </span>
-            <span className="text-[10px] md:text-xs text-indigo-300 font-extrabold uppercase tracking-widest animate-pulse">
-              Polling Server... Dashboard Autoload Active
-            </span>
-          </div>
-          <p className="text-[9px] text-gray-400 mt-8 font-black uppercase tracking-[0.2em]">
-            Legends Sports MLB Predictor Engine
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) return <div className="p-10 text-red-500 text-center font-black">❌ Connection Error: {error}</div>;
-
-  const scrollToMatchup = (awayTeam, homeTeam) => {
-    setActiveModel('full');
-    setTimeout(() => {
-      const element = document.getElementById(`matchup-card-${awayTeam}-${homeTeam}`);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        // Add dynamic glowing ring indicator
-        element.classList.add('ring-4', 'ring-blue-500/80', 'shadow-[0_0_30px_rgba(59,130,246,0.6)]', 'transition-all', 'duration-500', 'scale-[1.01]');
+    const scrollToMatchup = (awayTeam, homeTeam) => {
+        setActiveModel('full');
         setTimeout(() => {
-          element.classList.remove('ring-4', 'ring-blue-500/80', 'shadow-[0_0_30px_rgba(59,130,246,0.6)]', 'scale-[1.01]');
-        }, 3000);
-      }
-    }, 150);
-  };
+            const element = document.getElementById(`matchup-card-${awayTeam}-${homeTeam}`);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Add dynamic glowing ring indicator
+                element.classList.add('ring-4', 'ring-blue-500/80', 'shadow-[0_0_30px_rgba(59,130,246,0.6)]', 'transition-all', 'duration-500', 'scale-[1.01]');
+                setTimeout(() => {
+                    element.classList.remove('ring-4', 'ring-blue-500/80', 'shadow-[0_0_30px_rgba(59,130,246,0.6)]', 'scale-[1.01]');
+                }, 3000);
+            }
+        }, 150);
+    };
 
-  // Sort NRFI predictions from highest AI score to least when active, filtering out games without NRFI data
-  const displayPredictions = activeModel === 'nrfi'
-    ? predictions.filter(game => game.NRFI && game.NRFI.pick)
-                 .sort((a, b) => (b.NRFI?.confidence || 0) - (a.NRFI?.confidence || 0))
-    : predictions;
+    // Sort NRFI predictions from highest AI score to least when active, filtering out games without NRFI data
+    const displayPredictions = activeModel === 'nrfi'
+        ? predictions.filter(game => game.NRFI && game.NRFI.pick)
+            .sort((a, b) => (b.NRFI?.confidence || 0) - (a.NRFI?.confidence || 0))
+        : predictions;
 
-  return (
-    <div className="min-h-screen bg-slate-950 text-gray-100 relative overflow-hidden w-full selection:bg-indigo-500 selection:text-white pb-10">
-      {/* Abstract Background Blur Blobs for Premium Depth */}
-      <div className="absolute top-10 left-1/4 w-72 h-72 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none animate-pulse duration-[8s]"></div>
-      <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none animate-pulse duration-[12s]"></div>
-      <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl pointer-events-none"></div>
+    return (
+        <div className="min-h-screen bg-slate-950 text-gray-100 relative overflow-hidden w-full selection:bg-indigo-500 selection:text-white pb-10">
+            {/* Abstract Background Blur Blobs for Premium Depth */}
+            <div className="absolute top-10 left-1/4 w-72 h-72 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none animate-pulse duration-[8s]"></div>
+            <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none animate-pulse duration-[12s]"></div>
+            <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl pointer-events-none"></div>
 
-      {/* Full-width sticky premium glass navbar */}
-      <header className="sticky top-0 z-50 w-full bg-slate-950/80 backdrop-blur-md border-b border-slate-900/80 shadow-[0_4px_30px_rgba(0,0,0,0.4)] select-none">
-        <div className="max-w-7xl xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
-          {/* Sol Kısım: Logo ve Başlık */}
-          <div className="flex flex-col">
-            <h1 className="flex items-center justify-start gap-2 md:gap-3 flex-wrap">
-              <img
-                src={logo2Img}
-                alt="Legends Sports"
-                className="h-10 md:h-14 lg:h-16 w-auto object-contain drop-shadow-[0_0_15px_rgba(59,130,246,0.35)] filter brightness-110"
-              />
-              <span className="text-slate-400 mx-1 md:mx-2 font-light hidden sm:inline text-xl md:text-3xl">|</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 text-lg md:text-2xl font-black tracking-widest uppercase mt-0.5">
-                MLB Predictions
-              </span>
-            </h1>
-            <p className="text-gray-400 text-sm font-bold tracking-tight mt-1 md:mt-2">
-              Data-Driven Insights for {loading ? 'Loading...' : systemDate || 'No Date'}
-            </p>
-          </div>
+            {/* Full-width sticky premium glass navbar */}
+            <header className="sticky top-0 z-50 w-full bg-slate-950/90 backdrop-blur-md border-b border-slate-900/80 shadow-[0_4px_30px_rgba(0,0,0,0.4)] select-none flex flex-col">
 
-          {/* Sağ Kısım: Navigation & Menu Controls */}
-          <div className="flex items-center gap-4">
-            {/* Desktop Navbar Links */}
-            <nav className="hidden md:flex items-center gap-1 bg-slate-900/50 border border-slate-800/80 p-1 rounded-xl backdrop-blur-md select-none">
-              <button
-                onClick={() => setActiveModel('full')}
-                className={`px-3.5 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all duration-200 cursor-pointer ${
-                  activeModel === 'full'
-                    ? 'bg-blue-600/20 border border-blue-500/30 text-blue-400 font-extrabold shadow-[0_0_12px_rgba(59,130,246,0.1)]'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40 border border-transparent'
-                }`}
-              >
-                ⚾ Predictions
-              </button>
-              <button
-                onClick={() => setActiveModel('nrfi')}
-                className={`px-3.5 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all duration-200 cursor-pointer ${
-                  activeModel === 'nrfi'
-                    ? 'bg-indigo-600/20 border border-indigo-500/30 text-indigo-400 shadow-[0_0_12px_rgba(99,102,241,0.1)]'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40 border border-transparent'
-                }`}
-              >
-                📈 NRFI Model
-              </button>
-              <button
-                onClick={() => setActiveModel('pitcher_props')}
-                className={`px-3.5 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all duration-200 cursor-pointer ${
-                  activeModel === 'pitcher_props'
-                    ? 'bg-cyan-600/20 border border-cyan-500/30 text-cyan-400 shadow-[0_0_12px_rgba(6,182,212,0.1)]'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40 border border-transparent'
-                }`}
-              >
-                🎯 Pitchers
-              </button>
-            </nav>
-
-            {/* Desktop System Status */}
-            <div className="hidden md:flex flex-col items-end text-right select-none pr-1">
-              <div className="flex items-center gap-1.5">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${loading ? 'bg-amber-400' : 'bg-green-400'}`}></span>
-                  <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${loading ? 'bg-amber-500' : 'bg-green-500'}`}></span>
-                </span>
-                <span className={`text-[9px] font-black uppercase tracking-wider ${loading ? 'text-amber-500' : 'text-green-500'}`}>
-                  {loading ? 'Syncing...' : 'Live'}
-                </span>
-              </div>
-              {lastUpdated && (
-                <span className="text-[9px] text-slate-500 font-bold mt-0.5">
-                  Updated: {lastUpdated.split(' ')[1] || lastUpdated}
-                </span>
-              )}
-            </div>
-
-            {/* Hamburger Menü Simgesi (Mobile Only) */}
-            <div className="md:hidden relative flex items-center">
-              <button
-                onClick={() => setMenuOpen(!menuOpen)}
-                className="p-2.5 rounded-xl border border-slate-800 bg-slate-900/40 text-slate-400 hover:text-slate-200 hover:bg-slate-800/80 hover:border-slate-700 active:scale-95 transition-all duration-300 backdrop-blur-md cursor-pointer flex items-center justify-center focus:outline-none"
-                aria-label="Toggle navigation menu"
-              >
-                <div className="w-5 h-5 relative">
-                  <span className={`absolute left-0 w-5 h-0.5 bg-current rounded-full transition-all duration-300 ${menuOpen ? 'top-1/2 -translate-y-1/2 rotate-45' : 'top-1 -translate-y-0'}`} />
-                  <span className={`absolute left-0 w-5 h-0.5 bg-current rounded-full transition-all duration-300 ${menuOpen ? 'opacity-0 scale-0' : 'top-1/2 -translate-y-1/2'}`} />
-                  <span className={`absolute left-0 w-5 h-0.5 bg-current rounded-full transition-all duration-300 ${menuOpen ? 'top-1/2 -translate-y-1/2 -rotate-45' : 'bottom-1 -translate-y-0'}`} />
-                </div>
-              </button>
-
-              {/* Dropdown Navigation Overlay (Mobile Only) */}
-              <DropdownNavigation
-                activeModel={activeModel}
-                setActiveModel={setActiveModel}
-                lastUpdated={lastUpdated}
-                loading={loading}
-                menuOpen={menuOpen}
-                setMenuOpen={setMenuOpen}
-              />
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <main className="max-w-7xl xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto p-4 md:p-8 pt-6 relative z-10">
-
-        {/* ================= CALENDAR TAPE ================= */}
-        <div className="mb-8 p-1.5 bg-slate-900/40 backdrop-blur-md border border-slate-800/80 rounded-2xl flex items-center justify-between gap-1 overflow-x-auto no-scrollbar scroll-smooth">
-          {calendarDays.map((day) => {
-            const isToday = day.offset === 0;
-            const isSelected = selectedDate === day.dateStr || (selectedDate === null && isToday);
-            
-            let relativeLabel = '';
-            if (day.offset === -2) relativeLabel = '2 DAYS AGO';
-            else if (day.offset === -1) relativeLabel = 'YESTERDAY';
-            else if (day.offset === 0) relativeLabel = 'TODAY';
-            else if (day.offset === 1) relativeLabel = 'TOMORROW';
-            else if (day.offset === 2) relativeLabel = '2 DAYS AWAY';
-
-            return (
-              <button
-                key={day.dateStr}
-                onClick={() => setSelectedDate(isToday ? null : day.dateStr)}
-                className={`flex-1 min-w-[90px] md:min-w-[120px] py-2 px-3 flex flex-col items-center justify-center rounded-xl transition-all duration-300 relative group cursor-pointer ${
-                  isSelected
-                    ? 'bg-gradient-to-br from-indigo-600/90 to-blue-600/90 text-white font-extrabold shadow-[0_0_15px_rgba(99,102,241,0.4)] border border-indigo-400/40 scale-[1.02]'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40 border border-transparent'
-                }`}
-              >
-                <span className={`text-[9px] md:text-[10px] uppercase font-black tracking-widest ${
-                  isSelected ? 'text-cyan-200' : 'text-slate-500 group-hover:text-slate-400'
-                }`}>
-                  {relativeLabel}
-                </span>
-                <span className="text-xs md:text-sm font-bold mt-0.5">
-                  {formatDateLabel(day.dateStr)}
-                </span>
-                {isSelected && (
-                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)] animate-pulse"></span>
-                )}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* ================= BACKEND COLD START WARNING ================= */}
-        {loading && isSlowLoading && (
-          <div className="mb-8 p-6 bg-indigo-950/40 backdrop-blur-xl border border-indigo-500/30 rounded-2xl text-center flex flex-col items-center justify-center shadow-[0_0_30px_rgba(99,102,241,0.15)] animate-pulse select-none">
-            <span className="text-4xl block mb-3 animate-spin [animation-duration:4s]">⚡</span>
-            <h4 className="text-sm md:text-base font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-400 uppercase tracking-widest mb-1.5">
-              Waking Up Predictor Server
-            </h4>
-            <p className="text-gray-300 text-xs md:text-sm max-w-md font-semibold leading-relaxed mb-4">
-              Since the engine is hosted on Render's free tier, the backend container automatically hibernates after inactivity. We are waking it up now—this process typically takes about 45-60 seconds. Thank you for your patience!
-            </p>
-            <div className="flex items-center gap-2 px-3 py-1 bg-cyan-500/10 border border-cyan-500/20 rounded-full">
-              <span className="flex h-1.5 w-1.5 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-500"></span>
-              </span>
-              <span className="text-[9px] text-cyan-300 font-extrabold uppercase tracking-wider">
-                Connecting to API container...
-              </span>
-            </div>
-          </div>
-        )}
-
-        {/* VIP Consensus Edges (Mobile Only - Horizontal Scroll List) */}
-        {!loading && predictions.length > 0 && (
-          <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl p-4 sm:p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] mb-8 select-none border-t border-t-indigo-500/30">
-            <div className="flex justify-between items-center mb-4 border-b border-slate-800 pb-2.5">
-              <div className="flex items-center gap-2">
-                <span className="text-xl leading-none animate-pulse">⚡</span>
-                <span className="text-xs md:text-sm font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400 uppercase tracking-widest">
-                  {activeModel === 'pitcher_props' ? 'VIP Pitcher Edges' : activeModel === 'nrfi' ? 'VIP NRFI Edges' : 'VIP Consensus Edges'}
-                </span>
-              </div>
-              <span className="text-[9px] text-indigo-400 font-extrabold uppercase tracking-widest bg-indigo-950/80 border border-indigo-500/25 px-2 py-0.5 rounded-full animate-bounce">
-                🔥 Top Picks
-              </span>
-            </div>
-
-            <div className="flex flex-row overflow-x-auto gap-4 pb-3 pt-1 -mx-2 px-2 scroll-smooth snap-x snap-mandatory scrollbar-thin scrollbar-thumb-slate-800/80 scrollbar-track-transparent">
-              {activeModel === 'pitcher_props' ? (
-                /* Pitcher Edges List */
-                pitcherEdges.length === 0 ? (
-                  <div className="w-full text-center py-6 text-xs font-bold text-slate-500">
-                    No Pitcher Edges Found Today (Threshold ≥ 5%)
-                  </div>
-                ) : (
-                  pitcherEdges.map((edge, idx) => (
-                    <div
-                      key={`pe-mob-${idx}`}
-                      onClick={() => scrollToPitcher(edge.pitcher)}
-                      className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-indigo-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/50 hover:shadow-[0_8px_20px_rgba(99,102,241,0.15)] snap-start relative overflow-hidden group animate-fade-in"
-                    >
-                      <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-full blur-xl group-hover:bg-indigo-500/10 transition-colors pointer-events-none"></div>
-                      <div className="flex justify-between items-start mb-2 gap-2">
-                        <span className={`text-[9px] font-black uppercase tracking-widest bg-slate-900 border px-1.5 py-0.5 rounded flex-shrink-0
-                          ${edge.type === 'Strikeouts' ? 'text-cyan-400 border-cyan-500/20' : 'text-indigo-400 border-indigo-500/20'}`}>
-                          {edge.type === 'Strikeouts' ? 'Pitcher K' : 'Pitcher Outs'}
-                        </span>
-                        <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
-                          {getTeamAbbr(edge.team)} vs {getTeamAbbr(edge.opponent)}
-                        </span>
-                      </div>
-                      <div className="mt-1">
-                        <div className="text-sm font-extrabold text-gray-300 truncate">
-                          {edge.pitcher}
+                {/* KATMAN 1: MARKA VE SISTEM DURUMU (Tüm Cihazlar) */}
+                <div className="w-full border-b border-slate-900/40 py-3 px-4 md:px-8">
+                    <div className="max-w-7xl xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto flex justify-between items-center gap-4">
+                        {/* Sol Kısım: Logo ve Başlık */}
+                        <div className="flex flex-col cursor-pointer flex-shrink-0" onClick={() => setActiveSport('home')}>
+                            <h1 className="flex items-center justify-start gap-2 md:gap-3 flex-wrap">
+                                <img
+                                    src={logo2Img}
+                                    alt="Legends Sports"
+                                    className="h-9 md:h-11 lg:h-12 w-auto object-contain drop-shadow-[0_0_15px_rgba(59,130,246,0.35)] filter brightness-110"
+                                />
+                                <span className="text-slate-400 mx-1 md:mx-2 font-light hidden sm:inline text-xl md:text-2xl">|</span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 text-lg md:text-xl font-black tracking-widest uppercase mt-0.5">
+                                    Legends Sports
+                                </span>
+                            </h1>
+                            <p className="text-gray-500 text-[9px] md:text-[10px] font-bold tracking-tight mt-0.5">
+                                {activeSport === 'mlb' ? `MLB predictions • ${loading ? 'Syncing...' : systemDate || 'No Date'}` : activeSport === 'tennis' ? 'Tennis Projections (Beta)' : 'AI-Powered Sports Analytics'}
+                            </p>
                         </div>
-                        <div className="text-sm font-black text-white mt-1">
-                          {edge.choice} {edge.line}
-                        </div>
-                        <div className="text-xl font-black text-indigo-400 mt-1 tracking-tight flex items-baseline gap-1">
-                          <span>+{edge.edge.toFixed(1)}%</span>
-                          <span className="text-[10px] text-gray-400 font-bold">Edge</span>
-                        </div>
-                      </div>
-                      <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
-                        <span className="font-semibold text-slate-400">Proj: {edge.proj.toFixed(1)} (Book: {edge.line})</span>
-                        <span className="text-slate-500 group-hover:text-indigo-400 font-black transition-colors uppercase tracking-widest">Locate →</span>
-                      </div>
-                    </div>
-                  ))
-                )
-              ) : activeModel === 'nrfi' ? (
-                /* NRFI/YRFI Edges List */
-                nrfiEdges.length === 0 ? (
-                  <div className="w-full text-center py-6 text-xs font-bold text-slate-500">
-                    No NRFI/YRFI Edges Found Today
-                  </div>
-                ) : (
-                  nrfiEdges.map((edge, idx) => (
-                    <div
-                      key={`nrfi-edge-mob-${idx}`}
-                      onClick={() => onNavigateToNrfi(`${edge.awayTeam}-${edge.homeTeam}`)}
-                      className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-indigo-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/50 hover:shadow-[0_8px_20px_rgba(99,102,241,0.15)] snap-start relative overflow-hidden group animate-fade-in"
-                    >
-                      <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-full blur-xl group-hover:bg-indigo-500/10 transition-colors pointer-events-none"></div>
-                      <div className="flex justify-between items-start mb-2 gap-2">
-                        <span className={`text-[9px] font-black uppercase tracking-widest bg-slate-900 border px-1.5 py-0.5 rounded flex-shrink-0
-                          ${edge.choice === 'NRFI' ? 'text-green-400 border-green-500/20' : 'text-amber-400 border-amber-500/20'}`}>
-                          {edge.choice} Edge
-                        </span>
-                        <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
-                          {getTeamAbbr(edge.awayTeam)} vs {getTeamAbbr(edge.homeTeam)}
-                        </span>
-                      </div>
-                      <div className="mt-1">
-                        <div className="text-sm font-extrabold text-gray-300 truncate">
-                          {edge.awayTeam} @ {edge.homeTeam}
-                        </div>
-                        <div className="text-sm font-black text-white mt-1">
-                          {edge.choice} {formatAmericanOdds(edge.odds)}
-                        </div>
-                        <div className="text-xl font-black text-indigo-400 mt-1 tracking-tight flex items-baseline gap-1">
-                          <span>+{edge.edge.toFixed(1)}%</span>
-                          <span className="text-[10px] text-gray-400 font-bold">Edge</span>
-                        </div>
-                      </div>
-                      <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
-                        <span className="font-semibold text-slate-400">Score: {edge.score.toFixed(1)}% ({edge.book})</span>
-                        <span className="text-slate-500 group-hover:text-indigo-400 font-black transition-colors uppercase tracking-widest">Locate →</span>
-                      </div>
-                    </div>
-                  ))
-                )
-              ) : (
-                /* Original Game Edges */
-                <>
-                  {dailyEdges && dailyEdges.ml && dailyEdges.ml.game && (
-                    <div 
-                      onClick={() => scrollToMatchup(dailyEdges.ml.game.matchup.away_team, dailyEdges.ml.game.matchup.home_team)}
-                      className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-emerald-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/50 hover:shadow-[0_8px_20px_rgba(16,185,129,0.15)] snap-start relative overflow-hidden group"
-                    >
-                      <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 rounded-full blur-xl group-hover:bg-emerald-500/10 transition-colors pointer-events-none"></div>
-                      <div className="flex justify-between items-start mb-2 gap-2">
-                        <span className="text-[9px] text-emerald-400 font-black uppercase tracking-widest bg-emerald-950/60 border border-emerald-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
-                          ML Value Edge
-                        </span>
-                        <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
-                          {getTeamAbbr(dailyEdges.ml.game.matchup.away_team)} @ {getTeamAbbr(dailyEdges.ml.game.matchup.home_team)}
-                        </span>
-                      </div>
-                      <div className="mt-1">
-                        <div className="text-sm font-extrabold text-gray-200">
-                          {dailyEdges.ml.choice}
-                        </div>
-                        <div className="text-xl font-black text-emerald-400 mt-0.5 tracking-tight flex items-baseline gap-1">
-                          <span>+{dailyEdges.ml.edge.toFixed(1)}%</span>
-                          <span className="text-[10px] text-gray-400 font-bold">Edge</span>
-                        </div>
-                      </div>
-                      <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
-                        <span className="font-semibold text-slate-400">Proj Win: {Math.round(dailyEdges.ml.prob * 100)}%</span>
-                        <span className="text-slate-500 group-hover:text-emerald-400 font-black transition-colors uppercase tracking-widest">Analyze →</span>
-                      </div>
-                    </div>
-                  )}
 
-                  {dailyEdges && dailyEdges.spread && dailyEdges.spread.game && (
-                    <div 
-                      onClick={() => scrollToMatchup(dailyEdges.spread.game.matchup.away_team, dailyEdges.spread.game.matchup.home_team)}
-                      className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-indigo-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/50 hover:shadow-[0_8px_20px_rgba(99,102,241,0.15)] snap-start relative overflow-hidden group"
-                    >
-                      <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-full blur-xl group-hover:bg-indigo-500/10 transition-colors pointer-events-none"></div>
-                      <div className="flex justify-between items-start mb-2 gap-2">
-                        <span className="text-[9px] text-indigo-400 font-black uppercase tracking-widest bg-indigo-950/60 border border-indigo-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
-                          Spread Cover
-                        </span>
-                        <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
-                          {getTeamAbbr(dailyEdges.spread.game.matchup.away_team)} @ {getTeamAbbr(dailyEdges.spread.game.matchup.home_team)}
-                        </span>
-                      </div>
-                      <div className="mt-1">
-                        <div className="text-sm font-extrabold text-gray-200">
-                          {dailyEdges.spread.choice}
-                        </div>
-                        <div className="text-xl font-black text-indigo-400 mt-0.5 tracking-tight flex items-baseline gap-1">
-                          <span>{Math.round(dailyEdges.spread.prob * 100)}%</span>
-                          <span className="text-[10px] text-gray-400 font-bold">Cover Prob</span>
-                        </div>
-                      </div>
-                      <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
-                        <span className="font-semibold text-slate-400">Normal CDF Model</span>
-                        <span className="text-slate-500 group-hover:text-indigo-400 font-black transition-colors uppercase tracking-widest">Analyze →</span>
-                      </div>
-                    </div>
-                  )}
-
-                  {dailyEdges && dailyEdges.total && dailyEdges.total.game && (
-                    <div 
-                      onClick={() => scrollToMatchup(dailyEdges.total.game.matchup.away_team, dailyEdges.total.game.matchup.home_team)}
-                      className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-blue-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/50 hover:shadow-[0_8px_20px_rgba(59,130,246,0.15)] snap-start relative overflow-hidden group"
-                    >
-                      <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full blur-xl group-hover:bg-blue-500/10 transition-colors pointer-events-none"></div>
-                      <div className="flex justify-between items-start mb-2 gap-2">
-                        <span className="text-[9px] text-blue-400 font-black uppercase tracking-widest bg-blue-950/60 border border-blue-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
-                          Total Variance
-                        </span>
-                        <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
-                          {getTeamAbbr(dailyEdges.total.game.matchup.away_team)} @ {getTeamAbbr(dailyEdges.total.game.matchup.home_team)}
-                        </span>
-                      </div>
-                      <div className="mt-1">
-                        <div className="text-sm font-extrabold text-gray-200">
-                          {dailyEdges.total.choice}
-                        </div>
-                        <div className="text-xl font-black text-blue-400 mt-0.5 tracking-tight flex items-baseline gap-1">
-                          <span>{dailyEdges.total.gap.toFixed(1)} Runs</span>
-                          <span className="text-[10px] text-gray-400 font-bold">Diff</span>
-                        </div>
-                      </div>
-                      <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
-                        <span className="font-semibold text-slate-400">Proj Total: {dailyEdges.total.modelTotal.toFixed(1)}</span>
-                        <span className="text-slate-500 group-hover:text-blue-400 font-black transition-colors uppercase tracking-widest">Analyze →</span>
-                      </div>
-                    </div>
-                  )}
-
-                  {dailyEdges && dailyEdges.most_confident_ml && dailyEdges.most_confident_ml.length > 0 && (
-                    <div 
-                      onClick={() => {
-                        const firstGame = dailyEdges.most_confident_ml[0]?.game;
-                        if (firstGame) scrollToMatchup(firstGame.matchup.away_team, firstGame.matchup.home_team);
-                      }}
-                      className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-purple-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/50 hover:shadow-[0_8px_20px_rgba(168,85,247,0.15)] snap-start relative overflow-hidden group animate-fade-in"
-                    >
-                      <div className="absolute top-0 right-0 w-24 h-24 bg-purple-500/5 rounded-full blur-xl group-hover:bg-purple-500/10 transition-colors pointer-events-none"></div>
-                      <div className="flex justify-between items-start mb-2 gap-2">
-                        <span className="text-[9px] text-purple-400 font-black uppercase tracking-widest bg-purple-950/60 border border-purple-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
-                          Most Confident ML
-                        </span>
-                        <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest">
-                          🔥 Top 2 Plays
-                        </span>
-                      </div>
-                      
-                      <div className="mt-2 space-y-2 flex-grow">
-                        {dailyEdges.most_confident_ml.map((play, index) => play.game && (
-                          <div key={index} className="flex justify-between items-center text-xs border-b border-slate-900/60 pb-1.5 last:border-0 last:pb-0">
-                            <div>
-                              <div className="font-extrabold text-gray-200">{play.choice}</div>
-                              <div className="text-[9px] text-gray-500 font-semibold">{getTeamAbbr(play.game.matchup.away_team)} @ {getTeamAbbr(play.game.matchup.home_team)}</div>
+                        {/* Sağ Kısım: Status (Desktop) & Hamburger (Mobile) */}
+                        <div className="flex items-center gap-4">
+                            {/* Desktop System Status */}
+                            <div className="hidden md:flex flex-col items-end text-right select-none pr-1">
+                                <div className="flex items-center gap-1.5">
+                                    <span className="relative flex h-1.5 w-1.5">
+                                        <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${loading ? 'bg-amber-400' : 'bg-green-400'}`}></span>
+                                        <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${loading ? 'bg-amber-500' : 'bg-green-500'}`}></span>
+                                    </span>
+                                    <span className={`text-[9px] font-black uppercase tracking-wider ${loading ? 'text-amber-500' : 'text-green-500'}`}>
+                                        {loading ? 'Syncing...' : 'Live'}
+                                    </span>
+                                </div>
+                                {lastUpdated && (
+                                    <span className="text-[9px] text-slate-500 font-bold mt-0.5">
+                                        Updated: {lastUpdated.split(' ')[1] || lastUpdated}
+                                    </span>
+                                )}
                             </div>
-                            <div className="text-right">
-                              <div className="font-black text-purple-400">{Math.round(play.prob * 100)}%</div>
-                              <div className="text-[8px] text-gray-500 font-bold">Confidence</div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
 
-                      <div className="mt-3 flex justify-end text-[9px] text-slate-500 group-hover:text-purple-400 font-black transition-colors uppercase tracking-widest pt-2 border-t border-slate-900/60">
-                        Analyze →
-                      </div>
+                            {/* Hamburger Menü (Mobile / Tablet - Katman 2 ve 3'ü mobilde hamburger içine gizler) */}
+                            <div className="lg:hidden relative flex items-center">
+                                <button
+                                    onClick={() => setMenuOpen(!menuOpen)}
+                                    className="p-2.5 rounded-xl border border-slate-800 bg-slate-900/40 text-slate-400 hover:text-slate-200 hover:bg-slate-800/80 hover:border-slate-700 active:scale-95 transition-all duration-300 backdrop-blur-md cursor-pointer flex items-center justify-center focus:outline-none"
+                                    aria-label="Toggle navigation menu"
+                                >
+                                    <div className="w-5 h-5 relative">
+                                        <span className={`absolute left-0 w-5 h-0.5 bg-current rounded-full transition-all duration-300 ${menuOpen ? 'top-1/2 -translate-y-1/2 rotate-45' : 'top-1 -translate-y-0'}`} />
+                                        <span className={`absolute left-0 w-5 h-0.5 bg-current rounded-full transition-all duration-300 ${menuOpen ? 'opacity-0 scale-0' : 'top-1/2 -translate-y-1/2'}`} />
+                                        <span className={`absolute left-0 w-5 h-0.5 bg-current rounded-full transition-all duration-300 ${menuOpen ? 'top-1/2 -translate-y-1/2 -rotate-45' : 'bottom-1 -translate-y-0'}`} />
+                                    </div>
+                                </button>
+
+                                <DropdownNavigation
+                                    activeSport={activeSport}
+                                    setActiveSport={setActiveSport}
+                                    activeModel={activeModel}
+                                    setActiveModel={setActiveModel}
+                                    lastUpdated={lastUpdated}
+                                    loading={loading}
+                                    menuOpen={menuOpen}
+                                    setMenuOpen={setMenuOpen}
+                                    setShowAboutModal={setShowAboutModal}
+                                    setShowContactModal={setShowContactModal}
+                                />
+                            </div>
+                        </div>
                     </div>
-                  )}
-
-                  {dailyEdges && dailyEdges.team_totals && dailyEdges.team_totals.length > 0 && (
-                    <div 
-                      onClick={() => {
-                        const firstGame = dailyEdges.team_totals[0]?.game;
-                        if (firstGame) scrollToMatchup(firstGame.matchup.away_team, firstGame.matchup.home_team);
-                      }}
-                      className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-amber-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/50 hover:shadow-[0_8px_20px_rgba(245,158,11,0.15)] snap-start relative overflow-hidden group animate-fade-in"
-                    >
-                      <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full blur-xl group-hover:bg-amber-500/10 transition-colors pointer-events-none"></div>
-                      <div className="flex justify-between items-start mb-2 gap-2">
-                        <span className="text-[9px] text-amber-400 font-black uppercase tracking-widest bg-amber-950/60 border border-amber-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
-                          Team Total Targets
-                        </span>
-                        <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest">
-                          🎯 Target 4.5
-                        </span>
-                      </div>
-                      
-                      <div className="mt-2 space-y-2 flex-grow">
-                        {dailyEdges.team_totals.map((total, index) => total.game && (
-                          <div key={index} className="flex justify-between items-center text-xs border-b border-slate-900/60 pb-1.5 last:border-0 last:pb-0">
-                            <div>
-                              <div className="font-extrabold text-gray-200">{getTeamAbbr(total.team)} Over 4.5</div>
-                              <div className="text-[9px] text-gray-500 font-semibold">{getTeamAbbr(total.game.matchup.away_team)} @ {getTeamAbbr(total.game.matchup.home_team)}</div>
-                            </div>
-                            <div className="text-right">
-                              <div className="font-black text-amber-400">{total.projected_runs.toFixed(1)} Runs</div>
-                              <div className="text-[8px] text-gray-500 font-bold">Projected</div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-
-                      <div className="mt-3 flex justify-end text-[9px] text-slate-500 group-hover:text-amber-400 font-black transition-colors uppercase tracking-widest pt-2 border-t border-slate-900/60">
-                        Analyze →
-                      </div>
-                    </div>
-                  )}
-                </>
-              )}
-            </div>
-          </div>
-        )}
-
-        {/* ================= MODEL ARCHITECTURE (Full Width) ================= */}
-        <div className="bg-slate-900/40 backdrop-blur-md border border-slate-800/80 rounded-2xl p-5 shadow-lg select-none mb-8">
-          <h4 className="text-[10px] text-slate-500 font-black uppercase tracking-[0.2em] mb-4">Model Architecture</h4>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="flex items-start gap-2.5">
-              <span className="text-cyan-400 text-base flex-shrink-0 mt-0.5">⚾</span>
-              <span className="text-xs text-slate-400 font-semibold leading-relaxed"><strong className="text-slate-300">Daily Model</strong> evaluates Starting Pitcher splits, stadium ballistics, weather carries, and bullpen SIERA ratings.</span>
-            </div>
-            <div className="flex items-start gap-2.5">
-              <span className="text-indigo-400 text-base flex-shrink-0 mt-0.5">📈</span>
-              <span className="text-xs text-slate-400 font-semibold leading-relaxed"><strong className="text-slate-300">NRFI Model</strong> uses a custom-trained algorithm calculating top-order strikeout, walk, and first-inning home/away metrics.</span>
-            </div>
-            <div className="flex items-start gap-2.5">
-              <span className="text-purple-400 text-base flex-shrink-0 mt-0.5">🎯</span>
-              <span className="text-xs text-slate-400 font-semibold leading-relaxed"><strong className="text-slate-300">Pitcher Props</strong> uses Poisson (Ks) and Normal (Outs) probability curves matched against bookmaker lines.</span>
-            </div>
-          </div>
-        </div>
-
-        {/* ================= MAIN CARDS AREA (Full Width) ================= */}
-        <div className="">
-          {/* Left Column: Main predictions / pitcher sheets (col-span-8) */}
-          <div className="space-y-6">
-            {/* ================= KARTLARIN OLDUĞU BÖLÜM ================= */}
-            <div className="grid grid-cols-1 gap-4">
-              {loading ? (
-                <>
-                  <MatchupSkeleton />
-                  <MatchupSkeleton />
-                  <MatchupSkeleton />
-                </>
-              ) : predictions.length === 0 ? (
-                /* Empty State Entegrasyonu */
-                <div className="bg-slate-900 border border-dashed border-gray-700 rounded-xl p-10 text-center my-6 shadow-inner">
-                  <span className="text-5xl block mb-4" role="img" aria-label="baseball">⚾</span>
-                  <h3 className="text-lg font-black text-white uppercase tracking-wider mb-2">
-                    No Games Scheduled Today
-                  </h3>
-                  <p className="text-gray-400 text-sm max-w-md mx-auto font-medium">
-                    There are no active MLB matchups processed by the engine for {systemDate || 'today'}. This might be due to a league rest day or game postponements.
-                  </p>
-                </div>
-              ) : activeModel === 'pitcher_props' ? (
-                <PitcherProjections pitcherProjections={data?.data?.pitcher_projections || []} />
-              ) : (
-                displayPredictions.map((game, idx) => (
-                  activeModel === 'full' ? (
-                    <MatchupCard
-                      key={`full-${game.matchup.away_team}-${game.matchup.home_team}-${idx}`}
-                      prediction={game}
-                      onNavigateToNrfi={() => onNavigateToNrfi(`${game.matchup.away_team}-${game.matchup.home_team}`)}
-                    />
-                  ) : (
-                    <NrfiRow
-                      key={`nrfi-${game.matchup.away_team}-${game.matchup.home_team}-${idx}`}
-                      prediction={game}
-                    />
-                  )
-                ))
-              )}
-            </div>
-          </div>
-
-          {/* Right Column: Sidebar content (col-span-4 - Hidden on mobile) */}
-          <div className="hidden">
-            {/* VIP Consensus Edges (Desktop Sidebar View) */}
-            {!loading && predictions.length > 0 && (
-              <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] border-t border-t-indigo-500/30 select-none">
-                <div className="flex justify-between items-center mb-4 border-b border-slate-800 pb-2.5">
-                  <div className="flex items-center gap-2">
-                    <span className="text-xl leading-none animate-pulse">⚡</span>
-                    <span className="text-xs font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400 uppercase tracking-widest">
-                      {activeModel === 'pitcher_props' ? 'VIP Pitcher Edges' : activeModel === 'nrfi' ? 'VIP NRFI Edges' : 'VIP Consensus Edges'}
-                    </span>
-                  </div>
-                  <span className="text-[9px] text-indigo-400 font-extrabold uppercase tracking-widest bg-indigo-950/80 border border-indigo-500/25 px-2 py-0.5 rounded-full animate-bounce">
-                    🔥 Top Picks
-                  </span>
                 </div>
 
-                <div className="flex flex-col gap-4">
-                  {activeModel === 'pitcher_props' ? (
-                    /* Pitcher Edges Desktop List */
-                    pitcherEdges.length === 0 ? (
-                      <div className="w-full text-center py-8 text-xs font-bold text-slate-500">
-                        No Pitcher Edges Found Today (Threshold ≥ 5%)
-                      </div>
-                    ) : (
-                      pitcherEdges.slice(0, 3).map((edge, idx) => (
-                        <div
-                          key={`pe-desk-${idx}`}
-                          onClick={() => scrollToPitcher(edge.pitcher)}
-                          className="w-full bg-slate-950/50 border border-indigo-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/50 hover:shadow-[0_8px_20px_rgba(99,102,241,0.15)] relative overflow-hidden group animate-fade-in"
-                        >
-                          <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-full blur-xl group-hover:bg-indigo-500/10 transition-colors pointer-events-none"></div>
-                          <div className="flex justify-between items-start mb-2 gap-2">
-                            <span className={`text-[9px] font-black uppercase tracking-widest bg-slate-900 border px-1.5 py-0.5 rounded flex-shrink-0
-                              ${edge.type === 'Strikeouts' ? 'text-cyan-400 border-cyan-500/20' : 'text-indigo-400 border-indigo-500/20'}`}>
-                              {edge.type === 'Strikeouts' ? 'Pitcher K' : 'Pitcher Outs'}
-                            </span>
-                            <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
-                              {getTeamAbbr(edge.team)} vs {getTeamAbbr(edge.opponent)}
-                            </span>
-                          </div>
-                          <div className="mt-1">
-                            <div className="text-sm font-extrabold text-gray-300 truncate">
-                              {edge.pitcher}
-                            </div>
-                            <div className="text-sm font-black text-white mt-1">
-                              {edge.choice} {edge.line}
-                            </div>
-                            <div className="text-xl font-black text-indigo-400 mt-1 tracking-tight flex items-baseline gap-1">
-                              <span>+{edge.edge.toFixed(1)}%</span>
-                              <span className="text-[10px] text-gray-400 font-bold">Edge</span>
-                            </div>
-                          </div>
-                          <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
-                            <span className="font-semibold text-slate-400">Proj: {edge.proj.toFixed(1)} (Book: {edge.line})</span>
-                            <span className="text-slate-500 group-hover:text-indigo-400 font-black transition-colors uppercase tracking-widest">Locate →</span>
-                          </div>
+                {/* KATMAN 2: DESKTOP SPOR SEKMELERI & BİLGİ SAYFALARI (Masaüstü/Geniş Ekran) */}
+                <div className="hidden lg:block w-full border-b border-slate-900/20 py-2 px-8">
+                    <div className="max-w-7xl xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto flex justify-between items-center">
+                        {/* Spor Dalları Sekmeleri */}
+                        <nav className="flex items-center gap-1 bg-slate-900/30 border border-slate-900 p-0.5 rounded-xl select-none">
+                            {Object.entries(SPORTS_CONFIG).map(([key, sport]) => {
+                                const isSelected = activeSport === sport.id;
+                                const isComingSoon = sport.status === 'COMING_SOON';
+                                const isBeta = sport.status === 'BETA';
+
+                                return (
+                                    <button
+                                        key={sport.id}
+                                        disabled={isComingSoon}
+                                        onClick={() => setActiveSport(sport.id)}
+                                        className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${isSelected
+                                                ? 'bg-indigo-600/20 border border-indigo-500/20 text-indigo-400 font-extrabold shadow-[0_0_12px_rgba(99,102,241,0.1)]'
+                                                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40 border border-transparent'
+                                            } ${isComingSoon ? 'opacity-40 cursor-not-allowed' : ''}`}
+                                    >
+                                        <span>{sport.icon}</span>
+                                        <span>{sport.name}</span>
+                                        {isBeta && <span className="text-[7px] px-1 py-0.2 bg-cyan-950 text-cyan-400 border border-cyan-500/30 rounded">BETA</span>}
+                                        {isComingSoon && <span className="text-[7px] px-1 py-0.2 bg-slate-900 text-slate-500 border border-slate-800 rounded">SOON</span>}
+                                    </button>
+                                );
+                            })}
+                        </nav>
+
+                        {/* Hakkımızda & İletişim Butonları (Desktop) */}
+                        <div className="flex items-center gap-2">
+                            <button
+                                onClick={() => setShowAboutModal(true)}
+                                className="px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-slate-200 hover:bg-slate-900/60 border border-slate-900 cursor-pointer transition-all"
+                            >
+                                About
+                            </button>
+                            <button
+                                onClick={() => setShowContactModal(true)}
+                                className="px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-slate-200 hover:bg-slate-900/60 border border-slate-900 cursor-pointer transition-all"
+                            >
+                                Contact
+                            </button>
                         </div>
-                      ))
-                    )
-                  ) : activeModel === 'nrfi' ? (
-                    /* NRFI/YRFI Edges Desktop List */
-                    nrfiEdges.length === 0 ? (
-                      <div className="w-full text-center py-8 text-xs font-bold text-slate-500">
-                        No NRFI/YRFI Edges Found Today
-                      </div>
-                    ) : (
-                      nrfiEdges.map((edge, idx) => (
-                        <div
-                          key={`nrfi-edge-desk-${idx}`}
-                          onClick={() => onNavigateToNrfi(`${edge.awayTeam}-${edge.homeTeam}`)}
-                          className="w-full bg-slate-950/50 border border-indigo-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/50 hover:shadow-[0_8px_20px_rgba(99,102,241,0.15)] relative overflow-hidden group animate-fade-in"
-                        >
-                          <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-full blur-xl group-hover:bg-indigo-500/10 transition-colors pointer-events-none"></div>
-                          <div className="flex justify-between items-start mb-2 gap-2">
-                            <span className={`text-[9px] font-black uppercase tracking-widest bg-slate-900 border px-1.5 py-0.5 rounded flex-shrink-0
-                              ${edge.choice === 'NRFI' ? 'text-green-400 border-green-500/20' : 'text-amber-400 border-amber-500/20'}`}>
-                              {edge.choice} Edge
-                            </span>
-                            <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
-                              {getTeamAbbr(edge.awayTeam)} vs {getTeamAbbr(edge.homeTeam)}
-                            </span>
-                          </div>
-                          <div className="mt-1">
-                            <div className="text-sm font-extrabold text-gray-300 truncate">
-                              {edge.awayTeam} @ {edge.homeTeam}
-                            </div>
-                            <div className="text-sm font-black text-white mt-1">
-                              {edge.choice} {formatAmericanOdds(edge.odds)}
-                            </div>
-                            <div className="text-xl font-black text-indigo-400 mt-1 tracking-tight flex items-baseline gap-1">
-                              <span>+{edge.edge.toFixed(1)}%</span>
-                              <span className="text-[10px] text-gray-400 font-bold">Edge</span>
-                            </div>
-                          </div>
-                          <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
-                            <span className="font-semibold text-slate-400">Score: {edge.score.toFixed(1)}% ({edge.book})</span>
-                            <span className="text-slate-500 group-hover:text-indigo-400 font-black transition-colors uppercase tracking-widest">Locate →</span>
-                          </div>
-                        </div>
-                      ))
-                    )
-                  ) : (
-                    /* Original Game Edges Cards */
+                    </div>
+                </div>
+
+                {/* KATMAN 3: DINAMIK MODEL ALT SEKMELERI (Sadece MLB Aktifse) */}
+                {activeSport === 'mlb' && (
                     <>
-                      {dailyEdges && dailyEdges.ml && dailyEdges.ml.game && (
-                        <div 
-                          onClick={() => scrollToMatchup(dailyEdges.ml.game.matchup.away_team, dailyEdges.ml.game.matchup.home_team)}
-                          className="w-full bg-slate-950/50 border border-emerald-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/50 hover:shadow-[0_8px_20px_rgba(16,185,129,0.15)] relative overflow-hidden group animate-fade-in"
-                        >
-                          <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 rounded-full blur-xl group-hover:bg-emerald-500/10 transition-colors pointer-events-none"></div>
-                          <div className="flex justify-between items-start mb-2 gap-2">
-                            <span className="text-[9px] text-emerald-400 font-black uppercase tracking-widest bg-emerald-950/60 border border-emerald-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
-                              ML Value Edge
-                            </span>
-                            <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
-                              {getTeamAbbr(dailyEdges.ml.game.matchup.away_team)} @ {getTeamAbbr(dailyEdges.ml.game.matchup.home_team)}
-                            </span>
-                          </div>
-                          <div className="mt-1">
-                            <div className="text-sm font-extrabold text-gray-200">
-                              {dailyEdges.ml.choice}
+                        {/* Masaüstü Alt Sekmeler */}
+                        <div className="hidden md:block w-full py-2 px-8 bg-slate-950/40 border-b border-slate-900/20">
+                            <div className="max-w-7xl xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto flex justify-start items-center">
+                                <nav className="flex items-center gap-1.5 select-none">
+                                    <button
+                                        onClick={() => setActiveModel('full')}
+                                        className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all duration-200 cursor-pointer flex items-center gap-1 ${activeModel === 'full'
+                                            ? 'bg-blue-600/20 border border-blue-500/30 text-blue-400 font-extrabold shadow-[0_0_12px_rgba(59,130,246,0.15)]'
+                                            : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40 border border-transparent'
+                                            }`}
+                                    >
+                                        ⚾ Predictions
+                                    </button>
+                                    <button
+                                        onClick={() => setActiveModel('nrfi')}
+                                        className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all duration-200 cursor-pointer flex items-center gap-1 ${activeModel === 'nrfi'
+                                            ? 'bg-indigo-600/20 border border-indigo-500/30 text-indigo-400 shadow-[0_0_12px_rgba(99,102,241,0.15)]'
+                                            : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40 border border-transparent'
+                                            }`}
+                                    >
+                                        📈 NRFI Model
+                                    </button>
+                                    <button
+                                        onClick={() => setActiveModel('pitcher_props')}
+                                        className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all duration-200 cursor-pointer flex items-center gap-1 ${activeModel === 'pitcher_props'
+                                            ? 'bg-cyan-600/20 border border-cyan-500/30 text-cyan-400 shadow-[0_0_12px_rgba(6,182,212,0.15)]'
+                                            : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40 border border-transparent'
+                                            }`}
+                                    >
+                                        🎯 Pitchers
+                                    </button>
+                                </nav>
                             </div>
-                            <div className="text-xl font-black text-emerald-400 mt-0.5 tracking-tight flex items-baseline gap-1">
-                              <span>+{dailyEdges.ml.edge.toFixed(1)}%</span>
-                              <span className="text-[10px] text-gray-400 font-bold">Edge</span>
-                            </div>
-                          </div>
-                          <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
-                            <span className="font-semibold text-slate-400">Proj Win: {Math.round(dailyEdges.ml.prob * 100)}%</span>
-                            <span className="text-slate-500 group-hover:text-emerald-400 font-black transition-colors uppercase tracking-widest">Analyze →</span>
-                          </div>
                         </div>
-                      )}
 
-                      {dailyEdges && dailyEdges.spread && dailyEdges.spread.game && (
-                        <div 
-                          onClick={() => scrollToMatchup(dailyEdges.spread.game.matchup.away_team, dailyEdges.spread.game.matchup.home_team)}
-                          className="w-full bg-slate-950/50 border border-indigo-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/50 hover:shadow-[0_8px_20px_rgba(99,102,241,0.15)] relative overflow-hidden group animate-fade-in"
-                        >
-                          <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-full blur-xl group-hover:bg-indigo-500/10 transition-colors pointer-events-none"></div>
-                          <div className="flex justify-between items-start mb-2 gap-2">
-                            <span className="text-[9px] text-indigo-400 font-black uppercase tracking-widest bg-indigo-950/60 border border-indigo-500/25 px-1.5 py-0.5 rounded flex-shrink-0">
-                              Spread Cover
-                            </span>
-                            <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
-                              {getTeamAbbr(dailyEdges.spread.game.matchup.away_team)} @ {getTeamAbbr(dailyEdges.spread.game.matchup.home_team)}
-                            </span>
-                          </div>
-                          <div className="mt-1">
-                            <div className="text-sm font-extrabold text-gray-200">
-                              {dailyEdges.spread.choice}
-                            </div>
-                            <div className="text-xl font-black text-indigo-400 mt-0.5 tracking-tight flex items-baseline gap-1">
-                              <span>{Math.round(dailyEdges.spread.prob * 100)}%</span>
-                              <span className="text-[10px] text-gray-400 font-bold">Cover Prob</span>
-                            </div>
-                          </div>
-                          <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
-                            <span className="font-semibold text-slate-400">Normal CDF Model</span>
-                            <span className="text-slate-500 group-hover:text-indigo-400 font-black transition-colors uppercase tracking-widest">Analyze →</span>
-                          </div>
+                        {/* Mobil / Tablet Alt Sekmeler (Yatay Kaydırılabilir Şerit - Touch Friendly) */}
+                        <div className="md:hidden w-full py-2 px-4 bg-slate-950/60 border-b border-slate-900/30 overflow-x-auto no-scrollbar scroll-smooth">
+                            <nav className="flex items-center gap-2 whitespace-nowrap min-w-max select-none">
+                                <button
+                                    onClick={() => setActiveModel('full')}
+                                    className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all duration-200 cursor-pointer flex items-center gap-1 ${activeModel === 'full'
+                                        ? 'bg-blue-600/20 border border-blue-500/30 text-blue-400 font-extrabold shadow-[0_0_10px_rgba(59,130,246,0.15)] scale-[1.02]'
+                                        : 'text-slate-400 hover:text-slate-200 border border-transparent'
+                                        }`}
+                                >
+                                    ⚾ Predictions
+                                </button>
+                                <button
+                                    onClick={() => setActiveModel('nrfi')}
+                                    className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all duration-200 cursor-pointer flex items-center gap-1 ${activeModel === 'nrfi'
+                                        ? 'bg-indigo-600/20 border border-indigo-500/30 text-indigo-400 font-extrabold shadow-[0_0_10px_rgba(99,102,241,0.15)] scale-[1.02]'
+                                        : 'text-slate-400 hover:text-slate-200 border border-transparent'
+                                        }`}
+                                >
+                                    📈 NRFI Model
+                                </button>
+                                <button
+                                    onClick={() => setActiveModel('pitcher_props')}
+                                    className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all duration-200 cursor-pointer flex items-center gap-1 ${activeModel === 'pitcher_props'
+                                        ? 'bg-cyan-600/20 border border-cyan-500/30 text-cyan-400 font-extrabold shadow-[0_0_10px_rgba(6,182,212,0.15)] scale-[1.02]'
+                                        : 'text-slate-400 hover:text-slate-200 border border-transparent'
+                                        }`}
+                                >
+                                    🎯 Pitchers
+                                </button>
+                            </nav>
                         </div>
-                      )}
-
-                      {dailyEdges && dailyEdges.total && dailyEdges.total.game && (
-                        <div 
-                          onClick={() => scrollToMatchup(dailyEdges.total.game.matchup.away_team, dailyEdges.total.game.matchup.home_team)}
-                          className="w-full bg-slate-950/50 border border-blue-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/50 hover:shadow-[0_8px_20px_rgba(59,130,246,0.15)] relative overflow-hidden group animate-fade-in"
-                        >
-                          <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full blur-xl group-hover:bg-blue-500/10 transition-colors pointer-events-none"></div>
-                          <div className="flex justify-between items-start mb-2 gap-2">
-                            <span className="text-[9px] text-blue-400 font-black uppercase tracking-widest bg-blue-950/60 border border-blue-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
-                              Total Variance
-                            </span>
-                            <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
-                              {getTeamAbbr(dailyEdges.total.game.matchup.away_team)} @ {getTeamAbbr(dailyEdges.total.game.matchup.home_team)}
-                            </span>
-                          </div>
-                          <div className="mt-1">
-                            <div className="text-sm font-extrabold text-gray-200">
-                              {dailyEdges.total.choice}
-                            </div>
-                            <div className="text-xl font-black text-blue-400 mt-0.5 tracking-tight flex items-baseline gap-1">
-                              <span>{dailyEdges.total.gap.toFixed(1)} Runs</span>
-                              <span className="text-[10px] text-gray-400 font-bold">Diff</span>
-                            </div>
-                          </div>
-                          <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
-                            <span className="font-semibold text-slate-400">Proj Total: {dailyEdges.total.modelTotal.toFixed(1)}</span>
-                            <span className="text-slate-500 group-hover:text-blue-400 font-black transition-colors uppercase tracking-widest">Analyze →</span>
-                          </div>
-                        </div>
-                      )}
-
-                      {dailyEdges && dailyEdges.most_confident_ml && dailyEdges.most_confident_ml.length > 0 && (
-                        <div 
-                          onClick={() => {
-                            const firstGame = dailyEdges.most_confident_ml[0]?.game;
-                            if (firstGame) scrollToMatchup(firstGame.matchup.away_team, firstGame.matchup.home_team);
-                          }}
-                          className="w-full bg-slate-950/50 border border-purple-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/50 hover:shadow-[0_8px_20px_rgba(168,85,247,0.15)] relative overflow-hidden group animate-fade-in"
-                        >
-                          <div className="absolute top-0 right-0 w-24 h-24 bg-purple-500/5 rounded-full blur-xl group-hover:bg-purple-500/10 transition-colors pointer-events-none"></div>
-                          <div className="flex justify-between items-start mb-2 gap-2">
-                            <span className="text-[9px] text-purple-400 font-black uppercase tracking-widest bg-purple-950/60 border border-purple-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
-                              Most Confident ML
-                            </span>
-                            <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest">
-                              🔥 Top 2 Plays
-                            </span>
-                          </div>
-                          
-                          <div className="mt-2 space-y-2 flex-grow">
-                            {dailyEdges.most_confident_ml.map((play, index) => play.game && (
-                              <div key={index} className="flex justify-between items-center text-xs border-b border-slate-900/60 pb-1.5 last:border-0 last:pb-0">
-                                <div>
-                                  <div className="font-extrabold text-gray-200">{play.choice}</div>
-                                  <div className="text-[9px] text-gray-500 font-semibold">{getTeamAbbr(play.game.matchup.away_team)} @ {getTeamAbbr(play.game.matchup.home_team)}</div>
-                                </div>
-                                <div className="text-right">
-                                  <div className="font-black text-purple-400">{Math.round(play.prob * 100)}%</div>
-                                  <div className="text-[8px] text-gray-500 font-bold">Confidence</div>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-
-                          <div className="mt-3 flex justify-end text-[9px] text-slate-500 group-hover:text-purple-400 font-black transition-colors uppercase tracking-widest pt-2 border-t border-slate-900/60">
-                            Analyze →
-                          </div>
-                        </div>
-                      )}
-
-                      {dailyEdges && dailyEdges.team_totals && dailyEdges.team_totals.length > 0 && (
-                        <div 
-                          onClick={() => {
-                            const firstGame = dailyEdges.team_totals[0]?.game;
-                            if (firstGame) scrollToMatchup(firstGame.matchup.away_team, firstGame.matchup.home_team);
-                          }}
-                          className="w-full bg-slate-950/50 border border-amber-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/50 hover:shadow-[0_8px_20px_rgba(245,158,11,0.15)] relative overflow-hidden group animate-fade-in"
-                        >
-                          <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full blur-xl group-hover:bg-amber-500/10 transition-colors pointer-events-none"></div>
-                          <div className="flex justify-between items-start mb-2 gap-2">
-                            <span className="text-[9px] text-amber-400 font-black uppercase tracking-widest bg-amber-950/60 border border-amber-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
-                              Team Total Targets
-                            </span>
-                            <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest">
-                              🎯 Target 4.5
-                            </span>
-                          </div>
-                          
-                          <div className="mt-2 space-y-2 flex-grow">
-                            {dailyEdges.team_totals.map((total, index) => total.game && (
-                              <div key={index} className="flex justify-between items-center text-xs border-b border-slate-900/60 pb-1.5 last:border-0 last:pb-0">
-                                <div>
-                                  <div className="font-extrabold text-gray-200">{getTeamAbbr(total.team)} Over 4.5</div>
-                                  <div className="text-[9px] text-gray-500 font-semibold">{getTeamAbbr(total.game.matchup.away_team)} @ {getTeamAbbr(total.game.matchup.home_team)}</div>
-                                </div>
-                                <div className="text-right">
-                                  <div className="font-black text-amber-400">{total.projected_runs.toFixed(1)} Runs</div>
-                                  <div className="text-[8px] text-gray-500 font-bold">Projected</div>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-
-                          <div className="mt-3 flex justify-end text-[9px] text-slate-500 group-hover:text-amber-400 font-black transition-colors uppercase tracking-widest pt-2 border-t border-slate-900/60">
-                            Analyze →
-                          </div>
-                        </div>
-                      )}
                     </>
-                  )}
-                </div>
-              </div>
+                )}
+            </header>
+
+            <main className="max-w-7xl xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto p-4 md:p-8 pt-6 relative z-10">
+
+                {activeSport === 'home' && (
+                    <CentralDashboard
+                        setActiveSport={setActiveSport}
+                        predictions={predictions}
+                        dailyEdges={dailyEdges}
+                        loading={loading}
+                        systemDate={systemDate}
+                    />
+                )}
+
+                {activeSport === 'tennis' && (
+                    <TennisDashboard />
+                )}
+
+                {activeSport === 'mlb' && (
+                    <>
+                        {/* ================= CALENDAR TAPE ================= */}
+                        <div className="mb-8 p-1.5 bg-slate-900/40 backdrop-blur-md border border-slate-800/80 rounded-2xl flex items-center justify-between gap-1 overflow-x-auto no-scrollbar scroll-smooth">
+                            {calendarDays.map((day) => {
+                                const isToday = day.offset === 0;
+                                const isSelected = selectedDate === day.dateStr || (selectedDate === null && isToday);
+
+                                let relativeLabel = '';
+                                if (day.offset === -2) relativeLabel = '2 DAYS AGO';
+                                else if (day.offset === -1) relativeLabel = 'YESTERDAY';
+                                else if (day.offset === 0) relativeLabel = 'TODAY';
+                                else if (day.offset === 1) relativeLabel = 'TOMORROW';
+                                else if (day.offset === 2) relativeLabel = '2 DAYS AWAY';
+
+                                return (
+                                    <button
+                                        key={day.dateStr}
+                                        onClick={() => setSelectedDate(isToday ? null : day.dateStr)}
+                                        className={`flex-1 min-w-[90px] md:min-w-[120px] py-2 px-3 flex flex-col items-center justify-center rounded-xl transition-all duration-300 relative group cursor-pointer ${isSelected
+                                            ? 'bg-gradient-to-br from-indigo-600/90 to-blue-600/90 text-white font-extrabold shadow-[0_0_15px_rgba(99,102,241,0.4)] border border-indigo-400/40 scale-[1.02]'
+                                            : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40 border border-transparent'
+                                            }`}
+                                    >
+                                        <span className={`text-[9px] md:text-[10px] uppercase font-black tracking-widest ${isSelected ? 'text-cyan-200' : 'text-slate-500 group-hover:text-slate-400'
+                                            }`}>
+                                            {relativeLabel}
+                                        </span>
+                                        <span className="text-xs md:text-sm font-bold mt-0.5">
+                                            {formatDateLabel(day.dateStr)}
+                                        </span>
+                                        {isSelected && (
+                                            <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)] animate-pulse"></span>
+                                        )}
+                                    </button>
+                                );
+                            })}
+                        </div>
+
+                        {/* ================= BACKEND COLD START WARNING ================= */}
+                        {loading && isSlowLoading && (
+                            <div className="mb-8 p-6 bg-indigo-950/40 backdrop-blur-xl border border-indigo-500/30 rounded-2xl text-center flex flex-col items-center justify-center shadow-[0_0_30px_rgba(99,102,241,0.15)] animate-pulse select-none">
+                                <span className="text-4xl block mb-3 animate-spin [animation-duration:4s]">⚡</span>
+                                <h4 className="text-sm md:text-base font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-400 uppercase tracking-widest mb-1.5">
+                                    Waking Up Predictor Server
+                                </h4>
+                                <p className="text-gray-300 text-xs md:text-sm max-w-md font-semibold leading-relaxed mb-4">
+                                    Since the engine is hosted on Render's free tier, the backend container automatically hibernates after inactivity. We are waking it up now—this process typically takes about 45-60 seconds. Thank you for your patience!
+                                </p>
+                                <div className="flex items-center gap-2 px-3 py-1 bg-cyan-500/10 border border-cyan-500/20 rounded-full">
+                                    <span className="flex h-1.5 w-1.5 relative">
+                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-500"></span>
+                                    </span>
+                                    <span className="text-[9px] text-cyan-300 font-extrabold uppercase tracking-wider">
+                                        Connecting to API container...
+                                    </span>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* VIP Consensus Edges (Mobile Only - Horizontal Scroll List) */}
+                        {!loading && predictions.length > 0 && (
+                            <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl p-4 sm:p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] mb-8 select-none border-t border-t-indigo-500/30">
+                                <div className="flex justify-between items-center mb-4 border-b border-slate-800 pb-2.5">
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-xl leading-none animate-pulse">⚡</span>
+                                        <span className="text-xs md:text-sm font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400 uppercase tracking-widest">
+                                            {activeModel === 'pitcher_props' ? 'VIP Pitcher Edges' : activeModel === 'nrfi' ? 'VIP NRFI Edges' : 'VIP Consensus Edges'}
+                                        </span>
+                                    </div>
+                                    <span className="text-[9px] text-indigo-400 font-extrabold uppercase tracking-widest bg-indigo-950/80 border border-indigo-500/25 px-2 py-0.5 rounded-full animate-bounce">
+                                        🔥 Top Picks
+                                    </span>
+                                </div>
+
+                                <div className="flex flex-row overflow-x-auto gap-4 pb-3 pt-1 -mx-2 px-2 scroll-smooth snap-x snap-mandatory scrollbar-thin scrollbar-thumb-slate-800/80 scrollbar-track-transparent">
+                                    {activeModel === 'pitcher_props' ? (
+                                        /* Pitcher Edges List */
+                                        pitcherEdges.length === 0 ? (
+                                            <div className="w-full text-center py-6 text-xs font-bold text-slate-500">
+                                                No Pitcher Edges Found Today (Threshold ≥ 5%)
+                                            </div>
+                                        ) : (
+                                            pitcherEdges.map((edge, idx) => (
+                                                <div
+                                                    key={`pe-mob-${idx}`}
+                                                    onClick={() => scrollToPitcher(edge.pitcher)}
+                                                    className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-indigo-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/50 hover:shadow-[0_8px_20px_rgba(99,102,241,0.15)] snap-start relative overflow-hidden group animate-fade-in"
+                                                >
+                                                    <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-full blur-xl group-hover:bg-indigo-500/10 transition-colors pointer-events-none"></div>
+                                                    <div className="flex justify-between items-start mb-2 gap-2">
+                                                        <span className={`text-[9px] font-black uppercase tracking-widest bg-slate-900 border px-1.5 py-0.5 rounded flex-shrink-0
+                          ${edge.type === 'Strikeouts' ? 'text-cyan-400 border-cyan-500/20' : 'text-indigo-400 border-indigo-500/20'}`}>
+                                                            {edge.type === 'Strikeouts' ? 'Pitcher K' : 'Pitcher Outs'}
+                                                        </span>
+                                                        <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
+                                                            {getTeamAbbr(edge.team)} vs {getTeamAbbr(edge.opponent)}
+                                                        </span>
+                                                    </div>
+                                                    <div className="mt-1">
+                                                        <div className="text-sm font-extrabold text-gray-300 truncate">
+                                                            {edge.pitcher}
+                                                        </div>
+                                                        <div className="text-sm font-black text-white mt-1">
+                                                            {edge.choice} {edge.line}
+                                                        </div>
+                                                        <div className="text-xl font-black text-indigo-400 mt-1 tracking-tight flex items-baseline gap-1">
+                                                            <span>+{edge.edge.toFixed(1)}%</span>
+                                                            <span className="text-[10px] text-gray-400 font-bold">Edge</span>
+                                                        </div>
+                                                    </div>
+                                                    <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
+                                                        <span className="font-semibold text-slate-400">Proj: {edge.proj.toFixed(1)} (Book: {edge.line})</span>
+                                                        <span className="text-slate-500 group-hover:text-indigo-400 font-black transition-colors uppercase tracking-widest">Locate →</span>
+                                                    </div>
+                                                </div>
+                                            ))
+                                        )
+                                    ) : activeModel === 'nrfi' ? (
+                                        /* NRFI/YRFI Edges List */
+                                        nrfiEdges.length === 0 ? (
+                                            <div className="w-full text-center py-6 text-xs font-bold text-slate-500">
+                                                No NRFI/YRFI Edges Found Today
+                                            </div>
+                                        ) : (
+                                            nrfiEdges.map((edge, idx) => (
+                                                <div
+                                                    key={`nrfi-edge-mob-${idx}`}
+                                                    onClick={() => onNavigateToNrfi(`${edge.awayTeam}-${edge.homeTeam}`)}
+                                                    className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-indigo-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/50 hover:shadow-[0_8px_20px_rgba(99,102,241,0.15)] snap-start relative overflow-hidden group animate-fade-in"
+                                                >
+                                                    <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-full blur-xl group-hover:bg-indigo-500/10 transition-colors pointer-events-none"></div>
+                                                    <div className="flex justify-between items-start mb-2 gap-2">
+                                                        <span className={`text-[9px] font-black uppercase tracking-widest bg-slate-900 border px-1.5 py-0.5 rounded flex-shrink-0
+                          ${edge.choice === 'NRFI' ? 'text-green-400 border-green-500/20' : 'text-amber-400 border-amber-500/20'}`}>
+                                                            {edge.choice} Edge
+                                                        </span>
+                                                        <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
+                                                            {getTeamAbbr(edge.awayTeam)} vs {getTeamAbbr(edge.homeTeam)}
+                                                        </span>
+                                                    </div>
+                                                    <div className="mt-1">
+                                                        <div className="text-sm font-extrabold text-gray-300 truncate">
+                                                            {edge.awayTeam} @ {edge.homeTeam}
+                                                        </div>
+                                                        <div className="text-sm font-black text-white mt-1">
+                                                            {edge.choice} {formatAmericanOdds(edge.odds)}
+                                                        </div>
+                                                        <div className="text-xl font-black text-indigo-400 mt-1 tracking-tight flex items-baseline gap-1">
+                                                            <span>+{edge.edge.toFixed(1)}%</span>
+                                                            <span className="text-[10px] text-gray-400 font-bold">Edge</span>
+                                                        </div>
+                                                    </div>
+                                                    <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
+                                                        <span className="font-semibold text-slate-400">Score: {edge.score.toFixed(1)}% ({edge.book})</span>
+                                                        <span className="text-slate-500 group-hover:text-indigo-400 font-black transition-colors uppercase tracking-widest">Locate →</span>
+                                                    </div>
+                                                </div>
+                                            ))
+                                        )
+                                    ) : (
+                                        /* Original Game Edges */
+                                        <>
+                                            {dailyEdges && dailyEdges.ml && dailyEdges.ml.game && (
+                                                <div
+                                                    onClick={() => scrollToMatchup(dailyEdges.ml.game.matchup.away_team, dailyEdges.ml.game.matchup.home_team)}
+                                                    className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-emerald-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/50 hover:shadow-[0_8px_20px_rgba(16,185,129,0.15)] snap-start relative overflow-hidden group"
+                                                >
+                                                    <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 rounded-full blur-xl group-hover:bg-emerald-500/10 transition-colors pointer-events-none"></div>
+                                                    <div className="flex justify-between items-start mb-2 gap-2">
+                                                        <span className="text-[9px] text-emerald-400 font-black uppercase tracking-widest bg-emerald-950/60 border border-emerald-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
+                                                            ML Value Edge
+                                                        </span>
+                                                        <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
+                                                            {getTeamAbbr(dailyEdges.ml.game.matchup.away_team)} @ {getTeamAbbr(dailyEdges.ml.game.matchup.home_team)}
+                                                        </span>
+                                                    </div>
+                                                    <div className="mt-1">
+                                                        <div className="text-sm font-extrabold text-gray-200">
+                                                            {dailyEdges.ml.choice}
+                                                        </div>
+                                                        <div className="text-xl font-black text-emerald-400 mt-0.5 tracking-tight flex items-baseline gap-1">
+                                                            <span>+{dailyEdges.ml.edge.toFixed(1)}%</span>
+                                                            <span className="text-[10px] text-gray-400 font-bold">Edge</span>
+                                                        </div>
+                                                    </div>
+                                                    <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
+                                                        <span className="font-semibold text-slate-400">Proj Win: {Math.round(dailyEdges.ml.prob * 100)}%</span>
+                                                        <span className="text-slate-500 group-hover:text-emerald-400 font-black transition-colors uppercase tracking-widest">Analyze →</span>
+                                                    </div>
+                                                </div>
+                                            )}
+
+                                            {dailyEdges && dailyEdges.spread && dailyEdges.spread.game && (
+                                                <div
+                                                    onClick={() => scrollToMatchup(dailyEdges.spread.game.matchup.away_team, dailyEdges.spread.game.matchup.home_team)}
+                                                    className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-indigo-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/50 hover:shadow-[0_8px_20px_rgba(99,102,241,0.15)] snap-start relative overflow-hidden group"
+                                                >
+                                                    <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-full blur-xl group-hover:bg-indigo-500/10 transition-colors pointer-events-none"></div>
+                                                    <div className="flex justify-between items-start mb-2 gap-2">
+                                                        <span className="text-[9px] text-indigo-400 font-black uppercase tracking-widest bg-indigo-950/60 border border-indigo-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
+                                                            Spread Cover
+                                                        </span>
+                                                        <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
+                                                            {getTeamAbbr(dailyEdges.spread.game.matchup.away_team)} @ {getTeamAbbr(dailyEdges.spread.game.matchup.home_team)}
+                                                        </span>
+                                                    </div>
+                                                    <div className="mt-1">
+                                                        <div className="text-sm font-extrabold text-gray-200">
+                                                            {dailyEdges.spread.choice}
+                                                        </div>
+                                                        <div className="text-xl font-black text-indigo-400 mt-0.5 tracking-tight flex items-baseline gap-1">
+                                                            <span>{Math.round(dailyEdges.spread.prob * 100)}%</span>
+                                                            <span className="text-[10px] text-gray-400 font-bold">Cover Prob</span>
+                                                        </div>
+                                                    </div>
+                                                    <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
+                                                        <span className="font-semibold text-slate-400">Normal CDF Model</span>
+                                                        <span className="text-slate-500 group-hover:text-indigo-400 font-black transition-colors uppercase tracking-widest">Analyze →</span>
+                                                    </div>
+                                                </div>
+                                            )}
+
+                                            {dailyEdges && dailyEdges.total && dailyEdges.total.game && (
+                                                <div
+                                                    onClick={() => scrollToMatchup(dailyEdges.total.game.matchup.away_team, dailyEdges.total.game.matchup.home_team)}
+                                                    className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-blue-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/50 hover:shadow-[0_8px_20px_rgba(59,130,246,0.15)] snap-start relative overflow-hidden group"
+                                                >
+                                                    <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full blur-xl group-hover:bg-blue-500/10 transition-colors pointer-events-none"></div>
+                                                    <div className="flex justify-between items-start mb-2 gap-2">
+                                                        <span className="text-[9px] text-blue-400 font-black uppercase tracking-widest bg-blue-950/60 border border-blue-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
+                                                            Total Variance
+                                                        </span>
+                                                        <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
+                                                            {getTeamAbbr(dailyEdges.total.game.matchup.away_team)} @ {getTeamAbbr(dailyEdges.total.game.matchup.home_team)}
+                                                        </span>
+                                                    </div>
+                                                    <div className="mt-1">
+                                                        <div className="text-sm font-extrabold text-gray-200">
+                                                            {dailyEdges.total.choice}
+                                                        </div>
+                                                        <div className="text-xl font-black text-blue-400 mt-0.5 tracking-tight flex items-baseline gap-1">
+                                                            <span>{dailyEdges.total.gap.toFixed(1)} Runs</span>
+                                                            <span className="text-[10px] text-gray-400 font-bold">Diff</span>
+                                                        </div>
+                                                    </div>
+                                                    <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
+                                                        <span className="font-semibold text-slate-400">Proj Total: {dailyEdges.total.modelTotal.toFixed(1)}</span>
+                                                        <span className="text-slate-500 group-hover:text-blue-400 font-black transition-colors uppercase tracking-widest">Analyze →</span>
+                                                    </div>
+                                                </div>
+                                            )}
+
+                                            {dailyEdges && dailyEdges.most_confident_ml && dailyEdges.most_confident_ml.length > 0 && (
+                                                <div
+                                                    onClick={() => {
+                                                        const firstGame = dailyEdges.most_confident_ml[0]?.game;
+                                                        if (firstGame) scrollToMatchup(firstGame.matchup.away_team, firstGame.matchup.home_team);
+                                                    }}
+                                                    className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-purple-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/50 hover:shadow-[0_8px_20px_rgba(168,85,247,0.15)] snap-start relative overflow-hidden group animate-fade-in"
+                                                >
+                                                    <div className="absolute top-0 right-0 w-24 h-24 bg-purple-500/5 rounded-full blur-xl group-hover:bg-purple-500/10 transition-colors pointer-events-none"></div>
+                                                    <div className="flex justify-between items-start mb-2 gap-2">
+                                                        <span className="text-[9px] text-purple-400 font-black uppercase tracking-widest bg-purple-950/60 border border-purple-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
+                                                            Most Confident ML
+                                                        </span>
+                                                        <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest">
+                                                            🔥 Top 2 Plays
+                                                        </span>
+                                                    </div>
+
+                                                    <div className="mt-2 space-y-2 flex-grow">
+                                                        {dailyEdges.most_confident_ml.map((play, index) => play.game && (
+                                                            <div key={index} className="flex justify-between items-center text-xs border-b border-slate-900/60 pb-1.5 last:border-0 last:pb-0">
+                                                                <div>
+                                                                    <div className="font-extrabold text-gray-200">{play.choice}</div>
+                                                                    <div className="text-[9px] text-gray-500 font-semibold">{getTeamAbbr(play.game.matchup.away_team)} @ {getTeamAbbr(play.game.matchup.home_team)}</div>
+                                                                </div>
+                                                                <div className="text-right">
+                                                                    <div className="font-black text-purple-400">{Math.round(play.prob * 100)}%</div>
+                                                                    <div className="text-[8px] text-gray-500 font-bold">Confidence</div>
+                                                                </div>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+
+                                                    <div className="mt-3 flex justify-end text-[9px] text-slate-500 group-hover:text-purple-400 font-black transition-colors uppercase tracking-widest pt-2 border-t border-slate-900/60">
+                                                        Analyze →
+                                                    </div>
+                                                </div>
+                                            )}
+
+                                            {dailyEdges && dailyEdges.team_totals && dailyEdges.team_totals.length > 0 && (
+                                                <div
+                                                    onClick={() => {
+                                                        const firstGame = dailyEdges.team_totals[0]?.game;
+                                                        if (firstGame) scrollToMatchup(firstGame.matchup.away_team, firstGame.matchup.home_team);
+                                                    }}
+                                                    className="flex-shrink-0 w-[260px] xs:w-[275px] sm:w-[280px] bg-slate-950/50 border border-amber-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/50 hover:shadow-[0_8px_20px_rgba(245,158,11,0.15)] snap-start relative overflow-hidden group animate-fade-in"
+                                                >
+                                                    <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full blur-xl group-hover:bg-amber-500/10 transition-colors pointer-events-none"></div>
+                                                    <div className="flex justify-between items-start mb-2 gap-2">
+                                                        <span className="text-[9px] text-amber-400 font-black uppercase tracking-widest bg-amber-950/60 border border-amber-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
+                                                            Team Total Targets
+                                                        </span>
+                                                        <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest">
+                                                            🎯 Target 4.5
+                                                        </span>
+                                                    </div>
+
+                                                    <div className="mt-2 space-y-2 flex-grow">
+                                                        {dailyEdges.team_totals.map((total, index) => total.game && (
+                                                            <div key={index} className="flex justify-between items-center text-xs border-b border-slate-900/60 pb-1.5 last:border-0 last:pb-0">
+                                                                <div>
+                                                                    <div className="font-extrabold text-gray-200">{getTeamAbbr(total.team)} Over 4.5</div>
+                                                                    <div className="text-[9px] text-gray-500 font-semibold">{getTeamAbbr(total.game.matchup.away_team)} @ {getTeamAbbr(total.game.matchup.home_team)}</div>
+                                                                </div>
+                                                                <div className="text-right">
+                                                                    <div className="font-black text-amber-400">{total.projected_runs.toFixed(1)} Runs</div>
+                                                                    <div className="text-[8px] text-gray-500 font-bold">Projected</div>
+                                                                </div>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+
+                                                    <div className="mt-3 flex justify-end text-[9px] text-slate-500 group-hover:text-amber-400 font-black transition-colors uppercase tracking-widest pt-2 border-t border-slate-900/60">
+                                                        Analyze →
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </>
+                                    )}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* ================= MODEL ARCHITECTURE (Full Width) ================= */}
+                        <div className="bg-slate-900/40 backdrop-blur-md border border-slate-800/80 rounded-2xl p-5 shadow-lg select-none mb-8">
+                            <h4 className="text-[10px] text-slate-500 font-black uppercase tracking-[0.2em] mb-4">Model Architecture</h4>
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                <div className="flex items-start gap-2.5">
+                                    <span className="text-cyan-400 text-base flex-shrink-0 mt-0.5">⚾</span>
+                                    <span className="text-xs text-slate-400 font-semibold leading-relaxed"><strong className="text-slate-300">Daily Model</strong> evaluates Starting Pitcher splits, stadium ballistics, weather carries, and bullpen SIERA ratings.</span>
+                                </div>
+                                <div className="flex items-start gap-2.5">
+                                    <span className="text-indigo-400 text-base flex-shrink-0 mt-0.5">📈</span>
+                                    <span className="text-xs text-slate-400 font-semibold leading-relaxed"><strong className="text-slate-300">NRFI Model</strong> uses a custom-trained algorithm calculating top-order strikeout, walk, and first-inning home/away metrics.</span>
+                                </div>
+                                <div className="flex items-start gap-2.5">
+                                    <span className="text-purple-400 text-base flex-shrink-0 mt-0.5">🎯</span>
+                                    <span className="text-xs text-slate-400 font-semibold leading-relaxed"><strong className="text-slate-300">Pitcher Props</strong> uses Poisson (Ks) and Normal (Outs) probability curves matched against bookmaker lines.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* ================= MAIN CARDS AREA (Full Width) ================= */}
+                        <div className="">
+                            {/* Left Column: Main predictions / pitcher sheets (col-span-8) */}
+                            <div className="space-y-6">
+                                {/* ================= KARTLARIN OLDUĞU BÖLÜM ================= */}
+                                <div className="grid grid-cols-1 gap-4">
+                                    {loading ? (
+                                        <>
+                                            <MatchupSkeleton />
+                                            <MatchupSkeleton />
+                                            <MatchupSkeleton />
+                                        </>
+                                    ) : predictions.length === 0 ? (
+                                        /* Empty State Entegrasyonu */
+                                        <div className="bg-slate-900 border border-dashed border-gray-700 rounded-xl p-10 text-center my-6 shadow-inner">
+                                            <span className="text-5xl block mb-4" role="img" aria-label="baseball">⚾</span>
+                                            <h3 className="text-lg font-black text-white uppercase tracking-wider mb-2">
+                                                No Games Scheduled Today
+                                            </h3>
+                                            <p className="text-gray-400 text-sm max-w-md mx-auto font-medium">
+                                                There are no active MLB matchups processed by the engine for {systemDate || 'today'}. This might be due to a league rest day or game postponements.
+                                            </p>
+                                        </div>
+                                    ) : activeModel === 'pitcher_props' ? (
+                                        <PitcherProjections pitcherProjections={data?.data?.pitcher_projections || []} />
+                                    ) : (
+                                        displayPredictions.map((game, idx) => (
+                                            activeModel === 'full' ? (
+                                                <MatchupCard
+                                                    key={`full-${game.matchup.away_team}-${game.matchup.home_team}-${idx}`}
+                                                    prediction={game}
+                                                    onNavigateToNrfi={() => onNavigateToNrfi(`${game.matchup.away_team}-${game.matchup.home_team}`)}
+                                                />
+                                            ) : (
+                                                <NrfiRow
+                                                    key={`nrfi-${game.matchup.away_team}-${game.matchup.home_team}-${idx}`}
+                                                    prediction={game}
+                                                />
+                                            )
+                                        ))
+                                    )}
+                                </div>
+                            </div>
+
+                            {/* Right Column: Sidebar content (col-span-4 - Hidden on mobile) */}
+                            <div className="hidden">
+                                {/* VIP Consensus Edges (Desktop Sidebar View) */}
+                                {!loading && predictions.length > 0 && (
+                                    <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] border-t border-t-indigo-500/30 select-none">
+                                        <div className="flex justify-between items-center mb-4 border-b border-slate-800 pb-2.5">
+                                            <div className="flex items-center gap-2">
+                                                <span className="text-xl leading-none animate-pulse">⚡</span>
+                                                <span className="text-xs font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400 uppercase tracking-widest">
+                                                    {activeModel === 'pitcher_props' ? 'VIP Pitcher Edges' : activeModel === 'nrfi' ? 'VIP NRFI Edges' : 'VIP Consensus Edges'}
+                                                </span>
+                                            </div>
+                                            <span className="text-[9px] text-indigo-400 font-extrabold uppercase tracking-widest bg-indigo-950/80 border border-indigo-500/25 px-2 py-0.5 rounded-full animate-bounce">
+                                                🔥 Top Picks
+                                            </span>
+                                        </div>
+
+                                        <div className="flex flex-col gap-4">
+                                            {activeModel === 'pitcher_props' ? (
+                                                /* Pitcher Edges Desktop List */
+                                                pitcherEdges.length === 0 ? (
+                                                    <div className="w-full text-center py-8 text-xs font-bold text-slate-500">
+                                                        No Pitcher Edges Found Today (Threshold ≥ 5%)
+                                                    </div>
+                                                ) : (
+                                                    pitcherEdges.slice(0, 3).map((edge, idx) => (
+                                                        <div
+                                                            key={`pe-desk-${idx}`}
+                                                            onClick={() => scrollToPitcher(edge.pitcher)}
+                                                            className="w-full bg-slate-950/50 border border-indigo-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/50 hover:shadow-[0_8px_20px_rgba(99,102,241,0.15)] relative overflow-hidden group animate-fade-in"
+                                                        >
+                                                            <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-full blur-xl group-hover:bg-indigo-500/10 transition-colors pointer-events-none"></div>
+                                                            <div className="flex justify-between items-start mb-2 gap-2">
+                                                                <span className={`text-[9px] font-black uppercase tracking-widest bg-slate-900 border px-1.5 py-0.5 rounded flex-shrink-0
+                              ${edge.type === 'Strikeouts' ? 'text-cyan-400 border-cyan-500/20' : 'text-indigo-400 border-indigo-500/20'}`}>
+                                                                    {edge.type === 'Strikeouts' ? 'Pitcher K' : 'Pitcher Outs'}
+                                                                </span>
+                                                                <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
+                                                                    {getTeamAbbr(edge.team)} vs {getTeamAbbr(edge.opponent)}
+                                                                </span>
+                                                            </div>
+                                                            <div className="mt-1">
+                                                                <div className="text-sm font-extrabold text-gray-300 truncate">
+                                                                    {edge.pitcher}
+                                                                </div>
+                                                                <div className="text-sm font-black text-white mt-1">
+                                                                    {edge.choice} {edge.line}
+                                                                </div>
+                                                                <div className="text-xl font-black text-indigo-400 mt-1 tracking-tight flex items-baseline gap-1">
+                                                                    <span>+{edge.edge.toFixed(1)}%</span>
+                                                                    <span className="text-[10px] text-gray-400 font-bold">Edge</span>
+                                                                </div>
+                                                            </div>
+                                                            <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
+                                                                <span className="font-semibold text-slate-400">Proj: {edge.proj.toFixed(1)} (Book: {edge.line})</span>
+                                                                <span className="text-slate-500 group-hover:text-indigo-400 font-black transition-colors uppercase tracking-widest">Locate →</span>
+                                                            </div>
+                                                        </div>
+                                                    ))
+                                                )
+                                            ) : activeModel === 'nrfi' ? (
+                                                /* NRFI/YRFI Edges Desktop List */
+                                                nrfiEdges.length === 0 ? (
+                                                    <div className="w-full text-center py-8 text-xs font-bold text-slate-500">
+                                                        No NRFI/YRFI Edges Found Today
+                                                    </div>
+                                                ) : (
+                                                    nrfiEdges.map((edge, idx) => (
+                                                        <div
+                                                            key={`nrfi-edge-desk-${idx}`}
+                                                            onClick={() => onNavigateToNrfi(`${edge.awayTeam}-${edge.homeTeam}`)}
+                                                            className="w-full bg-slate-950/50 border border-indigo-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/50 hover:shadow-[0_8px_20px_rgba(99,102,241,0.15)] relative overflow-hidden group animate-fade-in"
+                                                        >
+                                                            <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-full blur-xl group-hover:bg-indigo-500/10 transition-colors pointer-events-none"></div>
+                                                            <div className="flex justify-between items-start mb-2 gap-2">
+                                                                <span className={`text-[9px] font-black uppercase tracking-widest bg-slate-900 border px-1.5 py-0.5 rounded flex-shrink-0
+                              ${edge.choice === 'NRFI' ? 'text-green-400 border-green-500/20' : 'text-amber-400 border-amber-500/20'}`}>
+                                                                    {edge.choice} Edge
+                                                                </span>
+                                                                <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
+                                                                    {getTeamAbbr(edge.awayTeam)} vs {getTeamAbbr(edge.homeTeam)}
+                                                                </span>
+                                                            </div>
+                                                            <div className="mt-1">
+                                                                <div className="text-sm font-extrabold text-gray-300 truncate">
+                                                                    {edge.awayTeam} @ {edge.homeTeam}
+                                                                </div>
+                                                                <div className="text-sm font-black text-white mt-1">
+                                                                    {edge.choice} {formatAmericanOdds(edge.odds)}
+                                                                </div>
+                                                                <div className="text-xl font-black text-indigo-400 mt-1 tracking-tight flex items-baseline gap-1">
+                                                                    <span>+{edge.edge.toFixed(1)}%</span>
+                                                                    <span className="text-[10px] text-gray-400 font-bold">Edge</span>
+                                                                </div>
+                                                            </div>
+                                                            <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
+                                                                <span className="font-semibold text-slate-400">Score: {edge.score.toFixed(1)}% ({edge.book})</span>
+                                                                <span className="text-slate-500 group-hover:text-indigo-400 font-black transition-colors uppercase tracking-widest">Locate →</span>
+                                                            </div>
+                                                        </div>
+                                                    ))
+                                                )
+                                            ) : (
+                                                /* Original Game Edges Cards */
+                                                <>
+                                                    {dailyEdges && dailyEdges.ml && dailyEdges.ml.game && (
+                                                        <div
+                                                            onClick={() => scrollToMatchup(dailyEdges.ml.game.matchup.away_team, dailyEdges.ml.game.matchup.home_team)}
+                                                            className="w-full bg-slate-950/50 border border-emerald-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/50 hover:shadow-[0_8px_20px_rgba(16,185,129,0.15)] relative overflow-hidden group animate-fade-in"
+                                                        >
+                                                            <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 rounded-full blur-xl group-hover:bg-emerald-500/10 transition-colors pointer-events-none"></div>
+                                                            <div className="flex justify-between items-start mb-2 gap-2">
+                                                                <span className="text-[9px] text-emerald-400 font-black uppercase tracking-widest bg-emerald-950/60 border border-emerald-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
+                                                                    ML Value Edge
+                                                                </span>
+                                                                <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
+                                                                    {getTeamAbbr(dailyEdges.ml.game.matchup.away_team)} @ {getTeamAbbr(dailyEdges.ml.game.matchup.home_team)}
+                                                                </span>
+                                                            </div>
+                                                            <div className="mt-1">
+                                                                <div className="text-sm font-extrabold text-gray-200">
+                                                                    {dailyEdges.ml.choice}
+                                                                </div>
+                                                                <div className="text-xl font-black text-emerald-400 mt-0.5 tracking-tight flex items-baseline gap-1">
+                                                                    <span>+{dailyEdges.ml.edge.toFixed(1)}%</span>
+                                                                    <span className="text-[10px] text-gray-400 font-bold">Edge</span>
+                                                                </div>
+                                                            </div>
+                                                            <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
+                                                                <span className="font-semibold text-slate-400">Proj Win: {Math.round(dailyEdges.ml.prob * 100)}%</span>
+                                                                <span className="text-slate-500 group-hover:text-emerald-400 font-black transition-colors uppercase tracking-widest">Analyze →</span>
+                                                            </div>
+                                                        </div>
+                                                    )}
+
+                                                    {dailyEdges && dailyEdges.spread && dailyEdges.spread.game && (
+                                                        <div
+                                                            onClick={() => scrollToMatchup(dailyEdges.spread.game.matchup.away_team, dailyEdges.spread.game.matchup.home_team)}
+                                                            className="w-full bg-slate-950/50 border border-indigo-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/50 hover:shadow-[0_8px_20px_rgba(99,102,241,0.15)] relative overflow-hidden group animate-fade-in"
+                                                        >
+                                                            <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-full blur-xl group-hover:bg-indigo-500/10 transition-colors pointer-events-none"></div>
+                                                            <div className="flex justify-between items-start mb-2 gap-2">
+                                                                <span className="text-[9px] text-indigo-400 font-black uppercase tracking-widest bg-indigo-950/60 border border-indigo-500/25 px-1.5 py-0.5 rounded flex-shrink-0">
+                                                                    Spread Cover
+                                                                </span>
+                                                                <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
+                                                                    {getTeamAbbr(dailyEdges.spread.game.matchup.away_team)} @ {getTeamAbbr(dailyEdges.spread.game.matchup.home_team)}
+                                                                </span>
+                                                            </div>
+                                                            <div className="mt-1">
+                                                                <div className="text-sm font-extrabold text-gray-200">
+                                                                    {dailyEdges.spread.choice}
+                                                                </div>
+                                                                <div className="text-xl font-black text-indigo-400 mt-0.5 tracking-tight flex items-baseline gap-1">
+                                                                    <span>{Math.round(dailyEdges.spread.prob * 100)}%</span>
+                                                                    <span className="text-[10px] text-gray-400 font-bold">Cover Prob</span>
+                                                                </div>
+                                                            </div>
+                                                            <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
+                                                                <span className="font-semibold text-slate-400">Normal CDF Model</span>
+                                                                <span className="text-slate-500 group-hover:text-indigo-400 font-black transition-colors uppercase tracking-widest">Analyze →</span>
+                                                            </div>
+                                                        </div>
+                                                    )}
+
+                                                    {dailyEdges && dailyEdges.total && dailyEdges.total.game && (
+                                                        <div
+                                                            onClick={() => scrollToMatchup(dailyEdges.total.game.matchup.away_team, dailyEdges.total.game.matchup.home_team)}
+                                                            className="w-full bg-slate-950/50 border border-blue-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/50 hover:shadow-[0_8px_20px_rgba(59,130,246,0.15)] relative overflow-hidden group animate-fade-in"
+                                                        >
+                                                            <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full blur-xl group-hover:bg-blue-500/10 transition-colors pointer-events-none"></div>
+                                                            <div className="flex justify-between items-start mb-2 gap-2">
+                                                                <span className="text-[9px] text-blue-400 font-black uppercase tracking-widest bg-blue-950/60 border border-blue-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
+                                                                    Total Variance
+                                                                </span>
+                                                                <span className="text-[9px] text-gray-500 font-bold whitespace-nowrap truncate">
+                                                                    {getTeamAbbr(dailyEdges.total.game.matchup.away_team)} @ {getTeamAbbr(dailyEdges.total.game.matchup.home_team)}
+                                                                </span>
+                                                            </div>
+                                                            <div className="mt-1">
+                                                                <div className="text-sm font-extrabold text-gray-200">
+                                                                    {dailyEdges.total.choice}
+                                                                </div>
+                                                                <div className="text-xl font-black text-blue-400 mt-0.5 tracking-tight flex items-baseline gap-1">
+                                                                    <span>{dailyEdges.total.gap.toFixed(1)} Runs</span>
+                                                                    <span className="text-[10px] text-gray-400 font-bold">Diff</span>
+                                                                </div>
+                                                            </div>
+                                                            <div className="mt-3 flex justify-between items-center text-[9px] text-gray-400 border-t border-slate-900/60 pt-2">
+                                                                <span className="font-semibold text-slate-400">Proj Total: {dailyEdges.total.modelTotal.toFixed(1)}</span>
+                                                                <span className="text-slate-500 group-hover:text-blue-400 font-black transition-colors uppercase tracking-widest">Analyze →</span>
+                                                            </div>
+                                                        </div>
+                                                    )}
+
+                                                    {dailyEdges && dailyEdges.most_confident_ml && dailyEdges.most_confident_ml.length > 0 && (
+                                                        <div
+                                                            onClick={() => {
+                                                                const firstGame = dailyEdges.most_confident_ml[0]?.game;
+                                                                if (firstGame) scrollToMatchup(firstGame.matchup.away_team, firstGame.matchup.home_team);
+                                                            }}
+                                                            className="w-full bg-slate-950/50 border border-purple-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/50 hover:shadow-[0_8px_20px_rgba(168,85,247,0.15)] relative overflow-hidden group animate-fade-in"
+                                                        >
+                                                            <div className="absolute top-0 right-0 w-24 h-24 bg-purple-500/5 rounded-full blur-xl group-hover:bg-purple-500/10 transition-colors pointer-events-none"></div>
+                                                            <div className="flex justify-between items-start mb-2 gap-2">
+                                                                <span className="text-[9px] text-purple-400 font-black uppercase tracking-widest bg-purple-950/60 border border-purple-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
+                                                                    Most Confident ML
+                                                                </span>
+                                                                <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest">
+                                                                    🔥 Top 2 Plays
+                                                                </span>
+                                                            </div>
+
+                                                            <div className="mt-2 space-y-2 flex-grow">
+                                                                {dailyEdges.most_confident_ml.map((play, index) => play.game && (
+                                                                    <div key={index} className="flex justify-between items-center text-xs border-b border-slate-900/60 pb-1.5 last:border-0 last:pb-0">
+                                                                        <div>
+                                                                            <div className="font-extrabold text-gray-200">{play.choice}</div>
+                                                                            <div className="text-[9px] text-gray-500 font-semibold">{getTeamAbbr(play.game.matchup.away_team)} @ {getTeamAbbr(play.game.matchup.home_team)}</div>
+                                                                        </div>
+                                                                        <div className="text-right">
+                                                                            <div className="font-black text-purple-400">{Math.round(play.prob * 100)}%</div>
+                                                                            <div className="text-[8px] text-gray-500 font-bold">Confidence</div>
+                                                                        </div>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+
+                                                            <div className="mt-3 flex justify-end text-[9px] text-slate-500 group-hover:text-purple-400 font-black transition-colors uppercase tracking-widest pt-2 border-t border-slate-900/60">
+                                                                Analyze →
+                                                            </div>
+                                                        </div>
+                                                    )}
+
+                                                    {dailyEdges && dailyEdges.team_totals && dailyEdges.team_totals.length > 0 && (
+                                                        <div
+                                                            onClick={() => {
+                                                                const firstGame = dailyEdges.team_totals[0]?.game;
+                                                                if (firstGame) scrollToMatchup(firstGame.matchup.away_team, firstGame.matchup.home_team);
+                                                            }}
+                                                            className="w-full bg-slate-950/50 border border-amber-500/20 rounded-xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/50 hover:shadow-[0_8px_20px_rgba(245,158,11,0.15)] relative overflow-hidden group animate-fade-in"
+                                                        >
+                                                            <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full blur-xl group-hover:bg-amber-500/10 transition-colors pointer-events-none"></div>
+                                                            <div className="flex justify-between items-start mb-2 gap-2">
+                                                                <span className="text-[9px] text-amber-400 font-black uppercase tracking-widest bg-amber-950/60 border border-amber-500/20 px-1.5 py-0.5 rounded flex-shrink-0">
+                                                                    Team Total Targets
+                                                                </span>
+                                                                <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest">
+                                                                    🎯 Target 4.5
+                                                                </span>
+                                                            </div>
+
+                                                            <div className="mt-2 space-y-2 flex-grow">
+                                                                {dailyEdges.team_totals.map((total, index) => total.game && (
+                                                                    <div key={index} className="flex justify-between items-center text-xs border-b border-slate-900/60 pb-1.5 last:border-0 last:pb-0">
+                                                                        <div>
+                                                                            <div className="font-extrabold text-gray-200">{getTeamAbbr(total.team)} Over 4.5</div>
+                                                                            <div className="text-[9px] text-gray-500 font-semibold">{getTeamAbbr(total.game.matchup.away_team)} @ {getTeamAbbr(total.game.matchup.home_team)}</div>
+                                                                        </div>
+                                                                        <div className="text-right">
+                                                                            <div className="font-black text-amber-400">{total.projected_runs.toFixed(1)} Runs</div>
+                                                                            <div className="text-[8px] text-gray-500 font-bold">Projected</div>
+                                                                        </div>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+
+                                                            <div className="mt-3 flex justify-end text-[9px] text-slate-500 group-hover:text-amber-400 font-black transition-colors uppercase tracking-widest pt-2 border-t border-slate-900/60">
+                                                                Analyze →
+                                                            </div>
+                                                        </div>
+                                                    )}
+                                                </>
+                                            )}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Sticky Model Info Block */}
+                                <div className="bg-slate-900/40 backdrop-blur-md border border-slate-800/80 rounded-2xl p-5 shadow-lg select-none">
+                                    <h4 className="text-[10px] text-slate-500 font-black uppercase tracking-[0.2em] mb-3">Model Architecture</h4>
+                                    <ul className="text-slate-400 text-xs font-semibold space-y-2.5 leading-relaxed">
+                                        <li className="flex items-start gap-2">
+                                            <span className="text-cyan-400 text-sm">⚾</span>
+                                            <span><strong>Daily Model</strong> evaluates Starting Pitcher splits, stadium ballistics, weather carries, and bullpen SIERA ratings.</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="text-indigo-400 text-sm">📈</span>
+                                            <span><strong>NRFI Model</strong> uses a custom-trained algorithm calculating top-order strikeout, walk, and first-inning home/away metrics.</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="text-purple-400 text-sm">🎯</span>
+                                            <span><strong>Pitcher Props</strong> uses Poisson (Ks) and Normal (Outs) probability curves matched against bookmaker lines.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </>
+                )}
+
+                <Footer />
+            </main>
+
+            {/* Floating Back to Top Button */}
+            {showScrollTop && (
+                <button
+                    onClick={scrollToTop}
+                    className="fixed bottom-6 right-6 z-50 p-3 md:p-3.5 bg-indigo-600/90 hover:bg-indigo-500 text-white rounded-full shadow-[0_4px_20px_rgba(99,102,241,0.4)] border border-indigo-400/30 hover:scale-110 active:scale-95 transition-all duration-300 backdrop-blur-md cursor-pointer group flex items-center justify-center animate-fade-in"
+                    aria-label="Scroll to top"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={3}
+                        stroke="currentColor"
+                        className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform duration-300"
+                    >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
+                    </svg>
+                </button>
             )}
 
-            {/* Sticky Model Info Block */}
-            <div className="bg-slate-900/40 backdrop-blur-md border border-slate-800/80 rounded-2xl p-5 shadow-lg select-none">
-              <h4 className="text-[10px] text-slate-500 font-black uppercase tracking-[0.2em] mb-3">Model Architecture</h4>
-              <ul className="text-slate-400 text-xs font-semibold space-y-2.5 leading-relaxed">
-                <li className="flex items-start gap-2">
-                  <span className="text-cyan-400 text-sm">⚾</span>
-                  <span><strong>Daily Model</strong> evaluates Starting Pitcher splits, stadium ballistics, weather carries, and bullpen SIERA ratings.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-indigo-400 text-sm">📈</span>
-                  <span><strong>NRFI Model</strong> uses a custom-trained algorithm calculating top-order strikeout, walk, and first-inning home/away metrics.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-purple-400 text-sm">🎯</span>
-                  <span><strong>Pitcher Props</strong> uses Poisson (Ks) and Normal (Outs) probability curves matched against bookmaker lines.</span>
-                </li>
-              </ul>
-            </div>
-          </div>
+            {/* About Us Modal */}
+            {showAboutModal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-fade-in">
+                    <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-5 sm:p-6 md:p-8 max-w-xl w-full shadow-2xl relative border-t border-t-indigo-500/30 overflow-hidden">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full blur-2xl pointer-events-none"></div>
+
+                        <div className="space-y-4">
+                            <div className="flex items-center justify-between gap-3 border-b border-slate-850 pb-4">
+                                <div className="flex items-center gap-3 min-w-0">
+                                    <span className="text-2xl sm:text-3xl flex-shrink-0">ℹ️</span>
+                                    <div className="min-w-0">
+                                        <h3 className="text-sm sm:text-base md:text-lg font-black text-white uppercase tracking-wider truncate">About Legends Sports</h3>
+                                        <p className="text-[9px] text-slate-500 font-bold tracking-widest uppercase">system information & metrics</p>
+                                    </div>
+                                </div>
+                                <button
+                                    onClick={() => setShowAboutModal(false)}
+                                    className="text-slate-500 hover:text-white cursor-pointer transition-colors p-1.5 rounded-lg border border-slate-850 hover:bg-slate-800 flex-shrink-0"
+                                >
+                                    ✕
+                                </button>
+                            </div>
+
+                            <div className="space-y-3 text-xs text-slate-300 leading-relaxed font-semibold">
+                                <p>
+                                    Legends Sports is an advanced, data-driven sports forecasting portal designed to evaluate match outcomes using predictive algorithms and real-time parameters.
+                                </p>
+                                <p>
+                                    Our core MLB Engine simulates match progressions by adjusting stadium factors (wind vectors, air humidity, stadium altitude, and temperature carry-distance) combined with probable pitchers splits and bullpen SIERA ratings.
+                                </p>
+                                <p>
+                                    Our recursive Tennis Predictor simulates matches point-by-point to determine exact set distributions and spread cover metrics using mathematical Markov Chains.
+                                </p>
+                            </div>
+
+                            <div className="pt-4 border-t border-slate-850 text-slate-500 text-[9px] font-bold uppercase tracking-widest flex justify-between">
+                                <span>Version 2.0.0</span>
+                                <span>© {new Date().getFullYear()} Legends Sports</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Contact Us Modal */}
+            {showContactModal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-fade-in">
+                    <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-5 sm:p-6 md:p-8 max-w-md w-full shadow-2xl relative border-t border-t-indigo-500/30 overflow-hidden">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full blur-2xl pointer-events-none"></div>
+
+                        <div className="space-y-4">
+                            <div className="flex items-center justify-between gap-3 border-b border-slate-850 pb-4">
+                                <div className="flex items-center gap-3 min-w-0">
+                                    <span className="text-2xl sm:text-3xl flex-shrink-0">✉️</span>
+                                    <div className="min-w-0">
+                                        <h3 className="text-sm sm:text-base md:text-lg font-black text-white uppercase tracking-wider truncate">Contact Legends</h3>
+                                        <p className="text-[9px] text-slate-500 font-bold tracking-widest uppercase">support & cooperation</p>
+                                    </div>
+                                </div>
+                                <button
+                                    onClick={() => setShowContactModal(false)}
+                                    className="text-slate-500 hover:text-white cursor-pointer transition-colors p-1.5 rounded-lg border border-slate-850 hover:bg-slate-800 flex-shrink-0"
+                                >
+                                    ✕
+                                </button>
+                            </div>
+
+                            <p className="text-xs text-slate-400 font-semibold leading-relaxed">
+                                Have feedback, found a bug, or want to explore collaboration opportunities? We'd love to hear from you. Send us an email, and we'll get back to you as soon as possible!
+                            </p>
+
+                            <div className="bg-slate-950 border border-slate-850 rounded-2xl p-4 text-center">
+                                <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest block mb-1">
+                                    Official Email Address
+                                </span>
+                                <div className="bg-white rounded-xl py-2 px-3 mt-2 select-all shadow-inner">
+                                    <span className="text-slate-950 font-extrabold text-xs sm:text-sm tracking-wide">
+                                        legendsbrandcompany@gmail.com
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div className="pt-2 text-[8px] text-slate-500 font-bold text-center uppercase tracking-widest">
+                                Response time: typically within 24 hours
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
-
-        <Footer />
-      </main>
-
-      {/* Floating Back to Top Button */}
-      {showScrollTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 p-3 md:p-3.5 bg-indigo-600/90 hover:bg-indigo-500 text-white rounded-full shadow-[0_4px_20px_rgba(99,102,241,0.4)] border border-indigo-400/30 hover:scale-110 active:scale-95 transition-all duration-300 backdrop-blur-md cursor-pointer group flex items-center justify-center animate-fade-in"
-          aria-label="Scroll to top"
-        >
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            fill="none" 
-            viewBox="0 0 24 24" 
-            strokeWidth={3} 
-            stroke="currentColor" 
-            className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform duration-300"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
-          </svg>
-        </button>
-      )}
-    </div>
-  );
+    );
 }
 
 export default App;

@@ -1,186 +1,163 @@
-# Milestone 5 - Çoklu Spor Genişlemesi, Hitter Center ve Telegram Botu Yol Haritası (M5 Roadmap)
+# Milestone 5 - Çoklu Spor Portalı & Arayüz Mimari Yol Haritası (UI/UX Planlama Raporu)
 
-Bu yol haritası, Tyler'ın talep ettiği yeni tenis tahmin motoru, çoklu spor arayüzü, hamburger menü altına eklenecek "Hitter Center" (Vurucu Merkezi), Fantasy Info Central otomatik kazıyıcısı, FantasyPros CSV yükleme portalı ve geçmişte bahsettiği **VIP Telegram Bildirim Botu** isteklerini mimari açıdan planlamaktadır.
+Bu rapor, Legends Sports platformunu tek sporlu (sadece MLB) bir tahmin sayfasından, gelecekte eklenecek yeni spor dallarına (Tenis, Basketbol, Futbol vb.) tam uyumlu, modern navigasyon yapısına sahip profesyonel bir **Çoklu Spor Tahmin Portalı**'na dönüştürme planını sunar.
 
-Ayrıca raporun en altında, mevcut projenin teknik bir "Röntgeni" (mimari denetim ve eksiklikler analizi) çekilerek gelecekte yapılması gereken kritik güncellemeler listelenmiştir.
+Koda geçiş yapılmadan önce arayüz mimarisinin, navigasyon hiyerarşisinin ve ölçeklenebilirlik altyapısının planlanması hedeflenmiştir.
 
 ---
 
-## 🗺️ Mimari Genel Bakış ve Entegrasyon Stratejisi
+## 🗺️ 1. Genel Mimari Vizyon: Tek Sayfadan Portala Geçiş
 
-Çoklu spor yapısına geçişte sitenin performansını korumak ve Tyler'ın tüm tahmin modellerini (MLB, Tenis, yakında NFL ve NBA) tek bir çatı altında birleştirmek için aşağıdaki mimariyi uygulayacağız:
+Mevcut MLB tahmin sayfamız tek bir amaca hizmet eden şık bir "landing page" görünümündedir. Siteyi gerçek bir spor portalına dönüştürmek için **3 Katmanlı Hiyerarşi** kuracağız:
 
 ```mermaid
 graph TD
-    subgraph Frontend [React Multi-Sport Frontend]
-        Navbar[Hamburger & Sport Selector] --> Home[Multi-Sport Homepage]
-        Home --> MLBTab[MLB Center]
-        Home --> TennisTab[Tennis Center]
-        Navbar --> HitterCenter[Hitter Center Page]
-        HitterCenter --> BvP[BvP Sub-tab & Sliders]
-        HitterCenter --> FP7[FantasyPros Last 7 Days]
-        HitterCenter --> FPProj[FantasyPros Projections]
-        HitterCenter --> FICPicks[FIC Hit/HR Scraped Picks]
-        Navbar --> Admin[Admin Portal: CSV Upload]
+    subgraph GlobalLayout [Global Düzen]
+        Navbar[Global Üst Navigasyon Barı] --> Sidebar[Sol Menü / Drawer Navigation]
     end
 
-    subgraph Backend [FastAPI Multi-Sport Backend]
-        API[api.py] --> MLBRoutes[/api/v1/mlb/*]
-        API --> TennisRoutes[/api/v1/tennis/*]
-        API --> AdminRoutes[/api/v1/admin/upload]
-        
-        AdminRoutes --> Parser[CSV Parser Service]
-        Parser --> JSONDB[(JSON / Local Storage DB)]
-        
-        MLBRoutes --> MLBEngine[MLB Unified Engine]
-        TennisRoutes --> TennisEngine[Tennis Prediction Engine]
-        
-        TennisEngine --> TennisScraper[Tennis Daily Scraper]
-        FICScraper[FIC Hit/HR Scraper] --> JSONDB
+    subgraph Views [Sayfa Görünümleri]
+        Sidebar --> HomeView[Central Hub / Karşılama Sayfası]
+        Sidebar --> MLBView[MLB Tahmin Merkezi]
+        Sidebar --> TennisView[Tenis Tahmin Merkezi]
+        Sidebar --> BasketView[NBA/NCAA - BETA]
+        Sidebar --> SoccerView[Futbol - COMING SOON]
     end
 
-    subgraph Notifications [Alerting & Notifications]
-        Cron[APScheduler / Cron] --> TelegramBot[Telegram Alert Bot]
-        JSONDB --> TelegramBot
-        TelegramBot --> Users[VIP Telegram Channel]
+    subgraph InfoModals [Bilgi & Güvenlik Katmanı]
+        Navbar --> About[Hakkımızda Modalı / Sayfası]
+        Navbar --> Contact[İletişim Modalı / Sayfası]
+        Navbar --> Disclaimer[Sorumluluk Reddi & Şartlar]
     end
 ```
 
 ---
 
-## 📊 M5 Yol Haritası: Görev Sınıflandırması ve Teknik Detaylar
+## 🧭 2. Navigasyon ve Spor Seçim Arayüzü Tasarımı
 
-### Görev 1: Çoklu Spor Seçicili Homepage & Vercel Dağıtımı
-> **Zorluk**: 🟡 **ORTA (Frontend & Yönlendirme)**  
-> **Bileşen**: Frontend (`App.jsx`, `DropdownNavigation.jsx`, yeni `SportSelector.jsx`)
+Gelecekte sisteme 4-5 farklı spor dalı ekleneceği için üst barda yatay sekmeler kullanmak mobil ekranlarda taşmalara neden olacaktır. Bu yüzden aşağıdaki navigasyon sistemini uygulayacağız:
 
-* **Hedef**: Sitenin doğrudan sadece MLB tahminlerini açması yerine, kullanıcıyı şık bir karşılama ekranı (Homepage) ile karşılaması veya üst barda yer alan spor seçici (dropdown veya yatay butonlar) ile **MLB** ve **Tenis** (ve gelecekte NFL/NBA) arasında hızlı geçiş yapabilmesi.
-* **Teknik Plan**:
-  * React tarafında bir spor durum state'i (`activeSport = 'MLB' | 'TENNIS'`) tanımlamak.
-  * Seçilen spora göre ana ekran bileşenlerini dinamik render etmek veya React Router kullanarak `/mlb` ve `/tennis` rotalarını ayırmak.
-  * Vercel üzerinde tek bir URL (adres) altında iki modelin de sıfır gecikmeyle çalışmasını sağlamak.
-  * Mobil uyumlu, modern geçiş animasyonları eklemek.
+### A. Global Header & Üst Navigasyon Barı (Global Navbar)
+Sitede sürekli sabit kalacak (Sticky) üst bar şu bileşenleri içerecektir:
+1.  **Sol Bölüm**: Marka Logosu (Legends Sports) ve tıklanabilir "Home" yönlendirmesi.
+2.  **Orta Bölüm (Masaüstü)**: Ana sekmeler (Home, MLB, Tennis, NBA `BETA`).
+3.  **Sağ Bölüm**: 
+    *   **Canlı Sistem Durumu (System Status)**: API bağlantısını ve son veri güncelleme zamanını gösteren minik neon nokta.
+    *   **Bilgi Menüsü (Info Menu)**: "About" (Hakkımızda), "Contact" (İletişim) ve "Disclaimers" (Yasal Uyarı) alanlarına hızlı erişim sağlayan bir buton grubu.
+    *   **Mobil Menü (Hamburger)**: Mobil cihazlarda tüm bu sekmeleri ve bilgi sayfalarını dikey açılır bir çekmecede (Drawer) toplayacak buton.
 
----
-
-### Görev 2: Tenis Tahmin Motoru & Günlük Scraper'lar
-> **Zorluk**: 🔴 **ZOR (Veri Kazıma & İstatistiksel Model)**  
-> **Bileşen**: Backend (yeni `tennis_engine.py`, `tennis_scraper.py`, `api.py` tenis rotaları)
-
-* **Hedef**: ATP ve WTA tenis maçları için günlük programı, oyuncu istatistiklerini (servis kazanma %, kırılma puanları vb.) ve bahis oranlarını çekip, maç kazananı ve set handikapı tahminlerini üreten bağımsız bir tenis motoru kurmak.
-* **Teknik Plan**:
-  * **Veri Kaynağı**: Ücretsiz ve stabil olan tenis veri sitelerinden veya resmi ATP/WTA API'lerinden günlük maç programlarını kazıyan `tennis_scraper.py` modülü yazmak.
-  * **Model**: Oyuncuların yüzey (toprak, çim, sert kort) bazlı tarihsel başarı oranlarını, son 10 maç form durumlarını ve kafa kafaya (H2H) maç geçmişlerini ağırlıklandıran bir olasılık algoritması kodlamak.
-  * **Oranlar**: The Odds API üzerinden tenis maç oranlarını çekmek ve model olasılıklarıyla kıyaslayıp tenis bahis avantajlarını (edges) hesaplamak.
+### B. Mobil Öncelikli Hamburger Menü (Drawer / Sidebar)
+Mobil ekranda hamburger menüye tıklandığında ekranın sağından kayarak açılan şık bir dikey menü tasarlanacaktır:
+*   **Aktif Sporlar**: MLB, Tennis (Yanlarında yeşil neon ikonlar).
+*   **Beta/Yolda Olan Sporlar**: NBA/NCAA (`BETA` rozetli), NFL, Soccer (`COMING SOON` rozetli, tıklanamaz).
+*   **Alt Menü Linkleri**: About, Contact Us, Terms & Disclaimers.
 
 ---
 
-### Görev 3: Hamburger Menü Altında "Hitter Center" (Vurucu Projeksiyonları) Sayfası
-> **Zorluk**: 🟡 **ORTA (Arayüz & API Entegrasyonu)**  
-> **Bileşen**: Frontend (`HitterCenter.jsx`), Backend (`api.py` hitter rotaları)
+## 🏠 3. Mock Ana Sayfa (Central Hub / Karşılama Sayfası) Yapısı
 
-* **Hedef**: Hamburger menüye "Hitter Center" adında yeni bir sayfa eklemek. Bu sayfa içinde 3 farklı alt sekme (`BvP` | `Last 7 Days` | `Today's Projections`) sunarak vurucu analizlerini tek merkezde toplamak.
-* **Teknik Plan**:
-  * React tarafında `HitterCenter.jsx` adında zengin bir tablo bileşeni geliştirmek.
-  * Üç sekmeli yatay navigasyon çubuğu tasarlamak.
-  * Backend tarafında bu tabloları besleyecek `/hitter/bvp`, `/hitter/stats-7d` ve `/hitter/projections` rotalarını açmak.
+Kullanıcı siteye girdiğinde doğrudan MLB maçlarını görmek yerine, platformun genel kapasitesini ve o günkü en önemli fırsatları sunan bir **Central Hub** ile karşılaşacaktır. 
 
----
+Bu mock ana sayfa şu dikey bloklardan oluşacaktır:
 
-### Görev 4: BvP (Batter vs Pitcher) Dinamik Filtre Slider'ları
-> **Zorluk**: 🟢 **KOLAY (Arayüz Mantığı)**  
-> **Bileşen**: Frontend (`HitterCenter.jsx` BvP sekmesi)
+### Blok 1: Spotlight (Featured Edge of the Day)
+*   **Tasarım**: Covers.com tarzında, o gün tüm aktif sporlar (MLB, Tenis vb.) genelinde modelin yakaladığı en yüksek Edge (bahis bürosuna kıyasla en büyük matematiksel avantaj) oranına sahip tek bir maç, sayfanın en üstünde parlayan devasa bir banner kart olarak gösterilir.
+*   **Amacı**: Bahisçinin siteye girdiğinde "bugünün en güvendiğimiz seçimi bu" mesajını ilk saniyede alması.
 
-* **Hedef**: Rotowire'ın sunduğu parametrik filtreleri (Minimum At-Bats, Minimum AVG, Minimum OPS vb.) kullanıcıların kendi istediği gibi ayarlayabileceği dinamik arayüz kontrolleri (slider'lar veya sayı alanları) eklemek.
-* **Teknik Plan**:
-  * Tablonun üzerine `Min AB`, `Min AVG`, `Min OPS` için React slider state'leri yerleştirmek.
-  * Kullanıcı slider'ı oynattığında frontend tarafındaki veri dizisini (array) anlık olarak süzmek (client-side filtering). Bu sayede sayfa yenilenmeden, saniyeler içinde binlerce satır arasından sadece hedeflenen vurucuların listelenmesini sağlamak.
+### Blok 2: Yesterday's Scoreboard Ribbon (Dünün Sonuçları Şeridi)
+*   **Tasarım**: Yatayda kaydırılabilir (horizontal scroll), dünün tamamlanan maçlarını ve periyot/set skorlarını içeren kompakt bir şerit.
+*   **Güven Unsuru**: Modelin dün yaptığı tahminlerin tutup tutmadığını gösteren parlayan rozetler yer alacaktır (örn: `✅ Moneyline Hit!`, `✅ NRFI Hit!`). Bu, modelin başarısını şeffaf şekilde kanıtlar.
 
----
+### Blok 3: Active Sports Dashboard (Spor Branş Girişleri)
+*   **Tasarım**: Yan yana duran premium cam morfizmi (glassmorphic) büyük kartlar.
+    *   **MLB Kartı**: "⚾ MLB Predictor - 15 Games Today (Model Updated)" yazar, tıklandığında MLB tahmin ekranına yönlendirir.
+    *   **Tenis Kartı (Mock)**: "🎾 Tennis Predictor - 8 Matches Today (Mock Mode)" yazar, tıklandığında Tenis tahmin ekranına yönlendirir.
+    *   **NBA Kartı (Beta/Mock)**: "🏀 NBA Predictor - Model is warming up for next season (BETA)" yazar.
 
-### Görev 5: FantasyPros CSV Yükleme Admin Paneli (Admin Portal)
-> **Zorluk**: 🟡 **ORTA (Dosya İşleme & Güvenlik)**  
-> **Bileşen**: Backend (`csv_uploader.py`, admin API rotaları), Frontend (`AdminPortal.jsx`)
-
-* **Hedef**: FantasyPros gibi Cloudflare korumalı ve kazınması zor sitelerin verilerini Tyler'ın manuel indirip sitemize tek tıkla yükleyebileceği şık ve güvenli bir admin yükleme ekranı tasarlamak.
-* **Teknik Plan**:
-  * `/admin/upload-csv` adında dosya kabul eden bir FastAPI POST rotası yazmak.
-  * Python `pandas` kütüphanesi kullanarak FantasyPros'tan indirilen CSV şablonlarını parse etmek ve backend veritabanına (`hitters_7d.json` vb.) kaydetmek.
-  * Admin ekranı için sürükle-bırak (Drag and Drop) özellikli, dosya yükleme ilerlemesini gösteren şık bir UI tasarlamak. Tyler'a özel basit bir şifre koruması (Admin Auth) eklemek.
+### Blok 4: Model Architecture & Sabermetrics
+*   **Tasarım**: MLB modelinin altından ana sayfaya taşıyacağımız, sistemin arka plandaki matematiksel gücünü (stadyum balistik etki motoru, normal CDF olasılık dağılımları ve tenis Markov zinciri modelleri) açıklayan premium mini infografik kartları.
 
 ---
 
-### Görev 6: Fantasy Info Central (FIC) Hit & HR Tahminleri Scraper'ı
-> **Zorluk**: 🟡 **ORTA (Veri Kazıma & Entegrasyon)**  
-> **Bileşen**: Backend (`fic_scraper.py`, günlük entegrasyon)
+## 📈 4. Diğer Sporlar İçin Ölçeklenebilirlik (Scalability) Altyapısı
 
-* **Hedef**: Tyler'ın çok beğendiği `fantasyinfocentral.com` adresindeki günlük Hit ve HR (Home Run) olasılık tahminlerini otomatik olarak kazıyıp sitemizdeki "Hitter Center" sekmesinde listelemek.
-* **Teknik Plan**:
-  * Yaptığımız ön araştırmada sitenin tabloları dinamik Javascript veya iframe yerine **sunucu tarafında düzgün HTML** ile bastığını doğruladık.
-  * Python `BeautifulSoup` veya `lxml` kütüphanelerini kullanarak `/betting/mlb/hit-predictions` ve `/betting/mlb/hr-predictions` sayfalarını günlük olarak tarayan botu kodlamak.
-  * Çekilen oyuncu adlarını ve tahmin yüzdelerini (örneğin %78 Hit olasılığı) alıp sitemizdeki BvP/Hit projeksiyon kartlarında bir sütun veya rozet olarak göstermek.
+Gelecekte yeni sporlar (Basketbol, Futbol) eklenirken React kodunu tamamen baştan yazmamak için **Config-Driven (Konfigürasyon Tabanlı)** bir yapı kuracağız:
 
----
+### A. Frontend Konfigürasyonu (`sports_config.js`)
+Her spor dalını bir config objesi olarak tanımlayacağız:
+```javascript
+export const SPORTS_CONFIG = {
+  MLB: {
+    id: 'mlb',
+    name: 'MLB',
+    icon: '⚾',
+    status: 'ACTIVE',
+    models: ['Full Game', 'NRFI Model', 'Pitchers']
+  },
+  TENNIS: {
+    id: 'tennis',
+    name: 'Tennis',
+    icon: '🎾',
+    status: 'ACTIVE',
+    models: ['Match Projections']
+  },
+  NBA: {
+    id: 'nba',
+    name: 'NBA',
+    icon: '🏀',
+    status: 'BETA',
+    models: ['Full Game', '1st Quarter']
+  },
+  SOCCER: {
+    id: 'soccer',
+    name: 'Soccer',
+    icon: '⚽',
+    status: 'COMING_SOON',
+    models: []
+  }
+};
+```
+Bu konfigürasyon sayesinde navigasyon barı, hamburger menü ve ana sayfadaki kartlar otomatik olarak üretilecek; yeni bir spor eklemek sadece bu dosyaya 5 satır kod eklemek anlamına gelecektir.
 
-### Görev 7: VIP Telegram Alarm Botu (Telegram Notification Bot)
-> **Zorluk**: 🔴 **ZOR (Mesajlaşma Kuyrukları & Bot API Entegrasyonu)**  
-> **Bileşen**: Backend (`telegram_bot.py`), Veri Takip Servisi
-
-* **Hedef**: Modelin günlük tahminleri tamamlandığında, onaylanmış kadrolar (official lineups) girildiğinde veya günün en yüksek avantaja (75%+) sahip premium bahis edges (Moneyline, NRFI veya Pitcher Props) yakalandığında VIP Telegram kanalına otomatik olarak görsel bahis kuponu formatında bildirim göndermek.
-* **Teknik Plan**:
-  * Telegram Bot API entegrasyonu için backend tarafında bağımsız bir bot modülü oluşturmak.
-  * **Alarm Tetikleyicileri (Triggers)**:
-    1. Günlük tahminler sabah ilk kez hesaplandığında (Günün en iyi 3 Edge'i).
-    2. Maç öncesi resmi kadrolar açıklandığında ve model bu yeni kadroyla tahmini güncelleyip büyük bir avantaj farkı bulduğunda.
-    3. Atıcı prop oranlarında (K / IP) Poisson modeline göre %8+ sapma tespit edildiğinde.
-  * Mesajları sade metin yerine parlayan emojiler, kalın başlıklar ve temiz bir hizalamayla (HTML/Markdown parse modu kullanarak) okunması son derece keyifli bir "Bahis Paylaşım Kartı" formatında tasarlamak.
-
----
-
-## 🩺 Sitenin Röntgeni: Teknik Borçlar ve İyileştirme Fırsatları
-
-Mevcut MLB Predictor projesi hızlıca prototip üretmek ve stabil çalışmak için harika bir şekilde tasarlanmış olsa da, büyüyen veri hacmi ve Tyler'ın sürekli eklenen yeni spor talepleri karşısında **mimari bazı kısıtlamalara** sahiptir. Projenin uzun vadeli sağlığı için şu iyileştirmelerin yapılması gerekmektedir:
-
-### 1. JSON Tabanlı "Yapay Veritabanı" Problemi (Database Bottleneck)
-*   **Mevcut Durum**: Backend; `pitcher_stats.json`, `live_odds.json`, `live_weather.json` ve günlük `predictions_YYYY-MM-DD.json` gibi dosyaları disk üzerinde JSON olarak okuyup yazıyor.
-*   **Risk**: Aynı anda birden fazla istek geldiğinde (Concurrency), veri kazıcı çalışırken kullanıcının siteyi yenilemesi durumunda dosya kilitlenmesi (File Locking), yarış durumları (Race Conditions) veya dosyanın bozulması (Corrupted JSON) riski vardır. Ayrıca binlerce oyuncunun verisini belleğe yüklemek yavaştır.
-*   **Röntgen Çözümü**: Projenin veri katmanının **PostgreSQL** (canlı ortam için) veya en azından **SQLite** (hafif ve yerel bir SQL veritabanı) ile değiştirilmesi gerekir. SQLAlchemy ORM kullanılarak tüm oyuncu istatistikleri ve geçmiş tahminler ilişkisel veritabanında tutulmalıdır.
-
-### 2. Loglama ve Hata İzleme Sisteminin Eksikliği (No Production Logging)
-*   **Mevcut Durum**: Backend içerisindeki hatalar ve süreçler sadece `print()` komutlarıyla konsola yazılıyor. Docker konteyneri kapandığında veya sunucu yeniden başladığında tüm geçmiş hata izleri kayboluyor. Canlıda bir api isteği çöktüğünde sebebini bulmak samanlıkta iğne aramaya benziyor.
-*   **Röntgen Çözümü**: Python standart `logging` kütüphanesine geçilerek hatalar günlük log dosyalarına yazılmalı ve dönen hataları anlık olarak takip etmek için ücretsiz bir **Sentry** entegrasyonu yapılmalıdır.
-
-### 3. Görev Yönetimi ve Zamanlayıcı Eksikliği (Job Scheduling)
-*   **Mevcut Durum**: Veri kazıma işlemleri muhtemelen işletim sistemi seviyesinde manuel cron'lar veya dışarıdan gelen tetiklemelerle çalışıyor. Kazıcı çöktüğünde otomatik yeniden deneme (retry) veya hata bildirimi gönderme mekanizması yok.
-*   **Röntgen Çözümü**: FastAPI içine entegre çalışan asenkron bir görev zamanlayıcı (**APScheduler**) veya daha profesyonel bir kuyruk sistemi (**Celery + Redis**) kurularak veri kazıma, veri doğrulama ve Telegram bot gönderimleri izlenebilir, kuyruğa alınabilir görevler haline getirilmelidir.
-
-### 4. API Güvenliği ve CORS Zafiyetleri (API Security)
-*   **Mevcut Durum**: Backend API uçları tamamen açık durumdadır. Herhangi bir kişi sitenin API adresini tarayıcısına yazarak tüm değerli tahmin verilerini, model çıktılarımızı ve kazınmış odds verilerini doğrudan çekebilir (Scrape edebilir). Ayrıca CORS ayarlarında yerel adresler doğrudan izinli olsa da api seviyesinde bir sınırlandırma yoktur.
-*   **Röntgen Çözümü**:
-    *   API uçları için bir **API Key** veya JWT tabanlı **üye/istemci doğrulama** (Auth) mekanizması eklemek.
-    *   Sadece kendi domain adresimizden gelen isteklere izin verecek CORS sıkılaştırması yapmak.
-    *   IP başına istek limiti koyan bir **Rate-Limiting** (FastAPI-Limiter / Slowapi) eklemek.
-
-### 5. Frontend State Management ve Veri Önbellekleme (React Query Caching)
-*   **Mevcut Durum**: React tarafında veriler standart `fetch`/`axios` ile çekilip doğrudan local state'lere yazılıyor. Kullanıcı sekmeler arasında her geçiş yaptığında veya sayfayı her yenilediğinde API'ye tekrar tekrar istek gidiyor. Bu durum sunucuyu yoruyor ve kullanıcı deneyimini (yüklenme gecikmeleri) olumsuz etkiliyor.
-*   **Röntgen Çözümü**: Frontend'de **TanStack Query (React Query)** entegrasyonu yapılmalıdır. Bu sayede çekilen veriler istemci tarafında akıllıca önbelleğe alınır, kullanıcı sekmeler arasında gezinirken anında veri gelir ve arka planda sessizce veri güncelliği kontrol edilir (Stale-While-Revalidate).
-
-### 6. Test Altyapısının Zayıflığı (Test Coverage)
-*   **Mevcut Durum**: Sadece `test_pitcher_k_model.py` gibi birkaç temel birim testi bulunuyor.
-*   **Röntgen Çözümü**: Tahmin motorunun girdilerini ve çıktılarını doğrulayan entegrasyon testleri (Integration Tests) yazılmalı ve kod GitHub'a her yüklendiğinde otomatik olarak testleri çalıştıran bir **CI/CD pipeline (GitHub Actions)** kurulmalıdır.
+### B. Dinamik Backend API Rotaları
+Backend rotalarını `/api/v1/{sport}/predictions` formatında esnek tasarlayarak her spor için bağımsız veri çekimini (polling) destekleyeceğiz.
 
 ---
 
-## 📈 Milestone 5 & 6 Yol Haritası Değerlendirmesi
+## 📄 5. Yardımcı Sayfalar (About Us, Contact Us, Disclaimers)
 
-| Görev / İyileştirme | Bileşen | Zorluk | Tahmini Süre | Öncelik |
-|---|---|---|---|---|
-| **M5-G1: Spor Seçici Arayüzü & Homepage** | Frontend | 🟡 Orta | 2 Gün | YÜKSEK |
-| **M5-G2: Tenis Tahmin Motoru & Scraper** | Backend | 🔴 Zor | 5 Gün | YÜKSEK |
-| **M5-G3: Hamburger Menü: Hitter Center** | Frontend | 🟡 Orta | 3 Gün | ORTA |
-| **M5-G4: BvP Dinamik Arayüz Slider'ları** | Frontend | 🟢 Kolay | 1 Gün | ORTA |
-| **M5-G5: FantasyPros CSV Yükleme Paneli** | Backend/UI | 🟡 Orta | 2 Gün | ORTA |
-| **M5-G6: FIC Hit & HR Scraper** | Backend | 🟡 Orta | 2 Gün | ORTA |
-| **M5-G7: VIP Telegram Alarm Botu** | Backend | 🔴 Zor | 4 Gün | DÜŞÜK (İsteğe Bağlı) |
-| **Röntgen-1: SQLite / PostgreSQL Geçişi** | Backend | 🔴 Zor | 4 Gün | UZUN VADE |
-| **Röntgen-4: API Güvenliği & Rate-Limiting** | Backend | 🟡 Orta | 2 Gün | UZUN VADE |
+Siteyi profesyonel bir bahis danışmanlık portalına çevirmek için şu yardımcı alanları konumlandıracağız:
+
+1.  **About Us (Hakkımızda)**: 
+    *   *Nasıl Konumlandırılmalı?*: Ayrı bir sayfa yerine, kullanıcı deneyimini bozmamak adına şık, blur arka planlı ve geçiş animasyonlu bir **Modal** (açılır pencere) olarak tasarlanması önerilir. 
+    *   *İçerik*: Platformun veri odaklı felsefesi, yapay zeka ve sabermetrik analizlerin gücü vurgulanacaktır.
+2.  **Contact Us (İletişim)**:
+    *   *Nasıl Konumlandırılmalı?*: Yine bir **Modal** veya ana sayfanın en altına entegre, basit ve premium bir iletişim formu (Ad-Soyad, Mesaj, Gönder butonu).
+    *   *İçerik*: Tyler'a geri bildirim veya iş birliği için ulaşılabilecek temiz bir alan.
+3.  **Yasal Uyarı & Şartlar (Terms & Disclaimers)**:
+    *   *Nasıl Konumlandırılmalı?*: Sayfanın en altındaki (Footer) küçük linkler üzerinden açılan bir modal veya alt bilgi alanı.
+    *   *İçerik*: Tyler'ın en çok önem verdiği sorumluluk reddi metinleri ("Bu bir finansal tavsiye değildir", "Kayıplardan sitemiz sorumlu tutulamaz") burada yer alacaktır.
+
+---
+
+## 📋 6. İş Kırılımı, Öncelikler ve Zorluk Dereceleri (Roadmap)
+
+Geliştirmeye başlamadan önce işleri önceliklerine göre sıraladık (Koda geçilmeyecek, sadece planlama amaçlıdır):
+
+| Öncelik | İş Kodu | Görev Tanımı | Zorluk Derecesi | Etkilenecek Alanlar |
+|:---:|:---:|:---|:---:|:---|
+| **1** | **M5-P1** | Global Navigation & Hamburger Menü (BETA/COMING SOON rozetli spor listesi) | 🟡 Orta | `DropdownNavigation.jsx`, `App.jsx` |
+| **2** | **M5-P2** | Central Dashboard (Ana Sayfa) Tasarımı & featured edge alanı | 🟡 Orta | Yeni `CentralDashboard.jsx` |
+| **3** | **M5-P3** | Yesterday's Scoreboard Ribbon UI (Dünün Sonuçları Şeridi) | 🟡 Orta | `CentralDashboard.jsx` |
+| **4** | **M5-P4** | Tenis Tahmin Ekranı Mock Arayüz Entegrasyonu (Görsel Kartlar) | 🟡 Orta | Yeni `TennisDashboard.jsx` |
+| **5** | **M5-P5** | About & Contact Modalları ve Yasal Uyarı Footer Entegrasyonu | 🟢 Kolay | `Footer.jsx`, `App.jsx` |
+| **6** | **M5-P6** | MLB Standings (Lig Puan Durumu) Widget UI | 🟢 Kolay | `CentralDashboard.jsx` |
+| **7** | **M5-P7** | Konfigürasyon Tabanlı Spor Yönlendirme Altyapısı (`sports_config.js`) | 🟢 Kolay | `App.jsx`, Router |
+
+---
+
+## 💬 Tartışma ve Karar Verme Noktaları (Tyler ile Alignment İçin)
+
+Koda geçmeden önce Tyler ile netleştirilmesinde fayda olan 2 tasarım tercihi:
+1.  **Hakkımızda & İletişim Alanları**: Bu sayfaların ayrı birer URL rotası (örn: `/about`, `/contact`) olarak mı açılmasını tercih eder, yoksa ana sayfa üzerinde şık modal pencereler olarak açılması mobil kullanım için daha mı pratiktir? (Benim önerim **Modal** yönündedir).
+2.  **Yesterday's Scoreboard Verisi**: Dünün skorlarını otomatik çekmek için backend'e StatsAPI schedule rotalarını bağlayacağız. Ancak ileride tenis entegre edildiğinde, tenis skorlarını çekmek için ek API limitleri harcamak yerine ilk etapta tenis için dünün skorlarını manuel veya statik bir mock veriyle mi besleyelim?

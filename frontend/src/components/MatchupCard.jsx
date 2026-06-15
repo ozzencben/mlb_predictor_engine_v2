@@ -56,14 +56,14 @@ const getTeamAbbr = (teamName) => {
 
 const getWindMetrics = (dir) => {
     if (!dir) return { angle: 0, desc: 'Unknown Direction', isCalm: false };
-    
+
     const d = dir.toUpperCase().trim();
-    
+
     // Check for Calm or Dome / Closed roof conditions
     if (d.includes('CALM') || d.includes('DOME') || d.includes('CLOSED') || d.includes('ROOF')) {
         return { angle: 0, desc: 'Calm / Indoor Dome', isCalm: true };
     }
-    
+
     // Split the "FROM to TO" string (e.g., "SSW to NNE") and take the start direction (origin, i.e., "SSW")
     let startDir = d;
     if (d.includes(' TO ')) {
@@ -82,7 +82,7 @@ const getWindMetrics = (dir) => {
             startDir = parts[0].trim();
         }
     }
-    
+
     const mapping = {
         'S': { angle: 0, desc: 'Out to Center Field' },
         'SSW': { angle: 22.5, desc: 'Out to Right-Center' },
@@ -101,19 +101,19 @@ const getWindMetrics = (dir) => {
         'SE': { angle: 315, desc: 'Out to Left Field' },
         'SSE': { angle: 337.5, desc: 'Out to Left-Center' }
     };
-    
+
     const matched = mapping[startDir];
     if (matched) {
         return { ...matched, isCalm: false };
     }
-    
+
     // Loose boundary matching in case of trailing spaces or slight discrepancies
     for (const key of Object.keys(mapping)) {
         if (startDir.startsWith(key) || key.startsWith(startDir)) {
             return { ...mapping[key], isCalm: false };
         }
     }
-    
+
     return { angle: 0, desc: 'Unknown Direction', isCalm: false };
 };
 
@@ -123,14 +123,14 @@ const normalCDF = (x, mean = 0, stdDev = 1) => {
     const t = 1.0 / (1.0 + 0.5 * Math.abs(z));
     const ans = 1.0 - t * Math.exp(-z * z - 1.26551223 +
         t * (1.00002368 +
-        t * (0.37409196 +
-        t * (0.09678418 +
-        t * (-0.18628806 +
-        t * (0.27886807 +
-        t * (-1.13520398 +
-        t * (1.48851587 +
-        t * (-0.82215223 +
-        t * 0.17087277)))))))));
+            t * (0.37409196 +
+                t * (0.09678418 +
+                    t * (-0.18628806 +
+                        t * (0.27886807 +
+                            t * (-1.13520398 +
+                                t * (1.48851587 +
+                                    t * (-0.82215223 +
+                                        t * 0.17087277)))))))));
     return z >= 0 ? 0.5 + 0.5 * ans : 0.5 - 0.5 * ans;
 };
 
@@ -318,35 +318,35 @@ const generateH2H = (awayTeam, homeTeam, seedStr) => {
 const generateMockBookmakers = (awayTeam, homeTeam, bestAwayOdds, bestHomeOdds, overUnder, seedStr) => {
     const rng = seedRandom(`${awayTeam}-${homeTeam}-${seedStr}-bookies`);
     const bookies = ['FanDuel', 'DraftKings', 'Caesars', 'BetMGM', 'Fanatics', 'PointsBet'];
-    
+
     const baseAwayOdds = bestAwayOdds && bestAwayOdds > 1 ? bestAwayOdds : 1.91;
     const baseHomeOdds = bestHomeOdds && bestHomeOdds > 1 ? bestHomeOdds : 1.91;
     const baseTotal = overUnder && overUnder > 0 ? overUnder : 8.5;
-    
+
     return bookies.map(book => {
         const mlAwayVar = (rng() * 0.1 - 0.05);
         const mlHomeVar = (rng() * 0.1 - 0.05);
-        
+
         const away_ml = parseFloat((baseAwayOdds + mlAwayVar).toFixed(2));
         const home_ml = parseFloat((baseHomeOdds + mlHomeVar).toFixed(2));
-        
+
         const isAwayFav = baseAwayOdds < baseHomeOdds;
         const away_spread = isAwayFav ? -1.5 : 1.5;
         const home_spread = isAwayFav ? 1.5 : -1.5;
-        
+
         const spreadAwayVar = (rng() * 0.1 - 0.05);
         const spreadHomeVar = (rng() * 0.1 - 0.05);
-        
+
         const away_spread_price = parseFloat((1.91 + spreadAwayVar).toFixed(2));
         const home_spread_price = parseFloat((1.91 + spreadHomeVar).toFixed(2));
-        
+
         const total_line = baseTotal;
         const overVar = (rng() * 0.1 - 0.05);
         const underVar = (rng() * 0.1 - 0.05);
-        
+
         const over_price = parseFloat((1.91 + overVar).toFixed(2));
         const under_price = parseFloat((1.91 + underVar).toFixed(2));
-        
+
         return {
             bookmaker: book,
             away_ml,
@@ -529,7 +529,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
 
     // Generate H2H and Last 10 data with backend API data or fallback to deterministic mock generators
     const seedStr = `${matchup.away_team}-${matchup.home_team}`;
-    
+
     const h2hData = useMemo(() => {
         if (prediction.History?.h2h && prediction.History.h2h.length > 0) {
             const games = prediction.History.h2h;
@@ -538,7 +538,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
             let totalOver = 0;
             let totalUnder = 0;
             let totalPush = 0;
-            
+
             games.forEach(g => {
                 if (g.winner === matchup.away_team) {
                     winsAway++;
@@ -553,7 +553,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                     totalUnder++;
                 }
             });
-            
+
             return {
                 games,
                 summary: {
@@ -586,7 +586,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
     // otherwise fallback to high-fidelity seed-based mock lines
     const bookmakersList = useMemo(() => {
         if (Odds?.bookmakers && Odds.bookmakers.length > 0) {
-            const filtered = Odds.bookmakers.filter(bk => 
+            const filtered = Odds.bookmakers.filter(bk =>
                 (bk.away_ml !== null && bk.away_ml !== undefined && bk.away_ml !== 0) ||
                 (bk.home_ml !== null && bk.home_ml !== undefined && bk.home_ml !== 0) ||
                 (bk.away_spread !== null && bk.away_spread !== undefined && bk.away_spread !== 0) ||
@@ -597,11 +597,11 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
             }
         }
         return generateMockBookmakers(
-            matchup.away_team, 
-            matchup.home_team, 
-            Odds?.best_away_odds, 
-            Odds?.best_home_odds, 
-            Odds?.over_under, 
+            matchup.away_team,
+            matchup.home_team,
+            Odds?.best_away_odds,
+            Odds?.best_home_odds,
+            Odds?.over_under,
             seedStr
         );
     }, [Odds?.bookmakers, Odds?.best_away_odds, Odds?.best_home_odds, Odds?.over_under, matchup.away_team, matchup.home_team, seedStr]);
@@ -665,7 +665,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
             <div className="bg-slate-950/80 px-4 py-3 flex flex-wrap justify-between items-center border-b border-indigo-500/20 gap-y-2 gap-x-2 relative overflow-hidden select-none">
                 {/* Visual Neon Highlight Strip */}
                 <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400 opacity-80"></div>
-                
+
                 <div className="flex items-center gap-2 min-w-[140px] flex-grow sm:flex-none">
                     <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-2 py-0.5 rounded text-[8px] md:text-[9px] font-black tracking-widest flex-shrink-0 shadow-md animate-pulse">
                         MLB Cons
@@ -702,7 +702,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
             </div>
 
             {/* ================= 2. ANA KART İÇERİĞİ ================= */}
-            <div className="p-3 xs:p-4 md:p-6">
+            <div className="p-4 md:p-6">
 
                 {/* ================= SABERMETRİK ANOMALİ UYARI KUTUSU ================= */}
                 {Details?.model_anomalies && Details.model_anomalies.length > 0 && (
@@ -731,7 +731,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                         <div className="min-h-[40px] md:min-h-[48px] flex items-center justify-center w-full mb-2">
                             <h2 className="text-[10px] xs:text-[13px] md:text-lg font-black leading-tight balance-text whitespace-normal break-words">{matchup.away_team}</h2>
                         </div>
-                        <div className="bg-slate-800/80 border border-slate-700 rounded-lg px-1.5 xs:px-2.5 py-1.5 w-full max-w-[100px] xs:max-w-[125px] sm:max-w-[140px] md:max-w-[165px] shadow-inner mx-auto relative">
+                        <div className="bg-slate-800/80 border border-slate-700 rounded-lg px-1.5 xs:px-2.5 py-1.5 w-full max-w-[120px] xs:max-w-[135px] sm:max-w-[150px] md:max-w-[165px] shadow-inner mx-auto relative">
                             {pitcherAway.is_fallback && (
                                 <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[7px] font-black px-1 py-0.5 rounded uppercase tracking-wider shadow animate-pulse whitespace-nowrap">
                                     ⚠️ Fallback SP
@@ -760,7 +760,7 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                         <div className="min-h-[40px] md:min-h-[48px] flex items-center justify-center w-full mb-2">
                             <h2 className="text-[10px] xs:text-[13px] md:text-lg font-black leading-tight balance-text whitespace-normal break-words">{matchup.home_team}</h2>
                         </div>
-                        <div className="bg-slate-800/80 border border-slate-700 rounded-lg px-1.5 xs:px-2.5 py-1.5 w-full max-w-[100px] xs:max-w-[125px] sm:max-w-[140px] md:max-w-[165px] shadow-inner mx-auto relative">
+                        <div className="bg-slate-800/80 border border-slate-700 rounded-lg px-1.5 xs:px-2.5 py-1.5 w-full max-w-[120px] xs:max-w-[135px] sm:max-w-[150px] md:max-w-[165px] shadow-inner mx-auto relative">
                             {pitcherHome.is_fallback && (
                                 <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[7px] font-black px-1 py-0.5 rounded uppercase tracking-wider shadow animate-pulse whitespace-nowrap">
                                     ⚠️ Fallback SP
@@ -884,23 +884,21 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                             </div>
                             <div className="grid grid-cols-2 gap-2 text-center text-[10px] font-black uppercase">
                                 {/* ML Validation */}
-                                <div className={`py-1.5 px-2.5 border rounded-lg flex items-center justify-between gap-1 shadow-sm ${
-                                    prediction.result.ml_correct 
-                                      ? 'bg-emerald-950/20 text-emerald-400 border-emerald-500/30' 
-                                      : 'bg-red-950/20 text-red-400 border-red-500/20'
-                                }`}>
+                                <div className={`py-1.5 px-2.5 border rounded-lg flex items-center justify-between gap-1 shadow-sm ${prediction.result.ml_correct
+                                        ? 'bg-emerald-950/20 text-emerald-400 border-emerald-500/30'
+                                        : 'bg-red-950/20 text-red-400 border-red-500/20'
+                                    }`}>
                                     <span className="text-slate-500 text-[8px] tracking-wider">Moneyline</span>
                                     <span className="flex items-center gap-1">
                                         {prediction.result.ml_correct ? '✅ HIT' : '❌ MISS'}
                                     </span>
                                 </div>
-                                
+
                                 {/* Spread Validation */}
-                                <div className={`py-1.5 px-2.5 border rounded-lg flex items-center justify-between gap-1 shadow-sm ${
-                                    prediction.result.spread_correct 
-                                      ? 'bg-emerald-950/20 text-emerald-400 border-emerald-500/30' 
-                                      : 'bg-red-950/20 text-red-400 border-red-500/20'
-                                }`}>
+                                <div className={`py-1.5 px-2.5 border rounded-lg flex items-center justify-between gap-1 shadow-sm ${prediction.result.spread_correct
+                                        ? 'bg-emerald-950/20 text-emerald-400 border-emerald-500/30'
+                                        : 'bg-red-950/20 text-red-400 border-red-500/20'
+                                    }`}>
                                     <span className="text-slate-500 text-[8px] tracking-wider">Spread</span>
                                     <span className="flex items-center gap-1">
                                         {prediction.result.spread_correct ? '✅ HIT' : '❌ MISS'}
@@ -908,11 +906,10 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                 </div>
 
                                 {/* Total Validation */}
-                                <div className={`py-1.5 px-2.5 border rounded-lg flex items-center justify-between gap-1 shadow-sm ${
-                                    prediction.result.total_correct 
-                                      ? 'bg-emerald-950/20 text-emerald-400 border-emerald-500/30' 
-                                      : 'bg-red-950/20 text-red-400 border-red-500/20'
-                                }`}>
+                                <div className={`py-1.5 px-2.5 border rounded-lg flex items-center justify-between gap-1 shadow-sm ${prediction.result.total_correct
+                                        ? 'bg-emerald-950/20 text-emerald-400 border-emerald-500/30'
+                                        : 'bg-red-950/20 text-red-400 border-red-500/20'
+                                    }`}>
                                     <span className="text-slate-500 text-[8px] tracking-wider">Total O/U</span>
                                     <span className="flex items-center gap-1">
                                         {prediction.result.total_correct ? '✅ HIT' : '❌ MISS'}
@@ -920,11 +917,10 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                                 </div>
 
                                 {/* NRFI Validation */}
-                                <div className={`py-1.5 px-2.5 border rounded-lg flex items-center justify-between gap-1 shadow-sm ${
-                                    prediction.result.nrfi_correct 
-                                      ? 'bg-emerald-950/20 text-emerald-400 border-emerald-500/30' 
-                                      : 'bg-red-950/20 text-red-400 border-red-500/20'
-                                }`}>
+                                <div className={`py-1.5 px-2.5 border rounded-lg flex items-center justify-between gap-1 shadow-sm ${prediction.result.nrfi_correct
+                                        ? 'bg-emerald-950/20 text-emerald-400 border-emerald-500/30'
+                                        : 'bg-red-950/20 text-red-400 border-red-500/20'
+                                    }`}>
                                     <span className="text-slate-500 text-[8px] tracking-wider">NRFI</span>
                                     <span className="flex items-center gap-1">
                                         {prediction.result.nrfi_correct ? '✅ HIT' : '❌ MISS'}
@@ -1007,530 +1003,530 @@ const MatchupCard = ({ prediction, onNavigateToNrfi }) => {
                     <div className="p-4 md:p-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
 
-                    {/* NRFI/YRFI CARD (DECLUTTERED) */}
-                    <div className="bg-slate-800/60 rounded-xl overflow-hidden border border-slate-700/80 flex flex-col justify-between h-full shadow-lg">
-                        {/* Header: Probability */}
-                        <div className="p-4 md:p-5 flex justify-between items-center bg-slate-800/90 border-b border-slate-700">
-                            <div className="flex items-center gap-3">
-                                <CircularProgress percentage={Math.round(NRFI.confidence * 100)} size={44} strokeWidth={3} />
-                                <div>
-                                    <h3 className={`text-xl md:text-2xl font-black tracking-tighter leading-none ${NRFI.pick === 'NRFI' ? 'text-mlb-green' : 'text-red-400'}`}>
-                                        {NRFI.pick}
-                                    </h3>
-                                    <p className="text-[8px] md:text-[9px] font-black uppercase text-slate-400 tracking-widest mt-1">
-                                        AI Score Confidence
+                            {/* NRFI/YRFI CARD (DECLUTTERED) */}
+                            <div className="bg-slate-800/60 rounded-xl overflow-hidden border border-slate-700/80 flex flex-col justify-between h-full shadow-lg">
+                                {/* Header: Probability */}
+                                <div className="p-4 md:p-5 flex justify-between items-center bg-slate-800/90 border-b border-slate-700">
+                                    <div className="flex items-center gap-3">
+                                        <CircularProgress percentage={Math.round(NRFI.confidence * 100)} size={44} strokeWidth={3} />
+                                        <div>
+                                            <h3 className={`text-xl md:text-2xl font-black tracking-tighter leading-none ${NRFI.pick === 'NRFI' ? 'text-mlb-green' : 'text-red-400'}`}>
+                                                {NRFI.pick}
+                                            </h3>
+                                            <p className="text-[8px] md:text-[9px] font-black uppercase text-slate-400 tracking-widest mt-1">
+                                                AI Score Confidence
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="text-right flex flex-col items-end">
+                                        <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block mb-1">Outcome</span>
+                                        <div className={`text-sm font-black italic border px-3 py-1 rounded-md shadow-inner ${NRFI.pick === 'NRFI' ? 'text-mlb-green border-mlb-green/30 bg-green-900/20' : 'text-red-400 border-red-500/30 bg-red-900/20'}`}>
+                                            {NRFI.pick}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Navigation / Action area */}
+                                <div className="p-5 flex-grow flex flex-col items-center justify-center text-center gap-4 bg-slate-900/20">
+                                    <p className="text-xs text-gray-400 leading-relaxed max-w-[240px]">
+                                        Detailed pitcher streaks, locations, and team records are available on our dedicated NRFI model tab.
                                     </p>
-                                </div>
-                            </div>
-                            <div className="text-right flex flex-col items-end">
-                                <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block mb-1">Outcome</span>
-                                <div className={`text-sm font-black italic border px-3 py-1 rounded-md shadow-inner ${NRFI.pick === 'NRFI' ? 'text-mlb-green border-mlb-green/30 bg-green-900/20' : 'text-red-400 border-red-500/30 bg-red-900/20'}`}>
-                                    {NRFI.pick}
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Navigation / Action area */}
-                        <div className="p-5 flex-grow flex flex-col items-center justify-center text-center gap-4 bg-slate-900/20">
-                            <p className="text-xs text-gray-400 leading-relaxed max-w-[240px]">
-                                Detailed pitcher streaks, locations, and team records are available on our dedicated NRFI model tab.
-                            </p>
-                            <button
-                                onClick={onNavigateToNrfi}
-                                className="w-full max-w-[220px] text-[10px] md:text-[11px] bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white py-2.5 px-4 rounded-lg transition-all duration-205 font-black uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 border border-indigo-500/30"
-                            >
-                                View NRFI Model Details <span className="text-xs">→</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    {/* GAME PROJECTIONS CARD (7 REQUIRED POINTS) */}
-                    <div className="bg-slate-800/60 rounded-xl p-5 border border-slate-700/80 flex flex-col justify-between h-full shadow-lg">
-                        <div>
-                            <h3 className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-4 border-b border-slate-700 pb-2">Game Projections</h3>
-
-                            <div className="grid grid-cols-2 gap-2.5 mb-2">
-                                {/* 1. Proj Score */}
-                                <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center">
-                                    <span className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">Proj Score</span>
-                                    <span className="text-[11px] md:text-sm font-black text-white whitespace-nowrap">
-                                        {Full_Game.full_away_score} - {Full_Game.full_home_score}
-                                    </span>
-                                </div>
-
-                                {/* 2. Model Total */}
-                                <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center">
-                                    <span className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">Model Total</span>
-                                    <span className="text-[11px] md:text-sm font-black text-white whitespace-nowrap">
-                                        {Full_Game.full_total} runs
-                                    </span>
-                                </div>
-
-                                {/* 3. Book Total */}
-                                <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center">
-                                    <span className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">Book Total</span>
-                                    <span className="text-[11px] md:text-sm font-black text-white whitespace-nowrap">
-                                        {isOddsAvailable ? `${normalizedOdds.over_under} runs` : 'N/A'}
-                                    </span>
-                                </div>
-
-                                {/* 4. Total Diff */}
-                                <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center">
-                                    <span className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">Total Diff</span>
-                                    {isOddsAvailable ? (
-                                        <span className={`text-[11px] md:text-sm font-black whitespace-nowrap ${Full_Game.full_total > normalizedOdds.over_under ? 'text-mlb-green' : 'text-blue-400'}`}>
-                                            {Math.abs(Full_Game.full_total - normalizedOdds.over_under).toFixed(1)} {Full_Game.full_total > normalizedOdds.over_under ? 'O' : 'U'}
-                                        </span>
-                                    ) : (
-                                        <span className="text-[11px] md:text-sm font-black text-gray-400">N/A</span>
-                                    )}
-                                </div>
-
-                                {/* 5. Spread Play */}
-                                <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center col-span-2">
-                                    <span className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">Spread Play</span>
-                                    <span className="text-xs md:text-sm font-black text-indigo-400">
-                                        {spreadPlay}
-                                    </span>
-                                </div>
-
-                                {/* 6. F5 Score */}
-                                <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center">
-                                    <span className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">F5 Score</span>
-                                    <span className="text-[11px] md:text-sm font-black text-white whitespace-nowrap">
-                                        {F5.f5_away_score} - {F5.f5_home_score}
-                                    </span>
-                                </div>
-
-                                {/* 7. F5 Total */}
-                                <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center">
-                                    <span className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">F5 Total</span>
-                                    <span className="text-[11px] md:text-sm font-black text-white whitespace-nowrap">
-                                        {f5Total} runs
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* BALLPARK CONTEXT */}
-                    <div className="bg-slate-800/60 rounded-xl p-5 border border-slate-700/80 md:col-span-2 flex flex-col lg:flex-row items-center justify-between overflow-hidden relative shadow-lg gap-6">
-                        <div className="relative z-10 w-full lg:w-3/5 text-center lg:text-left">
-                            <h3 className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-3 flex items-center justify-center lg:justify-start gap-1">
-                                🏟️ Ballpark & Weather Impact Engine
-                            </h3>
-                            {Weather ? (
-                                Weather.forecast_pending ? (
-                                    <div className="py-5 px-4 bg-slate-900/50 rounded-xl border border-indigo-500/10 text-center lg:text-left shadow-inner flex flex-col justify-center h-full select-none">
-                                        <span className="text-3xl block mb-2 animate-bounce">🌤️</span>
-                                        <h4 className="text-xs md:text-sm font-black text-indigo-400 uppercase tracking-wider mb-1">Weather Forecast Pending</h4>
-                                        <p className="text-gray-400 text-[10px] sm:text-xs leading-relaxed max-w-md font-medium">
-                                            Wind vector trajectories and ballpark carry physics are not processed yet. Live stadium weather metrics will load dynamically once this game day arrives.
-                                        </p>
-                                    </div>
-                                ) : (
-                                    <div className="space-y-4">
-                                        <div className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4">
-                                            <div className="text-2xl md:text-3xl font-black text-white flex items-center gap-3">
-                                                {getWeatherIcon(Weather.condition)} {Weather.temp_f}°F
-                                            </div>
-                                            <div className="text-xs font-semibold text-gray-300 bg-slate-900/60 px-3 py-1.5 rounded-md inline-block border border-slate-800">
-                                                <span className="text-slate-500 mr-1.5">WIND:</span> {Weather.wind_mph} mph ({Weather.wind_direction})
-                                            </div>
-                                        </div>
-                                        
-                                        {/* Weather Impact Telemetry Grid */}
-                                        {Details?.weather_impact && (
-                                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-4 select-none">
-                                                {/* Carry Distance */}
-                                                <div className="bg-slate-950/60 p-2.5 rounded-xl border border-slate-850 flex flex-col justify-center text-center lg:text-left">
-                                                    <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">Ball Carry</span>
-                                                    <span className={`text-[13px] font-black ${Details.weather_impact.ball_carry_ft > 0 ? 'text-cyan-400 animate-pulse' : (Details.weather_impact.ball_carry_ft < 0 ? 'text-red-400' : 'text-gray-400')}`}>
-                                                        {Details.weather_impact.ball_carry_ft > 0 ? '+' : ''}{Details.weather_impact.ball_carry_ft} ft
-                                                    </span>
-                                                </div>
-                                                {/* Runs expected */}
-                                                <div className="bg-slate-950/60 p-2.5 rounded-xl border border-slate-850 flex flex-col justify-center text-center lg:text-left">
-                                                    <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">Runs Proj</span>
-                                                    <span className={`text-[13px] font-black ${Details.weather_impact.runs_impact_pct > 0 ? 'text-emerald-400' : (Details.weather_impact.runs_impact_pct < 0 ? 'text-red-400' : 'text-gray-400')}`}>
-                                                        {Details.weather_impact.runs_impact_pct > 0 ? '+' : ''}{Details.weather_impact.runs_impact_pct}%
-                                                    </span>
-                                                </div>
-                                                {/* HR power */}
-                                                <div className="bg-slate-950/60 p-2.5 rounded-xl border border-slate-850 flex flex-col justify-center text-center lg:text-left">
-                                                    <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">HR Chance</span>
-                                                    <span className={`text-[13px] font-black ${Details.weather_impact.hr_impact_pct > 0 ? 'text-emerald-400 animate-pulse' : (Details.weather_impact.hr_impact_pct < 0 ? 'text-red-400' : 'text-gray-400')}`}>
-                                                        {Details.weather_impact.hr_impact_pct > 0 ? '+' : ''}{Details.weather_impact.hr_impact_pct}%
-                                                    </span>
-                                                </div>
-                                                {/* K's */}
-                                                <div className="bg-slate-950/60 p-2.5 rounded-xl border border-slate-850 flex flex-col justify-center text-center lg:text-left">
-                                                    <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">K's Proj</span>
-                                                    <span className={`text-[13px] font-black ${Details.weather_impact.k_impact_pct > 0 ? 'text-emerald-400' : (Details.weather_impact.k_impact_pct < 0 ? 'text-red-400' : 'text-gray-400')}`}>
-                                                        {Details.weather_impact.k_impact_pct > 0 ? '+' : ''}{Details.weather_impact.k_impact_pct}%
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        )}
-    
-                                        {Weather.cbs_alert_word && Weather.cbs_alert_word !== "Clear" && (
-                                            <div className={`mt-2 inline-block px-3 py-1 rounded-md text-[10px] font-black uppercase tracking-widest border ${Weather.red_flag_alert ? 'bg-red-900/30 text-red-400 border-red-500/50' : (Weather.cbs_alert_word.includes('Ideal') ? 'bg-green-900/30 text-green-400 border-green-500/50' : 'bg-amber-900/30 text-amber-400 border-amber-500/50')}`}>
-                                                {Weather.red_flag_alert ? '🚩 ' : (Weather.cbs_alert_word.includes('Ideal') ? '✅ ' : '⚠️ ')}
-                                                {Weather.cbs_alert_word}
-                                            </div>
-                                        )}
-                                    </div>
-                                )
-                            ) : (
-                                <span className="text-sm text-gray-500">Weather data unavailable</span>
-                            )}
-                        </div>
-                        
-                        {Weather && !Weather.forecast_pending && (
-                            <div className="relative flex flex-col items-center justify-center bg-slate-900/70 border border-slate-700/60 p-4 rounded-xl mt-4 md:mt-0 w-full md:w-auto min-w-[150px] shadow-inner select-none">
-                                <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest mb-1.5 self-start">Ballpark Compass</span>
-                                <svg viewBox="0 0 120 120" className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 drop-shadow-lg">
-                                    {/* Outfield Grass */}
-                                    <path d="M 60 110 L 25 61.3 A 60 60 0 0 1 95 61.3 Z" fill="#14532d" stroke="#16a34a" strokeWidth="1.5" />
-                                    
-                                    {/* Infield Dirt Diamond */}
-                                    <polygon points="60,110 82,88 60,66 38,88" fill="#b45309" opacity="0.6" />
-                                    
-                                    {/* Infield Grass Diamond */}
-                                    <polygon points="60,103 77,88 60,73 43,88" fill="#166534" />
-                                    
-                                    {/* Base Paths Lines */}
-                                    <line x1="60" y1="110" x2="82" y2="88" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="2,2" />
-                                    <line x1="82" y1="88" x2="60" y2="66" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="2,2" />
-                                    <line x1="60" y1="66" x2="38" y2="88" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="2,2" />
-                                    <line x1="38" y1="88" x2="60" y2="110" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="2,2" />
-
-                                    {/* Pitcher's Mound */}
-                                    <circle cx="60" cy="88" r="3.5" fill="#d97706" />
-                                    <circle cx="60" cy="88" r="2" fill="#78350f" />
-
-                                    {/* Home Plate */}
-                                    <polygon points="60,107 63,110 60,113 57,110" fill="#ffffff" />
-                                    {/* First Base */}
-                                    <rect x="80.5" y="86.5" width="3" height="3" fill="#ffffff" transform="rotate(45 82 88)" />
-                                    {/* Second Base */}
-                                    <rect x="58.5" y="64.5" width="3" height="3" fill="#ffffff" transform="rotate(45 60 66)" />
-                                    {/* Third Base */}
-                                    <rect x="36.5" y="86.5" width="3" height="3" fill="#ffffff" transform="rotate(45 38 88)" />
-
-                                    {/* Conditional Calm/Dome vs Rotating wind arrow */}
-                                    {getWindMetrics(Weather.wind_direction).isCalm ? (
-                                        <>
-                                            {/* Calm Stadium Glowing Indicator */}
-                                            <circle cx="60" cy="75" r="12" fill="none" stroke="#10b981" strokeWidth="1.2" strokeDasharray="2,2" opacity="0.4" />
-                                            <circle cx="60" cy="75" r="4.5" fill="#10b981" filter="url(#emeraldGlow)" />
-                                        </>
-                                    ) : (
-                                        <g transform={`rotate(${getWindMetrics(Weather.wind_direction).angle} 60 75)`} style={{ transition: 'transform 0.5s ease-out' }}>
-                                            {/* Compass Ring */}
-                                            <circle cx="60" cy="75" r="18" fill="none" stroke="#22d3ee" strokeWidth="1" strokeDasharray="2,2" opacity="0.3" />
-                                            
-                                            {/* Wind Direction Arrow pointing straight UP (which is South wind, blowing OUT to center) */}
-                                            <path d="M 60 55 L 53 78 L 60 72 L 67 78 Z" fill="url(#windGrad)" filter="url(#glow)" />
-                                        </g>
-                                    )}
-                                    
-                                    <defs>
-                                        <linearGradient id="windGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                            <stop offset="0%" stopColor="#22d3ee" />
-                                            <stop offset="100%" stopColor="#0ea5e9" />
-                                        </linearGradient>
-                                        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                                            <feGaussianBlur stdDeviation="1.5" result="blur" />
-                                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                                        </filter>
-                                        <filter id="emeraldGlow" x="-30%" y="-30%" width="160%" height="160%">
-                                            <feGaussianBlur stdDeviation="2" result="blur" />
-                                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                                        </filter>
-                                    </defs>
-                                </svg>
-                                
-                                <span className={`text-[10px] font-black uppercase tracking-wider mt-2.5 text-center px-2 w-full break-words leading-tight ${getWindMetrics(Weather.wind_direction).isCalm ? 'text-emerald-400' : 'text-cyan-400'}`}>
-                                    {getWindMetrics(Weather.wind_direction).desc}
-                                </span>
-                                <span className="text-[8px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">
-                                    {Weather.wind_mph} MPH WIND
-                                </span>
-                            </div>
-                        )}
-                    </div>
-
-                    {/* LEGENDS AI PREDICTIONS (RENAMED & STYLED) */}
-                    {aiInsight && (
-                        <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 rounded-xl p-5 border border-indigo-500/25 md:col-span-2 shadow-[0_0_20px_rgba(99,102,241,0.08)] relative overflow-hidden flex flex-col justify-center">
-                            <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-indigo-500 to-purple-600"></div>
-                            <div className="flex items-center gap-2 mb-3">
-                                <span className="text-indigo-400 text-lg leading-none">👑</span>
-                                <h3 className="text-[10px] md:text-xs text-indigo-400 font-black uppercase tracking-widest pt-0.5">Legends AI Predictions</h3>
-                            </div>
-                            <div className="text-xs md:text-sm text-gray-300 leading-relaxed font-semibold whitespace-pre-wrap">
-                                {formatAiInsight(aiInsight)}
-                            </div>
-                        </div>
-                    )}
-
-                    {/* LIVE GAME LINES & SPORTSBOOK COMPARISON */}
-                    <div className="bg-slate-800/40 border border-slate-700/80 rounded-xl p-5 md:col-span-2 shadow-lg flex flex-col justify-between">
-                        <div className="flex justify-between items-center mb-4 border-b border-slate-700 pb-2">
-                            <div className="flex items-center gap-2">
-                                <span className="text-emerald-400 text-lg leading-none">💰</span>
-                                <h3 className="text-[10px] md:text-xs text-gray-300 font-bold uppercase tracking-widest pt-0.5">
-                                    {isStarted ? 'Pregame Closing Odds' : 'Live Game Lines & Odds'}
-                                </h3>
-                            </div>
-                            <span className={`border text-[9px] font-black px-2 py-0.5 rounded uppercase tracking-wider ${isStarted ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20' : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'}`}>
-                                {isStarted ? 'Pregame Closing' : 'Live Prices'}
-                            </span>
-                        </div>
-                        <div className="overflow-x-auto rounded-xl border border-slate-800/50 bg-slate-900/40">
-                            <table className="w-full min-w-[550px] sm:min-w-full text-left border-collapse">
-                                <thead>
-                                    <tr className="bg-slate-950/70 border-b border-slate-800 text-[10px] xs:text-[11px] md:text-xs text-gray-400 font-black uppercase tracking-wider">
-                                        <th className="py-2 px-2 xs:px-3 md:px-4">Teams</th>
-                                        <th className="py-2 px-2 xs:px-3 md:px-4">Spread</th>
-                                        <th className="py-2 px-2 xs:px-3 md:px-4">
-                                            <div className="flex flex-col">
-                                                <span>Total</span>
-                                                <span className="text-[8px] text-gray-500 lowercase font-normal">(over / under)</span>
-                                            </div>
-                                        </th>
-                                        <th className="py-2 px-2 xs:px-3 md:px-4">Moneyline</th>
-                                        <th className="py-2 px-2 xs:px-3 md:px-4">Bookmaker</th>
-                                    </tr>
-                                </thead>
-                                <tbody className="divide-y divide-slate-850">
-                                    {bookmakersList.map((bookie, idx) => (
-                                        <tr key={idx} className="hover:bg-slate-800/10 text-[10px] xs:text-xs md:text-sm text-gray-300 font-bold transition-colors">
-                                            {/* Teams (Away top, Home bottom) */}
-                                            <td className="py-2 px-2 xs:px-3 md:px-4 whitespace-nowrap">
-                                                <div className="flex flex-col gap-1.5">
-                                                    <div className="flex items-center gap-1.5">
-                                                        <img src={getTeamLogo(matchup.away_team)} alt={matchup.away_team} className="w-4 h-4 object-contain" loading="lazy" width="16" height="16" />
-                                                        <span className="text-gray-200 font-extrabold text-[10px] xs:text-[11px] md:text-xs">{getTeamAbbr(matchup.away_team)}</span>
-                                                    </div>
-                                                    <div className="flex items-center gap-1.5">
-                                                        <img src={getTeamLogo(matchup.home_team)} alt={matchup.home_team} className="w-4 h-4 object-contain" loading="lazy" width="16" height="16" />
-                                                        <span className="text-gray-200 font-extrabold text-[10px] xs:text-[11px] md:text-xs">{getTeamAbbr(matchup.home_team)}</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            
-                                            {/* Spread */}
-                                            <td className="py-2 px-2 xs:px-3 md:px-4 whitespace-nowrap font-bold text-gray-300">
-                                                <div className="flex flex-col gap-1.5">
-                                                    <span className={bookie.away_spread === -1.5 ? 'text-indigo-400' : 'text-gray-400'}>
-                                                        {bookie.away_spread !== null && bookie.away_spread !== undefined 
-                                                            ? `${bookie.away_spread > 0 ? '+' : ''}${bookie.away_spread} (${formatAmericanOdds(bookie.away_spread_price)})` 
-                                                            : '-'}
-                                                    </span>
-                                                    <span className={bookie.home_spread === -1.5 ? 'text-indigo-400' : 'text-gray-400'}>
-                                                        {bookie.home_spread !== null && bookie.home_spread !== undefined 
-                                                            ? `${bookie.home_spread > 0 ? '+' : ''}${bookie.home_spread} (${formatAmericanOdds(bookie.home_spread_price)})` 
-                                                            : '-'}
-                                                    </span>
-                                                </div>
-                                            </td>
-
-                                            {/* Total */}
-                                            <td className="py-2 px-2 xs:px-3 md:px-4 whitespace-nowrap font-bold text-gray-300">
-                                                <div className="flex flex-col gap-1.5">
-                                                    <span>
-                                                        <span className="text-green-400 mr-1 font-black">O</span>
-                                                        {bookie.total_line !== null && bookie.total_line !== undefined 
-                                                            ? `${bookie.total_line} (${formatAmericanOdds(bookie.over_price)})` 
-                                                            : '-'}
-                                                    </span>
-                                                    <span>
-                                                        <span className="text-red-400 mr-1 font-black">U</span>
-                                                        {bookie.total_line !== null && bookie.total_line !== undefined 
-                                                            ? `${bookie.total_line} (${formatAmericanOdds(bookie.under_price)})` 
-                                                            : '-'}
-                                                    </span>
-                                                </div>
-                                            </td>
-
-                                            {/* Moneyline */}
-                                            <td className="py-2 px-2 xs:px-3 md:px-4 whitespace-nowrap font-bold text-gray-300">
-                                                <div className="flex flex-col gap-1.5">
-                                                    <span className="text-blue-400">
-                                                        {bookie.away_ml !== null && bookie.away_ml !== undefined ? formatAmericanOdds(bookie.away_ml) : '-'}
-                                                    </span>
-                                                    <span className="text-blue-400">
-                                                        {bookie.home_ml !== null && bookie.home_ml !== undefined ? formatAmericanOdds(bookie.home_ml) : '-'}
-                                                    </span>
-                                                </div>
-                                            </td>
-
-                                            {/* Bookmaker */}
-                                            <td className="py-2 px-2 xs:px-3 md:px-4 whitespace-nowrap">
-                                                <div className="flex items-center gap-2">
-                                                    <SportsbookLogo bookmaker={bookie.bookmaker} size="sm" />
-                                                    <span className="text-gray-300 font-extrabold text-[10px] xs:text-[11px] md:text-xs inline-block">{bookie.bookmaker}</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    {/* EXPANDABLE COVERS-STYLE LAST 10 & HEAD TO HEAD */}
-                    <div className="bg-slate-800/40 border border-slate-700/80 rounded-xl overflow-hidden shadow-lg md:col-span-2">
-                        {/* Accordion Trigger */}
-                        <div
-                            onClick={() => setIsHistoryExpanded(!isHistoryExpanded)}
-                            onKeyDown={(e) => {
-                                if (e.key === 'Enter' || e.key === ' ') {
-                                    e.preventDefault();
-                                    setIsHistoryExpanded(!isHistoryExpanded);
-                                }
-                            }}
-                            role="button"
-                            tabIndex={0}
-                            className="w-full px-3 md:px-5 py-3 md:py-4 flex justify-between items-center bg-slate-800 hover:bg-slate-700/90 transition-colors border-b border-slate-700 cursor-pointer select-none outline-none focus:ring-1 focus:ring-blue-500"
-                        >
-                            <div className="flex items-center gap-2 md:gap-2.5">
-                                <span className="w-5 h-5 md:w-6 h-6 rounded-full bg-blue-600 text-white font-black text-[9px] md:text-[11px] flex items-center justify-center shadow-md">
-                                    vs
-                                </span>
-                                <span className="text-[11px] md:text-sm font-black text-gray-200 uppercase tracking-wider pt-0.5">Last 10 Games</span>
-                            </div>
-
-                            <div className="flex items-center gap-3">
-                                <div className="flex items-center gap-1.5 md:gap-2" onClick={(e) => e.stopPropagation()}>
-                                    <button
-                                        onClick={() => {
-                                            setActiveHistoryTab('away');
-                                            setIsHistoryExpanded(true);
-                                        }}
-                                        className={`rounded-full border px-2 xs:px-3 md:px-4 py-0.5 xs:py-1 md:py-1.5 text-[9px] xs:text-[10px] md:text-xs font-bold transition-all ${isHistoryExpanded && activeHistoryTab === 'away'
-                                            ? 'bg-blue-500/10 border-blue-500 text-blue-400 font-black shadow-[0_0_10px_rgba(59,130,246,0.15)]'
-                                            : 'bg-slate-900/50 border-slate-700 text-gray-400 hover:text-gray-200 hover:bg-slate-800/80'
-                                            }`}
-                                    >
-                                        {getTeamAbbr(matchup.away_team)}
-                                    </button>
-                                    <button
-                                        onClick={() => {
-                                            setActiveHistoryTab('home');
-                                            setIsHistoryExpanded(true);
-                                        }}
-                                        className={`rounded-full border px-2 xs:px-3 md:px-4 py-0.5 xs:py-1 md:py-1.5 text-[9px] xs:text-[10px] md:text-xs font-bold transition-all ${isHistoryExpanded && activeHistoryTab === 'home'
-                                            ? 'bg-blue-500/10 border-blue-500 text-blue-400 font-black shadow-[0_0_10px_rgba(59,130,246,0.15)]'
-                                            : 'bg-slate-900/50 border-slate-700 text-gray-400 hover:text-gray-200 hover:bg-slate-800/80'
-                                            }`}
-                                    >
-                                        {getTeamAbbr(matchup.home_team)}
-                                    </button>
-                                    <button
-                                        onClick={() => {
-                                            setActiveHistoryTab('h2h');
-                                            setIsHistoryExpanded(true);
-                                        }}
-                                        className={`rounded-full border px-2 xs:px-3 md:px-4 py-0.5 xs:py-1 md:py-1.5 text-[9px] xs:text-[10px] md:text-xs font-bold transition-all ${isHistoryExpanded && activeHistoryTab === 'h2h'
-                                            ? 'bg-blue-500/10 border-blue-500 text-blue-400 font-black shadow-[0_0_10px_rgba(59,130,246,0.15)]'
-                                            : 'bg-slate-900/50 border-slate-700 text-gray-400 hover:text-gray-200 hover:bg-slate-800/80'
-                                            }`}
-                                    >
-                                        H2H
-                                    </button>
-                                </div>
-                                <span className="text-gray-400 font-bold text-xs md:text-sm ml-2">
-                                    {isHistoryExpanded ? '▲' : '▼'}
-                                </span>
-                            </div>
-                        </div>
-
-                        {/* Accordion Content */}
-                        {isHistoryExpanded && (
-                            <div className="p-3 sm:p-4 md:p-6 bg-slate-900/60">
-                                {activeHistoryTab === 'h2h' && (
-                                    <div className="space-y-6">
-                                        {/* H2H Aggregated Stats Bar */}
-                                        <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-4 bg-slate-950/60 border border-slate-800/80 p-2 sm:p-4 rounded-xl shadow-inner">
-                                            <div className="flex items-center gap-1.5 xs:gap-2.5 sm:gap-6">
-                                                <div className="flex flex-col">
-                                                    <span className="text-[8px] sm:text-[9px] text-slate-400 font-bold uppercase tracking-widest mb-1">Win/Loss Record</span>
-                                                    <div className="flex items-baseline gap-1 sm:gap-2">
-                                                        <span className="text-xs xs:text-sm sm:text-xl font-black text-white whitespace-nowrap">{h2hData.summary.winsAway}-{h2hData.summary.winsHome}</span>
-                                                        <span className="text-[10px] text-gray-400 font-semibold hidden md:inline">({matchup.away_team} vs {matchup.home_team})</span>
-                                                    </div>
-                                                </div>
-                                                <div className="h-6 sm:h-8 w-px bg-slate-800"></div>
-                                                <div className="flex flex-col">
-                                                    <span className="text-[8px] sm:text-[9px] text-slate-400 font-bold uppercase tracking-widest mb-1">Over / Under</span>
-                                                    <div className="flex items-baseline gap-0.5 xs:gap-1 sm:gap-1.5">
-                                                        <span className="text-[10px] xs:text-xs sm:text-lg font-black text-green-400 whitespace-nowrap">{h2hData.summary.over} Over</span>
-                                                        <span className="text-[8px] xs:text-[9px] sm:text-xs text-gray-600 font-bold">/</span>
-                                                        <span className="text-[10px] xs:text-xs sm:text-lg font-black text-blue-400 whitespace-nowrap">{h2hData.summary.under} Under</span>
-                                                        {h2hData.summary.push > 0 && (
-                                                            <>
-                                                                <span className="text-[8px] xs:text-[9px] sm:text-xs text-gray-600 font-bold">/</span>
-                                                                <span className="text-[9px] xs:text-[10px] sm:text-sm font-black text-gray-400 whitespace-nowrap">{h2hData.summary.push} Push</span>
-                                                            </>
-                                                        )}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="text-[8px] sm:text-[9px] text-gray-500 font-semibold tracking-wider italic w-full md:w-auto">
-                                                *Seeded H2H scoreboard matching team strengths and active metrics
-                                            </div>
-                                        </div>
-
-                                        {renderHistoryTable(h2hData.games)}
-                                    </div>
-                                )}
-
-                                {activeHistoryTab === 'away' && (
-                                    <div className="space-y-4">
-                                        <div className="flex flex-wrap items-center justify-between px-1 gap-2">
-                                            <h4 className="flex-1 min-w-[150px] text-xs md:text-sm font-black text-gray-400 uppercase tracking-wider">
-                                                {matchup.away_team} Last 10 Scoreboard
-                                            </h4>
-                                            <span className="shrink-0 px-2 py-0.5 rounded bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-black tracking-wider uppercase">
-                                                L10: {matchup.away_stats?.l10 || '5-5'}
-                                            </span>
-                                        </div>
-                                        {renderHistoryTable(awayLast10)}
-                                    </div>
-                                )}
-
-                                {activeHistoryTab === 'home' && (
-                                    <div className="space-y-4">
-                                        <div className="flex flex-wrap items-center justify-between px-1 gap-2">
-                                            <h4 className="flex-1 min-w-[150px] text-xs md:text-sm font-black text-gray-400 uppercase tracking-wider">
-                                                {matchup.home_team} Last 10 Scoreboard
-                                            </h4>
-                                            <span className="shrink-0 px-2 py-0.5 rounded bg-red-500/10 border border-red-500/20 text-red-400 text-[10px] font-black tracking-wider uppercase">
-                                                L10: {matchup.home_stats?.l10 || '5-5'}
-                                            </span>
-                                        </div>
-                                        {renderHistoryTable(homeLast10)}
-                                    </div>
-                                )}
-
-                                {/* Centered game trends scroll trigger */}
-                                <div className="mt-6 flex justify-center w-full">
                                     <button
                                         onClick={onNavigateToNrfi}
-                                        className="text-blue-400 hover:text-blue-300 font-black text-xs md:text-sm underline transition-colors cursor-pointer"
+                                        className="w-full max-w-[220px] text-[10px] md:text-[11px] bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white py-2.5 px-4 rounded-lg transition-all duration-205 font-black uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 border border-indigo-500/30"
                                     >
-                                        View and Filter More MLB Game Trends
+                                        View NRFI Model Details <span className="text-xs">→</span>
                                     </button>
                                 </div>
                             </div>
-                        )}
-                    </div>
 
-                </div>
-            </div>
+                            {/* GAME PROJECTIONS CARD (7 REQUIRED POINTS) */}
+                            <div className="bg-slate-800/60 rounded-xl p-5 border border-slate-700/80 flex flex-col justify-between h-full shadow-lg">
+                                <div>
+                                    <h3 className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-4 border-b border-slate-700 pb-2">Game Projections</h3>
+
+                                    <div className="grid grid-cols-2 gap-2.5 mb-2">
+                                        {/* 1. Proj Score */}
+                                        <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center">
+                                            <span className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">Proj Score</span>
+                                            <span className="text-[11px] md:text-sm font-black text-white whitespace-nowrap">
+                                                {Full_Game.full_away_score} - {Full_Game.full_home_score}
+                                            </span>
+                                        </div>
+
+                                        {/* 2. Model Total */}
+                                        <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center">
+                                            <span className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">Model Total</span>
+                                            <span className="text-[11px] md:text-sm font-black text-white whitespace-nowrap">
+                                                {Full_Game.full_total} runs
+                                            </span>
+                                        </div>
+
+                                        {/* 3. Book Total */}
+                                        <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center">
+                                            <span className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">Book Total</span>
+                                            <span className="text-[11px] md:text-sm font-black text-white whitespace-nowrap">
+                                                {isOddsAvailable ? `${normalizedOdds.over_under} runs` : 'N/A'}
+                                            </span>
+                                        </div>
+
+                                        {/* 4. Total Diff */}
+                                        <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center">
+                                            <span className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">Total Diff</span>
+                                            {isOddsAvailable ? (
+                                                <span className={`text-[11px] md:text-sm font-black whitespace-nowrap ${Full_Game.full_total > normalizedOdds.over_under ? 'text-mlb-green' : 'text-blue-400'}`}>
+                                                    {Math.abs(Full_Game.full_total - normalizedOdds.over_under).toFixed(1)} {Full_Game.full_total > normalizedOdds.over_under ? 'O' : 'U'}
+                                                </span>
+                                            ) : (
+                                                <span className="text-[11px] md:text-sm font-black text-gray-400">N/A</span>
+                                            )}
+                                        </div>
+
+                                        {/* 5. Spread Play */}
+                                        <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center col-span-2">
+                                            <span className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">Spread Play</span>
+                                            <span className="text-xs md:text-sm font-black text-indigo-400">
+                                                {spreadPlay}
+                                            </span>
+                                        </div>
+
+                                        {/* 6. F5 Score */}
+                                        <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center">
+                                            <span className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">F5 Score</span>
+                                            <span className="text-[11px] md:text-sm font-black text-white whitespace-nowrap">
+                                                {F5.f5_away_score} - {F5.f5_home_score}
+                                            </span>
+                                        </div>
+
+                                        {/* 7. F5 Total */}
+                                        <div className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-center">
+                                            <span className="text-[8px] md:text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">F5 Total</span>
+                                            <span className="text-[11px] md:text-sm font-black text-white whitespace-nowrap">
+                                                {f5Total} runs
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* BALLPARK CONTEXT */}
+                            <div className="bg-slate-800/60 rounded-xl p-5 border border-slate-700/80 md:col-span-2 flex flex-col lg:flex-row items-center justify-between overflow-hidden relative shadow-lg gap-6">
+                                <div className="relative z-10 w-full lg:w-3/5 text-center lg:text-left">
+                                    <h3 className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-3 flex items-center justify-center lg:justify-start gap-1">
+                                        🏟️ Ballpark & Weather Impact Engine
+                                    </h3>
+                                    {Weather ? (
+                                        Weather.forecast_pending ? (
+                                            <div className="py-5 px-4 bg-slate-900/50 rounded-xl border border-indigo-500/10 text-center lg:text-left shadow-inner flex flex-col justify-center h-full select-none">
+                                                <span className="text-3xl block mb-2 animate-bounce">🌤️</span>
+                                                <h4 className="text-xs md:text-sm font-black text-indigo-400 uppercase tracking-wider mb-1">Weather Forecast Pending</h4>
+                                                <p className="text-gray-400 text-[10px] sm:text-xs leading-relaxed max-w-md font-medium">
+                                                    Wind vector trajectories and ballpark carry physics are not processed yet. Live stadium weather metrics will load dynamically once this game day arrives.
+                                                </p>
+                                            </div>
+                                        ) : (
+                                            <div className="space-y-4">
+                                                <div className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4">
+                                                    <div className="text-2xl md:text-3xl font-black text-white flex items-center gap-3">
+                                                        {getWeatherIcon(Weather.condition)} {Weather.temp_f}°F
+                                                    </div>
+                                                    <div className="text-xs font-semibold text-gray-300 bg-slate-900/60 px-3 py-1.5 rounded-md inline-block border border-slate-800">
+                                                        <span className="text-slate-500 mr-1.5">WIND:</span> {Weather.wind_mph} mph ({Weather.wind_direction})
+                                                    </div>
+                                                </div>
+
+                                                {/* Weather Impact Telemetry Grid */}
+                                                {Details?.weather_impact && (
+                                                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-4 select-none">
+                                                        {/* Carry Distance */}
+                                                        <div className="bg-slate-950/60 p-2.5 rounded-xl border border-slate-850 flex flex-col justify-center text-center lg:text-left">
+                                                            <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">Ball Carry</span>
+                                                            <span className={`text-[13px] font-black ${Details.weather_impact.ball_carry_ft > 0 ? 'text-cyan-400 animate-pulse' : (Details.weather_impact.ball_carry_ft < 0 ? 'text-red-400' : 'text-gray-400')}`}>
+                                                                {Details.weather_impact.ball_carry_ft > 0 ? '+' : ''}{Details.weather_impact.ball_carry_ft} ft
+                                                            </span>
+                                                        </div>
+                                                        {/* Runs expected */}
+                                                        <div className="bg-slate-950/60 p-2.5 rounded-xl border border-slate-850 flex flex-col justify-center text-center lg:text-left">
+                                                            <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">Runs Proj</span>
+                                                            <span className={`text-[13px] font-black ${Details.weather_impact.runs_impact_pct > 0 ? 'text-emerald-400' : (Details.weather_impact.runs_impact_pct < 0 ? 'text-red-400' : 'text-gray-400')}`}>
+                                                                {Details.weather_impact.runs_impact_pct > 0 ? '+' : ''}{Details.weather_impact.runs_impact_pct}%
+                                                            </span>
+                                                        </div>
+                                                        {/* HR power */}
+                                                        <div className="bg-slate-950/60 p-2.5 rounded-xl border border-slate-850 flex flex-col justify-center text-center lg:text-left">
+                                                            <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">HR Chance</span>
+                                                            <span className={`text-[13px] font-black ${Details.weather_impact.hr_impact_pct > 0 ? 'text-emerald-400 animate-pulse' : (Details.weather_impact.hr_impact_pct < 0 ? 'text-red-400' : 'text-gray-400')}`}>
+                                                                {Details.weather_impact.hr_impact_pct > 0 ? '+' : ''}{Details.weather_impact.hr_impact_pct}%
+                                                            </span>
+                                                        </div>
+                                                        {/* K's */}
+                                                        <div className="bg-slate-950/60 p-2.5 rounded-xl border border-slate-850 flex flex-col justify-center text-center lg:text-left">
+                                                            <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">K's Proj</span>
+                                                            <span className={`text-[13px] font-black ${Details.weather_impact.k_impact_pct > 0 ? 'text-emerald-400' : (Details.weather_impact.k_impact_pct < 0 ? 'text-red-400' : 'text-gray-400')}`}>
+                                                                {Details.weather_impact.k_impact_pct > 0 ? '+' : ''}{Details.weather_impact.k_impact_pct}%
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                )}
+
+                                                {Weather.cbs_alert_word && Weather.cbs_alert_word !== "Clear" && (
+                                                    <div className={`mt-2 inline-block px-3 py-1 rounded-md text-[10px] font-black uppercase tracking-widest border ${Weather.red_flag_alert ? 'bg-red-900/30 text-red-400 border-red-500/50' : (Weather.cbs_alert_word.includes('Ideal') ? 'bg-green-900/30 text-green-400 border-green-500/50' : 'bg-amber-900/30 text-amber-400 border-amber-500/50')}`}>
+                                                        {Weather.red_flag_alert ? '🚩 ' : (Weather.cbs_alert_word.includes('Ideal') ? '✅ ' : '⚠️ ')}
+                                                        {Weather.cbs_alert_word}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        )
+                                    ) : (
+                                        <span className="text-sm text-gray-500">Weather data unavailable</span>
+                                    )}
+                                </div>
+
+                                {Weather && !Weather.forecast_pending && (
+                                    <div className="relative flex flex-col items-center justify-center bg-slate-900/70 border border-slate-700/60 p-4 rounded-xl mt-4 md:mt-0 w-full md:w-auto min-w-[150px] shadow-inner select-none">
+                                        <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest mb-1.5 self-start">Ballpark Compass</span>
+                                        <svg viewBox="0 0 120 120" className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 drop-shadow-lg">
+                                            {/* Outfield Grass */}
+                                            <path d="M 60 110 L 25 61.3 A 60 60 0 0 1 95 61.3 Z" fill="#14532d" stroke="#16a34a" strokeWidth="1.5" />
+
+                                            {/* Infield Dirt Diamond */}
+                                            <polygon points="60,110 82,88 60,66 38,88" fill="#b45309" opacity="0.6" />
+
+                                            {/* Infield Grass Diamond */}
+                                            <polygon points="60,103 77,88 60,73 43,88" fill="#166534" />
+
+                                            {/* Base Paths Lines */}
+                                            <line x1="60" y1="110" x2="82" y2="88" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="2,2" />
+                                            <line x1="82" y1="88" x2="60" y2="66" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="2,2" />
+                                            <line x1="60" y1="66" x2="38" y2="88" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="2,2" />
+                                            <line x1="38" y1="88" x2="60" y2="110" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="2,2" />
+
+                                            {/* Pitcher's Mound */}
+                                            <circle cx="60" cy="88" r="3.5" fill="#d97706" />
+                                            <circle cx="60" cy="88" r="2" fill="#78350f" />
+
+                                            {/* Home Plate */}
+                                            <polygon points="60,107 63,110 60,113 57,110" fill="#ffffff" />
+                                            {/* First Base */}
+                                            <rect x="80.5" y="86.5" width="3" height="3" fill="#ffffff" transform="rotate(45 82 88)" />
+                                            {/* Second Base */}
+                                            <rect x="58.5" y="64.5" width="3" height="3" fill="#ffffff" transform="rotate(45 60 66)" />
+                                            {/* Third Base */}
+                                            <rect x="36.5" y="86.5" width="3" height="3" fill="#ffffff" transform="rotate(45 38 88)" />
+
+                                            {/* Conditional Calm/Dome vs Rotating wind arrow */}
+                                            {getWindMetrics(Weather.wind_direction).isCalm ? (
+                                                <>
+                                                    {/* Calm Stadium Glowing Indicator */}
+                                                    <circle cx="60" cy="75" r="12" fill="none" stroke="#10b981" strokeWidth="1.2" strokeDasharray="2,2" opacity="0.4" />
+                                                    <circle cx="60" cy="75" r="4.5" fill="#10b981" filter="url(#emeraldGlow)" />
+                                                </>
+                                            ) : (
+                                                <g transform={`rotate(${getWindMetrics(Weather.wind_direction).angle} 60 75)`} style={{ transition: 'transform 0.5s ease-out' }}>
+                                                    {/* Compass Ring */}
+                                                    <circle cx="60" cy="75" r="18" fill="none" stroke="#22d3ee" strokeWidth="1" strokeDasharray="2,2" opacity="0.3" />
+
+                                                    {/* Wind Direction Arrow pointing straight UP (which is South wind, blowing OUT to center) */}
+                                                    <path d="M 60 55 L 53 78 L 60 72 L 67 78 Z" fill="url(#windGrad)" filter="url(#glow)" />
+                                                </g>
+                                            )}
+
+                                            <defs>
+                                                <linearGradient id="windGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                    <stop offset="0%" stopColor="#22d3ee" />
+                                                    <stop offset="100%" stopColor="#0ea5e9" />
+                                                </linearGradient>
+                                                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                                                    <feGaussianBlur stdDeviation="1.5" result="blur" />
+                                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                                </filter>
+                                                <filter id="emeraldGlow" x="-30%" y="-30%" width="160%" height="160%">
+                                                    <feGaussianBlur stdDeviation="2" result="blur" />
+                                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                                </filter>
+                                            </defs>
+                                        </svg>
+
+                                        <span className={`text-[10px] font-black uppercase tracking-wider mt-2.5 text-center px-2 w-full break-words leading-tight ${getWindMetrics(Weather.wind_direction).isCalm ? 'text-emerald-400' : 'text-cyan-400'}`}>
+                                            {getWindMetrics(Weather.wind_direction).desc}
+                                        </span>
+                                        <span className="text-[8px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">
+                                            {Weather.wind_mph} MPH WIND
+                                        </span>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* LEGENDS AI PREDICTIONS (RENAMED & STYLED) */}
+                            {aiInsight && (
+                                <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 rounded-xl p-5 border border-indigo-500/25 md:col-span-2 shadow-[0_0_20px_rgba(99,102,241,0.08)] relative overflow-hidden flex flex-col justify-center">
+                                    <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-indigo-500 to-purple-600"></div>
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <span className="text-indigo-400 text-lg leading-none">👑</span>
+                                        <h3 className="text-[10px] md:text-xs text-indigo-400 font-black uppercase tracking-widest pt-0.5">Legends AI Predictions</h3>
+                                    </div>
+                                    <div className="text-xs md:text-sm text-gray-300 leading-relaxed font-semibold whitespace-pre-wrap">
+                                        {formatAiInsight(aiInsight)}
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* LIVE GAME LINES & SPORTSBOOK COMPARISON */}
+                            <div className="bg-slate-800/40 border border-slate-700/80 rounded-xl p-5 md:col-span-2 shadow-lg flex flex-col justify-between">
+                                <div className="flex justify-between items-center mb-4 border-b border-slate-700 pb-2">
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-emerald-400 text-lg leading-none">💰</span>
+                                        <h3 className="text-[10px] md:text-xs text-gray-300 font-bold uppercase tracking-widest pt-0.5">
+                                            {isStarted ? 'Pregame Closing Odds' : 'Live Game Lines & Odds'}
+                                        </h3>
+                                    </div>
+                                    <span className={`border text-[9px] font-black px-2 py-0.5 rounded uppercase tracking-wider ${isStarted ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20' : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'}`}>
+                                        {isStarted ? 'Pregame Closing' : 'Live Prices'}
+                                    </span>
+                                </div>
+                                <div className="overflow-x-auto rounded-xl border border-slate-800/50 bg-slate-900/40">
+                                    <table className="w-full min-w-[550px] sm:min-w-full text-left border-collapse">
+                                        <thead>
+                                            <tr className="bg-slate-950/70 border-b border-slate-800 text-[10px] xs:text-[11px] md:text-xs text-gray-400 font-black uppercase tracking-wider">
+                                                <th className="py-2 px-2 xs:px-3 md:px-4">Teams</th>
+                                                <th className="py-2 px-2 xs:px-3 md:px-4">Spread</th>
+                                                <th className="py-2 px-2 xs:px-3 md:px-4">
+                                                    <div className="flex flex-col">
+                                                        <span>Total</span>
+                                                        <span className="text-[8px] text-gray-500 lowercase font-normal">(over / under)</span>
+                                                    </div>
+                                                </th>
+                                                <th className="py-2 px-2 xs:px-3 md:px-4">Moneyline</th>
+                                                <th className="py-2 px-2 xs:px-3 md:px-4">Bookmaker</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-slate-850">
+                                            {bookmakersList.map((bookie, idx) => (
+                                                <tr key={idx} className="hover:bg-slate-800/10 text-[10px] xs:text-xs md:text-sm text-gray-300 font-bold transition-colors">
+                                                    {/* Teams (Away top, Home bottom) */}
+                                                    <td className="py-2 px-2 xs:px-3 md:px-4 whitespace-nowrap">
+                                                        <div className="flex flex-col gap-1.5">
+                                                            <div className="flex items-center gap-1.5">
+                                                                <img src={getTeamLogo(matchup.away_team)} alt={matchup.away_team} className="w-4 h-4 object-contain" loading="lazy" width="16" height="16" />
+                                                                <span className="text-gray-200 font-extrabold text-[10px] xs:text-[11px] md:text-xs">{getTeamAbbr(matchup.away_team)}</span>
+                                                            </div>
+                                                            <div className="flex items-center gap-1.5">
+                                                                <img src={getTeamLogo(matchup.home_team)} alt={matchup.home_team} className="w-4 h-4 object-contain" loading="lazy" width="16" height="16" />
+                                                                <span className="text-gray-200 font-extrabold text-[10px] xs:text-[11px] md:text-xs">{getTeamAbbr(matchup.home_team)}</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+
+                                                    {/* Spread */}
+                                                    <td className="py-2 px-2 xs:px-3 md:px-4 whitespace-nowrap font-bold text-gray-300">
+                                                        <div className="flex flex-col gap-1.5">
+                                                            <span className={bookie.away_spread === -1.5 ? 'text-indigo-400' : 'text-gray-400'}>
+                                                                {bookie.away_spread !== null && bookie.away_spread !== undefined
+                                                                    ? `${bookie.away_spread > 0 ? '+' : ''}${bookie.away_spread} (${formatAmericanOdds(bookie.away_spread_price)})`
+                                                                    : '-'}
+                                                            </span>
+                                                            <span className={bookie.home_spread === -1.5 ? 'text-indigo-400' : 'text-gray-400'}>
+                                                                {bookie.home_spread !== null && bookie.home_spread !== undefined
+                                                                    ? `${bookie.home_spread > 0 ? '+' : ''}${bookie.home_spread} (${formatAmericanOdds(bookie.home_spread_price)})`
+                                                                    : '-'}
+                                                            </span>
+                                                        </div>
+                                                    </td>
+
+                                                    {/* Total */}
+                                                    <td className="py-2 px-2 xs:px-3 md:px-4 whitespace-nowrap font-bold text-gray-300">
+                                                        <div className="flex flex-col gap-1.5">
+                                                            <span>
+                                                                <span className="text-green-400 mr-1 font-black">O</span>
+                                                                {bookie.total_line !== null && bookie.total_line !== undefined
+                                                                    ? `${bookie.total_line} (${formatAmericanOdds(bookie.over_price)})`
+                                                                    : '-'}
+                                                            </span>
+                                                            <span>
+                                                                <span className="text-red-400 mr-1 font-black">U</span>
+                                                                {bookie.total_line !== null && bookie.total_line !== undefined
+                                                                    ? `${bookie.total_line} (${formatAmericanOdds(bookie.under_price)})`
+                                                                    : '-'}
+                                                            </span>
+                                                        </div>
+                                                    </td>
+
+                                                    {/* Moneyline */}
+                                                    <td className="py-2 px-2 xs:px-3 md:px-4 whitespace-nowrap font-bold text-gray-300">
+                                                        <div className="flex flex-col gap-1.5">
+                                                            <span className="text-blue-400">
+                                                                {bookie.away_ml !== null && bookie.away_ml !== undefined ? formatAmericanOdds(bookie.away_ml) : '-'}
+                                                            </span>
+                                                            <span className="text-blue-400">
+                                                                {bookie.home_ml !== null && bookie.home_ml !== undefined ? formatAmericanOdds(bookie.home_ml) : '-'}
+                                                            </span>
+                                                        </div>
+                                                    </td>
+
+                                                    {/* Bookmaker */}
+                                                    <td className="py-2 px-2 xs:px-3 md:px-4 whitespace-nowrap">
+                                                        <div className="flex items-center gap-2">
+                                                            <SportsbookLogo bookmaker={bookie.bookmaker} size="sm" />
+                                                            <span className="text-gray-300 font-extrabold text-[10px] xs:text-[11px] md:text-xs inline-block">{bookie.bookmaker}</span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            {/* EXPANDABLE COVERS-STYLE LAST 10 & HEAD TO HEAD */}
+                            <div className="bg-slate-800/40 border border-slate-700/80 rounded-xl overflow-hidden shadow-lg md:col-span-2">
+                                {/* Accordion Trigger */}
+                                <div
+                                    onClick={() => setIsHistoryExpanded(!isHistoryExpanded)}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter' || e.key === ' ') {
+                                            e.preventDefault();
+                                            setIsHistoryExpanded(!isHistoryExpanded);
+                                        }
+                                    }}
+                                    role="button"
+                                    tabIndex={0}
+                                    className="w-full px-3 md:px-5 py-3 md:py-4 flex justify-between items-center bg-slate-800 hover:bg-slate-700/90 transition-colors border-b border-slate-700 cursor-pointer select-none outline-none focus:ring-1 focus:ring-blue-500"
+                                >
+                                    <div className="flex items-center gap-2 md:gap-2.5">
+                                        <span className="w-5 h-5 md:w-6 h-6 rounded-full bg-blue-600 text-white font-black text-[9px] md:text-[11px] flex items-center justify-center shadow-md">
+                                            vs
+                                        </span>
+                                        <span className="text-[11px] md:text-sm font-black text-gray-200 uppercase tracking-wider pt-0.5">Last 10 Games</span>
+                                    </div>
+
+                                    <div className="flex items-center gap-3">
+                                        <div className="flex items-center gap-1.5 md:gap-2" onClick={(e) => e.stopPropagation()}>
+                                            <button
+                                                onClick={() => {
+                                                    setActiveHistoryTab('away');
+                                                    setIsHistoryExpanded(true);
+                                                }}
+                                                className={`rounded-full border px-2 xs:px-3 md:px-4 py-0.5 xs:py-1 md:py-1.5 text-[9px] xs:text-[10px] md:text-xs font-bold transition-all ${isHistoryExpanded && activeHistoryTab === 'away'
+                                                    ? 'bg-blue-500/10 border-blue-500 text-blue-400 font-black shadow-[0_0_10px_rgba(59,130,246,0.15)]'
+                                                    : 'bg-slate-900/50 border-slate-700 text-gray-400 hover:text-gray-200 hover:bg-slate-800/80'
+                                                    }`}
+                                            >
+                                                {getTeamAbbr(matchup.away_team)}
+                                            </button>
+                                            <button
+                                                onClick={() => {
+                                                    setActiveHistoryTab('home');
+                                                    setIsHistoryExpanded(true);
+                                                }}
+                                                className={`rounded-full border px-2 xs:px-3 md:px-4 py-0.5 xs:py-1 md:py-1.5 text-[9px] xs:text-[10px] md:text-xs font-bold transition-all ${isHistoryExpanded && activeHistoryTab === 'home'
+                                                    ? 'bg-blue-500/10 border-blue-500 text-blue-400 font-black shadow-[0_0_10px_rgba(59,130,246,0.15)]'
+                                                    : 'bg-slate-900/50 border-slate-700 text-gray-400 hover:text-gray-200 hover:bg-slate-800/80'
+                                                    }`}
+                                            >
+                                                {getTeamAbbr(matchup.home_team)}
+                                            </button>
+                                            <button
+                                                onClick={() => {
+                                                    setActiveHistoryTab('h2h');
+                                                    setIsHistoryExpanded(true);
+                                                }}
+                                                className={`rounded-full border px-2 xs:px-3 md:px-4 py-0.5 xs:py-1 md:py-1.5 text-[9px] xs:text-[10px] md:text-xs font-bold transition-all ${isHistoryExpanded && activeHistoryTab === 'h2h'
+                                                    ? 'bg-blue-500/10 border-blue-500 text-blue-400 font-black shadow-[0_0_10px_rgba(59,130,246,0.15)]'
+                                                    : 'bg-slate-900/50 border-slate-700 text-gray-400 hover:text-gray-200 hover:bg-slate-800/80'
+                                                    }`}
+                                            >
+                                                H2H
+                                            </button>
+                                        </div>
+                                        <span className="text-gray-400 font-bold text-xs md:text-sm ml-2">
+                                            {isHistoryExpanded ? '▲' : '▼'}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                {/* Accordion Content */}
+                                {isHistoryExpanded && (
+                                    <div className="p-3 sm:p-4 md:p-6 bg-slate-900/60">
+                                        {activeHistoryTab === 'h2h' && (
+                                            <div className="space-y-6">
+                                                {/* H2H Aggregated Stats Bar */}
+                                                <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-4 bg-slate-950/60 border border-slate-800/80 p-2 sm:p-4 rounded-xl shadow-inner">
+                                                    <div className="flex items-center gap-1.5 xs:gap-2.5 sm:gap-6">
+                                                        <div className="flex flex-col">
+                                                            <span className="text-[8px] sm:text-[9px] text-slate-400 font-bold uppercase tracking-widest mb-1">Win/Loss Record</span>
+                                                            <div className="flex items-baseline gap-1 sm:gap-2">
+                                                                <span className="text-xs xs:text-sm sm:text-xl font-black text-white whitespace-nowrap">{h2hData.summary.winsAway}-{h2hData.summary.winsHome}</span>
+                                                                <span className="text-[10px] text-gray-400 font-semibold hidden md:inline">({matchup.away_team} vs {matchup.home_team})</span>
+                                                            </div>
+                                                        </div>
+                                                        <div className="h-6 sm:h-8 w-px bg-slate-800"></div>
+                                                        <div className="flex flex-col">
+                                                            <span className="text-[8px] sm:text-[9px] text-slate-400 font-bold uppercase tracking-widest mb-1">Over / Under</span>
+                                                            <div className="flex items-baseline gap-0.5 xs:gap-1 sm:gap-1.5">
+                                                                <span className="text-[10px] xs:text-xs sm:text-lg font-black text-green-400 whitespace-nowrap">{h2hData.summary.over} Over</span>
+                                                                <span className="text-[8px] xs:text-[9px] sm:text-xs text-gray-600 font-bold">/</span>
+                                                                <span className="text-[10px] xs:text-xs sm:text-lg font-black text-blue-400 whitespace-nowrap">{h2hData.summary.under} Under</span>
+                                                                {h2hData.summary.push > 0 && (
+                                                                    <>
+                                                                        <span className="text-[8px] xs:text-[9px] sm:text-xs text-gray-600 font-bold">/</span>
+                                                                        <span className="text-[9px] xs:text-[10px] sm:text-sm font-black text-gray-400 whitespace-nowrap">{h2hData.summary.push} Push</span>
+                                                                    </>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="text-[8px] sm:text-[9px] text-gray-500 font-semibold tracking-wider italic w-full md:w-auto">
+                                                        *Seeded H2H scoreboard matching team strengths and active metrics
+                                                    </div>
+                                                </div>
+
+                                                {renderHistoryTable(h2hData.games)}
+                                            </div>
+                                        )}
+
+                                        {activeHistoryTab === 'away' && (
+                                            <div className="space-y-4">
+                                                <div className="flex flex-wrap items-center justify-between px-1 gap-2">
+                                                    <h4 className="flex-1 min-w-[150px] text-xs md:text-sm font-black text-gray-400 uppercase tracking-wider">
+                                                        {matchup.away_team} Last 10 Scoreboard
+                                                    </h4>
+                                                    <span className="shrink-0 px-2 py-0.5 rounded bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-black tracking-wider uppercase">
+                                                        L10: {matchup.away_stats?.l10 || '5-5'}
+                                                    </span>
+                                                </div>
+                                                {renderHistoryTable(awayLast10)}
+                                            </div>
+                                        )}
+
+                                        {activeHistoryTab === 'home' && (
+                                            <div className="space-y-4">
+                                                <div className="flex flex-wrap items-center justify-between px-1 gap-2">
+                                                    <h4 className="flex-1 min-w-[150px] text-xs md:text-sm font-black text-gray-400 uppercase tracking-wider">
+                                                        {matchup.home_team} Last 10 Scoreboard
+                                                    </h4>
+                                                    <span className="shrink-0 px-2 py-0.5 rounded bg-red-500/10 border border-red-500/20 text-red-400 text-[10px] font-black tracking-wider uppercase">
+                                                        L10: {matchup.home_stats?.l10 || '5-5'}
+                                                    </span>
+                                                </div>
+                                                {renderHistoryTable(homeLast10)}
+                                            </div>
+                                        )}
+
+                                        {/* Centered game trends scroll trigger */}
+                                        <div className="mt-6 flex justify-center w-full">
+                                            <button
+                                                onClick={onNavigateToNrfi}
+                                                className="text-blue-400 hover:text-blue-300 font-black text-xs md:text-sm underline transition-colors cursor-pointer"
+                                            >
+                                                View and Filter More MLB Game Trends
+                                            </button>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
