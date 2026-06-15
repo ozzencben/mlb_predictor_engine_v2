@@ -1,0 +1,256 @@
+{
+    "date": "2026-06-15",
+    "games": [
+        {
+            "game_id": 823452,
+            "away_team": "Miami",
+            "home_team": "Philadelphia",
+            "away_team_id": 146,
+            "home_team_id": 143,
+            "away_pitcher": "Ryan Gusto",
+            "away_pitcher_id": 687473,
+            "home_pitcher": "Zack Wheeler",
+            "home_pitcher_id": 554430,
+            "game_time": "6:40 PM ET",
+            "status": "Scheduled",
+            "away_team_stats": {
+                "record": "36-36",
+                "home_record": "23-16",
+                "away_record": "13-20",
+                "l10": "8-2"
+            },
+            "home_team_stats": {
+                "record": "38-33",
+                "home_record": "19-17",
+                "away_record": "19-16",
+                "l10": "6-4"
+            }
+        },
+        {
+            "game_id": 822724,
+            "away_team": "Kansas City",
+            "home_team": "Washington",
+            "away_team_id": 118,
+            "home_team_id": 120,
+            "away_pitcher": "Mitch Spence",
+            "away_pitcher_id": 687765,
+            "home_pitcher": "Andrew Alvarez",
+            "home_pitcher_id": 674841,
+            "game_time": "6:45 PM ET",
+            "status": "Scheduled",
+            "away_team_stats": {
+                "record": "29-43",
+                "home_record": "17-21",
+                "away_record": "12-22",
+                "l10": "5-5"
+            },
+            "home_team_stats": {
+                "record": "37-35",
+                "home_record": "14-21",
+                "away_record": "23-14",
+                "l10": "6-4"
+            }
+        },
+        {
+            "game_id": 824505,
+            "away_team": "NY Mets",
+            "home_team": "Cincinnati",
+            "away_team_id": 121,
+            "home_team_id": 113,
+            "away_pitcher": "Tobias Myers",
+            "away_pitcher_id": 668964,
+            "home_pitcher": "Chase Burns",
+            "home_pitcher_id": 695505,
+            "game_time": "7:10 PM ET",
+            "status": "Scheduled",
+            "away_team_stats": {
+                "record": "32-39",
+                "home_record": "18-18",
+                "away_record": "14-21",
+                "l10": "6-4"
+            },
+            "home_team_stats": {
+                "record": "33-37",
+                "home_record": "17-18",
+                "away_record": "16-19",
+                "l10": "2-8"
+            }
+        },
+        {
+            "game_id": 823046,
+            "away_team": "San Diego",
+            "home_team": "St Louis",
+            "away_team_id": 135,
+            "home_team_id": 138,
+            "away_pitcher": "TBD",
+            "away_pitcher_id": null,
+            "home_pitcher": "Dustin May",
+            "home_pitcher_id": 669160,
+            "game_time": "7:45 PM ET",
+            "status": "Scheduled",
+            "away_team_stats": {
+                "record": "37-33",
+                "home_record": "19-19",
+                "away_record": "18-14",
+                "l10": "5-5"
+            },
+            "home_team_stats": {
+                "record": "38-31",
+                "home_record": "19-16",
+                "away_record": "19-15",
+                "l10": "7-3"
+            }
+        },
+        {
+            "game_id": 824666,
+            "away_team": "Colorado",
+            "home_team": "Chi Cubs",
+            "away_team_id": 115,
+            "home_team_id": 112,
+            "away_pitcher": "Michael Lorenzen",
+            "away_pitcher_id": 547179,
+            "home_pitcher": "Shota Imanaga",
+            "home_pitcher_id": 684007,
+            "game_time": "8:05 PM ET",
+            "status": "Scheduled",
+            "away_team_stats": {
+                "record": "27-45",
+                "home_record": "14-20",
+                "away_record": "13-25",
+                "l10": "3-7"
+            },
+            "home_team_stats": {
+                "record": "37-35",
+                "home_record": "20-15",
+                "away_record": "17-20",
+                "l10": "5-5"
+            }
+        },
+        {
+            "game_id": 822887,
+            "away_team": "Minnesota",
+            "home_team": "Texas",
+            "away_team_id": 142,
+            "home_team_id": 140,
+            "away_pitcher": "TBD",
+            "away_pitcher_id": null,
+            "home_pitcher": "MacKenzie Gore",
+            "home_pitcher_id": 669022,
+            "game_time": "8:05 PM ET",
+            "status": "Scheduled",
+            "away_team_stats": {
+                "record": "33-40",
+                "home_record": "20-19",
+                "away_record": "13-21",
+                "l10": "4-6"
+            },
+            "home_team_stats": {
+                "record": "35-36",
+                "home_record": "17-14",
+                "away_record": "18-22",
+                "l10": "5-5"
+            }
+        },
+        {
+            "game_id": 824181,
+            "away_team": "Detroit",
+            "home_team": "Houston",
+            "away_team_id": 116,
+            "home_team_id": 117,
+            "away_pitcher": "Troy Melton",
+            "away_pitcher_id": 675512,
+            "home_pitcher": "Kai-Wei Teng",
+            "home_pitcher_id": 678906,
+            "game_time": "8:10 PM ET",
+            "status": "Scheduled",
+            "away_team_stats": {
+                "record": "29-42",
+                "home_record": "18-16",
+                "away_record": "11-26",
+                "l10": "6-4"
+            },
+            "home_team_stats": {
+                "record": "33-40",
+                "home_record": "16-19",
+                "away_record": "17-21",
+                "l10": "5-5"
+            }
+        },
+        {
+            "game_id": 825071,
+            "away_team": "LA Angels",
+            "home_team": "Arizona",
+            "away_team_id": 108,
+            "home_team_id": 109,
+            "away_pitcher": "Walbert Ureña",
+            "away_pitcher_id": 700712,
+            "home_pitcher": "Ryne Nelson",
+            "home_pitcher_id": 669194,
+            "game_time": "9:40 PM ET",
+            "status": "Scheduled",
+            "away_team_stats": {
+                "record": "29-43",
+                "home_record": "17-20",
+                "away_record": "12-23",
+                "l10": "6-4"
+            },
+            "home_team_stats": {
+                "record": "36-35",
+                "home_record": "21-14",
+                "away_record": "15-21",
+                "l10": "4-6"
+            }
+        },
+        {
+            "game_id": 824993,
+            "away_team": "Pittsburgh",
+            "home_team": "Athletics",
+            "away_team_id": 134,
+            "home_team_id": 133,
+            "away_pitcher": "Jared Jones",
+            "away_pitcher_id": 683003,
+            "home_pitcher": "J.T. Ginn",
+            "home_pitcher_id": 669372,
+            "game_time": "9:40 PM ET",
+            "status": "Scheduled",
+            "away_team_stats": {
+                "record": "36-36",
+                "home_record": "20-19",
+                "away_record": "16-17",
+                "l10": "3-7"
+            },
+            "home_team_stats": {
+                "record": "35-36",
+                "home_record": "15-19",
+                "away_record": "20-17",
+                "l10": "5-5"
+            }
+        },
+        {
+            "game_id": 823938,
+            "away_team": "Tampa Bay",
+            "home_team": "LA Dodgers",
+            "away_team_id": 139,
+            "home_team_id": 119,
+            "away_pitcher": "Nick Martinez",
+            "away_pitcher_id": 607259,
+            "home_pitcher": "Eric Lauer",
+            "home_pitcher_id": 641778,
+            "game_time": "10:10 PM ET",
+            "status": "Scheduled",
+            "away_team_stats": {
+                "record": "41-27",
+                "home_record": "24-9",
+                "away_record": "17-18",
+                "l10": "5-5"
+            },
+            "home_team_stats": {
+                "record": "45-27",
+                "home_record": "22-12",
+                "away_record": "23-15",
+                "l10": "5-5"
+            }
+        }
+    ],
+    "last_updated": "June 15, 04:28 AM ET"
+}

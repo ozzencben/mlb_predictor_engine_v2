@@ -260,7 +260,7 @@ function CentralDashboard({
                             </p>
                         </div>
                         <div className="flex justify-between items-center text-[10px] text-indigo-400 font-black uppercase tracking-widest pt-2 border-t border-slate-950">
-                            <span>Open Tennis Dashboard (Mock)</span>
+                            <span>Open Tennis Dashboard</span>
                             <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span>
                         </div>
                     </div>

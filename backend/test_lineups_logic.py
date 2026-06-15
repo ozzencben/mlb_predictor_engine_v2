@@ -3,7 +3,7 @@ import json
 import os
 import httpx
 from datetime import datetime
-from app.services.prediction_runner import PredictionRunner
+from app.sports.mlb.runner import PredictionRunner
 
 async def test_lineups_caching():
     print("[TEST] Starting Lineups Caching and Fallback Logic Tests...")

@@ -1,0 +1,722 @@
+{
+    "Washington": {
+        "rpg_offense": {
+            "current": 5.37,
+            "last_3": 6.0,
+            "home": 5.54,
+            "away": 5.23
+        },
+        "rpg_defense": {
+            "current": 5.44,
+            "last_3": 2.67,
+            "home": 6.35,
+            "away": 4.68
+        },
+        "batting_avg": {
+            "current": 0.245,
+            "last_3": 0.295,
+            "home": 0.243,
+            "away": 0.248
+        },
+        "advanced_metrics": {
+            "wrc_plus": 101.8,
+            "k_pct": 22.2
+        }
+    },
+    "LA Dodgers": {
+        "rpg_offense": {
+            "current": 5.32,
+            "last_3": 8.0,
+            "home": 4.57,
+            "away": 6.07
+        },
+        "rpg_defense": {
+            "current": 3.18,
+            "last_3": 3.33,
+            "home": 3.43,
+            "away": 2.93
+        },
+        "batting_avg": {
+            "current": 0.262,
+            "last_3": 0.333,
+            "home": 0.25,
+            "away": 0.273
+        },
+        "advanced_metrics": {
+            "wrc_plus": 107.7,
+            "k_pct": 20.5
+        }
+    },
+    "Atlanta": {
+        "rpg_offense": {
+            "current": 5.25,
+            "last_3": 5.67,
+            "home": 4.41,
+            "away": 6.0
+        },
+        "rpg_defense": {
+            "current": 3.44,
+            "last_3": 5.33,
+            "home": 3.11,
+            "away": 3.73
+        },
+        "batting_avg": {
+            "current": 0.259,
+            "last_3": 0.236,
+            "home": 0.258,
+            "away": 0.26
+        },
+        "advanced_metrics": {
+            "wrc_plus": 103.6,
+            "k_pct": 21.1
+        }
+    },
+    "NY Yankees": {
+        "rpg_offense": {
+            "current": 5.0,
+            "last_3": 8.67,
+            "home": 5.69,
+            "away": 4.4
+        },
+        "rpg_defense": {
+            "current": 3.41,
+            "last_3": 1.33,
+            "home": 3.88,
+            "away": 3.0
+        },
+        "batting_avg": {
+            "current": 0.242,
+            "last_3": 0.35,
+            "home": 0.246,
+            "away": 0.238
+        },
+        "advanced_metrics": {
+            "wrc_plus": 105.5,
+            "k_pct": 23.0
+        }
+    },
+    "Milwaukee": {
+        "rpg_offense": {
+            "current": 4.89,
+            "last_3": 4.33,
+            "home": 5.07,
+            "away": 4.65
+        },
+        "rpg_defense": {
+            "current": 3.42,
+            "last_3": 0.67,
+            "home": 3.33,
+            "away": 3.52
+        },
+        "batting_avg": {
+            "current": 0.246,
+            "last_3": 0.258,
+            "home": 0.246,
+            "away": 0.246
+        },
+        "advanced_metrics": {
+            "wrc_plus": 95.3,
+            "k_pct": 21.2
+        }
+    },
+    "Pittsburgh": {
+        "rpg_offense": {
+            "current": 4.84,
+            "last_3": 6.0,
+            "home": 5.33,
+            "away": 4.3
+        },
+        "rpg_defense": {
+            "current": 4.44,
+            "last_3": 6.0,
+            "home": 4.83,
+            "away": 4.0
+        },
+        "batting_avg": {
+            "current": 0.251,
+            "last_3": 0.275,
+            "home": 0.274,
+            "away": 0.226
+        },
+        "advanced_metrics": {
+            "wrc_plus": 99.0,
+            "k_pct": 24.4
+        }
+    },
+    "Chi Cubs": {
+        "rpg_offense": {
+            "current": 4.77,
+            "last_3": 6.0,
+            "home": 4.69,
+            "away": 4.86
+        },
+        "rpg_defense": {
+            "current": 4.44,
+            "last_3": 6.0,
+            "home": 3.97,
+            "away": 4.93
+        },
+        "batting_avg": {
+            "current": 0.238,
+            "last_3": 0.268,
+            "home": 0.242,
+            "away": 0.234
+        },
+        "advanced_metrics": {
+            "wrc_plus": 99.0,
+            "k_pct": 22.0
+        }
+    },
+    "Chi Sox": {
+        "rpg_offense": {
+            "current": 4.68,
+            "last_3": 8.0,
+            "home": 4.96,
+            "away": 4.39
+        },
+        "rpg_defense": {
+            "current": 4.68,
+            "last_3": 3.0,
+            "home": 4.25,
+            "away": 5.11
+        },
+        "batting_avg": {
+            "current": 0.237,
+            "last_3": 0.315,
+            "home": 0.246,
+            "away": 0.228
+        },
+        "advanced_metrics": {
+            "wrc_plus": 99.6,
+            "k_pct": 24.5
+        }
+    },
+    "Tampa Bay": {
+        "rpg_offense": {
+            "current": 4.64,
+            "last_3": 3.33,
+            "home": 4.96,
+            "away": 4.38
+        },
+        "rpg_defense": {
+            "current": 4.19,
+            "last_3": 8.67,
+            "home": 3.54,
+            "away": 4.72
+        },
+        "batting_avg": {
+            "current": 0.261,
+            "last_3": 0.27,
+            "home": 0.269,
+            "away": 0.255
+        },
+        "advanced_metrics": {
+            "wrc_plus": 98.6,
+            "k_pct": 18.8
+        }
+    },
+    "Arizona": {
+        "rpg_offense": {
+            "current": 4.64,
+            "last_3": 5.33,
+            "home": 4.62,
+            "away": 4.66
+        },
+        "rpg_defense": {
+            "current": 4.38,
+            "last_3": 3.0,
+            "home": 3.85,
+            "away": 4.86
+        },
+        "batting_avg": {
+            "current": 0.248,
+            "last_3": 0.245,
+            "home": 0.251,
+            "away": 0.246
+        },
+        "advanced_metrics": {
+            "wrc_plus": 98.1,
+            "k_pct": 19.9
+        }
+    },
+    "Minnesota": {
+        "rpg_offense": {
+            "current": 4.53,
+            "last_3": 3.0,
+            "home": 4.69,
+            "away": 4.36
+        },
+        "rpg_defense": {
+            "current": 4.75,
+            "last_3": 8.0,
+            "home": 4.1,
+            "away": 5.43
+        },
+        "batting_avg": {
+            "current": 0.234,
+            "last_3": 0.152,
+            "home": 0.242,
+            "away": 0.226
+        },
+        "advanced_metrics": {
+            "wrc_plus": 95.8,
+            "k_pct": 22.8
+        }
+    },
+    "Baltimore": {
+        "rpg_offense": {
+            "current": 4.47,
+            "last_3": 6.0,
+            "home": 4.87,
+            "away": 4.0
+        },
+        "rpg_defense": {
+            "current": 5.21,
+            "last_3": 1.67,
+            "home": 4.52,
+            "away": 6.04
+        },
+        "batting_avg": {
+            "current": 0.237,
+            "last_3": 0.295,
+            "home": 0.249,
+            "away": 0.222
+        },
+        "advanced_metrics": {
+            "wrc_plus": 96.8,
+            "k_pct": 24.0
+        }
+    },
+    "Cincinnati": {
+        "rpg_offense": {
+            "current": 4.45,
+            "last_3": 5.33,
+            "home": 4.62,
+            "away": 4.31
+        },
+        "rpg_defense": {
+            "current": 4.93,
+            "last_3": 2.67,
+            "home": 5.23,
+            "away": 4.66
+        },
+        "batting_avg": {
+            "current": 0.23,
+            "last_3": 0.269,
+            "home": 0.221,
+            "away": 0.237
+        },
+        "advanced_metrics": {
+            "wrc_plus": 96.8,
+            "k_pct": 24.4
+        }
+    },
+    "Houston": {
+        "rpg_offense": {
+            "current": 4.45,
+            "last_3": 5.33,
+            "home": 4.15,
+            "away": 4.69
+        },
+        "rpg_defense": {
+            "current": 5.09,
+            "last_3": 4.67,
+            "home": 5.5,
+            "away": 4.75
+        },
+        "batting_avg": {
+            "current": 0.245,
+            "last_3": 0.222,
+            "home": 0.225,
+            "away": 0.261
+        },
+        "advanced_metrics": {
+            "wrc_plus": 100.3,
+            "k_pct": 21.0
+        }
+    },
+    "St. Louis": {
+        "rpg_offense": {
+            "current": 4.35,
+            "last_3": 0.67,
+            "home": 3.92,
+            "away": 4.75
+        },
+        "rpg_defense": {
+            "current": 4.54,
+            "last_3": 4.33,
+            "home": 4.77,
+            "away": 4.32
+        },
+        "batting_avg": {
+            "current": 0.238,
+            "last_3": 0.177,
+            "home": 0.244,
+            "away": 0.233
+        },
+        "advanced_metrics": {
+            "wrc_plus": 96.0,
+            "k_pct": 21.3
+        }
+    },
+    "Miami": {
+        "rpg_offense": {
+            "current": 4.23,
+            "last_3": 3.33,
+            "home": 4.42,
+            "away": 3.96
+        },
+        "rpg_defense": {
+            "current": 4.46,
+            "last_3": 4.0,
+            "home": 3.88,
+            "away": 5.25
+        },
+        "batting_avg": {
+            "current": 0.245,
+            "last_3": 0.255,
+            "home": 0.249,
+            "away": 0.239
+        },
+        "advanced_metrics": {
+            "wrc_plus": 95.5,
+            "k_pct": 21.2
+        }
+    },
+    "Sacramento": {
+        "rpg_offense": {
+            "current": 4.21,
+            "last_3": 1.33,
+            "home": 4.36,
+            "away": 4.1
+        },
+        "rpg_defense": {
+            "current": 4.66,
+            "last_3": 7.33,
+            "home": 6.2,
+            "away": 3.42
+        },
+        "batting_avg": {
+            "current": 0.246,
+            "last_3": 0.196,
+            "home": 0.258,
+            "away": 0.236
+        },
+        "advanced_metrics": {
+            "wrc_plus": 98.1,
+            "k_pct": 22.6
+        }
+    },
+    "Seattle": {
+        "rpg_offense": {
+            "current": 4.21,
+            "last_3": 7.33,
+            "home": 4.03,
+            "away": 4.39
+        },
+        "rpg_defense": {
+            "current": 3.79,
+            "last_3": 1.33,
+            "home": 3.83,
+            "away": 3.75
+        },
+        "batting_avg": {
+            "current": 0.23,
+            "last_3": 0.313,
+            "home": 0.226,
+            "away": 0.235
+        },
+        "advanced_metrics": {
+            "wrc_plus": 95.9,
+            "k_pct": 23.3
+        }
+    },
+    "Cleveland": {
+        "rpg_offense": {
+            "current": 4.14,
+            "last_3": 2.67,
+            "home": 4.11,
+            "away": 4.17
+        },
+        "rpg_defense": {
+            "current": 3.91,
+            "last_3": 6.0,
+            "home": 3.5,
+            "away": 4.3
+        },
+        "batting_avg": {
+            "current": 0.23,
+            "last_3": 0.258,
+            "home": 0.235,
+            "away": 0.226
+        },
+        "advanced_metrics": {
+            "wrc_plus": 94.9,
+            "k_pct": 19.6
+        }
+    },
+    "LA Angels": {
+        "rpg_offense": {
+            "current": 4.11,
+            "last_3": 5.67,
+            "home": 3.39,
+            "away": 4.79
+        },
+        "rpg_defense": {
+            "current": 5.09,
+            "last_3": 3.67,
+            "home": 4.71,
+            "away": 5.45
+        },
+        "batting_avg": {
+            "current": 0.228,
+            "last_3": 0.269,
+            "home": 0.207,
+            "away": 0.246
+        },
+        "advanced_metrics": {
+            "wrc_plus": 94.9,
+            "k_pct": 25.3
+        }
+    },
+    "Colorado": {
+        "rpg_offense": {
+            "current": 4.02,
+            "last_3": 3.33,
+            "home": 4.4,
+            "away": 3.72
+        },
+        "rpg_defense": {
+            "current": 5.37,
+            "last_3": 8.0,
+            "home": 5.92,
+            "away": 4.94
+        },
+        "batting_avg": {
+            "current": 0.241,
+            "last_3": 0.204,
+            "home": 0.253,
+            "away": 0.231
+        },
+        "advanced_metrics": {
+            "wrc_plus": 93.6,
+            "k_pct": 23.8
+        }
+    },
+    "Toronto": {
+        "rpg_offense": {
+            "current": 4.0,
+            "last_3": 4.0,
+            "home": 4.43,
+            "away": 3.52
+        },
+        "rpg_defense": {
+            "current": 4.05,
+            "last_3": 1.0,
+            "home": 4.33,
+            "away": 3.74
+        },
+        "batting_avg": {
+            "current": 0.242,
+            "last_3": 0.247,
+            "home": 0.244,
+            "away": 0.24
+        },
+        "advanced_metrics": {
+            "wrc_plus": 93.7,
+            "k_pct": 19.0
+        }
+    },
+    "Philadelphia": {
+        "rpg_offense": {
+            "current": 3.98,
+            "last_3": 3.33,
+            "home": 4.13,
+            "away": 3.81
+        },
+        "rpg_defense": {
+            "current": 4.29,
+            "last_3": 1.0,
+            "home": 4.93,
+            "away": 3.54
+        },
+        "batting_avg": {
+            "current": 0.228,
+            "last_3": 0.194,
+            "home": 0.241,
+            "away": 0.213
+        },
+        "advanced_metrics": {
+            "wrc_plus": 93.4,
+            "k_pct": 21.5
+        }
+    },
+    "San Diego": {
+        "rpg_offense": {
+            "current": 3.89,
+            "last_3": 1.0,
+            "home": 3.5,
+            "away": 4.43
+        },
+        "rpg_defense": {
+            "current": 3.91,
+            "last_3": 3.33,
+            "home": 3.78,
+            "away": 4.09
+        },
+        "batting_avg": {
+            "current": 0.218,
+            "last_3": 0.175,
+            "home": 0.21,
+            "away": 0.227
+        },
+        "advanced_metrics": {
+            "wrc_plus": 89.2,
+            "k_pct": 22.4
+        }
+    },
+    "Texas": {
+        "rpg_offense": {
+            "current": 3.84,
+            "last_3": 4.67,
+            "home": 3.08,
+            "away": 4.45
+        },
+        "rpg_defense": {
+            "current": 3.93,
+            "last_3": 5.33,
+            "home": 3.36,
+            "away": 4.39
+        },
+        "batting_avg": {
+            "current": 0.23,
+            "last_3": 0.2,
+            "home": 0.208,
+            "away": 0.246
+        },
+        "advanced_metrics": {
+            "wrc_plus": 93.7,
+            "k_pct": 22.6
+        }
+    },
+    "Detroit": {
+        "rpg_offense": {
+            "current": 3.82,
+            "last_3": 3.67,
+            "home": 3.89,
+            "away": 3.76
+        },
+        "rpg_defense": {
+            "current": 4.37,
+            "last_3": 5.67,
+            "home": 4.0,
+            "away": 4.72
+        },
+        "batting_avg": {
+            "current": 0.233,
+            "last_3": 0.226,
+            "home": 0.234,
+            "away": 0.232
+        },
+        "advanced_metrics": {
+            "wrc_plus": 94.0,
+            "k_pct": 22.6
+        }
+    },
+    "NY Mets": {
+        "rpg_offense": {
+            "current": 3.82,
+            "last_3": 2.67,
+            "home": 4.07,
+            "away": 3.59
+        },
+        "rpg_defense": {
+            "current": 4.34,
+            "last_3": 5.33,
+            "home": 4.74,
+            "away": 3.97
+        },
+        "batting_avg": {
+            "current": 0.226,
+            "last_3": 0.219,
+            "home": 0.232,
+            "away": 0.221
+        },
+        "advanced_metrics": {
+            "wrc_plus": 87.9,
+            "k_pct": 21.1
+        }
+    },
+    "Boston": {
+        "rpg_offense": {
+            "current": 3.82,
+            "last_3": 5.33,
+            "home": 3.21,
+            "away": 4.44
+        },
+        "rpg_defense": {
+            "current": 4.13,
+            "last_3": 5.67,
+            "home": 4.07,
+            "away": 4.19
+        },
+        "batting_avg": {
+            "current": 0.244,
+            "last_3": 0.302,
+            "home": 0.233,
+            "away": 0.253
+        },
+        "advanced_metrics": {
+            "wrc_plus": 94.4,
+            "k_pct": 21.9
+        }
+    },
+    "Kansas City": {
+        "rpg_offense": {
+            "current": 3.77,
+            "last_3": 1.33,
+            "home": 4.31,
+            "away": 3.04
+        },
+        "rpg_defense": {
+            "current": 4.61,
+            "last_3": 8.67,
+            "home": 4.53,
+            "away": 4.71
+        },
+        "batting_avg": {
+            "current": 0.234,
+            "last_3": 0.16,
+            "home": 0.248,
+            "away": 0.215
+        },
+        "advanced_metrics": {
+            "wrc_plus": 93.6,
+            "k_pct": 21.1
+        }
+    },
+    "SF Giants": {
+        "rpg_offense": {
+            "current": 3.64,
+            "last_3": 3.0,
+            "home": 3.75,
+            "away": 3.54
+        },
+        "rpg_defense": {
+            "current": 4.61,
+            "last_3": 5.33,
+            "home": 4.79,
+            "away": 4.43
+        },
+        "batting_avg": {
+            "current": 0.245,
+            "last_3": 0.208,
+            "home": 0.24,
+            "away": 0.25
+        },
+        "advanced_metrics": {
+            "wrc_plus": 93.3,
+            "k_pct": 20.4
+        }
+    }
+}

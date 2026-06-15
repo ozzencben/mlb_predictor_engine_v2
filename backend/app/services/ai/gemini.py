@@ -9,7 +9,7 @@ class GeminiPredictor(BaseAIPredictor):
         self.quota_exhausted = False
         if self.api_key:
             self.client = genai.Client(api_key=self.api_key)
-            self.model_name = 'gemini-1.5-flash'
+            self.model_name = 'gemini-2.5-flash'
         else:
             self.client = None
 
@@ -85,6 +85,79 @@ class GeminiPredictor(BaseAIPredictor):
                         print(f"⚠️ Gemini 429 Kota Sınırı. {base_delay} sn bekleniyor... (Deneme {attempt + 1}/{max_retries})")
                         await asyncio.sleep(base_delay)
                         base_delay *= 1.5  # Exponential backoff
+                        continue
+                    else:
+                        print(f"🛑 Gemini 429 limit denemeleri tükendi. Circuit breaker devreye giriyor...")
+                        self.quota_exhausted = True
+                        return "AI analysis is temporarily unavailable due to upstream API limits."
+                else:
+                    print(f"❌ Gemini AI Hatası: {e}")
+                    return f"AI analysis is temporarily unavailable: {e}"
+
+    async def generate_tennis_insight_async(self, prediction_data: dict) -> str:
+        if not self.client:
+            return "AI analysis currently unavailable (API Key missing)."
+
+        h_player = prediction_data.get("home_player", "Player 1")
+        a_player = prediction_data.get("away_player", "Player 2")
+        t_name = prediction_data.get("tournament", "Unknown Tournament")
+        surface = prediction_data.get("surface", "Hard")
+        h_prob = prediction_data.get("home_win_probability", 50.0)
+        a_prob = prediction_data.get("away_win_probability", 50.0)
+        p1_odds = prediction_data.get("p1_odds") or "N/A"
+        p2_odds = prediction_data.get("p2_odds") or "N/A"
+        edge = prediction_data.get("edge_percentage") or 0.0
+        
+        p1_stats = prediction_data.get("p1_stats") or {}
+        p2_stats = prediction_data.get("p2_stats") or {}
+        
+        context = (
+            f"Matchup: {h_player} vs {a_player} at {t_name} ({surface} court)\n"
+            f"Model Projections: {h_player} Win Prob: {h_prob}%, {a_player} Win Prob: {a_prob}%\n"
+            f"Market Lines: P1 Odds: {p1_odds}, P2 Odds: {p2_odds}. Calculated Edge: {edge}%\n"
+            f"Player 1 ({h_player}) Stats: Rank: {p1_stats.get('rank', 'N/A')}, ELO: {p1_stats.get('elo', '1500')}, Court DNA: {p1_stats.get('surface_rate', '0.5')}, Form Momentum: {p1_stats.get('momentum', '0.5')}, Fatigue (Sets Played): {p1_stats.get('fatigue', '0')}, Set Dominance: {p1_stats.get('set_dominance', '0.5')}, Game Dominance: {p1_stats.get('game_dominance', '0.5')}, Recovery (Rest Days): {p1_stats.get('rest_days', '7')}, Clutch Win Rate: {p1_stats.get('clutch_win_rate', '50')}%, Straight Sets Rate: {p1_stats.get('straight_sets_rate', '50')}%\n"
+            f"Player 2 ({a_player}) Stats: Rank: {p2_stats.get('rank', 'N/A')}, ELO: {p2_stats.get('elo', '1500')}, Court DNA: {p2_stats.get('surface_rate', '0.5')}, Form Momentum: {p2_stats.get('momentum', '0.5')}, Fatigue (Sets Played): {p2_stats.get('fatigue', '0')}, Set Dominance: {p2_stats.get('set_dominance', '0.5')}, Game Dominance: {p2_stats.get('game_dominance', '0.5')}, Recovery (Rest Days): {p2_stats.get('rest_days', '7')}, Clutch Win Rate: {p2_stats.get('clutch_win_rate', '50')}%, Straight Sets Rate: {p2_stats.get('straight_sets_rate', '50')}%"
+        )
+
+        prompt = f"""
+        You are a highly analytical, professional Tennis Sabermetrics & Betting expert providing automated, punchy pre-match insights for a premium sports betting terminal.
+        Your task is to analyze the provided player matchup details and return EXACTLY 3 BULLET POINTS (no introductory text, no conversational filler).
+
+        Follow this strict structure using markdown bullet points (-):
+        - Bullet 1 (The Surface & ELO Edge): Compare their Court DNA (surface success rate) and Surface ELO Gap, highlighting who dominates the target ground.
+        - Bullet 2 (Physical & Fatigue Factor): Contrast their Fatigue Index (sets played recently) and Recovery Window (rest days). Pinpoint if a player is entering depleted.
+        - Bullet 3 (The Betting Angle): Explicitly recommend the best mathematical play (Moneyline, Set Handicap, or Game Total) backed by the Edge or alternative market rules.
+
+        DATA:
+        {context}
+        """
+        
+        import asyncio
+        max_retries = 4
+        base_delay = 12.0
+
+        for attempt in range(max_retries):
+            try:
+                response = await self.client.aio.models.generate_content(
+                    model=self.model_name,
+                    contents=prompt,
+                )
+                return response.text.strip()
+            except Exception as e:
+                error_msg = str(e).lower()
+                is_429 = "429" in error_msg or "rate_limit" in error_msg or "rate limit" in error_msg or "quota" in error_msg
+                is_daily_limit = "daily" in error_msg or "tpd" in error_msg or "quota" in error_msg or "user limit" in error_msg
+                
+                if is_429:
+                    if is_daily_limit:
+                        print(f"🛑 Gemini Günlük/Kalıcı Limit Aşıldı. Circuit breaker devreye giriyor...")
+                        self.quota_exhausted = True
+                        return "AI analysis is temporarily unavailable due to daily API limits."
+                        
+                    if attempt < max_retries - 1:
+                        print(f"⚠️ Gemini 429 Kota Sınırı. {base_delay} sn bekleniyor... (Deneme {attempt + 1}/{max_retries})")
+                        await asyncio.sleep(base_delay)
+                        base_delay *= 1.5
                         continue
                     else:
                         print(f"🛑 Gemini 429 limit denemeleri tükendi. Circuit breaker devreye giriyor...")

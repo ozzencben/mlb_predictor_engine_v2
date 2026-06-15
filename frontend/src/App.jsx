@@ -710,48 +710,69 @@ function App() {
                     />
                 )}
 
-                {activeSport === 'tennis' && (
-                    <TennisDashboard />
-                )}
+                {(activeSport === 'mlb' || activeSport === 'tennis') && (
+                    /* ================= CALENDAR TAPE ================= */
+                    <div className="mb-8 p-1.5 bg-slate-900/40 backdrop-blur-md border border-slate-800/80 rounded-2xl flex items-center justify-between gap-1 overflow-x-auto no-scrollbar scroll-smooth">
+                        {calendarDays.map((day) => {
+                            const isToday = day.offset === 0;
+                            const isSelected = selectedDate === day.dateStr || (selectedDate === null && isToday);
 
-                {activeSport === 'mlb' && (
-                    <>
-                        {/* ================= CALENDAR TAPE ================= */}
-                        <div className="mb-8 p-1.5 bg-slate-900/40 backdrop-blur-md border border-slate-800/80 rounded-2xl flex items-center justify-between gap-1 overflow-x-auto no-scrollbar scroll-smooth">
-                            {calendarDays.map((day) => {
-                                const isToday = day.offset === 0;
-                                const isSelected = selectedDate === day.dateStr || (selectedDate === null && isToday);
+                            let relativeLabel = '';
+                            if (day.offset === -2) relativeLabel = '2 DAYS AGO';
+                            else if (day.offset === -1) relativeLabel = 'YESTERDAY';
+                            else if (day.offset === 0) relativeLabel = 'TODAY';
+                            else if (day.offset === 1) relativeLabel = 'TOMORROW';
+                            else if (day.offset === 2) relativeLabel = '2 DAYS AWAY';
 
-                                let relativeLabel = '';
-                                if (day.offset === -2) relativeLabel = '2 DAYS AGO';
-                                else if (day.offset === -1) relativeLabel = 'YESTERDAY';
-                                else if (day.offset === 0) relativeLabel = 'TODAY';
-                                else if (day.offset === 1) relativeLabel = 'TOMORROW';
-                                else if (day.offset === 2) relativeLabel = '2 DAYS AWAY';
+                            // GÖREV 3: Tenis sekmesinde today dışı tarihler disabled
+                            const isTennisLocked = activeSport === 'tennis' && !isToday;
 
-                                return (
+                            return (
+                                <div key={day.dateStr} className="flex-1 min-w-[90px] md:min-w-[120px] relative group/cal">
                                     <button
-                                        key={day.dateStr}
-                                        onClick={() => setSelectedDate(isToday ? null : day.dateStr)}
-                                        className={`flex-1 min-w-[90px] md:min-w-[120px] py-2 px-3 flex flex-col items-center justify-center rounded-xl transition-all duration-300 relative group cursor-pointer ${isSelected
-                                            ? 'bg-gradient-to-br from-indigo-600/90 to-blue-600/90 text-white font-extrabold shadow-[0_0_15px_rgba(99,102,241,0.4)] border border-indigo-400/40 scale-[1.02]'
-                                            : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40 border border-transparent'
+                                        disabled={isTennisLocked}
+                                        onClick={() => !isTennisLocked && setSelectedDate(isToday ? null : day.dateStr)}
+                                        className={`w-full py-2 px-3 flex flex-col items-center justify-center rounded-xl transition-all duration-300 relative
+                                            ${isTennisLocked
+                                                ? 'opacity-35 cursor-not-allowed text-slate-600 border border-transparent'
+                                                : isSelected
+                                                    ? 'cursor-pointer bg-gradient-to-br from-indigo-600/90 to-blue-600/90 text-white font-extrabold shadow-[0_0_15px_rgba(99,102,241,0.4)] border border-indigo-400/40 scale-[1.02]'
+                                                    : 'cursor-pointer text-slate-400 hover:text-slate-200 hover:bg-slate-800/40 border border-transparent'
                                             }`}
                                     >
-                                        <span className={`text-[9px] md:text-[10px] uppercase font-black tracking-widest ${isSelected ? 'text-cyan-200' : 'text-slate-500 group-hover:text-slate-400'
-                                            }`}>
+                                        <span className={`text-[9px] md:text-[10px] uppercase font-black tracking-widest
+                                            ${isTennisLocked ? 'text-slate-700' : isSelected ? 'text-cyan-200' : 'text-slate-500 group-hover:text-slate-400'}`}>
                                             {relativeLabel}
                                         </span>
                                         <span className="text-xs md:text-sm font-bold mt-0.5">
                                             {formatDateLabel(day.dateStr)}
                                         </span>
-                                        {isSelected && (
-                                            <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)] animate-pulse"></span>
+                                        {isSelected && !isTennisLocked && (
+                                            <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)] animate-pulse" />
                                         )}
                                     </button>
-                                );
-                            })}
-                        </div>
+                                    {/* Tooltip — sadece Tennis disabled butonlarda */}
+                                    {isTennisLocked && (
+                                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-50 pointer-events-none
+                                            opacity-0 group-hover/cal:opacity-100 transition-opacity duration-200">
+                                            <div className="bg-slate-800 border border-slate-700 text-slate-300 text-[9px] font-bold px-2.5 py-1.5 rounded-lg shadow-xl whitespace-nowrap">
+                                                Historical data coming soon
+                                            </div>
+                                            <div className="w-2 h-2 bg-slate-800 border-r border-b border-slate-700 rotate-45 mx-auto -mt-1" />
+                                        </div>
+                                    )}
+                                </div>
+                            );
+                        })}
+                    </div>
+                )}
+
+                {activeSport === 'tennis' && (
+                    <TennisDashboard selectedDate={selectedDate} />
+                )}
+
+                {activeSport === 'mlb' && (
+                    <>
 
                         {/* ================= BACKEND COLD START WARNING ================= */}
                         {loading && isSlowLoading && (

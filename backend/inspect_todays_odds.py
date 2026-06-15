@@ -2,7 +2,7 @@ import json
 import os
 
 def main():
-    data_dir = os.path.join("app", "data")
+    data_dir = os.path.join("app", "sports", "mlb", "data")
     file_path = os.path.join(data_dir, "todays_predictions.json")
     
     if not os.path.exists(file_path):

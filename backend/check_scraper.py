@@ -1,7 +1,7 @@
 import asyncio
 import httpx
 import json
-from app.services.oddlyspecific_scraper import OddlySpecificScraper
+from app.sports.mlb.services.oddlyspecific_scraper import OddlySpecificScraper
 
 async def main():
     async with httpx.AsyncClient() as client:

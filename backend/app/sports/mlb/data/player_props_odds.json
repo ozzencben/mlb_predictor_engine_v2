@@ -1,0 +1,2222 @@
+{
+    "Miami-Philadelphia": {
+        "id": "87cc10ad1f5377b838eb240a510a0f9f",
+        "sport_key": "baseball_mlb",
+        "sport_title": "MLB",
+        "commence_time": "2026-06-15T22:41:00Z",
+        "home_team": "Philadelphia Phillies",
+        "away_team": "Miami Marlins",
+        "bookmakers": [
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "markets": [
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:28Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Zack Wheeler",
+                                "price": 1.98,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Zack Wheeler",
+                                "price": 1.83,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Ryan Gusto",
+                                "price": 2.32,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Ryan Gusto",
+                                "price": 1.62,
+                                "point": 4.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals_1st_1_innings",
+                        "last_update": "2026-06-15T08:29:28Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 2.02,
+                                "point": 0.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.77,
+                                "point": 0.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanatics",
+                "title": "Fanatics",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:29:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Zack Wheeler",
+                                "price": 2.15,
+                                "point": 18.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Zack Wheeler",
+                                "price": 1.61,
+                                "point": 18.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Ryan Gusto",
+                                "price": 1.61,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Ryan Gusto",
+                                "price": 2.25,
+                                "point": 3.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "williamhill_us",
+                "title": "Caesars",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:15:23Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Ryan Gusto",
+                                "price": 2.0,
+                                "point": 14.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Ryan Gusto",
+                                "price": 1.76,
+                                "point": 14.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals_1st_1_innings",
+                        "last_update": "2026-06-15T08:26:34Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 2.0,
+                                "point": 0.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.77,
+                                "point": 0.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:29:38Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Zack Wheeler",
+                                "price": 1.52,
+                                "point": 17.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Zack Wheeler",
+                                "price": 2.42,
+                                "point": 17.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Ryan Gusto",
+                                "price": 1.75,
+                                "point": 13.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Ryan Gusto",
+                                "price": 2.01,
+                                "point": 13.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:38Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Zack Wheeler",
+                                "price": 1.88,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Zack Wheeler",
+                                "price": 1.88,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Ryan Gusto",
+                                "price": 1.61,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Ryan Gusto",
+                                "price": 2.28,
+                                "point": 3.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:28:27Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Ryan Gusto",
+                                "price": 1.71,
+                                "point": 13.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Ryan Gusto",
+                                "price": 2.0,
+                                "point": 13.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Zack Wheeler",
+                                "price": 1.53,
+                                "point": 17.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Zack Wheeler",
+                                "price": 2.45,
+                                "point": 17.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:28:27Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Ryan Gusto",
+                                "price": 2.3,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Ryan Gusto",
+                                "price": 1.59,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Zack Wheeler",
+                                "price": 1.95,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Zack Wheeler",
+                                "price": 1.8,
+                                "point": 6.5
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "Kansas City-Washington": {
+        "id": "fa294eb768832d8c8870b2c0559291c1",
+        "sport_key": "baseball_mlb",
+        "sport_title": "MLB",
+        "commence_time": "2026-06-15T22:46:00Z",
+        "home_team": "Washington Nationals",
+        "away_team": "Kansas City Royals",
+        "bookmakers": [
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "markets": [
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:38Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Andrew Alvarez",
+                                "price": 2.1,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Andrew Alvarez",
+                                "price": 1.75,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Mitch Spence",
+                                "price": 2.34,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Mitch Spence",
+                                "price": 1.61,
+                                "point": 3.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals_1st_1_innings",
+                        "last_update": "2026-06-15T08:29:38Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.85,
+                                "point": 0.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.93,
+                                "point": 0.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanatics",
+                "title": "Fanatics",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:29:38Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Andrew Alvarez",
+                                "price": 2.25,
+                                "point": 15.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Andrew Alvarez",
+                                "price": 1.56,
+                                "point": 15.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:38Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Andrew Alvarez",
+                                "price": 2.1,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Andrew Alvarez",
+                                "price": 1.69,
+                                "point": 4.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:29:27Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Andrew Alvarez",
+                                "price": 2.16,
+                                "point": 15.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Andrew Alvarez",
+                                "price": 1.65,
+                                "point": 15.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:27Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Andrew Alvarez",
+                                "price": 2.06,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Andrew Alvarez",
+                                "price": 1.74,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Mitch Spence",
+                                "price": 2.29,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Mitch Spence",
+                                "price": 1.6,
+                                "point": 3.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "williamhill_us",
+                "title": "Caesars",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:27:18Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Andrew Alvarez",
+                                "price": 2.21,
+                                "point": 15.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Andrew Alvarez",
+                                "price": 1.62,
+                                "point": 15.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals_1st_1_innings",
+                        "last_update": "2026-06-15T08:27:18Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.83,
+                                "point": 0.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 0.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "markets": [
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:28:38Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Mitch Spence",
+                                "price": 2.3,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Mitch Spence",
+                                "price": 1.59,
+                                "point": 3.5
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "NY Mets-Cincinnati": {
+        "id": "6b47a66c52d27dacd1c7bbcd808713c1",
+        "sport_key": "baseball_mlb",
+        "sport_title": "MLB",
+        "commence_time": "2026-06-15T23:11:00Z",
+        "home_team": "Cincinnati Reds",
+        "away_team": "New York Mets",
+        "bookmakers": [
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "markets": [
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:35Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Chase Burns",
+                                "price": 2.06,
+                                "point": 7.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Chase Burns",
+                                "price": 1.77,
+                                "point": 7.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals_1st_1_innings",
+                        "last_update": "2026-06-15T08:29:35Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.94,
+                                "point": 0.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.83,
+                                "point": 0.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanatics",
+                "title": "Fanatics",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:29:26Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Chase Burns",
+                                "price": 1.74,
+                                "point": 17.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Chase Burns",
+                                "price": 1.95,
+                                "point": 17.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:26Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Chase Burns",
+                                "price": 2.0,
+                                "point": 7.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Chase Burns",
+                                "price": 1.77,
+                                "point": 7.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:29:40Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Chase Burns",
+                                "price": 1.92,
+                                "point": 17.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Chase Burns",
+                                "price": 1.82,
+                                "point": 17.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:40Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Chase Burns",
+                                "price": 2.08,
+                                "point": 7.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Chase Burns",
+                                "price": 1.73,
+                                "point": 7.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "williamhill_us",
+                "title": "Caesars",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:26:55Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Chase Burns",
+                                "price": 1.87,
+                                "point": 17.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Chase Burns",
+                                "price": 1.87,
+                                "point": 17.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals_1st_1_innings",
+                        "last_update": "2026-06-15T08:26:55Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 2.0,
+                                "point": 0.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.77,
+                                "point": 0.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:28:34Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Chase Burns",
+                                "price": 1.87,
+                                "point": 17.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Chase Burns",
+                                "price": 1.8,
+                                "point": 17.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:28:34Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Chase Burns",
+                                "price": 2.05,
+                                "point": 7.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Chase Burns",
+                                "price": 1.74,
+                                "point": 7.5
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "San Diego-St Louis": {
+        "id": "6dc67dec6b0c9f4a591f05d0f5912d23",
+        "sport_key": "baseball_mlb",
+        "sport_title": "MLB",
+        "commence_time": "2026-06-15T23:46:00Z",
+        "home_team": "St. Louis Cardinals",
+        "away_team": "San Diego Padres",
+        "bookmakers": [
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "markets": [
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Dustin May",
+                                "price": 1.76,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Dustin May",
+                                "price": 2.08,
+                                "point": 4.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals_1st_1_innings",
+                        "last_update": "2026-06-15T08:29:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.87,
+                                "point": 0.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.88,
+                                "point": 0.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanatics",
+                "title": "Fanatics",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:29:03Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Dustin May",
+                                "price": 1.59,
+                                "point": 17.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Dustin May",
+                                "price": 2.2,
+                                "point": 17.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:03Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Dustin May",
+                                "price": 1.71,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Dustin May",
+                                "price": 2.05,
+                                "point": 4.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:29:16Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Dustin May",
+                                "price": 1.65,
+                                "point": 17.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Dustin May",
+                                "price": 2.17,
+                                "point": 17.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:16Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Dustin May",
+                                "price": 1.68,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Dustin May",
+                                "price": 2.16,
+                                "point": 4.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "williamhill_us",
+                "title": "Caesars",
+                "markets": [
+                    {
+                        "key": "totals_1st_1_innings",
+                        "last_update": "2026-06-15T08:26:54Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.87,
+                                "point": 0.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.87,
+                                "point": 0.5
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "Colorado-Chi Cubs": {
+        "id": "9c2784938a40031b48e75139185e2491",
+        "sport_key": "baseball_mlb",
+        "sport_title": "MLB",
+        "commence_time": "2026-06-16T00:06:00Z",
+        "home_team": "Chicago Cubs",
+        "away_team": "Colorado Rockies",
+        "bookmakers": [
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "markets": [
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:42Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Michael Lorenzen",
+                                "price": 1.57,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Michael Lorenzen",
+                                "price": 2.42,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Shota Imanaga",
+                                "price": 2.12,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Shota Imanaga",
+                                "price": 1.72,
+                                "point": 6.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals_1st_1_innings",
+                        "last_update": "2026-06-15T08:29:42Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.82,
+                                "point": 0.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.96,
+                                "point": 0.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanatics",
+                "title": "Fanatics",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:29:31Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Michael Lorenzen",
+                                "price": 2.35,
+                                "point": 15.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Michael Lorenzen",
+                                "price": 1.51,
+                                "point": 15.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:31Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Shota Imanaga",
+                                "price": 2.15,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Shota Imanaga",
+                                "price": 1.67,
+                                "point": 6.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "williamhill_us",
+                "title": "Caesars",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:26:47Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Shota Imanaga",
+                                "price": 1.57,
+                                "point": 17.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Shota Imanaga",
+                                "price": 2.3,
+                                "point": 17.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Michael Lorenzen",
+                                "price": 2.22,
+                                "point": 15.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Michael Lorenzen",
+                                "price": 1.62,
+                                "point": 15.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals_1st_1_innings",
+                        "last_update": "2026-06-15T08:26:47Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.74,
+                                "point": 0.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 2.05,
+                                "point": 0.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:29:11Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Shota Imanaga",
+                                "price": 1.59,
+                                "point": 17.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Shota Imanaga",
+                                "price": 2.26,
+                                "point": 17.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Michael Lorenzen",
+                                "price": 2.05,
+                                "point": 15.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Michael Lorenzen",
+                                "price": 1.71,
+                                "point": 15.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:11Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Shota Imanaga",
+                                "price": 2.12,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Shota Imanaga",
+                                "price": 1.7,
+                                "point": 6.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Michael Lorenzen",
+                                "price": 2.2,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Michael Lorenzen",
+                                "price": 1.65,
+                                "point": 4.5
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "Minnesota-Texas": {
+        "id": "35d9a6cb5c11499a313b0205abf1c1f9",
+        "sport_key": "baseball_mlb",
+        "sport_title": "MLB",
+        "commence_time": "2026-06-16T00:06:00Z",
+        "home_team": "Texas Rangers",
+        "away_team": "Minnesota Twins",
+        "bookmakers": [
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "markets": [
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:20Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "MacKenzie Gore",
+                                "price": 1.71,
+                                "point": 5.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "MacKenzie Gore",
+                                "price": 2.12,
+                                "point": 5.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals_1st_1_innings",
+                        "last_update": "2026-06-15T08:29:20Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.9,
+                                "point": 0.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.87,
+                                "point": 0.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanatics",
+                "title": "Fanatics",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:28:34Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "MacKenzie Gore",
+                                "price": 1.74,
+                                "point": 16.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "MacKenzie Gore",
+                                "price": 1.95,
+                                "point": 16.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:28:34Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "MacKenzie Gore",
+                                "price": 1.77,
+                                "point": 5.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "MacKenzie Gore",
+                                "price": 2.0,
+                                "point": 5.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "williamhill_us",
+                "title": "Caesars",
+                "markets": [
+                    {
+                        "key": "totals_1st_1_innings",
+                        "last_update": "2026-06-15T08:26:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 0.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.83,
+                                "point": 0.5
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "Detroit-Houston": {
+        "id": "d5349ae869ae1b1c6c38042687a3e57b",
+        "sport_key": "baseball_mlb",
+        "sport_title": "MLB",
+        "commence_time": "2026-06-16T00:11:00Z",
+        "home_team": "Houston Astros",
+        "away_team": "Detroit Tigers",
+        "bookmakers": [
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "markets": [
+                    {
+                        "key": "totals_1st_1_innings",
+                        "last_update": "2026-06-15T08:29:26Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.87,
+                                "point": 0.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.9,
+                                "point": 0.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanatics",
+                "title": "Fanatics",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:29:08Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Troy Melton",
+                                "price": 1.8,
+                                "point": 15.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Troy Melton",
+                                "price": 1.87,
+                                "point": 15.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "williamhill_us",
+                "title": "Caesars",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:26:37Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Troy Melton",
+                                "price": 1.82,
+                                "point": 15.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Troy Melton",
+                                "price": 1.92,
+                                "point": 15.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals_1st_1_innings",
+                        "last_update": "2026-06-15T08:26:37Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.83,
+                                "point": 0.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 0.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:29:26Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Troy Melton",
+                                "price": 1.88,
+                                "point": 15.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Troy Melton",
+                                "price": 1.86,
+                                "point": 15.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:26Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Troy Melton",
+                                "price": 2.08,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Troy Melton",
+                                "price": 1.72,
+                                "point": 4.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:28:06Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Troy Melton",
+                                "price": 1.83,
+                                "point": 15.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Troy Melton",
+                                "price": 1.83,
+                                "point": 15.5
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "LA Angels-Arizona": {
+        "id": "38a1ef501107d0410c8595f25612567d",
+        "sport_key": "baseball_mlb",
+        "sport_title": "MLB",
+        "commence_time": "2026-06-16T01:41:00Z",
+        "home_team": "Arizona Diamondbacks",
+        "away_team": "Los Angeles Angels",
+        "bookmakers": [
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "markets": [
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:53Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Ryne Nelson",
+                                "price": 1.68,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Ryne Nelson",
+                                "price": 2.22,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Walbert Urena",
+                                "price": 2.14,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Walbert Urena",
+                                "price": 1.71,
+                                "point": 4.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals_1st_1_innings",
+                        "last_update": "2026-06-15T08:29:53Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.82,
+                                "point": 0.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.96,
+                                "point": 0.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "williamhill_us",
+                "title": "Caesars",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:27:14Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Ryne Nelson",
+                                "price": 1.94,
+                                "point": 17.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Ryne Nelson",
+                                "price": 1.79,
+                                "point": 17.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Walbert Urena",
+                                "price": 2.05,
+                                "point": 15.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Walbert Urena",
+                                "price": 1.72,
+                                "point": 15.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals_1st_1_innings",
+                        "last_update": "2026-06-15T08:27:14Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.74,
+                                "point": 0.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 2.05,
+                                "point": 0.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanatics",
+                "title": "Fanatics",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:29:45Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Ryne Nelson",
+                                "price": 1.87,
+                                "point": 17.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Ryne Nelson",
+                                "price": 1.8,
+                                "point": 17.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:45Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Ryne Nelson",
+                                "price": 1.67,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Ryne Nelson",
+                                "price": 2.15,
+                                "point": 4.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:29:41Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Ryne Nelson",
+                                "price": 1.99,
+                                "point": 17.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Ryne Nelson",
+                                "price": 1.76,
+                                "point": 17.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Walbert Urena",
+                                "price": 2.05,
+                                "point": 15.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Walbert Urena",
+                                "price": 1.71,
+                                "point": 15.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:41Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Ryne Nelson",
+                                "price": 1.68,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Ryne Nelson",
+                                "price": 2.14,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Walbert Urena",
+                                "price": 2.19,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Walbert Urena",
+                                "price": 1.65,
+                                "point": 4.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:28:16Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Ryne Nelson",
+                                "price": 1.95,
+                                "point": 17.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Ryne Nelson",
+                                "price": 1.74,
+                                "point": 17.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Walbert Urena",
+                                "price": 2.05,
+                                "point": 15.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Walbert Urena",
+                                "price": 1.69,
+                                "point": 15.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:28:16Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Ryne Nelson",
+                                "price": 1.62,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Ryne Nelson",
+                                "price": 2.2,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Walbert Urena",
+                                "price": 2.1,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Walbert Urena",
+                                "price": 1.69,
+                                "point": 4.5
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "Pittsburgh-Athletics": {
+        "id": "8e54fa4eee405d90f575942ad15b1d52",
+        "sport_key": "baseball_mlb",
+        "sport_title": "MLB",
+        "commence_time": "2026-06-16T01:41:00Z",
+        "home_team": "Athletics",
+        "away_team": "Pittsburgh Pirates",
+        "bookmakers": [
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "markets": [
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:26Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "JT Ginn",
+                                "price": 2.0,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "JT Ginn",
+                                "price": 1.82,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Jared Jones",
+                                "price": 1.7,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Jared Jones",
+                                "price": 2.16,
+                                "point": 4.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals_1st_1_innings",
+                        "last_update": "2026-06-15T08:29:26Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.67,
+                                "point": 0.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 2.18,
+                                "point": 0.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "williamhill_us",
+                "title": "Caesars",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:27:11Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "JT Ginn",
+                                "price": 1.93,
+                                "point": 16.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "JT Ginn",
+                                "price": 1.8,
+                                "point": 16.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Jared Jones",
+                                "price": 1.67,
+                                "point": 14.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Jared Jones",
+                                "price": 2.12,
+                                "point": 14.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals_1st_1_innings",
+                        "last_update": "2026-06-15T08:27:11Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.67,
+                                "point": 0.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 2.2,
+                                "point": 0.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:27:57Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "JT Ginn",
+                                "price": 1.91,
+                                "point": 16.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "JT Ginn",
+                                "price": 1.83,
+                                "point": 16.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Jared Jones",
+                                "price": 1.65,
+                                "point": 14.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Jared Jones",
+                                "price": 2.16,
+                                "point": 14.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:27:57Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Jared Jones",
+                                "price": 1.67,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Jared Jones",
+                                "price": 2.17,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "JT Ginn",
+                                "price": 1.98,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "JT Ginn",
+                                "price": 1.8,
+                                "point": 4.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanatics",
+                "title": "Fanatics",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:29:30Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "JT Ginn",
+                                "price": 1.91,
+                                "point": 17.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "JT Ginn",
+                                "price": 1.77,
+                                "point": 17.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:30Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Jared Jones",
+                                "price": 1.69,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Jared Jones",
+                                "price": 2.1,
+                                "point": 4.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:28:11Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "JT Ginn",
+                                "price": 1.87,
+                                "point": 16.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "JT Ginn",
+                                "price": 1.8,
+                                "point": 16.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Jared Jones",
+                                "price": 1.65,
+                                "point": 14.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Jared Jones",
+                                "price": 2.15,
+                                "point": 14.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:28:11Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "JT Ginn",
+                                "price": 1.95,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "JT Ginn",
+                                "price": 1.8,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Jared Jones",
+                                "price": 1.69,
+                                "point": 4.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Jared Jones",
+                                "price": 2.1,
+                                "point": 4.5
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "Tampa Bay-LA Dodgers": {
+        "id": "da125dfa2d7fe97d5836e50dd394db59",
+        "sport_key": "baseball_mlb",
+        "sport_title": "MLB",
+        "commence_time": "2026-06-16T02:11:00Z",
+        "home_team": "Los Angeles Dodgers",
+        "away_team": "Tampa Bay Rays",
+        "bookmakers": [
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "markets": [
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:28Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Eric Lauer",
+                                "price": 1.87,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Eric Lauer",
+                                "price": 1.95,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Nick Martinez",
+                                "price": 1.95,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Nick Martinez",
+                                "price": 1.87,
+                                "point": 3.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals_1st_1_innings",
+                        "last_update": "2026-06-15T08:29:28Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.78,
+                                "point": 0.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 2.0,
+                                "point": 0.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "williamhill_us",
+                "title": "Caesars",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:27:25Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Nick Martinez",
+                                "price": 2.01,
+                                "point": 15.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Nick Martinez",
+                                "price": 1.75,
+                                "point": 15.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals_1st_1_innings",
+                        "last_update": "2026-06-15T08:27:25Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.83,
+                                "point": 0.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 0.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:29:26Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Eric Lauer",
+                                "price": 1.76,
+                                "point": 15.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Eric Lauer",
+                                "price": 2.0,
+                                "point": 15.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Nick Martinez",
+                                "price": 2.09,
+                                "point": 15.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Nick Martinez",
+                                "price": 1.69,
+                                "point": 15.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:29:26Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Eric Lauer",
+                                "price": 1.85,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Eric Lauer",
+                                "price": 1.93,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Nick Martinez",
+                                "price": 1.96,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Nick Martinez",
+                                "price": 1.82,
+                                "point": 3.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanatics",
+                "title": "Fanatics",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:28:28Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Nick Martinez",
+                                "price": 1.87,
+                                "point": 15.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Nick Martinez",
+                                "price": 1.8,
+                                "point": 15.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:28:28Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Eric Lauer",
+                                "price": 1.83,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Eric Lauer",
+                                "price": 1.91,
+                                "point": 3.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "markets": [
+                    {
+                        "key": "pitcher_outs",
+                        "last_update": "2026-06-15T08:28:18Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Eric Lauer",
+                                "price": 1.71,
+                                "point": 15.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Eric Lauer",
+                                "price": 2.0,
+                                "point": 15.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Nick Martinez",
+                                "price": 2.1,
+                                "point": 15.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Nick Martinez",
+                                "price": 1.67,
+                                "point": 15.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "pitcher_strikeouts",
+                        "last_update": "2026-06-15T08:28:18Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "description": "Eric Lauer",
+                                "price": 1.83,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Eric Lauer",
+                                "price": 1.91,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Over",
+                                "description": "Nick Martinez",
+                                "price": 1.91,
+                                "point": 3.5
+                            },
+                            {
+                                "name": "Under",
+                                "description": "Nick Martinez",
+                                "price": 1.83,
+                                "point": 3.5
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

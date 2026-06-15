@@ -1,0 +1,1840 @@
+{
+    "date": "2026-06-14",
+    "total_games": 14,
+    "consensus_edges": {
+        "ml": {
+            "away_team": "Miami",
+            "home_team": "Pittsburgh",
+            "choice": "MIA ML",
+            "edge": 0.0,
+            "prob": 0.606
+        },
+        "spread": {
+            "away_team": "Philadelphia",
+            "home_team": "Milwaukee",
+            "choice": "MIL -1.5",
+            "prob": 0.6083418808463947
+        },
+        "total": {
+            "away_team": "Houston",
+            "home_team": "Kansas City",
+            "choice": "OVER 8.5",
+            "gap": 3.0999999999999996,
+            "modelTotal": 11.6
+        },
+        "most_confident_ml": [
+            {
+                "away_team": "Philadelphia",
+                "home_team": "Milwaukee",
+                "team": "Milwaukee",
+                "choice": "MIL ML",
+                "prob": 0.758,
+                "edge": 0.0
+            },
+            {
+                "away_team": "Texas",
+                "home_team": "Boston",
+                "team": "Boston",
+                "choice": "BOS ML",
+                "prob": 0.734,
+                "edge": 0.0
+            }
+        ],
+        "team_totals": [
+            {
+                "away_team": "Texas",
+                "home_team": "Boston",
+                "team": "Boston",
+                "projected_runs": 6.1,
+                "confidence": 0.734
+            },
+            {
+                "away_team": "St Louis",
+                "home_team": "Minnesota",
+                "team": "Minnesota",
+                "projected_runs": 5.9,
+                "confidence": 0.631
+            }
+        ]
+    },
+    "predictions": [
+        {
+            "matchup": {
+                "away_team": "Miami",
+                "home_team": "Pittsburgh",
+                "away_pitcher": "Max Meyer",
+                "home_pitcher": "Paul Skenes",
+                "game_time": "12:15 PM ET",
+                "away_stats": {},
+                "home_stats": {},
+                "status": "Final"
+            },
+            "NRFI": {
+                "nrfi_score": 0.6519,
+                "yrfi_score": 0.4689,
+                "confidence": 0.6519,
+                "pick": "NRFI",
+                "scraped_trends": {
+                    "away_pitcher": {
+                        "season_nrfi_pct": 63.2,
+                        "location_nrfi_pct": 100.0,
+                        "last10_nrfi_pct": 60.0,
+                        "streak_score": 0,
+                        "season_record": "12-7",
+                        "location_record": "5-0",
+                        "last10_record": "6-4",
+                        "streak_emoji": ""
+                    },
+                    "home_pitcher": {
+                        "season_nrfi_pct": 78.8,
+                        "location_nrfi_pct": 83.9,
+                        "last10_nrfi_pct": 70.0,
+                        "streak_score": 2,
+                        "season_record": "26-7",
+                        "location_record": "120-23",
+                        "last10_record": "7-3",
+                        "streak_emoji": "✅"
+                    },
+                    "away_team_nrfi": {
+                        "season_nrfi_pct": 48.6,
+                        "location_nrfi_pct": 48.4,
+                        "last10_nrfi_pct": 60.0,
+                        "streak_score": -1,
+                        "season_record": "34-36",
+                        "location_record": "15-16",
+                        "last10_record": "6-4",
+                        "streak_emoji": "⚠️"
+                    },
+                    "home_team_nrfi": {
+                        "season_nrfi_pct": 49.3,
+                        "location_nrfi_pct": 47.2,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 1,
+                        "season_record": "34-35",
+                        "location_record": "17-19",
+                        "last10_record": "5-5",
+                        "streak_emoji": "✅"
+                    },
+                    "is_fallback": false
+                }
+            },
+            "F5": {
+                "f5_away_score": 2.4,
+                "f5_home_score": 1.9,
+                "f5_total": 4.3,
+                "f5_away_win_prob": 0.605,
+                "f5_home_win_prob": 0.395,
+                "f5_spread_adv": -1.0
+            },
+            "Full_Game": {
+                "full_away_score": 4.3,
+                "full_home_score": 3.4,
+                "full_total": 7.7,
+                "full_away_win_prob": 0.606,
+                "full_home_win_prob": 0.394,
+                "full_spread_adv": -0.6,
+                "home_cover_minus_1_5_prob": 27.4,
+                "home_cover_plus_1_5_prob": 56.0,
+                "away_cover_minus_1_5_prob": 44.0,
+                "away_cover_plus_1_5_prob": 72.6
+            },
+            "Details": {
+                "ai_insight": "AI Analysis is closed for completed matches."
+            },
+            "Odds": {
+                "best_away_odds": 1.91,
+                "best_home_odds": 1.91,
+                "over_under": 8.5,
+                "away_edge_pct": 0,
+                "home_edge_pct": 0,
+                "away_book": "Bovada",
+                "home_book": "Bovada",
+                "f5_away_odds": 1.91,
+                "f5_home_odds": 1.91,
+                "f5_away_edge_pct": 0,
+                "f5_home_edge_pct": 0,
+                "nrfi_odds": 1.85,
+                "yrfi_odds": 1.95,
+                "nrfi_edge_pct": 0,
+                "yrfi_edge_pct": 0,
+                "bookmakers": []
+            },
+            "History": {
+                "away_l10": [],
+                "home_l10": [],
+                "h2h": []
+            },
+            "Weather": {
+                "temp": 72,
+                "humidity": 50,
+                "wind_speed": 0,
+                "wind_bearing": 0,
+                "wind_direction": "calm",
+                "condition": "Dome / Standard"
+            },
+            "result": {
+                "status": "Final",
+                "away_actual_score": 4,
+                "home_actual_score": 2,
+                "total_actual_runs": 6,
+                "winner_actual": "away",
+                "is_nrfi_successful": true,
+                "ml_correct": true,
+                "total_correct": true,
+                "spread_correct": true,
+                "nrfi_correct": true
+            }
+        },
+        {
+            "matchup": {
+                "away_team": "San Diego",
+                "home_team": "Baltimore",
+                "away_pitcher": "Walker Buehler",
+                "home_pitcher": "Trevor Rogers",
+                "game_time": "1:35 PM ET",
+                "away_stats": {},
+                "home_stats": {},
+                "status": "Final"
+            },
+            "NRFI": {
+                "nrfi_score": 0.6493,
+                "yrfi_score": 0.5064,
+                "confidence": 0.6493,
+                "pick": "NRFI",
+                "scraped_trends": {
+                    "away_pitcher": {
+                        "season_nrfi_pct": 50.0,
+                        "location_nrfi_pct": 50.0,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 0,
+                        "season_record": "0-0",
+                        "location_record": "0-0",
+                        "last10_record": "0-0",
+                        "streak_emoji": ""
+                    },
+                    "home_pitcher": {
+                        "season_nrfi_pct": 63.9,
+                        "location_nrfi_pct": 75.0,
+                        "last10_nrfi_pct": 60.0,
+                        "streak_score": 3,
+                        "season_record": "23-13",
+                        "location_record": "27-9",
+                        "last10_record": "6-4",
+                        "streak_emoji": "✅"
+                    },
+                    "away_team_nrfi": {
+                        "season_nrfi_pct": 64.7,
+                        "location_nrfi_pct": 71.0,
+                        "last10_nrfi_pct": 60.0,
+                        "streak_score": -3,
+                        "season_record": "44-24",
+                        "location_record": "22-9",
+                        "last10_record": "6-4",
+                        "streak_emoji": "⚠️"
+                    },
+                    "home_team_nrfi": {
+                        "season_nrfi_pct": 53.7,
+                        "location_nrfi_pct": 54.3,
+                        "last10_nrfi_pct": 40.0,
+                        "streak_score": -4,
+                        "season_record": "36-31",
+                        "location_record": "19-16",
+                        "last10_record": "4-6",
+                        "streak_emoji": "⚠️"
+                    },
+                    "is_fallback": false
+                }
+            },
+            "F5": {
+                "f5_away_score": 2.5,
+                "f5_home_score": 2.4,
+                "f5_total": 4.9,
+                "f5_away_win_prob": 0.519,
+                "f5_home_win_prob": 0.481,
+                "f5_spread_adv": -1.4
+            },
+            "Full_Game": {
+                "full_away_score": 4.3,
+                "full_home_score": 4.0,
+                "full_total": 8.3,
+                "full_away_win_prob": 0.533,
+                "full_home_win_prob": 0.467,
+                "full_spread_adv": -1.2,
+                "home_cover_minus_1_5_prob": 32.6,
+                "home_cover_plus_1_5_prob": 61.8,
+                "away_cover_minus_1_5_prob": 38.2,
+                "away_cover_plus_1_5_prob": 67.4
+            },
+            "Details": {
+                "ai_insight": "AI Analysis is closed for completed matches."
+            },
+            "Odds": {
+                "best_away_odds": 1.91,
+                "best_home_odds": 1.91,
+                "over_under": 8.5,
+                "away_edge_pct": 0,
+                "home_edge_pct": 0,
+                "away_book": "Bovada",
+                "home_book": "Bovada",
+                "f5_away_odds": 1.91,
+                "f5_home_odds": 1.91,
+                "f5_away_edge_pct": 0,
+                "f5_home_edge_pct": 0,
+                "nrfi_odds": 1.85,
+                "yrfi_odds": 1.95,
+                "nrfi_edge_pct": 0,
+                "yrfi_edge_pct": 0,
+                "bookmakers": []
+            },
+            "History": {
+                "away_l10": [],
+                "home_l10": [],
+                "h2h": []
+            },
+            "Weather": {
+                "temp": 72,
+                "humidity": 50,
+                "wind_speed": 0,
+                "wind_bearing": 0,
+                "wind_direction": "calm",
+                "condition": "Dome / Standard"
+            },
+            "result": {
+                "status": "Final",
+                "away_actual_score": 5,
+                "home_actual_score": 2,
+                "total_actual_runs": 7,
+                "winner_actual": "away",
+                "is_nrfi_successful": true,
+                "ml_correct": true,
+                "total_correct": true,
+                "spread_correct": true,
+                "nrfi_correct": true
+            }
+        },
+        {
+            "matchup": {
+                "away_team": "Seattle",
+                "home_team": "Washington",
+                "away_pitcher": "Emerson Hancock",
+                "home_pitcher": "PJ Poulin",
+                "game_time": "1:35 PM ET",
+                "away_stats": {},
+                "home_stats": {},
+                "status": "Final"
+            },
+            "NRFI": {
+                "nrfi_score": 0.6431,
+                "yrfi_score": 0.5461,
+                "confidence": 0.6431,
+                "pick": "NRFI",
+                "scraped_trends": {
+                    "away_pitcher": {
+                        "season_nrfi_pct": 62.5,
+                        "location_nrfi_pct": 76.5,
+                        "last10_nrfi_pct": 60.0,
+                        "streak_score": -2,
+                        "season_record": "5-3",
+                        "location_record": "13-4",
+                        "last10_record": "6-4",
+                        "streak_emoji": "⚠️"
+                    },
+                    "home_pitcher": {
+                        "season_nrfi_pct": 85.7,
+                        "location_nrfi_pct": 100.0,
+                        "last10_nrfi_pct": 85.7,
+                        "streak_score": 3,
+                        "season_record": "6-1",
+                        "location_record": "3-0",
+                        "last10_record": "6-1",
+                        "streak_emoji": "✅"
+                    },
+                    "away_team_nrfi": {
+                        "season_nrfi_pct": 51.4,
+                        "location_nrfi_pct": 44.1,
+                        "last10_nrfi_pct": 40.0,
+                        "streak_score": 1,
+                        "season_record": "36-34",
+                        "location_record": "15-19",
+                        "last10_record": "4-6",
+                        "streak_emoji": "✅"
+                    },
+                    "home_team_nrfi": {
+                        "season_nrfi_pct": 51.4,
+                        "location_nrfi_pct": 47.1,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": -1,
+                        "season_record": "36-34",
+                        "location_record": "16-18",
+                        "last10_record": "5-5",
+                        "streak_emoji": "⚠️"
+                    },
+                    "is_fallback": false
+                }
+            },
+            "F5": {
+                "f5_away_score": 2.4,
+                "f5_home_score": 3.3,
+                "f5_total": 5.7,
+                "f5_away_win_prob": 0.358,
+                "f5_home_win_prob": 0.642,
+                "f5_spread_adv": -0.6
+            },
+            "Full_Game": {
+                "full_away_score": 4.6,
+                "full_home_score": 5.8,
+                "full_total": 10.4,
+                "full_away_win_prob": 0.396,
+                "full_home_win_prob": 0.604,
+                "full_spread_adv": -0.3,
+                "home_cover_minus_1_5_prob": 47.0,
+                "home_cover_plus_1_5_prob": 75.0,
+                "away_cover_minus_1_5_prob": 25.0,
+                "away_cover_plus_1_5_prob": 53.0
+            },
+            "Details": {
+                "ai_insight": "AI Analysis is closed for completed matches."
+            },
+            "Odds": {
+                "best_away_odds": 1.91,
+                "best_home_odds": 1.91,
+                "over_under": 8.5,
+                "away_edge_pct": 0,
+                "home_edge_pct": 0,
+                "away_book": "Bovada",
+                "home_book": "Bovada",
+                "f5_away_odds": 1.91,
+                "f5_home_odds": 1.91,
+                "f5_away_edge_pct": 0,
+                "f5_home_edge_pct": 0,
+                "nrfi_odds": 1.85,
+                "yrfi_odds": 1.95,
+                "nrfi_edge_pct": 0,
+                "yrfi_edge_pct": 0,
+                "bookmakers": []
+            },
+            "History": {
+                "away_l10": [],
+                "home_l10": [],
+                "h2h": []
+            },
+            "Weather": {
+                "temp": 72,
+                "humidity": 50,
+                "wind_speed": 0,
+                "wind_bearing": 0,
+                "wind_direction": "calm",
+                "condition": "Dome / Standard"
+            },
+            "result": {
+                "status": "Final",
+                "away_actual_score": 1,
+                "home_actual_score": 10,
+                "total_actual_runs": 11,
+                "winner_actual": "home",
+                "is_nrfi_successful": false,
+                "ml_correct": true,
+                "total_correct": true,
+                "spread_correct": false,
+                "nrfi_correct": false
+            }
+        },
+        {
+            "matchup": {
+                "away_team": "NY Yankees",
+                "home_team": "Toronto",
+                "away_pitcher": "Will Warren",
+                "home_pitcher": "Patrick Corbin",
+                "game_time": "1:37 PM ET",
+                "away_stats": {},
+                "home_stats": {},
+                "status": "Final"
+            },
+            "NRFI": {
+                "nrfi_score": 0.605,
+                "yrfi_score": 0.5245,
+                "confidence": 0.605,
+                "pick": "NRFI",
+                "scraped_trends": {
+                    "away_pitcher": {
+                        "season_nrfi_pct": 50.0,
+                        "location_nrfi_pct": 50.0,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 0,
+                        "season_record": "0-0",
+                        "location_record": "0-0",
+                        "last10_record": "0-0",
+                        "streak_emoji": ""
+                    },
+                    "home_pitcher": {
+                        "season_nrfi_pct": 50.0,
+                        "location_nrfi_pct": 50.0,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 0,
+                        "season_record": "0-0",
+                        "location_record": "0-0",
+                        "last10_record": "0-0",
+                        "streak_emoji": ""
+                    },
+                    "away_team_nrfi": {
+                        "season_nrfi_pct": 50.0,
+                        "location_nrfi_pct": 50.0,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 0,
+                        "season_record": "0-0",
+                        "location_record": "0-0",
+                        "last10_record": "0-0",
+                        "streak_emoji": ""
+                    },
+                    "home_team_nrfi": {
+                        "season_nrfi_pct": 50.0,
+                        "location_nrfi_pct": 50.0,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 0,
+                        "season_record": "0-0",
+                        "location_record": "0-0",
+                        "last10_record": "0-0",
+                        "streak_emoji": ""
+                    },
+                    "is_fallback": true
+                }
+            },
+            "F5": {
+                "f5_away_score": 3.0,
+                "f5_home_score": 2.2,
+                "f5_total": 5.2,
+                "f5_away_win_prob": 0.638,
+                "f5_home_win_prob": 0.362,
+                "f5_spread_adv": -0.7
+            },
+            "Full_Game": {
+                "full_away_score": 5.2,
+                "full_home_score": 3.9,
+                "full_total": 9.1,
+                "full_away_win_prob": 0.629,
+                "full_home_win_prob": 0.371,
+                "full_spread_adv": -0.2,
+                "home_cover_minus_1_5_prob": 24.2,
+                "home_cover_plus_1_5_prob": 52.0,
+                "away_cover_minus_1_5_prob": 48.0,
+                "away_cover_plus_1_5_prob": 75.8
+            },
+            "Details": {
+                "ai_insight": "AI Analysis is closed for completed matches."
+            },
+            "Odds": {
+                "best_away_odds": 1.91,
+                "best_home_odds": 1.91,
+                "over_under": 8.5,
+                "away_edge_pct": 0,
+                "home_edge_pct": 0,
+                "away_book": "Bovada",
+                "home_book": "Bovada",
+                "f5_away_odds": 1.91,
+                "f5_home_odds": 1.91,
+                "f5_away_edge_pct": 0,
+                "f5_home_edge_pct": 0,
+                "nrfi_odds": 1.85,
+                "yrfi_odds": 1.95,
+                "nrfi_edge_pct": 0,
+                "yrfi_edge_pct": 0,
+                "bookmakers": []
+            },
+            "History": {
+                "away_l10": [],
+                "home_l10": [],
+                "h2h": []
+            },
+            "Weather": {
+                "temp": 72,
+                "humidity": 50,
+                "wind_speed": 0,
+                "wind_bearing": 0,
+                "wind_direction": "calm",
+                "condition": "Dome / Standard"
+            },
+            "result": {
+                "status": "Final",
+                "away_actual_score": 8,
+                "home_actual_score": 3,
+                "total_actual_runs": 11,
+                "winner_actual": "away",
+                "is_nrfi_successful": true,
+                "ml_correct": true,
+                "total_correct": true,
+                "spread_correct": true,
+                "nrfi_correct": true
+            }
+        },
+        {
+            "matchup": {
+                "away_team": "Arizona",
+                "home_team": "Cincinnati",
+                "away_pitcher": "Zac Gallen",
+                "home_pitcher": "Andrew Abbott",
+                "game_time": "1:40 PM ET",
+                "away_stats": {},
+                "home_stats": {},
+                "status": "Final"
+            },
+            "NRFI": {
+                "nrfi_score": 0.6668,
+                "yrfi_score": 0.4344,
+                "confidence": 0.6668,
+                "pick": "NRFI",
+                "scraped_trends": {
+                    "away_pitcher": {
+                        "season_nrfi_pct": 75.0,
+                        "location_nrfi_pct": 72.2,
+                        "last10_nrfi_pct": 80.0,
+                        "streak_score": 3,
+                        "season_record": "6-2",
+                        "location_record": "13-5",
+                        "last10_record": "8-2",
+                        "streak_emoji": "✅"
+                    },
+                    "home_pitcher": {
+                        "season_nrfi_pct": 85.7,
+                        "location_nrfi_pct": 81.8,
+                        "last10_nrfi_pct": 90.0,
+                        "streak_score": 0,
+                        "season_record": "18-3",
+                        "location_record": "9-2",
+                        "last10_record": "9-1",
+                        "streak_emoji": ""
+                    },
+                    "away_team_nrfi": {
+                        "season_nrfi_pct": 50.7,
+                        "location_nrfi_pct": 57.1,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 1,
+                        "season_record": "35-34",
+                        "location_record": "20-15",
+                        "last10_record": "5-5",
+                        "streak_emoji": "✅"
+                    },
+                    "home_team_nrfi": {
+                        "season_nrfi_pct": 50.0,
+                        "location_nrfi_pct": 52.9,
+                        "last10_nrfi_pct": 60.0,
+                        "streak_score": -1,
+                        "season_record": "34-34",
+                        "location_record": "18-16",
+                        "last10_record": "6-4",
+                        "streak_emoji": "⚠️"
+                    },
+                    "is_fallback": false
+                }
+            },
+            "F5": {
+                "f5_away_score": 2.0,
+                "f5_home_score": 1.8,
+                "f5_total": 3.8,
+                "f5_away_win_prob": 0.548,
+                "f5_home_win_prob": 0.452,
+                "f5_spread_adv": -1.3
+            },
+            "Full_Game": {
+                "full_away_score": 3.9,
+                "full_home_score": 3.3,
+                "full_total": 7.2,
+                "full_away_win_prob": 0.576,
+                "full_home_win_prob": 0.424,
+                "full_spread_adv": -0.9,
+                "home_cover_minus_1_5_prob": 30.0,
+                "home_cover_plus_1_5_prob": 58.9,
+                "away_cover_minus_1_5_prob": 41.1,
+                "away_cover_plus_1_5_prob": 70.0
+            },
+            "Details": {
+                "ai_insight": "AI Analysis is closed for completed matches."
+            },
+            "Odds": {
+                "best_away_odds": 1.91,
+                "best_home_odds": 1.91,
+                "over_under": 8.5,
+                "away_edge_pct": 0,
+                "home_edge_pct": 0,
+                "away_book": "Bovada",
+                "home_book": "Bovada",
+                "f5_away_odds": 1.91,
+                "f5_home_odds": 1.91,
+                "f5_away_edge_pct": 0,
+                "f5_home_edge_pct": 0,
+                "nrfi_odds": 1.85,
+                "yrfi_odds": 1.95,
+                "nrfi_edge_pct": 0,
+                "yrfi_edge_pct": 0,
+                "bookmakers": []
+            },
+            "History": {
+                "away_l10": [],
+                "home_l10": [],
+                "h2h": []
+            },
+            "Weather": {
+                "temp": 72,
+                "humidity": 50,
+                "wind_speed": 0,
+                "wind_bearing": 0,
+                "wind_direction": "calm",
+                "condition": "Dome / Standard"
+            },
+            "result": {
+                "status": "Final",
+                "away_actual_score": 5,
+                "home_actual_score": 3,
+                "total_actual_runs": 8,
+                "winner_actual": "away",
+                "is_nrfi_successful": false,
+                "ml_correct": true,
+                "total_correct": true,
+                "spread_correct": true,
+                "nrfi_correct": false
+            }
+        },
+        {
+            "matchup": {
+                "away_team": "Atlanta",
+                "home_team": "NY Mets",
+                "away_pitcher": "Bryce Elder",
+                "home_pitcher": "Freddy Peralta",
+                "game_time": "1:40 PM ET",
+                "away_stats": {},
+                "home_stats": {},
+                "status": "Final"
+            },
+            "NRFI": {
+                "nrfi_score": 0.6075,
+                "yrfi_score": 0.5029,
+                "confidence": 0.6075,
+                "pick": "NRFI",
+                "scraped_trends": {
+                    "away_pitcher": {
+                        "season_nrfi_pct": 50.0,
+                        "location_nrfi_pct": 50.0,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 0,
+                        "season_record": "0-0",
+                        "location_record": "0-0",
+                        "last10_record": "0-0",
+                        "streak_emoji": ""
+                    },
+                    "home_pitcher": {
+                        "season_nrfi_pct": 50.0,
+                        "location_nrfi_pct": 50.0,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 0,
+                        "season_record": "0-0",
+                        "location_record": "0-0",
+                        "last10_record": "0-0",
+                        "streak_emoji": ""
+                    },
+                    "away_team_nrfi": {
+                        "season_nrfi_pct": 50.0,
+                        "location_nrfi_pct": 50.0,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 0,
+                        "season_record": "0-0",
+                        "location_record": "0-0",
+                        "last10_record": "0-0",
+                        "streak_emoji": ""
+                    },
+                    "home_team_nrfi": {
+                        "season_nrfi_pct": 50.0,
+                        "location_nrfi_pct": 50.0,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 0,
+                        "season_record": "0-0",
+                        "location_record": "0-0",
+                        "last10_record": "0-0",
+                        "streak_emoji": ""
+                    },
+                    "is_fallback": true
+                }
+            },
+            "F5": {
+                "f5_away_score": 2.0,
+                "f5_home_score": 2.6,
+                "f5_total": 4.6,
+                "f5_away_win_prob": 0.382,
+                "f5_home_win_prob": 0.618,
+                "f5_spread_adv": -0.9
+            },
+            "Full_Game": {
+                "full_away_score": 3.4,
+                "full_home_score": 4.2,
+                "full_total": 7.6,
+                "full_away_win_prob": 0.405,
+                "full_home_win_prob": 0.595,
+                "full_spread_adv": -0.7,
+                "home_cover_minus_1_5_prob": 43.1,
+                "home_cover_plus_1_5_prob": 71.7,
+                "away_cover_minus_1_5_prob": 28.3,
+                "away_cover_plus_1_5_prob": 56.9
+            },
+            "Details": {
+                "ai_insight": "AI Analysis is closed for completed matches."
+            },
+            "Odds": {
+                "best_away_odds": 1.91,
+                "best_home_odds": 1.91,
+                "over_under": 8.5,
+                "away_edge_pct": 0,
+                "home_edge_pct": 0,
+                "away_book": "Bovada",
+                "home_book": "Bovada",
+                "f5_away_odds": 1.91,
+                "f5_home_odds": 1.91,
+                "f5_away_edge_pct": 0,
+                "f5_home_edge_pct": 0,
+                "nrfi_odds": 1.85,
+                "yrfi_odds": 1.95,
+                "nrfi_edge_pct": 0,
+                "yrfi_edge_pct": 0,
+                "bookmakers": []
+            },
+            "History": {
+                "away_l10": [],
+                "home_l10": [],
+                "h2h": []
+            },
+            "Weather": {
+                "temp": 72,
+                "humidity": 50,
+                "wind_speed": 0,
+                "wind_bearing": 0,
+                "wind_direction": "calm",
+                "condition": "Dome / Standard"
+            },
+            "result": {
+                "status": "Final",
+                "away_actual_score": 1,
+                "home_actual_score": 8,
+                "total_actual_runs": 9,
+                "winner_actual": "home",
+                "is_nrfi_successful": false,
+                "ml_correct": true,
+                "total_correct": false,
+                "spread_correct": false,
+                "nrfi_correct": false
+            }
+        },
+        {
+            "matchup": {
+                "away_team": "Houston",
+                "home_team": "Kansas City",
+                "away_pitcher": "Spencer Arrighetti",
+                "home_pitcher": "Stephen Kolek",
+                "game_time": "2:10 PM ET",
+                "away_stats": {},
+                "home_stats": {},
+                "status": "Final"
+            },
+            "NRFI": {
+                "nrfi_score": 0.6459,
+                "yrfi_score": 0.5611,
+                "confidence": 0.6459,
+                "pick": "NRFI",
+                "scraped_trends": {
+                    "away_pitcher": {
+                        "season_nrfi_pct": 62.5,
+                        "location_nrfi_pct": 76.5,
+                        "last10_nrfi_pct": 60.0,
+                        "streak_score": -2,
+                        "season_record": "5-3",
+                        "location_record": "13-4",
+                        "last10_record": "6-4",
+                        "streak_emoji": "⚠️"
+                    },
+                    "home_pitcher": {
+                        "season_nrfi_pct": 85.7,
+                        "location_nrfi_pct": 100.0,
+                        "last10_nrfi_pct": 85.7,
+                        "streak_score": 3,
+                        "season_record": "6-1",
+                        "location_record": "3-0",
+                        "last10_record": "6-1",
+                        "streak_emoji": "✅"
+                    },
+                    "away_team_nrfi": {
+                        "season_nrfi_pct": 51.4,
+                        "location_nrfi_pct": 44.1,
+                        "last10_nrfi_pct": 40.0,
+                        "streak_score": 1,
+                        "season_record": "36-34",
+                        "location_record": "15-19",
+                        "last10_record": "4-6",
+                        "streak_emoji": "✅"
+                    },
+                    "home_team_nrfi": {
+                        "season_nrfi_pct": 51.4,
+                        "location_nrfi_pct": 47.1,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": -1,
+                        "season_record": "36-34",
+                        "location_record": "16-18",
+                        "last10_record": "5-5",
+                        "streak_emoji": "⚠️"
+                    },
+                    "is_fallback": false
+                }
+            },
+            "F5": {
+                "f5_away_score": 3.1,
+                "f5_home_score": 3.1,
+                "f5_total": 6.2,
+                "f5_away_win_prob": 0.5,
+                "f5_home_win_prob": 0.5,
+                "f5_spread_adv": -1.5
+            },
+            "Full_Game": {
+                "full_away_score": 5.8,
+                "full_home_score": 5.8,
+                "full_total": 11.6,
+                "full_away_win_prob": 0.5,
+                "full_home_win_prob": 0.5,
+                "full_spread_adv": -1.5,
+                "home_cover_minus_1_5_prob": 35.4,
+                "home_cover_plus_1_5_prob": 64.6,
+                "away_cover_minus_1_5_prob": 35.4,
+                "away_cover_plus_1_5_prob": 64.6
+            },
+            "Details": {
+                "ai_insight": "AI Analysis is closed for completed matches."
+            },
+            "Odds": {
+                "best_away_odds": 1.91,
+                "best_home_odds": 1.91,
+                "over_under": 8.5,
+                "away_edge_pct": 0,
+                "home_edge_pct": 0,
+                "away_book": "Bovada",
+                "home_book": "Bovada",
+                "f5_away_odds": 1.91,
+                "f5_home_odds": 1.91,
+                "f5_away_edge_pct": 0,
+                "f5_home_edge_pct": 0,
+                "nrfi_odds": 1.85,
+                "yrfi_odds": 1.95,
+                "nrfi_edge_pct": 0,
+                "yrfi_edge_pct": 0,
+                "bookmakers": []
+            },
+            "History": {
+                "away_l10": [],
+                "home_l10": [],
+                "h2h": []
+            },
+            "Weather": {
+                "temp": 72,
+                "humidity": 50,
+                "wind_speed": 0,
+                "wind_bearing": 0,
+                "wind_direction": "calm",
+                "condition": "Dome / Standard"
+            },
+            "result": {
+                "status": "Final",
+                "away_actual_score": 0,
+                "home_actual_score": 4,
+                "total_actual_runs": 4,
+                "winner_actual": "home",
+                "is_nrfi_successful": false,
+                "ml_correct": true,
+                "total_correct": false,
+                "spread_correct": false,
+                "nrfi_correct": false
+            }
+        },
+        {
+            "matchup": {
+                "away_team": "St Louis",
+                "home_team": "Minnesota",
+                "away_pitcher": "Michael McGreevy",
+                "home_pitcher": "Taj Bradley",
+                "game_time": "2:10 PM ET",
+                "away_stats": {},
+                "home_stats": {},
+                "status": "Final"
+            },
+            "NRFI": {
+                "nrfi_score": 0.6177,
+                "yrfi_score": 0.5774,
+                "confidence": 0.6177,
+                "pick": "NRFI",
+                "scraped_trends": {
+                    "away_pitcher": {
+                        "season_nrfi_pct": 50.0,
+                        "location_nrfi_pct": 50.0,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 0,
+                        "season_record": "0-0",
+                        "location_record": "0-0",
+                        "last10_record": "0-0",
+                        "streak_emoji": ""
+                    },
+                    "home_pitcher": {
+                        "season_nrfi_pct": 63.6,
+                        "location_nrfi_pct": 76.8,
+                        "last10_nrfi_pct": 60.0,
+                        "streak_score": 0,
+                        "season_record": "28-16",
+                        "location_record": "43-13",
+                        "last10_record": "6-4",
+                        "streak_emoji": ""
+                    },
+                    "away_team_nrfi": {
+                        "season_nrfi_pct": 46.5,
+                        "location_nrfi_pct": 45.5,
+                        "last10_nrfi_pct": 20.0,
+                        "streak_score": -3,
+                        "season_record": "33-38",
+                        "location_record": "15-18",
+                        "last10_record": "2-8",
+                        "streak_emoji": "⚠️"
+                    },
+                    "home_team_nrfi": {
+                        "season_nrfi_pct": 36.2,
+                        "location_nrfi_pct": 36.7,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 1,
+                        "season_record": "25-44",
+                        "location_record": "11-19",
+                        "last10_record": "5-5",
+                        "streak_emoji": "✅"
+                    },
+                    "is_fallback": false
+                }
+            },
+            "F5": {
+                "f5_away_score": 2.4,
+                "f5_home_score": 3.3,
+                "f5_total": 5.7,
+                "f5_away_win_prob": 0.358,
+                "f5_home_win_prob": 0.642,
+                "f5_spread_adv": -0.6
+            },
+            "Full_Game": {
+                "full_away_score": 4.4,
+                "full_home_score": 5.9,
+                "full_total": 10.3,
+                "full_away_win_prob": 0.369,
+                "full_home_win_prob": 0.631,
+                "full_spread_adv": 0.0,
+                "home_cover_minus_1_5_prob": 50.0,
+                "home_cover_plus_1_5_prob": 77.3,
+                "away_cover_minus_1_5_prob": 22.7,
+                "away_cover_plus_1_5_prob": 50.0
+            },
+            "Details": {
+                "ai_insight": "AI Analysis is closed for completed matches."
+            },
+            "Odds": {
+                "best_away_odds": 1.91,
+                "best_home_odds": 1.91,
+                "over_under": 8.5,
+                "away_edge_pct": 0,
+                "home_edge_pct": 0,
+                "away_book": "Bovada",
+                "home_book": "Bovada",
+                "f5_away_odds": 1.91,
+                "f5_home_odds": 1.91,
+                "f5_away_edge_pct": 0,
+                "f5_home_edge_pct": 0,
+                "nrfi_odds": 1.85,
+                "yrfi_odds": 1.95,
+                "nrfi_edge_pct": 0,
+                "yrfi_edge_pct": 0,
+                "bookmakers": []
+            },
+            "History": {
+                "away_l10": [],
+                "home_l10": [],
+                "h2h": []
+            },
+            "Weather": {
+                "temp": 72,
+                "humidity": 50,
+                "wind_speed": 0,
+                "wind_bearing": 0,
+                "wind_direction": "calm",
+                "condition": "Dome / Standard"
+            },
+            "result": {
+                "status": "Final",
+                "away_actual_score": 4,
+                "home_actual_score": 5,
+                "total_actual_runs": 9,
+                "winner_actual": "home",
+                "is_nrfi_successful": true,
+                "ml_correct": true,
+                "total_correct": true,
+                "spread_correct": true,
+                "nrfi_correct": true
+            }
+        },
+        {
+            "matchup": {
+                "away_team": "LA Dodgers",
+                "home_team": "Chi White Sox",
+                "away_pitcher": "Emmet Sheehan",
+                "home_pitcher": "Bryan Hudson",
+                "game_time": "2:10 PM ET",
+                "away_stats": {},
+                "home_stats": {},
+                "status": "Final"
+            },
+            "NRFI": {
+                "nrfi_score": 0.5954,
+                "yrfi_score": 0.5277,
+                "confidence": 0.5954,
+                "pick": "NRFI",
+                "scraped_trends": {
+                    "away_pitcher": {
+                        "season_nrfi_pct": 50.0,
+                        "location_nrfi_pct": 50.0,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 0,
+                        "season_record": "0-0",
+                        "location_record": "0-0",
+                        "last10_record": "0-0",
+                        "streak_emoji": ""
+                    },
+                    "home_pitcher": {
+                        "season_nrfi_pct": 50.0,
+                        "location_nrfi_pct": 50.0,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 0,
+                        "season_record": "0-0",
+                        "location_record": "0-0",
+                        "last10_record": "0-0",
+                        "streak_emoji": ""
+                    },
+                    "away_team_nrfi": {
+                        "season_nrfi_pct": 50.0,
+                        "location_nrfi_pct": 50.0,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 0,
+                        "season_record": "0-0",
+                        "location_record": "0-0",
+                        "last10_record": "0-0",
+                        "streak_emoji": ""
+                    },
+                    "home_team_nrfi": {
+                        "season_nrfi_pct": 50.0,
+                        "location_nrfi_pct": 50.0,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 0,
+                        "season_record": "0-0",
+                        "location_record": "0-0",
+                        "last10_record": "0-0",
+                        "streak_emoji": ""
+                    },
+                    "is_fallback": true
+                }
+            },
+            "F5": {
+                "f5_away_score": 2.8,
+                "f5_home_score": 2.5,
+                "f5_total": 5.3,
+                "f5_away_win_prob": 0.552,
+                "f5_home_win_prob": 0.448,
+                "f5_spread_adv": -1.2
+            },
+            "Full_Game": {
+                "full_away_score": 5.0,
+                "full_home_score": 4.3,
+                "full_total": 9.3,
+                "full_away_win_prob": 0.569,
+                "full_home_win_prob": 0.431,
+                "full_spread_adv": -0.8,
+                "home_cover_minus_1_5_prob": 29.1,
+                "home_cover_plus_1_5_prob": 57.9,
+                "away_cover_minus_1_5_prob": 42.1,
+                "away_cover_plus_1_5_prob": 70.9
+            },
+            "Details": {
+                "ai_insight": "AI Analysis is closed for completed matches."
+            },
+            "Odds": {
+                "best_away_odds": 1.91,
+                "best_home_odds": 1.91,
+                "over_under": 8.5,
+                "away_edge_pct": 0,
+                "home_edge_pct": 0,
+                "away_book": "Bovada",
+                "home_book": "Bovada",
+                "f5_away_odds": 1.91,
+                "f5_home_odds": 1.91,
+                "f5_away_edge_pct": 0,
+                "f5_home_edge_pct": 0,
+                "nrfi_odds": 1.85,
+                "yrfi_odds": 1.95,
+                "nrfi_edge_pct": 0,
+                "yrfi_edge_pct": 0,
+                "bookmakers": []
+            },
+            "History": {
+                "away_l10": [],
+                "home_l10": [],
+                "h2h": []
+            },
+            "Weather": {
+                "temp": 72,
+                "humidity": 50,
+                "wind_speed": 0,
+                "wind_bearing": 0,
+                "wind_direction": "calm",
+                "condition": "Dome / Standard"
+            },
+            "result": {
+                "status": "Final",
+                "away_actual_score": 4,
+                "home_actual_score": 6,
+                "total_actual_runs": 10,
+                "winner_actual": "home",
+                "is_nrfi_successful": false,
+                "ml_correct": false,
+                "total_correct": true,
+                "spread_correct": false,
+                "nrfi_correct": false
+            }
+        },
+        {
+            "matchup": {
+                "away_team": "Philadelphia",
+                "home_team": "Milwaukee",
+                "away_pitcher": "Cristopher Sánchez",
+                "home_pitcher": "Kyle Harrison",
+                "game_time": "2:10 PM ET",
+                "away_stats": {},
+                "home_stats": {},
+                "status": "Final"
+            },
+            "NRFI": {
+                "nrfi_score": 0.6508,
+                "yrfi_score": 0.4772,
+                "confidence": 0.6508,
+                "pick": "NRFI",
+                "scraped_trends": {
+                    "away_pitcher": {
+                        "season_nrfi_pct": 63.2,
+                        "location_nrfi_pct": 100.0,
+                        "last10_nrfi_pct": 60.0,
+                        "streak_score": 0,
+                        "season_record": "12-7",
+                        "location_record": "5-0",
+                        "last10_record": "6-4",
+                        "streak_emoji": ""
+                    },
+                    "home_pitcher": {
+                        "season_nrfi_pct": 78.8,
+                        "location_nrfi_pct": 83.9,
+                        "last10_nrfi_pct": 70.0,
+                        "streak_score": 2,
+                        "season_record": "26-7",
+                        "location_record": "120-23",
+                        "last10_record": "7-3",
+                        "streak_emoji": "✅"
+                    },
+                    "away_team_nrfi": {
+                        "season_nrfi_pct": 48.6,
+                        "location_nrfi_pct": 48.4,
+                        "last10_nrfi_pct": 60.0,
+                        "streak_score": -1,
+                        "season_record": "34-36",
+                        "location_record": "15-16",
+                        "last10_record": "6-4",
+                        "streak_emoji": "⚠️"
+                    },
+                    "home_team_nrfi": {
+                        "season_nrfi_pct": 49.3,
+                        "location_nrfi_pct": 47.2,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 1,
+                        "season_record": "34-35",
+                        "location_record": "17-19",
+                        "last10_record": "5-5",
+                        "streak_emoji": "✅"
+                    },
+                    "is_fallback": false
+                }
+            },
+            "F5": {
+                "f5_away_score": 1.7,
+                "f5_home_score": 3.3,
+                "f5_total": 5.0,
+                "f5_away_win_prob": 0.229,
+                "f5_home_win_prob": 0.771,
+                "f5_spread_adv": 0.1
+            },
+            "Full_Game": {
+                "full_away_score": 3.0,
+                "full_home_score": 5.6,
+                "full_total": 8.6,
+                "full_away_win_prob": 0.242,
+                "full_home_win_prob": 0.758,
+                "full_spread_adv": 1.1,
+                "home_cover_minus_1_5_prob": 60.8,
+                "home_cover_plus_1_5_prob": 84.7,
+                "away_cover_minus_1_5_prob": 15.3,
+                "away_cover_plus_1_5_prob": 39.2
+            },
+            "Details": {
+                "ai_insight": "AI Analysis is closed for completed matches."
+            },
+            "Odds": {
+                "best_away_odds": 1.91,
+                "best_home_odds": 1.91,
+                "over_under": 8.5,
+                "away_edge_pct": 0,
+                "home_edge_pct": 0,
+                "away_book": "Bovada",
+                "home_book": "Bovada",
+                "f5_away_odds": 1.91,
+                "f5_home_odds": 1.91,
+                "f5_away_edge_pct": 0,
+                "f5_home_edge_pct": 0,
+                "nrfi_odds": 1.85,
+                "yrfi_odds": 1.95,
+                "nrfi_edge_pct": 0,
+                "yrfi_edge_pct": 0,
+                "bookmakers": []
+            },
+            "History": {
+                "away_l10": [],
+                "home_l10": [],
+                "h2h": []
+            },
+            "Weather": {
+                "temp": 72,
+                "humidity": 50,
+                "wind_speed": 0,
+                "wind_bearing": 0,
+                "wind_direction": "calm",
+                "condition": "Dome / Standard"
+            },
+            "result": {
+                "status": "Final",
+                "away_actual_score": 0,
+                "home_actual_score": 4,
+                "total_actual_runs": 4,
+                "winner_actual": "home",
+                "is_nrfi_successful": false,
+                "ml_correct": true,
+                "total_correct": false,
+                "spread_correct": true,
+                "nrfi_correct": false
+            }
+        },
+        {
+            "matchup": {
+                "away_team": "Colorado",
+                "home_team": "Athletics",
+                "away_pitcher": "Tomoyuki Sugano",
+                "home_pitcher": "Jeffrey Springs",
+                "game_time": "3:05 PM ET",
+                "away_stats": {},
+                "home_stats": {},
+                "status": "Final"
+            },
+            "NRFI": {
+                "nrfi_score": 0.6875,
+                "yrfi_score": 0.555,
+                "confidence": 0.6875,
+                "pick": "NRFI",
+                "scraped_trends": {
+                    "away_pitcher": {
+                        "season_nrfi_pct": 82.5,
+                        "location_nrfi_pct": 73.9,
+                        "last10_nrfi_pct": 80.0,
+                        "streak_score": 5,
+                        "season_record": "33-7",
+                        "location_record": "51-18",
+                        "last10_record": "8-2",
+                        "streak_emoji": "🔥"
+                    },
+                    "home_pitcher": {
+                        "season_nrfi_pct": 64.1,
+                        "location_nrfi_pct": 80.6,
+                        "last10_nrfi_pct": 80.0,
+                        "streak_score": 2,
+                        "season_record": "25-14",
+                        "location_record": "29-7",
+                        "last10_record": "8-2",
+                        "streak_emoji": "✅"
+                    },
+                    "away_team_nrfi": {
+                        "season_nrfi_pct": 38.6,
+                        "location_nrfi_pct": 50.0,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": -1,
+                        "season_record": "27-43",
+                        "location_record": "18-18",
+                        "last10_record": "5-5",
+                        "streak_emoji": "⚠️"
+                    },
+                    "home_team_nrfi": {
+                        "season_nrfi_pct": 58.6,
+                        "location_nrfi_pct": 60.0,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": -1,
+                        "season_record": "41-29",
+                        "location_record": "21-14",
+                        "last10_record": "5-5",
+                        "streak_emoji": "⚠️"
+                    },
+                    "is_fallback": false
+                }
+            },
+            "F5": {
+                "f5_away_score": 3.2,
+                "f5_home_score": 2.5,
+                "f5_total": 5.7,
+                "f5_away_win_prob": 0.611,
+                "f5_home_win_prob": 0.389,
+                "f5_spread_adv": -0.8
+            },
+            "Full_Game": {
+                "full_away_score": 5.5,
+                "full_home_score": 4.3,
+                "full_total": 9.8,
+                "full_away_win_prob": 0.611,
+                "full_home_win_prob": 0.389,
+                "full_spread_adv": -0.3,
+                "home_cover_minus_1_5_prob": 25.0,
+                "home_cover_plus_1_5_prob": 53.0,
+                "away_cover_minus_1_5_prob": 47.0,
+                "away_cover_plus_1_5_prob": 75.0
+            },
+            "Details": {
+                "ai_insight": "AI Analysis is closed for completed matches."
+            },
+            "Odds": {
+                "best_away_odds": 1.91,
+                "best_home_odds": 1.91,
+                "over_under": 8.5,
+                "away_edge_pct": 0,
+                "home_edge_pct": 0,
+                "away_book": "Bovada",
+                "home_book": "Bovada",
+                "f5_away_odds": 1.91,
+                "f5_home_odds": 1.91,
+                "f5_away_edge_pct": 0,
+                "f5_home_edge_pct": 0,
+                "nrfi_odds": 1.85,
+                "yrfi_odds": 1.95,
+                "nrfi_edge_pct": 0,
+                "yrfi_edge_pct": 0,
+                "bookmakers": []
+            },
+            "History": {
+                "away_l10": [],
+                "home_l10": [],
+                "h2h": []
+            },
+            "Weather": {
+                "temp": 72,
+                "humidity": 50,
+                "wind_speed": 0,
+                "wind_bearing": 0,
+                "wind_direction": "calm",
+                "condition": "Dome / Standard"
+            },
+            "result": {
+                "status": "Final",
+                "away_actual_score": 23,
+                "home_actual_score": 9,
+                "total_actual_runs": 32,
+                "winner_actual": "away",
+                "is_nrfi_successful": false,
+                "ml_correct": true,
+                "total_correct": true,
+                "spread_correct": true,
+                "nrfi_correct": false
+            }
+        },
+        {
+            "matchup": {
+                "away_team": "Chi Cubs",
+                "home_team": "SF Giants",
+                "away_pitcher": "Ryan Rolison",
+                "home_pitcher": "Logan Webb",
+                "game_time": "3:10 PM ET",
+                "away_stats": {},
+                "home_stats": {},
+                "status": "Final"
+            },
+            "NRFI": {
+                "nrfi_score": 0.6111,
+                "yrfi_score": 0.4935,
+                "confidence": 0.6111,
+                "pick": "NRFI",
+                "scraped_trends": {
+                    "away_pitcher": {
+                        "season_nrfi_pct": 50.0,
+                        "location_nrfi_pct": 50.0,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 0,
+                        "season_record": "0-0",
+                        "location_record": "0-0",
+                        "last10_record": "0-0",
+                        "streak_emoji": ""
+                    },
+                    "home_pitcher": {
+                        "season_nrfi_pct": 50.0,
+                        "location_nrfi_pct": 50.0,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 0,
+                        "season_record": "0-0",
+                        "location_record": "0-0",
+                        "last10_record": "0-0",
+                        "streak_emoji": ""
+                    },
+                    "away_team_nrfi": {
+                        "season_nrfi_pct": 50.0,
+                        "location_nrfi_pct": 50.0,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 0,
+                        "season_record": "0-0",
+                        "location_record": "0-0",
+                        "last10_record": "0-0",
+                        "streak_emoji": ""
+                    },
+                    "home_team_nrfi": {
+                        "season_nrfi_pct": 50.0,
+                        "location_nrfi_pct": 50.0,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 0,
+                        "season_record": "0-0",
+                        "location_record": "0-0",
+                        "last10_record": "0-0",
+                        "streak_emoji": ""
+                    },
+                    "is_fallback": true
+                }
+            },
+            "F5": {
+                "f5_away_score": 2.3,
+                "f5_home_score": 1.8,
+                "f5_total": 4.1,
+                "f5_away_win_prob": 0.61,
+                "f5_home_win_prob": 0.39,
+                "f5_spread_adv": -1.0
+            },
+            "Full_Game": {
+                "full_away_score": 4.0,
+                "full_home_score": 3.0,
+                "full_total": 7.0,
+                "full_away_win_prob": 0.629,
+                "full_home_win_prob": 0.371,
+                "full_spread_adv": -0.5,
+                "home_cover_minus_1_5_prob": 26.6,
+                "home_cover_plus_1_5_prob": 55.0,
+                "away_cover_minus_1_5_prob": 45.0,
+                "away_cover_plus_1_5_prob": 73.4
+            },
+            "Details": {
+                "ai_insight": "AI Analysis is closed for completed matches."
+            },
+            "Odds": {
+                "best_away_odds": 1.91,
+                "best_home_odds": 1.91,
+                "over_under": 8.5,
+                "away_edge_pct": 0,
+                "home_edge_pct": 0,
+                "away_book": "Bovada",
+                "home_book": "Bovada",
+                "f5_away_odds": 1.91,
+                "f5_home_odds": 1.91,
+                "f5_away_edge_pct": 0,
+                "f5_home_edge_pct": 0,
+                "nrfi_odds": 1.85,
+                "yrfi_odds": 1.95,
+                "nrfi_edge_pct": 0,
+                "yrfi_edge_pct": 0,
+                "bookmakers": []
+            },
+            "History": {
+                "away_l10": [],
+                "home_l10": [],
+                "h2h": []
+            },
+            "Weather": {
+                "temp": 72,
+                "humidity": 50,
+                "wind_speed": 0,
+                "wind_bearing": 0,
+                "wind_direction": "calm",
+                "condition": "Dome / Standard"
+            },
+            "result": {
+                "status": "Final",
+                "away_actual_score": 1,
+                "home_actual_score": 5,
+                "total_actual_runs": 6,
+                "winner_actual": "home",
+                "is_nrfi_successful": true,
+                "ml_correct": false,
+                "total_correct": true,
+                "spread_correct": false,
+                "nrfi_correct": true
+            }
+        },
+        {
+            "matchup": {
+                "away_team": "Tampa Bay",
+                "home_team": "LA Angels",
+                "away_pitcher": "Casey Legumina",
+                "home_pitcher": "Grayson Rodriguez",
+                "game_time": "4:07 PM ET",
+                "away_stats": {},
+                "home_stats": {},
+                "status": "Final"
+            },
+            "NRFI": {
+                "nrfi_score": 0.6292,
+                "yrfi_score": 0.5156,
+                "confidence": 0.6292,
+                "pick": "NRFI",
+                "scraped_trends": {
+                    "away_pitcher": {
+                        "season_nrfi_pct": 79.5,
+                        "location_nrfi_pct": 73.7,
+                        "last10_nrfi_pct": 90.0,
+                        "streak_score": 0,
+                        "season_record": "31-8",
+                        "location_record": "56-20",
+                        "last10_record": "9-1",
+                        "streak_emoji": ""
+                    },
+                    "home_pitcher": {
+                        "season_nrfi_pct": 66.7,
+                        "location_nrfi_pct": 73.1,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 0,
+                        "season_record": "16-8",
+                        "location_record": "49-18",
+                        "last10_record": "5-5",
+                        "streak_emoji": ""
+                    },
+                    "away_team_nrfi": {
+                        "season_nrfi_pct": 48.5,
+                        "location_nrfi_pct": 57.6,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 1,
+                        "season_record": "32-34",
+                        "location_record": "19-14",
+                        "last10_record": "5-5",
+                        "streak_emoji": "✅"
+                    },
+                    "home_team_nrfi": {
+                        "season_nrfi_pct": 51.4,
+                        "location_nrfi_pct": 57.6,
+                        "last10_nrfi_pct": 60.0,
+                        "streak_score": -2,
+                        "season_record": "36-34",
+                        "location_record": "19-14",
+                        "last10_record": "6-4",
+                        "streak_emoji": "⚠️"
+                    },
+                    "is_fallback": false
+                }
+            },
+            "F5": {
+                "f5_away_score": 2.1,
+                "f5_home_score": 2.6,
+                "f5_total": 4.7,
+                "f5_away_win_prob": 0.404,
+                "f5_home_win_prob": 0.596,
+                "f5_spread_adv": -1.0
+            },
+            "Full_Game": {
+                "full_away_score": 3.7,
+                "full_home_score": 4.6,
+                "full_total": 8.3,
+                "full_away_win_prob": 0.402,
+                "full_home_win_prob": 0.598,
+                "full_spread_adv": -0.6,
+                "home_cover_minus_1_5_prob": 44.0,
+                "home_cover_plus_1_5_prob": 72.6,
+                "away_cover_minus_1_5_prob": 27.4,
+                "away_cover_plus_1_5_prob": 56.0
+            },
+            "Details": {
+                "ai_insight": "AI Analysis is closed for completed matches."
+            },
+            "Odds": {
+                "best_away_odds": 1.91,
+                "best_home_odds": 1.91,
+                "over_under": 8.5,
+                "away_edge_pct": 0,
+                "home_edge_pct": 0,
+                "away_book": "Bovada",
+                "home_book": "Bovada",
+                "f5_away_odds": 1.91,
+                "f5_home_odds": 1.91,
+                "f5_away_edge_pct": 0,
+                "f5_home_edge_pct": 0,
+                "nrfi_odds": 1.85,
+                "yrfi_odds": 1.95,
+                "nrfi_edge_pct": 0,
+                "yrfi_edge_pct": 0,
+                "bookmakers": []
+            },
+            "History": {
+                "away_l10": [],
+                "home_l10": [],
+                "h2h": []
+            },
+            "Weather": {
+                "temp": 72,
+                "humidity": 50,
+                "wind_speed": 0,
+                "wind_bearing": 0,
+                "wind_direction": "calm",
+                "condition": "Dome / Standard"
+            },
+            "result": {
+                "status": "Final",
+                "away_actual_score": 8,
+                "home_actual_score": 3,
+                "total_actual_runs": 11,
+                "winner_actual": "away",
+                "is_nrfi_successful": true,
+                "ml_correct": false,
+                "total_correct": false,
+                "spread_correct": true,
+                "nrfi_correct": true
+            }
+        },
+        {
+            "matchup": {
+                "away_team": "Texas",
+                "home_team": "Boston",
+                "away_pitcher": "Nathan Eovaldi",
+                "home_pitcher": "Connelly Early",
+                "game_time": "7:20 PM ET",
+                "away_stats": {},
+                "home_stats": {},
+                "status": "Final"
+            },
+            "NRFI": {
+                "nrfi_score": 0.6144,
+                "yrfi_score": 0.5197,
+                "confidence": 0.6144,
+                "pick": "NRFI",
+                "scraped_trends": {
+                    "away_pitcher": {
+                        "season_nrfi_pct": 50.0,
+                        "location_nrfi_pct": 50.0,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 0,
+                        "season_record": "0-0",
+                        "location_record": "0-0",
+                        "last10_record": "0-0",
+                        "streak_emoji": ""
+                    },
+                    "home_pitcher": {
+                        "season_nrfi_pct": 63.6,
+                        "location_nrfi_pct": 76.8,
+                        "last10_nrfi_pct": 60.0,
+                        "streak_score": 0,
+                        "season_record": "28-16",
+                        "location_record": "43-13",
+                        "last10_record": "6-4",
+                        "streak_emoji": ""
+                    },
+                    "away_team_nrfi": {
+                        "season_nrfi_pct": 46.5,
+                        "location_nrfi_pct": 45.5,
+                        "last10_nrfi_pct": 20.0,
+                        "streak_score": -3,
+                        "season_record": "33-38",
+                        "location_record": "15-18",
+                        "last10_record": "2-8",
+                        "streak_emoji": "⚠️"
+                    },
+                    "home_team_nrfi": {
+                        "season_nrfi_pct": 36.2,
+                        "location_nrfi_pct": 36.7,
+                        "last10_nrfi_pct": 50.0,
+                        "streak_score": 1,
+                        "season_record": "25-44",
+                        "location_record": "11-19",
+                        "last10_record": "5-5",
+                        "streak_emoji": "✅"
+                    },
+                    "is_fallback": false
+                }
+            },
+            "F5": {
+                "f5_away_score": 1.9,
+                "f5_home_score": 3.2,
+                "f5_total": 5.1,
+                "f5_away_win_prob": 0.278,
+                "f5_home_win_prob": 0.722,
+                "f5_spread_adv": -0.2
+            },
+            "Full_Game": {
+                "full_away_score": 3.5,
+                "full_home_score": 6.1,
+                "full_total": 9.6,
+                "full_away_win_prob": 0.266,
+                "full_home_win_prob": 0.734,
+                "full_spread_adv": 1.1,
+                "home_cover_minus_1_5_prob": 60.8,
+                "home_cover_plus_1_5_prob": 84.7,
+                "away_cover_minus_1_5_prob": 15.3,
+                "away_cover_plus_1_5_prob": 39.2
+            },
+            "Details": {
+                "ai_insight": "AI Analysis is closed for completed matches."
+            },
+            "Odds": {
+                "best_away_odds": 1.91,
+                "best_home_odds": 1.91,
+                "over_under": 8.5,
+                "away_edge_pct": 0,
+                "home_edge_pct": 0,
+                "away_book": "Bovada",
+                "home_book": "Bovada",
+                "f5_away_odds": 1.91,
+                "f5_home_odds": 1.91,
+                "f5_away_edge_pct": 0,
+                "f5_home_edge_pct": 0,
+                "nrfi_odds": 1.85,
+                "yrfi_odds": 1.95,
+                "nrfi_edge_pct": 0,
+                "yrfi_edge_pct": 0,
+                "bookmakers": []
+            },
+            "History": {
+                "away_l10": [],
+                "home_l10": [],
+                "h2h": []
+            },
+            "Weather": {
+                "temp": 72,
+                "humidity": 50,
+                "wind_speed": 0,
+                "wind_bearing": 0,
+                "wind_direction": "calm",
+                "condition": "Dome / Standard"
+            },
+            "result": {
+                "status": "Final",
+                "away_actual_score": 6,
+                "home_actual_score": 4,
+                "total_actual_runs": 10,
+                "winner_actual": "away",
+                "is_nrfi_successful": false,
+                "ml_correct": false,
+                "total_correct": true,
+                "spread_correct": false,
+                "nrfi_correct": false
+            }
+        }
+    ]
+}

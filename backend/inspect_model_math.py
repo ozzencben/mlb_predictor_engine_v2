@@ -6,10 +6,10 @@ import math
 # Add the current folder to sys.path to resolve 'app' imports correctly
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from app.models.mlb_model import MLBModel, TeamMLBStats, PitcherStats
+from app.sports.mlb.models.mlb_model import MLBModel, TeamMLBStats, PitcherStats
 
 def load_data():
-    data_dir = os.path.join("app", "data")
+    data_dir = os.path.join("app", "sports", "mlb", "data")
     
     with open(os.path.join(data_dir, "live_stats.json"), "r", encoding="utf-8") as f:
         team_db = json.load(f)

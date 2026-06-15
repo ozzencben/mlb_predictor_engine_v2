@@ -55,7 +55,8 @@ def _seconds_until_next_run() -> float:
 async def _run_scraping_pipeline():
     """Güvenli şekilde tam scraping + AI pipeline'ı çalıştırır."""
     from starlette.concurrency import run_in_threadpool
-    from app.services.prediction_runner import PredictionRunner
+    from app.sports.mlb.runner import PredictionRunner
+    from app.sports.tennis.pipeline_runner import TennisPipelineRunner
 
     if _scrape_lock.locked():
         logger.warning("⏸️  Zamanlayıcı: Önceki kazıma henüz devam ediyor, bu tur atlanıyor.")
@@ -64,12 +65,22 @@ async def _run_scraping_pipeline():
     async with _scrape_lock:
         now_et = datetime.now(ET_ZONE)
         logger.info(f"⏰ Zamanlı Kazıma Başlıyor — ET: {now_et.strftime('%Y-%m-%d %H:%M:%S')}")
+        
+        # 1. MLB Pipeline
         try:
             runner = PredictionRunner()
             await run_in_threadpool(runner.run_daily_predictions)
-            logger.info("✅ Zamanlı Kazıma Tamamlandı.")
+            logger.info("✅ MLB Zamanlı Kazıma Tamamlandı.")
         except Exception as e:
-            logger.error(f"❌ Zamanlı Kazıma Hatası: {e}", exc_info=True)
+            logger.error(f"❌ MLB Zamanlı Kazıma Hatası: {e}", exc_info=True)
+
+        # 2. Tennis Pipeline
+        try:
+            tennis_runner = TennisPipelineRunner()
+            await run_in_threadpool(tennis_runner.run_pipeline)
+            logger.info("✅ Tenis Zamanlı Kazıma Tamamlandı.")
+        except Exception as e:
+            logger.error(f"❌ Tenis Zamanlı Kazıma Hatası: {e}", exc_info=True)
 
 
 async def scheduled_scraping_loop():

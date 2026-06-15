@@ -4,7 +4,7 @@ import os
 # Resolve imports
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from app.models.pitcher_k_model import PitcherStats, LineupAvg, PitcherKModel
+from app.sports.mlb.models.pitcher_k_model import PitcherStats, LineupAvg, PitcherKModel
 
 def run_tests():
     print("=" * 60)
