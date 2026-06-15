@@ -333,6 +333,70 @@ def calculate_straight_sets_rate(matches, player_name):
         return 0.0
     return straight_wins / total_wins
 
+def _build_recent_form(matches, player_name, count=5):
+    """Son N maçın W/L özetini (rakip, skor, zemin, tarih) listesi olarak döner."""
+    form = []
+    for m in matches[:count]:
+        is_home = is_player_match(m["home_player"], player_name)
+        is_away = is_player_match(m["away_player"], player_name)
+        if not is_home and not is_away:
+            continue
+        
+        won = (m["winner"] == "home" and is_home) or (m["winner"] == "away" and is_away)
+        opponent = m["away_player"] if is_home else m["home_player"]
+        h_score = m.get("home_score", 0)
+        a_score = m.get("away_score", 0)
+        
+        form.append({
+            "result": "W" if won else "L",
+            "opponent": opponent,
+            "score": f"{h_score}-{a_score}" if is_home else f"{a_score}-{h_score}",
+            "surface": m.get("ground", "Unknown"),
+            "tournament": (m.get("tournament") or "Unknown").split("(")[0].strip(),
+            "date": m.get("date", "")
+        })
+    return form
+
+def calculate_h2h_summary(p1_name, p1_matches, p2_name, p2_matches):
+    """İki oyuncunun karşılıklı geçmiş maçlarını hesaplar."""
+    h2h_matches = []
+    p1_wins = 0
+    p2_wins = 0
+    
+    # P1'in maç listesinden P2 ile olan karşılaşmaları bul
+    for m in p1_matches:
+        opponent_home = is_player_match(m["home_player"], p2_name)
+        opponent_away = is_player_match(m["away_player"], p2_name)
+        
+        if not opponent_home and not opponent_away:
+            continue
+        
+        p1_is_home = is_player_match(m["home_player"], p1_name)
+        p1_won = (m["winner"] == "home" and p1_is_home) or (m["winner"] == "away" and not p1_is_home)
+        
+        if p1_won:
+            p1_wins += 1
+        else:
+            p2_wins += 1
+        
+        h_score = m.get("home_score", 0)
+        a_score = m.get("away_score", 0)
+        
+        h2h_matches.append({
+            "date": m.get("date", ""),
+            "tournament": (m.get("tournament") or "Unknown").split("(")[0].strip(),
+            "surface": m.get("ground", "Unknown"),
+            "winner": p1_name if p1_won else p2_name,
+            "score": f"{h_score}-{a_score}" if p1_is_home else f"{a_score}-{h_score}"
+        })
+    
+    return {
+        "p1_wins": p1_wins,
+        "p2_wins": p2_wins,
+        "total_matches": len(h2h_matches),
+        "matches": h2h_matches[:5]  # Son 5 H2H maçı göster
+    }
+
 def compile_player_stats(player_name, player_id, ground, matches=None):
     if matches is None:
         matches = load_player_matches(player_id)
@@ -351,7 +415,8 @@ def compile_player_stats(player_name, player_id, ground, matches=None):
             "game_dominance": 0.5,
             "rest_days": 7,
             "clutch_win_rate": 50.0,
-            "straight_sets_rate": 50.0
+            "straight_sets_rate": 50.0,
+            "recent_form": []
         }
         
     surface_rate, _ = calculate_surface_win_rate(matches, ground, player_name)
@@ -365,6 +430,7 @@ def compile_player_stats(player_name, player_id, ground, matches=None):
     
     clutch = calculate_clutch_win_rate(matches, player_name)
     straight = calculate_straight_sets_rate(matches, player_name)
+    recent_form = _build_recent_form(matches, player_name, count=5)
     
     return {
         "rank": int(rank),
@@ -376,7 +442,8 @@ def compile_player_stats(player_name, player_id, ground, matches=None):
         "game_dominance": round(float(game_dom), 3),
         "rest_days": int(rest_days),
         "clutch_win_rate": round(clutch * 100, 1),
-        "straight_sets_rate": round(straight * 100, 1)
+        "straight_sets_rate": round(straight * 100, 1),
+        "recent_form": recent_form
     }
 
 async def generate_tennis_ai_insights_async(predictions):
@@ -506,12 +573,17 @@ def predict_today_matches():
         
         alternative_bets = generate_alternative_bets(p1_prob, p1_stats, p2_stats)
         
+        # H2H Geçmiş Karşılaşma Özeti
+        h2h_summary = calculate_h2h_summary(p1_name, p1_matches, p2_name, p2_matches)
+
         match_data = {
             "match_id": m["match_id"],
             "tournament": t_name,
             "surface": ground,
             "home_player": p1_name,
             "away_player": p2_name,
+            "p1_id": str(p1_id),
+            "p2_id": str(p2_id),
             "home_win_probability": round(p1_prob, 2),
             "away_win_probability": round(p2_prob, 2),
             "predicted_winner": predicted_winner,
@@ -521,7 +593,8 @@ def predict_today_matches():
             "recommended_kelly_bet_percentage": recommended_kelly_bet_percentage,
             "alternative_bets": alternative_bets,
             "p1_stats": p1_stats,
-            "p2_stats": p2_stats
+            "p2_stats": p2_stats,
+            "h2h_summary": h2h_summary
         }
 
         # Check Tier Filter (Challenger or ITF)

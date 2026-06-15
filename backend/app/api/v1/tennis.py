@@ -2,7 +2,7 @@ import os
 import json
 from datetime import datetime
 from zoneinfo import ZoneInfo
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Query
 
 tennis_router = APIRouter(prefix="/tennis", tags=["Tennis"])
 
@@ -10,6 +10,7 @@ tennis_router = APIRouter(prefix="/tennis", tags=["Tennis"])
 DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "sports", "tennis", "data"))
 PREDICTIONS_FILE = os.path.join(DATA_DIR, "today_predictions.json")
 RESULTS_FILE = os.path.join(DATA_DIR, "today_accuracy_results.json")
+PLAYER_MATCHES_DIR = os.path.join(DATA_DIR, "raw", "player_matches")
 
 def _get_file_modified_time(filepath: str) -> str:
     if os.path.exists(filepath):
@@ -84,3 +85,40 @@ async def get_results(date: str | None = None):
             status_code=500,
             detail=f"Sonuç dosyası okunurken hata oluştu: {str(e)}"
         )
+
+@tennis_router.get("/player-history/{player_id}")
+async def get_player_history(
+    player_id: str,
+    limit: int = Query(default=10, ge=1, le=50, description="Döndürülecek maksimum maç sayısı")
+):
+    """
+    Belirli bir oyuncunun son N maçını döndürür.
+    Player ID, prediction JSON'daki p1_id / p2_id alanından alınır.
+    """
+    player_file = os.path.join(PLAYER_MATCHES_DIR, f"{player_id}.json")
+    
+    if not os.path.exists(player_file):
+        raise HTTPException(
+            status_code=404,
+            detail=f"Oyuncu geçmişi bulunamadı: {player_id}"
+        )
+    
+    try:
+        with open(player_file, "r", encoding="utf-8") as f:
+            matches = json.load(f)
+        
+        limited_matches = matches[:limit]
+        
+        return {
+            "status": "success",
+            "player_id": player_id,
+            "total_matches": len(matches),
+            "returned_matches": len(limited_matches),
+            "matches": limited_matches
+        }
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Oyuncu geçmişi okunurken hata oluştu: {str(e)}"
+        )
+

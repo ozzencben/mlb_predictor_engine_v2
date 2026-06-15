@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useTennisPredictions } from '../hooks/useTennisPredictions';
+import apiClient from '../api/client';
 
 // ─────────────────────────────────────────────────────────────
 //  Helper: American Odds formatı
@@ -79,6 +80,7 @@ function StatsComparison({ p1, p2 }) {
     if (!p1 || !p2) return null;
     
     const rows = [
+        { label: 'World Ranking', p1Val: p1.rank, p2Val: p2.rank, format: v => `#${v}`, higherIsBetter: false, icon: '🏅' },
         { label: 'Surface ELO Rating', p1Val: p1.elo, p2Val: p2.elo, format: v => Math.round(v), higherIsBetter: true, icon: '🧠' },
         { label: 'Court DNA (Surface %)', p1Val: p1.surface_rate * 100, p2Val: p2.surface_rate * 100, format: v => `${v.toFixed(1)}%`, higherIsBetter: true, icon: '🏟️' },
         { label: 'Form Momentum', p1Val: p1.momentum * 100, p2Val: p2.momentum * 100, format: v => `${v.toFixed(1)}%`, higherIsBetter: true, icon: '📈' },
@@ -139,9 +141,177 @@ function StatsComparison({ p1, p2 }) {
 }
 
 // ─────────────────────────────────────────────────────────────
+//  Helper: Recent Form Badges (Son 5 Maç W/L)
+// ─────────────────────────────────────────────────────────────
+function RecentFormBadges({ recentForm }) {
+    if (!recentForm || recentForm.length === 0) return null;
+    return (
+        <div className="flex items-center gap-1 mt-1">
+            {recentForm.map((m, i) => (
+                <div key={i} className="group/form relative">
+                    <span
+                        className={`inline-flex items-center justify-center w-5 h-5 rounded-full text-[8px] font-black border transition-all duration-200
+                            ${m.result === 'W'
+                                ? 'bg-emerald-950/60 text-emerald-400 border-emerald-500/30 group-hover/form:shadow-[0_0_8px_rgba(52,211,153,0.3)]'
+                                : 'bg-rose-950/60 text-rose-400 border-rose-500/30 group-hover/form:shadow-[0_0_8px_rgba(244,63,94,0.3)]'
+                            }`}
+                    >
+                        {m.result}
+                    </span>
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 px-2.5 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-[8px] text-slate-300 font-bold whitespace-nowrap opacity-0 invisible group-hover/form:opacity-100 group-hover/form:visible transition-all duration-200 z-50 shadow-xl pointer-events-none">
+                        <div className="font-black text-white">{m.result === 'W' ? '✅' : '❌'} vs {m.opponent}</div>
+                        <div className="text-slate-400 mt-0.5">{m.score} · {m.surface} · {m.tournament}</div>
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-800" />
+                    </div>
+                </div>
+            ))}
+        </div>
+    );
+}
+
+// ─────────────────────────────────────────────────────────────
+//  Helper: H2H Summary
+// ─────────────────────────────────────────────────────────────
+function H2HSummary({ h2h, p1Name, p2Name }) {
+    if (!h2h || h2h.total_matches === 0) return null;
+    return (
+        <div className="bg-slate-950/50 border border-slate-900/60 rounded-2xl p-3.5 space-y-2.5">
+            <div className="flex items-center justify-between">
+                <span className="text-[7.5px] font-black uppercase tracking-widest text-slate-500">🤝 Head-to-Head History</span>
+                <span className="text-[8px] font-black text-slate-600 bg-slate-950/60 border border-slate-900 px-2 py-0.5 rounded">
+                    {h2h.total_matches} Match{h2h.total_matches > 1 ? 'es' : ''}
+                </span>
+            </div>
+            {/* Score Summary */}
+            <div className="flex items-center justify-center gap-4">
+                <div className="text-center">
+                    <span className={`text-lg font-black ${h2h.p1_wins >= h2h.p2_wins ? 'text-indigo-400' : 'text-slate-500'}`}>{h2h.p1_wins}</span>
+                    <span className="text-[8px] text-slate-500 font-bold block truncate max-w-[80px] sm:max-w-[120px]">{p1Name}</span>
+                </div>
+                <span className="text-[10px] text-slate-600 font-black">—</span>
+                <div className="text-center">
+                    <span className={`text-lg font-black ${h2h.p2_wins >= h2h.p1_wins ? 'text-indigo-400' : 'text-slate-500'}`}>{h2h.p2_wins}</span>
+                    <span className="text-[8px] text-slate-500 font-bold block truncate max-w-[80px] sm:max-w-[120px]">{p2Name}</span>
+                </div>
+            </div>
+            {/* Recent H2H Matches */}
+            {h2h.matches && h2h.matches.length > 0 && (
+                <div className="space-y-1.5 pt-1 border-t border-slate-900/50">
+                    {h2h.matches.map((m, i) => (
+                        <div key={i} className="flex items-center justify-between text-[9px] gap-2">
+                            <span className={`font-black truncate max-w-[100px] sm:max-w-[140px] ${m.winner === p1Name ? 'text-emerald-400' : 'text-rose-400'}`}>
+                                {m.winner === p1Name ? '✅' : '❌'} {m.winner}
+                            </span>
+                            <span className="text-slate-600 font-bold flex-shrink-0">{m.score}</span>
+                            <span className="text-slate-500 font-bold truncate max-w-[80px] sm:max-w-[120px] text-right">{m.tournament} · {m.surface}</span>
+                        </div>
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+}
+
+// ─────────────────────────────────────────────────────────────
+//  Alt bileşen: Player History Drawer
+// ─────────────────────────────────────────────────────────────
+function PlayerHistoryDrawer({ playerId, playerName, onClose }) {
+    const [matches, setMatches] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [totalMatches, setTotalMatches] = useState(0);
+
+    useEffect(() => {
+        if (!playerId) return;
+        setLoading(true);
+        apiClient.get(`/tennis/player-history/${playerId}?limit=15`)
+            .then(res => {
+                setMatches(res.data?.matches || []);
+                setTotalMatches(res.data?.total_matches || 0);
+            })
+            .catch(() => setMatches([]))
+            .finally(() => setLoading(false));
+    }, [playerId]);
+
+    if (!playerId) return null;
+
+    return (
+        <div className="fixed inset-0 z-[100] flex justify-end" onClick={onClose}>
+            {/* Backdrop */}
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+            {/* Drawer */}
+            <div
+                className="relative w-full max-w-md bg-slate-950 border-l border-slate-800 h-full overflow-y-auto animate-slide-in-right"
+                onClick={e => e.stopPropagation()}
+            >
+                {/* Header */}
+                <div className="sticky top-0 z-10 bg-slate-950/95 backdrop-blur-xl border-b border-slate-900 p-4 flex items-center justify-between">
+                    <div>
+                        <h3 className="text-sm font-black text-white uppercase tracking-wider">{playerName}</h3>
+                        <span className="text-[9px] text-slate-500 font-bold">{totalMatches} Career Matches Tracked</span>
+                    </div>
+                    <button
+                        onClick={onClose}
+                        className="text-slate-400 hover:text-white transition-colors p-1.5 rounded-lg hover:bg-slate-800 cursor-pointer"
+                    >
+                        ✕
+                    </button>
+                </div>
+                {/* Content */}
+                <div className="p-4 space-y-2">
+                    {loading ? (
+                        <div className="space-y-3 animate-pulse">
+                            {[1,2,3,4,5].map(i => <div key={i} className="h-14 bg-slate-900/50 rounded-xl" />)}
+                        </div>
+                    ) : matches.length === 0 ? (
+                        <div className="text-center py-10">
+                            <span className="text-2xl">📭</span>
+                            <p className="text-xs text-slate-500 font-bold mt-2">No match history found</p>
+                        </div>
+                    ) : (
+                        matches.map((m, i) => {
+                            const isHome = m.home_player?.toLowerCase().includes(playerName?.split(' ')[0]?.toLowerCase() || '');
+                            const won = (m.winner === 'home' && isHome) || (m.winner === 'away' && !isHome);
+                            const opponent = isHome ? m.away_player : m.home_player;
+                            const hScore = m.home_score ?? 0;
+                            const aScore = m.away_score ?? 0;
+                            const score = isHome ? `${hScore}-${aScore}` : `${aScore}-${hScore}`;
+                            const surface = (m.ground || 'Unknown').toLowerCase();
+                            const surfaceColor = surface.includes('clay') ? 'text-amber-400 bg-amber-950/40 border-amber-500/25'
+                                : surface.includes('grass') ? 'text-emerald-400 bg-emerald-950/40 border-emerald-500/25'
+                                : 'text-blue-400 bg-blue-950/40 border-blue-500/25';
+
+                            return (
+                                <div key={i} className="flex items-center gap-3 bg-slate-900/30 border border-slate-900/60 rounded-xl p-3 hover:border-slate-800 transition-all">
+                                    <span className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-black border
+                                        ${won ? 'bg-emerald-950/60 text-emerald-400 border-emerald-500/30' : 'bg-rose-950/60 text-rose-400 border-rose-500/30'}`}>
+                                        {won ? 'W' : 'L'}
+                                    </span>
+                                    <div className="flex-1 min-w-0">
+                                        <div className="flex items-center gap-1.5">
+                                            <span className="text-[10px] font-black text-white truncate">{opponent}</span>
+                                            <span className="text-[9px] font-black text-slate-400">{score}</span>
+                                        </div>
+                                        <div className="flex items-center gap-1.5 mt-0.5">
+                                            <span className={`text-[7px] font-black uppercase px-1.5 py-0.5 rounded border ${surfaceColor}`}>{m.ground}</span>
+                                            <span className="text-[8px] text-slate-500 font-bold truncate">{(m.tournament || '').split('(')[0].trim()}</span>
+                                        </div>
+                                    </div>
+                                    <span className="text-[9px] text-slate-600 font-bold flex-shrink-0">{m.date}</span>
+                                </div>
+                            );
+                        })
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// ─────────────────────────────────────────────────────────────
 //  Alt bileşen: Tekil Maç Kartı
 // ─────────────────────────────────────────────────────────────
-function MatchCard({ predict, isResultCard }) {
+function MatchCard({ predict, isResultCard, onPlayerClick }) {
     const [expanded, setExpanded] = useState(false);
 
     const surface = getSurfaceStyles(predict.surface);
@@ -203,17 +373,26 @@ function MatchCard({ predict, isResultCard }) {
                 {/* P1 */}
                 <div className="flex justify-between items-start gap-2">
                     <div className="space-y-0.5 min-w-0">
-                        <span className={`text-xs font-black block truncate max-w-[170px] sm:max-w-xs leading-tight
-                            ${winnerPlayer === predict.home_player ? 'text-indigo-400' : 'text-gray-300'}`}>
+                        <button
+                            onClick={(e) => { e.stopPropagation(); onPlayerClick?.(predict.p1_id, predict.home_player); }}
+                            className={`text-xs font-black block truncate max-w-[170px] sm:max-w-xs leading-tight cursor-pointer hover:underline decoration-dotted underline-offset-2 transition-all text-left
+                                ${winnerPlayer === predict.home_player ? 'text-indigo-400 hover:text-indigo-300' : 'text-gray-300 hover:text-white'}`}
+                        >
                             {predict.home_player}
                             {winnerPlayer === predict.home_player && ' 🎯'}
-                        </span>
-                        {hasOdds && p1American && (
-                            <span className="text-[9px] text-slate-500 font-bold block">
-                                {p1American}
-                                <span className="text-slate-600 ml-1">({predict.p1_odds})</span>
-                            </span>
-                        )}
+                        </button>
+                        <div className="flex items-center gap-2">
+                            {hasOdds && p1American && (
+                                <span className="text-[9px] text-slate-500 font-bold">
+                                    {p1American}
+                                    <span className="text-slate-600 ml-1">({predict.p1_odds})</span>
+                                </span>
+                            )}
+                            {predict.p1_stats?.rank && (
+                                <span className="text-[8px] text-slate-600 font-black">#{predict.p1_stats.rank}</span>
+                            )}
+                        </div>
+                        <RecentFormBadges recentForm={predict.p1_stats?.recent_form} />
                     </div>
                     <span className="text-xs font-black text-gray-300 flex-shrink-0">{predict.home_win_probability}%</span>
                 </div>
@@ -233,17 +412,26 @@ function MatchCard({ predict, isResultCard }) {
                 {/* P2 */}
                 <div className="flex justify-between items-start gap-2">
                     <div className="space-y-0.5 min-w-0">
-                        <span className={`text-xs font-black block truncate max-w-[170px] sm:max-w-xs leading-tight
-                            ${winnerPlayer === predict.away_player ? 'text-indigo-400' : 'text-gray-300'}`}>
+                        <button
+                            onClick={(e) => { e.stopPropagation(); onPlayerClick?.(predict.p2_id, predict.away_player); }}
+                            className={`text-xs font-black block truncate max-w-[170px] sm:max-w-xs leading-tight cursor-pointer hover:underline decoration-dotted underline-offset-2 transition-all text-left
+                                ${winnerPlayer === predict.away_player ? 'text-indigo-400 hover:text-indigo-300' : 'text-gray-300 hover:text-white'}`}
+                        >
                             {predict.away_player}
                             {winnerPlayer === predict.away_player && ' 🎯'}
-                        </span>
-                        {hasOdds && p2American && (
-                            <span className="text-[9px] text-slate-500 font-bold block">
-                                {p2American}
-                                <span className="text-slate-600 ml-1">({predict.p2_odds})</span>
-                            </span>
-                        )}
+                        </button>
+                        <div className="flex items-center gap-2">
+                            {hasOdds && p2American && (
+                                <span className="text-[9px] text-slate-500 font-bold">
+                                    {p2American}
+                                    <span className="text-slate-600 ml-1">({predict.p2_odds})</span>
+                                </span>
+                            )}
+                            {predict.p2_stats?.rank && (
+                                <span className="text-[8px] text-slate-600 font-black">#{predict.p2_stats.rank}</span>
+                            )}
+                        </div>
+                        <RecentFormBadges recentForm={predict.p2_stats?.recent_form} />
                     </div>
                     <span className="text-xs font-black text-gray-300 flex-shrink-0">{predict.away_win_probability}%</span>
                 </div>
@@ -277,13 +465,13 @@ function MatchCard({ predict, isResultCard }) {
                 </div>
             )}
             {/* ── Röntgen & AI Insights Accordion ── */}
-            {((predict.alternative_bets && predict.alternative_bets.length > 0) || (predict.p1_stats && predict.p2_stats) || predict.ai_insight) && (
+            {((predict.alternative_bets && predict.alternative_bets.length > 0) || (predict.p1_stats && predict.p2_stats) || predict.ai_insight || (predict.h2h_summary && predict.h2h_summary.total_matches > 0)) && (
                 <div className="border-t border-slate-900/70 pt-3 relative z-10">
                     <button
                         onClick={() => setExpanded(p => !p)}
                         className="w-full flex items-center justify-between cursor-pointer focus:outline-none group/acc"
                     >
-                        <span className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest text-slate-400 group-hover/acc:text-indigo-300 transition-colors">
+                        <span className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest text-slate-400 group-hover/acc:text-indigo-300 transition-colors flex-wrap">
                             <span className={`transition-all ${hasHighConf ? 'text-indigo-400' : ''}`}>⚡</span>
                             Röntgen &amp; AI Edge
                             {predict.alternative_bets && predict.alternative_bets.length > 0 && (
@@ -317,12 +505,19 @@ function MatchCard({ predict, isResultCard }) {
                                 </div>
                             )}
 
-                            {/* 2. Röntgen Matchup Stats Comparison */}
+                            {/* 2. H2H Head-to-Head History */}
+                            {predict.h2h_summary && predict.h2h_summary.total_matches > 0 && (
+                                <div className="space-y-1.5">
+                                    <H2HSummary h2h={predict.h2h_summary} p1Name={predict.home_player} p2Name={predict.away_player} />
+                                </div>
+                            )}
+
+                            {/* 3. Röntgen Matchup Stats Comparison */}
                             {predict.p1_stats && predict.p2_stats && (
                                 <StatsComparison p1={predict.p1_stats} p2={predict.p2_stats} />
                             )}
 
-                            {/* 3. Alternative Bahis Önerileri */}
+                            {/* 4. Alternative Bahis Önerileri */}
                             {predict.alternative_bets && predict.alternative_bets.length > 0 && (
                                 <div className="space-y-2.5">
                                     <span className="text-[7.5px] font-black uppercase tracking-widest text-slate-500 block">🎯 Alternative Plays</span>
@@ -380,7 +575,7 @@ function MatchCard({ predict, isResultCard }) {
 // ─────────────────────────────────────────────────────────────
 //  Alt bileşen: Maç Listesi Grid
 // ─────────────────────────────────────────────────────────────
-function MatchGrid({ list, isResultCard, emptyMessage }) {
+function MatchGrid({ list, isResultCard, emptyMessage, onPlayerClick }) {
     if (!list || list.length === 0) {
         return (
             <div className="bg-slate-900/20 border border-slate-850 rounded-3xl p-10 text-center max-w-md mx-auto my-6 animate-fade-in select-none">
@@ -398,6 +593,7 @@ function MatchGrid({ list, isResultCard, emptyMessage }) {
                     key={predict.match_id}
                     predict={predict}
                     isResultCard={isResultCard}
+                    onPlayerClick={onPlayerClick}
                 />
             ))}
         </div>
@@ -415,6 +611,13 @@ function TennisDashboard({ selectedDate }) {
 
     // GÖREV 1: Upcoming vs Results ana tab
     const [matchView, setMatchView] = useState('upcoming');  // 'upcoming' | 'results'
+
+    // Player History Drawer state
+    const [drawerPlayer, setDrawerPlayer] = useState(null); // { id, name }
+    const handlePlayerClick = useCallback((playerId, playerName) => {
+        if (playerId) setDrawerPlayer({ id: playerId, name: playerName });
+    }, []);
+    const closeDrawer = useCallback(() => setDrawerPlayer(null), []);
 
     // ── Error ──
     if (error && !data) {
@@ -645,12 +848,23 @@ function TennisDashboard({ selectedDate }) {
                     list={upcomingList}
                     isResultCard={false}
                     emptyMessage="No upcoming tennis matches calculated for this category."
+                    onPlayerClick={handlePlayerClick}
                 />
             ) : (
                 <MatchGrid
                     list={resultsList}
                     isResultCard={true}
                     emptyMessage="No finished matches available yet for this category."
+                    onPlayerClick={handlePlayerClick}
+                />
+            )}
+
+            {/* ── PLAYER HISTORY DRAWER ── */}
+            {drawerPlayer && (
+                <PlayerHistoryDrawer
+                    playerId={drawerPlayer.id}
+                    playerName={drawerPlayer.name}
+                    onClose={closeDrawer}
                 />
             )}
 

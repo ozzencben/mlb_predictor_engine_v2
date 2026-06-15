@@ -1,63 +1,7 @@
 {
     "date": "2026-06-15",
     "active_predictions": [],
-    "skipped_low_confidence": [
-        {
-            "match_id": "IToCHaom",
-            "tournament": "ATP - SINGLES: London (United Kingdom), grass",
-            "surface": "Grass",
-            "home_player": "Mpetshi Perricard G.",
-            "away_player": "Moutet C.",
-            "home_win_probability": 46.83,
-            "away_win_probability": 53.17,
-            "predicted_winner": "Moutet C.",
-            "p1_odds": 1.63,
-            "p2_odds": 2.65,
-            "edge_percentage": 15.44,
-            "recommended_kelly_bet_percentage": 6.2,
-            "alternative_bets": [
-                {
-                    "market": "Set Handicap",
-                    "selection": "Mpetshi Perricard G. +1.5 Sets",
-                    "confidence": "Medium",
-                    "reason": "Close H2H projection (53.2%) indicates a tight contest, raising value on Mpetshi Perricard G. to steal at least a set."
-                },
-                {
-                    "market": "Total Games",
-                    "selection": "Over 22.5 Games",
-                    "confidence": "High",
-                    "reason": "Symmetric set dominance (diff: 1.8%) and high fatigue levels suggest a grueling, three-set match going Over."
-                }
-            ],
-            "p1_stats": {
-                "rank": 93,
-                "elo": 1547.1381085557873,
-                "surface_rate": 0.75,
-                "momentum": 0.497,
-                "fatigue": 6,
-                "set_dominance": 0.463,
-                "game_dominance": 0.493,
-                "rest_days": 2,
-                "clutch_win_rate": 55.6,
-                "straight_sets_rate": 45.0,
-                "name": "Mpetshi Perricard G."
-            },
-            "p2_stats": {
-                "rank": 36,
-                "elo": 1484.0,
-                "surface_rate": 0.0,
-                "momentum": 0.268,
-                "fatigue": 9,
-                "set_dominance": 0.481,
-                "game_dominance": 0.496,
-                "rest_days": 6,
-                "clutch_win_rate": 35.3,
-                "straight_sets_rate": 73.7,
-                "name": "Moutet C."
-            },
-            "ai_insight": "- Mpetshi Perricard G. dominates the target surface with a superior 0.75 Court DNA and higher ELO (1547.14) compared to Moutet C.'s 0.0 Court DNA and 1484.0 ELO, indicating a clear grass court and overall rating edge for Mpetshi.\n- Moutet C. has played more sets recently (9 vs 6), but benefits from a substantial 6-day recovery window, leaving Mpetshi Perricard G. with only 2 days rest, suggesting Moutet C. is less prone to fatigue.\n- With a hefty 15.44% calculated edge and a projected 53.17% win probability for Moutet C. against market odds of 2.65, the optimal mathematical play is a Moneyline bet on Moutet C."
-        }
-    ],
+    "skipped_low_confidence": [],
     "skipped_low_tier": [
         {
             "match_id": "z9MNECmd",
@@ -65,6 +9,8 @@
             "surface": "Clay",
             "home_player": "Estevez J.",
             "away_player": "Linde Palacios S. A.",
+            "p1_id": "v3mDD6Cq",
+            "p2_id": "Of1uNU3t",
             "home_win_probability": 71.17,
             "away_win_probability": 28.83,
             "predicted_winner": "Estevez J.",
@@ -84,6 +30,48 @@
                 "rest_days": 4,
                 "clutch_win_rate": 33.3,
                 "straight_sets_rate": 89.3,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Cigarran T.",
+                        "score": "1-2",
+                        "surface": "Clay",
+                        "tournament": "San Miguel de Tucuman",
+                        "date": "2026-06-11"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Soto M.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "San Miguel de Tucuman",
+                        "date": "2026-06-10"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Ribeiro de Almeida G.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "M25 Cuiaba",
+                        "date": "2026-06-02"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Collarini A.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "Cordoba",
+                        "date": "2026-05-12"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Villanueva G.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "M25 Villa Maria",
+                        "date": "2026-05-09"
+                    }
+                ],
                 "name": "Estevez J."
             },
             "p2_stats": {
@@ -97,7 +85,63 @@
                 "rest_days": 8,
                 "clutch_win_rate": 28.6,
                 "straight_sets_rate": 73.3,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Chelia B.",
+                        "score": "1-2",
+                        "surface": "Clay",
+                        "tournament": "San Miguel de Tucuman",
+                        "date": "2026-06-07"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "La Serna J. M.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "M25 Cuiaba",
+                        "date": "2026-06-04"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Torres J. B.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "Cordoba",
+                        "date": "2026-05-13"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Farjat T.",
+                        "score": "1-1",
+                        "surface": "Clay",
+                        "tournament": "Cordoba",
+                        "date": "2026-05-12"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Castro L. C.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "Cordoba",
+                        "date": "2026-05-11"
+                    }
+                ],
                 "name": "Linde Palacios S. A."
+            },
+            "h2h_summary": {
+                "p1_wins": 1,
+                "p2_wins": 0,
+                "total_matches": 1,
+                "matches": [
+                    {
+                        "date": "2026-05-08",
+                        "tournament": "M25 Villa Maria",
+                        "surface": "Clay",
+                        "winner": "Estevez J.",
+                        "score": "2-0"
+                    }
+                ]
             }
         },
         {
@@ -106,6 +150,8 @@
             "surface": "Clay",
             "home_player": "Fernandez B.",
             "away_player": "Hardt N.",
+            "p1_id": "YmTgy47q",
+            "p2_id": "QaQOIXla",
             "home_win_probability": 28.77,
             "away_win_probability": 71.23,
             "predicted_winner": "Hardt N.",
@@ -132,6 +178,48 @@
                 "rest_days": 5,
                 "clutch_win_rate": 69.2,
                 "straight_sets_rate": 59.1,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Hardt N.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "San Miguel de Tucuman",
+                        "date": "2026-06-10"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Oliveira N.",
+                        "score": "1-2",
+                        "surface": "Clay",
+                        "tournament": "M25 Cuiaba",
+                        "date": "2026-06-02"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Torres J. B.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "Cordoba",
+                        "date": "2026-05-12"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Dellien Velasco M. A.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "Santos",
+                        "date": "2026-05-06"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Remondy Pagotto V. H.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "Santos",
+                        "date": "2026-05-05"
+                    }
+                ],
                 "name": "Fernandez B."
             },
             "p2_stats": {
@@ -145,7 +233,63 @@
                 "rest_days": 3,
                 "clutch_win_rate": 76.9,
                 "straight_sets_rate": 68.8,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Kicker N.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "San Miguel de Tucuman",
+                        "date": "2026-06-12"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Fernandez B.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "San Miguel de Tucuman",
+                        "date": "2026-06-10"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Zarate C. M.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "M25 Cuiaba",
+                        "date": "2026-06-08"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Villanueva G.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "M25 Cuiaba",
+                        "date": "2026-06-07"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Alves M.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "M25 Cuiaba",
+                        "date": "2026-06-05"
+                    }
+                ],
                 "name": "Hardt N."
+            },
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 1,
+                "total_matches": 1,
+                "matches": [
+                    {
+                        "date": "2026-06-10",
+                        "tournament": "San Miguel de Tucuman",
+                        "surface": "Clay",
+                        "winner": "Hardt N.",
+                        "score": "0-2"
+                    }
+                ]
             }
         },
         {
@@ -154,6 +298,8 @@
             "surface": "Clay",
             "home_player": "Zarate C. M.",
             "away_player": "Gomez J. S.",
+            "p1_id": "8WEmZwq6",
+            "p2_id": "KvtYcHFS",
             "home_win_probability": 65.58,
             "away_win_probability": 34.42,
             "predicted_winner": "Zarate C. M.",
@@ -173,6 +319,48 @@
                 "rest_days": 3,
                 "clutch_win_rate": 58.3,
                 "straight_sets_rate": 65.4,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Ambrogi L. E.",
+                        "score": "1-2",
+                        "surface": "Clay",
+                        "tournament": "San Miguel de Tucuman",
+                        "date": "2026-06-12"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Huertas Del Pino Cordova A.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "San Miguel de Tucuman",
+                        "date": "2026-06-11"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Torres J. B.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "San Miguel de Tucuman",
+                        "date": "2026-06-10"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Hardt N.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "M25 Cuiaba",
+                        "date": "2026-06-08"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Oliveira N.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "M25 Cuiaba",
+                        "date": "2026-06-06"
+                    }
+                ],
                 "name": "Zarate C. M."
             },
             "p2_stats": {
@@ -186,7 +374,55 @@
                 "rest_days": 6,
                 "clutch_win_rate": 58.8,
                 "straight_sets_rate": 50.0,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Ambrogi L. E.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "San Miguel de Tucuman",
+                        "date": "2026-06-09"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Linde Palacios S. A.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "M15 Quito 2",
+                        "date": "2026-05-02"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Urrea A.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "M15 Quito 2",
+                        "date": "2026-05-01"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Pinto L.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "M15 Quito 2",
+                        "date": "2026-04-30"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Tsitsipas Pa.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "M15 Quito 2",
+                        "date": "2026-04-28"
+                    }
+                ],
                 "name": "Gomez J. S."
+            },
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 0,
+                "total_matches": 0,
+                "matches": []
             }
         },
         {
@@ -195,6 +431,8 @@
             "surface": "Clay",
             "home_player": "Rodriguez L. J.",
             "away_player": "Ribeiro E.",
+            "p1_id": "xdHROE39",
+            "p2_id": "ObAxbvT5",
             "home_win_probability": 45.73,
             "away_win_probability": 54.27,
             "predicted_winner": "Ribeiro E.",
@@ -227,6 +465,48 @@
                 "rest_days": 4,
                 "clutch_win_rate": 40.0,
                 "straight_sets_rate": 80.0,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Pucinelli de Almeida M.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "San Miguel de Tucuman",
+                        "date": "2026-06-11"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Villalon N.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "San Miguel de Tucuman",
+                        "date": "2026-06-10"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Justo G. I.",
+                        "score": "0-1",
+                        "surface": "Clay",
+                        "tournament": "Cordoba",
+                        "date": "2026-05-12"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Miguel L. A.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "Santos",
+                        "date": "2026-05-08"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Justo G. I.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Santos",
+                        "date": "2026-05-07"
+                    }
+                ],
                 "name": "Rodriguez L. J."
             },
             "p2_stats": {
@@ -240,150 +520,55 @@
                 "rest_days": 4,
                 "clutch_win_rate": 41.2,
                 "straight_sets_rate": 74.1,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Rodriguez J. A.",
+                        "score": "1-2",
+                        "surface": "Clay",
+                        "tournament": "San Miguel de Tucuman",
+                        "date": "2026-06-11"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "De La Fuente S.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "San Miguel de Tucuman",
+                        "date": "2026-06-09"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Justo G. I.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "Cordoba",
+                        "date": "2026-05-14"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Dellien Velasco M. A.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Cordoba",
+                        "date": "2026-05-13"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Cavallo F.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Cordoba",
+                        "date": "2026-05-11"
+                    }
+                ],
                 "name": "Ribeiro E."
-            }
-        },
-        {
-            "match_id": "QgF9s2Na",
-            "tournament": "CHALLENGER MEN - SINGLES: Asuncion 2 (Paraguay) - Qualification, clay",
-            "surface": "Clay",
-            "home_player": "Huertas Del Pino Cordova A.",
-            "away_player": "Ribeiro de Almeida G.",
-            "home_win_probability": 38.89,
-            "away_win_probability": 61.11,
-            "predicted_winner": "Ribeiro de Almeida G.",
-            "p1_odds": null,
-            "p2_odds": null,
-            "edge_percentage": null,
-            "recommended_kelly_bet_percentage": null,
-            "alternative_bets": [],
-            "p1_stats": {
-                "rank": 769,
-                "elo": 1535.1281407897823,
-                "surface_rate": 0.429,
-                "momentum": 0.485,
-                "fatigue": 8,
-                "set_dominance": 0.49,
-                "game_dominance": 0.498,
-                "rest_days": 4,
-                "clutch_win_rate": 43.8,
-                "straight_sets_rate": 61.1,
-                "name": "Huertas Del Pino Cordova A."
             },
-            "p2_stats": {
-                "rank": 800,
-                "elo": 1674.2384537710261,
-                "surface_rate": 0.61,
-                "momentum": 0.701,
-                "fatigue": 7,
-                "set_dominance": 0.589,
-                "game_dominance": 0.518,
-                "rest_days": 1,
-                "clutch_win_rate": 62.5,
-                "straight_sets_rate": 77.8,
-                "name": "Ribeiro de Almeida G."
-            }
-        },
-        {
-            "match_id": "YJIHuthC",
-            "tournament": "CHALLENGER MEN - SINGLES: Asuncion 2 (Paraguay) - Qualification, clay",
-            "surface": "Clay",
-            "home_player": "Zeitune M.",
-            "away_player": "Loureiro J. V. C.",
-            "home_win_probability": 66.44,
-            "away_win_probability": 33.56,
-            "predicted_winner": "Zeitune M.",
-            "p1_odds": null,
-            "p2_odds": null,
-            "edge_percentage": null,
-            "recommended_kelly_bet_percentage": null,
-            "alternative_bets": [
-                {
-                    "market": "Set Handicap",
-                    "selection": "Loureiro J. V. C. +1.5 Sets",
-                    "confidence": "Medium",
-                    "reason": "Favorite Zeitune M. shows high fatigue accumulation (8 sets), creating a strong set cover opportunity for Loureiro J. V. C.."
-                }
-            ],
-            "p1_stats": {
-                "rank": 646,
-                "elo": 1615.946837980873,
-                "surface_rate": 0.5,
-                "momentum": 0.443,
-                "fatigue": 8,
-                "set_dominance": 0.514,
-                "game_dominance": 0.503,
-                "rest_days": 5,
-                "clutch_win_rate": 47.4,
-                "straight_sets_rate": 59.1,
-                "name": "Zeitune M."
-            },
-            "p2_stats": {
-                "rank": 870,
-                "elo": 1534.994478313221,
-                "surface_rate": 0.457,
-                "momentum": 0.421,
-                "fatigue": 6,
-                "set_dominance": 0.472,
-                "game_dominance": 0.494,
-                "rest_days": 1,
-                "clutch_win_rate": 42.1,
-                "straight_sets_rate": 55.0,
-                "name": "Loureiro J. V. C."
-            }
-        },
-        {
-            "match_id": "lprQRye3",
-            "tournament": "CHALLENGER MEN - SINGLES: Nottingham (United Kingdom), grass",
-            "surface": "Grass",
-            "home_player": "Gill F.",
-            "away_player": "Gaston H.",
-            "home_win_probability": 45.53,
-            "away_win_probability": 54.47,
-            "predicted_winner": "Gaston H.",
-            "p1_odds": null,
-            "p2_odds": null,
-            "edge_percentage": null,
-            "recommended_kelly_bet_percentage": null,
-            "alternative_bets": [
-                {
-                    "market": "Set Handicap",
-                    "selection": "Gill F. +1.5 Sets",
-                    "confidence": "Medium",
-                    "reason": "Close H2H projection (54.5%) indicates a tight contest, raising value on Gill F. to steal at least a set."
-                },
-                {
-                    "market": "Total Games",
-                    "selection": "Over 22.5 Games",
-                    "confidence": "High",
-                    "reason": "Symmetric set dominance (diff: 7.6%) and high fatigue levels suggest a grueling, three-set match going Over."
-                }
-            ],
-            "p1_stats": {
-                "rank": 220,
-                "elo": 1487.010420083012,
-                "surface_rate": 0.333,
-                "momentum": 0.492,
-                "fatigue": 8,
-                "set_dominance": 0.615,
-                "game_dominance": 0.523,
-                "rest_days": 5,
-                "clutch_win_rate": 73.7,
-                "straight_sets_rate": 51.7,
-                "name": "Gill F."
-            },
-            "p2_stats": {
-                "rank": 119,
-                "elo": 1500.0,
-                "surface_rate": 0.0,
-                "momentum": 0.39,
-                "fatigue": 12,
-                "set_dominance": 0.539,
-                "game_dominance": 0.508,
-                "rest_days": 18,
-                "clutch_win_rate": 66.7,
-                "straight_sets_rate": 54.2,
-                "name": "Gaston H."
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 0,
+                "total_matches": 0,
+                "matches": []
             }
         },
         {
@@ -392,6 +577,8 @@
             "surface": "Clay",
             "home_player": "Gadamauri B.",
             "away_player": "Dzumhur D.",
+            "p1_id": "QX3MNSXf",
+            "p2_id": "hMrlbuuQ",
             "home_win_probability": 45.62,
             "away_win_probability": 54.38,
             "predicted_winner": "Dzumhur D.",
@@ -418,6 +605,48 @@
                 "rest_days": 6,
                 "clutch_win_rate": 50.0,
                 "straight_sets_rate": 71.0,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Barton H.",
+                        "score": "1-2",
+                        "surface": "Clay",
+                        "tournament": "Bratislava",
+                        "date": "2026-06-09"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Kuzmanov D.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "Bratislava",
+                        "date": "2026-06-08"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Donald M.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Bratislava",
+                        "date": "2026-06-07"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Alcala Gurri M.",
+                        "score": "1-2",
+                        "surface": "Clay",
+                        "tournament": "Cervia",
+                        "date": "2026-05-23"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Compagnucci T.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "Cervia",
+                        "date": "2026-05-22"
+                    }
+                ],
                 "name": "Gadamauri B."
             },
             "p2_stats": {
@@ -431,185 +660,55 @@
                 "rest_days": 11,
                 "clutch_win_rate": 55.6,
                 "straight_sets_rate": 43.8,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Daniel T.",
+                        "score": "1-2",
+                        "surface": "Clay",
+                        "tournament": "Prostejov",
+                        "date": "2026-06-04"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Damas M.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "Prostejov",
+                        "date": "2026-06-02"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Davidovich Fokina A.",
+                        "score": "2-3",
+                        "surface": "Clay",
+                        "tournament": "French Open",
+                        "date": "2026-05-24"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Munar J.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "Valencia",
+                        "date": "2026-05-14"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Sanchez Quilez A.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "Valencia",
+                        "date": "2026-05-13"
+                    }
+                ],
                 "name": "Dzumhur D."
-            }
-        },
-        {
-            "match_id": "vLVBcpLk",
-            "tournament": "CHALLENGER MEN - SINGLES: Royan (France), clay",
-            "surface": "Clay",
-            "home_player": "Ratti L.",
-            "away_player": "Hemery C.",
-            "home_win_probability": 44.96,
-            "away_win_probability": 55.04,
-            "predicted_winner": "Hemery C.",
-            "p1_odds": null,
-            "p2_odds": null,
-            "edge_percentage": null,
-            "recommended_kelly_bet_percentage": null,
-            "alternative_bets": [
-                {
-                    "market": "Set Handicap",
-                    "selection": "Ratti L. +1.5 Sets",
-                    "confidence": "Medium",
-                    "reason": "Close H2H projection (55.0%) indicates a tight contest, raising value on Ratti L. to steal at least a set."
-                }
-            ],
-            "p1_stats": {
-                "rank": 424,
-                "elo": 1633.6721586568156,
-                "surface_rate": 0.643,
-                "momentum": 0.558,
-                "fatigue": 8,
-                "set_dominance": 0.615,
-                "game_dominance": 0.523,
-                "rest_days": 7,
-                "clutch_win_rate": 45.5,
-                "straight_sets_rate": 77.8,
-                "name": "Ratti L."
             },
-            "p2_stats": {
-                "rank": 276,
-                "elo": 1597.260452976122,
-                "surface_rate": 0.6,
-                "momentum": 0.509,
-                "fatigue": 8,
-                "set_dominance": 0.516,
-                "game_dominance": 0.503,
-                "rest_days": 6,
-                "clutch_win_rate": 50.0,
-                "straight_sets_rate": 66.7,
-                "name": "Hemery C."
-            }
-        },
-        {
-            "match_id": "rLzsxCAt",
-            "tournament": "CHALLENGER WOMEN - SINGLES: Brescia (Italy), clay",
-            "surface": "Clay",
-            "home_player": "Rakotomanga Rajaonah T.",
-            "away_player": "Lizarazo Y.",
-            "home_win_probability": 35.61,
-            "away_win_probability": 64.39,
-            "predicted_winner": "Lizarazo Y.",
-            "p1_odds": null,
-            "p2_odds": null,
-            "edge_percentage": null,
-            "recommended_kelly_bet_percentage": null,
-            "alternative_bets": [],
-            "p1_stats": {
-                "rank": 162,
-                "elo": 1448.0092243969561,
-                "surface_rate": 0.154,
-                "momentum": 0.275,
-                "fatigue": 7,
-                "set_dominance": 0.364,
-                "game_dominance": 0.473,
-                "rest_days": 7,
-                "clutch_win_rate": 60.0,
-                "straight_sets_rate": 40.0,
-                "name": "Rakotomanga Rajaonah T."
-            },
-            "p2_stats": {
-                "rank": 771,
-                "elo": 1580.4531815952907,
-                "surface_rate": 0.576,
-                "momentum": 0.469,
-                "fatigue": 5,
-                "set_dominance": 0.532,
-                "game_dominance": 0.506,
-                "rest_days": 74,
-                "clutch_win_rate": 63.6,
-                "straight_sets_rate": 69.6,
-                "name": "Lizarazo Y."
-            }
-        },
-        {
-            "match_id": "G0D5PdKG",
-            "tournament": "ITF WOMEN - SINGLES: W35+H Tauste (Spain), hard",
-            "surface": "Hard",
-            "home_player": "Lemaitre T.",
-            "away_player": "Kardava Z.",
-            "home_win_probability": 64.11,
-            "away_win_probability": 35.89,
-            "predicted_winner": "Lemaitre T.",
-            "p1_odds": null,
-            "p2_odds": null,
-            "edge_percentage": null,
-            "recommended_kelly_bet_percentage": null,
-            "alternative_bets": [
-                {
-                    "market": "Set Handicap",
-                    "selection": "Kardava Z. +1.5 Sets",
-                    "confidence": "Medium",
-                    "reason": "Favorite Lemaitre T. shows high fatigue accumulation (8 sets), creating a strong set cover opportunity for Kardava Z.."
-                }
-            ],
-            "p1_stats": {
-                "rank": 355,
-                "elo": 1548.1501567442835,
-                "surface_rate": 0.4,
-                "momentum": 0.317,
-                "fatigue": 8,
-                "set_dominance": 0.48,
-                "game_dominance": 0.496,
-                "rest_days": 40,
-                "clutch_win_rate": 43.8,
-                "straight_sets_rate": 63.2,
-                "name": "Lemaitre T."
-            },
-            "p2_stats": {
-                "rank": 747,
-                "elo": 1557.195331243653,
-                "surface_rate": 0.528,
-                "momentum": 0.451,
-                "fatigue": 6,
-                "set_dominance": 0.553,
-                "game_dominance": 0.511,
-                "rest_days": 24,
-                "clutch_win_rate": 50.0,
-                "straight_sets_rate": 83.3,
-                "name": "Kardava Z."
-            }
-        },
-        {
-            "match_id": "UPro5SY1",
-            "tournament": "ITF WOMEN - SINGLES: W35+H Tauste (Spain), hard",
-            "surface": "Hard",
-            "home_player": "Marcinkevica D.",
-            "away_player": "Gerald Gonzalez J. G.",
-            "home_win_probability": 36.59,
-            "away_win_probability": 63.41,
-            "predicted_winner": "Gerald Gonzalez J. G.",
-            "p1_odds": null,
-            "p2_odds": null,
-            "edge_percentage": null,
-            "recommended_kelly_bet_percentage": null,
-            "alternative_bets": [],
-            "p1_stats": {
-                "rank": 833,
-                "elo": 1436.7319233320534,
-                "surface_rate": 0.3,
-                "momentum": 0.289,
-                "fatigue": 6,
-                "set_dominance": 0.354,
-                "game_dominance": 0.471,
-                "rest_days": 5,
-                "clutch_win_rate": 46.2,
-                "straight_sets_rate": 57.1,
-                "name": "Marcinkevica D."
-            },
-            "p2_stats": {
-                "rank": 778,
-                "elo": 1516.5951358902073,
-                "surface_rate": 0.0,
-                "momentum": 0.391,
-                "fatigue": 7,
-                "set_dominance": 0.446,
-                "game_dominance": 0.489,
-                "rest_days": 5,
-                "clutch_win_rate": 75.0,
-                "straight_sets_rate": 68.4,
-                "name": "Gerald Gonzalez J. G."
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 0,
+                "total_matches": 0,
+                "matches": []
             }
         },
         {
@@ -618,6 +717,8 @@
             "surface": "Hard",
             "home_player": "Turini V.",
             "away_player": "Rutlauka S.",
+            "p1_id": "pOW9ShaB",
+            "p2_id": "EcLDv06e",
             "home_win_probability": 50.25,
             "away_win_probability": 49.75,
             "predicted_winner": "Turini V.",
@@ -650,6 +751,48 @@
                 "rest_days": 8,
                 "clutch_win_rate": 40.0,
                 "straight_sets_rate": 71.4,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Ortenzi J.",
+                        "score": "1-2",
+                        "surface": "Clay",
+                        "tournament": "Modena",
+                        "date": "2026-06-07"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Romero Gormaz L.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "Foggia",
+                        "date": "2026-06-04"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Tona M.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Foggia",
+                        "date": "2026-06-02"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Cortez Llorca L.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "Foggia",
+                        "date": "2026-06-01"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Kuzmova K.",
+                        "score": "1-2",
+                        "surface": "Hard",
+                        "tournament": "W35 Monastir 5",
+                        "date": "2026-05-14"
+                    }
+                ],
                 "name": "Turini V."
             },
             "p2_stats": {
@@ -663,15 +806,63 @@
                 "rest_days": 24,
                 "clutch_win_rate": 54.5,
                 "straight_sets_rate": 75.0,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Visscher S. J.",
+                        "score": "0-2",
+                        "surface": "Hard",
+                        "tournament": "W35 Estepona",
+                        "date": "2026-05-22"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Pawlikowska Z.",
+                        "score": "2-0",
+                        "surface": "Hard",
+                        "tournament": "W35 Estepona",
+                        "date": "2026-05-21"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Gomez O'Hayon V.",
+                        "score": "2-1",
+                        "surface": "Hard",
+                        "tournament": "W35 Estepona",
+                        "date": "2026-05-20"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Adams J.",
+                        "score": "0-2",
+                        "surface": "Hard",
+                        "tournament": "W35 Nottingham 2",
+                        "date": "2026-05-07"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Toma M.",
+                        "score": "2-1",
+                        "surface": "Hard",
+                        "tournament": "W35 Nottingham 2",
+                        "date": "2026-05-06"
+                    }
+                ],
                 "name": "Rutlauka S."
+            },
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 0,
+                "total_matches": 0,
+                "matches": []
             }
         }
     ],
     "statistics": {
-        "total_unplayed": 29,
+        "total_unplayed": 14,
         "active_predictions_count": 0,
-        "skipped_low_confidence_count": 1,
-        "skipped_low_tier_count": 13,
-        "skipped_data_missing_count": 15
+        "skipped_low_confidence_count": 0,
+        "skipped_low_tier_count": 6,
+        "skipped_data_missing_count": 8
     }
 }
