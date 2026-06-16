@@ -576,9 +576,34 @@ def predict_today_matches():
         # H2H Geçmiş Karşılaşma Özeti
         h2h_summary = calculate_h2h_summary(p1_name, p1_matches, p2_name, p2_matches)
 
+        round_code = m.get("round_code")
+        match_stage = "Main Draw"
+        if round_code:
+            round_mapping = {
+                "1": "Round of 32",
+                "2": "Round of 16",
+                "3": "Quarter-finals",
+                "4": "Semi-finals",
+                "5": "Final",
+                "11": "Qualification Round 1",
+                "12": "Qualification Round 2",
+            }
+            match_stage = round_mapping.get(str(round_code), f"Round {round_code}")
+
+        match_time = "TBD"
+        if timestamp:
+            try:
+                dt = datetime.fromtimestamp(timestamp, tz=ZoneInfo("America/New_York"))
+                match_time = dt.strftime("%H:%M ET")
+            except Exception:
+                pass
+
         match_data = {
             "match_id": m["match_id"],
             "tournament": t_name,
+            "match_stage": match_stage,
+            "match_time": match_time,
+            "timestamp": timestamp,
             "surface": ground,
             "home_player": p1_name,
             "away_player": p2_name,
@@ -820,9 +845,34 @@ def evaluate_today_accuracy():
         
         alternative_bets = generate_alternative_bets(chance, p1_stats, p2_stats)
 
+        round_code = m.get("round_code")
+        match_stage = "Main Draw"
+        if round_code:
+            round_mapping = {
+                "1": "Round of 32",
+                "2": "Round of 16",
+                "3": "Quarter-finals",
+                "4": "Semi-finals",
+                "5": "Final",
+                "11": "Qualification Round 1",
+                "12": "Qualification Round 2",
+            }
+            match_stage = round_mapping.get(str(round_code), f"Round {round_code}")
+
+        match_time = "TBD"
+        if timestamp:
+            try:
+                dt = datetime.fromtimestamp(timestamp, tz=ZoneInfo("America/New_York"))
+                match_time = dt.strftime("%H:%M ET")
+            except Exception:
+                pass
+
         match_res = {
             "match_id": m["match_id"],
             "tournament": t_name,
+            "match_stage": match_stage,
+            "match_time": match_time,
+            "timestamp": timestamp,
             "home_player": p1_name,
             "away_player": p2_name,
             "predicted_winner": predicted_winner,
@@ -837,7 +887,8 @@ def evaluate_today_accuracy():
             "recommended_kelly_bet_percentage": recommended_kelly_bet_percentage,
             "alternative_bets": alternative_bets,
             "p1_stats": p1_stats,
-            "p2_stats": p2_stats
+            "p2_stats": p2_stats,
+            "set_scores": m.get("set_scores", [])
         }
 
         # Check Tier Filter

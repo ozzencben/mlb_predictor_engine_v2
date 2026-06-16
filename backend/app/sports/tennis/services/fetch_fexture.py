@@ -62,17 +62,21 @@ def parse_flashscore_feed(feed_text: str) -> list:
             continue
             
         if first_key == "ZA":
-            current_tournament = {
-                "name": field_dict.get("ZA"),
-                "id": field_dict.get("ZEE"),
-                "country_id": field_dict.get("ZB"),
-                "category_id": field_dict.get("ZC"),
-                "url": field_dict.get("ZL"),
-                "gender": "Singles" if "SINGLES" in field_dict.get("ZA", "").upper() else ("Doubles" if "DOUBLES" in field_dict.get("ZA", "").upper() else "Unknown")
-            }
+            t_name = field_dict.get("ZA", "")
+            if "ITF" in t_name.upper():
+                current_tournament = None
+            else:
+                current_tournament = {
+                    "name": t_name,
+                    "id": field_dict.get("ZEE"),
+                    "country_id": field_dict.get("ZB"),
+                    "category_id": field_dict.get("ZC"),
+                    "url": field_dict.get("ZL"),
+                    "gender": "Singles" if "SINGLES" in t_name.upper() else ("Doubles" if "DOUBLES" in t_name.upper() else "Unknown")
+                }
         elif first_key == "AA":
             match_id = field_dict.get("AA")
-            if not match_id:
+            if not match_id or not current_tournament:
                 continue
                 
             set_scores = []
@@ -117,6 +121,7 @@ def parse_flashscore_feed(feed_text: str) -> list:
                 "detail_code": ac_code,
                 "status": status_text,
                 "note": note,
+                "round_code": field_dict.get("CR"),
                 "home_player": {
                     "name": field_dict.get("AE"),
                     "short_name": field_dict.get("WM"),

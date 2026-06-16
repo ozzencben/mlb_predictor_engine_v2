@@ -56,7 +56,15 @@ function App() {
     const [loadingStepIdx, setLoadingStepIdx] = useState(0);
     const [randomTipIdx] = useState(() => Math.floor(Math.random() * mlbTips.length));
     const [menuOpen, setMenuOpen] = useState(false);
+    const [toastMessage, setToastMessage] = useState(null);
     const { data, loading, error, isPreparing } = usePredictions(selectedDate);
+
+    useEffect(() => {
+        if (toastMessage) {
+            const timer = setTimeout(() => setToastMessage(null), 3500);
+            return () => clearTimeout(timer);
+        }
+    }, [toastMessage]);
 
     useEffect(() => {
         if (loading) {
@@ -571,6 +579,7 @@ function App() {
                                     setMenuOpen={setMenuOpen}
                                     setShowAboutModal={setShowAboutModal}
                                     setShowContactModal={setShowContactModal}
+                                    setToastMessage={setToastMessage}
                                 />
                             </div>
                         </div>
@@ -590,12 +599,17 @@ function App() {
                                 return (
                                     <button
                                         key={sport.id}
-                                        disabled={isComingSoon}
-                                        onClick={() => setActiveSport(sport.id)}
+                                        onClick={() => {
+                                            if (isComingSoon) {
+                                                setToastMessage(`${sport.name} predictor is currently in training and will be available soon!`);
+                                            } else {
+                                                setActiveSport(sport.id);
+                                            }
+                                        }}
                                         className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${isSelected
-                                                ? 'bg-indigo-600/20 border border-indigo-500/20 text-indigo-400 font-extrabold shadow-[0_0_12px_rgba(99,102,241,0.1)]'
+                                                ? 'bg-indigo-600/20 border border-indigo-500/20 text-indigo-400 font-extrabold shadow-[0_0_12px_rgba(99,102,241,0.1)] border-t border-t-indigo-400/20'
                                                 : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40 border border-transparent'
-                                            } ${isComingSoon ? 'opacity-40 cursor-not-allowed' : ''}`}
+                                            } ${isComingSoon ? 'opacity-40 hover:opacity-100' : ''}`}
                                     >
                                         <span>{sport.icon}</span>
                                         <span>{sport.name}</span>
@@ -1546,6 +1560,25 @@ function App() {
                             </div>
                         </div>
                     </div>
+                </div>
+            )}
+
+            {/* Custom Toast Alert */}
+            {toastMessage && (
+                <div className="fixed bottom-6 left-6 z-[200] max-w-sm w-full bg-slate-950/95 border border-indigo-500/35 rounded-2xl p-4 shadow-[0_12px_40px_rgba(99,102,241,0.25)] backdrop-blur-xl animate-slide-in-right flex items-center gap-3.5 border-t border-t-indigo-400/50">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-sm shadow-[0_0_8px_rgba(99,102,241,0.2)]">
+                        🚀
+                    </div>
+                    <div className="flex-1 min-w-0">
+                        <span className="text-[8px] text-indigo-400 font-black uppercase tracking-widest block">System Message</span>
+                        <p className="text-[11px] text-white font-bold leading-normal mt-0.5">{toastMessage}</p>
+                    </div>
+                    <button 
+                        onClick={() => setToastMessage(null)}
+                        className="text-slate-500 hover:text-white transition-colors cursor-pointer text-xs p-1"
+                    >
+                        ✕
+                    </button>
                 </div>
             )}
         </div>

@@ -10,19 +10,19 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:51Z",
+                "last_update": "2026-06-16T08:42:30Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:51Z",
+                        "last_update": "2026-06-16T08:42:30Z",
                         "outcomes": [
                             {
                                 "name": "Alexander Bublik",
-                                "price": 1.35
+                                "price": 1.34
                             },
                             {
                                 "name": "Mattia Bellucci",
-                                "price": 3.24
+                                "price": 3.3
                             }
                         ]
                     }
@@ -31,15 +31,36 @@
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:19Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:19Z",
                         "outcomes": [
                             {
                                 "name": "Alexander Bublik",
                                 "price": 1.33
+                            },
+                            {
+                                "name": "Mattia Bellucci",
+                                "price": 3.35
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "last_update": "2026-06-16T08:42:23Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:23Z",
+                        "outcomes": [
+                            {
+                                "name": "Alexander Bublik",
+                                "price": 1.35
                             },
                             {
                                 "name": "Mattia Bellucci",
@@ -50,38 +71,17 @@
                 ]
             },
             {
-                "key": "bovada",
-                "title": "Bovada",
-                "last_update": "2026-06-15T18:52:16Z",
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2026-06-16T08:41:53Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:16Z",
+                        "last_update": "2026-06-16T08:41:53Z",
                         "outcomes": [
                             {
                                 "name": "Alexander Bublik",
                                 "price": 1.36
-                            },
-                            {
-                                "name": "Mattia Bellucci",
-                                "price": 3.2
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "betmgm",
-                "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:12Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T18:52:12Z",
-                        "outcomes": [
-                            {
-                                "name": "Alexander Bublik",
-                                "price": 1.35
                             },
                             {
                                 "name": "Mattia Bellucci",
@@ -94,11 +94,11 @@
             {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:13Z",
+                "last_update": "2026-06-16T08:42:06Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:13Z",
+                        "last_update": "2026-06-16T08:42:06Z",
                         "outcomes": [
                             {
                                 "name": "Alexander Bublik",
@@ -115,19 +115,19 @@
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:04Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:04Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Alexander Bublik",
-                                "price": 1.39
+                                "price": 1.35
                             },
                             {
                                 "name": "Mattia Bellucci",
-                                "price": 3.17
+                                "price": 3.45
                             }
                         ]
                     }
@@ -146,19 +146,19 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:51Z",
+                "last_update": "2026-06-16T08:42:30Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:51Z",
+                        "last_update": "2026-06-16T08:42:30Z",
                         "outcomes": [
                             {
                                 "name": "Alexei Popyrin",
-                                "price": 2.25
+                                "price": 2.37
                             },
                             {
                                 "name": "Raphael Collignon",
-                                "price": 1.66
+                                "price": 1.6
                             }
                         ]
                     }
@@ -167,19 +167,19 @@
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:19Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:19Z",
                         "outcomes": [
                             {
                                 "name": "Alexei Popyrin",
-                                "price": 2.26
+                                "price": 2.4
                             },
                             {
                                 "name": "Raphael Collignon",
-                                "price": 1.65
+                                "price": 1.58
                             }
                         ]
                     }
@@ -188,19 +188,19 @@
             {
                 "key": "bovada",
                 "title": "Bovada",
-                "last_update": "2026-06-15T18:52:16Z",
+                "last_update": "2026-06-16T08:42:23Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:16Z",
+                        "last_update": "2026-06-16T08:42:23Z",
                         "outcomes": [
                             {
                                 "name": "Alexei Popyrin",
-                                "price": 2.25
+                                "price": 2.4
                             },
                             {
                                 "name": "Raphael Collignon",
-                                "price": 1.67
+                                "price": 1.59
                             }
                         ]
                     }
@@ -209,19 +209,19 @@
             {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:12Z",
+                "last_update": "2026-06-16T08:41:53Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:12Z",
+                        "last_update": "2026-06-16T08:41:53Z",
                         "outcomes": [
                             {
                                 "name": "Alexei Popyrin",
-                                "price": 2.25
+                                "price": 2.35
                             },
                             {
                                 "name": "Raphael Collignon",
-                                "price": 1.62
+                                "price": 1.57
                             }
                         ]
                     }
@@ -230,19 +230,19 @@
             {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:13Z",
+                "last_update": "2026-06-16T08:42:06Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:13Z",
+                        "last_update": "2026-06-16T08:42:06Z",
                         "outcomes": [
                             {
                                 "name": "Alexei Popyrin",
-                                "price": 2.25
+                                "price": 2.43
                             },
                             {
                                 "name": "Raphael Collignon",
-                                "price": 1.64
+                                "price": 1.56
                             }
                         ]
                     }
@@ -251,19 +251,19 @@
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:04Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:04Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Alexei Popyrin",
-                                "price": 2.33
+                                "price": 2.41
                             },
                             {
                                 "name": "Raphael Collignon",
-                                "price": 1.66
+                                "price": 1.63
                             }
                         ]
                     }
@@ -282,32 +282,11 @@
             {
                 "key": "bovada",
                 "title": "Bovada",
-                "last_update": "2026-06-15T18:52:16Z",
+                "last_update": "2026-06-16T08:42:23Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:16Z",
-                        "outcomes": [
-                            {
-                                "name": "Ethan Quinn",
-                                "price": 2.95
-                            },
-                            {
-                                "name": "Karen Khachanov",
-                                "price": 1.42
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "fanduel",
-                "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:38Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:23Z",
                         "outcomes": [
                             {
                                 "name": "Ethan Quinn",
@@ -322,13 +301,34 @@
                 ]
             },
             {
-                "key": "betmgm",
-                "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:12Z",
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2026-06-16T08:42:19Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:12Z",
+                        "last_update": "2026-06-16T08:42:19Z",
+                        "outcomes": [
+                            {
+                                "name": "Ethan Quinn",
+                                "price": 3.1
+                            },
+                            {
+                                "name": "Karen Khachanov",
+                                "price": 1.37
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2026-06-16T08:41:53Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:41:53Z",
                         "outcomes": [
                             {
                                 "name": "Ethan Quinn",
@@ -345,11 +345,11 @@
             {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:13Z",
+                "last_update": "2026-06-16T08:42:06Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:13Z",
+                        "last_update": "2026-06-16T08:42:06Z",
                         "outcomes": [
                             {
                                 "name": "Ethan Quinn",
@@ -366,11 +366,11 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:51Z",
+                "last_update": "2026-06-16T08:42:30Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:51Z",
+                        "last_update": "2026-06-16T08:42:30Z",
                         "outcomes": [
                             {
                                 "name": "Ethan Quinn",
@@ -387,19 +387,19 @@
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:04Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:04Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Ethan Quinn",
-                                "price": 3.05
+                                "price": 3.02
                             },
                             {
                                 "name": "Karen Khachanov",
-                                "price": 1.42
+                                "price": 1.43
                             }
                         ]
                     }
@@ -418,19 +418,19 @@
             {
                 "key": "bovada",
                 "title": "Bovada",
-                "last_update": "2026-06-15T18:52:16Z",
+                "last_update": "2026-06-16T08:42:23Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:16Z",
+                        "last_update": "2026-06-16T08:42:23Z",
                         "outcomes": [
                             {
                                 "name": "Andrey Rublev",
-                                "price": 1.87
+                                "price": 2.0
                             },
                             {
                                 "name": "Hubert Hurkacz",
-                                "price": 1.95
+                                "price": 1.83
                             }
                         ]
                     }
@@ -439,19 +439,19 @@
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:19Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:19Z",
                         "outcomes": [
                             {
                                 "name": "Andrey Rublev",
-                                "price": 1.82
+                                "price": 1.96
                             },
                             {
                                 "name": "Hubert Hurkacz",
-                                "price": 2.0
+                                "price": 1.85
                             }
                         ]
                     }
@@ -460,11 +460,11 @@
             {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:13Z",
+                "last_update": "2026-06-16T08:42:06Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:13Z",
+                        "last_update": "2026-06-16T08:42:06Z",
                         "outcomes": [
                             {
                                 "name": "Andrey Rublev",
@@ -481,11 +481,11 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:51Z",
+                "last_update": "2026-06-16T08:42:30Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:51Z",
+                        "last_update": "2026-06-16T08:42:30Z",
                         "outcomes": [
                             {
                                 "name": "Andrey Rublev",
@@ -502,19 +502,19 @@
             {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:12Z",
+                "last_update": "2026-06-16T08:41:53Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:12Z",
+                        "last_update": "2026-06-16T08:41:53Z",
                         "outcomes": [
                             {
                                 "name": "Andrey Rublev",
-                                "price": 1.91
+                                "price": 1.95
                             },
                             {
                                 "name": "Hubert Hurkacz",
-                                "price": 1.87
+                                "price": 1.83
                             }
                         ]
                     }
@@ -523,19 +523,19 @@
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:04Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:04Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Andrey Rublev",
-                                "price": 1.94
+                                "price": 2.0
                             },
                             {
                                 "name": "Hubert Hurkacz",
-                                "price": 1.93
+                                "price": 1.88
                             }
                         ]
                     }
@@ -554,19 +554,19 @@
             {
                 "key": "bovada",
                 "title": "Bovada",
-                "last_update": "2026-06-15T18:52:16Z",
+                "last_update": "2026-06-16T08:42:23Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:16Z",
+                        "last_update": "2026-06-16T08:42:23Z",
                         "outcomes": [
                             {
                                 "name": "Joao Fonseca",
-                                "price": 1.42
+                                "price": 1.38
                             },
                             {
                                 "name": "Yannick Hanfmann",
-                                "price": 2.95
+                                "price": 3.1
                             }
                         ]
                     }
@@ -575,19 +575,19 @@
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:19Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:19Z",
                         "outcomes": [
                             {
                                 "name": "Joao Fonseca",
-                                "price": 1.4
+                                "price": 1.34
                             },
                             {
                                 "name": "Yannick Hanfmann",
-                                "price": 2.96
+                                "price": 3.2
                             }
                         ]
                     }
@@ -596,19 +596,19 @@
             {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:12Z",
+                "last_update": "2026-06-16T08:41:53Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:12Z",
+                        "last_update": "2026-06-16T08:41:53Z",
                         "outcomes": [
                             {
                                 "name": "Joao Fonseca",
-                                "price": 1.4
+                                "price": 1.36
                             },
                             {
                                 "name": "Yannick Hanfmann",
-                                "price": 2.95
+                                "price": 3.1
                             }
                         ]
                     }
@@ -617,11 +617,11 @@
             {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:13Z",
+                "last_update": "2026-06-16T08:42:06Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:13Z",
+                        "last_update": "2026-06-16T08:42:06Z",
                         "outcomes": [
                             {
                                 "name": "Joao Fonseca",
@@ -638,11 +638,11 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:51Z",
+                "last_update": "2026-06-16T08:42:30Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:51Z",
+                        "last_update": "2026-06-16T08:42:30Z",
                         "outcomes": [
                             {
                                 "name": "Joao Fonseca",
@@ -650,7 +650,7 @@
                             },
                             {
                                 "name": "Yannick Hanfmann",
-                                "price": 3.08
+                                "price": 3.09
                             }
                         ]
                     }
@@ -659,19 +659,19 @@
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:04Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:04Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Joao Fonseca",
-                                "price": 1.41
+                                "price": 1.4
                             },
                             {
                                 "name": "Yannick Hanfmann",
-                                "price": 3.08
+                                "price": 3.18
                             }
                         ]
                     }
@@ -690,19 +690,19 @@
             {
                 "key": "bovada",
                 "title": "Bovada",
-                "last_update": "2026-06-15T18:52:16Z",
+                "last_update": "2026-06-16T08:42:23Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:16Z",
+                        "last_update": "2026-06-16T08:42:23Z",
                         "outcomes": [
                             {
                                 "name": "Sho Shimabukuro",
-                                "price": 2.2
+                                "price": 2.15
                             },
                             {
                                 "name": "Tallon Griekspoor",
-                                "price": 1.69
+                                "price": 1.71
                             }
                         ]
                     }
@@ -711,19 +711,19 @@
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:19Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:19Z",
                         "outcomes": [
                             {
                                 "name": "Sho Shimabukuro",
-                                "price": 2.24
+                                "price": 2.22
                             },
                             {
                                 "name": "Tallon Griekspoor",
-                                "price": 1.67
+                                "price": 1.68
                             }
                         ]
                     }
@@ -732,19 +732,19 @@
             {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:12Z",
+                "last_update": "2026-06-16T08:41:53Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:12Z",
+                        "last_update": "2026-06-16T08:41:53Z",
                         "outcomes": [
                             {
                                 "name": "Sho Shimabukuro",
-                                "price": 2.15
+                                "price": 2.1
                             },
                             {
                                 "name": "Tallon Griekspoor",
-                                "price": 1.67
+                                "price": 1.71
                             }
                         ]
                     }
@@ -753,19 +753,19 @@
             {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:13Z",
+                "last_update": "2026-06-16T08:42:06Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:13Z",
+                        "last_update": "2026-06-16T08:42:06Z",
                         "outcomes": [
                             {
                                 "name": "Sho Shimabukuro",
-                                "price": 2.3
+                                "price": 2.14
                             },
                             {
                                 "name": "Tallon Griekspoor",
-                                "price": 1.61
+                                "price": 1.71
                             }
                         ]
                     }
@@ -774,11 +774,11 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:51Z",
+                "last_update": "2026-06-16T08:42:30Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:51Z",
+                        "last_update": "2026-06-16T08:42:30Z",
                         "outcomes": [
                             {
                                 "name": "Sho Shimabukuro",
@@ -795,19 +795,19 @@
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:04Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:04Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Sho Shimabukuro",
-                                "price": 2.25
+                                "price": 2.18
                             },
                             {
                                 "name": "Tallon Griekspoor",
-                                "price": 1.69
+                                "price": 1.75
                             }
                         ]
                     }
@@ -826,11 +826,11 @@
             {
                 "key": "bovada",
                 "title": "Bovada",
-                "last_update": "2026-06-15T18:52:16Z",
+                "last_update": "2026-06-16T08:42:23Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:16Z",
+                        "last_update": "2026-06-16T08:42:23Z",
                         "outcomes": [
                             {
                                 "name": "Fabian Marozsan",
@@ -847,15 +847,36 @@
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:19Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:19Z",
                         "outcomes": [
                             {
                                 "name": "Fabian Marozsan",
-                                "price": 2.4
+                                "price": 2.38
+                            },
+                            {
+                                "name": "Miomir Kecmanovic",
+                                "price": 1.59
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2026-06-16T08:41:53Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:41:53Z",
+                        "outcomes": [
+                            {
+                                "name": "Fabian Marozsan",
+                                "price": 2.35
                             },
                             {
                                 "name": "Miomir Kecmanovic",
@@ -866,34 +887,13 @@
                 ]
             },
             {
-                "key": "betmgm",
-                "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:12Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T18:52:12Z",
-                        "outcomes": [
-                            {
-                                "name": "Fabian Marozsan",
-                                "price": 2.4
-                            },
-                            {
-                                "name": "Miomir Kecmanovic",
-                                "price": 1.54
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:13Z",
+                "last_update": "2026-06-16T08:42:06Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:13Z",
+                        "last_update": "2026-06-16T08:42:06Z",
                         "outcomes": [
                             {
                                 "name": "Fabian Marozsan",
@@ -910,11 +910,11 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:51Z",
+                "last_update": "2026-06-16T08:42:30Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:51Z",
+                        "last_update": "2026-06-16T08:42:30Z",
                         "outcomes": [
                             {
                                 "name": "Fabian Marozsan",
@@ -931,19 +931,19 @@
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:04Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:04Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Fabian Marozsan",
-                                "price": 2.39
+                                "price": 2.38
                             },
                             {
                                 "name": "Miomir Kecmanovic",
-                                "price": 1.62
+                                "price": 1.65
                             }
                         ]
                     }
@@ -962,11 +962,11 @@
             {
                 "key": "bovada",
                 "title": "Bovada",
-                "last_update": "2026-06-15T18:52:16Z",
+                "last_update": "2026-06-16T08:42:23Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:16Z",
+                        "last_update": "2026-06-16T08:42:23Z",
                         "outcomes": [
                             {
                                 "name": "Alexander Zverev",
@@ -983,19 +983,19 @@
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:19Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:19Z",
                         "outcomes": [
                             {
                                 "name": "Alexander Zverev",
-                                "price": 1.06
+                                "price": 1.05
                             },
                             {
                                 "name": "Vit Kopriva",
-                                "price": 11.0
+                                "price": 13.8
                             }
                         ]
                     }
@@ -1004,19 +1004,19 @@
             {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:12Z",
+                "last_update": "2026-06-16T08:41:53Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:12Z",
+                        "last_update": "2026-06-16T08:41:53Z",
                         "outcomes": [
                             {
                                 "name": "Alexander Zverev",
-                                "price": 1.03
+                                "price": 1.04
                             },
                             {
                                 "name": "Vit Kopriva",
-                                "price": 11.0
+                                "price": 10.0
                             }
                         ]
                     }
@@ -1025,11 +1025,11 @@
             {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:13Z",
+                "last_update": "2026-06-16T08:42:06Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:13Z",
+                        "last_update": "2026-06-16T08:42:06Z",
                         "outcomes": [
                             {
                                 "name": "Alexander Zverev",
@@ -1046,11 +1046,11 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:51Z",
+                "last_update": "2026-06-16T08:42:30Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:51Z",
+                        "last_update": "2026-06-16T08:42:30Z",
                         "outcomes": [
                             {
                                 "name": "Alexander Zverev",
@@ -1058,7 +1058,7 @@
                             },
                             {
                                 "name": "Vit Kopriva",
-                                "price": 11.6
+                                "price": 12.2
                             }
                         ]
                     }
@@ -1067,19 +1067,19 @@
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:04Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:04Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Alexander Zverev",
-                                "price": 1.04
+                                "price": 1.05
                             },
                             {
                                 "name": "Vit Kopriva",
-                                "price": 13.96
+                                "price": 12.2
                             }
                         ]
                     }
@@ -1098,11 +1098,11 @@
             {
                 "key": "bovada",
                 "title": "Bovada",
-                "last_update": "2026-06-15T18:52:16Z",
+                "last_update": "2026-06-16T08:42:23Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:16Z",
+                        "last_update": "2026-06-16T08:42:23Z",
                         "outcomes": [
                             {
                                 "name": "Daniil Medvedev",
@@ -1119,19 +1119,19 @@
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:19Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:19Z",
                         "outcomes": [
                             {
                                 "name": "Daniil Medvedev",
-                                "price": 1.23
+                                "price": 1.22
                             },
                             {
                                 "name": "Tomas Martin Etcheverry",
-                                "price": 4.2
+                                "price": 4.4
                             }
                         ]
                     }
@@ -1140,19 +1140,19 @@
             {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:12Z",
+                "last_update": "2026-06-16T08:41:53Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:12Z",
+                        "last_update": "2026-06-16T08:41:53Z",
                         "outcomes": [
                             {
                                 "name": "Daniil Medvedev",
-                                "price": 1.19
+                                "price": 1.2
                             },
                             {
                                 "name": "Tomas Martin Etcheverry",
-                                "price": 4.6
+                                "price": 4.33
                             }
                         ]
                     }
@@ -1161,11 +1161,11 @@
             {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:13Z",
+                "last_update": "2026-06-16T08:42:06Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:13Z",
+                        "last_update": "2026-06-16T08:42:06Z",
                         "outcomes": [
                             {
                                 "name": "Daniil Medvedev",
@@ -1182,11 +1182,11 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:51Z",
+                "last_update": "2026-06-16T08:42:30Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:51Z",
+                        "last_update": "2026-06-16T08:42:30Z",
                         "outcomes": [
                             {
                                 "name": "Daniil Medvedev",
@@ -1203,19 +1203,19 @@
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:04Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:04Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Daniil Medvedev",
-                                "price": 1.2
+                                "price": 1.22
                             },
                             {
                                 "name": "Tomas Martin Etcheverry",
-                                "price": 4.91
+                                "price": 4.8
                             }
                         ]
                     }
@@ -1234,11 +1234,11 @@
             {
                 "key": "bovada",
                 "title": "Bovada",
-                "last_update": "2026-06-15T18:52:16Z",
+                "last_update": "2026-06-16T08:42:23Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:16Z",
+                        "last_update": "2026-06-16T08:42:23Z",
                         "outcomes": [
                             {
                                 "name": "Ben Shelton",
@@ -1255,11 +1255,11 @@
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:19Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:19Z",
                         "outcomes": [
                             {
                                 "name": "Ben Shelton",
@@ -1276,19 +1276,19 @@
             {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:13Z",
+                "last_update": "2026-06-16T08:42:06Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:13Z",
+                        "last_update": "2026-06-16T08:42:06Z",
                         "outcomes": [
                             {
                                 "name": "Ben Shelton",
-                                "price": 1.34
+                                "price": 1.36
                             },
                             {
                                 "name": "Nick Kyrgios",
-                                "price": 3.2
+                                "price": 3.1
                             }
                         ]
                     }
@@ -1297,11 +1297,11 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:51Z",
+                "last_update": "2026-06-16T08:42:30Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:51Z",
+                        "last_update": "2026-06-16T08:42:30Z",
                         "outcomes": [
                             {
                                 "name": "Ben Shelton",
@@ -1318,11 +1318,11 @@
             {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:12Z",
+                "last_update": "2026-06-16T08:41:53Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:12Z",
+                        "last_update": "2026-06-16T08:41:53Z",
                         "outcomes": [
                             {
                                 "name": "Ben Shelton",
@@ -1339,11 +1339,11 @@
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:04Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:04Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Ben Shelton",
@@ -1351,7 +1351,101 @@
                             },
                             {
                                 "name": "Nick Kyrgios",
-                                "price": 3.12
+                                "price": 3.17
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "b0ca66fc32c38bd07a4a95e5e6ffbd82",
+        "sport_key": "tennis_atp_halle_open",
+        "sport_title": "ATP Halle Open",
+        "commence_time": "2026-06-17T09:30:00Z",
+        "home_team": "Learner Tien",
+        "away_team": "Felix Auger-Aliassime",
+        "bookmakers": [
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2026-06-16T08:42:30Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:30Z",
+                        "outcomes": [
+                            {
+                                "name": "Felix Auger-Aliassime",
+                                "price": 1.58
+                            },
+                            {
+                                "name": "Learner Tien",
+                                "price": 2.41
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "last_update": "2026-06-16T08:42:23Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:23Z",
+                        "outcomes": [
+                            {
+                                "name": "Felix Auger-Aliassime",
+                                "price": 1.59
+                            },
+                            {
+                                "name": "Learner Tien",
+                                "price": 2.4
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2026-06-16T08:42:19Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:19Z",
+                        "outcomes": [
+                            {
+                                "name": "Felix Auger-Aliassime",
+                                "price": 1.59
+                            },
+                            {
+                                "name": "Learner Tien",
+                                "price": 2.4
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2026-06-16T08:41:53Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:41:53Z",
+                        "outcomes": [
+                            {
+                                "name": "Felix Auger-Aliassime",
+                                "price": 1.57
+                            },
+                            {
+                                "name": "Learner Tien",
+                                "price": 2.35
                             }
                         ]
                     }
@@ -1370,11 +1464,11 @@
             {
                 "key": "bovada",
                 "title": "Bovada",
-                "last_update": "2026-06-15T18:52:16Z",
+                "last_update": "2026-06-16T08:42:23Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:16Z",
+                        "last_update": "2026-06-16T08:42:23Z",
                         "outcomes": [
                             {
                                 "name": "Taylor Fritz",
@@ -1391,11 +1485,11 @@
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:19Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:19Z",
                         "outcomes": [
                             {
                                 "name": "Taylor Fritz",
@@ -1412,11 +1506,11 @@
             {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:13Z",
+                "last_update": "2026-06-16T08:42:06Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:13Z",
+                        "last_update": "2026-06-16T08:42:06Z",
                         "outcomes": [
                             {
                                 "name": "Taylor Fritz",
@@ -1433,11 +1527,11 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:51Z",
+                "last_update": "2026-06-16T08:42:30Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:51Z",
+                        "last_update": "2026-06-16T08:42:30Z",
                         "outcomes": [
                             {
                                 "name": "Taylor Fritz",
@@ -1454,11 +1548,11 @@
             {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:12Z",
+                "last_update": "2026-06-16T08:41:53Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:12Z",
+                        "last_update": "2026-06-16T08:41:53Z",
                         "outcomes": [
                             {
                                 "name": "Taylor Fritz",
@@ -1475,19 +1569,19 @@
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:04Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:04Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Taylor Fritz",
-                                "price": 1.3
+                                "price": 1.31
                             },
                             {
                                 "name": "Zizou Bergs",
-                                "price": 3.74
+                                "price": 3.77
                             }
                         ]
                     }
@@ -1499,26 +1593,26 @@
         "id": "cad8f2a6a232c2004389f9df19cc7d79",
         "sport_key": "tennis_atp_queens_club_champ",
         "sport_title": "ATP Queen's Club Championships",
-        "commence_time": "2026-06-15T17:35:00Z",
+        "commence_time": "2026-06-16T06:08:00Z",
         "home_team": "Giovanni Mpetshi Perricard",
         "away_team": "Corentin Moutet",
         "bookmakers": [
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:50Z",
+                "last_update": "2026-06-16T08:41:53Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:50Z",
+                        "last_update": "2026-06-16T08:41:53Z",
                         "outcomes": [
                             {
                                 "name": "Corentin Moutet",
-                                "price": 3.9
+                                "price": 1.91
                             },
                             {
                                 "name": "Giovanni Mpetshi Perricard",
-                                "price": 1.22
+                                "price": 1.8
                             }
                         ]
                     }
@@ -1527,19 +1621,19 @@
             {
                 "key": "bovada",
                 "title": "Bovada",
-                "last_update": "2026-06-15T18:52:29Z",
+                "last_update": "2026-06-16T08:42:35Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:29Z",
+                        "last_update": "2026-06-16T08:42:35Z",
                         "outcomes": [
                             {
                                 "name": "Corentin Moutet",
-                                "price": 3.6
+                                "price": 1.83
                             },
                             {
                                 "name": "Giovanni Mpetshi Perricard",
-                                "price": 1.31
+                                "price": 2.0
                             }
                         ]
                     }
@@ -1548,19 +1642,19 @@
             {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:26Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:26Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Corentin Moutet",
-                                "price": 3.8
+                                "price": 1.85
                             },
                             {
                                 "name": "Giovanni Mpetshi Perricard",
-                                "price": 1.25
+                                "price": 1.89
                             }
                         ]
                     }
@@ -1569,19 +1663,19 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:30Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:30Z",
                         "outcomes": [
                             {
                                 "name": "Corentin Moutet",
-                                "price": 3.14
+                                "price": 1.93
                             },
                             {
                                 "name": "Giovanni Mpetshi Perricard",
-                                "price": 1.36
+                                "price": 1.85
                             }
                         ]
                     }
@@ -1590,40 +1684,19 @@
             {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:40Z",
+                "last_update": "2026-06-16T08:42:20Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:40Z",
+                        "last_update": "2026-06-16T08:42:19Z",
                         "outcomes": [
                             {
                                 "name": "Corentin Moutet",
-                                "price": 3.7
+                                "price": 1.83
                             },
                             {
                                 "name": "Giovanni Mpetshi Perricard",
-                                "price": 1.25
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "pinnacle",
-                "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:06Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T18:53:05Z",
-                        "outcomes": [
-                            {
-                                "name": "Corentin Moutet",
-                                "price": 4.1
-                            },
-                            {
-                                "name": "Giovanni Mpetshi Perricard",
-                                "price": 1.28
+                                "price": 1.91
                             }
                         ]
                     }
@@ -1642,19 +1715,19 @@
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:06Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:05Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Adrian Mannarino",
-                                "price": 2.68
+                                "price": 2.78
                             },
                             {
                                 "name": "Jakub Mensik",
-                                "price": 1.52
+                                "price": 1.5
                             }
                         ]
                     }
@@ -1663,19 +1736,19 @@
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:50Z",
+                "last_update": "2026-06-16T08:41:53Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:50Z",
+                        "last_update": "2026-06-16T08:41:53Z",
                         "outcomes": [
                             {
                                 "name": "Adrian Mannarino",
-                                "price": 2.64
+                                "price": 2.62
                             },
                             {
                                 "name": "Jakub Mensik",
-                                "price": 1.44
+                                "price": 1.45
                             }
                         ]
                     }
@@ -1684,11 +1757,11 @@
             {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:40Z",
+                "last_update": "2026-06-16T08:42:20Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:40Z",
+                        "last_update": "2026-06-16T08:42:19Z",
                         "outcomes": [
                             {
                                 "name": "Adrian Mannarino",
@@ -1705,19 +1778,19 @@
             {
                 "key": "bovada",
                 "title": "Bovada",
-                "last_update": "2026-06-15T18:52:29Z",
+                "last_update": "2026-06-16T08:42:35Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:29Z",
+                        "last_update": "2026-06-16T08:42:35Z",
                         "outcomes": [
                             {
                                 "name": "Adrian Mannarino",
-                                "price": 2.65
+                                "price": 2.7
                             },
                             {
                                 "name": "Jakub Mensik",
-                                "price": 1.5
+                                "price": 1.48
                             }
                         ]
                     }
@@ -1726,11 +1799,11 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:30Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:30Z",
                         "outcomes": [
                             {
                                 "name": "Adrian Mannarino",
@@ -1747,11 +1820,11 @@
             {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:26Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:26Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Adrian Mannarino",
@@ -1778,15 +1851,36 @@
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:06Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:06Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Brandon Nakashima",
-                                "price": 1.6
+                                "price": 1.52
+                            },
+                            {
+                                "name": "Marton Fucsovics",
+                                "price": 2.7
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2026-06-16T08:41:53Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:41:53Z",
+                        "outcomes": [
+                            {
+                                "name": "Brandon Nakashima",
+                                "price": 1.5
                             },
                             {
                                 "name": "Marton Fucsovics",
@@ -1797,42 +1891,21 @@
                 ]
             },
             {
-                "key": "fanduel",
-                "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:50Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T18:52:50Z",
-                        "outcomes": [
-                            {
-                                "name": "Brandon Nakashima",
-                                "price": 1.52
-                            },
-                            {
-                                "name": "Marton Fucsovics",
-                                "price": 2.44
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:40Z",
+                "last_update": "2026-06-16T08:42:20Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:40Z",
+                        "last_update": "2026-06-16T08:42:19Z",
                         "outcomes": [
                             {
                                 "name": "Brandon Nakashima",
-                                "price": 1.53
+                                "price": 1.5
                             },
                             {
                                 "name": "Marton Fucsovics",
-                                "price": 2.45
+                                "price": 2.54
                             }
                         ]
                     }
@@ -1841,19 +1914,19 @@
             {
                 "key": "bovada",
                 "title": "Bovada",
-                "last_update": "2026-06-15T18:52:29Z",
+                "last_update": "2026-06-16T08:42:35Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:29Z",
+                        "last_update": "2026-06-16T08:42:35Z",
                         "outcomes": [
                             {
                                 "name": "Brandon Nakashima",
-                                "price": 1.57
+                                "price": 1.51
                             },
                             {
                                 "name": "Marton Fucsovics",
-                                "price": 2.45
+                                "price": 2.6
                             }
                         ]
                     }
@@ -1862,11 +1935,11 @@
             {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:26Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:26Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Brandon Nakashima",
@@ -1883,19 +1956,19 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:30Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:30Z",
                         "outcomes": [
                             {
                                 "name": "Brandon Nakashima",
-                                "price": 1.57
+                                "price": 1.52
                             },
                             {
                                 "name": "Marton Fucsovics",
-                                "price": 2.43
+                                "price": 2.57
                             }
                         ]
                     }
@@ -1904,29 +1977,29 @@
         ]
     },
     {
-        "id": "99a7f26afc354f130a2a4c97d50e8fca",
+        "id": "e007d575b50ab2051748b38a1e922ea3",
         "sport_key": "tennis_atp_queens_club_champ",
         "sport_title": "ATP Queen's Club Championships",
         "commence_time": "2026-06-16T10:30:00Z",
         "home_team": "Ignacio Buse",
-        "away_team": "Rafael Jodar",
+        "away_team": "Marcos Giron",
         "bookmakers": [
             {
-                "key": "betrivers",
-                "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:26Z",
+                "key": "pinnacle",
+                "title": "Pinnacle",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:26Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Ignacio Buse",
-                                "price": 3.45
+                                "price": 3.19
                             },
                             {
-                                "name": "Rafael Jodar",
-                                "price": 1.3
+                                "name": "Marcos Giron",
+                                "price": 1.4
                             }
                         ]
                     }
@@ -1935,19 +2008,103 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:30Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:30Z",
                         "outcomes": [
                             {
                                 "name": "Ignacio Buse",
-                                "price": 3.34
+                                "price": 3.32
                             },
                             {
-                                "name": "Rafael Jodar",
-                                "price": 1.33
+                                "name": "Marcos Giron",
+                                "price": 1.34
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2026-06-16T08:41:53Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:41:53Z",
+                        "outcomes": [
+                            {
+                                "name": "Ignacio Buse",
+                                "price": 3.05
+                            },
+                            {
+                                "name": "Marcos Giron",
+                                "price": 1.34
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2026-06-16T08:42:20Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:19Z",
+                        "outcomes": [
+                            {
+                                "name": "Ignacio Buse",
+                                "price": 3.1
+                            },
+                            {
+                                "name": "Marcos Giron",
+                                "price": 1.36
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betrivers",
+                "title": "BetRivers",
+                "last_update": "2026-06-16T08:42:43Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:43Z",
+                        "outcomes": [
+                            {
+                                "name": "Ignacio Buse",
+                                "price": 3.05
+                            },
+                            {
+                                "name": "Marcos Giron",
+                                "price": 1.38
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "last_update": "2026-06-16T08:42:35Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:35Z",
+                        "outcomes": [
+                            {
+                                "name": "Ignacio Buse",
+                                "price": 3.2
+                            },
+                            {
+                                "name": "Marcos Giron",
+                                "price": 1.36
                             }
                         ]
                     }
@@ -1966,19 +2123,19 @@
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:06Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:05Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Jenson Brooksby",
-                                "price": 2.29
+                                "price": 2.4
                             },
                             {
                                 "name": "Martin Damm Jr.",
-                                "price": 1.68
+                                "price": 1.63
                             }
                         ]
                     }
@@ -1987,19 +2144,19 @@
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:50Z",
+                "last_update": "2026-06-16T08:41:53Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:50Z",
+                        "last_update": "2026-06-16T08:41:53Z",
                         "outcomes": [
                             {
                                 "name": "Jenson Brooksby",
-                                "price": 2.22
+                                "price": 2.26
                             },
                             {
                                 "name": "Martin Damm Jr.",
-                                "price": 1.62
+                                "price": 1.58
                             }
                         ]
                     }
@@ -2008,19 +2165,19 @@
             {
                 "key": "bovada",
                 "title": "Bovada",
-                "last_update": "2026-06-15T18:52:29Z",
+                "last_update": "2026-06-16T08:42:35Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:29Z",
+                        "last_update": "2026-06-16T08:42:35Z",
                         "outcomes": [
                             {
                                 "name": "Jenson Brooksby",
-                                "price": 2.35
+                                "price": 2.4
                             },
                             {
                                 "name": "Martin Damm Jr.",
-                                "price": 1.61
+                                "price": 1.59
                             }
                         ]
                     }
@@ -2029,11 +2186,11 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:30Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:30Z",
                         "outcomes": [
                             {
                                 "name": "Jenson Brooksby",
@@ -2050,19 +2207,19 @@
             {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:40Z",
+                "last_update": "2026-06-16T08:42:20Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:40Z",
+                        "last_update": "2026-06-16T08:42:19Z",
                         "outcomes": [
                             {
                                 "name": "Jenson Brooksby",
-                                "price": 2.2
+                                "price": 2.3
                             },
                             {
                                 "name": "Martin Damm Jr.",
-                                "price": 1.65
+                                "price": 1.61
                             }
                         ]
                     }
@@ -2071,11 +2228,11 @@
             {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:26Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:26Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Jenson Brooksby",
@@ -2102,19 +2259,19 @@
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:06Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:06Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Alex de Minaur",
-                                "price": 1.21
+                                "price": 1.19
                             },
                             {
                                 "name": "Gabriel Diallo",
-                                "price": 5.02
+                                "price": 5.26
                             }
                         ]
                     }
@@ -2123,19 +2280,19 @@
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:50Z",
+                "last_update": "2026-06-16T08:41:53Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:50Z",
+                        "last_update": "2026-06-16T08:41:53Z",
                         "outcomes": [
                             {
                                 "name": "Alex de Minaur",
-                                "price": 1.15
+                                "price": 1.17
                             },
                             {
                                 "name": "Gabriel Diallo",
-                                "price": 5.0
+                                "price": 4.5
                             }
                         ]
                     }
@@ -2144,11 +2301,11 @@
             {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:40Z",
+                "last_update": "2026-06-16T08:42:20Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:40Z",
+                        "last_update": "2026-06-16T08:42:19Z",
                         "outcomes": [
                             {
                                 "name": "Alex de Minaur",
@@ -2165,19 +2322,19 @@
             {
                 "key": "bovada",
                 "title": "Bovada",
-                "last_update": "2026-06-15T18:52:29Z",
+                "last_update": "2026-06-16T08:42:35Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:29Z",
+                        "last_update": "2026-06-16T08:42:35Z",
                         "outcomes": [
                             {
                                 "name": "Alex de Minaur",
-                                "price": 1.2
+                                "price": 1.18
                             },
                             {
                                 "name": "Gabriel Diallo",
-                                "price": 4.75
+                                "price": 5.0
                             }
                         ]
                     }
@@ -2186,11 +2343,11 @@
             {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:26Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:26Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Alex de Minaur",
@@ -2207,11 +2364,11 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:30Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:30Z",
                         "outcomes": [
                             {
                                 "name": "Alex de Minaur",
@@ -2219,7 +2376,7 @@
                             },
                             {
                                 "name": "Gabriel Diallo",
-                                "price": 5.17
+                                "price": 5.09
                             }
                         ]
                     }
@@ -2238,19 +2395,19 @@
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:06Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:06Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Arthur Fery",
-                                "price": 1.68
+                                "price": 1.71
                             },
                             {
                                 "name": "Toby Samuel",
-                                "price": 2.3
+                                "price": 2.24
                             }
                         ]
                     }
@@ -2259,19 +2416,19 @@
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:50Z",
+                "last_update": "2026-06-16T08:41:53Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:50Z",
+                        "last_update": "2026-06-16T08:41:53Z",
                         "outcomes": [
                             {
                                 "name": "Arthur Fery",
-                                "price": 1.63
+                                "price": 1.62
                             },
                             {
                                 "name": "Toby Samuel",
-                                "price": 2.18
+                                "price": 2.2
                             }
                         ]
                     }
@@ -2280,11 +2437,11 @@
             {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:40Z",
+                "last_update": "2026-06-16T08:42:20Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:40Z",
+                        "last_update": "2026-06-16T08:42:19Z",
                         "outcomes": [
                             {
                                 "name": "Arthur Fery",
@@ -2301,11 +2458,11 @@
             {
                 "key": "bovada",
                 "title": "Bovada",
-                "last_update": "2026-06-15T18:52:29Z",
+                "last_update": "2026-06-16T08:42:35Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:29Z",
+                        "last_update": "2026-06-16T08:42:35Z",
                         "outcomes": [
                             {
                                 "name": "Arthur Fery",
@@ -2322,11 +2479,11 @@
             {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:26Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:26Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Arthur Fery",
@@ -2343,19 +2500,19 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:30Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:30Z",
                         "outcomes": [
                             {
                                 "name": "Arthur Fery",
-                                "price": 1.66
+                                "price": 1.7
                             },
                             {
                                 "name": "Toby Samuel",
-                                "price": 2.25
+                                "price": 2.16
                             }
                         ]
                     }
@@ -2374,15 +2531,15 @@
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:06Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:05Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Aleksandar Kovacevic",
-                                "price": 2.55
+                                "price": 2.58
                             },
                             {
                                 "name": "Francisco Cerundolo",
@@ -2395,19 +2552,19 @@
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:50Z",
+                "last_update": "2026-06-16T08:41:53Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:50Z",
+                        "last_update": "2026-06-16T08:41:53Z",
                         "outcomes": [
                             {
                                 "name": "Aleksandar Kovacevic",
-                                "price": 2.46
+                                "price": 2.52
                             },
                             {
                                 "name": "Francisco Cerundolo",
-                                "price": 1.51
+                                "price": 1.49
                             }
                         ]
                     }
@@ -2416,19 +2573,19 @@
             {
                 "key": "bovada",
                 "title": "Bovada",
-                "last_update": "2026-06-15T18:52:29Z",
+                "last_update": "2026-06-16T08:42:35Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:29Z",
+                        "last_update": "2026-06-16T08:42:35Z",
                         "outcomes": [
                             {
                                 "name": "Aleksandar Kovacevic",
-                                "price": 2.45
+                                "price": 2.5
                             },
                             {
                                 "name": "Francisco Cerundolo",
-                                "price": 1.57
+                                "price": 1.56
                             }
                         ]
                     }
@@ -2437,11 +2594,11 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:30Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:30Z",
                         "outcomes": [
                             {
                                 "name": "Aleksandar Kovacevic",
@@ -2458,11 +2615,11 @@
             {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:26Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:26Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Aleksandar Kovacevic",
@@ -2479,11 +2636,11 @@
             {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:40Z",
+                "last_update": "2026-06-16T08:42:20Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:40Z",
+                        "last_update": "2026-06-16T08:42:20Z",
                         "outcomes": [
                             {
                                 "name": "Aleksandar Kovacevic",
@@ -2492,6 +2649,142 @@
                             {
                                 "name": "Francisco Cerundolo",
                                 "price": 1.53
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "2791bdfb47ed6ab784ea5bbc8f2a6473",
+        "sport_key": "tennis_atp_queens_club_champ",
+        "sport_title": "ATP Queen's Club Championships",
+        "commence_time": "2026-06-16T14:00:00Z",
+        "home_team": "Cameron Norrie",
+        "away_team": "Alejandro Davidovich Fokina",
+        "bookmakers": [
+            {
+                "key": "pinnacle",
+                "title": "Pinnacle",
+                "last_update": "2026-06-16T08:42:43Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:43Z",
+                        "outcomes": [
+                            {
+                                "name": "Alejandro Davidovich Fokina",
+                                "price": 1.83
+                            },
+                            {
+                                "name": "Cameron Norrie",
+                                "price": 2.08
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2026-06-16T08:41:53Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:41:53Z",
+                        "outcomes": [
+                            {
+                                "name": "Alejandro Davidovich Fokina",
+                                "price": 1.68
+                            },
+                            {
+                                "name": "Cameron Norrie",
+                                "price": 2.1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2026-06-16T08:42:20Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:20Z",
+                        "outcomes": [
+                            {
+                                "name": "Alejandro Davidovich Fokina",
+                                "price": 1.77
+                            },
+                            {
+                                "name": "Cameron Norrie",
+                                "price": 2.0
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "last_update": "2026-06-16T08:42:35Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:35Z",
+                        "outcomes": [
+                            {
+                                "name": "Alejandro Davidovich Fokina",
+                                "price": 1.77
+                            },
+                            {
+                                "name": "Cameron Norrie",
+                                "price": 2.1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betrivers",
+                "title": "BetRivers",
+                "last_update": "2026-06-16T08:42:43Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:43Z",
+                        "outcomes": [
+                            {
+                                "name": "Alejandro Davidovich Fokina",
+                                "price": 1.73
+                            },
+                            {
+                                "name": "Cameron Norrie",
+                                "price": 2.1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2026-06-16T08:42:30Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:30Z",
+                        "outcomes": [
+                            {
+                                "name": "Alejandro Davidovich Fokina",
+                                "price": 1.72
+                            },
+                            {
+                                "name": "Cameron Norrie",
+                                "price": 2.13
                             }
                         ]
                     }
@@ -2510,11 +2803,11 @@
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:06Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:05Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Alejandro Tabilo",
@@ -2522,7 +2815,7 @@
                             },
                             {
                                 "name": "Rinky Hijikata",
-                                "price": 2.06
+                                "price": 2.09
                             }
                         ]
                     }
@@ -2531,11 +2824,11 @@
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:50Z",
+                "last_update": "2026-06-16T08:41:53Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:50Z",
+                        "last_update": "2026-06-16T08:41:53Z",
                         "outcomes": [
                             {
                                 "name": "Alejandro Tabilo",
@@ -2552,11 +2845,11 @@
             {
                 "key": "bovada",
                 "title": "Bovada",
-                "last_update": "2026-06-15T18:52:29Z",
+                "last_update": "2026-06-16T08:42:35Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:29Z",
+                        "last_update": "2026-06-16T08:42:35Z",
                         "outcomes": [
                             {
                                 "name": "Alejandro Tabilo",
@@ -2573,15 +2866,15 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:30Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:30Z",
                         "outcomes": [
                             {
                                 "name": "Alejandro Tabilo",
-                                "price": 1.78
+                                "price": 1.77
                             },
                             {
                                 "name": "Rinky Hijikata",
@@ -2594,11 +2887,11 @@
             {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:40Z",
+                "last_update": "2026-06-16T08:42:20Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:40Z",
+                        "last_update": "2026-06-16T08:42:20Z",
                         "outcomes": [
                             {
                                 "name": "Alejandro Tabilo",
@@ -2615,11 +2908,11 @@
             {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:26Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:26Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Alejandro Tabilo",
@@ -2628,142 +2921,6 @@
                             {
                                 "name": "Rinky Hijikata",
                                 "price": 2.02
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "id": "2791bdfb47ed6ab784ea5bbc8f2a6473",
-        "sport_key": "tennis_atp_queens_club_champ",
-        "sport_title": "ATP Queen's Club Championships",
-        "commence_time": "2026-06-16T14:30:00Z",
-        "home_team": "Cameron Norrie",
-        "away_team": "Alejandro Davidovich Fokina",
-        "bookmakers": [
-            {
-                "key": "pinnacle",
-                "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:06Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T18:53:06Z",
-                        "outcomes": [
-                            {
-                                "name": "Alejandro Davidovich Fokina",
-                                "price": 1.78
-                            },
-                            {
-                                "name": "Cameron Norrie",
-                                "price": 2.14
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "fanduel",
-                "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:50Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T18:52:50Z",
-                        "outcomes": [
-                            {
-                                "name": "Alejandro Davidovich Fokina",
-                                "price": 1.65
-                            },
-                            {
-                                "name": "Cameron Norrie",
-                                "price": 2.16
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "betmgm",
-                "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:40Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T18:52:40Z",
-                        "outcomes": [
-                            {
-                                "name": "Alejandro Davidovich Fokina",
-                                "price": 1.69
-                            },
-                            {
-                                "name": "Cameron Norrie",
-                                "price": 2.1
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "bovada",
-                "title": "Bovada",
-                "last_update": "2026-06-15T18:52:29Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T18:52:29Z",
-                        "outcomes": [
-                            {
-                                "name": "Alejandro Davidovich Fokina",
-                                "price": 1.71
-                            },
-                            {
-                                "name": "Cameron Norrie",
-                                "price": 2.15
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "betrivers",
-                "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:26Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T18:52:26Z",
-                        "outcomes": [
-                            {
-                                "name": "Alejandro Davidovich Fokina",
-                                "price": 1.73
-                            },
-                            {
-                                "name": "Cameron Norrie",
-                                "price": 2.1
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "draftkings",
-                "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:38Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
-                        "outcomes": [
-                            {
-                                "name": "Alejandro Davidovich Fokina",
-                                "price": 1.72
-                            },
-                            {
-                                "name": "Cameron Norrie",
-                                "price": 2.13
                             }
                         ]
                     }
@@ -2782,11 +2939,11 @@
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:06Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:05Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Arthur Rinderknech",
@@ -2803,19 +2960,19 @@
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:50Z",
+                "last_update": "2026-06-16T08:41:53Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:50Z",
+                        "last_update": "2026-06-16T08:41:53Z",
                         "outcomes": [
                             {
                                 "name": "Arthur Rinderknech",
-                                "price": 1.69
+                                "price": 1.72
                             },
                             {
                                 "name": "Hamad Medjedovic",
-                                "price": 2.08
+                                "price": 2.04
                             }
                         ]
                     }
@@ -2824,11 +2981,11 @@
             {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:40Z",
+                "last_update": "2026-06-16T08:42:20Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:40Z",
+                        "last_update": "2026-06-16T08:42:19Z",
                         "outcomes": [
                             {
                                 "name": "Arthur Rinderknech",
@@ -2845,11 +3002,11 @@
             {
                 "key": "bovada",
                 "title": "Bovada",
-                "last_update": "2026-06-15T18:52:29Z",
+                "last_update": "2026-06-16T08:42:35Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:29Z",
+                        "last_update": "2026-06-16T08:42:35Z",
                         "outcomes": [
                             {
                                 "name": "Arthur Rinderknech",
@@ -2866,11 +3023,11 @@
             {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:26Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:26Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Arthur Rinderknech",
@@ -2887,11 +3044,11 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:30Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:30Z",
                         "outcomes": [
                             {
                                 "name": "Arthur Rinderknech",
@@ -2911,26 +3068,26 @@
         "id": "5fd9d5a716dc1c26827e66b6607e5433",
         "sport_key": "tennis_atp_queens_club_champ",
         "sport_title": "ATP Queen's Club Championships",
-        "commence_time": "2026-06-16T16:30:00Z",
+        "commence_time": "2026-06-16T15:30:00Z",
         "home_team": "Kamil Majchrzak",
         "away_team": "Jiri Lehecka",
         "bookmakers": [
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:06Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:05Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Jiri Lehecka",
-                                "price": 1.49
+                                "price": 1.47
                             },
                             {
                                 "name": "Kamil Majchrzak",
-                                "price": 2.79
+                                "price": 2.87
                             }
                         ]
                     }
@@ -2939,19 +3096,19 @@
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:50Z",
+                "last_update": "2026-06-16T08:41:53Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:50Z",
+                        "last_update": "2026-06-16T08:41:53Z",
                         "outcomes": [
                             {
                                 "name": "Jiri Lehecka",
-                                "price": 1.41
+                                "price": 1.4
                             },
                             {
                                 "name": "Kamil Majchrzak",
-                                "price": 2.78
+                                "price": 2.82
                             }
                         ]
                     }
@@ -2960,11 +3117,11 @@
             {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:40Z",
+                "last_update": "2026-06-16T08:42:20Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:40Z",
+                        "last_update": "2026-06-16T08:42:20Z",
                         "outcomes": [
                             {
                                 "name": "Jiri Lehecka",
@@ -2981,19 +3138,19 @@
             {
                 "key": "bovada",
                 "title": "Bovada",
-                "last_update": "2026-06-15T18:52:29Z",
+                "last_update": "2026-06-16T08:42:35Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:29Z",
+                        "last_update": "2026-06-16T08:42:35Z",
                         "outcomes": [
                             {
                                 "name": "Jiri Lehecka",
-                                "price": 1.47
+                                "price": 1.45
                             },
                             {
                                 "name": "Kamil Majchrzak",
-                                "price": 2.75
+                                "price": 2.8
                             }
                         ]
                     }
@@ -3002,11 +3159,11 @@
             {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:26Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:26Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Jiri Lehecka",
@@ -3023,11 +3180,11 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:30Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:30Z",
                         "outcomes": [
                             {
                                 "name": "Jiri Lehecka",
@@ -3054,19 +3211,19 @@
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:06Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:05Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Marin Cilic",
-                                "price": 2.17
+                                "price": 2.2
                             },
                             {
                                 "name": "Ugo Humbert",
-                                "price": 1.76
+                                "price": 1.74
                             }
                         ]
                     }
@@ -3075,15 +3232,15 @@
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:50Z",
+                "last_update": "2026-06-16T08:41:53Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:50Z",
+                        "last_update": "2026-06-16T08:41:53Z",
                         "outcomes": [
                             {
                                 "name": "Marin Cilic",
-                                "price": 2.1
+                                "price": 2.12
                             },
                             {
                                 "name": "Ugo Humbert",
@@ -3096,11 +3253,11 @@
             {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:40Z",
+                "last_update": "2026-06-16T08:42:20Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:40Z",
+                        "last_update": "2026-06-16T08:42:20Z",
                         "outcomes": [
                             {
                                 "name": "Marin Cilic",
@@ -3117,11 +3274,11 @@
             {
                 "key": "bovada",
                 "title": "Bovada",
-                "last_update": "2026-06-15T18:52:29Z",
+                "last_update": "2026-06-16T08:42:35Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:29Z",
+                        "last_update": "2026-06-16T08:42:35Z",
                         "outcomes": [
                             {
                                 "name": "Marin Cilic",
@@ -3138,11 +3295,11 @@
             {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:52:26Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:26Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Marin Cilic",
@@ -3159,19 +3316,19 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:30Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:30Z",
                         "outcomes": [
                             {
                                 "name": "Marin Cilic",
-                                "price": 2.15
+                                "price": 2.25
                             },
                             {
                                 "name": "Ugo Humbert",
-                                "price": 1.71
+                                "price": 1.65
                             }
                         ]
                     }
@@ -3180,113 +3337,29 @@
         ]
     },
     {
-        "id": "edd2a079158a578b9cc7bcc89c5d6b88",
+        "id": "4b1533627fe6b7e3a018cf85040efe3b",
         "sport_key": "tennis_wta_german_open",
         "sport_title": "WTA German Open",
-        "commence_time": "2026-06-16T08:00:00Z",
-        "home_team": "Donna Vekic",
-        "away_team": "Alexandra Eala",
+        "commence_time": "2026-06-16T09:00:00Z",
+        "home_team": "Magdalena Frech",
+        "away_team": "Eva Lys",
         "bookmakers": [
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:04Z",
+                "last_update": "2026-06-16T08:42:21Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:04Z",
+                        "last_update": "2026-06-16T08:42:21Z",
                         "outcomes": [
                             {
-                                "name": "Alexandra Eala",
-                                "price": 2.1
+                                "name": "Eva Lys",
+                                "price": 2.23
                             },
                             {
-                                "name": "Donna Vekic",
-                                "price": 1.81
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "bovada",
-                "title": "Bovada",
-                "last_update": "2026-06-15T18:52:06Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T18:52:06Z",
-                        "outcomes": [
-                            {
-                                "name": "Alexandra Eala",
-                                "price": 2.05
-                            },
-                            {
-                                "name": "Donna Vekic",
-                                "price": 1.8
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "fanduel",
-                "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:38Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
-                        "outcomes": [
-                            {
-                                "name": "Alexandra Eala",
-                                "price": 2.02
-                            },
-                            {
-                                "name": "Donna Vekic",
-                                "price": 1.81
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "betmgm",
-                "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:51Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T18:52:51Z",
-                        "outcomes": [
-                            {
-                                "name": "Alexandra Eala",
-                                "price": 2.0
-                            },
-                            {
-                                "name": "Donna Vekic",
-                                "price": 1.8
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "betrivers",
-                "title": "BetRivers",
-                "last_update": "2026-06-15T18:51:22Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T18:51:22Z",
-                        "outcomes": [
-                            {
-                                "name": "Alexandra Eala",
-                                "price": 1.97
-                            },
-                            {
-                                "name": "Donna Vekic",
-                                "price": 1.82
+                                "name": "Magdalena Frech",
+                                "price": 1.72
                             }
                         ]
                     }
@@ -3295,19 +3368,103 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:51Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:51Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
-                                "name": "Alexandra Eala",
-                                "price": 2.03
+                                "name": "Eva Lys",
+                                "price": 2.16
                             },
                             {
-                                "name": "Donna Vekic",
-                                "price": 1.79
+                                "name": "Magdalena Frech",
+                                "price": 1.71
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2026-06-16T08:42:44Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:43Z",
+                        "outcomes": [
+                            {
+                                "name": "Eva Lys",
+                                "price": 2.16
+                            },
+                            {
+                                "name": "Magdalena Frech",
+                                "price": 1.71
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "last_update": "2026-06-16T08:41:45Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:41:45Z",
+                        "outcomes": [
+                            {
+                                "name": "Eva Lys",
+                                "price": 2.15
+                            },
+                            {
+                                "name": "Magdalena Frech",
+                                "price": 1.71
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2026-06-16T08:42:31Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:31Z",
+                        "outcomes": [
+                            {
+                                "name": "Eva Lys",
+                                "price": 2.1
+                            },
+                            {
+                                "name": "Magdalena Frech",
+                                "price": 1.71
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betrivers",
+                "title": "BetRivers",
+                "last_update": "2026-06-16T08:42:06Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:05Z",
+                        "outcomes": [
+                            {
+                                "name": "Eva Lys",
+                                "price": 2.14
+                            },
+                            {
+                                "name": "Magdalena Frech",
+                                "price": 1.71
                             }
                         ]
                     }
@@ -3326,11 +3483,11 @@
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:04Z",
+                "last_update": "2026-06-16T08:42:21Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:04Z",
+                        "last_update": "2026-06-16T08:42:21Z",
                         "outcomes": [
                             {
                                 "name": "Madison Keys",
@@ -3338,7 +3495,7 @@
                             },
                             {
                                 "name": "Xinyu Wang",
-                                "price": 3.55
+                                "price": 3.54
                             }
                         ]
                     }
@@ -3347,11 +3504,11 @@
             {
                 "key": "bovada",
                 "title": "Bovada",
-                "last_update": "2026-06-15T18:52:06Z",
+                "last_update": "2026-06-16T08:41:45Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:06Z",
+                        "last_update": "2026-06-16T08:41:45Z",
                         "outcomes": [
                             {
                                 "name": "Madison Keys",
@@ -3368,19 +3525,19 @@
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:44Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Madison Keys",
-                                "price": 1.3
+                                "price": 1.32
                             },
                             {
                                 "name": "Xinyu Wang",
-                                "price": 3.5
+                                "price": 3.45
                             }
                         ]
                     }
@@ -3389,11 +3546,11 @@
             {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:51Z",
+                "last_update": "2026-06-16T08:42:31Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:51Z",
+                        "last_update": "2026-06-16T08:42:31Z",
                         "outcomes": [
                             {
                                 "name": "Madison Keys",
@@ -3410,11 +3567,11 @@
             {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:51:22Z",
+                "last_update": "2026-06-16T08:42:06Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:51:22Z",
+                        "last_update": "2026-06-16T08:42:05Z",
                         "outcomes": [
                             {
                                 "name": "Madison Keys",
@@ -3431,11 +3588,11 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:51Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:51Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Madison Keys",
@@ -3452,25 +3609,454 @@
         ]
     },
     {
+        "id": "278d6ee7cb48d7d5a260ba686664b6a0",
+        "sport_key": "tennis_wta_german_open",
+        "sport_title": "WTA German Open",
+        "commence_time": "2026-06-16T10:10:00Z",
+        "home_team": "Shuai Zhang",
+        "away_team": "Karolina Muchova",
+        "bookmakers": [
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "last_update": "2026-06-16T08:41:45Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:41:45Z",
+                        "outcomes": [
+                            {
+                                "name": "Karolina Muchova",
+                                "price": 1.38
+                            },
+                            {
+                                "name": "Shuai Zhang",
+                                "price": 3.1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2026-06-16T08:42:43Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:43Z",
+                        "outcomes": [
+                            {
+                                "name": "Karolina Muchova",
+                                "price": 1.38
+                            },
+                            {
+                                "name": "Shuai Zhang",
+                                "price": 3.07
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2026-06-16T08:42:31Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:31Z",
+                        "outcomes": [
+                            {
+                                "name": "Karolina Muchova",
+                                "price": 1.36
+                            },
+                            {
+                                "name": "Shuai Zhang",
+                                "price": 3.1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2026-06-16T08:42:44Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:44Z",
+                        "outcomes": [
+                            {
+                                "name": "Karolina Muchova",
+                                "price": 1.34
+                            },
+                            {
+                                "name": "Shuai Zhang",
+                                "price": 3.2
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betrivers",
+                "title": "BetRivers",
+                "last_update": "2026-06-16T08:42:06Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:05Z",
+                        "outcomes": [
+                            {
+                                "name": "Karolina Muchova",
+                                "price": 1.36
+                            },
+                            {
+                                "name": "Shuai Zhang",
+                                "price": 3.15
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "pinnacle",
+                "title": "Pinnacle",
+                "last_update": "2026-06-16T08:42:21Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:21Z",
+                        "outcomes": [
+                            {
+                                "name": "Karolina Muchova",
+                                "price": 1.38
+                            },
+                            {
+                                "name": "Shuai Zhang",
+                                "price": 3.22
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "8982b4e0b47512d8729553e6ee70f2c4",
+        "sport_key": "tennis_wta_german_open",
+        "sport_title": "WTA German Open",
+        "commence_time": "2026-06-16T10:30:00Z",
+        "home_team": "Linda Noskova",
+        "away_team": "Renata Zarazua",
+        "bookmakers": [
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2026-06-16T08:42:31Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:31Z",
+                        "outcomes": [
+                            {
+                                "name": "Linda Noskova",
+                                "price": 1.15
+                            },
+                            {
+                                "name": "Renata Zarazua",
+                                "price": 5.25
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2026-06-16T08:42:43Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:43Z",
+                        "outcomes": [
+                            {
+                                "name": "Linda Noskova",
+                                "price": 1.17
+                            },
+                            {
+                                "name": "Renata Zarazua",
+                                "price": 5.23
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "last_update": "2026-06-16T08:41:45Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:41:45Z",
+                        "outcomes": [
+                            {
+                                "name": "Linda Noskova",
+                                "price": 1.18
+                            },
+                            {
+                                "name": "Renata Zarazua",
+                                "price": 5.0
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2026-06-16T08:42:44Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:44Z",
+                        "outcomes": [
+                            {
+                                "name": "Linda Noskova",
+                                "price": 1.17
+                            },
+                            {
+                                "name": "Renata Zarazua",
+                                "price": 5.1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betrivers",
+                "title": "BetRivers",
+                "last_update": "2026-06-16T08:42:06Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:05Z",
+                        "outcomes": [
+                            {
+                                "name": "Linda Noskova",
+                                "price": 1.16
+                            },
+                            {
+                                "name": "Renata Zarazua",
+                                "price": 5.2
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "pinnacle",
+                "title": "Pinnacle",
+                "last_update": "2026-06-16T08:42:21Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:21Z",
+                        "outcomes": [
+                            {
+                                "name": "Linda Noskova",
+                                "price": 1.19
+                            },
+                            {
+                                "name": "Renata Zarazua",
+                                "price": 5.27
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "1d188e1774cc897f9ca7b0b4c437f751",
+        "sport_key": "tennis_wta_german_open",
+        "sport_title": "WTA German Open",
+        "commence_time": "2026-06-16T11:20:00Z",
+        "home_team": "Katerina Siniakova",
+        "away_team": "Rebeka Masarova",
+        "bookmakers": [
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2026-06-16T08:42:43Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:43Z",
+                        "outcomes": [
+                            {
+                                "name": "Katerina Siniakova",
+                                "price": 1.48
+                            },
+                            {
+                                "name": "Rebeka Masarova",
+                                "price": 2.67
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2026-06-16T08:42:31Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:31Z",
+                        "outcomes": [
+                            {
+                                "name": "Katerina Siniakova",
+                                "price": 1.48
+                            },
+                            {
+                                "name": "Rebeka Masarova",
+                                "price": 2.6
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2026-06-16T08:42:44Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:44Z",
+                        "outcomes": [
+                            {
+                                "name": "Katerina Siniakova",
+                                "price": 1.49
+                            },
+                            {
+                                "name": "Rebeka Masarova",
+                                "price": 2.58
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "last_update": "2026-06-16T08:41:45Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:41:45Z",
+                        "outcomes": [
+                            {
+                                "name": "Katerina Siniakova",
+                                "price": 1.48
+                            },
+                            {
+                                "name": "Rebeka Masarova",
+                                "price": 2.7
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betrivers",
+                "title": "BetRivers",
+                "last_update": "2026-06-16T08:42:06Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:05Z",
+                        "outcomes": [
+                            {
+                                "name": "Katerina Siniakova",
+                                "price": 1.49
+                            },
+                            {
+                                "name": "Rebeka Masarova",
+                                "price": 2.63
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "pinnacle",
+                "title": "Pinnacle",
+                "last_update": "2026-06-16T08:42:21Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:21Z",
+                        "outcomes": [
+                            {
+                                "name": "Katerina Siniakova",
+                                "price": 1.51
+                            },
+                            {
+                                "name": "Rebeka Masarova",
+                                "price": 2.7
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "id": "612c73cc96cb269cd55b6bbbaf277b8a",
         "sport_key": "tennis_wta_german_open",
         "sport_title": "WTA German Open",
-        "commence_time": "2026-06-16T13:30:00Z",
+        "commence_time": "2026-06-16T13:00:00Z",
         "home_team": "Elina Svitolina",
         "away_team": "Anna Kalinskaya",
         "bookmakers": [
             {
                 "key": "pinnacle",
                 "title": "Pinnacle",
-                "last_update": "2026-06-15T18:53:04Z",
+                "last_update": "2026-06-16T08:42:21Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:53:04Z",
+                        "last_update": "2026-06-16T08:42:21Z",
                         "outcomes": [
                             {
                                 "name": "Anna Kalinskaya",
-                                "price": 2.96
+                                "price": 2.88
+                            },
+                            {
+                                "name": "Elina Svitolina",
+                                "price": 1.47
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "last_update": "2026-06-16T08:41:45Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:41:45Z",
+                        "outcomes": [
+                            {
+                                "name": "Anna Kalinskaya",
+                                "price": 2.8
                             },
                             {
                                 "name": "Elina Svitolina",
@@ -3481,38 +4067,17 @@
                 ]
             },
             {
-                "key": "bovada",
-                "title": "Bovada",
-                "last_update": "2026-06-15T18:52:06Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T18:52:06Z",
-                        "outcomes": [
-                            {
-                                "name": "Anna Kalinskaya",
-                                "price": 2.85
-                            },
-                            {
-                                "name": "Elina Svitolina",
-                                "price": 1.44
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T18:52:38Z",
+                "last_update": "2026-06-16T08:42:44Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:38Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Anna Kalinskaya",
-                                "price": 2.88
+                                "price": 2.84
                             },
                             {
                                 "name": "Elina Svitolina",
@@ -3525,11 +4090,11 @@
             {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T18:52:51Z",
+                "last_update": "2026-06-16T08:42:31Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:51Z",
+                        "last_update": "2026-06-16T08:42:31Z",
                         "outcomes": [
                             {
                                 "name": "Anna Kalinskaya",
@@ -3546,11 +4111,11 @@
             {
                 "key": "betrivers",
                 "title": "BetRivers",
-                "last_update": "2026-06-15T18:51:22Z",
+                "last_update": "2026-06-16T08:42:06Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:51:22Z",
+                        "last_update": "2026-06-16T08:42:06Z",
                         "outcomes": [
                             {
                                 "name": "Anna Kalinskaya",
@@ -3567,19 +4132,500 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T18:52:51Z",
+                "last_update": "2026-06-16T08:42:43Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T18:52:51Z",
+                        "last_update": "2026-06-16T08:42:43Z",
                         "outcomes": [
                             {
                                 "name": "Anna Kalinskaya",
-                                "price": 2.92
+                                "price": 2.66
                             },
                             {
                                 "name": "Elina Svitolina",
-                                "price": 1.41
+                                "price": 1.49
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "d7b508f170e54ad6fccbd2da5e73c26f",
+        "sport_key": "tennis_wta_german_open",
+        "sport_title": "WTA German Open",
+        "commence_time": "2026-06-16T14:00:00Z",
+        "home_team": "Clara Tauson",
+        "away_team": "Diane Parry",
+        "bookmakers": [
+            {
+                "key": "pinnacle",
+                "title": "Pinnacle",
+                "last_update": "2026-06-16T08:42:21Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:21Z",
+                        "outcomes": [
+                            {
+                                "name": "Clara Tauson",
+                                "price": 2.1
+                            },
+                            {
+                                "name": "Diane Parry",
+                                "price": 1.79
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2026-06-16T08:42:31Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:31Z",
+                        "outcomes": [
+                            {
+                                "name": "Clara Tauson",
+                                "price": 2.1
+                            },
+                            {
+                                "name": "Diane Parry",
+                                "price": 1.71
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "last_update": "2026-06-16T08:41:45Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:41:45Z",
+                        "outcomes": [
+                            {
+                                "name": "Clara Tauson",
+                                "price": 2.1
+                            },
+                            {
+                                "name": "Diane Parry",
+                                "price": 1.77
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2026-06-16T08:42:43Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:43Z",
+                        "outcomes": [
+                            {
+                                "name": "Clara Tauson",
+                                "price": 1.98
+                            },
+                            {
+                                "name": "Diane Parry",
+                                "price": 1.84
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2026-06-16T08:42:44Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:44Z",
+                        "outcomes": [
+                            {
+                                "name": "Clara Tauson",
+                                "price": 2.08
+                            },
+                            {
+                                "name": "Diane Parry",
+                                "price": 1.76
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "edd2a079158a578b9cc7bcc89c5d6b88",
+        "sport_key": "tennis_wta_german_open",
+        "sport_title": "WTA German Open",
+        "commence_time": "2026-06-17T08:00:00Z",
+        "home_team": "Donna Vekic",
+        "away_team": "Alexandra Eala",
+        "bookmakers": [
+            {
+                "key": "pinnacle",
+                "title": "Pinnacle",
+                "last_update": "2026-06-16T08:42:21Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:21Z",
+                        "outcomes": [
+                            {
+                                "name": "Alexandra Eala",
+                                "price": 2.07
+                            },
+                            {
+                                "name": "Donna Vekic",
+                                "price": 1.83
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "last_update": "2026-06-16T08:41:45Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:41:45Z",
+                        "outcomes": [
+                            {
+                                "name": "Alexandra Eala",
+                                "price": 2.0
+                            },
+                            {
+                                "name": "Donna Vekic",
+                                "price": 1.83
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2026-06-16T08:42:44Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:43Z",
+                        "outcomes": [
+                            {
+                                "name": "Alexandra Eala",
+                                "price": 2.02
+                            },
+                            {
+                                "name": "Donna Vekic",
+                                "price": 1.81
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2026-06-16T08:42:31Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:31Z",
+                        "outcomes": [
+                            {
+                                "name": "Alexandra Eala",
+                                "price": 2.0
+                            },
+                            {
+                                "name": "Donna Vekic",
+                                "price": 1.8
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betrivers",
+                "title": "BetRivers",
+                "last_update": "2026-06-16T08:42:06Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:06Z",
+                        "outcomes": [
+                            {
+                                "name": "Alexandra Eala",
+                                "price": 1.97
+                            },
+                            {
+                                "name": "Donna Vekic",
+                                "price": 1.82
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2026-06-16T08:42:43Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:43Z",
+                        "outcomes": [
+                            {
+                                "name": "Alexandra Eala",
+                                "price": 2.03
+                            },
+                            {
+                                "name": "Donna Vekic",
+                                "price": 1.79
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "55b1c0459e60691351fe213108fe717c",
+        "sport_key": "tennis_wta_german_open",
+        "sport_title": "WTA German Open",
+        "commence_time": "2026-06-17T09:30:00Z",
+        "home_team": "Elise Mertens",
+        "away_team": "Nikola Bartunkova",
+        "bookmakers": [
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2026-06-16T08:42:43Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:43Z",
+                        "outcomes": [
+                            {
+                                "name": "Elise Mertens",
+                                "price": 1.31
+                            },
+                            {
+                                "name": "Nikola Bartunkova",
+                                "price": 3.48
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betrivers",
+                "title": "BetRivers",
+                "last_update": "2026-06-16T08:42:06Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:06Z",
+                        "outcomes": [
+                            {
+                                "name": "Elise Mertens",
+                                "price": 1.33
+                            },
+                            {
+                                "name": "Nikola Bartunkova",
+                                "price": 3.3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "last_update": "2026-06-16T08:41:45Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:41:45Z",
+                        "outcomes": [
+                            {
+                                "name": "Elise Mertens",
+                                "price": 1.35
+                            },
+                            {
+                                "name": "Nikola Bartunkova",
+                                "price": 3.25
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2026-06-16T08:42:44Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:43Z",
+                        "outcomes": [
+                            {
+                                "name": "Elise Mertens",
+                                "price": 1.32
+                            },
+                            {
+                                "name": "Nikola Bartunkova",
+                                "price": 3.4
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2026-06-16T08:42:31Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:31Z",
+                        "outcomes": [
+                            {
+                                "name": "Elise Mertens",
+                                "price": 1.31
+                            },
+                            {
+                                "name": "Nikola Bartunkova",
+                                "price": 3.4
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "1c23c1d4fbfac7181a33c173fd24fbc6",
+        "sport_key": "tennis_wta_german_open",
+        "sport_title": "WTA German Open",
+        "commence_time": "2026-06-17T12:00:00Z",
+        "home_team": "Aryna Sabalenka",
+        "away_team": "Ekaterina Alexandrova",
+        "bookmakers": [
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "last_update": "2026-06-16T08:41:45Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:41:45Z",
+                        "outcomes": [
+                            {
+                                "name": "Aryna Sabalenka",
+                                "price": 1.13
+                            },
+                            {
+                                "name": "Ekaterina Alexandrova",
+                                "price": 6.0
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2026-06-16T08:42:43Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:43Z",
+                        "outcomes": [
+                            {
+                                "name": "Aryna Sabalenka",
+                                "price": 1.11
+                            },
+                            {
+                                "name": "Ekaterina Alexandrova",
+                                "price": 6.78
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betrivers",
+                "title": "BetRivers",
+                "last_update": "2026-06-16T08:42:06Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:06Z",
+                        "outcomes": [
+                            {
+                                "name": "Aryna Sabalenka",
+                                "price": 1.13
+                            },
+                            {
+                                "name": "Ekaterina Alexandrova",
+                                "price": 6.0
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2026-06-16T08:42:44Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:43Z",
+                        "outcomes": [
+                            {
+                                "name": "Aryna Sabalenka",
+                                "price": 1.14
+                            },
+                            {
+                                "name": "Ekaterina Alexandrova",
+                                "price": 5.7
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2026-06-16T08:42:31Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-16T08:42:31Z",
+                        "outcomes": [
+                            {
+                                "name": "Aryna Sabalenka",
+                                "price": 1.11
+                            },
+                            {
+                                "name": "Ekaterina Alexandrova",
+                                "price": 6.25
                             }
                         ]
                     }

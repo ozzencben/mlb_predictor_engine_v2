@@ -146,13 +146,67 @@ Geliştirmeye başlamadan önce işleri önceliklerine göre sıraladık (Koda g
 
 | Öncelik | İş Kodu | Görev Tanımı | Zorluk Derecesi | Etkilenecek Alanlar |
 |:---:|:---:|:---|:---:|:---|
-| **1** | **M5-P1** | Global Navigation & Hamburger Menü (BETA/COMING SOON rozetli spor listesi) | 🟡 Orta | `DropdownNavigation.jsx`, `App.jsx` |
+| **1** | **M5-P1** | Global Navigation & Hamburger Menü (BETA/COMING SOON rozetli spor listesi) | 🟡 Orta | `DropdownNavigation.jsx`, `App.jsx` | (YAPILDI)
 | **2** | **M5-P2** | Central Dashboard (Ana Sayfa) Tasarımı & featured edge alanı | 🟡 Orta | Yeni `CentralDashboard.jsx` |
 | **3** | **M5-P3** | Yesterday's Scoreboard Ribbon UI (Dünün Sonuçları Şeridi) | 🟡 Orta | `CentralDashboard.jsx` |
 | **4** | **M5-P4** | Tenis Tahmin Ekranı Mock Arayüz Entegrasyonu (Görsel Kartlar) | 🟡 Orta | Yeni `TennisDashboard.jsx` |
 | **5** | **M5-P5** | About & Contact Modalları ve Yasal Uyarı Footer Entegrasyonu | 🟢 Kolay | `Footer.jsx`, `App.jsx` |
 | **6** | **M5-P6** | MLB Standings (Lig Puan Durumu) Widget UI | 🟢 Kolay | `CentralDashboard.jsx` |
 | **7** | **M5-P7** | Konfigürasyon Tabanlı Spor Yönlendirme Altyapısı (`sports_config.js`) | 🟢 Kolay | `App.jsx`, Router |
+| **8** | **M5-P8** | Tenis: Sadece ATP/WTA Turnuvalarını Listeleme (ITF Filtreleme) | 🟢 Kolay | `predict.py`, `fetch_fexture.py` | (YAPILDI)
+| **9** | **M5-P9** | Tenis: Oyuncu Kartlarında Bilgilerin Yeniden Konumlandırılması (Maç Saati, Tur/Aşama Bilgisi) | 🟡 Orta | `TennisDashboard.jsx`, `predict.py` | (YAPILDI)
+| **10** | **M5-P10** | Tenis: Röntgen Sabermetrics Matchup Alanını Akordeon/Dropdown Yapma | 🟢 Kolay | `TennisDashboard.jsx` | (YAPILDI)
+| **11** | **M5-P11** | Tenis: Bugünün Performansı ve Özet Kartlarının Sayfa Altına Taşınması | 🟢 Kolay | `TennisDashboard.jsx` | (YAPILDI)
+| **12** | **M5-P12** | Tenis: Oyuncu Adı Yanına ML Oranlarının Eklenmesi & Altındaki Son 5 Maçın Kaldırılması | 🟢 Kolay | `TennisDashboard.jsx` |
+| **13** | **M5-P13** | Tenis: Oyuncu Fotoğrafları/Bayrak/Avatar ve Son Turnuva Derecesi Entegrasyonu | 🟡 Orta | `TennisDashboard.jsx`, Scraper / Ranks JSON |
+| **14** | **M5-P14** | Tenis: Biten Maçlar (Results) Sekmesinde Set Skorlarının Detaylı Gösterimi | 🟡 Orta | `TennisDashboard.jsx`, `today_predictions.json` |
+
+---
+
+## 🎾 7. Müşteri Geri Bildirimi & Tenis Arayüz Revizyon Planı
+
+Müşterimizden gelen son geri bildirimler doğrultusunda tenis tahmin ekranı için yapılacak geliştirmeler ve tasarım revizyonları aşağıda detaylandırılmıştır:
+
+### 1. Kapsam ve Turnuva Filtreleme (ATP/WTA vs. ITF)
+* **Talep:** Tahmin listesinde ITF turnuvalarının gösterilmemesi, yalnızca ATP ve WTA turnuvalarına odaklanılması.
+* **Plan:** Backend tahmin motorunda (`predict.py`) veri toplanırken ve işlenirken turnuva adında "ITF" veya alt lig ibareleri barındıran maçlar elenecek veya API endpoint'inde filtre uygulanarak sadece ana tur (ATP/WTA Tour) maçları frontend'e gönderilecektir.
+
+### 2. Bilgi Yerleşimi ve Hiyerarşi Revizyonları
+* **Maç Saati (Match Time) & Tur Bilgisi (Tournament Stage):** 
+  * Her kartın en üstüne maçın başlama saati (saat/dakika) ve turnuvanın hangi turunda (örn: *Round of 32*, *Quarter-finals*, *Final*) oynandığı bilgisi eklenecektir. (Görselde kırmızı ile işaretlenen alan).
+* **Filtre ve Seçicilerin Konumu:** 
+  * Turnuva seçici (tourney selector) bileşeni, "Today's Performance (Canlı Doğruluk)" kartının hemen altına kaydırılacaktır.
+  * Turnuvaların üstüne hızlı geçiş sağlamak amacıyla **ATP** ve **WTA** filtre butonları yerleştirilecektir.
+* **Bugünün Performansı Altındaki Bölüm:**
+  * Bugünün performans kartının hemen altında yer alan özet istatistik kartları sayfanın en altına taşınacak ya da bir dropdown içine alınarak kalabalık azaltılacaktır.
+
+### 3. Oyuncu Kartı İç Tasarım Değişiklikleri
+* **ML Oranlarının Konumu:** 
+  * Oyuncuların Moneyline (ML) oranları, isimlerinin hemen sağına/yanına yerleştirilecektir (Masaüstü ve mobilde daha kolay takip edilebilmesi için).
+* **Form Rozetlerinin Kaldırılması:**
+  * Oyuncu isimlerinin altında yer alan son 5 maçlık dairesel form rozetleri (W, L) arayüz kalabalığını önlemek amacıyla kaldırılacaktır.
+* **Oyuncu Görselleri (Face Avatars):**
+  * Oyuncu isimlerinin soluna (görselde yeşil ile işaretlenen alan) oyuncuların resmi yüz fotoğrafları yerleştirilecektir. Fotoğrafı bulunamayan veya alt sıralardaki oyuncular için ülke bayrağı ya da şık baş harf avatarları (Placeholder) kullanılacaktır.
+* **Son Turnuva Derecesi (Last Tournament Result):**
+  * Oyuncunun katıldığı en son turnuvada ulaştığı aşama (örn: *Halle - R16*, *Roland Garros - QF*) ek bilgi olarak karta eklenecektir.
+
+### 4. Analitik ve Geçmiş Veri Modülleri
+* **Röntgen Sabermetrics Matchup (Stats Comparison):**
+  * MLB tarafında yapıldığı gibi, oyuncu metrik karşılaştırma tablosu varsayılan olarak kapalı gelecek ve bir "Dropdown/Collapsible" butonu yardımıyla açılabilecektir.
+* **H2H Geçmişi:**
+  * Geçmiş karşılaşma verisi (H2H) bulunan her maçta bu alan daha belirgin, standart ve stabil bir tasarım ile kartta yer alacaktır.
+* **Alternatif Bahisler (Alternative Plays):**
+  * Sistemde kural motorumuz tarafından üretilen set handikapı, toplam oyun alt/üst ve oyun handikapı tahminleri arayüzde daha belirgin şekilde vurgulanacaktır.
+
+### 5. Biten Maçların Set Skorları (Set-by-Set Scores)
+* **Talep:** Tamamlanan maçlarda set skorlarının (örn: 6-7, 2-6) detaylı şekilde gösterilmesi.
+* **Plan:** "Results" sekmesindeki kartlarda, maçın genel skorunun yanı sıra (görselde sarı ile işaretlenen alandaki gibi) her setin skorları ve tie-break detayları alt alta şık bir şekilde listelenecektir.
+
+---
+
+## 🥊 8. UFC Modeli Hakkında Alignment
+* **Geri Bildirim:** Müşteri "UFC modeli inşa eden sen miydin?" sorusunu sormuştur.
+* **Strateji:** Müşteriye UFC tahmin modeli geliştirebileceğimizi, dövüşçülerin geçmiş istatistikleri, vuruş oranları (striking metrics), takedown verileri ve fiziksel avantajlarını kullanarak benzer bir premium tahmin arayüzü ve motoru hazırlayabileceğimizi şık ve heyecan uyandırıcı bir dille ileteceğiz.
 
 ---
 

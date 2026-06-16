@@ -1,187 +1,19 @@
 {
-    "date": "2026-06-16",
-    "active_statistics": {
-        "total_predicted": 0,
-        "correct_predictions": 0,
-        "accuracy_percentage": 0.0
-    },
-    "low_confidence_statistics": {
-        "total_predicted": 2,
-        "correct_predictions": 1,
-        "accuracy_percentage": 50.0
-    },
-    "alt_league_statistics": {
-        "total_predicted": 4,
-        "correct_predictions": 3,
-        "accuracy_percentage": 75.0
-    },
-    "skipped_count": 4,
-    "active_results": [],
-    "low_confidence_results": [
-        {
-            "match_id": "rNyX0297",
-            "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II (World)",
-            "match_stage": "Quarter-finals",
-            "match_time": "22:00 ET",
-            "timestamp": 1781575200,
-            "home_player": "Hong Kong W",
-            "away_player": "Pacific Oceania W",
-            "predicted_winner": 2,
-            "actual_winner": 1,
-            "is_correct": false,
-            "home_win_probability": 42.51,
-            "away_win_probability": 57.49,
-            "result_status": "[YANLIS]",
-            "p1_odds": null,
-            "p2_odds": null,
-            "edge_percentage": null,
-            "recommended_kelly_bet_percentage": null,
-            "alternative_bets": [
-                {
-                    "market": "Set Handicap",
-                    "selection": "Hong Kong W +1.5 Sets",
-                    "confidence": "Medium",
-                    "reason": "Close H2H projection (57.5%) indicates a tight contest, raising value on Hong Kong W to steal at least a set."
-                }
-            ],
-            "p1_stats": {
-                "rank": 100,
-                "elo": 1500.0,
-                "surface_rate": 0.0,
-                "momentum": 0.0,
-                "fatigue": 3,
-                "set_dominance": 0.333,
-                "game_dominance": 0.467,
-                "rest_days": 1,
-                "clutch_win_rate": 0.0,
-                "straight_sets_rate": 0.0,
-                "recent_form": [
-                    {
-                        "result": "L",
-                        "opponent": "Philippines W",
-                        "score": "1-2",
-                        "surface": "Hard",
-                        "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II",
-                        "date": "2026-06-15"
-                    }
-                ],
-                "name": "Hong Kong W"
-            },
-            "p2_stats": {
-                "rank": 100,
-                "elo": 1500.0,
-                "surface_rate": 1.0,
-                "momentum": 1.0,
-                "fatigue": 3,
-                "set_dominance": 0.667,
-                "game_dominance": 0.533,
-                "rest_days": 1,
-                "clutch_win_rate": 100.0,
-                "straight_sets_rate": 0.0,
-                "recent_form": [
-                    {
-                        "result": "W",
-                        "opponent": "Kyrgyzstan W",
-                        "score": "2-1",
-                        "surface": "Hard",
-                        "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II",
-                        "date": "2026-06-15"
-                    }
-                ],
-                "name": "Pacific Oceania W"
-            },
-            "set_scores": []
-        },
-        {
-            "match_id": "xKwkewxg",
-            "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II (World)",
-            "match_stage": "Quarter-finals",
-            "match_time": "22:00 ET",
-            "timestamp": 1781575200,
-            "home_player": "Laos W",
-            "away_player": "Sri Lanka W",
-            "predicted_winner": 2,
-            "actual_winner": 2,
-            "is_correct": true,
-            "home_win_probability": 48.39,
-            "away_win_probability": 51.61,
-            "result_status": "[DOGRU]",
-            "p1_odds": null,
-            "p2_odds": null,
-            "edge_percentage": null,
-            "recommended_kelly_bet_percentage": null,
-            "alternative_bets": [
-                {
-                    "market": "Set Handicap",
-                    "selection": "Laos W +1.5 Sets",
-                    "confidence": "Medium",
-                    "reason": "Close H2H projection (51.6%) indicates a tight contest, raising value on Laos W to steal at least a set."
-                }
-            ],
-            "p1_stats": {
-                "rank": 100,
-                "elo": 1500.0,
-                "surface_rate": 0.0,
-                "momentum": 0.0,
-                "fatigue": 3,
-                "set_dominance": 0.0,
-                "game_dominance": 0.4,
-                "rest_days": 1,
-                "clutch_win_rate": 0.0,
-                "straight_sets_rate": 0.0,
-                "recent_form": [
-                    {
-                        "result": "L",
-                        "opponent": "Malaysia W",
-                        "score": "0-3",
-                        "surface": "Hard",
-                        "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II",
-                        "date": "2026-06-15"
-                    }
-                ],
-                "name": "Laos W"
-            },
-            "p2_stats": {
-                "rank": 100,
-                "elo": 1500.0,
-                "surface_rate": 0.0,
-                "momentum": 0.0,
-                "fatigue": 3,
-                "set_dominance": 0.333,
-                "game_dominance": 0.467,
-                "rest_days": 1,
-                "clutch_win_rate": 0.0,
-                "straight_sets_rate": 0.0,
-                "recent_form": [
-                    {
-                        "result": "L",
-                        "opponent": "Uzbekistan W",
-                        "score": "1-2",
-                        "surface": "Hard",
-                        "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II",
-                        "date": "2026-06-15"
-                    }
-                ],
-                "name": "Sri Lanka W"
-            },
-            "set_scores": []
-        }
-    ],
-    "alt_league_results": [
+    "date": "2026-06-15",
+    "active_predictions": [],
+    "skipped_low_confidence": [],
+    "skipped_low_tier": [
         {
             "match_id": "z9MNECmd",
             "tournament": "CHALLENGER MEN - SINGLES: Asuncion 2 (Paraguay), clay",
-            "match_stage": "Quarter-finals",
-            "match_time": "16:10 ET",
-            "timestamp": 1781554200,
+            "surface": "Clay",
             "home_player": "Estevez J.",
             "away_player": "Linde Palacios S. A.",
-            "predicted_winner": 1,
-            "actual_winner": 1,
-            "is_correct": true,
+            "p1_id": "v3mDD6Cq",
+            "p2_id": "Of1uNU3t",
             "home_win_probability": 71.17,
             "away_win_probability": 28.83,
-            "result_status": "[DOGRU]",
+            "predicted_winner": "Estevez J.",
             "p1_odds": null,
             "p2_odds": null,
             "edge_percentage": null,
@@ -195,7 +27,7 @@
                 "fatigue": 7,
                 "set_dominance": 0.663,
                 "game_dominance": 0.533,
-                "rest_days": 5,
+                "rest_days": 4,
                 "clutch_win_rate": 33.3,
                 "straight_sets_rate": 89.3,
                 "recent_form": [
@@ -250,7 +82,7 @@
                 "fatigue": 7,
                 "set_dominance": 0.41,
                 "game_dominance": 0.482,
-                "rest_days": 9,
+                "rest_days": 8,
                 "clutch_win_rate": 28.6,
                 "straight_sets_rate": 73.3,
                 "recent_form": [
@@ -297,31 +129,32 @@
                 ],
                 "name": "Linde Palacios S. A."
             },
-            "set_scores": [
-                {
-                    "home": "6",
-                    "away": "1"
-                },
-                {
-                    "home": "6",
-                    "away": "2"
-                }
-            ]
+            "h2h_summary": {
+                "p1_wins": 1,
+                "p2_wins": 0,
+                "total_matches": 1,
+                "matches": [
+                    {
+                        "date": "2026-05-08",
+                        "tournament": "M25 Villa Maria",
+                        "surface": "Clay",
+                        "winner": "Estevez J.",
+                        "score": "2-0"
+                    }
+                ]
+            }
         },
         {
             "match_id": "0ST205mp",
             "tournament": "CHALLENGER MEN - SINGLES: Asuncion 2 (Paraguay), clay",
-            "match_stage": "Quarter-finals",
-            "match_time": "16:10 ET",
-            "timestamp": 1781554200,
+            "surface": "Clay",
             "home_player": "Fernandez B.",
             "away_player": "Hardt N.",
-            "predicted_winner": 2,
-            "actual_winner": 2,
-            "is_correct": true,
+            "p1_id": "YmTgy47q",
+            "p2_id": "QaQOIXla",
             "home_win_probability": 28.77,
             "away_win_probability": 71.23,
-            "result_status": "[DOGRU]",
+            "predicted_winner": "Hardt N.",
             "p1_odds": null,
             "p2_odds": null,
             "edge_percentage": null,
@@ -342,7 +175,7 @@
                 "fatigue": 7,
                 "set_dominance": 0.5,
                 "game_dominance": 0.5,
-                "rest_days": 6,
+                "rest_days": 5,
                 "clutch_win_rate": 69.2,
                 "straight_sets_rate": 59.1,
                 "recent_form": [
@@ -397,7 +230,7 @@
                 "fatigue": 6,
                 "set_dominance": 0.701,
                 "game_dominance": 0.54,
-                "rest_days": 4,
+                "rest_days": 3,
                 "clutch_win_rate": 76.9,
                 "straight_sets_rate": 68.8,
                 "recent_form": [
@@ -444,35 +277,32 @@
                 ],
                 "name": "Hardt N."
             },
-            "set_scores": [
-                {
-                    "home": "6",
-                    "away": "3"
-                },
-                {
-                    "home": "3",
-                    "away": "6"
-                },
-                {
-                    "home": "3",
-                    "away": "6"
-                }
-            ]
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 1,
+                "total_matches": 1,
+                "matches": [
+                    {
+                        "date": "2026-06-10",
+                        "tournament": "San Miguel de Tucuman",
+                        "surface": "Clay",
+                        "winner": "Hardt N.",
+                        "score": "0-2"
+                    }
+                ]
+            }
         },
         {
             "match_id": "dIH6bRX2",
             "tournament": "CHALLENGER MEN - SINGLES: Asuncion 2 (Paraguay), clay",
-            "match_stage": "Quarter-finals",
-            "match_time": "17:10 ET",
-            "timestamp": 1781557800,
+            "surface": "Clay",
             "home_player": "Zarate C. M.",
             "away_player": "Gomez J. S.",
-            "predicted_winner": 1,
-            "actual_winner": 2,
-            "is_correct": false,
+            "p1_id": "8WEmZwq6",
+            "p2_id": "KvtYcHFS",
             "home_win_probability": 65.58,
             "away_win_probability": 34.42,
-            "result_status": "[YANLIS]",
+            "predicted_winner": "Zarate C. M.",
             "p1_odds": null,
             "p2_odds": null,
             "edge_percentage": null,
@@ -486,7 +316,7 @@
                 "fatigue": 7,
                 "set_dominance": 0.573,
                 "game_dominance": 0.515,
-                "rest_days": 4,
+                "rest_days": 3,
                 "clutch_win_rate": 58.3,
                 "straight_sets_rate": 65.4,
                 "recent_form": [
@@ -541,7 +371,7 @@
                 "fatigue": 7,
                 "set_dominance": 0.495,
                 "game_dominance": 0.499,
-                "rest_days": 7,
+                "rest_days": 6,
                 "clutch_win_rate": 58.8,
                 "straight_sets_rate": 50.0,
                 "recent_form": [
@@ -588,35 +418,24 @@
                 ],
                 "name": "Gomez J. S."
             },
-            "set_scores": [
-                {
-                    "home": "6",
-                    "away": "2"
-                },
-                {
-                    "home": "1",
-                    "away": "6"
-                },
-                {
-                    "home": "5",
-                    "away": "7"
-                }
-            ]
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 0,
+                "total_matches": 0,
+                "matches": []
+            }
         },
         {
             "match_id": "rZFEd52F",
             "tournament": "CHALLENGER MEN - SINGLES: Asuncion 2 (Paraguay), clay",
-            "match_stage": "Quarter-finals",
-            "match_time": "18:15 ET",
-            "timestamp": 1781561700,
+            "surface": "Clay",
             "home_player": "Rodriguez L. J.",
             "away_player": "Ribeiro E.",
-            "predicted_winner": 2,
-            "actual_winner": 2,
-            "is_correct": true,
+            "p1_id": "xdHROE39",
+            "p2_id": "ObAxbvT5",
             "home_win_probability": 45.73,
             "away_win_probability": 54.27,
-            "result_status": "[DOGRU]",
+            "predicted_winner": "Ribeiro E.",
             "p1_odds": null,
             "p2_odds": null,
             "edge_percentage": null,
@@ -643,7 +462,7 @@
                 "fatigue": 6,
                 "set_dominance": 0.596,
                 "game_dominance": 0.519,
-                "rest_days": 5,
+                "rest_days": 4,
                 "clutch_win_rate": 40.0,
                 "straight_sets_rate": 80.0,
                 "recent_form": [
@@ -698,7 +517,7 @@
                 "fatigue": 7,
                 "set_dominance": 0.621,
                 "game_dominance": 0.524,
-                "rest_days": 5,
+                "rest_days": 4,
                 "clutch_win_rate": 41.2,
                 "straight_sets_rate": 74.1,
                 "recent_form": [
@@ -745,16 +564,305 @@
                 ],
                 "name": "Ribeiro E."
             },
-            "set_scores": [
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 0,
+                "total_matches": 0,
+                "matches": []
+            }
+        },
+        {
+            "match_id": "2suwhGOE",
+            "tournament": "CHALLENGER MEN - SINGLES: Parma (Italy), clay",
+            "surface": "Clay",
+            "home_player": "Gadamauri B.",
+            "away_player": "Dzumhur D.",
+            "p1_id": "QX3MNSXf",
+            "p2_id": "hMrlbuuQ",
+            "home_win_probability": 45.62,
+            "away_win_probability": 54.38,
+            "predicted_winner": "Dzumhur D.",
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
+            "alternative_bets": [
                 {
-                    "home": "1",
-                    "away": "6"
+                    "market": "Set Handicap",
+                    "selection": "Gadamauri B. +1.5 Sets",
+                    "confidence": "Medium",
+                    "reason": "Close H2H projection (54.4%) indicates a tight contest, raising value on Gadamauri B. to steal at least a set."
+                }
+            ],
+            "p1_stats": {
+                "rank": 261,
+                "elo": 1649.1199580713055,
+                "surface_rate": 0.75,
+                "momentum": 0.697,
+                "fatigue": 8,
+                "set_dominance": 0.683,
+                "game_dominance": 0.537,
+                "rest_days": 6,
+                "clutch_win_rate": 50.0,
+                "straight_sets_rate": 71.0,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Barton H.",
+                        "score": "1-2",
+                        "surface": "Clay",
+                        "tournament": "Bratislava",
+                        "date": "2026-06-09"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Kuzmanov D.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "Bratislava",
+                        "date": "2026-06-08"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Donald M.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Bratislava",
+                        "date": "2026-06-07"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Alcala Gurri M.",
+                        "score": "1-2",
+                        "surface": "Clay",
+                        "tournament": "Cervia",
+                        "date": "2026-05-23"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Compagnucci T.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "Cervia",
+                        "date": "2026-05-22"
+                    }
+                ],
+                "name": "Gadamauri B."
+            },
+            "p2_stats": {
+                "rank": 103,
+                "elo": 1540.3906091817482,
+                "surface_rate": 0.4,
+                "momentum": 0.364,
+                "fatigue": 11,
+                "set_dominance": 0.39,
+                "game_dominance": 0.478,
+                "rest_days": 11,
+                "clutch_win_rate": 55.6,
+                "straight_sets_rate": 43.8,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Daniel T.",
+                        "score": "1-2",
+                        "surface": "Clay",
+                        "tournament": "Prostejov",
+                        "date": "2026-06-04"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Damas M.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "Prostejov",
+                        "date": "2026-06-02"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Davidovich Fokina A.",
+                        "score": "2-3",
+                        "surface": "Clay",
+                        "tournament": "French Open",
+                        "date": "2026-05-24"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Munar J.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "Valencia",
+                        "date": "2026-05-14"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Sanchez Quilez A.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "Valencia",
+                        "date": "2026-05-13"
+                    }
+                ],
+                "name": "Dzumhur D."
+            },
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 0,
+                "total_matches": 0,
+                "matches": []
+            }
+        },
+        {
+            "match_id": "MJVWSVQ8",
+            "tournament": "ITF WOMEN - SINGLES: W35+H Tauste (Spain), hard",
+            "surface": "Hard",
+            "home_player": "Turini V.",
+            "away_player": "Rutlauka S.",
+            "p1_id": "pOW9ShaB",
+            "p2_id": "EcLDv06e",
+            "home_win_probability": 50.25,
+            "away_win_probability": 49.75,
+            "predicted_winner": "Turini V.",
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Rutlauka S. +1.5 Sets",
+                    "confidence": "Medium",
+                    "reason": "Close H2H projection (50.2%) indicates a tight contest, raising value on Rutlauka S. to steal at least a set."
                 },
                 {
-                    "home": "2",
-                    "away": "6"
+                    "market": "Total Games",
+                    "selection": "Over 22.5 Games",
+                    "confidence": "High",
+                    "reason": "Symmetric set dominance (diff: 4.1%) and high fatigue levels suggest a grueling, three-set match going Over."
                 }
-            ]
+            ],
+            "p1_stats": {
+                "rank": 655,
+                "elo": 1567.3559484380062,
+                "surface_rate": 0.556,
+                "momentum": 0.518,
+                "fatigue": 7,
+                "set_dominance": 0.505,
+                "game_dominance": 0.501,
+                "rest_days": 8,
+                "clutch_win_rate": 40.0,
+                "straight_sets_rate": 71.4,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Ortenzi J.",
+                        "score": "1-2",
+                        "surface": "Clay",
+                        "tournament": "Modena",
+                        "date": "2026-06-07"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Romero Gormaz L.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "Foggia",
+                        "date": "2026-06-04"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Tona M.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Foggia",
+                        "date": "2026-06-02"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Cortez Llorca L.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "Foggia",
+                        "date": "2026-06-01"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Kuzmova K.",
+                        "score": "1-2",
+                        "surface": "Hard",
+                        "tournament": "W35 Monastir 5",
+                        "date": "2026-05-14"
+                    }
+                ],
+                "name": "Turini V."
+            },
+            "p2_stats": {
+                "rank": 746,
+                "elo": 1599.7750475111561,
+                "surface_rate": 0.558,
+                "momentum": 0.564,
+                "fatigue": 7,
+                "set_dominance": 0.546,
+                "game_dominance": 0.509,
+                "rest_days": 24,
+                "clutch_win_rate": 54.5,
+                "straight_sets_rate": 75.0,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Visscher S. J.",
+                        "score": "0-2",
+                        "surface": "Hard",
+                        "tournament": "W35 Estepona",
+                        "date": "2026-05-22"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Pawlikowska Z.",
+                        "score": "2-0",
+                        "surface": "Hard",
+                        "tournament": "W35 Estepona",
+                        "date": "2026-05-21"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Gomez O'Hayon V.",
+                        "score": "2-1",
+                        "surface": "Hard",
+                        "tournament": "W35 Estepona",
+                        "date": "2026-05-20"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Adams J.",
+                        "score": "0-2",
+                        "surface": "Hard",
+                        "tournament": "W35 Nottingham 2",
+                        "date": "2026-05-07"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Toma M.",
+                        "score": "2-1",
+                        "surface": "Hard",
+                        "tournament": "W35 Nottingham 2",
+                        "date": "2026-05-06"
+                    }
+                ],
+                "name": "Rutlauka S."
+            },
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 0,
+                "total_matches": 0,
+                "matches": []
+            }
         }
-    ]
+    ],
+    "statistics": {
+        "total_unplayed": 14,
+        "active_predictions_count": 0,
+        "skipped_low_confidence_count": 0,
+        "skipped_low_tier_count": 6,
+        "skipped_data_missing_count": 8
+    }
 }

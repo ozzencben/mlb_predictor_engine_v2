@@ -11,13 +11,16 @@ function DropdownNavigation({
     menuOpen,
     setMenuOpen,
     setShowAboutModal,
-    setShowContactModal
+    setShowContactModal,
+    setToastMessage
 }) {
     if (!menuOpen) return null;
 
-    const handleSportClick = (sportKey, status) => {
+    const handleSportClick = (sportName, status, sportKey) => {
         if (status === 'COMING_SOON') {
-            alert("This sport model is currently being developed and will be available soon!");
+            if (setToastMessage) {
+                setToastMessage(`${sportName} predictor is currently in training and will be available soon!`);
+            }
             return;
         }
         setActiveSport(sportKey.toLowerCase());
@@ -49,12 +52,12 @@ function DropdownNavigation({
                         return (
                             <div key={sport.id} className="flex flex-col">
                                 <button
-                                    onClick={() => handleSportClick(key, sport.status)}
+                                    onClick={() => handleSportClick(sport.name, sport.status, key)}
                                     className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 text-left cursor-pointer ${
                                         isSelected
-                                            ? 'bg-indigo-600/20 border border-indigo-500/30 text-indigo-400 font-extrabold shadow-[0_0_15px_rgba(99,102,241,0.1)]'
+                                            ? 'bg-indigo-600/20 border border-indigo-500/30 text-indigo-400 font-extrabold shadow-[0_0_15px_rgba(99,102,241,0.1)] border-t border-t-indigo-400/20'
                                             : 'text-slate-300 hover:text-slate-100 hover:bg-slate-900/50 border border-transparent'
-                                    } ${isComingSoon ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                    } ${isComingSoon ? 'opacity-50 hover:opacity-100' : ''}`}
                                 >
                                     <span className="flex items-center gap-3">
                                         <span className="text-base leading-none">{sport.icon}</span>

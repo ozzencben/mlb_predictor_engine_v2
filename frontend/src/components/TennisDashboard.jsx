@@ -35,6 +35,19 @@ function getSurfaceStyles(surface) {
 }
 
 // ─────────────────────────────────────────────────────────────
+//  Helper: Oyuncu Baş Harfleri (Avatar için)
+// ─────────────────────────────────────────────────────────────
+function getPlayerInitials(name) {
+    if (!name) return '??';
+    const clean = name.replace(/\./g, '').trim();
+    const parts = clean.split(' ');
+    if (parts.length >= 2) {
+        return (parts[0][0] + parts[1][0]).toUpperCase();
+    }
+    return clean.slice(0, 2).toUpperCase();
+}
+
+// ─────────────────────────────────────────────────────────────
 //  Helper: renderAiInsight
 // ─────────────────────────────────────────────────────────────
 function renderAiInsight(text) {
@@ -313,6 +326,7 @@ function PlayerHistoryDrawer({ playerId, playerName, onClose }) {
 // ─────────────────────────────────────────────────────────────
 function MatchCard({ predict, isResultCard, onPlayerClick }) {
     const [expanded, setExpanded] = useState(false);
+    const [statsExpanded, setStatsExpanded] = useState(false);
 
     const surface = getSurfaceStyles(predict.surface);
     const hasOdds = predict.p1_odds != null && predict.p2_odds != null;
@@ -345,16 +359,28 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                 <div className="absolute inset-0 pointer-events-none rounded-3xl bg-gradient-to-br from-indigo-500/[0.04] to-transparent" />
             )}
 
-            {/* ── Üst: Turnuva + Zemin + Match ID ── */}
+            {/* ── Üst: Turnuva + Zemin + Saat/Tur + Match ID ── */}
             <div className="flex justify-between items-start border-b border-slate-950/60 pb-3 gap-2 relative z-10">
                 <div className="flex flex-col min-w-0">
                     <span className="text-[10px] text-slate-300 font-black uppercase tracking-wider block truncate max-w-[200px] sm:max-w-[300px]">
                         {predict.tournament}
                     </span>
-                    <span className={`inline-flex items-center gap-1.5 text-[8px] font-black uppercase border px-2 py-0.5 rounded-full mt-1.5 w-max ${surface.bg}`}>
-                        <span className={`h-1.5 w-1.5 rounded-full flex-shrink-0 ${surface.dot}`} />
-                        {surface.label} Court
-                    </span>
+                    <div className="flex items-center gap-1.5 flex-wrap mt-1.5">
+                        <span className={`inline-flex items-center gap-1.5 text-[8px] font-black uppercase border px-2 py-0.5 rounded-full ${surface.bg}`}>
+                            <span className={`h-1.5 w-1.5 rounded-full flex-shrink-0 ${surface.dot}`} />
+                            {surface.label} Court
+                        </span>
+                        {predict.match_stage && (
+                            <span className="text-[8px] text-indigo-400 bg-indigo-950/50 border border-indigo-500/20 px-2 py-0.5 rounded-full font-black uppercase tracking-wider">
+                                {predict.match_stage}
+                            </span>
+                        )}
+                        {predict.match_time && predict.match_time !== 'TBD' && (
+                            <span className="text-[8px] text-cyan-400 bg-cyan-950/50 border border-cyan-500/20 px-2 py-0.5 rounded-full font-black uppercase tracking-wider">
+                                🕒 {predict.match_time}
+                            </span>
+                        )}
+                    </div>
                 </div>
                 <div className="flex items-center gap-1.5 flex-shrink-0">
                     {isResultCard && (
@@ -371,28 +397,41 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
             {/* ── Oyuncular + Olasılık Barı ── */}
             <div className="space-y-3 relative z-10">
                 {/* P1 */}
-                <div className="flex justify-between items-start gap-2">
-                    <div className="space-y-0.5 min-w-0">
-                        <button
-                            onClick={(e) => { e.stopPropagation(); onPlayerClick?.(predict.p1_id, predict.home_player); }}
-                            className={`text-xs font-black block truncate max-w-[170px] sm:max-w-xs leading-tight cursor-pointer hover:underline decoration-dotted underline-offset-2 transition-all text-left
-                                ${winnerPlayer === predict.home_player ? 'text-indigo-400 hover:text-indigo-300' : 'text-gray-300 hover:text-white'}`}
-                        >
-                            {predict.home_player}
-                            {winnerPlayer === predict.home_player && ' 🎯'}
-                        </button>
-                        <div className="flex items-center gap-2">
-                            {hasOdds && p1American && (
-                                <span className="text-[9px] text-slate-500 font-bold">
-                                    {p1American}
-                                    <span className="text-slate-600 ml-1">({predict.p1_odds})</span>
-                                </span>
-                            )}
-                            {predict.p1_stats?.rank && (
-                                <span className="text-[8px] text-slate-600 font-black">#{predict.p1_stats.rank}</span>
-                            )}
+                <div className="flex justify-between items-center gap-2">
+                    <div className="flex items-center gap-3 min-w-0">
+                        {/* Circular initials avatar */}
+                        <div className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 flex items-center justify-center text-[9px] font-black text-slate-400 group-hover:border-indigo-500/30 transition-all select-none shadow-[0_0_8px_rgba(0,0,0,0.5)]">
+                            {getPlayerInitials(predict.home_player)}
                         </div>
-                        <RecentFormBadges recentForm={predict.p1_stats?.recent_form} />
+                        
+                        <div className="space-y-0.5 min-w-0">
+                            <div className="flex items-center gap-2 flex-wrap">
+                                <button
+                                    onClick={(e) => { e.stopPropagation(); onPlayerClick?.(predict.p1_id, predict.home_player); }}
+                                    className={`text-xs font-black block truncate max-w-[130px] sm:max-w-[180px] leading-tight cursor-pointer hover:underline decoration-dotted underline-offset-2 transition-all text-left
+                                        ${winnerPlayer === predict.home_player ? 'text-indigo-400 hover:text-indigo-300' : 'text-gray-300 hover:text-white'}`}
+                                >
+                                    {predict.home_player}
+                                    {winnerPlayer === predict.home_player && ' 🎯'}
+                                </button>
+                                {hasOdds && p1American && (
+                                    <span className="text-[9px] font-bold text-slate-500 bg-slate-950/60 border border-slate-900/80 px-1.5 py-0.5 rounded flex-shrink-0">
+                                        {p1American} <span className="text-[8px] text-slate-600">({predict.p1_odds})</span>
+                                    </span>
+                                )}
+                            </div>
+                            
+                            <div className="flex items-center gap-1.5 flex-wrap text-slate-600">
+                                {predict.p1_stats?.rank && (
+                                    <span className="text-[8px] text-slate-500 font-black">#{predict.p1_stats.rank}</span>
+                                )}
+                                {predict.p1_stats?.recent_form?.[0] && (
+                                    <span className="text-[8px] text-slate-500 font-semibold truncate max-w-[160px] sm:max-w-xs">
+                                        · Last: {predict.p1_stats.recent_form[0].tournament.split('(')[0].trim()} · {predict.p1_stats.recent_form[0].score} {predict.p1_stats.recent_form[0].result}
+                                    </span>
+                                )}
+                            </div>
+                        </div>
                     </div>
                     <span className="text-xs font-black text-gray-300 flex-shrink-0">{predict.home_win_probability}%</span>
                 </div>
@@ -410,32 +449,59 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                 </div>
 
                 {/* P2 */}
-                <div className="flex justify-between items-start gap-2">
-                    <div className="space-y-0.5 min-w-0">
-                        <button
-                            onClick={(e) => { e.stopPropagation(); onPlayerClick?.(predict.p2_id, predict.away_player); }}
-                            className={`text-xs font-black block truncate max-w-[170px] sm:max-w-xs leading-tight cursor-pointer hover:underline decoration-dotted underline-offset-2 transition-all text-left
-                                ${winnerPlayer === predict.away_player ? 'text-indigo-400 hover:text-indigo-300' : 'text-gray-300 hover:text-white'}`}
-                        >
-                            {predict.away_player}
-                            {winnerPlayer === predict.away_player && ' 🎯'}
-                        </button>
-                        <div className="flex items-center gap-2">
-                            {hasOdds && p2American && (
-                                <span className="text-[9px] text-slate-500 font-bold">
-                                    {p2American}
-                                    <span className="text-slate-600 ml-1">({predict.p2_odds})</span>
-                                </span>
-                            )}
-                            {predict.p2_stats?.rank && (
-                                <span className="text-[8px] text-slate-600 font-black">#{predict.p2_stats.rank}</span>
-                            )}
+                <div className="flex justify-between items-center gap-2">
+                    <div className="flex items-center gap-3 min-w-0">
+                        {/* Circular initials avatar */}
+                        <div className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 flex items-center justify-center text-[9px] font-black text-slate-400 group-hover:border-indigo-500/30 transition-all select-none shadow-[0_0_8px_rgba(0,0,0,0.5)]">
+                            {getPlayerInitials(predict.away_player)}
                         </div>
-                        <RecentFormBadges recentForm={predict.p2_stats?.recent_form} />
+                        
+                        <div className="space-y-0.5 min-w-0">
+                            <div className="flex items-center gap-2 flex-wrap">
+                                <button
+                                    onClick={(e) => { e.stopPropagation(); onPlayerClick?.(predict.p2_id, predict.away_player); }}
+                                    className={`text-xs font-black block truncate max-w-[130px] sm:max-w-[180px] leading-tight cursor-pointer hover:underline decoration-dotted underline-offset-2 transition-all text-left
+                                        ${winnerPlayer === predict.away_player ? 'text-indigo-400 hover:text-indigo-300' : 'text-gray-300 hover:text-white'}`}
+                                >
+                                    {predict.away_player}
+                                    {winnerPlayer === predict.away_player && ' 🎯'}
+                                </button>
+                                {hasOdds && p2American && (
+                                    <span className="text-[9px] font-bold text-slate-500 bg-slate-950/60 border border-slate-900/80 px-1.5 py-0.5 rounded flex-shrink-0">
+                                        {p2American} <span className="text-[8px] text-slate-600">({predict.p2_odds})</span>
+                                    </span>
+                                )}
+                            </div>
+                            
+                            <div className="flex items-center gap-1.5 flex-wrap text-slate-600">
+                                {predict.p2_stats?.rank && (
+                                    <span className="text-[8px] text-slate-500 font-black">#{predict.p2_stats.rank}</span>
+                                )}
+                                {predict.p2_stats?.recent_form?.[0] && (
+                                    <span className="text-[8px] text-slate-500 font-semibold truncate max-w-[160px] sm:max-w-xs">
+                                        · Last: {predict.p2_stats.recent_form[0].tournament.split('(')[0].trim()} · {predict.p2_stats.recent_form[0].score} {predict.p2_stats.recent_form[0].result}
+                                    </span>
+                                )}
+                            </div>
+                        </div>
                     </div>
                     <span className="text-xs font-black text-gray-300 flex-shrink-0">{predict.away_win_probability}%</span>
                 </div>
             </div>
+
+            {/* Scoreboard (Set Skorları) */}
+            {predict.set_scores && predict.set_scores.length > 0 && (
+                <div className="flex items-center gap-1.5 bg-slate-950/50 border border-slate-900 px-3 py-1.5 rounded-2xl w-max self-center relative z-10 shadow-inner">
+                    <span className="text-[8px] text-slate-500 font-black uppercase tracking-wider mr-1">Scoreboard</span>
+                    {predict.set_scores.map((set, idx) => (
+                        <div key={idx} className="flex items-center gap-1 text-[10px] font-black bg-slate-900 border border-slate-850 px-2 py-0.5 rounded-lg select-none">
+                            <span className="text-indigo-400">{set.home}</span>
+                            <span className="text-slate-600">:</span>
+                            <span className="text-indigo-400">{set.away}</span>
+                        </div>
+                    ))}
+                </div>
+            )}
 
             {/* ── Edge & Kelly (Sadece gerçek veri varsa göster) ── */}
             {showMetrics && (
@@ -514,7 +580,22 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
 
                             {/* 3. Röntgen Matchup Stats Comparison */}
                             {predict.p1_stats && predict.p2_stats && (
-                                <StatsComparison p1={predict.p1_stats} p2={predict.p2_stats} />
+                                <div className="space-y-2">
+                                    <button
+                                        onClick={() => setStatsExpanded(p => !p)}
+                                        className="w-full flex items-center justify-between bg-slate-950/60 border border-slate-900/80 hover:border-slate-800 rounded-xl px-3.5 py-2.5 cursor-pointer text-[9px] font-black uppercase tracking-wider text-slate-400 hover:text-white transition-all duration-200"
+                                    >
+                                        <span className="flex items-center gap-2">
+                                            <span>📊</span> Röntgen Sabermetrics Matchup
+                                        </span>
+                                        <span className="text-[8px] font-bold text-slate-500">
+                                            {statsExpanded ? '▲ CLOSE' : '▼ OPEN MATCHUP'}
+                                        </span>
+                                    </button>
+                                    {statsExpanded && (
+                                        <StatsComparison p1={predict.p1_stats} p2={predict.p2_stats} />
+                                    )}
+                                </div>
                             )}
 
                             {/* 4. Alternative Bahis Önerileri */}
@@ -612,6 +693,10 @@ function TennisDashboard({ selectedDate }) {
     // GÖREV 1: Upcoming vs Results ana tab
     const [matchView, setMatchView] = useState('upcoming');  // 'upcoming' | 'results'
 
+    // GÖREV 8: Tour & Tournament Filtreleri
+    const [tourFilter, setTourFilter] = useState('ALL'); // 'ALL' | 'ATP' | 'WTA'
+    const [selectedTourney, setSelectedTourney] = useState('ALL'); // 'ALL' | string
+
     // Player History Drawer state
     const [drawerPlayer, setDrawerPlayer] = useState(null); // { id, name }
     const handlePlayerClick = useCallback((playerId, playerName) => {
@@ -700,6 +785,28 @@ function TennisDashboard({ selectedDate }) {
 
     const hasResults = results && results.active_statistics && results.active_statistics.total_predicted > 0;
 
+    const currentCategoryList = matchView === 'upcoming' ? upcomingList : resultsList;
+
+    // 1. Tour Filter (ATP / WTA / ALL)
+    const tourFilteredList = currentCategoryList.filter(predict => {
+        if (tourFilter === 'ALL') return true;
+        if (tourFilter === 'ATP') return (predict.tournament || '').toUpperCase().includes('ATP');
+        if (tourFilter === 'WTA') return (predict.tournament || '').toUpperCase().includes('WTA');
+        return true;
+    });
+
+    // 2. Unique tournaments (based on current tour filter)
+    const uniqueTourneys = Array.from(new Set(tourFilteredList.map(p => p.tournament))).filter(Boolean).sort();
+
+    // 3. Tournament Filter (fallback to ALL if previous selection is invalid in current tour context)
+    const isSelectedTourneyValid = uniqueTourneys.includes(selectedTourney);
+    const activeSelectedTourney = isSelectedTourneyValid ? selectedTourney : 'ALL';
+
+    const finalMatchList = tourFilteredList.filter(predict => {
+        if (activeSelectedTourney === 'ALL') return true;
+        return predict.tournament === activeSelectedTourney;
+    });
+
     return (
         <div className="space-y-7 animate-fade-in pb-12 selection:bg-indigo-500 selection:text-white">
 
@@ -761,23 +868,48 @@ function TennisDashboard({ selectedDate }) {
                 </div>
             )}
 
-            {/* ── ÖZET İSTATİSTİK KARTI ── */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="bg-slate-900/35 border border-slate-850 rounded-2xl p-4 flex flex-col justify-between">
-                    <span className="text-[8px] text-slate-500 font-black uppercase tracking-wider">Main Plays</span>
-                    <span className="text-xl font-black text-white mt-1">{activePredictions.length}</span>
-                </div>
-                <div className="bg-slate-900/35 border border-slate-850 rounded-2xl p-4 flex flex-col justify-between">
-                    <span className="text-[8px] text-slate-500 font-black uppercase tracking-wider">Challenger / ITF</span>
-                    <span className="text-xl font-black text-cyan-400 mt-1">{skippedLowTier.length}</span>
-                </div>
-                <div className="bg-slate-900/35 border border-slate-850 rounded-2xl p-4 flex flex-col justify-between">
-                    <span className="text-[8px] text-slate-500 font-black uppercase tracking-wider">Risky Picks</span>
-                    <span className="text-xl font-black text-amber-500 mt-1">{skippedLowConfidence.length}</span>
-                </div>
-                <div className="bg-slate-900/35 border border-slate-850 rounded-2xl p-4 flex flex-col justify-between">
-                    <span className="text-[8px] text-slate-500 font-black uppercase tracking-wider">Results In</span>
-                    <span className="text-xl font-black text-slate-300 mt-1">{activeResults.length}</span>
+            {/* ── TOURNAMENT & TOUR FILTERS ── */}
+            <div className="bg-slate-900/35 border border-slate-850/60 rounded-3xl p-5 shadow-inner">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div className="space-y-1.5">
+                        <span className="text-[8px] text-slate-500 font-black uppercase tracking-wider block">Tour Filter</span>
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                            {[
+                                { id: 'ALL', label: 'All Tours', badgeColor: 'bg-indigo-600/20 border-indigo-500/30 text-indigo-400' },
+                                { id: 'ATP', label: 'ATP Tour', badgeColor: 'bg-blue-600/20 border-blue-500/30 text-blue-400' },
+                                { id: 'WTA', label: 'WTA Tour', badgeColor: 'bg-purple-600/20 border-purple-500/30 text-purple-400' }
+                            ].map(tour => {
+                                const isActive = tourFilter === tour.id;
+                                return (
+                                    <button
+                                        key={tour.id}
+                                        onClick={() => {
+                                            setTourFilter(tour.id);
+                                            setSelectedTourney('ALL');
+                                        }}
+                                        className={`px-3 py-1.5 rounded-xl text-[9px] font-black uppercase tracking-widest border transition-all cursor-pointer select-none
+                                            ${isActive ? tour.badgeColor : 'bg-slate-950/60 border-slate-900/80 text-slate-400 hover:text-slate-200'}`}
+                                    >
+                                        {tour.label}
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    </div>
+                    
+                    <div className="space-y-1.5 flex-1 max-w-xs">
+                        <span className="text-[8px] text-slate-500 font-black uppercase tracking-wider block">Tournament Selector</span>
+                        <select
+                            value={activeSelectedTourney}
+                            onChange={(e) => setSelectedTourney(e.target.value)}
+                            className="w-full bg-slate-950/80 border border-slate-900 hover:border-slate-800 focus:border-indigo-500/50 text-[10px] font-black uppercase tracking-wider text-slate-300 rounded-xl px-3 py-2 cursor-pointer focus:outline-none"
+                        >
+                            <option value="ALL">All Tournaments ({tourFilteredList.length} Match{tourFilteredList.length !== 1 ? 'es' : ''})</option>
+                            {uniqueTourneys.map(t => (
+                                <option key={t} value={t}>{t}</option>
+                            ))}
+                        </select>
+                    </div>
                 </div>
             </div>
 
@@ -830,7 +962,7 @@ function TennisDashboard({ selectedDate }) {
                         className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all cursor-pointer flex items-center gap-1.5
                             ${predCategory === 'tier' ? 'bg-cyan-600/20 text-cyan-400 border border-cyan-500/25' : 'text-slate-400 hover:text-slate-200 border border-transparent'}`}
                     >
-                        🎾 Challenger &amp; ITF ({skippedLowTier.length})
+                        🎾 Challenger Tour ({skippedLowTier.length})
                     </button>
                     <button
                         onClick={() => setPredCategory('risky')}
@@ -845,16 +977,16 @@ function TennisDashboard({ selectedDate }) {
             {/* ── MAÇ LİSTESİ ── */}
             {matchView === 'upcoming' ? (
                 <MatchGrid
-                    list={upcomingList}
+                    list={finalMatchList}
                     isResultCard={false}
-                    emptyMessage="No upcoming tennis matches calculated for this category."
+                    emptyMessage="No upcoming tennis matches calculated for this category with these filters."
                     onPlayerClick={handlePlayerClick}
                 />
             ) : (
                 <MatchGrid
-                    list={resultsList}
+                    list={finalMatchList}
                     isResultCard={true}
-                    emptyMessage="No finished matches available yet for this category."
+                    emptyMessage="No finished matches available yet for this category with these filters."
                     onPlayerClick={handlePlayerClick}
                 />
             )}
@@ -867,6 +999,26 @@ function TennisDashboard({ selectedDate }) {
                     onClose={closeDrawer}
                 />
             )}
+
+            {/* ── ÖZET İSTATİSTİK KARTI (SAYFA ALTINA TAŞINDI) ── */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="bg-slate-900/35 border border-slate-850 rounded-2xl p-4 flex flex-col justify-between">
+                    <span className="text-[8px] text-slate-500 font-black uppercase tracking-wider">Main Plays</span>
+                    <span className="text-xl font-black text-white mt-1">{activePredictions.length}</span>
+                </div>
+                <div className="bg-slate-900/35 border border-slate-850 rounded-2xl p-4 flex flex-col justify-between">
+                    <span className="text-[8px] text-slate-500 font-black uppercase tracking-wider">Challenger Tour</span>
+                    <span className="text-xl font-black text-cyan-400 mt-1">{skippedLowTier.length}</span>
+                </div>
+                <div className="bg-slate-900/35 border border-slate-850 rounded-2xl p-4 flex flex-col justify-between">
+                    <span className="text-[8px] text-slate-500 font-black uppercase tracking-wider">Risky Picks</span>
+                    <span className="text-xl font-black text-amber-500 mt-1">{skippedLowConfidence.length}</span>
+                </div>
+                <div className="bg-slate-900/35 border border-slate-850 rounded-2xl p-4 flex flex-col justify-between">
+                    <span className="text-[8px] text-slate-500 font-black uppercase tracking-wider">Results In</span>
+                    <span className="text-xl font-black text-slate-300 mt-1">{activeResults.length}</span>
+                </div>
+            </div>
 
             {/* ── METODOLOJİ PANELİ ── */}
             <div className="bg-slate-900/40 border border-slate-850 rounded-3xl p-5">
