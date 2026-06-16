@@ -11,7 +11,7 @@ API v1 Router
   hiçbir API kotası (The Odds API, Gemini vb.) harcamasına yol açılmaz.
 """
 
-from fastapi import APIRouter, HTTPException, Header
+from fastapi import APIRouter, HTTPException, Header, BackgroundTasks
 from starlette.concurrency import run_in_threadpool
 import os
 import json
@@ -411,8 +411,30 @@ async def get_system_status():
 # POST /refresh-data
 # Sadece yetkili manuel tetikleyici. Tüm pipeline'ı yeniden çalıştırır.
 # ─────────────────────────────────────────────────────────────────────────────
+async def _run_refresh_pipelines():
+    try:
+        # 1. MLB Pipeline
+        runner = PredictionRunner()
+        await run_in_threadpool(runner.run_daily_predictions)
+        
+        # 2. Tennis Pipeline
+        try:
+            from app.sports.tennis.pipeline_runner import TennisPipelineRunner
+            tennis_runner = TennisPipelineRunner()
+            await run_in_threadpool(tennis_runner.run_pipeline)
+        except Exception as tennis_err:
+            print(f"Tenis zamanlı kazıma hatası: {tennis_err}")
+    except Exception as e:
+        print(f"Sistem güncelleme arka plan hatası: {e}")
+    finally:
+        _update_lock.release()
+
+
 @mlb_router.post("/refresh-data")
-async def refresh_data(x_cron_secret: str | None = Header(default=None)):
+async def refresh_data(
+    background_tasks: BackgroundTasks,
+    x_cron_secret: str | None = Header(default=None)
+):
     """
     Manuel Tetikleyici — Zorla Güncelle.
 
@@ -433,30 +455,13 @@ async def refresh_data(x_cron_secret: str | None = Header(default=None)):
             detail="Sistem şu anda zaten güncelleniyor. Lütfen bekleyin.",
         )
 
-    try:
-        async with _update_lock:
-            # 1. MLB Pipeline
-            runner = PredictionRunner()
-            await run_in_threadpool(runner.run_daily_predictions)
-            
-            # 2. Tennis Pipeline
-            try:
-                from app.sports.tennis.pipeline_runner import TennisPipelineRunner
-                tennis_runner = TennisPipelineRunner()
-                await run_in_threadpool(tennis_runner.run_pipeline)
-            except Exception as tennis_err:
-                print(f"Tenis zamanlı kazıma hatası: {tennis_err}")
-                
-        return {
-            "status": "success",
-            "message": "Tüm sistem verileri (MLB ve Tenis) başarıyla güncellendi.",
-            "updated_at": _get_file_modified_time(PREDICTIONS_FILE),
-        }
-    except Exception as e:
-        raise HTTPException(
-            status_code=500,
-            detail=f"Manuel güncelleme hatası: {str(e)}"
-        )
+    await _update_lock.acquire()
+    background_tasks.add_task(_run_refresh_pipelines)
+    
+    return {
+        "status": "success",
+        "message": "Sistem verilerini güncelleme işlemi (MLB ve Tenis) arka planda başlatıldı.",
+    }
 
 
 # ─────────────────────────────────────────────────────────────────────────────
