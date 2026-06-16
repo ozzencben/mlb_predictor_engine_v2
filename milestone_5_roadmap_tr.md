@@ -210,8 +210,40 @@ Müşterimizden gelen son geri bildirimler doğrultusunda tenis tahmin ekranı i
 
 ---
 
-## 💬 Tartışma ve Karar Verme Noktaları (Tyler ile Alignment İçin)
+## 🎾 9. Müşterinin Yeni Geri Bildirimleri & Yapılacaklar Listesi (Haziran 2026)
 
-Koda geçmeden önce Tyler ile netleştirilmesinde fayda olan 2 tasarım tercihi:
+Müşterimizden gelen son mesajdaki yeni istekler ve hata bildirimleri aşağıda listelenmiştir. Bu maddeler Milestone 5 kapsamında çözülecek veya yeni görevler olarak eklenecektir:
+
+### A. Bildirilen Hatalar ve Düzeltmeler (Bug Fixes)
+* **Turnuva Listeleme Sorunu ("The different tourneys aren’t popping up"):**
+  * *Sorun:* Farklı turnuvalar dropdown menüde görünmüyor veya filtrelemede listelenmiyor.
+  * *Aksiyon:* Tenis fikstüründeki turnuva isimlerinin ayıklanması ve filtre dropdown'una aktarılması süreçleri kontrol edilecek.
+* **Oyuncu Avatarlarının Görünmemesi ("players avatars aren’t showing"):**
+  * *Sorun:* Oyuncu isimlerinin solundaki avatarlar/görseller düzgün yüklenmiyor.
+  * *Aksiyon:* `TennisDashboard.jsx`'teki avatar/görsel render mantığı ve fallback yapısı incelenip düzeltilecek.
+
+### B. Arayüz ve Tasarım İyileştirmeleri (UI/UX Improvements)
+* **Oyuncu Geçmiş Derecelerinin Taşınması ("moving the players previous tourney results to the details page"):**
+  * *Talep:* Oyuncu kartlarında isimlerin hemen altında yer alan geçmiş turnuva derecelerinin (Örn: `Last: French Open...`), kartı sadeleştirmek amacıyla detay sayfasına (Röntgen/AI Insight akordeon paneli) taşınması.
+* **Sıralama Belirtecinin Netleştirilmesi ("put 'ATP RANK' / 'WTA RANK' before the number"):**
+  * *Talep:* İsimlerin altında yer alan sıralama numarasının önüne netlik sağlamak amacıyla "ATP RANK:" veya "WTA RANK:" ifadesinin eklenmesi (Örn: `ATP RANK: 12`).
+* **Seçili Turnuva Başlığı ("add tourney details above the match cards"):**
+  * *Talep:* Maç kartlarının hemen üzerine, o an filtrede seçili olan turnuvanın adını/detaylarını gösteren dinamik bir başlık eklenmesi (Eğer "All" seçiliyse bu başlık gizlenebilir).
+* **Tema Seçici - Gece/Gündüz Modu ("dark or light mode for the user to choose"):**
+  * *Talep:* Sayfanın üst kısmına (Navbar vb.) kullanıcının açık veya koyu tema arasında geçiş yapabilmesi için bir Tema Değiştirici eklenmesi.
+
+### C. Tahmin ve Analitik Modeli Genişletmeleri (Model & Data Updates)
+* **Yeni Bahis Tahminleri ("adding the other plays... both players to win a set"):**
+  * *Talep:* Tenis modelinde "Her iki oyuncunun da set kazanıp kazanamayacağı (Set 1.5 Alt/Üst veya Both players to win a set)" gibi alternatif bahis tahminlerinin ve simülasyon sonuçlarının eklenmesi.
+* **Tahmin Projeksiyonlarının Kartın Altına Taşınması ("move tennis match projections to the bottom"):**
+  * *Talep:* Maç projeksiyonları/tahmin oranları bölümlerinin oyuncu kartlarının en altına kaydırılması.
+* **Kullanılan İstatistiklerin Listesi ("send a list of stats we’re using now"):**
+  * *Talep:* Tenis tahminlerinde arka planda simüle edilen ve kullanılan istatistiklerin/metriklerin (Hold%, Break% vb.) detaylı bir listesinin müşteriye gönderilmesi.
+
+---
+
+## 💬 10. Tartışma ve Karar Verme Noktaları (Tyler ile Alignment İçin)
+
+Koda geçmeden önce Tyler ile netleştirilmesinde fayda olan tasarım tercihleri:
 1.  **Hakkımızda & İletişim Alanları**: Bu sayfaların ayrı birer URL rotası (örn: `/about`, `/contact`) olarak mı açılmasını tercih eder, yoksa ana sayfa üzerinde şık modal pencereler olarak açılması mobil kullanım için daha mı pratiktir? (Benim önerim **Modal** yönündedir).
 2.  **Yesterday's Scoreboard Verisi**: Dünün skorlarını otomatik çekmek için backend'e StatsAPI schedule rotalarını bağlayacağız. Ancak ileride tenis entegre edildiğinde, tenis skorlarını çekmek için ek API limitleri harcamak yerine ilk etapta tenis için dünün skorlarını manuel veya statik bir mock veriyle mi besleyelim?

@@ -789,9 +789,10 @@ function TennisDashboard({ selectedDate }) {
 
     // 1. Tour Filter (ATP / WTA / ALL)
     const tourFilteredList = currentCategoryList.filter(predict => {
+        const tName = (predict.tournament || '').toUpperCase();
         if (tourFilter === 'ALL') return true;
-        if (tourFilter === 'ATP') return (predict.tournament || '').toUpperCase().includes('ATP');
-        if (tourFilter === 'WTA') return (predict.tournament || '').toUpperCase().includes('WTA');
+        if (tourFilter === 'ATP') return tName.includes('ATP') || tName.includes('CHALLENGER MEN');
+        if (tourFilter === 'WTA') return tName.includes('WTA') || tName.includes('CHALLENGER WOMEN');
         return true;
     });
 
@@ -904,9 +905,9 @@ function TennisDashboard({ selectedDate }) {
                             onChange={(e) => setSelectedTourney(e.target.value)}
                             className="w-full bg-slate-950/80 border border-slate-900 hover:border-slate-800 focus:border-indigo-500/50 text-[10px] font-black uppercase tracking-wider text-slate-300 rounded-xl px-3 py-2 cursor-pointer focus:outline-none"
                         >
-                            <option value="ALL">All Tournaments ({tourFilteredList.length} Match{tourFilteredList.length !== 1 ? 'es' : ''})</option>
+                            <option value="ALL" className="bg-slate-950 text-slate-300">All Tournaments ({tourFilteredList.length} Match{tourFilteredList.length !== 1 ? 'es' : ''})</option>
                             {uniqueTourneys.map(t => (
-                                <option key={t} value={t}>{t}</option>
+                                <option key={t} value={t} className="bg-slate-950 text-slate-300">{t}</option>
                             ))}
                         </select>
                     </div>
