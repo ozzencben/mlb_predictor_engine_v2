@@ -11,7 +11,7 @@ API v1 Router
   hiçbir API kotası (The Odds API, Gemini vb.) harcamasına yol açılmaz.
 """
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Header
 from starlette.concurrency import run_in_threadpool
 import os
 import json
@@ -412,13 +412,21 @@ async def get_system_status():
 # Sadece yetkili manuel tetikleyici. Tüm pipeline'ı yeniden çalıştırır.
 # ─────────────────────────────────────────────────────────────────────────────
 @mlb_router.post("/refresh-data")
-async def refresh_data():
+async def refresh_data(x_cron_secret: str | None = Header(default=None)):
     """
     Manuel Tetikleyici — Zorla Güncelle.
 
     Kullanım: Cron dışında acil güncelleme gerektiğinde kullanılır.
     Kilit mekanizması ile aynı anda birden fazla güncelleme başlamaz.
     """
+    cron_key = os.getenv("CRON_SECRET_KEY")
+    if cron_key:
+        if not x_cron_secret or x_cron_secret != cron_key:
+            raise HTTPException(
+                status_code=401,
+                detail="Yetkisiz istek: Geçersiz veya eksik Cron gizli anahtarı.",
+            )
+
     if _update_lock.locked():
         raise HTTPException(
             status_code=429,
@@ -427,11 +435,21 @@ async def refresh_data():
 
     try:
         async with _update_lock:
+            # 1. MLB Pipeline
             runner = PredictionRunner()
             await run_in_threadpool(runner.run_daily_predictions)
+            
+            # 2. Tennis Pipeline
+            try:
+                from app.sports.tennis.pipeline_runner import TennisPipelineRunner
+                tennis_runner = TennisPipelineRunner()
+                await run_in_threadpool(tennis_runner.run_pipeline)
+            except Exception as tennis_err:
+                print(f"Tenis zamanlı kazıma hatası: {tennis_err}")
+                
         return {
             "status": "success",
-            "message": "Tüm sistem verileri başarıyla güncellendi.",
+            "message": "Tüm sistem verileri (MLB ve Tenis) başarıyla güncellendi.",
             "updated_at": _get_file_modified_time(PREDICTIONS_FILE),
         }
     except Exception as e:
