@@ -223,7 +223,7 @@ Müşterimizden gelen son mesajdaki yeni istekler ve hata bildirimleri aşağıd
   * *Aksiyon:* `TennisDashboard.jsx`'teki avatar/görsel render mantığı ve fallback yapısı incelenip düzeltilecek.
 
 ### B. Arayüz ve Tasarım İyileştirmeleri (UI/UX Improvements)
-* **Oyuncu Geçmiş Derecelerinin Taşınması ("moving the players previous tourney results to the details page"):**
+* **Oyuncu Geçmiş Derecelerinin Taşınması ("moving the players previous tourney results to the details page"):** (YAPILDI)
   * *Talep:* Oyuncu kartlarında isimlerin hemen altında yer alan geçmiş turnuva derecelerinin (Örn: `Last: French Open...`), kartı sadeleştirmek amacıyla detay sayfasına (Röntgen/AI Insight akordeon paneli) taşınması.
 * **Sıralama Belirtecinin Netleştirilmesi ("put 'ATP RANK' / 'WTA RANK' before the number"):**
   * *Talep:* İsimlerin altında yer alan sıralama numarasının önüne netlik sağlamak amacıyla "ATP RANK:" veya "WTA RANK:" ifadesinin eklenmesi (Örn: `ATP RANK: 12`).

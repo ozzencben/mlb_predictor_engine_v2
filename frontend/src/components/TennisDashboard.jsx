@@ -408,6 +408,9 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
             ? predict.predicted_winner === 1 ? predict.home_player : predict.away_player
             : predict.predicted_winner;
 
+    const isWta = (predict.tournament || '').toUpperCase().includes('WTA') || (predict.tournament || '').toUpperCase().includes('CHALLENGER WOMEN');
+    const rankLabel = isWta ? 'WTA RANK' : 'ATP RANK';
+
     return (
         <div
             className={`relative rounded-3xl p-5 flex flex-col gap-4 transition-all duration-300 shadow-lg group overflow-hidden
@@ -485,7 +488,7 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                             
                             <div className="flex items-center gap-1.5 flex-wrap text-slate-600">
                                 {predict.p1_stats?.rank && (
-                                    <span className="text-[8px] text-slate-500 font-black">#{predict.p1_stats.rank}</span>
+                                    <span className="text-[8px] text-slate-500 font-black">{rankLabel} #{predict.p1_stats.rank}</span>
                                 )}
                             </div>
                         </div>
@@ -532,7 +535,7 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                             
                             <div className="flex items-center gap-1.5 flex-wrap text-slate-600">
                                 {predict.p2_stats?.rank && (
-                                    <span className="text-[8px] text-slate-500 font-black">#{predict.p2_stats.rank}</span>
+                                    <span className="text-[8px] text-slate-500 font-black">{rankLabel} #{predict.p2_stats.rank}</span>
                                 )}
                             </div>
                         </div>
