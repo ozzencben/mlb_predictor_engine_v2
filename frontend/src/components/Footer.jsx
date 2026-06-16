@@ -1,7 +1,7 @@
 import React from 'react';
 import logo2Img from '../assets/logo2.png';
 
-const Footer = () => {
+const Footer = ({ setShowAboutModal, setShowContactModal, setShowDisclaimerModal }) => {
     return (
         <footer className="w-full py-10 mt-12 border-t border-slate-900 bg-slate-950/60 backdrop-blur-md">
             <div className="max-w-5xl mx-auto px-4 flex flex-col items-center gap-8 text-center">
@@ -74,6 +74,15 @@ const Footer = () => {
                         </div>
                     </div>
 
+                </div>
+
+                {/* Footer Navigation Links */}
+                <div className="flex flex-wrap justify-center items-center gap-4 text-[10px] font-black uppercase tracking-wider text-slate-500 mt-2 select-none">
+                    <button onClick={() => setShowAboutModal?.(true)} className="hover:text-cyan-400 cursor-pointer transition-colors">About Us</button>
+                    <span className="text-slate-800">|</span>
+                    <button onClick={() => setShowContactModal?.(true)} className="hover:text-cyan-400 cursor-pointer transition-colors">Contact Us</button>
+                    <span className="text-slate-800">|</span>
+                    <button onClick={() => setShowDisclaimerModal?.(true)} className="hover:text-cyan-400 cursor-pointer transition-colors">Terms & Disclaimer</button>
                 </div>
 
                 {/* 2. Liability Disclaimer (Second) */}

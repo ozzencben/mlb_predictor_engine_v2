@@ -147,19 +147,19 @@ Geliştirmeye başlamadan önce işleri önceliklerine göre sıraladık (Koda g
 | Öncelik | İş Kodu | Görev Tanımı | Zorluk Derecesi | Etkilenecek Alanlar |
 |:---:|:---:|:---|:---:|:---|
 | **1** | **M5-P1** | Global Navigation & Hamburger Menü (BETA/COMING SOON rozetli spor listesi) | 🟡 Orta | `DropdownNavigation.jsx`, `App.jsx` | (YAPILDI)
-| **2** | **M5-P2** | Central Dashboard (Ana Sayfa) Tasarımı & featured edge alanı | 🟡 Orta | Yeni `CentralDashboard.jsx` |
-| **3** | **M5-P3** | Yesterday's Scoreboard Ribbon UI (Dünün Sonuçları Şeridi) | 🟡 Orta | `CentralDashboard.jsx` |
-| **4** | **M5-P4** | Tenis Tahmin Ekranı Mock Arayüz Entegrasyonu (Görsel Kartlar) | 🟡 Orta | Yeni `TennisDashboard.jsx` |
-| **5** | **M5-P5** | About & Contact Modalları ve Yasal Uyarı Footer Entegrasyonu | 🟢 Kolay | `Footer.jsx`, `App.jsx` |
-| **6** | **M5-P6** | MLB Standings (Lig Puan Durumu) Widget UI | 🟢 Kolay | `CentralDashboard.jsx` |
-| **7** | **M5-P7** | Konfigürasyon Tabanlı Spor Yönlendirme Altyapısı (`sports_config.js`) | 🟢 Kolay | `App.jsx`, Router |
+| **2** | **M5-P2** | Central Dashboard (Ana Sayfa) Tasarımı & featured edge alanı | 🟡 Orta | Yeni `CentralDashboard.jsx` | (YAPILDI)
+| **3** | **M5-P3** | Yesterday's Scoreboard Ribbon UI (Dünün Sonuçları Şeridi) | 🟡 Orta | `CentralDashboard.jsx` | (YAPILDI)
+| **4** | **M5-P4** | Tenis Tahmin Ekranı Mock Arayüz Entegrasyonu (Görsel Kartlar) | 🟡 Orta | Yeni `TennisDashboard.jsx` | (YAPILDI)
+| **5** | **M5-P5** | About & Contact Modalları ve Yasal Uyarı Footer Entegrasyonu | 🟢 Kolay | `Footer.jsx`, `App.jsx` | (YAPILDI)
+| **6** | **M5-P6** | MLB Standings (Lig Puan Durumu) Widget UI | 🟢 Kolay | `CentralDashboard.jsx` | (YAPILDI)
+| **7** | **M5-P7** | Konfigürasyon Tabanlı Spor Yönlendirme Altyapısı (`sports_config.js`) | 🟢 Kolay | `App.jsx`, Router | (YAPILDI)
 | **8** | **M5-P8** | Tenis: Sadece ATP/WTA Turnuvalarını Listeleme (ITF Filtreleme) | 🟢 Kolay | `predict.py`, `fetch_fexture.py` | (YAPILDI)
 | **9** | **M5-P9** | Tenis: Oyuncu Kartlarında Bilgilerin Yeniden Konumlandırılması (Maç Saati, Tur/Aşama Bilgisi) | 🟡 Orta | `TennisDashboard.jsx`, `predict.py` | (YAPILDI)
 | **10** | **M5-P10** | Tenis: Röntgen Sabermetrics Matchup Alanını Akordeon/Dropdown Yapma | 🟢 Kolay | `TennisDashboard.jsx` | (YAPILDI)
 | **11** | **M5-P11** | Tenis: Bugünün Performansı ve Özet Kartlarının Sayfa Altına Taşınması | 🟢 Kolay | `TennisDashboard.jsx` | (YAPILDI)
-| **12** | **M5-P12** | Tenis: Oyuncu Adı Yanına ML Oranlarının Eklenmesi & Altındaki Son 5 Maçın Kaldırılması | 🟢 Kolay | `TennisDashboard.jsx` |
-| **13** | **M5-P13** | Tenis: Oyuncu Fotoğrafları/Bayrak/Avatar ve Son Turnuva Derecesi Entegrasyonu | 🟡 Orta | `TennisDashboard.jsx`, Scraper / Ranks JSON |
-| **14** | **M5-P14** | Tenis: Biten Maçlar (Results) Sekmesinde Set Skorlarının Detaylı Gösterimi | 🟡 Orta | `TennisDashboard.jsx`, `today_predictions.json` |
+| **12** | **M5-P12** | Tenis: Oyuncu Adı Yanına ML Oranlarının Eklenmesi & Altındaki Son 5 Maçın Kaldırılması | 🟢 Kolay | `TennisDashboard.jsx` | (YAPILDI)
+| **13** | **M5-P13** | Tenis: Oyuncu Fotoğrafları/Bayrak/Avatar ve Son Turnuva Derecesi Entegrasyonu | 🟡 Orta | `TennisDashboard.jsx`, Scraper / Ranks JSON | (YAPILDI)
+| **14** | **M5-P14** | Tenis: Biten Maçlar (Results) Sekmesinde Set Skorlarının Detaylı Gösterimi | 🟡 Orta | `TennisDashboard.jsx`, `today_predictions.json` | (YAPILDI)
 
 ---
 

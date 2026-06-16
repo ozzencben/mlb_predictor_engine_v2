@@ -17,14 +17,14 @@ export const SPORTS_CONFIG = {
     id: 'tennis',
     name: 'Tennis',
     icon: '🎾',
-    status: 'BETA', // İlk etapta BETA/MOCK olarak görünecek
+    status: 'ACTIVE',
     models: ['Match Projections']
   },
   NBA: {
     id: 'nba',
     name: 'NBA',
     icon: '🏀',
-    status: 'COMING_SOON',
+    status: 'BETA',
     models: []
   },
   SOCCER: {
@@ -33,5 +33,13 @@ export const SPORTS_CONFIG = {
     icon: '⚽',
     status: 'COMING_SOON',
     models: []
+  },
+  UFC: {
+    id: 'ufc',
+    name: 'UFC',
+    icon: '🥊',
+    status: 'COMING_SOON',
+    models: []
   }
 };
+

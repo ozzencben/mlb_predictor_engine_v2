@@ -17,9 +17,11 @@ function DropdownNavigation({
     if (!menuOpen) return null;
 
     const handleSportClick = (sportName, status, sportKey) => {
-        if (status === 'COMING_SOON') {
+        if (status !== 'ACTIVE') {
             if (setToastMessage) {
-                setToastMessage(`${sportName} predictor is currently in training and will be available soon!`);
+                setToastMessage(status === 'BETA'
+                    ? `${sportName} predictor is currently in Beta training and will be available soon!`
+                    : `${sportName} predictor is currently in training and will be available soon!`);
             }
             return;
         }

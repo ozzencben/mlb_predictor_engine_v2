@@ -1,5 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { usePredictions } from './hooks/usePredictions';
+import { useTennisPredictions } from './hooks/useTennisPredictions';
+import apiClient from './api/client';
 import MatchupCard from './components/MatchupCard';
 import MatchupSkeleton from './components/MatchupSkeleton';
 import Footer from './components/Footer';
@@ -49,6 +51,7 @@ function App() {
     const [activeSport, setActiveSport] = useState('home'); // 'home', 'mlb', 'tennis', etc.
     const [showAboutModal, setShowAboutModal] = useState(false);
     const [showContactModal, setShowContactModal] = useState(false);
+    const [showDisclaimerModal, setShowDisclaimerModal] = useState(false);
     const [selectedDate, setSelectedDate] = useState(null);
     const [activeModel, setActiveModel] = useState('full'); // 'full', 'nrfi', 'f5'
     const [showScrollTop, setShowScrollTop] = useState(false);
@@ -58,6 +61,9 @@ function App() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [toastMessage, setToastMessage] = useState(null);
     const { data, loading, error, isPreparing } = usePredictions(selectedDate);
+    const { data: tennisData, loading: tennisLoading } = useTennisPredictions(selectedDate);
+    const [yesterdayMlbPredictions, setYesterdayMlbPredictions] = useState([]);
+    const [yesterdayTennisResults, setYesterdayTennisResults] = useState([]);
 
     useEffect(() => {
         if (toastMessage) {
@@ -113,6 +119,34 @@ function App() {
         const dd = String(etDate.getDate()).padStart(2, '0');
         return `${yyyy}-${mm}-${dd}`;
     };
+
+    useEffect(() => {
+        const fetchYesterdayData = async () => {
+            const yesterdayDate = getOffsetDateString(-1);
+            try {
+                const mlbRes = await apiClient.get(`/predictions?date=${yesterdayDate}`);
+                if (mlbRes.data?.data?.predictions) {
+                    setYesterdayMlbPredictions(mlbRes.data.data.predictions);
+                }
+            } catch (err) {
+                console.warn("Failed to fetch yesterday MLB predictions:", err.message);
+            }
+
+            try {
+                const tennisRes = await apiClient.get(`/tennis/results?date=${yesterdayDate}`);
+                if (tennisRes.data?.data) {
+                    const active = tennisRes.data.data.active_results || [];
+                    const low = tennisRes.data.data.low_confidence_results || [];
+                    const alt = tennisRes.data.data.alt_league_results || [];
+                    setYesterdayTennisResults([...active, ...low, ...alt]);
+                }
+            } catch (err) {
+                console.warn("Failed to fetch yesterday Tennis results:", err.message);
+            }
+        };
+
+        fetchYesterdayData();
+    }, []);
 
     const formatDateLabel = (dateStr) => {
         if (!dateStr) return '';
@@ -600,8 +634,10 @@ function App() {
                                     <button
                                         key={sport.id}
                                         onClick={() => {
-                                            if (isComingSoon) {
-                                                setToastMessage(`${sport.name} predictor is currently in training and will be available soon!`);
+                                            if (sport.status !== 'ACTIVE') {
+                                                setToastMessage(sport.status === 'BETA'
+                                                    ? `${sport.name} predictor is currently in Beta training and will be available soon!`
+                                                    : `${sport.name} predictor is currently in training and will be available soon!`);
                                             } else {
                                                 setActiveSport(sport.id);
                                             }
@@ -609,7 +645,7 @@ function App() {
                                         className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${isSelected
                                                 ? 'bg-indigo-600/20 border border-indigo-500/20 text-indigo-400 font-extrabold shadow-[0_0_12px_rgba(99,102,241,0.1)] border-t border-t-indigo-400/20'
                                                 : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40 border border-transparent'
-                                            } ${isComingSoon ? 'opacity-40 hover:opacity-100' : ''}`}
+                                            } ${sport.status !== 'ACTIVE' ? 'opacity-40 hover:opacity-100' : ''}`}
                                     >
                                         <span>{sport.icon}</span>
                                         <span>{sport.name}</span>
@@ -718,9 +754,12 @@ function App() {
                     <CentralDashboard
                         setActiveSport={setActiveSport}
                         predictions={predictions}
+                        tennisPredictions={tennisData?.predictions || []}
                         dailyEdges={dailyEdges}
-                        loading={loading}
+                        loading={loading || tennisLoading}
                         systemDate={systemDate}
+                        yesterdayMlbPredictions={yesterdayMlbPredictions}
+                        yesterdayTennisResults={yesterdayTennisResults}
                     />
                 )}
 
@@ -1450,7 +1489,11 @@ function App() {
                     </>
                 )}
 
-                <Footer />
+                <Footer
+                    setShowAboutModal={setShowAboutModal}
+                    setShowContactModal={setShowContactModal}
+                    setShowDisclaimerModal={setShowDisclaimerModal}
+                />
             </main>
 
             {/* Floating Back to Top Button */}
@@ -1557,6 +1600,57 @@ function App() {
 
                             <div className="pt-2 text-[8px] text-slate-500 font-bold text-center uppercase tracking-widest">
                                 Response time: typically within 24 hours
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Disclaimer Modal */}
+            {showDisclaimerModal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-fade-in">
+                    <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-5 sm:p-6 md:p-8 max-w-xl w-full shadow-2xl relative border-t border-t-indigo-500/30 overflow-hidden">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full blur-2xl pointer-events-none"></div>
+
+                        <div className="space-y-4">
+                            <div className="flex items-center justify-between gap-3 border-b border-slate-850 pb-4">
+                                <div className="flex items-center gap-3 min-w-0">
+                                    <span className="text-2xl sm:text-3xl flex-shrink-0">⚠️</span>
+                                    <div className="min-w-0">
+                                        <h3 className="text-sm sm:text-base md:text-lg font-black text-white uppercase tracking-wider truncate">Terms & Disclaimer</h3>
+                                        <p className="text-[9px] text-slate-500 font-bold tracking-widest uppercase">legal & responsibility agreements</p>
+                                    </div>
+                                </div>
+                                <button
+                                    onClick={() => setShowDisclaimerModal(false)}
+                                    className="text-slate-500 hover:text-white cursor-pointer transition-colors p-1.5 rounded-lg border border-slate-850 hover:bg-slate-800 flex-shrink-0"
+                                >
+                                    ✕
+                                </button>
+                            </div>
+
+                            <div className="space-y-3.5 text-xs text-slate-300 leading-relaxed font-semibold max-h-[300px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-850 scrollbar-track-transparent">
+                                <p className="text-emerald-400 font-extrabold uppercase tracking-wider text-[10px]">1. No Financial or Gambling Advice</p>
+                                <p>
+                                    All contents, probabilities, edges, and model forecasts presented on Legends Sports are for educational, informational, and analytical purposes only. They do not constitute financial, investment, legal, or gambling advice.
+                                </p>
+                                <p className="text-emerald-400 font-extrabold uppercase tracking-wider text-[10px]">2. Risk of Loss</p>
+                                <p>
+                                    Sports betting and wagering involve high risks, including the potential loss of principal capital. You are solely responsible for your own betting decisions. Legends Sports cannot be held liable for any financial losses, damages, or costs incurred as a result of using our predictive data.
+                                </p>
+                                <p className="text-emerald-400 font-extrabold uppercase tracking-wider text-[10px]">3. Data Accuracy & Completeness</p>
+                                <p>
+                                    While our machine learning models utilize historical splits, SIERA metrics, and ballistic weather grids to project outcomes, we do not guarantee the completeness, accuracy, or timeliness of our data feed. Odds, weather conditions, and matchups are subject to sudden shifts.
+                                </p>
+                                <p className="text-emerald-400 font-extrabold uppercase tracking-wider text-[10px]">4. Age Limitations & Legality</p>
+                                <p>
+                                    By using Legends Sports, you warrant that you are at least 21 years of age and reside in a jurisdiction where online sports analysis and wagering is legal. Please play responsibly.
+                                </p>
+                            </div>
+
+                            <div className="pt-4 border-t border-slate-850 text-slate-500 text-[9px] font-bold uppercase tracking-widest flex justify-between">
+                                <span>Responsible Gaming</span>
+                                <span>1-800-522-4700</span>
                             </div>
                         </div>
                     </div>

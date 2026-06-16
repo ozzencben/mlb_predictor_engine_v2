@@ -1,49 +1,152 @@
 import React, { useMemo } from 'react';
 import { getTeamAbbr } from '../utils/formatters';
+import { SPORTS_CONFIG } from '../utils/sports_config';
 
 function CentralDashboard({
     setActiveSport,
     predictions = [],
+    tennisPredictions = null,
     dailyEdges = null,
     loading = false,
-    systemDate = ''
+    systemDate = '',
+    yesterdayMlbPredictions = [],
+    yesterdayTennisResults = []
 }) {
-    // 1. Dünün skorları için mock veriler (Yesterday's Scoreboard Ribbon)
-    const yesterdayScores = [
-        { sport: 'mlb', icon: '⚾', away: 'New York Yankees', home: 'Boston Red Sox', awayScore: 5, homeScore: 3, status: 'FINAL', result: 'WIN', prediction: 'NYY ML', edge: '+8.4%', success: true },
-        { sport: 'mlb', icon: '⚾', away: 'Los Angeles Dodgers', home: 'San Francisco Giants', awayScore: 6, homeScore: 2, status: 'FINAL', result: 'WIN', prediction: 'UNDER 8.5', edge: '+5.2%', success: true },
-        { sport: 'tennis', icon: '🎾', away: 'Novak Djokovic', home: 'Carlos Alcaraz', awayScore: '3', homeScore: '1', status: 'FINAL (SETS)', result: 'WIN', prediction: 'Djokovic ML', edge: '+11.2%', success: true },
-        { sport: 'mlb', icon: '⚾', away: 'Houston Astros', home: 'Texas Rangers', awayScore: 1, homeScore: 4, status: 'FINAL', result: 'LOSE', prediction: 'HOU ML', edge: '+4.1%', success: false },
-        { sport: 'tennis', icon: '🎾', away: 'Iga Swiatek', home: 'Aryna Sabalenka', awayScore: '2', homeScore: '0', status: 'FINAL (SETS)', result: 'WIN', prediction: 'Swiatek -1.5 Sets', edge: '+7.8%', success: true }
+    const [standingsData, setStandingsData] = React.useState(null);
+    const [standingsLoading, setStandingsLoading] = React.useState(true);
+
+    React.useEffect(() => {
+        let isMounted = true;
+        const fetchStandings = async () => {
+            try {
+                const res = await fetch("https://statsapi.mlb.com/api/v1/standings?leagueId=103,104");
+                const data = await res.json();
+                if (isMounted) {
+                    setStandingsData(data);
+                    setStandingsLoading(false);
+                }
+            } catch (err) {
+                console.warn("Failed to fetch MLB standings from StatsAPI:", err.message);
+                if (isMounted) {
+                    setStandingsLoading(false);
+                }
+            }
+        };
+        fetchStandings();
+        return () => {
+            isMounted = false;
+        };
+    }, []);
+
+    const alEastTeams = useMemo(() => {
+        if (!standingsData) return null;
+        const alEastRecord = standingsData.records?.find(r => r.division?.id === 201);
+        if (!alEastRecord) return null;
+        return alEastRecord.teamRecords?.map(tr => {
+            const lastTen = tr.records?.splitRecords?.find(sr => sr.type === 'lastTen');
+            return {
+                name: tr.team.name,
+                wins: tr.wins,
+                losses: tr.losses,
+                gb: tr.gamesBack || '—',
+                l10: lastTen ? `${lastTen.wins}-${lastTen.losses}` : '0-0'
+            };
+        });
+    }, [standingsData]);
+
+    const nlWestTeams = useMemo(() => {
+        if (!standingsData) return null;
+        const nlWestRecord = standingsData.records?.find(r => r.division?.id === 203);
+        if (!nlWestRecord) return null;
+        return nlWestRecord.teamRecords?.map(tr => {
+            const lastTen = tr.records?.splitRecords?.find(sr => sr.type === 'lastTen');
+            return {
+                name: tr.team.name,
+                wins: tr.wins,
+                losses: tr.losses,
+                gb: tr.gamesBack || '—',
+                l10: lastTen ? `${lastTen.wins}-${lastTen.losses}` : '0-0'
+            };
+        });
+    }, [standingsData]);
+
+    const alEast = alEastTeams || [
+        { name: 'New York Yankees', wins: 48, losses: 31, gb: '—', l10: '6-4' },
+        { name: 'Baltimore Orioles', wins: 47, losses: 30, gb: '0.5', l10: '7-3' },
+        { name: 'Boston Red Sox', wins: 41, losses: 38, gb: '7.5', l10: '5-5' },
+        { name: 'Toronto Blue Jays', wins: 35, losses: 43, gb: '13.0', l10: '4-6' },
+        { name: 'Tampa Bay Rays', wins: 34, losses: 44, gb: '14.0', l10: '3-7' }
     ];
 
-    // 2. Dinamik olarak günün en yüksek Edge değerine sahip MLB maçını Spotlight olarak bulma
-    const spotlightPick = useMemo(() => {
-        if (!predictions || predictions.length === 0) return null;
+    const nlWest = nlWestTeams || [
+        { name: 'LA Dodgers', wins: 50, losses: 31, gb: '—', l10: '8-2' },
+        { name: 'San Diego Padres', wins: 43, losses: 40, gb: '8.0', l10: '6-4' },
+        { name: 'Arizona D-backs', wins: 38, losses: 42, gb: '11.5', l10: '5-5' },
+        { name: 'SF Giants', wins: 37, losses: 43, gb: '12.5', l10: '4-6' },
+        { name: 'Colorado Rockies', wins: 27, losses: 52, gb: '22.0', l10: '3-7' }
+    ];
+    // 1. Dünün skorları (Yesterday's Scoreboard Ribbon)
+    const yesterdayScores = useMemo(() => {
+        const mlbItems = yesterdayMlbPredictions
+            .filter(p => p.result)
+            .map(p => {
+                const isAway = p.Full_Game?.full_away_win_prob > 0.50;
+                const predictionTeam = isAway ? p.matchup.away_team : p.matchup.home_team;
+                const edgeValue = isAway ? p.Odds?.away_edge_pct : p.Odds?.home_edge_pct;
+                return {
+                    sport: 'mlb',
+                    icon: '⚾',
+                    away: p.matchup.away_team,
+                    home: p.matchup.home_team,
+                    awayScore: p.result.away_actual_score,
+                    homeScore: p.result.home_actual_score,
+                    status: 'FINAL',
+                    prediction: `${getTeamAbbr(predictionTeam)} ML`,
+                    edge: edgeValue ? `+${parseFloat(edgeValue).toFixed(1)}%` : '',
+                    success: p.result.ml_correct
+                };
+            });
 
+        const tennisItems = yesterdayTennisResults.map(r => {
+            const predWinnerName = r.predicted_winner === 1 ? r.home_player : r.away_player;
+            const predictionLabel = `${predWinnerName.split(' ').pop() || predWinnerName} ML`;
+            const homeSets = r.actual_winner === 1 ? 2 : 0;
+            const awaySets = r.actual_winner === 2 ? 2 : 0;
+            return {
+                sport: 'tennis',
+                icon: '🎾',
+                away: r.away_player,
+                home: r.home_player,
+                awayScore: awaySets,
+                homeScore: homeSets,
+                status: 'FINAL (SETS)',
+                prediction: predictionLabel,
+                edge: r.edge_percentage ? `+${parseFloat(r.edge_percentage).toFixed(1)}%` : '',
+                success: r.is_correct
+            };
+        });
+
+        const combined = [...mlbItems, ...tennisItems];
+        if (combined.length === 0) {
+            // Fallback mock values
+            return [
+                { sport: 'mlb', icon: '⚾', away: 'New York Yankees', home: 'Boston Red Sox', awayScore: 5, homeScore: 3, status: 'FINAL', prediction: 'NYY ML', edge: '+8.4%', success: true },
+                { sport: 'mlb', icon: '⚾', away: 'Los Angeles Dodgers', home: 'San Francisco Giants', awayScore: 6, homeScore: 2, status: 'FINAL', prediction: 'UNDER 8.5', edge: '+5.2%', success: true },
+                { sport: 'tennis', icon: '🎾', away: 'Novak Djokovic', home: 'Carlos Alcaraz', awayScore: '3', homeScore: '1', status: 'FINAL (SETS)', prediction: 'Djokovic ML', edge: '+11.2%', success: true },
+                { sport: 'mlb', icon: '⚾', away: 'Houston Astros', home: 'Texas Rangers', awayScore: 1, homeScore: 4, status: 'FINAL', prediction: 'HOU ML', edge: '+4.1%', success: false },
+                { sport: 'tennis', icon: '🎾', away: 'Iga Swiatek', home: 'Aryna Sabalenka', awayScore: '2', homeScore: '0', status: 'FINAL (SETS)', prediction: 'Swiatek -1.5 Sets', edge: '+7.8%', success: true }
+            ];
+        }
+        return combined;
+    }, [yesterdayMlbPredictions, yesterdayTennisResults]);
+
+    // 2. Dinamik olarak günün en yüksek Edge değerine sahip maçını (MLB veya Tenis) Spotlight olarak bulma
+    const spotlightPick = useMemo(() => {
         let bestEdge = -1;
         let bestPick = null;
 
-        // dailyEdges içinden ML edge'ini kontrol et
-        if (dailyEdges?.ml) {
-            const mlEdgeVal = parseFloat(dailyEdges.ml.edge || 0);
-            if (mlEdgeVal > bestEdge) {
-                bestEdge = mlEdgeVal;
-                bestPick = {
-                    sport: '⚾ MLB',
-                    matchup: `${getTeamAbbr(dailyEdges.ml.game?.matchup?.away_team)} @ ${getTeamAbbr(dailyEdges.ml.game?.matchup?.home_team)}`,
-                    type: 'MONEYLINE',
-                    selection: dailyEdges.ml.choice,
-                    edge: `${mlEdgeVal.toFixed(1)}%`,
-                    odds: dailyEdges.ml.odds ? (dailyEdges.ml.odds > 0 ? `+${dailyEdges.ml.odds}` : dailyEdges.ml.odds) : 'Best Odds',
-                    confidence: dailyEdges.ml.prob ? `${(dailyEdges.ml.prob * 100).toFixed(0)}%` : '62%',
-                    book: dailyEdges.ml.book || 'Best Line'
-                };
-            }
-        }
-
-        // Eğer dynamic edge yoksa predictions içinden en yüksek edge'i bulalım
-        if (!bestPick && predictions.length > 0) {
+        // MLB
+        if (predictions && predictions.length > 0) {
             predictions.forEach(p => {
                 const awayEdge = parseFloat(p.Odds?.away_edge_pct || 0);
                 const homeEdge = parseFloat(p.Odds?.home_edge_pct || 0);
@@ -54,6 +157,7 @@ function CentralDashboard({
                     const isAway = awayEdge >= homeEdge;
                     bestPick = {
                         sport: '⚾ MLB',
+                        sportId: 'mlb',
                         matchup: `${getTeamAbbr(p.matchup.away_team)} @ ${getTeamAbbr(p.matchup.home_team)}`,
                         type: 'MONEYLINE',
                         selection: isAway ? `${getTeamAbbr(p.matchup.away_team)} ML` : `${getTeamAbbr(p.matchup.home_team)} ML`,
@@ -66,8 +170,35 @@ function CentralDashboard({
             });
         }
 
+        // Tennis
+        const activeTennis = tennisPredictions?.active_predictions || [];
+        if (activeTennis && activeTennis.length > 0) {
+            activeTennis.forEach(t => {
+                const edge = parseFloat(t.edge_percentage || 0);
+                if (edge > bestEdge) {
+                    bestEdge = edge;
+                    const isHome = t.home_win_probability > t.away_win_probability;
+                    const selectionName = isHome ? t.home_player : t.away_player;
+                    const confidenceVal = isHome ? t.home_win_probability : t.away_win_probability;
+                    const oddsVal = isHome ? t.p1_odds : t.p2_odds;
+
+                    bestPick = {
+                        sport: '🎾 TENNIS',
+                        sportId: 'tennis',
+                        matchup: `${t.home_player} vs ${t.away_player}`,
+                        type: 'MONEYLINE',
+                        selection: `${selectionName.split(' ').pop() || selectionName} ML`,
+                        edge: `${edge.toFixed(1)}%`,
+                        odds: oddsVal ? (oddsVal >= 2.0 ? `+${Math.round((oddsVal - 1.0) * 100)}` : `${Math.round(-100.0 / (oddsVal - 1.0))}`) : 'Best Odds',
+                        confidence: `${confidenceVal.toFixed(0)}%`,
+                        book: 'Best Odds'
+                    };
+                }
+            });
+        }
+
         return bestPick;
-    }, [predictions, dailyEdges]);
+    }, [predictions, tennisPredictions]);
 
     return (
         <div className="space-y-10 animate-fade-in pb-12">
@@ -200,7 +331,7 @@ function CentralDashboard({
                             </span>
 
                             <button
-                                onClick={() => setActiveSport('mlb')}
+                                onClick={() => setActiveSport(spotlightPick.sportId || 'mlb')}
                                 className="mt-5 w-full bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white text-[10px] sm:text-xs font-black uppercase tracking-widest py-3 rounded-xl transition-all duration-300 shadow-md shadow-indigo-500/15 hover:scale-[1.02] active:scale-[0.98] cursor-pointer flex items-center justify-center gap-1.5"
                             >
                                 View Predictions Screen <span>→</span>
@@ -216,7 +347,7 @@ function CentralDashboard({
                     ⚡ Available Sports Predictors
                 </span>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {/* MLB Card */}
                     <div
                         onClick={() => setActiveSport('mlb')}
@@ -232,7 +363,7 @@ function CentralDashboard({
                         <div className="space-y-1">
                             <h4 className="text-lg font-black text-white uppercase tracking-wider">MLB Predictor Engine</h4>
                             <p className="text-xs text-slate-400 leading-relaxed font-semibold">
-                                Complete baseball forecasting. Covers daily moneyline win probabilities, run lines, first-inning NRFI/YRFI, ballpark balistics weather adjustments, and pitcher matchup edges.
+                                Complete baseball forecasting. Covers daily moneyline win probabilities, run lines, first-inning NRFI/YRFI, ballpark ballistics weather adjustments, and pitcher matchup edges.
                             </p>
                         </div>
                         <div className="flex justify-between items-center text-[10px] text-blue-400 font-black uppercase tracking-widest pt-2 border-t border-slate-950">
@@ -249,8 +380,8 @@ function CentralDashboard({
                         <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-full blur-xl group-hover:bg-indigo-500/10 transition-colors pointer-events-none"></div>
                         <div className="flex justify-between items-start">
                             <span className="text-3xl leading-none">🎾</span>
-                            <span className="text-[8px] font-black tracking-widest text-cyan-400 bg-cyan-950/50 border border-cyan-500/30 px-2 py-0.5 rounded-full uppercase">
-                                BETA
+                            <span className="text-[8px] font-black tracking-widest text-emerald-400 bg-emerald-950/50 border border-emerald-500/30 px-2 py-0.5 rounded-full uppercase">
+                                ACTIVE
                             </span>
                         </div>
                         <div className="space-y-1">
@@ -266,11 +397,11 @@ function CentralDashboard({
                     </div>
 
                     {/* NBA Card */}
-                    <div className="bg-slate-900/10 border border-slate-900/60 rounded-3xl p-6 flex flex-col justify-between gap-6 relative overflow-hidden opacity-60">
+                    <div className="bg-slate-900/10 border border-slate-900/60 rounded-3xl p-6 flex flex-col justify-between gap-6 relative overflow-hidden opacity-60 hover:opacity-100 hover:border-slate-850 transition-all duration-300">
                         <div className="flex justify-between items-start">
                             <span className="text-3xl leading-none">🏀</span>
-                            <span className="text-[8px] font-black tracking-widest text-slate-500 bg-slate-950/60 border border-slate-900 px-2 py-0.5 rounded-full uppercase">
-                                COMING SOON
+                            <span className="text-[8px] font-black tracking-widest text-cyan-400 bg-cyan-950/50 border border-cyan-500/30 px-2 py-0.5 rounded-full uppercase">
+                                BETA
                             </span>
                         </div>
                         <div className="space-y-1">
@@ -302,6 +433,25 @@ function CentralDashboard({
                             Model Integration Pending
                         </div>
                     </div>
+
+                    {/* UFC Card */}
+                    <div className="bg-slate-900/10 border border-slate-900/60 rounded-3xl p-6 flex flex-col justify-between gap-6 relative overflow-hidden opacity-60">
+                        <div className="flex justify-between items-start">
+                            <span className="text-3xl leading-none">🥊</span>
+                            <span className="text-[8px] font-black tracking-widest text-slate-500 bg-slate-950/60 border border-slate-900 px-2 py-0.5 rounded-full uppercase">
+                                COMING SOON
+                            </span>
+                        </div>
+                        <div className="space-y-1">
+                            <h4 className="text-lg font-black text-slate-400 uppercase tracking-wider">UFC Predictor</h4>
+                            <p className="text-xs text-slate-500 leading-relaxed font-medium">
+                                Fighter statistics ELO, striking rate matrices, takedown efficiency metrics, and stamina curves simulator. Projecting fight winners, method of victory, and round durations.
+                            </p>
+                        </div>
+                        <div className="text-[10px] text-slate-600 font-bold uppercase tracking-widest pt-2 border-t border-slate-950">
+                            Model Development Pending
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -330,41 +480,18 @@ function CentralDashboard({
                                     </tr>
                                 </thead>
                                 <tbody className="divide-y divide-slate-950/40 text-xs text-gray-300">
-                                    <tr className="hover:bg-slate-900/30 transition-colors">
-                                        <td className="py-2.5 font-bold flex items-center gap-1.5"><span className="text-[10px]">👑</span> NY Yankees</td>
-                                        <td className="py-2.5 text-center font-extrabold">48</td>
-                                        <td className="py-2.5 text-center font-extrabold text-slate-400">31</td>
-                                        <td className="py-2.5 text-center text-slate-400 font-bold">—</td>
-                                        <td className="py-2.5 text-right font-semibold text-emerald-400">6-4</td>
-                                    </tr>
-                                    <tr className="hover:bg-slate-900/30 transition-colors">
-                                        <td className="py-2.5 font-bold">Baltimore Orioles</td>
-                                        <td className="py-2.5 text-center font-extrabold">47</td>
-                                        <td className="py-2.5 text-center font-extrabold text-slate-400">30</td>
-                                        <td className="py-2.5 text-center text-slate-300 font-bold">0.5</td>
-                                        <td className="py-2.5 text-right font-semibold text-emerald-400">7-3</td>
-                                    </tr>
-                                    <tr className="hover:bg-slate-900/30 transition-colors">
-                                        <td className="py-2.5 font-bold">Boston Red Sox</td>
-                                        <td className="py-2.5 text-center font-extrabold">41</td>
-                                        <td className="py-2.5 text-center font-extrabold text-slate-400">38</td>
-                                        <td className="py-2.5 text-center text-slate-400 font-bold">7.5</td>
-                                        <td className="py-2.5 text-right font-semibold text-slate-400">5-5</td>
-                                    </tr>
-                                    <tr className="hover:bg-slate-900/30 transition-colors">
-                                        <td className="py-2.5 font-bold">Toronto Blue Jays</td>
-                                        <td className="py-2.5 text-center font-extrabold">35</td>
-                                        <td className="py-2.5 text-center font-extrabold text-slate-400">43</td>
-                                        <td className="py-2.5 text-center text-slate-500 font-bold">13.0</td>
-                                        <td className="py-2.5 text-right font-semibold text-rose-500">4-6</td>
-                                    </tr>
-                                    <tr className="hover:bg-slate-900/30 transition-colors">
-                                        <td className="py-2.5 font-bold">Tampa Bay Rays</td>
-                                        <td className="py-2.5 text-center font-extrabold">34</td>
-                                        <td className="py-2.5 text-center font-extrabold text-slate-400">44</td>
-                                        <td className="py-2.5 text-center text-slate-500 font-bold">14.0</td>
-                                        <td className="py-2.5 text-right font-semibold text-rose-500">3-7</td>
-                                    </tr>
+                                    {alEast.map((team, idx) => (
+                                        <tr key={team.name} className="hover:bg-slate-900/30 transition-colors">
+                                            <td className="py-2.5 font-bold flex items-center gap-1.5">
+                                                {idx === 0 && <span className="text-[10px]">👑</span>}
+                                                {team.name}
+                                            </td>
+                                            <td className="py-2.5 text-center font-extrabold">{team.wins}</td>
+                                            <td className="py-2.5 text-center font-extrabold text-slate-400">{team.losses}</td>
+                                            <td className="py-2.5 text-center text-slate-400 font-bold">{team.gb}</td>
+                                            <td className={`py-2.5 text-right font-semibold ${parseInt(team.l10.split('-')[0]) >= 5 ? 'text-emerald-400' : 'text-rose-500'}`}>{team.l10}</td>
+                                        </tr>
+                                    ))}
                                 </tbody>
                             </table>
                         </div>
@@ -388,41 +515,18 @@ function CentralDashboard({
                                     </tr>
                                 </thead>
                                 <tbody className="divide-y divide-slate-950/40 text-xs text-gray-300">
-                                    <tr className="hover:bg-slate-900/30 transition-colors">
-                                        <td className="py-2.5 font-bold flex items-center gap-1.5"><span className="text-[10px]">👑</span> LA Dodgers</td>
-                                        <td className="py-2.5 text-center font-extrabold">50</td>
-                                        <td className="py-2.5 text-center font-extrabold text-slate-400">31</td>
-                                        <td className="py-2.5 text-center text-slate-400 font-bold">—</td>
-                                        <td className="py-2.5 text-right font-semibold text-emerald-400">8-2</td>
-                                    </tr>
-                                    <tr className="hover:bg-slate-900/30 transition-colors">
-                                        <td className="py-2.5 font-bold">San Diego Padres</td>
-                                        <td className="py-2.5 text-center font-extrabold">43</td>
-                                        <td className="py-2.5 text-center font-extrabold text-slate-400">40</td>
-                                        <td className="py-2.5 text-center text-slate-300 font-bold">8.0</td>
-                                        <td className="py-2.5 text-right font-semibold text-emerald-400">6-4</td>
-                                    </tr>
-                                    <tr className="hover:bg-slate-900/30 transition-colors">
-                                        <td className="py-2.5 font-bold">Arizona D-backs</td>
-                                        <td className="py-2.5 text-center font-extrabold">38</td>
-                                        <td className="py-2.5 text-center font-extrabold text-slate-400">42</td>
-                                        <td className="py-2.5 text-center text-slate-400 font-bold">11.5</td>
-                                        <td className="py-2.5 text-right font-semibold text-slate-400">5-5</td>
-                                    </tr>
-                                    <tr className="hover:bg-slate-900/30 transition-colors">
-                                        <td className="py-2.5 font-bold">SF Giants</td>
-                                        <td className="py-2.5 text-center font-extrabold">37</td>
-                                        <td className="py-2.5 text-center font-extrabold text-slate-400">43</td>
-                                        <td className="py-2.5 text-center text-slate-500 font-bold">12.5</td>
-                                        <td className="py-2.5 text-right font-semibold text-rose-500">4-6</td>
-                                    </tr>
-                                    <tr className="hover:bg-slate-900/30 transition-colors">
-                                        <td className="py-2.5 font-bold">Colorado Rockies</td>
-                                        <td className="py-2.5 text-center font-extrabold">27</td>
-                                        <td className="py-2.5 text-center font-extrabold text-slate-400">52</td>
-                                        <td className="py-2.5 text-center text-slate-500 font-bold">22.0</td>
-                                        <td className="py-2.5 text-right font-semibold text-rose-500">3-7</td>
-                                    </tr>
+                                    {nlWest.map((team, idx) => (
+                                        <tr key={team.name} className="hover:bg-slate-900/30 transition-colors">
+                                            <td className="py-2.5 font-bold flex items-center gap-1.5">
+                                                {idx === 0 && <span className="text-[10px]">👑</span>}
+                                                {team.name}
+                                            </td>
+                                            <td className="py-2.5 text-center font-extrabold">{team.wins}</td>
+                                            <td className="py-2.5 text-center font-extrabold text-slate-400">{team.losses}</td>
+                                            <td className="py-2.5 text-center text-slate-400 font-bold">{team.gb}</td>
+                                            <td className={`py-2.5 text-right font-semibold ${parseInt(team.l10.split('-')[0]) >= 5 ? 'text-emerald-400' : 'text-rose-500'}`}>{team.l10}</td>
+                                        </tr>
+                                    ))}
                                 </tbody>
                             </table>
                         </div>
