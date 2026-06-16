@@ -225,12 +225,18 @@ Müşterimizden gelen son mesajdaki yeni istekler ve hata bildirimleri aşağıd
 ### B. Arayüz ve Tasarım İyileştirmeleri (UI/UX Improvements)
 * **Oyuncu Geçmiş Derecelerinin Taşınması ("moving the players previous tourney results to the details page"):** (YAPILDI)
   * *Talep:* Oyuncu kartlarında isimlerin hemen altında yer alan geçmiş turnuva derecelerinin (Örn: `Last: French Open...`), kartı sadeleştirmek amacıyla detay sayfasına (Röntgen/AI Insight akordeon paneli) taşınması.
-* **Sıralama Belirtecinin Netleştirilmesi ("put 'ATP RANK' / 'WTA RANK' before the number"):**
+* **Sıralama Belirtecinin Netleştirilmesi ("put 'ATP RANK' / 'WTA RANK' before the number"):** (YAPILDI)
   * *Talep:* İsimlerin altında yer alan sıralama numarasının önüne netlik sağlamak amacıyla "ATP RANK:" veya "WTA RANK:" ifadesinin eklenmesi (Örn: `ATP RANK: 12`).
 * **Seçili Turnuva Başlığı ("add tourney details above the match cards"):**
   * *Talep:* Maç kartlarının hemen üzerine, o an filtrede seçili olan turnuvanın adını/detaylarını gösteren dinamik bir başlık eklenmesi (Eğer "All" seçiliyse bu başlık gizlenebilir).
 * **Tema Seçici - Gece/Gündüz Modu ("dark or light mode for the user to choose"):**
   * *Talep:* Sayfanın üst kısmına (Navbar vb.) kullanıcının açık veya koyu tema arasında geçiş yapabilmesi için bir Tema Değiştirici eklenmesi.
+* **Kategori Sekmelerinin Sadeleştirilmesi ("get rid of risky/challenger and main"):**
+  * *Talep:* Üst kısımdaki "Main / Challenger Tour / Low Confidence" sekmelerinin tamamen kaldırılması. Bunun yerine Challenger maçlarının da birer "Tur" (Tour Filter) olarak ATP ve WTA butonlarının yanına ("Challenger Tour" butonu şeklinde) konumlandırılması.
+* **Riskli Maçlar İçin Uyarı İkonu ("risky plays ... caution sign"):**
+  * *Talep:* Düşük güvenli (risky) maçların ayrı bir sekmede gizlenmesi yerine genel listede gösterilmesi, ancak kartların üzerine dikkat çekici bir uyarı/ünlem işareti yerleştirilmesi.
+* **Tek Ekranda Tüm Maçları Listeleme ("once i click what tourney i want to look at id rather just see all of the matches"):**
+  * *Talep:* Dropdown'dan bir turnuva seçildiğinde, o turnuvaya ait tüm maçların (risk seviyesinden bağımsız olarak) tek bir listede listelenmesi.
 
 ### C. Tahmin ve Analitik Modeli Genişletmeleri (Model & Data Updates)
 * **Yeni Bahis Tahminleri ("adding the other plays... both players to win a set"):**

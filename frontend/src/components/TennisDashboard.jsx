@@ -52,12 +52,12 @@ function getPlayerInitials(name) {
 // ─────────────────────────────────────────────────────────────
 function renderAiInsight(text) {
     if (!text) return null;
-    
+
     // Split by lines and filter bullet points
     const bullets = text.split('\n')
         .map(l => l.trim())
         .filter(l => l.startsWith('-') || l.startsWith('*'));
-        
+
     if (bullets.length === 3) {
         const titles = ["Surface & ELO Edge", "Physical & Fatigue Factor", "The Betting Angle"];
         const icons = ["🏟️", "🔋", "🎯"];
@@ -78,7 +78,7 @@ function renderAiInsight(text) {
             </div>
         );
     }
-    
+
     return (
         <div className="bg-slate-950/50 border border-slate-900/60 rounded-2xl p-4 text-[10px] text-slate-300 leading-relaxed font-semibold whitespace-pre-line">
             {text}
@@ -91,7 +91,7 @@ function renderAiInsight(text) {
 // ─────────────────────────────────────────────────────────────
 function StatsComparison({ p1, p2 }) {
     if (!p1 || !p2) return null;
-    
+
     const rows = [
         { label: 'World Ranking', p1Val: p1.rank, p2Val: p2.rank, format: v => `#${v}`, higherIsBetter: false, icon: '🏅' },
         { label: 'Surface ELO Rating', p1Val: p1.elo, p2Val: p2.elo, format: v => Math.round(v), higherIsBetter: true, icon: '🧠' },
@@ -112,7 +112,7 @@ function StatsComparison({ p1, p2 }) {
                 {rows.map((row, idx) => {
                     let p1Highlight = false;
                     let p2Highlight = false;
-                    
+
                     if (row.p1Val !== row.p2Val) {
                         if (row.higherIsBetter) {
                             p1Highlight = row.p1Val > row.p2Val;
@@ -131,14 +131,14 @@ function StatsComparison({ p1, p2 }) {
                                     {row.format(row.p1Val)}
                                 </span>
                             </div>
-                            
+
                             {/* Metric Label */}
                             <div className="w-[40%] text-center flex flex-col items-center">
                                 <span className="text-[7.5px] text-slate-500 font-black uppercase tracking-wider text-center block">
                                     {row.icon} {row.label}
                                 </span>
                             </div>
-                            
+
                             {/* Player 2 value */}
                             <div className="w-[30%] text-right font-black">
                                 <span className={p2Highlight ? 'text-indigo-400 font-extrabold drop-shadow-[0_0_8px_rgba(129,140,248,0.2)]' : 'text-slate-400 font-semibold'}>
@@ -336,7 +336,7 @@ function PlayerHistoryDrawer({ playerId, playerName, onClose }) {
                 <div className="p-4 space-y-2">
                     {loading ? (
                         <div className="space-y-3 animate-pulse">
-                            {[1,2,3,4,5].map(i => <div key={i} className="h-14 bg-slate-900/50 rounded-xl" />)}
+                            {[1, 2, 3, 4, 5].map(i => <div key={i} className="h-14 bg-slate-900/50 rounded-xl" />)}
                         </div>
                     ) : matches.length === 0 ? (
                         <div className="text-center py-10">
@@ -354,7 +354,7 @@ function PlayerHistoryDrawer({ playerId, playerName, onClose }) {
                             const surface = (m.ground || 'Unknown').toLowerCase();
                             const surfaceColor = surface.includes('clay') ? 'text-amber-400 bg-amber-950/40 border-amber-500/25'
                                 : surface.includes('grass') ? 'text-emerald-400 bg-emerald-950/40 border-emerald-500/25'
-                                : 'text-blue-400 bg-blue-950/40 border-blue-500/25';
+                                    : 'text-blue-400 bg-blue-950/40 border-blue-500/25';
 
                             return (
                                 <div key={i} className="flex items-center gap-3 bg-slate-900/30 border border-slate-900/60 rounded-xl p-3 hover:border-slate-800 transition-all">
@@ -448,6 +448,17 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                     </div>
                 </div>
                 <div className="flex items-center gap-1.5 flex-shrink-0">
+                    {predict.isLowConfidence && !isResultCard && (
+                        <div
+                            className="text-[8px] font-black uppercase tracking-widest px-2.5 py-0.5 rounded-lg border bg-amber-600/30 border-amber-500/50 text-amber-300 flex items-center gap-1"
+                            title="Low confidence prediction — use caution"
+                            role="img"
+                            aria-label="Low confidence prediction — use caution"
+                        >
+                            <span>⚠️</span>
+                            <span>Risky</span>
+                        </div>
+                    )}
                     {isResultCard && (
                         <span className={`text-[8px] font-black uppercase tracking-widest px-2 py-0.5 rounded border ${predict.is_correct ? 'bg-emerald-950/60 text-emerald-400 border-emerald-500/30' : 'bg-rose-950/60 text-rose-400 border-rose-500/30'}`}>
                             {predict.is_correct ? '✓ Correct' : '✗ Wrong'}
@@ -468,7 +479,7 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                         <div className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 flex items-center justify-center text-[9px] font-black text-slate-400 group-hover:border-indigo-500/30 transition-all select-none shadow-[0_0_8px_rgba(0,0,0,0.5)]">
                             {getPlayerInitials(predict.home_player)}
                         </div>
-                        
+
                         <div className="space-y-0.5 min-w-0">
                             <div className="flex items-center gap-2 flex-wrap">
                                 <button
@@ -485,7 +496,7 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                                     </span>
                                 )}
                             </div>
-                            
+
                             <div className="flex items-center gap-1.5 flex-wrap text-slate-600">
                                 {predict.p1_stats?.rank && (
                                     <span className="text-[8px] text-slate-500 font-black">{rankLabel} #{predict.p1_stats.rank}</span>
@@ -515,7 +526,7 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                         <div className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 flex items-center justify-center text-[9px] font-black text-slate-400 group-hover:border-indigo-500/30 transition-all select-none shadow-[0_0_8px_rgba(0,0,0,0.5)]">
                             {getPlayerInitials(predict.away_player)}
                         </div>
-                        
+
                         <div className="space-y-0.5 min-w-0">
                             <div className="flex items-center gap-2 flex-wrap">
                                 <button
@@ -532,7 +543,7 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                                     </span>
                                 )}
                             </div>
-                            
+
                             <div className="flex items-center gap-1.5 flex-wrap text-slate-600">
                                 {predict.p2_stats?.rank && (
                                     <span className="text-[8px] text-slate-500 font-black">{rankLabel} #{predict.p2_stats.rank}</span>
@@ -750,14 +761,11 @@ function MatchGrid({ list, isResultCard, emptyMessage, onPlayerClick }) {
 function TennisDashboard({ selectedDate }) {
     const { data, loading, error, isPreparing } = useTennisPredictions(selectedDate);
 
-    // GÖREV 1: Prediction kategorisi (Main / Challenger / Risky)
-    const [predCategory, setPredCategory] = useState('active');  // 'active' | 'tier' | 'risky'
-
     // GÖREV 1: Upcoming vs Results ana tab
     const [matchView, setMatchView] = useState('upcoming');  // 'upcoming' | 'results'
 
     // GÖREV 8: Tour & Tournament Filtreleri
-    const [tourFilter, setTourFilter] = useState('ALL'); // 'ALL' | 'ATP' | 'WTA'
+    const [tourFilter, setTourFilter] = useState('ALL'); // 'ALL' | 'ATP' | 'WTA' | 'CHALLENGER'
     const [selectedTourney, setSelectedTourney] = useState('ALL'); // 'ALL' | string
 
     // Player History Drawer state
@@ -836,26 +844,31 @@ function TennisDashboard({ selectedDate }) {
     const lowConfResults = results?.low_confidence_results || [];
     const altLeagueResults = results?.alt_league_results || [];
 
-    // Upcoming tab seçili kategori
-    let upcomingList = activePredictions;
-    if (predCategory === 'tier') upcomingList = skippedLowTier;
-    if (predCategory === 'risky') upcomingList = skippedLowConfidence;
+    // Merge all predictions into single list (no category tabs anymore)
+    const allUpcomingMatches = [
+        ...activePredictions,
+        ...skippedLowTier,
+        ...skippedLowConfidence
+    ];
 
-    // Results tab seçili kategori
-    let resultsList = activeResults;
-    if (predCategory === 'tier') resultsList = altLeagueResults;
-    if (predCategory === 'risky') resultsList = lowConfResults;
+    // Merge all results
+    const allResultsMatches = [
+        ...activeResults,
+        ...altLeagueResults,
+        ...lowConfResults
+    ];
 
     const hasResults = results && results.active_statistics && results.active_statistics.total_predicted > 0;
 
-    const currentCategoryList = matchView === 'upcoming' ? upcomingList : resultsList;
+    const currentCategoryList = matchView === 'upcoming' ? allUpcomingMatches : allResultsMatches;
 
-    // 1. Tour Filter (ATP / WTA / ALL)
+    // 1. Tour Filter (ATP / WTA / CHALLENGER / ALL) - ISOLATED
     const tourFilteredList = currentCategoryList.filter(predict => {
         const tName = (predict.tournament || '').toUpperCase();
         if (tourFilter === 'ALL') return true;
-        if (tourFilter === 'ATP') return tName.includes('ATP') || tName.includes('CHALLENGER MEN');
-        if (tourFilter === 'WTA') return tName.includes('WTA') || tName.includes('CHALLENGER WOMEN');
+        if (tourFilter === 'ATP') return tName.includes('ATP') && !tName.includes('CHALLENGER');
+        if (tourFilter === 'WTA') return tName.includes('WTA') && !tName.includes('CHALLENGER');
+        if (tourFilter === 'CHALLENGER') return tName.includes('CHALLENGER');
         return true;
     });
 
@@ -941,7 +954,8 @@ function TennisDashboard({ selectedDate }) {
                             {[
                                 { id: 'ALL', label: 'All Tours', badgeColor: 'bg-indigo-600/20 border-indigo-500/30 text-indigo-400' },
                                 { id: 'ATP', label: 'ATP Tour', badgeColor: 'bg-blue-600/20 border-blue-500/30 text-blue-400' },
-                                { id: 'WTA', label: 'WTA Tour', badgeColor: 'bg-purple-600/20 border-purple-500/30 text-purple-400' }
+                                { id: 'WTA', label: 'WTA Tour', badgeColor: 'bg-purple-600/20 border-purple-500/30 text-purple-400' },
+                                { id: 'CHALLENGER', label: 'Challenger Tour', badgeColor: 'bg-amber-600/20 border-amber-500/30 text-amber-400' }
                             ].map(tour => {
                                 const isActive = tourFilter === tour.id;
                                 return (
@@ -960,7 +974,7 @@ function TennisDashboard({ selectedDate }) {
                             })}
                         </div>
                     </div>
-                    
+
                     <div className="space-y-1.5 flex-1 max-w-xs">
                         <span className="text-[8px] text-slate-500 font-black uppercase tracking-wider block">Tournament Selector</span>
                         <select
@@ -976,6 +990,8 @@ function TennisDashboard({ selectedDate }) {
                     </div>
                 </div>
             </div>
+
+            {/* ── TOUR FILTER EXPANSION: Add Challenger Tour Button ── */}
 
             {/* ── GÖREV 1: UPCOMING / RESULTS ANA SEKMELERİ ── */}
             <div className="flex items-center gap-1 p-1 bg-slate-950/70 border border-slate-900 rounded-2xl w-full sm:w-max shadow-inner">
@@ -1011,46 +1027,19 @@ function TennisDashboard({ selectedDate }) {
                 </button>
             </div>
 
-            {/* ── KATEGORİ SEKME BARI ── */}
-            <div className="w-full overflow-x-auto no-scrollbar">
-                <nav className="flex items-center gap-1.5 p-1 bg-slate-950/60 border border-slate-900 rounded-xl w-max min-w-full sm:min-w-0">
-                    <button
-                        onClick={() => setPredCategory('active')}
-                        className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all cursor-pointer flex items-center gap-1.5
-                            ${predCategory === 'active' ? 'bg-indigo-600/20 text-indigo-400 border border-indigo-500/25 shadow-md shadow-indigo-500/5' : 'text-slate-400 hover:text-slate-200 border border-transparent'}`}
-                    >
-                        🎯 Main Plays ({activePredictions.length})
-                    </button>
-                    <button
-                        onClick={() => setPredCategory('tier')}
-                        className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all cursor-pointer flex items-center gap-1.5
-                            ${predCategory === 'tier' ? 'bg-cyan-600/20 text-cyan-400 border border-cyan-500/25' : 'text-slate-400 hover:text-slate-200 border border-transparent'}`}
-                    >
-                        🎾 Challenger Tour ({skippedLowTier.length})
-                    </button>
-                    <button
-                        onClick={() => setPredCategory('risky')}
-                        className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all cursor-pointer flex items-center gap-1.5
-                            ${predCategory === 'risky' ? 'bg-amber-600/20 text-amber-400 border border-amber-500/25' : 'text-slate-400 hover:text-slate-200 border border-transparent'}`}
-                    >
-                        ⚠️ Risky ({skippedLowConfidence.length})
-                    </button>
-                </nav>
-            </div>
-
-            {/* ── MAÇ LİSTESİ ── */}
+            {/* ── MAÇ LİSTESİ (TÜM RISK SEVİYELERİ) ── */}
             {matchView === 'upcoming' ? (
                 <MatchGrid
-                    list={finalMatchList}
+                    list={finalMatchList.map(m => ({ ...m, isLowConfidence: skippedLowConfidence.some(rc => rc.match_id === m.match_id) }))}
                     isResultCard={false}
-                    emptyMessage="No upcoming tennis matches calculated for this category with these filters."
+                    emptyMessage="No upcoming tennis matches calculated for these filters."
                     onPlayerClick={handlePlayerClick}
                 />
             ) : (
                 <MatchGrid
-                    list={finalMatchList}
+                    list={finalMatchList.map(m => ({ ...m, isLowConfidence: lowConfResults.some(rc => rc.match_id === m.match_id) }))}
                     isResultCard={true}
-                    emptyMessage="No finished matches available yet for this category with these filters."
+                    emptyMessage="No finished matches available yet for these filters."
                     onPlayerClick={handlePlayerClick}
                 />
             )}
