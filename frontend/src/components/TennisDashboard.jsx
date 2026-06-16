@@ -227,6 +227,68 @@ function H2HSummary({ h2h, p1Name, p2Name }) {
 }
 
 // ─────────────────────────────────────────────────────────────
+//  Helper: Recent Form History
+// ─────────────────────────────────────────────────────────────
+function RecentFormHistory({ p1Name, p1Form, p2Name, p2Form }) {
+    if ((!p1Form || p1Form.length === 0) && (!p2Form || p2Form.length === 0)) return null;
+
+    return (
+        <div className="bg-slate-950/50 border border-slate-900/60 rounded-2xl p-3.5 space-y-2.5">
+            <span className="text-[7.5px] font-black uppercase tracking-widest text-slate-500 block">📊 Recent Matches &amp; Form (Last 5)</span>
+            <div className="grid grid-cols-2 gap-4">
+                {/* P1 Form */}
+                <div className="space-y-2">
+                    <span className="text-[9px] font-black uppercase text-indigo-400 block truncate">{p1Name}</span>
+                    <div className="space-y-1.5">
+                        {p1Form && p1Form.slice(0, 5).map((match, idx) => (
+                            <div key={idx} className="bg-slate-900/40 border border-slate-900/60 p-2 rounded-xl text-[9px] leading-tight space-y-0.5">
+                                <div className="flex justify-between items-center gap-1">
+                                    <span className="text-white font-black truncate max-w-[80px]">{match.tournament.split('(')[0].trim()}</span>
+                                    <span className={`px-1 rounded font-black text-[8px] ${match.result === 'W' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-rose-500/10 text-rose-400 border border-rose-500/20'}`}>
+                                        {match.result}
+                                    </span>
+                                </div>
+                                <div className="flex justify-between items-center text-slate-500">
+                                    <span className="truncate max-w-[70px]">vs {match.opponent}</span>
+                                    <span>{match.score}</span>
+                                </div>
+                            </div>
+                        ))}
+                        {(!p1Form || p1Form.length === 0) && (
+                            <span className="text-[9px] text-slate-600 font-bold block">No recent matches</span>
+                        )}
+                    </div>
+                </div>
+
+                {/* P2 Form */}
+                <div className="space-y-2">
+                    <span className="text-[9px] font-black uppercase text-indigo-400 block truncate">{p2Name}</span>
+                    <div className="space-y-1.5">
+                        {p2Form && p2Form.slice(0, 5).map((match, idx) => (
+                            <div key={idx} className="bg-slate-900/40 border border-slate-900/60 p-2 rounded-xl text-[9px] leading-tight space-y-0.5">
+                                <div className="flex justify-between items-center gap-1">
+                                    <span className="text-white font-black truncate max-w-[80px]">{match.tournament.split('(')[0].trim()}</span>
+                                    <span className={`px-1 rounded font-black text-[8px] ${match.result === 'W' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-rose-500/10 text-rose-400 border border-rose-500/20'}`}>
+                                        {match.result}
+                                    </span>
+                                </div>
+                                <div className="flex justify-between items-center text-slate-500">
+                                    <span className="truncate max-w-[70px]">vs {match.opponent}</span>
+                                    <span>{match.score}</span>
+                                </div>
+                            </div>
+                        ))}
+                        {(!p2Form || p2Form.length === 0) && (
+                            <span className="text-[9px] text-slate-600 font-bold block">No recent matches</span>
+                        )}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// ─────────────────────────────────────────────────────────────
 //  Alt bileşen: Player History Drawer
 // ─────────────────────────────────────────────────────────────
 function PlayerHistoryDrawer({ playerId, playerName, onClose }) {
@@ -425,11 +487,6 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                                 {predict.p1_stats?.rank && (
                                     <span className="text-[8px] text-slate-500 font-black">#{predict.p1_stats.rank}</span>
                                 )}
-                                {predict.p1_stats?.recent_form?.[0] && (
-                                    <span className="text-[8px] text-slate-500 font-semibold truncate max-w-[160px] sm:max-w-xs">
-                                        · Last: {predict.p1_stats.recent_form[0].tournament.split('(')[0].trim()} · {predict.p1_stats.recent_form[0].score} {predict.p1_stats.recent_form[0].result}
-                                    </span>
-                                )}
                             </div>
                         </div>
                     </div>
@@ -476,11 +533,6 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                             <div className="flex items-center gap-1.5 flex-wrap text-slate-600">
                                 {predict.p2_stats?.rank && (
                                     <span className="text-[8px] text-slate-500 font-black">#{predict.p2_stats.rank}</span>
-                                )}
-                                {predict.p2_stats?.recent_form?.[0] && (
-                                    <span className="text-[8px] text-slate-500 font-semibold truncate max-w-[160px] sm:max-w-xs">
-                                        · Last: {predict.p2_stats.recent_form[0].tournament.split('(')[0].trim()} · {predict.p2_stats.recent_form[0].score} {predict.p2_stats.recent_form[0].result}
-                                    </span>
                                 )}
                             </div>
                         </div>
@@ -577,6 +629,14 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                                     <H2HSummary h2h={predict.h2h_summary} p1Name={predict.home_player} p2Name={predict.away_player} />
                                 </div>
                             )}
+
+                            {/* Recent Form History (Last 5 Matches) */}
+                            <RecentFormHistory
+                                p1Name={predict.home_player}
+                                p1Form={predict.p1_stats?.recent_form}
+                                p2Name={predict.away_player}
+                                p2Form={predict.p2_stats?.recent_form}
+                            />
 
                             {/* 3. Röntgen Matchup Stats Comparison */}
                             {predict.p1_stats && predict.p2_stats && (

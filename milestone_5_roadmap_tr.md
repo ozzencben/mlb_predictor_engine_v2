@@ -215,7 +215,7 @@ Müşterimizden gelen son geri bildirimler doğrultusunda tenis tahmin ekranı i
 Müşterimizden gelen son mesajdaki yeni istekler ve hata bildirimleri aşağıda listelenmiştir. Bu maddeler Milestone 5 kapsamında çözülecek veya yeni görevler olarak eklenecektir:
 
 ### A. Bildirilen Hatalar ve Düzeltmeler (Bug Fixes)
-* **Turnuva Listeleme Sorunu ("The different tourneys aren’t popping up"):**
+* **Turnuva Listeleme Sorunu ("The different tourneys aren’t popping up"):** (YAPILDI)
   * *Sorun:* Farklı turnuvalar dropdown menüde görünmüyor veya filtrelemede listelenmiyor.
   * *Aksiyon:* Tenis fikstüründeki turnuva isimlerinin ayıklanması ve filtre dropdown'una aktarılması süreçleri kontrol edilecek.
 * **Oyuncu Avatarlarının Görünmemesi ("players avatars aren’t showing"):**
