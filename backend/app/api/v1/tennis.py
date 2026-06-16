@@ -95,7 +95,35 @@ async def get_player_history(
     Belirli bir oyuncunun son N maçını döndürür.
     Player ID, prediction JSON'daki p1_id / p2_id alanından alınır.
     """
-    player_file = os.path.join(PLAYER_MATCHES_DIR, f"{player_id}.json")
+    mapped_id = player_id
+    atp_file = os.path.join(DATA_DIR, "atp_ranks.json")
+    wta_file = os.path.join(DATA_DIR, "wta_ranks.json")
+    
+    # Check ATP ranks for Flashscore PI hash matching player_id
+    if os.path.exists(atp_file):
+        try:
+            with open(atp_file, "r", encoding="utf-8") as f:
+                atp_data = json.load(f)
+            for k, v in atp_data.items():
+                if v.get("PI") == player_id:
+                    mapped_id = k
+                    break
+        except Exception:
+            pass
+            
+    # Check WTA ranks if not found in ATP
+    if mapped_id == player_id and os.path.exists(wta_file):
+        try:
+            with open(wta_file, "r", encoding="utf-8") as f:
+                wta_data = json.load(f)
+            for k, v in wta_data.items():
+                if v.get("PI") == player_id:
+                    mapped_id = k
+                    break
+        except Exception:
+            pass
+
+    player_file = os.path.join(PLAYER_MATCHES_DIR, f"{mapped_id}.json")
     
     if not os.path.exists(player_file):
         raise HTTPException(
@@ -121,6 +149,7 @@ async def get_player_history(
             status_code=500,
             detail=f"Oyuncu geçmişi okunurken hata oluştu: {str(e)}"
         )
+
 
 
 @tennis_router.get("/rankings")
