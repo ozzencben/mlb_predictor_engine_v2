@@ -122,3 +122,52 @@ async def get_player_history(
             detail=f"Oyuncu geçmişi okunurken hata oluştu: {str(e)}"
         )
 
+
+@tennis_router.get("/rankings")
+async def get_rankings(limit: int = Query(default=5, ge=1, le=20)):
+    """
+    ATP ve WTA sıralama listesinden en yüksek rütbeli oyuncuları döndürür.
+    """
+    atp_file = os.path.join(DATA_DIR, "atp_ranks.json")
+    wta_file = os.path.join(DATA_DIR, "wta_ranks.json")
+    
+    def _parse_ranks(filepath: str) -> list:
+        if not os.path.exists(filepath):
+            return []
+        try:
+            with open(filepath, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            
+            players = []
+            for p_id, p_info in data.items():
+                pn = p_info.get("PN", "")
+                parts = pn.strip().split()
+                if len(parts) >= 2:
+                    formatted_name = f"{parts[-1]} {' '.join(parts[:-1])}"
+                else:
+                    formatted_name = pn
+                
+                players.append({
+                    "id": p_id,
+                    "name": formatted_name,
+                    "rank": int(p_info.get("RA", 9999)),
+                    "points": int(p_info.get("PO", 0)) if p_info.get("PO") else 0,
+                    "country": p_info.get("CN", ""),
+                    "player_id": p_info.get("PI", "")
+                })
+            
+            # Sort by rank ascending
+            players.sort(key=lambda x: x["rank"])
+            return players[:limit]
+        except Exception as e:
+            print(f"Error parsing ranks file {filepath}: {e}")
+            return []
+
+    atp_top = _parse_ranks(atp_file)
+    wta_top = _parse_ranks(wta_file)
+    
+    return {
+        "status": "success",
+        "atp": atp_top,
+        "wta": wta_top
+    }
