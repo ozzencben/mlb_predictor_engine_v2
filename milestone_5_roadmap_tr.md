@@ -287,6 +287,104 @@ Haziran 2026'da gerçekleştirilen veri ve model güncellemesinin ardından (3.0
 
 ---
 
+## 📬 12. Tyler'ın Yeni Geri Bildirimleri & Teknik Analiz (Haziran 18, 2026)
+
+Müşteriden gelen son mesaj 4 ayrı konuyu kapsıyor. Her biri için mevcut durum, kök neden ve aksiyon planı aşağıda detaylandırılmıştır.
+
+---
+
+### 🔴 Problem 1: Yeni Bahis Marketleri Görünmüyor ("I'm not seeing the new betting markets")
+
+**Mevcut durum:** `today_predictions.json` dosyasında `alternative_bets` alanları `model_odds` ve `probability` değerleriyle birlikte doğru şekilde üretiliyor. Frontend kodu (`TennisDashboard.jsx`) bu verileri sportsbook tarzında gösterecek şekilde güncellenmiş durumda.
+
+**Kök neden:** Backend sunucusu (`uvicorn`) güncellenen `predict.py` kodunu yüklememiş olabilir. Sunucu restart edilmeden eski predict.py ile üretilen eski predictions dosyası servis ediliyor olabilir. Ayrıca tarayıcı önbelleği (browser cache) de eski veriyi gösteriyor olabilir.
+
+**Aksiyon:**
+1. Backend sunucusunu tamamen durdurup yeniden başlatmak: `uv run uvicorn app.main:app --reload --port 8000`
+2. Frontend'de hard refresh yapmak: `Ctrl+Shift+R`
+3. Sunucu yeniden başlatıldıktan sonra `predict.py` çalıştırılarak `today_predictions.json` taze üretilmeli
+4. Eğer hala görünmüyorsa: `today_predictions.json` içinde `alternative_bets[0].model_odds` alanının gerçekten var olup olmadığını kontrol et
+
+---
+
+### 🔴 Problem 2: MLB Dünkü Maçları Gösteriyor ("MLB is still showing yesterday's games")
+
+**Mevcut durum:** `todays_predictions.json` son güncelleme tarihi **15 Haziran 2026** — bugün 18 Haziran 2026. MLB pipeline 3 gündür çalıştırılmamış.
+
+**Kök neden:** MLB veri güncelleme pipeline'ı (`runner.py`) otomatik değil — her gün manuel olarak çalıştırılması gerekiyor. Otomatik bir zamanlayıcı (cron job / Task Scheduler) kurulmamış.
+
+**Etkilenen dosyalar (hepsi 15 Haziran tarihli):**
+- `todays_predictions.json` → Ana tahmin dosyası
+- `daily_matchups.json` → Günlük maç listesi
+- `live_odds.json` → Canlı oranlar
+- `pitcher_stats.json`, `player_stats_cache.json` → Oyuncu istatistikleri
+
+**Aksiyon (kısa vadeli):**
+- Bugün için MLB pipeline'ı manuel çalıştırmak: `cd backend; uv run python app/sports/mlb/runner.py`
+
+**Aksiyon (uzun vadeli — M5-P26 olarak eklendi):**
+- Windows Task Scheduler veya basit bir `schedule` kütüphanesi ile her sabah 09:00 ET'de pipeline'ı otomatik başlatacak bir cron mekanizması kurmak
+
+---
+
+### 🟡 Problem 3: Yeni Spor Kategorileri Eklenmesi ("Need to add WNBA/NFL/CBB/CFB/NHL")
+
+**Mevcut durum:** `sports_config.js` şu anda şu sporları tanıyor: MLB (aktif), Tennis (aktif), NBA (beta), Soccer (coming soon), UFC (coming soon).
+
+**Talep edilen eklemeler:** WNBA, NFL, CBB (College Basketball), CFB (College Football), NHL
+
+**Kök neden:** Bu sporlar `sports_config.js` dosyasında tanımlı değil. Eklenmesi kolay — sadece config dosyasına yeni satırlar eklenerek navigasyon barı ve hamburger menü otomatik güncellenir.
+
+**Zorluk:** 🟢 Kolay — sadece config ve nav bar değişikliği, backend altyapısı yok
+
+**Aksiyon (M5-P27 olarak eklendi):**
+- `sports_config.js` dosyasına WNBA 🏀, NFL 🏈, CBB 🏀, CFB 🏈, NHL 🏒 sporlarını `COMING_SOON` statusuyla eklemek
+- `DropdownNavigation.jsx` / hamburger menüde "Coming Soon" rozetiyle listelemek
+- NBA beta badge'ini korumak, yeni sporları onun altına eklemek
+
+---
+
+### 🔵 Yeni Talep: PGA Tour Entegrasyonu
+
+**Talep:** Golf tahminleri — oyuncunun Top 5 / Top 10 / Top 15 yapma olasılığı, günlük tur skoru, matchup kazananları, 3-ball kazananları
+
+**Tyler'ın notu:** "Finding stats is might be the challenge" — bu çok yerinde bir tespit.
+
+**Kök neden / Zorluklar:**
+
+| Zorluk | Açıklama |
+|---|---|
+| 📊 Veri Kaynağı | PGA Tour'un resmi API'ı kısıtlı. Üçsüncü parti: DataGolf, SportsDataIO, RapidAPI (ücretli). Ücretsiz seçenek neredeyse yok. |
+| 🧠 Model Tipi | Diğer sporlardan farklı: 150+ oyuncu aynı anda yarışıyor, ikili değil çok değişkenli dağılım. Ordinal regression veya Monte Carlo simülasyonu gerekiyor. |
+| 📈 Feature Engineering | Strokes Gained (SG: Total, OTT, APP, ATG, Putt), son 5 turnuva sıralaması, kurs tarihçesi, hava durumu etkisi gibi golf-spesifik metrikler. |
+| 🎯 Bahis Marketleri | Top 5/10/15 = "outrights" — çok farklı bir olasılık hesabı. Matchup = ikili karşılaştırma. 3-ball = 3'lü grup içinde en iyi skor. Her birinin ayrı modeli var. |
+
+**Önerilen Yol Haritası (M5-P28 serisi):**
+
+| İş Kodu | Görev | Zorluk |
+|---|---|---|
+| M5-P28a | PGA Veri Kaynağı Araştırması: DataGolf API ücretsiz tier, PGA Tour stats sayfası scraping olasılıklarını değerlendir | 🟡 Orta |
+| M5-P28b | Pilot: Sadece matchup kazananı tahmini ile başla (basit ikili model, mevcut Elo altyapısına benzer) | 🟡 Orta |
+| M5-P28c | Top 5/10/15 olasılık modeli: Monte Carlo yaklaşımı, SG verisi ile | 🔴 Zor |
+| M5-P28d | 3-ball bahis modeli | 🟡 Orta |
+| M5-P28e | Frontend: PGA tahmin arayüzü (`PGADashboard.jsx`) | 🟡 Orta |
+
+**Öneri:** PGA için önce sadece **matchup kazananı** ile pilot başlamak en hızlı değer üretme yolu. Ücretsiz bir data kaynağı bulunabilirse (DataGolf'ın bazı endpoint'leri açık) Top 5/10/15 modeline geçilebilir.
+
+---
+
+### 📋 Yeni İş Listesi (Haziran 18 Güncellemesi)
+
+| Öncelik | İş Kodu | Görev | Zorluk | Durum |
+|:---:|:---:|:---|:---:|:---:|
+| 1 | **M5-P26** | MLB Pipeline Otomasyonu — Windows Task Scheduler ile günlük otomatik çalışma | 🟡 Orta | ⏳ Bekliyor |
+| 2 | **M5-P27** | Yeni Spor Kategorileri — WNBA, NFL, CBB, CFB, NHL'i "Coming Soon" olarak nav'a ekle | 🟢 Kolay | ✅ YAPILDI |
+| 3 | **M5-P28** | PGA Tour Pilot — Veri kaynağı araştırması + matchup kazananı prototipi | 🔴 Zor | 🔍 Araştırma |
+| 4 | **M5-FIX1** | Backend restart + predict.py rerun ile yeni bahis marketlerini aktifleştir | 🟢 Kolay | ✅ YAPILDI |
+| 5 | **M5-FIX2** | MLB pipeline manuel tetikleme — 18 Haziran 2026 verisi güncellendi (9 maç) | 🟢 Kolay | ✅ YAPILDI |
+
+---
+
 ## 💬 10. Tartışma ve Karar Verme Noktaları (Tyler ile Alignment İçin)
 
 Koda geçmeden önce Tyler ile netleştirilmesinde fayda olan tasarım tercihleri:

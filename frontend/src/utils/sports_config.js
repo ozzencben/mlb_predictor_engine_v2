@@ -40,6 +40,48 @@ export const SPORTS_CONFIG = {
     icon: '🥊',
     status: 'COMING_SOON',
     models: []
+  },
+  NFL: {
+    id: 'nfl',
+    name: 'NFL',
+    icon: '🏈',
+    status: 'COMING_SOON',
+    models: []
+  },
+  WNBA: {
+    id: 'wnba',
+    name: 'WNBA',
+    icon: '🏀',
+    status: 'COMING_SOON',
+    models: []
+  },
+  NHL: {
+    id: 'nhl',
+    name: 'NHL',
+    icon: '🏒',
+    status: 'COMING_SOON',
+    models: []
+  },
+  CBB: {
+    id: 'cbb',
+    name: 'CBB',
+    icon: '🏀',
+    status: 'COMING_SOON',
+    models: []
+  },
+  CFB: {
+    id: 'cfb',
+    name: 'CFB',
+    icon: '🏈',
+    status: 'COMING_SOON',
+    models: []
+  },
+  PGA: {
+    id: 'pga',
+    name: 'PGA Tour',
+    icon: '⛳',
+    status: 'COMING_SOON',
+    models: []
   }
 };
 

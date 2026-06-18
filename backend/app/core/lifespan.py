@@ -39,23 +39,38 @@ STARTUP_MAX_AGE_SECONDS = 43200
 def _predictions_file_is_stale() -> bool:
     """
     todays_predictions.json dosyası yoksa, bugünün takvim tarihini taşımıyorsa veya 
-    12 saatten eskiyse True döner (akıllı takvim günü kontrolü ile API kota koruması).
+    12 saatten eskiyse True döner. daily_matchups.json tarihi de kontrol edilir —
+    sadece predictions tarihine güvenmek yanlış bypass'a yol açabilir.
     """
+    MATCHUPS_FILE = os.path.join(DATA_DIR, "daily_matchups.json")
+
     if not os.path.exists(PREDICTIONS_FILE):
         return True
 
+    et_today = datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d")
+
     try:
-        # Önbellek dosyasını oku ve bugünün takvim tarihiyle karşılaştır
         with open(PREDICTIONS_FILE, "r", encoding="utf-8") as f:
             data = json.load(f)
 
         file_date = data.get("date")
-        et_today = datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d")
+        if file_date != et_today:
+            return True
 
-        # Eğer dosyadaki tahmin tarihi bugüne aitse, KESİNLİKLE internet kazıması yapma (Bypass)
-        if file_date == et_today:
-            logger.info(f"⚡ Akıllı Kota Koruması: Önbellekteki tahminler bugünün takvim gününe ({et_today}) ait. Sıfırdan kazıma bypass edildi.")
-            return False
+        # daily_matchups.json da güncel mi?
+        if os.path.exists(MATCHUPS_FILE):
+            with open(MATCHUPS_FILE, "r", encoding="utf-8") as f:
+                matchups = json.load(f)
+            matchups_date = matchups.get("date")
+            if matchups_date and matchups_date < et_today:
+                logger.warning(
+                    f"⚠️ MLB Matchup Staleness: daily_matchups.json tarihi={matchups_date}, "
+                    f"bugün={et_today}. Pipeline yeniden başlatılıyor."
+                )
+                return True
+
+        logger.info(f"⚡ Akıllı Kota Koruması: Önbellekteki tahminler bugünün takvim gününe ({et_today}) ait. Sıfırdan kazıma bypass edildi.")
+        return False
     except Exception as e:
         logger.warning(f"⚠️ Önbellek tarihi okunamadı, standart yaş kontrole dönülüyor: {e}")
 
@@ -81,27 +96,50 @@ async def _startup_scrape():
 
 def _tennis_predictions_file_is_stale() -> bool:
     """
-    today_predictions.json dosyası yoksa, bugünün takvim tarihini taşımıyorsa veya 
-    12 saatten eskiyse True döner (akıllı takvim günü kontrolü ile API kota koruması).
+    today_predictions.json VEYA today_matches.json dosyası yoksa, bugünün takvim
+    tarihini taşımıyorsa veya 12 saatten eskiyse True döner.
+    Her iki dosyanın da güncel olması gerekir — aksi hâlde fixture verisi eski
+    olduğu hâlde predictions'ın tarihi bugün görünerek yanlış bypass'a yol açar.
     """
+    TENNIS_MATCHES_FILE = os.path.join(TENNIS_DATA_DIR, "today_matches.json")
+
     if not os.path.exists(TENNIS_PREDICTIONS_FILE):
         return True
+    if not os.path.exists(TENNIS_MATCHES_FILE):
+        return True
 
+    et_today = datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d")
+
+    # 1. Predictions dosyasının tarih alanını kontrol et
     try:
         with open(TENNIS_PREDICTIONS_FILE, "r", encoding="utf-8") as f:
             data = json.load(f)
-
-        file_date = data.get("date")
-        et_today = datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d")
-
-        if file_date == et_today:
-            logger.info(f"⚡ Tennis Akıllı Kota Koruması: Önbellekteki tahminler bugünün takvim gününe ({et_today}) ait. Sıfırdan kazıma bypass edildi.")
-            return False
+        pred_date = data.get("date")
+        if pred_date != et_today:
+            return True
     except Exception as e:
-        logger.warning(f"⚠️ Tennis önbellek tarihi okunamadı, standart yaş kontrole dönülüyor: {e}")
+        logger.warning(f"⚠️ Tennis predictions tarihi okunamadı: {e}")
+        return True
 
-    age = time.time() - os.path.getmtime(TENNIS_PREDICTIONS_FILE)
-    return age > STARTUP_MAX_AGE_SECONDS
+    # 2. Fixture (today_matches.json) dosyasının içeriğindeki tarihi kontrol et
+    # Sadece predictions tarihine güvenmek yetmez — fixtures güncel olmayabilir.
+    try:
+        with open(TENNIS_MATCHES_FILE, "r", encoding="utf-8") as f:
+            matches = json.load(f)
+        if matches:
+            first_match_date = matches[0].get("date_utc", "")[:10]
+            if first_match_date and first_match_date < et_today:
+                logger.warning(
+                    f"⚠️ Tennis Fixture Staleness: today_matches.json tarihi={first_match_date}, "
+                    f"bugün={et_today}. Pipeline yeniden başlatılıyor."
+                )
+                return True
+    except Exception as e:
+        logger.warning(f"⚠️ Tennis matches tarihi okunamadı: {e}")
+        return True
+
+    logger.info(f"⚡ Tennis Akıllı Kota Koruması: Hem predictions hem fixture bugüne ({et_today}) ait. Kazıma bypass edildi.")
+    return False
 
 
 async def _tennis_startup_scrape():

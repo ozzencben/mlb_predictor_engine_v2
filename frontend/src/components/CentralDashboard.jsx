@@ -630,6 +630,114 @@ function CentralDashboard({
                             Model Development Pending
                         </div>
                     </div>
+
+                    <div className="bg-slate-900/10 border border-slate-900/60 rounded-3xl p-6 flex flex-col justify-between gap-6 relative overflow-hidden opacity-60">
+                        <div className="flex justify-between items-start">
+                            <span className="text-3xl leading-none">🏈</span>
+                            <span className="text-[8px] font-black tracking-widest text-slate-500 bg-slate-950/60 border border-slate-900 px-2 py-0.5 rounded-full uppercase">
+                                COMING SOON
+                            </span>
+                        </div>
+                        <div className="space-y-1">
+                            <h4 className="text-lg font-black text-slate-400 uppercase tracking-wider">NFL Predictor</h4>
+                            <p className="text-xs text-slate-500 leading-relaxed font-medium">
+                                Drive efficiency models, DVOA-based team ratings, and QB performance metrics. Forecasting spreads, totals, and player prop lines across all 32 teams.
+                            </p>
+                        </div>
+                        <div className="text-[10px] text-slate-600 font-bold uppercase tracking-widest pt-2 border-t border-slate-950">
+                            Model Development Pending
+                        </div>
+                    </div>
+
+                    <div className="bg-slate-900/10 border border-slate-900/60 rounded-3xl p-6 flex flex-col justify-between gap-6 relative overflow-hidden opacity-60">
+                        <div className="flex justify-between items-start">
+                            <span className="text-3xl leading-none">🏒</span>
+                            <span className="text-[8px] font-black tracking-widest text-slate-500 bg-slate-950/60 border border-slate-900 px-2 py-0.5 rounded-full uppercase">
+                                COMING SOON
+                            </span>
+                        </div>
+                        <div className="space-y-1">
+                            <h4 className="text-lg font-black text-slate-400 uppercase tracking-wider">NHL Predictor</h4>
+                            <p className="text-xs text-slate-500 leading-relaxed font-medium">
+                                Corsi/Fenwick possession metrics, goalie save-percentage models, and power-play efficiency ratings. Projecting puck-line, totals, and period-by-period outcomes.
+                            </p>
+                        </div>
+                        <div className="text-[10px] text-slate-600 font-bold uppercase tracking-widest pt-2 border-t border-slate-950">
+                            Model Development Pending
+                        </div>
+                    </div>
+
+                    <div className="bg-slate-900/10 border border-slate-900/60 rounded-3xl p-6 flex flex-col justify-between gap-6 relative overflow-hidden opacity-60">
+                        <div className="flex justify-between items-start">
+                            <span className="text-3xl leading-none">🏀</span>
+                            <span className="text-[8px] font-black tracking-widest text-slate-500 bg-slate-950/60 border border-slate-900 px-2 py-0.5 rounded-full uppercase">
+                                COMING SOON
+                            </span>
+                        </div>
+                        <div className="space-y-1">
+                            <h4 className="text-lg font-black text-slate-400 uppercase tracking-wider">WNBA Predictor</h4>
+                            <p className="text-xs text-slate-500 leading-relaxed font-medium">
+                                Offensive/defensive rating models tuned for WNBA pace and roster dynamics. Projecting moneylines, spreads, and player props across the season.
+                            </p>
+                        </div>
+                        <div className="text-[10px] text-slate-600 font-bold uppercase tracking-widest pt-2 border-t border-slate-950">
+                            Model Development Pending
+                        </div>
+                    </div>
+
+                    <div className="bg-slate-900/10 border border-slate-900/60 rounded-3xl p-6 flex flex-col justify-between gap-6 relative overflow-hidden opacity-60">
+                        <div className="flex justify-between items-start">
+                            <span className="text-3xl leading-none">🏀</span>
+                            <span className="text-[8px] font-black tracking-widest text-slate-500 bg-slate-950/60 border border-slate-900 px-2 py-0.5 rounded-full uppercase">
+                                COMING SOON
+                            </span>
+                        </div>
+                        <div className="space-y-1">
+                            <h4 className="text-lg font-black text-slate-400 uppercase tracking-wider">CBB Predictor</h4>
+                            <p className="text-xs text-slate-500 leading-relaxed font-medium">
+                                KenPom efficiency ratings, adjusted tempo, and tournament seed models. Forecasting spreads, totals, and March Madness bracket probabilities.
+                            </p>
+                        </div>
+                        <div className="text-[10px] text-slate-600 font-bold uppercase tracking-widest pt-2 border-t border-slate-950">
+                            Model Development Pending
+                        </div>
+                    </div>
+
+                    <div className="bg-slate-900/10 border border-slate-900/60 rounded-3xl p-6 flex flex-col justify-between gap-6 relative overflow-hidden opacity-60">
+                        <div className="flex justify-between items-start">
+                            <span className="text-3xl leading-none">🏈</span>
+                            <span className="text-[8px] font-black tracking-widest text-slate-500 bg-slate-950/60 border border-slate-900 px-2 py-0.5 rounded-full uppercase">
+                                COMING SOON
+                            </span>
+                        </div>
+                        <div className="space-y-1">
+                            <h4 className="text-lg font-black text-slate-400 uppercase tracking-wider">CFB Predictor</h4>
+                            <p className="text-xs text-slate-500 leading-relaxed font-medium">
+                                SP+ and FPI rating-based game-flow simulator. Projecting spread, total, and moneyline outcomes across Power conferences and bowl matchups.
+                            </p>
+                        </div>
+                        <div className="text-[10px] text-slate-600 font-bold uppercase tracking-widest pt-2 border-t border-slate-950">
+                            Model Development Pending
+                        </div>
+                    </div>
+
+                    <div className="bg-slate-900/10 border border-slate-900/60 rounded-3xl p-6 flex flex-col justify-between gap-6 relative overflow-hidden opacity-60">
+                        <div className="flex justify-between items-start">
+                            <span className="text-3xl leading-none">⛳</span>
+                            <span className="text-[8px] font-black tracking-widest text-slate-500 bg-slate-950/60 border border-slate-900 px-2 py-0.5 rounded-full uppercase">
+                                COMING SOON
+                            </span>
+                        </div>
+                        <div className="space-y-1">
+                            <h4 className="text-lg font-black text-slate-400 uppercase tracking-wider">PGA Tour Predictor</h4>
+                            <p className="text-xs text-slate-500 leading-relaxed font-medium">
+                                Strokes Gained (SG) multi-factor models. Projecting Top 5/10/15 finish probabilities, matchup winners, and 3-ball outcomes across all PGA Tour events.
+                            </p>
+                        </div>
+                        <div className="text-[10px] text-slate-600 font-bold uppercase tracking-widest pt-2 border-t border-slate-950">
+                            Model Development Pending
+                        </div>
+                    </div>
                 </div>
             </div>
 

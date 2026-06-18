@@ -62,6 +62,33 @@ function getPlayerInitials(name) {
 }
 
 // ─────────────────────────────────────────────────────────────
+//  Helper: Ülke adından bayrak emoji
+// ─────────────────────────────────────────────────────────────
+const COUNTRY_FLAGS = {
+    'Italy': '🇮🇹', 'Spain': '🇪🇸', 'USA': '🇺🇸', 'United States': '🇺🇸',
+    'Serbia': '🇷🇸', 'Russia': '🇷🇺', 'France': '🇫🇷', 'Germany': '🇩🇪',
+    'Australia': '🇦🇺', 'Argentina': '🇦🇷', 'Kazakhstan': '🇰🇿', 'Greece': '🇬🇷',
+    'Denmark': '🇩🇰', 'Czech Republic': '🇨🇿', 'Czechia': '🇨🇿',
+    'United Kingdom': '🇬🇧', 'Great Britain': '🇬🇧', 'Canada': '🇨🇦',
+    'Poland': '🇵🇱', 'Croatia': '🇭🇷', 'Switzerland': '🇨🇭', 'Netherlands': '🇳🇱',
+    'Belarus': '🇧🇾', 'China': '🇨🇳', 'Japan': '🇯🇵', 'Hungary': '🇭🇺',
+    'Ukraine': '🇺🇦', 'Romania': '🇷🇴', 'Portugal': '🇵🇹', 'Brazil': '🇧🇷',
+    'Chile': '🇨🇱', 'Peru': '🇵🇪', 'Bulgaria': '🇧🇬', 'Belgium': '🇧🇪',
+    'Austria': '🇦🇹', 'Mexico': '🇲🇽', 'Norway': '🇳🇴', 'Sweden': '🇸🇪',
+    'Finland': '🇫🇮', 'South Korea': '🇰🇷', 'Korea': '🇰🇷', 'Latvia': '🇱🇻',
+    'Estonia': '🇪🇪', 'Lithuania': '🇱🇹', 'Slovakia': '🇸🇰', 'Morocco': '🇲🇦',
+    'South Africa': '🇿🇦', 'New Zealand': '🇳🇿', 'Egypt': '🇪🇬', 'India': '🇮🇳',
+    'Tunisia': '🇹🇳', 'Colombia': '🇨🇴', 'Ecuador': '🇪🇨', 'Uruguay': '🇺🇾',
+    'Turkey': '🇹🇷', 'Thailand': '🇹🇭', 'Taiwan': '🇹🇼', 'Indonesia': '🇮🇩',
+    'Slovenia': '🇸🇮', 'Georgia': '🇬🇪', 'Armenia': '🇦🇲', 'Moldova': '🇲🇩',
+    'Israel': '🇮🇱', 'Philippines': '🇵🇭', 'Malaysia': '🇲🇾',
+};
+function getCountryFlag(country) {
+    if (!country) return null;
+    return COUNTRY_FLAGS[country] || null;
+}
+
+// ─────────────────────────────────────────────────────────────
 //  Helper: renderAiInsight
 // ─────────────────────────────────────────────────────────────
 function renderAiInsight(text) {
@@ -494,9 +521,12 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                 {/* P1 */}
                 <div className="flex justify-between items-center gap-2">
                     <div className="flex items-center gap-3 min-w-0">
-                        {/* Circular initials avatar */}
-                        <div className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 flex items-center justify-center text-[9px] font-black text-slate-400 group-hover:border-indigo-500/30 transition-all select-none shadow-[0_0_8px_rgba(0,0,0,0.5)]">
-                            {getPlayerInitials(predict.home_player)}
+                        {/* Circular avatar: flag emoji or initials */}
+                        <div className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 flex items-center justify-center group-hover:border-indigo-500/30 transition-all select-none shadow-[0_0_8px_rgba(0,0,0,0.5)]">
+                            {getCountryFlag(predict.p1_country)
+                                ? <span className="text-sm leading-none">{getCountryFlag(predict.p1_country)}</span>
+                                : <span className="text-[9px] font-black text-slate-400">{getPlayerInitials(predict.home_player)}</span>
+                            }
                         </div>
 
                         <div className="space-y-0.5 min-w-0">
@@ -541,9 +571,12 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                 {/* P2 */}
                 <div className="flex justify-between items-center gap-2">
                     <div className="flex items-center gap-3 min-w-0">
-                        {/* Circular initials avatar */}
-                        <div className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 flex items-center justify-center text-[9px] font-black text-slate-400 group-hover:border-indigo-500/30 transition-all select-none shadow-[0_0_8px_rgba(0,0,0,0.5)]">
-                            {getPlayerInitials(predict.away_player)}
+                        {/* Circular avatar: flag emoji or initials */}
+                        <div className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 flex items-center justify-center group-hover:border-indigo-500/30 transition-all select-none shadow-[0_0_8px_rgba(0,0,0,0.5)]">
+                            {getCountryFlag(predict.p2_country)
+                                ? <span className="text-sm leading-none">{getCountryFlag(predict.p2_country)}</span>
+                                : <span className="text-[9px] font-black text-slate-400">{getPlayerInitials(predict.away_player)}</span>
+                            }
                         </div>
 
                         <div className="space-y-0.5 min-w-0">
