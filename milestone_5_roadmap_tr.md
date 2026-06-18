@@ -385,6 +385,89 @@ Müşteriden gelen son mesaj 4 ayrı konuyu kapsıyor. Her biri için mevcut dur
 
 ---
 
+## 🚀 13. Tyler'ın Haziran 18 Akşam Geri Bildirimleri — M6 Talepleri
+
+Milestone 5 teslimi sonrası Tyler'dan gelen yeni istekler. Bunlar M5 kapsamı dışındadır ve **Milestone 6** olarak planlanacaktır.
+
+---
+
+### M6-T1: Tüm Bahis Marketlerini Göster, Güçlü Olanları Vurgula
+
+**Tyler'ın talebi:** "Is there any chance to show them all but maybe highlight the two that fit our criteria?"
+
+**Mevcut durum:** `generate_alternative_bets()` fonksiyonu her market için istatistiksel eşik kontrolü yapıyor — eşiği geçemeyen marketler tamamen gizleniyor. Bu yüzden bazı kartlarda 2, bazılarında 3 market çıkıyor.
+
+**Önerilen çözüm:** Her zaman 7 marketi üret ama üç katmanlı görsel sistemi uygula:
+- 🔥 **High** → parlak indigo/sarı vurgu (mevcut)
+- ⚡ **Medium** → mevcut amber rengi (mevcut)
+- 🔕 **Low** → soluk/gri, "Low Edge" etiketi (yeni) — eşiği geçemeyen ama yine de gösterilen marketler
+
+**Değişiklikler:**
+- Backend: `generate_alternative_bets()` threshold'ları kaldır, eşik altı marketleri `confidence: "Low"` ile üret
+- Frontend: `TennisDashboard.jsx`'e "Low" confidence için üçüncü stil katmanı ekle
+
+**Zorluk:** 🟢 Kolay | **Tahmini süre:** 1-2 saat
+
+---
+
+### M6-T2: Oyuncu Avatar Fotoğrafları — JSON Mapping Yaklaşımı
+
+**Tyler'ın talebi:** "Could we just make a document or something with the avatars and just use that? Load that into github or whatever and it references somehow?"
+
+**Fikir doğru ve yapılabilir.** Plan:
+1. Top 200 ATP + Top 200 WTA oyuncusu için `player_avatars.json` oluştur
+2. Python scraping scripti ile Wikipedia/Wikimedia API'sinden fotoğraf URL'lerini otomatik çek (ücretsiz, telif hakkı sorunu yok)
+3. ATP Tour resmi CDN'i de denenecek (`atptour.com/-/media/alias/player-headshot/{ATP_ID}`) — Flashscore ID ile ATP ID eşleştirme scripti gerekiyor
+4. JSON dosyası repo'ya eklenip GitHub Pages veya direkt static dosya olarak servis edilecek
+5. Frontend: önce JSON'da player ID ile bak → varsa `<img>` göster → yoksa bayrak emoji'ye fallback
+
+**Zorluk:** 🟡 Orta | **Tahmini süre:** 3-4 saat (scraping + frontend entegrasyon)
+
+---
+
+### M6-T3: Nav'da Emoji Yerine Resmi Lig Logoları
+
+**Tyler'ın talebi:** "Instead of the ball emoji or picture if we could put the logo of the NBA or MLB... I think it just looks more put together"
+
+**Haklı bir istek — profesyonel görünümü ciddi ölçüde artırır.**
+
+**Plan:**
+- ESPN'in public CDN'i lig logolarını servis ediyor: `https://a.espncdn.com/i/teamlogos/leagues/500/{sport}.png` (MLB, NBA, NFL, NHL, CFB, CBB için çalışıyor)
+- Tennis, PGA, WNBA için alternatif kaynaklar tespit edilecek
+- `sports_config.js`'e `logo` field eklenir: `logo: "https://a.espncdn.com/i/teamlogos/leagues/500/mlb.png"`
+- Nav ve CentralDashboard'da emoji yerine `<img className="w-4 h-4">` render edilir
+- Logo yüklenemezse emoji'ye graceful fallback
+
+**Zorluk:** 🟢 Kolay | **Tahmini süre:** 1 saat
+
+---
+
+### M6-T4: WNBA Entegrasyonu
+
+**Tyler:** "About to load the WNBA for you!"
+
+**Beklenen:** Tyler WNBA veri kaynağı veya API bilgisini paylaşacak. Veri geldiğinde:
+- WNBA maç fixture scraper'ı
+- Oyuncu istatistik pipeline'ı
+- Model training (mevcut NBA/basketbol altyapısından yararlanılabilir)
+- `WNBADashboard.jsx` frontend
+
+**Zorluk:** 🔴 Zor (veri kaynağına göre değişir) | **Durum:** ⏳ Tyler'dan veri bekleniyor
+
+---
+
+### 📋 M6 Öncelik Tablosu
+
+| Öncelik | Kod | Görev | Zorluk | Durum |
+|:---:|:---:|:---|:---:|:---:|
+| 1 | **M6-T3** | Nav'da lig logoları (ESPN CDN) | 🟢 Kolay | ⏳ Bekliyor |
+| 2 | **M6-T1** | Tüm bahis marketlerini göster + "Low" katmanı | 🟢 Kolay | ⏳ Bekliyor |
+| 3 | **M6-T2** | Oyuncu avatar JSON + GitHub CDN | 🟡 Orta | ⏳ Bekliyor |
+| 4 | **M6-T4** | WNBA entegrasyonu | 🔴 Zor | ⏳ Tyler'dan veri bekleniyor |
+| 5 | **M5-P28** | PGA Tour pilot | 🔴 Zor | 🔍 Araştırma |
+
+---
+
 ## 💬 10. Tartışma ve Karar Verme Noktaları (Tyler ile Alignment İçin)
 
 Koda geçmeden önce Tyler ile netleştirilmesinde fayda olan tasarım tercihleri:

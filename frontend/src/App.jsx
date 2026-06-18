@@ -648,7 +648,10 @@ function App() {
                                                     : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40 border border-transparent'
                                             } ${isBeta ? 'opacity-60 hover:opacity-100' : ''}`}
                                         >
-                                            <span>{sport.icon}</span>
+                                            {sport.logo
+                                                ? <img src={sport.logo} alt={sport.name} className="w-4 h-4 object-contain" onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='inline'; }} />
+                                                : null}
+                                            <span style={sport.logo ? {display:'none'} : {}}>{sport.icon}</span>
                                             <span>{sport.name}</span>
                                             {isBeta && <span className="text-[7px] px-1 bg-cyan-950 text-cyan-400 border border-cyan-500/30 rounded">BETA</span>}
                                         </button>
@@ -673,12 +676,7 @@ function App() {
 
                                     {moreOpen && (
                                         <>
-                                            {/* Backdrop */}
-                                            <div
-                                                className="fixed inset-0 z-40"
-                                                onClick={() => setMoreOpen(false)}
-                                            />
-                                            {/* Dropdown Panel */}
+                                            <div className="fixed inset-0 z-40" onClick={() => setMoreOpen(false)} />
                                             <div className="absolute left-0 top-[calc(100%+6px)] z-50 w-52 rounded-2xl border border-slate-800 bg-slate-950/98 p-2 shadow-2xl backdrop-blur-xl animate-fade-in">
                                                 <span className="text-[9px] text-slate-600 font-black uppercase tracking-[0.2em] px-2 py-1 block">
                                                     Coming Soon
@@ -695,7 +693,10 @@ function App() {
                                                             className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-slate-500 hover:text-slate-300 hover:bg-slate-900/50 transition-all cursor-pointer text-left"
                                                         >
                                                             <span className="flex items-center gap-2.5">
-                                                                <span>{sport.icon}</span>
+                                                                {sport.logo
+                                                                    ? <img src={sport.logo} alt={sport.name} className="w-4 h-4 object-contain opacity-50" onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='inline'; }} />
+                                                                    : null}
+                                                                <span style={sport.logo ? {display:'none'} : {}}>{sport.icon}</span>
                                                                 <span>{sport.name}</span>
                                                             </span>
                                                             <span className="text-[7px] font-black tracking-widest text-slate-600 bg-slate-900 border border-slate-800 px-1.5 py-0.5 rounded">

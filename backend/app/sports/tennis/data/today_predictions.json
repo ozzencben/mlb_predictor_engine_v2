@@ -18,10 +18,10 @@
             "home_win_probability": 44.57,
             "away_win_probability": 55.43,
             "predicted_winner": "Humbert U.",
-            "p1_odds": 2.57,
-            "p2_odds": 1.58,
-            "edge_percentage": -7.87,
-            "recommended_kelly_bet_percentage": 0.0,
+            "p1_odds": 1.4,
+            "p2_odds": 4.0,
+            "edge_percentage": 30.43,
+            "recommended_kelly_bet_percentage": 10.14,
             "alternative_bets": [
                 {
                     "market": "Set Handicap",
@@ -38,6 +38,46 @@
                     "probability": 64.0,
                     "model_odds": 1.48,
                     "reason": "Both players average 10.2 and 13.8 games/set — combined style projects a high-game-count match (Over 22.5 Games)."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Humbert U. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 40.8,
+                    "model_odds": 2.33,
+                    "reason": "Insufficient game dominance gap (-0.5%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 69.6,
+                    "model_odds": 1.36,
+                    "reason": "Borderline 3-set probability (30.4%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Medjedovic H.",
+                    "confidence": "Low",
+                    "probability": 62.8,
+                    "model_odds": 1.51,
+                    "reason": "First-set win rate gap is small (4.7%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 46.4,
+                    "model_odds": 2.05,
+                    "reason": "Borderline tiebreak probability (46.4%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 12.7,
+                    "model_odds": 7.48,
+                    "reason": "Low combined bagel profile (12.7%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -168,7 +208,7 @@
                 "total_matches": 0,
                 "matches": []
             },
-            "ai_insight": "- Medjedovic holds the decisive grass-court edge, boasting a perfect 1.0 Court DNA compared to Humbert's 0.667, despite Humbert's marginally higher overall ELO.\n- Medjedovic enters slightly more fatigued, having played 9 sets recently against Humbert's 7, though both players benefit from an identical 2-day recovery window.\n- The model projects Medjedovic's win probability at 44.57%, significantly higher than his implied market odds of 2.57 (38.91%). Recommend Medjedovic Moneyline for positive expected value."
+            "ai_insight": "- Medjedovic's perfect 1.0 Court DNA on grass sharply contrasts Humbert's 0.667, granting Medjedovic a significant surface-specific advantage despite Humbert's marginal overall ELO lead.\n- Medjedovic enters slightly more fatigued with 9 sets played recently compared to Humbert's 7, though both share an identical 2-day recovery window. Fatigue might marginally favor Humbert.\n- A substantial 30.43% edge signals strong value on Humbert Moneyline (Odds: 4.0), as his 55.43% win probability is significantly underestimated by the market."
         }
     ],
     "skipped_low_tier": [
@@ -208,6 +248,38 @@
                     "probability": 40.0,
                     "model_odds": 2.37,
                     "reason": "Both players average 9.0 and 9.1 games/set — combined style projects a high-game-count match (Over 21.5 Games)."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Justo G. I. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 40.9,
+                    "model_odds": 2.32,
+                    "reason": "Insufficient game dominance gap (0.6%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 68.9,
+                    "model_odds": 1.38,
+                    "reason": "Borderline 3-set probability (31.1%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Ambrogi L. E.",
+                    "confidence": "Low",
+                    "probability": 69.8,
+                    "model_odds": 1.36,
+                    "reason": "First-set win rate gap is small (7.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 64.0,
+                    "model_odds": 1.48,
+                    "reason": "Borderline tiebreak probability (36.0%). No strong edge — shown for reference only."
                 },
                 {
                     "market": "Bagel / Breadstick",
@@ -391,12 +463,52 @@
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
+                    "market": "Set Handicap",
+                    "selection": "La Serna J. M. -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 62.0,
+                    "model_odds": 1.53,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=71.5%, dom_diff=0.7%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 9.2/9.2 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "La Serna J. M. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 42.7,
+                    "model_odds": 2.22,
+                    "reason": "Insufficient game dominance gap (1.8%) for a strong spread signal. Shown for reference only."
+                },
+                {
                     "market": "Both Players to Win a Set",
                     "selection": "No",
                     "confidence": "Medium",
                     "probability": 69.8,
                     "model_odds": 1.36,
                     "reason": "La Serna J. M. wins in straight sets 58% of the time with a 71.5% match projection — a clean sweep is the dominant scenario."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Huertas Del Pino C.",
+                    "confidence": "Low",
+                    "probability": 60.5,
+                    "model_odds": 1.57,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 62.2,
+                    "model_odds": 1.53,
+                    "reason": "Borderline tiebreak probability (37.8%). No strong edge — shown for reference only."
                 },
                 {
                     "market": "Bagel / Breadstick",
@@ -566,12 +678,44 @@
                     "reason": "Close projection (50.4%) indicates a tight contest — value on Estevez J. to take at least one set."
                 },
                 {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 9.1/9.3 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Villanueva G. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 48.5,
+                    "model_odds": 1.96,
+                    "reason": "Insufficient game dominance gap (-5.7%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 69.6,
+                    "model_odds": 1.37,
+                    "reason": "Borderline 3-set probability (30.4%). No strong edge detected — shown for reference only."
+                },
+                {
                     "market": "First Set Winner",
                     "selection": "Estevez J.",
                     "confidence": "High",
                     "probability": 67.4,
                     "model_odds": 1.41,
                     "reason": "Estevez J. wins the opening set in 67% of matches — a +22% edge over the opponent on the first-set market."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 44.9,
+                    "model_odds": 2.12,
+                    "reason": "Borderline tiebreak probability (44.9%). No strong edge — shown for reference only."
                 },
                 {
                     "market": "Bagel / Breadstick",
@@ -756,12 +900,44 @@
                     "reason": "Close projection (57.8%) indicates a tight contest — value on Rincon D. to take at least one set."
                 },
                 {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 9.3/9.7 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Gadamauri B. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 44.4,
+                    "model_odds": 2.14,
+                    "reason": "Insufficient game dominance gap (2.9%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 67.8,
+                    "model_odds": 1.4,
+                    "reason": "Borderline 3-set probability (32.2%). No strong edge detected — shown for reference only."
+                },
+                {
                     "market": "First Set Winner",
                     "selection": "Gadamauri B.",
                     "confidence": "High",
                     "probability": 69.8,
                     "model_odds": 1.36,
                     "reason": "Gadamauri B. wins the opening set in 70% of matches — a +23% edge over the opponent on the first-set market."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 43.4,
+                    "model_odds": 2.19,
+                    "reason": "Borderline tiebreak probability (43.4%). No strong edge — shown for reference only."
                 },
                 {
                     "market": "Bagel / Breadstick",

@@ -1,8 +1,12 @@
+// logo: ESPN CDN URL varsa kullan, yoksa icon emoji fallback
+const ESPN = 'https://a.espncdn.com/i/teamlogos/leagues/500';
+
 export const SPORTS_CONFIG = {
   HOME: {
     id: 'home',
     name: 'Home',
     icon: '🏠',
+    logo: null,
     status: 'ACTIVE',
     models: []
   },
@@ -10,6 +14,7 @@ export const SPORTS_CONFIG = {
     id: 'mlb',
     name: 'MLB',
     icon: '⚾',
+    logo: `${ESPN}/mlb.png`,
     status: 'ACTIVE',
     models: ['Predictions', 'NRFI Model', 'Pitchers']
   },
@@ -17,6 +22,7 @@ export const SPORTS_CONFIG = {
     id: 'tennis',
     name: 'Tennis',
     icon: '🎾',
+    logo: null,
     status: 'ACTIVE',
     models: ['Match Projections']
   },
@@ -24,6 +30,7 @@ export const SPORTS_CONFIG = {
     id: 'nba',
     name: 'NBA',
     icon: '🏀',
+    logo: `${ESPN}/nba.png`,
     status: 'BETA',
     models: []
   },
@@ -31,6 +38,7 @@ export const SPORTS_CONFIG = {
     id: 'soccer',
     name: 'Soccer',
     icon: '⚽',
+    logo: null,
     status: 'COMING_SOON',
     models: []
   },
@@ -38,6 +46,7 @@ export const SPORTS_CONFIG = {
     id: 'ufc',
     name: 'UFC',
     icon: '🥊',
+    logo: `${ESPN}/ufc.png`,
     status: 'COMING_SOON',
     models: []
   },
@@ -45,6 +54,7 @@ export const SPORTS_CONFIG = {
     id: 'nfl',
     name: 'NFL',
     icon: '🏈',
+    logo: `${ESPN}/nfl.png`,
     status: 'COMING_SOON',
     models: []
   },
@@ -52,6 +62,7 @@ export const SPORTS_CONFIG = {
     id: 'wnba',
     name: 'WNBA',
     icon: '🏀',
+    logo: `${ESPN}/wnba.png`,
     status: 'COMING_SOON',
     models: []
   },
@@ -59,6 +70,7 @@ export const SPORTS_CONFIG = {
     id: 'nhl',
     name: 'NHL',
     icon: '🏒',
+    logo: `${ESPN}/nhl.png`,
     status: 'COMING_SOON',
     models: []
   },
@@ -66,6 +78,7 @@ export const SPORTS_CONFIG = {
     id: 'cbb',
     name: 'CBB',
     icon: '🏀',
+    logo: null,
     status: 'COMING_SOON',
     models: []
   },
@@ -73,6 +86,7 @@ export const SPORTS_CONFIG = {
     id: 'cfb',
     name: 'CFB',
     icon: '🏈',
+    logo: null,
     status: 'COMING_SOON',
     models: []
   },
@@ -80,6 +94,7 @@ export const SPORTS_CONFIG = {
     id: 'pga',
     name: 'PGA Tour',
     icon: '⛳',
+    logo: null,
     status: 'COMING_SOON',
     models: []
   }

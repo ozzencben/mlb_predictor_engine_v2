@@ -245,10 +245,9 @@ def _prob_to_model_odds(p: float, vig: float = 0.05) -> float:
 
 def generate_alternative_bets(model_prob_p1, p1_metrics, p2_metrics):
     """
-    Rule engine: produces alternative market recommendations using model probabilities
-    and player metrics. Each recommendation includes probability and model-implied odds.
-    Markets: Set Handicap, Total Games O/U, Game Spread, Both Players to Win a Set,
-    First Set Winner, Any Set to Tiebreak, Bagel/Breadstick.
+    Rule engine: always produces all 7 markets.
+    confidence: "High" / "Medium" = statistically supported.
+                "Low"  = below threshold but still shown for context.
     """
     recommendations = []
 
@@ -280,10 +279,11 @@ def generate_alternative_bets(model_prob_p1, p1_metrics, p2_metrics):
         })
     elif fav_prob < 58.0 or favorite["fatigue"] >= 8:
         p_cover = max(0.40, min(0.80, 1.0 - max(0.15, (fav_prob - 50) / 100 * 1.2 + 0.25)))
-        if fav_prob < 58.0:
-            reason_str = f"Close projection ({fav_prob:.1f}%) indicates a tight contest — value on {und_name} to take at least one set."
-        else:
-            reason_str = f"{fav_name} carries high fatigue ({favorite['fatigue']} sets in last 3 matches), creating a set-cover opportunity for {und_name}."
+        reason_str = (
+            f"Close projection ({fav_prob:.1f}%) indicates a tight contest — value on {und_name} to take at least one set."
+            if fav_prob < 58.0 else
+            f"{fav_name} carries high fatigue ({favorite['fatigue']} sets in last 3 matches), creating a set-cover opportunity for {und_name}."
+        )
         recommendations.append({
             "market": "Set Handicap",
             "selection": f"{und_name} +1.5 Sets",
@@ -291,6 +291,17 @@ def generate_alternative_bets(model_prob_p1, p1_metrics, p2_metrics):
             "probability": round(p_cover * 100, 1),
             "model_odds": _prob_to_model_odds(p_cover),
             "reason": reason_str
+        })
+    else:
+        # Low edge: no strong signal, show as informational
+        p_low = max(0.38, min(0.62, (fav_prob - 50) / 100 + 0.50))
+        recommendations.append({
+            "market": "Set Handicap",
+            "selection": f"{fav_name} -1.5 Sets",
+            "confidence": "Low",
+            "probability": round(p_low * 100, 1),
+            "model_odds": _prob_to_model_odds(p_low),
+            "reason": f"No strong set-handicap signal for this matchup (fav_prob={fav_prob:.1f}%, dom_diff={set_dominance_diff*100:.1f}%). Shown for reference only."
         })
 
     # ── 2. TOPLAM OYUN ALT/ÜST ─────────────────────────────────────────────
@@ -321,6 +332,18 @@ def generate_alternative_bets(model_prob_p1, p1_metrics, p2_metrics):
             "model_odds": _prob_to_model_odds(p_under),
             "reason": f"Quick-set profiles (avg {p1_avg:.1f}/{p2_avg:.1f} games/set) and a dominant favorite ({fav_prob:.1f}%) point to an efficient, low-game match."
         })
+    else:
+        line = "Over 21.5 Games" if combined_avg >= 11.0 else "Under 21.5 Games"
+        p_low = 0.45 + (combined_avg - 11.0) / 20.0
+        p_low = max(0.38, min(0.62, p_low))
+        recommendations.append({
+            "market": "Total Games",
+            "selection": line,
+            "confidence": "Low",
+            "probability": round(p_low * 100, 1),
+            "model_odds": _prob_to_model_odds(p_low),
+            "reason": f"Mixed total-games signal (avg {p1_avg:.1f}/{p2_avg:.1f} games/set). Shown for reference only."
+        })
 
     # ── 3. OYUN HANDİKAPI ─────────────────────────────────────────────────
     if game_dominance_diff > 0.08 and fav_prob >= 65.0 and favorite["fatigue"] < 7:
@@ -333,6 +356,16 @@ def generate_alternative_bets(model_prob_p1, p1_metrics, p2_metrics):
             "probability": round(p_spread * 100, 1),
             "model_odds": _prob_to_model_odds(p_spread),
             "reason": f"Game dominance diff of +{game_dominance_diff*100:.1f}% and low fatigue for {fav_name} support a comfortable margin across sets."
+        })
+    else:
+        p_low = max(0.38, min(0.58, abs(game_dominance_diff) * 1.5 + 0.40))
+        recommendations.append({
+            "market": "Game Spread",
+            "selection": f"{fav_name} -3.5 Games",
+            "confidence": "Low",
+            "probability": round(p_low * 100, 1),
+            "model_odds": _prob_to_model_odds(p_low),
+            "reason": f"Insufficient game dominance gap ({game_dominance_diff*100:.1f}%) for a strong spread signal. Shown for reference only."
         })
 
     # ── 4. BOTH PLAYERS TO WIN A SET ──────────────────────────────────────
@@ -373,6 +406,20 @@ def generate_alternative_bets(model_prob_p1, p1_metrics, p2_metrics):
                 f"match projection — a clean sweep is the dominant scenario."
             )
         })
+    else:
+        # Borderline — pick the more likely outcome
+        if p_three_sets >= 0.46:
+            sel, prob = "Yes", p_three_sets
+        else:
+            sel, prob = "No", 1.0 - p_three_sets
+        recommendations.append({
+            "market": "Both Players to Win a Set",
+            "selection": sel,
+            "confidence": "Low",
+            "probability": round(prob * 100, 1),
+            "model_odds": _prob_to_model_odds(prob),
+            "reason": f"Borderline 3-set probability ({p_three_sets*100:.1f}%). No strong edge detected — shown for reference only."
+        })
 
     # ── 5. FIRST SET WINNER ───────────────────────────────────────────────
     p1_fsr = p1_metrics.get("first_set_win_rate", 50.0) / 100.0
@@ -393,6 +440,17 @@ def generate_alternative_bets(model_prob_p1, p1_metrics, p2_metrics):
                 f"{fsw_name} wins the opening set in {fsw_rate*100:.0f}% of matches — "
                 f"a +{abs(fsr_diff)*100:.0f}% edge over the opponent on the first-set market."
             )
+        })
+    else:
+        fsw_name = p1_name if p1_fsr >= p2_fsr else p2_name
+        fsw_rate = max(p1_fsr, p2_fsr)
+        recommendations.append({
+            "market": "First Set Winner",
+            "selection": fsw_name,
+            "confidence": "Low",
+            "probability": round(fsw_rate * 100, 1),
+            "model_odds": _prob_to_model_odds(fsw_rate),
+            "reason": f"First-set win rate gap is small ({abs(fsr_diff)*100:.1f}%). Minimal edge — shown for reference only."
         })
 
     # ── 6. ANY SET TO TIEBREAK ────────────────────────────────────────────
@@ -435,15 +493,26 @@ def generate_alternative_bets(model_prob_p1, p1_metrics, p2_metrics):
                 f"({p1_csr*100:.0f}% / {p2_csr*100:.0f}%) makes a clean, non-tiebreak win the likely scenario."
             )
         })
+    else:
+        sel = "Yes" if combined_tb_prob >= 0.40 else "No"
+        prob = combined_tb_prob if sel == "Yes" else 1.0 - combined_tb_prob
+        recommendations.append({
+            "market": "Any Set to Tiebreak",
+            "selection": sel,
+            "confidence": "Low",
+            "probability": round(prob * 100, 1),
+            "model_odds": _prob_to_model_odds(prob),
+            "reason": f"Borderline tiebreak probability ({combined_tb_prob*100:.1f}%). No strong edge — shown for reference only."
+        })
 
     # ── 7. BAGEL / BREADSTICK (A Set Won 6-0 or 6-1) ─────────────────────
     p1_bagel = p1_metrics.get("bagel_breadstick_rate", 10.0) / 100.0
     p2_bagel = p2_metrics.get("bagel_breadstick_rate", 10.0) / 100.0
     p_bagel = max(0.10, min(0.65, 1.0 - (1.0 - p1_bagel) * (1.0 - p2_bagel)))
+    higher_bagel = p1_name if p1_bagel >= p2_bagel else p2_name
 
     if p_bagel >= 0.28:
         conf = "High" if p_bagel >= 0.42 else "Medium"
-        higher_bagel = p1_name if p1_bagel >= p2_bagel else p2_name
         recommendations.append({
             "market": "Bagel / Breadstick",
             "selection": "Yes — A Set Won 6-0 or 6-1",
@@ -455,6 +524,15 @@ def generate_alternative_bets(model_prob_p1, p1_metrics, p2_metrics):
                 f"{max(p1_bagel, p2_bagel)*100:.0f}% of their matches — "
                 f"the combined match profile projects at least one lopsided set."
             )
+        })
+    else:
+        recommendations.append({
+            "market": "Bagel / Breadstick",
+            "selection": "Yes — A Set Won 6-0 or 6-1",
+            "confidence": "Low",
+            "probability": round(p_bagel * 100, 1),
+            "model_odds": _prob_to_model_odds(p_bagel),
+            "reason": f"Low combined bagel profile ({p_bagel*100:.1f}%). Unlikely but possible — shown for reference only."
         })
 
     return recommendations

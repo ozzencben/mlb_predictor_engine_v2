@@ -445,8 +445,8 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
     const p1American = formatOdds(predict.p1_odds);
     const p2American = formatOdds(predict.p2_odds);
 
-    const highConfAlt = predict.alternative_bets?.filter(a => a.confidence === 'High') || [];
-    const hasHighConf = highConfAlt.length > 0;
+    const highConfAlt = predict.alternative_bets?.filter(a => a.confidence === 'High' || a.confidence === 'Medium') || [];
+    const hasHighConf = predict.alternative_bets?.some(a => a.confidence === 'High') || false;
 
     // Results tabındaki veriler için: predicted_winner rakam olabilir (1 ya da 2)
     const winnerPlayer =
@@ -668,9 +668,9 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                                     💡 Insight
                                 </span>
                             )}
-                            {hasHighConf && (
+                            {highConfAlt.length > 0 && (
                                 <span className="text-[8px] font-black text-emerald-400 bg-emerald-950/50 border border-emerald-500/20 px-1.5 py-0.5 rounded animate-pulse">
-                                    {highConfAlt.length} HIGH
+                                    {highConfAlt.length} STRONG
                                 </span>
                             )}
                         </span>
@@ -733,7 +733,10 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                                     </div>
                                     <div className="space-y-2">
                                         {predict.alternative_bets.map((alt, idx) => {
-                                            const isHigh = alt.confidence === 'High';
+                                            const conf = alt.confidence || 'Low';
+                                            const isHigh = conf === 'High';
+                                            const isMed  = conf === 'Medium';
+                                            const isLow  = conf === 'Low';
                                             const hasOdds = alt.model_odds != null && alt.model_odds > 1.0;
                                             const americanOdds = hasOdds ? formatOdds(alt.model_odds) : null;
                                             return (
@@ -742,30 +745,34 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                                                     className={`rounded-2xl overflow-hidden transition-all
                                                         ${isHigh
                                                             ? 'border border-indigo-500/25 shadow-[0_0_20px_rgba(99,102,241,0.10)]'
-                                                            : 'border border-slate-900/70'
+                                                            : isMed
+                                                            ? 'border border-amber-500/20'
+                                                            : 'border border-slate-800/50 opacity-60'
                                                         }`}
                                                 >
                                                     {/* ── Top bar: market + confidence ── */}
                                                     <div className={`flex items-center justify-between px-3 py-1.5
-                                                        ${isHigh ? 'bg-indigo-950/50' : 'bg-slate-950/60'}`}>
+                                                        ${isHigh ? 'bg-indigo-950/50' : isMed ? 'bg-amber-950/20' : 'bg-slate-950/40'}`}>
                                                         <span className={`text-[7.5px] font-black uppercase tracking-widest flex items-center gap-1
-                                                            ${isHigh ? 'text-indigo-400' : 'text-slate-500'}`}>
+                                                            ${isHigh ? 'text-indigo-400' : isMed ? 'text-amber-400' : 'text-slate-600'}`}>
                                                             {getMarketIcon(alt.market)} {alt.market}
                                                         </span>
                                                         <span className={`text-[7px] font-black tracking-wider uppercase px-2 py-0.5 rounded-full border
                                                             ${isHigh
                                                                 ? 'bg-emerald-950/60 text-emerald-400 border-emerald-500/30'
-                                                                : 'bg-amber-950/40 text-amber-500 border-amber-500/20'
+                                                                : isMed
+                                                                ? 'bg-amber-950/40 text-amber-500 border-amber-500/20'
+                                                                : 'bg-slate-900/60 text-slate-600 border-slate-800/40'
                                                             }`}>
-                                                            {isHigh ? '🔥 HIGH' : '⚡ MED'}
+                                                            {isHigh ? '🔥 HIGH' : isMed ? '⚡ MED' : '— LOW'}
                                                         </span>
                                                     </div>
 
                                                     {/* ── Main body: selection + odds ── */}
                                                     <div className={`flex items-center justify-between px-3 py-2.5 gap-3
-                                                        ${isHigh ? 'bg-indigo-950/15' : 'bg-slate-950/40'}`}>
+                                                        ${isHigh ? 'bg-indigo-950/15' : isMed ? 'bg-amber-950/5' : 'bg-slate-950/20'}`}>
                                                         <span className={`text-[12px] font-black leading-tight flex-1 min-w-0
-                                                            ${isHigh ? 'text-white' : 'text-slate-200'}`}>
+                                                            ${isHigh ? 'text-white' : isMed ? 'text-slate-200' : 'text-slate-500'}`}>
                                                             {alt.selection}
                                                         </span>
                                                         {hasOdds && (
@@ -773,7 +780,9 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                                                                 <span className={`text-base font-black tabular-nums leading-none
                                                                     ${isHigh
                                                                         ? 'text-indigo-300 drop-shadow-[0_0_8px_rgba(129,140,248,0.4)]'
-                                                                        : 'text-slate-300'
+                                                                        : isMed
+                                                                        ? 'text-amber-300'
+                                                                        : 'text-slate-600'
                                                                     }`}>
                                                                     {americanOdds}
                                                                 </span>
@@ -788,8 +797,8 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
 
                                                     {/* ── Reason ── */}
                                                     <div className={`px-3 pb-2.5 pt-0 border-t
-                                                        ${isHigh ? 'border-indigo-900/40 bg-indigo-950/10' : 'border-slate-900/50 bg-slate-950/30'}`}>
-                                                        <p className="text-[9.5px] leading-relaxed font-medium text-slate-400 pt-2">
+                                                        ${isHigh ? 'border-indigo-900/40 bg-indigo-950/10' : isMed ? 'border-amber-900/20 bg-amber-950/5' : 'border-slate-900/30 bg-slate-950/10'}`}>
+                                                        <p className={`text-[9.5px] leading-relaxed font-medium pt-2 ${isLow ? 'text-slate-600' : 'text-slate-400'}`}>
                                                             {alt.reason}
                                                         </p>
                                                     </div>

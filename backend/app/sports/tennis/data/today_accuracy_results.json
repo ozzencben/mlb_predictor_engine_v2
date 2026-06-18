@@ -37,12 +37,60 @@
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
+                    "market": "Set Handicap",
+                    "selection": "Fritz T. -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 62.0,
+                    "model_odds": 1.53,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=65.6%, dom_diff=4.5%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 42.1,
+                    "model_odds": 2.26,
+                    "reason": "Mixed total-games signal (avg 10.1/10.8 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Fritz T. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 41.8,
+                    "model_odds": 2.27,
+                    "reason": "Insufficient game dominance gap (1.2%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 62.5,
+                    "model_odds": 1.52,
+                    "reason": "Borderline 3-set probability (37.5%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Marozsan F.",
+                    "confidence": "Low",
+                    "probability": 53.5,
+                    "model_odds": 1.78,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
                     "market": "Any Set to Tiebreak",
                     "selection": "Yes",
                     "confidence": "Medium",
                     "probability": 48.5,
                     "model_odds": 1.96,
                     "reason": "Both players have strong tiebreak profiles (56% / 62%) and close-set rates (30% / 42%) — at least one set reaching a tiebreak is the projected outcome."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 13.9,
+                    "model_odds": 6.83,
+                    "reason": "Low combined bagel profile (13.9%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -206,6 +254,30 @@
                     "reason": "Shelton B. carries high fatigue (9 sets in last 3 matches), creating a set-cover opportunity for Quinn E.."
                 },
                 {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 41.7,
+                    "model_odds": 2.28,
+                    "reason": "Mixed total-games signal (avg 10.6/10.1 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Shelton B. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 42.7,
+                    "model_odds": 2.22,
+                    "reason": "Insufficient game dominance gap (1.8%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 56.4,
+                    "model_odds": 1.69,
+                    "reason": "Borderline 3-set probability (43.6%). No strong edge detected — shown for reference only."
+                },
+                {
                     "market": "First Set Winner",
                     "selection": "Shelton B.",
                     "confidence": "Medium",
@@ -220,6 +292,14 @@
                     "probability": 48.8,
                     "model_odds": 1.95,
                     "reason": "Both players have strong tiebreak profiles (65% / 56%) and close-set rates (35% / 32%) — at least one set reaching a tiebreak is the projected outcome."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 10.0,
+                    "model_odds": 9.5,
+                    "reason": "Low combined bagel profile (10.0%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -385,6 +465,54 @@
                     "probability": 62.7,
                     "model_odds": 1.51,
                     "reason": "Davidovich Fokina A. carries high fatigue (9 sets in last 3 matches), creating a set-cover opportunity for Moutet C.."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 39.0,
+                    "model_odds": 2.44,
+                    "reason": "Mixed total-games signal (avg 9.7/9.9 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Davidovich Fokina A. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 41.5,
+                    "model_odds": 2.29,
+                    "reason": "Insufficient game dominance gap (1.0%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 67.9,
+                    "model_odds": 1.4,
+                    "reason": "Borderline 3-set probability (32.1%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Davidovich Fokina A.",
+                    "confidence": "Low",
+                    "probability": 53.5,
+                    "model_odds": 1.78,
+                    "reason": "First-set win rate gap is small (2.3%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 42.1,
+                    "model_odds": 2.26,
+                    "reason": "Borderline tiebreak probability (42.1%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 26.8,
+                    "model_odds": 3.54,
+                    "reason": "Low combined bagel profile (26.8%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -548,12 +676,52 @@
                     "reason": "Paul T. carries high fatigue (9 sets in last 3 matches), creating a set-cover opportunity for Van De Zandschulp B.."
                 },
                 {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 40.9,
+                    "model_odds": 2.32,
+                    "reason": "Mixed total-games signal (avg 10.1/10.3 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Paul T. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 48.0,
+                    "model_odds": 1.98,
+                    "reason": "Insufficient game dominance gap (5.3%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 63.9,
+                    "model_odds": 1.49,
+                    "reason": "Borderline 3-set probability (36.1%). No strong edge detected — shown for reference only."
+                },
+                {
                     "market": "First Set Winner",
                     "selection": "Paul T.",
                     "confidence": "Medium",
                     "probability": 65.1,
                     "model_odds": 1.46,
                     "reason": "Paul T. wins the opening set in 65% of matches — a +16% edge over the opponent on the first-set market."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 45.2,
+                    "model_odds": 2.1,
+                    "reason": "Borderline tiebreak probability (45.2%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 12.7,
+                    "model_odds": 7.46,
+                    "reason": "Low combined bagel profile (12.7%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -708,6 +876,54 @@
             "edge_percentage": null,
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Noskova L. -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 62.0,
+                    "model_odds": 1.53,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=65.7%, dom_diff=9.7%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 9.4/9.3 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Noskova L. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 47.8,
+                    "model_odds": 1.99,
+                    "reason": "Insufficient game dominance gap (5.2%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 66.1,
+                    "model_odds": 1.44,
+                    "reason": "Borderline 3-set probability (33.9%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Noskova L.",
+                    "confidence": "Low",
+                    "probability": 58.5,
+                    "model_odds": 1.62,
+                    "reason": "First-set win rate gap is small (3.7%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 41.8,
+                    "model_odds": 2.27,
+                    "reason": "Borderline tiebreak probability (41.8%). No strong edge — shown for reference only."
+                },
                 {
                     "market": "Bagel / Breadstick",
                     "selection": "Yes — A Set Won 6-0 or 6-1",
@@ -870,6 +1086,22 @@
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
+                    "market": "Set Handicap",
+                    "selection": "Svitolina E. -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 62.0,
+                    "model_odds": 1.53,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=65.1%, dom_diff=20.2%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 9.2/8.8 games/set). Shown for reference only."
+                },
+                {
                     "market": "Game Spread",
                     "selection": "Svitolina E. -3.5 Games",
                     "confidence": "High",
@@ -878,12 +1110,28 @@
                     "reason": "Game dominance diff of +8.9% and low fatigue for Svitolina E. support a comfortable margin across sets."
                 },
                 {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 58.1,
+                    "model_odds": 1.64,
+                    "reason": "Borderline 3-set probability (41.9%). No strong edge detected — shown for reference only."
+                },
+                {
                     "market": "First Set Winner",
                     "selection": "Svitolina E.",
                     "confidence": "Medium",
                     "probability": 69.8,
                     "model_odds": 1.36,
                     "reason": "Svitolina E. wins the opening set in 70% of matches — a +13% edge over the opponent on the first-set market."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 41.0,
+                    "model_odds": 2.32,
+                    "reason": "Borderline tiebreak probability (41.0%). No strong edge — shown for reference only."
                 },
                 {
                     "market": "Bagel / Breadstick",
@@ -1047,6 +1295,14 @@
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
+                    "market": "Set Handicap",
+                    "selection": "Bouzkova M. -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 62.0,
+                    "model_odds": 1.53,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=72.5%, dom_diff=-4.4%). Shown for reference only."
+                },
+                {
                     "market": "Total Games",
                     "selection": "Under 21.5 Games",
                     "confidence": "Medium",
@@ -1055,12 +1311,36 @@
                     "reason": "Quick-set profiles (avg 9.2/9.4 games/set) and a dominant favorite (72.5%) point to an efficient, low-game match."
                 },
                 {
+                    "market": "Game Spread",
+                    "selection": "Bouzkova M. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 40.8,
+                    "model_odds": 2.33,
+                    "reason": "Insufficient game dominance gap (-0.5%) for a strong spread signal. Shown for reference only."
+                },
+                {
                     "market": "Both Players to Win a Set",
                     "selection": "No",
                     "confidence": "High",
                     "probability": 74.9,
                     "model_odds": 1.27,
                     "reason": "Bouzkova M. wins in straight sets 73% of the time with a 72.5% match projection — a clean sweep is the dominant scenario."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Klugman H.",
+                    "confidence": "Low",
+                    "probability": 55.8,
+                    "model_odds": 1.7,
+                    "reason": "First-set win rate gap is small (2.3%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 44.0,
+                    "model_odds": 2.16,
+                    "reason": "Borderline tiebreak probability (44.0%). No strong edge — shown for reference only."
                 },
                 {
                     "market": "Bagel / Breadstick",
@@ -1232,12 +1512,52 @@
                     "reason": "Li A. carries high fatigue (8 sets in last 3 matches), creating a set-cover opportunity for Preston T.."
                 },
                 {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 9.7/9.3 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Li A. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.3,
+                    "model_odds": 2.1,
+                    "reason": "Insufficient game dominance gap (-3.5%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 54.0,
+                    "model_odds": 1.76,
+                    "reason": "Borderline 3-set probability (46.0%). No strong edge detected — shown for reference only."
+                },
+                {
                     "market": "First Set Winner",
                     "selection": "Preston T.",
                     "confidence": "Medium",
                     "probability": 62.8,
                     "model_odds": 1.51,
                     "reason": "Preston T. wins the opening set in 63% of matches — a +16% edge over the opponent on the first-set market."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 65.7,
+                    "model_odds": 1.45,
+                    "reason": "Borderline tiebreak probability (34.3%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 27.7,
+                    "model_odds": 3.44,
+                    "reason": "Low combined bagel profile (27.7%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -1397,12 +1717,60 @@
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
+                    "market": "Set Handicap",
+                    "selection": "Andorra -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 62.0,
+                    "model_odds": 1.53,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=62.1%, dom_diff=100.0%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Andorra -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 58.0,
+                    "model_odds": 1.64,
+                    "reason": "Insufficient game dominance gap (20.0%) for a strong spread signal. Shown for reference only."
+                },
+                {
                     "market": "Both Players to Win a Set",
                     "selection": "Yes",
                     "confidence": "High",
                     "probability": 68.2,
                     "model_odds": 1.39,
                     "reason": "Albania has a 50% comeback rate and Andorra wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Andorra",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 41.8,
+                    "model_odds": 2.27,
+                    "reason": "Borderline tiebreak probability (41.8%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -1485,12 +1853,60 @@
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
+                    "market": "Set Handicap",
+                    "selection": "Malta -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 62.0,
+                    "model_odds": 1.53,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=62.1%, dom_diff=100.0%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Malta -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 58.0,
+                    "model_odds": 1.64,
+                    "reason": "Insufficient game dominance gap (20.0%) for a strong spread signal. Shown for reference only."
+                },
+                {
                     "market": "Both Players to Win a Set",
                     "selection": "Yes",
                     "confidence": "High",
                     "probability": 68.2,
                     "model_odds": 1.39,
                     "reason": "San Marino has a 50% comeback rate and Malta wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Malta",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 41.8,
+                    "model_odds": 2.27,
+                    "reason": "Borderline tiebreak probability (41.8%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -1573,12 +1989,60 @@
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
+                    "market": "Set Handicap",
+                    "selection": "Angola -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 62.0,
+                    "model_odds": 1.53,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=62.1%, dom_diff=100.0%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Angola -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 58.0,
+                    "model_odds": 1.64,
+                    "reason": "Insufficient game dominance gap (20.0%) for a strong spread signal. Shown for reference only."
+                },
+                {
                     "market": "Both Players to Win a Set",
                     "selection": "Yes",
                     "confidence": "High",
                     "probability": 68.2,
                     "model_odds": 1.39,
                     "reason": "Mozambique has a 50% comeback rate and Angola wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Angola",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 41.8,
+                    "model_odds": 2.27,
+                    "reason": "Borderline tiebreak probability (41.8%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -1661,12 +2125,60 @@
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
+                    "market": "Set Handicap",
+                    "selection": "Chinese Taipei W -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 61.2,
+                    "model_odds": 1.55,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=61.2%, dom_diff=100.0%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Chinese Taipei W -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 58.0,
+                    "model_odds": 1.64,
+                    "reason": "Insufficient game dominance gap (20.0%) for a strong spread signal. Shown for reference only."
+                },
+                {
                     "market": "Both Players to Win a Set",
                     "selection": "Yes",
                     "confidence": "High",
                     "probability": 68.6,
                     "model_odds": 1.39,
                     "reason": "Uzbekistan W has a 50% comeback rate and Chinese Taipei W wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Chinese Taipei W",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 41.9,
+                    "model_odds": 2.27,
+                    "reason": "Borderline tiebreak probability (41.9%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -1757,12 +2269,60 @@
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
+                    "market": "Set Handicap",
+                    "selection": "Armenia W -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 62.0,
+                    "model_odds": 1.53,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=62.1%, dom_diff=100.0%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Armenia W -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 58.0,
+                    "model_odds": 1.64,
+                    "reason": "Insufficient game dominance gap (20.0%) for a strong spread signal. Shown for reference only."
+                },
+                {
                     "market": "Both Players to Win a Set",
                     "selection": "Yes",
                     "confidence": "High",
                     "probability": 68.2,
                     "model_odds": 1.39,
                     "reason": "Albania W has a 50% comeback rate and Armenia W wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Armenia W",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 41.8,
+                    "model_odds": 2.27,
+                    "reason": "Borderline tiebreak probability (41.8%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -1845,12 +2405,60 @@
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
+                    "market": "Set Handicap",
+                    "selection": "Estonia W -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 62.0,
+                    "model_odds": 1.53,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=62.1%, dom_diff=100.0%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Estonia W -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 58.0,
+                    "model_odds": 1.64,
+                    "reason": "Insufficient game dominance gap (20.0%) for a strong spread signal. Shown for reference only."
+                },
+                {
                     "market": "Both Players to Win a Set",
                     "selection": "Yes",
                     "confidence": "High",
                     "probability": 68.2,
                     "model_odds": 1.39,
                     "reason": "Luxembourg W has a 50% comeback rate and Estonia W wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Estonia W",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 41.8,
+                    "model_odds": 2.27,
+                    "reason": "Borderline tiebreak probability (41.8%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -1933,12 +2541,60 @@
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
+                    "market": "Set Handicap",
+                    "selection": "Montenegro W -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 62.0,
+                    "model_odds": 1.53,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=62.1%, dom_diff=100.0%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Montenegro W -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 58.0,
+                    "model_odds": 1.64,
+                    "reason": "Insufficient game dominance gap (20.0%) for a strong spread signal. Shown for reference only."
+                },
+                {
                     "market": "Both Players to Win a Set",
                     "selection": "Yes",
                     "confidence": "High",
                     "probability": 68.2,
                     "model_odds": 1.39,
                     "reason": "Azerbaijan W has a 50% comeback rate and Montenegro W wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Montenegro W",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 41.8,
+                    "model_odds": 2.27,
+                    "reason": "Borderline tiebreak probability (41.8%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -2031,12 +2687,52 @@
                     "reason": "Zverev A. carries high fatigue (10 sets in last 3 matches), creating a set-cover opportunity for Hanfmann Y.."
                 },
                 {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 40.2,
+                    "model_odds": 2.36,
+                    "reason": "Mixed total-games signal (avg 9.7/10.3 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Zverev A. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 47.9,
+                    "model_odds": 1.98,
+                    "reason": "Insufficient game dominance gap (5.3%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 61.9,
+                    "model_odds": 1.54,
+                    "reason": "Borderline 3-set probability (38.1%). No strong edge detected — shown for reference only."
+                },
+                {
                     "market": "First Set Winner",
                     "selection": "Zverev A.",
                     "confidence": "High",
                     "probability": 76.7,
                     "model_odds": 1.24,
                     "reason": "Zverev A. wins the opening set in 77% of matches — a +24% edge over the opponent on the first-set market."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 42.2,
+                    "model_odds": 2.25,
+                    "reason": "Borderline tiebreak probability (42.2%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 20.7,
+                    "model_odds": 4.58,
+                    "reason": "Low combined bagel profile (20.7%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -2208,6 +2904,38 @@
                     "reason": "Both players average 9.3 and 9.0 games/set — combined style projects a high-game-count match (Over 21.5 Games)."
                 },
                 {
+                    "market": "Game Spread",
+                    "selection": "Muchova K. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 40.6,
+                    "model_odds": 2.34,
+                    "reason": "Insufficient game dominance gap (0.4%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 47.3,
+                    "model_odds": 2.01,
+                    "reason": "Borderline 3-set probability (47.3%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Muchova K.",
+                    "confidence": "Low",
+                    "probability": 65.1,
+                    "model_odds": 1.46,
+                    "reason": "First-set win rate gap is small (4.6%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 47.6,
+                    "model_odds": 2.0,
+                    "reason": "Borderline tiebreak probability (47.6%). No strong edge — shown for reference only."
+                },
+                {
                     "market": "Bagel / Breadstick",
                     "selection": "Yes — A Set Won 6-0 or 6-1",
                     "confidence": "Medium",
@@ -2363,10 +3091,10 @@
             "home_win_probability": 40.87,
             "away_win_probability": 59.13,
             "result_status": "[YANLIS]",
-            "p1_odds": 1.27,
-            "p2_odds": 14.6,
-            "edge_percentage": 52.28,
-            "recommended_kelly_bet_percentage": 14.03,
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
                     "market": "Set Handicap",
@@ -2375,6 +3103,54 @@
                     "probability": 64.0,
                     "model_odds": 1.48,
                     "reason": "Rybakina E. carries high fatigue (9 sets in last 3 matches), creating a set-cover opportunity for Eala A.."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 9.0/9.5 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Rybakina E. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 48.8,
+                    "model_odds": 1.94,
+                    "reason": "Insufficient game dominance gap (5.9%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 59.2,
+                    "model_odds": 1.61,
+                    "reason": "Borderline 3-set probability (40.8%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Rybakina E.",
+                    "confidence": "Low",
+                    "probability": 72.1,
+                    "model_odds": 1.32,
+                    "reason": "First-set win rate gap is small (11.6%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 60.9,
+                    "model_odds": 1.56,
+                    "reason": "Borderline tiebreak probability (39.1%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 26.7,
+                    "model_odds": 3.56,
+                    "reason": "Low combined bagel profile (26.7%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -2544,6 +3320,38 @@
                     "probability": 40.0,
                     "model_odds": 2.37,
                     "reason": "Both players average 9.2 and 9.1 games/set — combined style projects a high-game-count match (Over 21.5 Games)."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Sonmez Z. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 40.6,
+                    "model_odds": 2.34,
+                    "reason": "Insufficient game dominance gap (0.4%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 46.7,
+                    "model_odds": 2.03,
+                    "reason": "Borderline 3-set probability (46.7%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Sonmez Z.",
+                    "confidence": "Low",
+                    "probability": 60.5,
+                    "model_odds": 1.57,
+                    "reason": "First-set win rate gap is small (4.7%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 65.8,
+                    "model_odds": 1.44,
+                    "reason": "Borderline tiebreak probability (34.2%). No strong edge — shown for reference only."
                 },
                 {
                     "market": "Bagel / Breadstick",
@@ -2727,6 +3535,30 @@
                     "reason": "Both players average 9.6 and 9.0 games/set — combined style projects a high-game-count match (Over 21.5 Games)."
                 },
                 {
+                    "market": "Game Spread",
+                    "selection": "McNally C. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 40.6,
+                    "model_odds": 2.34,
+                    "reason": "Insufficient game dominance gap (0.4%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 58.9,
+                    "model_odds": 1.61,
+                    "reason": "Borderline 3-set probability (41.1%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "McNally C.",
+                    "confidence": "Low",
+                    "probability": 58.1,
+                    "model_odds": 1.64,
+                    "reason": "First-set win rate gap is small (2.3%). Minimal edge — shown for reference only."
+                },
+                {
                     "market": "Any Set to Tiebreak",
                     "selection": "Yes",
                     "confidence": "Medium",
@@ -2896,12 +3728,60 @@
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
+                    "market": "Set Handicap",
+                    "selection": "Armenia -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 58.8,
+                    "model_odds": 1.62,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=58.8%, dom_diff=33.4%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Armenia -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 49.9,
+                    "model_odds": 1.9,
+                    "reason": "Insufficient game dominance gap (6.6%) for a strong spread signal. Shown for reference only."
+                },
+                {
                     "market": "Both Players to Win a Set",
                     "selection": "Yes",
                     "confidence": "High",
                     "probability": 69.4,
                     "model_odds": 1.37,
                     "reason": "Iceland has a 50% comeback rate and Armenia wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Armenia",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 42.1,
+                    "model_odds": 2.26,
+                    "reason": "Borderline tiebreak probability (42.1%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -2984,12 +3864,60 @@
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
+                    "market": "Set Handicap",
+                    "selection": "Algeria -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 58.8,
+                    "model_odds": 1.62,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=58.8%, dom_diff=33.4%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Algeria -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 49.9,
+                    "model_odds": 1.9,
+                    "reason": "Insufficient game dominance gap (6.6%) for a strong spread signal. Shown for reference only."
+                },
+                {
                     "market": "Both Players to Win a Set",
                     "selection": "Yes",
                     "confidence": "High",
                     "probability": 69.4,
                     "model_odds": 1.37,
                     "reason": "Ghana has a 50% comeback rate and Algeria wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Ghana",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 42.1,
+                    "model_odds": 2.26,
+                    "reason": "Borderline tiebreak probability (42.1%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -3072,12 +4000,60 @@
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
+                    "market": "Set Handicap",
+                    "selection": "Kenya -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 58.8,
+                    "model_odds": 1.62,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=58.8%, dom_diff=33.4%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Kenya -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 49.9,
+                    "model_odds": 1.9,
+                    "reason": "Insufficient game dominance gap (6.6%) for a strong spread signal. Shown for reference only."
+                },
+                {
                     "market": "Both Players to Win a Set",
                     "selection": "Yes",
                     "confidence": "High",
                     "probability": 69.4,
                     "model_odds": 1.37,
                     "reason": "Botswana has a 50% comeback rate and Kenya wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Kenya",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 42.1,
+                    "model_odds": 2.26,
+                    "reason": "Borderline tiebreak probability (42.1%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -3168,12 +4144,52 @@
                     "reason": "Close projection (50.9%) indicates a tight contest — value on D.R. Congo to take at least one set."
                 },
                 {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Zimbabwe -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Insufficient game dominance gap (3.3%) for a strong spread signal. Shown for reference only."
+                },
+                {
                     "market": "Both Players to Win a Set",
                     "selection": "Yes",
                     "confidence": "High",
                     "probability": 72.2,
                     "model_odds": 1.32,
                     "reason": "D.R. Congo has a 50% comeback rate and Zimbabwe wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Zimbabwe",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 42.9,
+                    "model_odds": 2.21,
+                    "reason": "Borderline tiebreak probability (42.9%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -3253,6 +4269,54 @@
                     "probability": 71.9,
                     "model_odds": 1.32,
                     "reason": "Close projection (52.6%) indicates a tight contest — value on Kyrgyzstan W to take at least one set."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Singapore W -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 58.0,
+                    "model_odds": 1.64,
+                    "reason": "Insufficient game dominance gap (12.0%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 73.4,
+                    "model_odds": 1.29,
+                    "reason": "Borderline 3-set probability (26.6%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Kyrgyzstan W",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 42.7,
+                    "model_odds": 2.22,
+                    "reason": "Borderline tiebreak probability (42.7%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -3351,12 +4415,52 @@
                     "reason": "Close projection (53.4%) indicates a tight contest — value on Sri Lanka W to take at least one set."
                 },
                 {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Malaysia W -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Insufficient game dominance gap (-3.3%) for a strong spread signal. Shown for reference only."
+                },
+                {
                     "market": "Both Players to Win a Set",
                     "selection": "Yes",
                     "confidence": "High",
                     "probability": 71.3,
                     "model_odds": 1.33,
                     "reason": "Sri Lanka W has a 50% comeback rate and Malaysia W wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Malaysia W",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 42.7,
+                    "model_odds": 2.23,
+                    "reason": "Borderline tiebreak probability (42.7%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -3463,12 +4567,52 @@
                     "reason": "Close projection (53.4%) indicates a tight contest — value on Philippines W to take at least one set."
                 },
                 {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Pacific Oceania W -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Insufficient game dominance gap (-3.3%) for a strong spread signal. Shown for reference only."
+                },
+                {
                     "market": "Both Players to Win a Set",
                     "selection": "Yes",
                     "confidence": "High",
                     "probability": 71.3,
                     "model_odds": 1.33,
                     "reason": "Philippines W has a 50% comeback rate and Pacific Oceania W wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Pacific Oceania W",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 42.7,
+                    "model_odds": 2.23,
+                    "reason": "Borderline tiebreak probability (42.7%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -3567,12 +4711,60 @@
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
+                    "market": "Set Handicap",
+                    "selection": "Malta W -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 58.8,
+                    "model_odds": 1.62,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=58.8%, dom_diff=33.4%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Malta W -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 49.9,
+                    "model_odds": 1.9,
+                    "reason": "Insufficient game dominance gap (6.6%) for a strong spread signal. Shown for reference only."
+                },
+                {
                     "market": "Both Players to Win a Set",
                     "selection": "Yes",
                     "confidence": "High",
                     "probability": 69.4,
                     "model_odds": 1.37,
                     "reason": "Ireland W has a 50% comeback rate and Malta W wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Ireland W",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 42.1,
+                    "model_odds": 2.26,
+                    "reason": "Borderline tiebreak probability (42.1%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -3655,12 +4847,60 @@
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
+                    "market": "Set Handicap",
+                    "selection": "Iceland W -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 58.8,
+                    "model_odds": 1.62,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=58.8%, dom_diff=33.4%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Iceland W -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 49.9,
+                    "model_odds": 1.9,
+                    "reason": "Insufficient game dominance gap (6.6%) for a strong spread signal. Shown for reference only."
+                },
+                {
                     "market": "Both Players to Win a Set",
                     "selection": "Yes",
                     "confidence": "High",
                     "probability": 69.4,
                     "model_odds": 1.37,
                     "reason": "Kosovo W has a 50% comeback rate and Iceland W wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Kosovo W",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 42.1,
+                    "model_odds": 2.26,
+                    "reason": "Borderline tiebreak probability (42.1%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -3759,6 +4999,38 @@
                     "probability": 40.0,
                     "model_odds": 2.37,
                     "reason": "Both players average 9.1 and 8.7 games/set — combined style projects a high-game-count match (Over 21.5 Games)."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Estevez J. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 43.7,
+                    "model_odds": 2.17,
+                    "reason": "Insufficient game dominance gap (2.5%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 74.9,
+                    "model_odds": 1.27,
+                    "reason": "Borderline 3-set probability (25.1%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Estevez J.",
+                    "confidence": "Low",
+                    "probability": 67.4,
+                    "model_odds": 1.41,
+                    "reason": "First-set win rate gap is small (4.6%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 62.8,
+                    "model_odds": 1.51,
+                    "reason": "Borderline tiebreak probability (37.2%). No strong edge — shown for reference only."
                 },
                 {
                     "market": "Bagel / Breadstick",
@@ -3930,12 +5202,52 @@
                     "reason": "Galarneau A. carries high fatigue (8 sets in last 3 matches), creating a set-cover opportunity for Searle H.."
                 },
                 {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 39.7,
+                    "model_odds": 2.39,
+                    "reason": "Mixed total-games signal (avg 9.8/10.1 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Galarneau A. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 51.8,
+                    "model_odds": 1.83,
+                    "reason": "Insufficient game dominance gap (-7.9%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 63.7,
+                    "model_odds": 1.49,
+                    "reason": "Borderline 3-set probability (36.3%). No strong edge detected — shown for reference only."
+                },
+                {
                     "market": "First Set Winner",
                     "selection": "Searle H.",
                     "confidence": "High",
                     "probability": 74.4,
                     "model_odds": 1.28,
                     "reason": "Searle H. wins the opening set in 74% of matches — a +26% edge over the opponent on the first-set market."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 43.2,
+                    "model_odds": 2.2,
+                    "reason": "Borderline tiebreak probability (43.2%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 21.1,
+                    "model_odds": 4.51,
+                    "reason": "Low combined bagel profile (21.1%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -4103,12 +5415,52 @@
                     "reason": "Close projection (55.1%) indicates a tight contest — value on Dimitrov G. to take at least one set."
                 },
                 {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 41.8,
+                    "model_odds": 2.27,
+                    "reason": "Mixed total-games signal (avg 11.0/9.7 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Jacquet K. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 47.1,
+                    "model_odds": 2.02,
+                    "reason": "Insufficient game dominance gap (4.7%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 59.7,
+                    "model_odds": 1.59,
+                    "reason": "Borderline 3-set probability (40.3%). No strong edge detected — shown for reference only."
+                },
+                {
                     "market": "First Set Winner",
                     "selection": "Jacquet K.",
                     "confidence": "Medium",
                     "probability": 62.8,
                     "model_odds": 1.51,
                     "reason": "Jacquet K. wins the opening set in 63% of matches — a +15% edge over the opponent on the first-set market."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 41.1,
+                    "model_odds": 2.31,
+                    "reason": "Borderline tiebreak probability (41.1%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 20.0,
+                    "model_odds": 4.75,
+                    "reason": "Low combined bagel profile (20.0%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -4280,12 +5632,44 @@
                     "reason": "Both players average 10.0 and 9.8 games/set — combined style projects a high-game-count match (Over 21.5 Games)."
                 },
                 {
+                    "market": "Game Spread",
+                    "selection": "Droguet T. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 40.8,
+                    "model_odds": 2.33,
+                    "reason": "Insufficient game dominance gap (-0.5%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 62.7,
+                    "model_odds": 1.52,
+                    "reason": "Borderline 3-set probability (37.3%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Droguet T.",
+                    "confidence": "Low",
+                    "probability": 60.5,
+                    "model_odds": 1.57,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
                     "market": "Any Set to Tiebreak",
                     "selection": "Yes",
                     "confidence": "Medium",
                     "probability": 49.7,
                     "model_odds": 1.91,
                     "reason": "Both players have strong tiebreak profiles (69% / 59%) and close-set rates (30% / 29%) — at least one set reaching a tiebreak is the projected outcome."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 26.6,
+                    "model_odds": 3.58,
+                    "reason": "Low combined bagel profile (26.6%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -4440,6 +5824,54 @@
             "edge_percentage": null,
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Rodionov J. -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 61.8,
+                    "model_odds": 1.54,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=61.8%, dom_diff=4.2%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.5,
+                    "model_odds": 2.47,
+                    "reason": "Mixed total-games signal (avg 9.6/9.8 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Rodionov J. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 42.0,
+                    "model_odds": 2.26,
+                    "reason": "Insufficient game dominance gap (1.3%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 59.8,
+                    "model_odds": 1.59,
+                    "reason": "Borderline 3-set probability (40.2%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Zhou Y.",
+                    "confidence": "Low",
+                    "probability": 59.5,
+                    "model_odds": 1.6,
+                    "reason": "First-set win rate gap is small (6.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 60.3,
+                    "model_odds": 1.57,
+                    "reason": "Borderline tiebreak probability (39.7%). No strong edge — shown for reference only."
+                },
                 {
                     "market": "Bagel / Breadstick",
                     "selection": "Yes — A Set Won 6-0 or 6-1",
@@ -4610,12 +6042,52 @@
                     "reason": "Close projection (55.1%) indicates a tight contest — value on Bertola R. to take at least one set."
                 },
                 {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 9.4/9.8 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Mochizuki S. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 48.0,
+                    "model_odds": 1.98,
+                    "reason": "Insufficient game dominance gap (-5.3%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 68.1,
+                    "model_odds": 1.4,
+                    "reason": "Borderline 3-set probability (31.9%). No strong edge detected — shown for reference only."
+                },
+                {
                     "market": "First Set Winner",
                     "selection": "Bertola R.",
                     "confidence": "Medium",
                     "probability": 58.1,
                     "model_odds": 1.64,
                     "reason": "Bertola R. wins the opening set in 58% of matches — a +14% edge over the opponent on the first-set market."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 40.4,
+                    "model_odds": 2.35,
+                    "reason": "Borderline tiebreak probability (40.4%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 21.3,
+                    "model_odds": 4.47,
+                    "reason": "Low combined bagel profile (21.3%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -4785,6 +6257,46 @@
                     "probability": 40.0,
                     "model_odds": 2.37,
                     "reason": "Both players average 9.8 and 9.9 games/set — combined style projects a high-game-count match (Over 21.5 Games)."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Bonzi B. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 41.8,
+                    "model_odds": 2.27,
+                    "reason": "Insufficient game dominance gap (1.2%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 63.8,
+                    "model_odds": 1.49,
+                    "reason": "Borderline 3-set probability (36.2%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Bonzi B.",
+                    "confidence": "Low",
+                    "probability": 51.2,
+                    "model_odds": 1.86,
+                    "reason": "First-set win rate gap is small (3.6%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 41.9,
+                    "model_odds": 2.27,
+                    "reason": "Borderline tiebreak probability (41.9%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 10.0,
+                    "model_odds": 9.5,
+                    "reason": "Low combined bagel profile (10.0%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -4954,6 +6466,46 @@
                     "probability": 40.0,
                     "model_odds": 2.37,
                     "reason": "Both players average 9.9 and 9.3 games/set — combined style projects a high-game-count match (Over 21.5 Games)."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Ofner S. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 42.3,
+                    "model_odds": 2.25,
+                    "reason": "Insufficient game dominance gap (-1.5%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 65.6,
+                    "model_odds": 1.45,
+                    "reason": "Borderline 3-set probability (34.4%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Ofner S.",
+                    "confidence": "Low",
+                    "probability": 53.5,
+                    "model_odds": 1.78,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 42.1,
+                    "model_odds": 2.26,
+                    "reason": "Borderline tiebreak probability (42.1%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 23.0,
+                    "model_odds": 4.12,
+                    "reason": "Low combined bagel profile (23.0%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
@@ -5129,6 +6681,38 @@
                     "reason": "Both players average 9.9 and 9.3 games/set — combined style projects a high-game-count match (Over 21.5 Games)."
                 },
                 {
+                    "market": "Game Spread",
+                    "selection": "Djere L. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 42.3,
+                    "model_odds": 2.25,
+                    "reason": "Insufficient game dominance gap (1.5%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 71.0,
+                    "model_odds": 1.34,
+                    "reason": "Borderline 3-set probability (29.0%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Djere L.",
+                    "confidence": "Low",
+                    "probability": 53.5,
+                    "model_odds": 1.78,
+                    "reason": "First-set win rate gap is small (7.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 40.1,
+                    "model_odds": 2.37,
+                    "reason": "Borderline tiebreak probability (40.1%). No strong edge — shown for reference only."
+                },
+                {
                     "market": "Bagel / Breadstick",
                     "selection": "Yes — A Set Won 6-0 or 6-1",
                     "confidence": "Medium",
@@ -5300,6 +6884,46 @@
                     "probability": 53.8,
                     "model_odds": 1.77,
                     "reason": "Diaz Acosta F. carries high fatigue (10 sets in last 3 matches), creating a set-cover opportunity for Broska F.."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 9.8/9.4 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Diaz Acosta F. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 43.9,
+                    "model_odds": 2.16,
+                    "reason": "Insufficient game dominance gap (2.6%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 61.1,
+                    "model_odds": 1.55,
+                    "reason": "Borderline 3-set probability (38.9%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Diaz Acosta F.",
+                    "confidence": "Low",
+                    "probability": 55.8,
+                    "model_odds": 1.7,
+                    "reason": "First-set win rate gap is small (9.3%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 40.4,
+                    "model_odds": 2.35,
+                    "reason": "Borderline tiebreak probability (40.4%). No strong edge — shown for reference only."
                 },
                 {
                     "market": "Bagel / Breadstick",
@@ -5475,6 +7099,46 @@
                     "reason": "Close projection (52.7%) indicates a tight contest — value on Ribecai M. to take at least one set."
                 },
                 {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 9.1/9.3 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Reis Da Silva J. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 48.0,
+                    "model_odds": 1.98,
+                    "reason": "Insufficient game dominance gap (-5.3%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 58.9,
+                    "model_odds": 1.61,
+                    "reason": "Borderline 3-set probability (41.1%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Ribecai M.",
+                    "confidence": "Low",
+                    "probability": 67.4,
+                    "model_odds": 1.41,
+                    "reason": "First-set win rate gap is small (2.3%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 71.2,
+                    "model_odds": 1.33,
+                    "reason": "Borderline tiebreak probability (28.8%). No strong edge — shown for reference only."
+                },
+                {
                     "market": "Bagel / Breadstick",
                     "selection": "Yes — A Set Won 6-0 or 6-1",
                     "confidence": "Medium",
@@ -5635,6 +7299,54 @@
             "edge_percentage": null,
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Svrcina D. -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 62.0,
+                    "model_odds": 1.53,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=67.1%, dom_diff=6.4%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 9.3/9.3 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Svrcina D. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 43.9,
+                    "model_odds": 2.16,
+                    "reason": "Insufficient game dominance gap (2.6%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 76.2,
+                    "model_odds": 1.25,
+                    "reason": "Borderline 3-set probability (23.8%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Svrcina D.",
+                    "confidence": "Low",
+                    "probability": 60.5,
+                    "model_odds": 1.57,
+                    "reason": "First-set win rate gap is small (2.4%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 45.7,
+                    "model_odds": 2.08,
+                    "reason": "Borderline tiebreak probability (45.7%). No strong edge — shown for reference only."
+                },
                 {
                     "market": "Bagel / Breadstick",
                     "selection": "Yes — A Set Won 6-0 or 6-1",
@@ -5805,12 +7517,44 @@
                     "reason": "Close projection (55.7%) indicates a tight contest — value on Choinski J. to take at least one set."
                 },
                 {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.3,
+                    "model_odds": 2.48,
+                    "reason": "Mixed total-games signal (avg 9.1/10.2 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Heide G. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 50.2,
+                    "model_odds": 1.89,
+                    "reason": "Insufficient game dominance gap (6.8%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 64.1,
+                    "model_odds": 1.48,
+                    "reason": "Borderline 3-set probability (35.9%). No strong edge detected — shown for reference only."
+                },
+                {
                     "market": "First Set Winner",
                     "selection": "Heide G.",
                     "confidence": "High",
                     "probability": 70.5,
                     "model_odds": 1.35,
                     "reason": "Heide G. wins the opening set in 70% of matches — a +28% edge over the opponent on the first-set market."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 47.1,
+                    "model_odds": 2.02,
+                    "reason": "Borderline tiebreak probability (47.1%). No strong edge — shown for reference only."
                 },
                 {
                     "market": "Bagel / Breadstick",
@@ -5978,12 +7722,52 @@
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
+                    "market": "Set Handicap",
+                    "selection": "Perot R. -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 62.0,
+                    "model_odds": 1.53,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=68.4%, dom_diff=0.5%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 8.7/9.2 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Perot R. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 40.9,
+                    "model_odds": 2.32,
+                    "reason": "Insufficient game dominance gap (-0.6%) for a strong spread signal. Shown for reference only."
+                },
+                {
                     "market": "Both Players to Win a Set",
                     "selection": "No",
                     "confidence": "Medium",
                     "probability": 65.2,
                     "model_odds": 1.46,
                     "reason": "Perot R. wins in straight sets 64% of the time with a 68.4% match projection — a clean sweep is the dominant scenario."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Perot R.",
+                    "confidence": "Low",
+                    "probability": 48.8,
+                    "model_odds": 1.95,
+                    "reason": "First-set win rate gap is small (10.3%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 67.6,
+                    "model_odds": 1.4,
+                    "reason": "Borderline tiebreak probability (32.4%). No strong edge — shown for reference only."
                 },
                 {
                     "market": "Bagel / Breadstick",
@@ -6147,6 +7931,54 @@
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
+                    "market": "Set Handicap",
+                    "selection": "Ratti L. -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 62.0,
+                    "model_odds": 1.53,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=67.9%, dom_diff=7.6%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 8.9/8.9 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Ratti L. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.7,
+                    "model_odds": 2.08,
+                    "reason": "Insufficient game dominance gap (3.8%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 76.0,
+                    "model_odds": 1.25,
+                    "reason": "Borderline 3-set probability (24.0%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Campana Lee G.",
+                    "confidence": "Low",
+                    "probability": 55.8,
+                    "model_odds": 1.7,
+                    "reason": "First-set win rate gap is small (2.3%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 62.2,
+                    "model_odds": 1.53,
+                    "reason": "Borderline tiebreak probability (37.8%). No strong edge — shown for reference only."
+                },
+                {
                     "market": "Bagel / Breadstick",
                     "selection": "Yes — A Set Won 6-0 or 6-1",
                     "confidence": "High",
@@ -6308,6 +8140,30 @@
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
+                    "market": "Set Handicap",
+                    "selection": "Alcala Gurri M. -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 62.0,
+                    "model_odds": 1.53,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=70.4%, dom_diff=16.7%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 8.8/9.6 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Alcala Gurri M. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 53.9,
+                    "model_odds": 1.76,
+                    "reason": "Insufficient game dominance gap (9.3%) for a strong spread signal. Shown for reference only."
+                },
+                {
                     "market": "Both Players to Win a Set",
                     "selection": "No",
                     "confidence": "High",
@@ -6322,6 +8178,14 @@
                     "probability": 76.7,
                     "model_odds": 1.24,
                     "reason": "Alcala Gurri M. wins the opening set in 77% of matches — a +21% edge over the opponent on the first-set market."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 43.3,
+                    "model_odds": 2.19,
+                    "reason": "Borderline tiebreak probability (43.3%). No strong edge — shown for reference only."
                 },
                 {
                     "market": "Bagel / Breadstick",
@@ -6489,12 +8353,28 @@
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
+                    "market": "Set Handicap",
+                    "selection": "Feldbausch K. -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 62.0,
+                    "model_odds": 1.53,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=75.6%, dom_diff=16.9%). Shown for reference only."
+                },
+                {
                     "market": "Total Games",
                     "selection": "Under 21.5 Games",
                     "confidence": "Medium",
                     "probability": 80.0,
                     "model_odds": 1.19,
                     "reason": "Quick-set profiles (avg 9.4/8.8 games/set) and a dominant favorite (75.6%) point to an efficient, low-game match."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Feldbausch K. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 48.4,
+                    "model_odds": 1.96,
+                    "reason": "Insufficient game dominance gap (5.6%) for a strong spread signal. Shown for reference only."
                 },
                 {
                     "market": "Both Players to Win a Set",
@@ -6511,6 +8391,14 @@
                     "probability": 58.1,
                     "model_odds": 1.64,
                     "reason": "Feldbausch K. wins the opening set in 58% of matches — a +17% edge over the opponent on the first-set market."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 67.1,
+                    "model_odds": 1.42,
+                    "reason": "Borderline tiebreak probability (32.9%). No strong edge — shown for reference only."
                 },
                 {
                     "market": "Bagel / Breadstick",
@@ -6690,6 +8578,38 @@
                     "reason": "Both players average 9.1 and 9.1 games/set — combined style projects a high-game-count match (Over 21.5 Games)."
                 },
                 {
+                    "market": "Game Spread",
+                    "selection": "Ortenzi J. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 44.3,
+                    "model_odds": 2.14,
+                    "reason": "Insufficient game dominance gap (-2.9%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 61.4,
+                    "model_odds": 1.55,
+                    "reason": "Borderline 3-set probability (38.6%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Yaneva E.",
+                    "confidence": "Low",
+                    "probability": 67.4,
+                    "model_odds": 1.41,
+                    "reason": "First-set win rate gap is small (10.3%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 63.6,
+                    "model_odds": 1.49,
+                    "reason": "Borderline tiebreak probability (36.4%). No strong edge — shown for reference only."
+                },
+                {
                     "market": "Bagel / Breadstick",
                     "selection": "Yes — A Set Won 6-0 or 6-1",
                     "confidence": "High",
@@ -6859,12 +8779,44 @@
                     "reason": "Close projection (56.1%) indicates a tight contest — value on Bulgaru M. to take at least one set."
                 },
                 {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 9.4/8.1 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Mintegi Del Olmo A. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 52.8,
+                    "model_odds": 1.8,
+                    "reason": "Insufficient game dominance gap (8.5%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 70.2,
+                    "model_odds": 1.35,
+                    "reason": "Borderline 3-set probability (29.8%). No strong edge detected — shown for reference only."
+                },
+                {
                     "market": "First Set Winner",
                     "selection": "Mintegi Del Olmo A.",
                     "confidence": "Medium",
                     "probability": 69.8,
                     "model_odds": 1.36,
                     "reason": "Mintegi Del Olmo A. wins the opening set in 70% of matches — a +16% edge over the opponent on the first-set market."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 64.7,
+                    "model_odds": 1.47,
+                    "reason": "Borderline tiebreak probability (35.3%). No strong edge — shown for reference only."
                 },
                 {
                     "market": "Bagel / Breadstick",
@@ -7027,6 +8979,54 @@
             "edge_percentage": null,
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Sherif M. -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 59.1,
+                    "model_odds": 1.61,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=59.1%, dom_diff=-1.5%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 9.0/9.5 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Sherif M. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 40.9,
+                    "model_odds": 2.32,
+                    "reason": "Insufficient game dominance gap (0.6%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 57.1,
+                    "model_odds": 1.66,
+                    "reason": "Borderline 3-set probability (42.9%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Ruggeri J.",
+                    "confidence": "Low",
+                    "probability": 67.4,
+                    "model_odds": 1.41,
+                    "reason": "First-set win rate gap is small (2.3%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 47.4,
+                    "model_odds": 2.0,
+                    "reason": "Borderline tiebreak probability (47.4%). No strong edge — shown for reference only."
+                },
                 {
                     "market": "Bagel / Breadstick",
                     "selection": "Yes — A Set Won 6-0 or 6-1",
@@ -7193,12 +9193,52 @@
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
+                    "market": "Set Handicap",
+                    "selection": "Korneeva A. -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 62.0,
+                    "model_odds": 1.53,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=65.2%, dom_diff=-5.1%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 9.2/9.1 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Korneeva A. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 42.4,
+                    "model_odds": 2.24,
+                    "reason": "Insufficient game dominance gap (-1.6%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 65.8,
+                    "model_odds": 1.44,
+                    "reason": "Borderline 3-set probability (34.2%). No strong edge detected — shown for reference only."
+                },
+                {
                     "market": "First Set Winner",
                     "selection": "Kubka M.",
                     "confidence": "Medium",
                     "probability": 74.4,
                     "model_odds": 1.28,
                     "reason": "Kubka M. wins the opening set in 74% of matches — a +20% edge over the opponent on the first-set market."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 41.3,
+                    "model_odds": 2.3,
+                    "reason": "Borderline tiebreak probability (41.3%). No strong edge — shown for reference only."
                 },
                 {
                     "market": "Bagel / Breadstick",
@@ -7374,12 +9414,44 @@
                     "reason": "Vidmanova D. carries high fatigue (8 sets in last 3 matches), creating a set-cover opportunity for Micic E.."
                 },
                 {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 9.5/9.4 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Vidmanova D. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 44.8,
+                    "model_odds": 2.12,
+                    "reason": "Insufficient game dominance gap (3.2%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 67.0,
+                    "model_odds": 1.42,
+                    "reason": "Borderline 3-set probability (33.0%). No strong edge detected — shown for reference only."
+                },
+                {
                     "market": "First Set Winner",
                     "selection": "Vidmanova D.",
                     "confidence": "Medium",
                     "probability": 65.1,
                     "model_odds": 1.46,
                     "reason": "Vidmanova D. wins the opening set in 65% of matches — a +15% edge over the opponent on the first-set market."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 45.7,
+                    "model_odds": 2.08,
+                    "reason": "Borderline tiebreak probability (45.7%). No strong edge — shown for reference only."
                 },
                 {
                     "market": "Bagel / Breadstick",
@@ -7551,12 +9623,44 @@
                     "reason": "Vandromme J. carries high fatigue (8 sets in last 3 matches), creating a set-cover opportunity for Ryser V.."
                 },
                 {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 9.4/9.5 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Vandromme J. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.4,
+                    "model_odds": 2.09,
+                    "reason": "Insufficient game dominance gap (3.6%) for a strong spread signal. Shown for reference only."
+                },
+                {
                     "market": "Both Players to Win a Set",
                     "selection": "No",
                     "confidence": "High",
                     "probability": 74.1,
                     "model_odds": 1.28,
                     "reason": "Vandromme J. wins in straight sets 69% of the time with a 71.6% match projection — a clean sweep is the dominant scenario."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Vandromme J.",
+                    "confidence": "Low",
+                    "probability": 53.5,
+                    "model_odds": 1.78,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 65.6,
+                    "model_odds": 1.45,
+                    "reason": "Borderline tiebreak probability (34.4%). No strong edge — shown for reference only."
                 },
                 {
                     "market": "Bagel / Breadstick",

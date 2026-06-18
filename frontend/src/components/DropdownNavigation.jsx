@@ -62,7 +62,10 @@ function DropdownNavigation({
                                     } ${isComingSoon ? 'opacity-50 hover:opacity-100' : ''}`}
                                 >
                                     <span className="flex items-center gap-3">
-                                        <span className="text-base leading-none">{sport.icon}</span>
+                                        {sport.logo
+                                            ? <img src={sport.logo} alt={sport.name} className="w-5 h-5 object-contain" onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='inline'; }} />
+                                            : null}
+                                        <span className="text-base leading-none" style={sport.logo ? {display:'none'} : {}}>{sport.icon}</span>
                                         <span>{sport.name}</span>
                                     </span>
                                     {isBeta && (
