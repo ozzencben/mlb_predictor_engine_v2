@@ -627,7 +627,7 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                             Röntgen &amp; AI Edge
                             {predict.alternative_bets && predict.alternative_bets.length > 0 && (
                                 <span className={`px-1.5 py-0.5 rounded text-[8px] font-black border ${hasHighConf ? 'bg-indigo-950/60 text-indigo-400 border-indigo-500/30' : 'bg-slate-900 text-slate-500 border-slate-800'}`}>
-                                    {predict.alternative_bets.length} Plays
+                                    {predict.alternative_bets.length} Markets
                                 </span>
                             )}
                             {predict.ai_insight && (
@@ -694,46 +694,72 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                             {/* 4. Alternative Bahis Önerileri */}
                             {predict.alternative_bets && predict.alternative_bets.length > 0 && (
                                 <div className="space-y-2.5">
-                                    <span className="text-[7.5px] font-black uppercase tracking-widest text-slate-500 block">🎯 Alternative Plays</span>
+                                    <div className="flex items-center justify-between">
+                                        <span className="text-[7.5px] font-black uppercase tracking-widest text-slate-500">🎯 Alternative Plays</span>
+                                        <span className="text-[7.5px] font-bold text-slate-600 uppercase tracking-wider">Model-Implied Odds</span>
+                                    </div>
                                     <div className="space-y-2">
                                         {predict.alternative_bets.map((alt, idx) => {
                                             const isHigh = alt.confidence === 'High';
+                                            const hasOdds = alt.model_odds != null && alt.model_odds > 1.0;
+                                            const americanOdds = hasOdds ? formatOdds(alt.model_odds) : null;
                                             return (
                                                 <div
                                                     key={idx}
-                                                    className={`rounded-xl p-3.5 space-y-2 transition-all
+                                                    className={`rounded-2xl overflow-hidden transition-all
                                                         ${isHigh
-                                                            ? 'bg-indigo-950/20 border border-indigo-500/25 shadow-[0_0_18px_rgba(99,102,241,0.12)]'
-                                                            : 'bg-slate-950/40 border border-slate-900/60'
+                                                            ? 'border border-indigo-500/25 shadow-[0_0_20px_rgba(99,102,241,0.10)]'
+                                                            : 'border border-slate-900/70'
                                                         }`}
                                                 >
-                                <div className="flex justify-between items-center gap-2">
-                                        <div className="flex items-center gap-2 min-w-0 flex-wrap">
-                                            <span className={`text-[8px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded border flex-shrink-0 flex items-center gap-1
-                                                ${isHigh
-                                                    ? 'bg-indigo-950/80 text-indigo-300 border-indigo-500/30'
-                                                    : 'bg-slate-900 text-slate-500 border-slate-850'
-                                                }`}>
-                                                <span>{getMarketIcon(alt.market)}</span>
-                                                {alt.market}
-                                            </span>
-                                            <strong className={`text-[11px] font-black leading-tight ${isHigh ? 'text-white' : 'text-indigo-300'}`}>
-                                                {alt.selection}
-                                            </strong>
-                                        </div>
-                                                        <span className={`text-[7px] font-black tracking-wider uppercase px-2 py-0.5 rounded-full border flex-shrink-0
+                                                    {/* ── Top bar: market + confidence ── */}
+                                                    <div className={`flex items-center justify-between px-3 py-1.5
+                                                        ${isHigh ? 'bg-indigo-950/50' : 'bg-slate-950/60'}`}>
+                                                        <span className={`text-[7.5px] font-black uppercase tracking-widest flex items-center gap-1
+                                                            ${isHigh ? 'text-indigo-400' : 'text-slate-500'}`}>
+                                                            {getMarketIcon(alt.market)} {alt.market}
+                                                        </span>
+                                                        <span className={`text-[7px] font-black tracking-wider uppercase px-2 py-0.5 rounded-full border
                                                             ${isHigh
-                                                                ? 'bg-emerald-950/60 text-emerald-400 border-emerald-500/30 shadow-[0_0_8px_rgba(52,211,153,0.2)]'
-                                                                : 'bg-amber-950/40 text-amber-400 border-amber-500/20'
+                                                                ? 'bg-emerald-950/60 text-emerald-400 border-emerald-500/30'
+                                                                : 'bg-amber-950/40 text-amber-500 border-amber-500/20'
                                                             }`}>
-                                                            {isHigh ? '🔥 HIGH' : 'MED'}
+                                                            {isHigh ? '🔥 HIGH' : '⚡ MED'}
                                                         </span>
                                                     </div>
 
-                                                    <p className={`text-[10px] leading-relaxed font-medium ${isHigh ? 'text-slate-300' : 'text-slate-400'}`}>
-                                                        {isHigh ? '💡 ' : ''}
-                                                        {alt.reason}
-                                                    </p>
+                                                    {/* ── Main body: selection + odds ── */}
+                                                    <div className={`flex items-center justify-between px-3 py-2.5 gap-3
+                                                        ${isHigh ? 'bg-indigo-950/15' : 'bg-slate-950/40'}`}>
+                                                        <span className={`text-[12px] font-black leading-tight flex-1 min-w-0
+                                                            ${isHigh ? 'text-white' : 'text-slate-200'}`}>
+                                                            {alt.selection}
+                                                        </span>
+                                                        {hasOdds && (
+                                                            <div className="flex flex-col items-end flex-shrink-0">
+                                                                <span className={`text-base font-black tabular-nums leading-none
+                                                                    ${isHigh
+                                                                        ? 'text-indigo-300 drop-shadow-[0_0_8px_rgba(129,140,248,0.4)]'
+                                                                        : 'text-slate-300'
+                                                                    }`}>
+                                                                    {americanOdds}
+                                                                </span>
+                                                                {alt.probability != null && (
+                                                                    <span className="text-[8px] font-bold text-slate-500 mt-0.5 tabular-nums">
+                                                                        Model: {alt.probability}%
+                                                                    </span>
+                                                                )}
+                                                            </div>
+                                                        )}
+                                                    </div>
+
+                                                    {/* ── Reason ── */}
+                                                    <div className={`px-3 pb-2.5 pt-0 border-t
+                                                        ${isHigh ? 'border-indigo-900/40 bg-indigo-950/10' : 'border-slate-900/50 bg-slate-950/30'}`}>
+                                                        <p className="text-[9.5px] leading-relaxed font-medium text-slate-400 pt-2">
+                                                            {alt.reason}
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             );
                                         })}

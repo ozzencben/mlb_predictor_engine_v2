@@ -1,172 +1,23 @@
 {
-    "date": "2026-06-16",
+    "date": "2026-06-18",
     "active_statistics": {
         "total_predicted": 0,
         "correct_predictions": 0,
         "accuracy_percentage": 0.0
     },
     "low_confidence_statistics": {
-        "total_predicted": 2,
-        "correct_predictions": 1,
-        "accuracy_percentage": 50.0
+        "total_predicted": 0,
+        "correct_predictions": 0,
+        "accuracy_percentage": 0.0
     },
     "alt_league_statistics": {
         "total_predicted": 4,
         "correct_predictions": 3,
         "accuracy_percentage": 75.0
     },
-    "skipped_count": 4,
+    "skipped_count": 6,
     "active_results": [],
-    "low_confidence_results": [
-        {
-            "match_id": "rNyX0297",
-            "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II (World)",
-            "match_stage": "Quarter-finals",
-            "match_time": "22:00 ET",
-            "timestamp": 1781575200,
-            "home_player": "Hong Kong W",
-            "away_player": "Pacific Oceania W",
-            "predicted_winner": 2,
-            "actual_winner": 1,
-            "is_correct": false,
-            "home_win_probability": 42.51,
-            "away_win_probability": 57.49,
-            "result_status": "[YANLIS]",
-            "p1_odds": null,
-            "p2_odds": null,
-            "edge_percentage": null,
-            "recommended_kelly_bet_percentage": null,
-            "alternative_bets": [
-                {
-                    "market": "Set Handicap",
-                    "selection": "Hong Kong W +1.5 Sets",
-                    "confidence": "Medium",
-                    "reason": "Close H2H projection (57.5%) indicates a tight contest, raising value on Hong Kong W to steal at least a set."
-                }
-            ],
-            "p1_stats": {
-                "rank": 100,
-                "elo": 1500.0,
-                "surface_rate": 0.0,
-                "momentum": 0.0,
-                "fatigue": 3,
-                "set_dominance": 0.333,
-                "game_dominance": 0.467,
-                "rest_days": 1,
-                "clutch_win_rate": 0.0,
-                "straight_sets_rate": 0.0,
-                "recent_form": [
-                    {
-                        "result": "L",
-                        "opponent": "Philippines W",
-                        "score": "1-2",
-                        "surface": "Hard",
-                        "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II",
-                        "date": "2026-06-15"
-                    }
-                ],
-                "name": "Hong Kong W"
-            },
-            "p2_stats": {
-                "rank": 100,
-                "elo": 1500.0,
-                "surface_rate": 1.0,
-                "momentum": 1.0,
-                "fatigue": 3,
-                "set_dominance": 0.667,
-                "game_dominance": 0.533,
-                "rest_days": 1,
-                "clutch_win_rate": 100.0,
-                "straight_sets_rate": 0.0,
-                "recent_form": [
-                    {
-                        "result": "W",
-                        "opponent": "Kyrgyzstan W",
-                        "score": "2-1",
-                        "surface": "Hard",
-                        "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II",
-                        "date": "2026-06-15"
-                    }
-                ],
-                "name": "Pacific Oceania W"
-            },
-            "set_scores": []
-        },
-        {
-            "match_id": "xKwkewxg",
-            "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II (World)",
-            "match_stage": "Quarter-finals",
-            "match_time": "22:00 ET",
-            "timestamp": 1781575200,
-            "home_player": "Laos W",
-            "away_player": "Sri Lanka W",
-            "predicted_winner": 2,
-            "actual_winner": 2,
-            "is_correct": true,
-            "home_win_probability": 48.39,
-            "away_win_probability": 51.61,
-            "result_status": "[DOGRU]",
-            "p1_odds": null,
-            "p2_odds": null,
-            "edge_percentage": null,
-            "recommended_kelly_bet_percentage": null,
-            "alternative_bets": [
-                {
-                    "market": "Set Handicap",
-                    "selection": "Laos W +1.5 Sets",
-                    "confidence": "Medium",
-                    "reason": "Close H2H projection (51.6%) indicates a tight contest, raising value on Laos W to steal at least a set."
-                }
-            ],
-            "p1_stats": {
-                "rank": 100,
-                "elo": 1500.0,
-                "surface_rate": 0.0,
-                "momentum": 0.0,
-                "fatigue": 3,
-                "set_dominance": 0.0,
-                "game_dominance": 0.4,
-                "rest_days": 1,
-                "clutch_win_rate": 0.0,
-                "straight_sets_rate": 0.0,
-                "recent_form": [
-                    {
-                        "result": "L",
-                        "opponent": "Malaysia W",
-                        "score": "0-3",
-                        "surface": "Hard",
-                        "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II",
-                        "date": "2026-06-15"
-                    }
-                ],
-                "name": "Laos W"
-            },
-            "p2_stats": {
-                "rank": 100,
-                "elo": 1500.0,
-                "surface_rate": 0.0,
-                "momentum": 0.0,
-                "fatigue": 3,
-                "set_dominance": 0.333,
-                "game_dominance": 0.467,
-                "rest_days": 1,
-                "clutch_win_rate": 0.0,
-                "straight_sets_rate": 0.0,
-                "recent_form": [
-                    {
-                        "result": "L",
-                        "opponent": "Uzbekistan W",
-                        "score": "1-2",
-                        "surface": "Hard",
-                        "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II",
-                        "date": "2026-06-15"
-                    }
-                ],
-                "name": "Sri Lanka W"
-            },
-            "set_scores": []
-        }
-    ],
+    "low_confidence_results": [],
     "alt_league_results": [
         {
             "match_id": "z9MNECmd",
@@ -179,26 +30,73 @@
             "predicted_winner": 1,
             "actual_winner": 1,
             "is_correct": true,
-            "home_win_probability": 71.17,
-            "away_win_probability": 28.83,
+            "home_win_probability": 72.84,
+            "away_win_probability": 27.16,
             "result_status": "[DOGRU]",
             "p1_odds": null,
             "p2_odds": null,
             "edge_percentage": null,
             "recommended_kelly_bet_percentage": null,
-            "alternative_bets": [],
+            "alternative_bets": [
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Medium",
+                    "probability": 80.0,
+                    "model_odds": 1.19,
+                    "reason": "Quick-set profiles (avg 9.1/8.9 games/set) and a dominant favorite (72.8%) point to an efficient, low-game match."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "High",
+                    "probability": 80.0,
+                    "model_odds": 1.19,
+                    "reason": "Estevez J. wins in straight sets 93% of the time with a 72.8% match projection — a clean sweep is the dominant scenario."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Estevez J.",
+                    "confidence": "High",
+                    "probability": 67.4,
+                    "model_odds": 1.41,
+                    "reason": "Estevez J. wins the opening set in 67% of matches — a +23% edge over the opponent on the first-set market."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "High",
+                    "probability": 50.9,
+                    "model_odds": 1.87,
+                    "reason": "Estevez J. wins a dominant set (6-0/6-1) in 38% of their matches — the combined match profile projects at least one lopsided set."
+                }
+            ],
             "p1_stats": {
                 "rank": 385,
-                "elo": 1582.2188356554263,
+                "elo": 1588.7005564128906,
                 "surface_rate": 0.651,
-                "momentum": 0.492,
+                "momentum": 0.543,
                 "fatigue": 7,
-                "set_dominance": 0.663,
-                "game_dominance": 0.533,
-                "rest_days": 5,
-                "clutch_win_rate": 33.3,
-                "straight_sets_rate": 89.3,
+                "set_dominance": 0.67,
+                "game_dominance": 0.581,
+                "rest_days": 3,
+                "clutch_win_rate": 25.0,
+                "straight_sets_rate": 92.9,
+                "tiebreak_win_rate": 69.2,
+                "first_set_win_rate": 67.4,
+                "comeback_rate": 14.3,
+                "close_set_rate": 22.1,
+                "avg_games_per_set": 9.09,
+                "bagel_breadstick_rate": 37.5,
                 "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Linde Palacios S. A.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Asuncion 2",
+                        "date": "2026-06-15"
+                    },
                     {
                         "result": "L",
                         "opponent": "Cigarran T.",
@@ -230,30 +128,36 @@
                         "surface": "Clay",
                         "tournament": "Cordoba",
                         "date": "2026-05-12"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Villanueva G.",
-                        "score": "0-2",
-                        "surface": "Clay",
-                        "tournament": "M25 Villa Maria",
-                        "date": "2026-05-09"
                     }
                 ],
                 "name": "Estevez J."
             },
             "p2_stats": {
                 "rank": 624,
-                "elo": 1516.364194098808,
-                "surface_rate": 0.4,
-                "momentum": 0.396,
+                "elo": 1515.9985834409022,
+                "surface_rate": 0.389,
+                "momentum": 0.357,
                 "fatigue": 7,
                 "set_dominance": 0.41,
-                "game_dominance": 0.482,
-                "rest_days": 9,
+                "game_dominance": 0.457,
+                "rest_days": 3,
                 "clutch_win_rate": 28.6,
                 "straight_sets_rate": 73.3,
+                "tiebreak_win_rate": 66.7,
+                "first_set_win_rate": 44.2,
+                "comeback_rate": 12.5,
+                "close_set_rate": 14.9,
+                "avg_games_per_set": 8.89,
+                "bagel_breadstick_rate": 21.4,
                 "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Estevez J.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "Asuncion 2",
+                        "date": "2026-06-15"
+                    },
                     {
                         "result": "L",
                         "opponent": "Chelia B.",
@@ -285,14 +189,6 @@
                         "surface": "Clay",
                         "tournament": "Cordoba",
                         "date": "2026-05-12"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Castro L. C.",
-                        "score": "2-1",
-                        "surface": "Clay",
-                        "tournament": "Cordoba",
-                        "date": "2026-05-11"
                     }
                 ],
                 "name": "Linde Palacios S. A."
@@ -319,8 +215,8 @@
             "predicted_winner": 2,
             "actual_winner": 2,
             "is_correct": true,
-            "home_win_probability": 28.77,
-            "away_win_probability": 71.23,
+            "home_win_probability": 36.14,
+            "away_win_probability": 63.86,
             "result_status": "[DOGRU]",
             "p1_odds": null,
             "p2_odds": null,
@@ -328,24 +224,48 @@
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
-                    "market": "Set Handicap",
-                    "selection": "Hardt N. -1.5 Sets",
+                    "market": "First Set Winner",
+                    "selection": "Hardt N.",
                     "confidence": "High",
-                    "reason": "AI models select Hardt N. to win in straight sets, backed by high set dominance diff (+20.1%) and optimal fatigue level (6 sets)."
+                    "probability": 79.1,
+                    "model_odds": 1.2,
+                    "reason": "Hardt N. wins the opening set in 79% of matches — a +28% edge over the opponent on the first-set market."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Medium",
+                    "probability": 37.4,
+                    "model_odds": 2.54,
+                    "reason": "Hardt N. wins a dominant set (6-0/6-1) in 25% of their matches — the combined match profile projects at least one lopsided set."
                 }
             ],
             "p1_stats": {
                 "rank": 609,
-                "elo": 1618.3945667274572,
-                "surface_rate": 0.525,
-                "momentum": 0.397,
-                "fatigue": 7,
-                "set_dominance": 0.5,
-                "game_dominance": 0.5,
-                "rest_days": 6,
-                "clutch_win_rate": 69.2,
-                "straight_sets_rate": 59.1,
+                "elo": 1612.99860835693,
+                "surface_rate": 0.5,
+                "momentum": 0.356,
+                "fatigue": 8,
+                "set_dominance": 0.485,
+                "game_dominance": 0.508,
+                "rest_days": 3,
+                "clutch_win_rate": 64.3,
+                "straight_sets_rate": 57.1,
+                "tiebreak_win_rate": 22.2,
+                "first_set_win_rate": 51.2,
+                "comeback_rate": 10.0,
+                "close_set_rate": 22.2,
+                "avg_games_per_set": 9.37,
+                "bagel_breadstick_rate": 17.0,
                 "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Hardt N.",
+                        "score": "1-2",
+                        "surface": "Clay",
+                        "tournament": "Asuncion 2",
+                        "date": "2026-06-15"
+                    },
                     {
                         "result": "L",
                         "opponent": "Hardt N.",
@@ -377,30 +297,36 @@
                         "surface": "Clay",
                         "tournament": "Santos",
                         "date": "2026-05-06"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Remondy Pagotto V. H.",
-                        "score": "2-1",
-                        "surface": "Clay",
-                        "tournament": "Santos",
-                        "date": "2026-05-05"
                     }
                 ],
                 "name": "Fernandez B."
             },
             "p2_stats": {
                 "rank": 390,
-                "elo": 1729.871121395915,
+                "elo": 1727.9323718288595,
                 "surface_rate": 0.788,
-                "momentum": 0.825,
-                "fatigue": 6,
+                "momentum": 0.843,
+                "fatigue": 7,
                 "set_dominance": 0.701,
-                "game_dominance": 0.54,
-                "rest_days": 4,
+                "game_dominance": 0.578,
+                "rest_days": 3,
                 "clutch_win_rate": 76.9,
                 "straight_sets_rate": 68.8,
+                "tiebreak_win_rate": 60.0,
+                "first_set_win_rate": 79.1,
+                "comeback_rate": 33.3,
+                "close_set_rate": 19.2,
+                "avg_games_per_set": 8.98,
+                "bagel_breadstick_rate": 24.6,
                 "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Fernandez B.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "Asuncion 2",
+                        "date": "2026-06-15"
+                    },
                     {
                         "result": "L",
                         "opponent": "Kicker N.",
@@ -432,14 +358,6 @@
                         "surface": "Clay",
                         "tournament": "M25 Cuiaba",
                         "date": "2026-06-07"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Alves M.",
-                        "score": "2-1",
-                        "surface": "Clay",
-                        "tournament": "M25 Cuiaba",
-                        "date": "2026-06-05"
                     }
                 ],
                 "name": "Hardt N."
@@ -470,26 +388,73 @@
             "predicted_winner": 1,
             "actual_winner": 2,
             "is_correct": false,
-            "home_win_probability": 65.58,
-            "away_win_probability": 34.42,
+            "home_win_probability": 55.1,
+            "away_win_probability": 44.9,
             "result_status": "[YANLIS]",
             "p1_odds": null,
             "p2_odds": null,
             "edge_percentage": null,
             "recommended_kelly_bet_percentage": null,
-            "alternative_bets": [],
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Gomez J. S. +1.5 Sets",
+                    "confidence": "Medium",
+                    "probability": 68.9,
+                    "model_odds": 1.38,
+                    "reason": "Close projection (55.1%) indicates a tight contest — value on Gomez J. S. to take at least one set."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Medium",
+                    "probability": 40.0,
+                    "model_odds": 2.37,
+                    "reason": "Both players average 9.3 and 9.5 games/set — combined style projects a high-game-count match (Over 21.5 Games)."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Zarate C. M.",
+                    "confidence": "High",
+                    "probability": 60.5,
+                    "model_odds": 1.57,
+                    "reason": "Zarate C. M. wins the opening set in 60% of matches — a +21% edge over the opponent on the first-set market."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Medium",
+                    "probability": 36.6,
+                    "model_odds": 2.59,
+                    "reason": "Gomez J. S. wins a dominant set (6-0/6-1) in 21% of their matches — the combined match profile projects at least one lopsided set."
+                }
+            ],
             "p1_stats": {
                 "rank": 467,
-                "elo": 1635.1990763386052,
+                "elo": 1617.448151420203,
                 "surface_rate": 0.61,
-                "momentum": 0.642,
-                "fatigue": 7,
-                "set_dominance": 0.573,
-                "game_dominance": 0.515,
-                "rest_days": 4,
-                "clutch_win_rate": 58.3,
+                "momentum": 0.578,
+                "fatigue": 8,
+                "set_dominance": 0.577,
+                "game_dominance": 0.526,
+                "rest_days": 2,
+                "clutch_win_rate": 53.8,
                 "straight_sets_rate": 65.4,
+                "tiebreak_win_rate": 81.8,
+                "first_set_win_rate": 60.5,
+                "comeback_rate": 11.8,
+                "close_set_rate": 17.5,
+                "avg_games_per_set": 9.26,
+                "bagel_breadstick_rate": 19.6,
                 "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Gomez J. S.",
+                        "score": "1-2",
+                        "surface": "Clay",
+                        "tournament": "Asuncion 2",
+                        "date": "2026-06-16"
+                    },
                     {
                         "result": "L",
                         "opponent": "Ambrogi L. E.",
@@ -521,30 +486,36 @@
                         "surface": "Clay",
                         "tournament": "M25 Cuiaba",
                         "date": "2026-06-08"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Oliveira N.",
-                        "score": "2-1",
-                        "surface": "Clay",
-                        "tournament": "M25 Cuiaba",
-                        "date": "2026-06-06"
                     }
                 ],
                 "name": "Zarate C. M."
             },
             "p2_stats": {
                 "rank": 581,
-                "elo": 1531.0167616770752,
-                "surface_rate": 0.515,
-                "momentum": 0.484,
+                "elo": 1535.0178227835897,
+                "surface_rate": 0.545,
+                "momentum": 0.537,
                 "fatigue": 7,
-                "set_dominance": 0.495,
-                "game_dominance": 0.499,
-                "rest_days": 7,
-                "clutch_win_rate": 58.8,
-                "straight_sets_rate": 50.0,
+                "set_dominance": 0.505,
+                "game_dominance": 0.517,
+                "rest_days": 2,
+                "clutch_win_rate": 64.7,
+                "straight_sets_rate": 47.8,
+                "tiebreak_win_rate": 18.2,
+                "first_set_win_rate": 39.5,
+                "comeback_rate": 34.6,
+                "close_set_rate": 24.3,
+                "avg_games_per_set": 9.52,
+                "bagel_breadstick_rate": 21.2,
                 "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Zarate C. M.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "Asuncion 2",
+                        "date": "2026-06-16"
+                    },
                     {
                         "result": "L",
                         "opponent": "Ambrogi L. E.",
@@ -576,14 +547,6 @@
                         "surface": "Clay",
                         "tournament": "M15 Quito 2",
                         "date": "2026-04-30"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Tsitsipas Pa.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "M15 Quito 2",
-                        "date": "2026-04-28"
                     }
                 ],
                 "name": "Gomez J. S."
@@ -614,8 +577,8 @@
             "predicted_winner": 2,
             "actual_winner": 2,
             "is_correct": true,
-            "home_win_probability": 45.73,
-            "away_win_probability": 54.27,
+            "home_win_probability": 35.12,
+            "away_win_probability": 64.88,
             "result_status": "[DOGRU]",
             "p1_odds": null,
             "p2_odds": null,
@@ -623,30 +586,40 @@
             "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
-                    "market": "Set Handicap",
-                    "selection": "Rodriguez L. J. +1.5 Sets",
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
                     "confidence": "Medium",
-                    "reason": "Close H2H projection (54.3%) indicates a tight contest, raising value on Rodriguez L. J. to steal at least a set."
-                },
-                {
-                    "market": "Total Games",
-                    "selection": "Over 22.5 Games",
-                    "confidence": "High",
-                    "reason": "Symmetric set dominance (diff: 2.5%) and high fatigue levels suggest a grueling, three-set match going Over."
+                    "probability": 38.9,
+                    "model_odds": 2.44,
+                    "reason": "Rodriguez L. J. wins a dominant set (6-0/6-1) in 27% of their matches — the combined match profile projects at least one lopsided set."
                 }
             ],
             "p1_stats": {
                 "rank": 462,
-                "elo": 1610.7913142086643,
-                "surface_rate": 0.581,
-                "momentum": 0.493,
-                "fatigue": 6,
-                "set_dominance": 0.596,
-                "game_dominance": 0.519,
-                "rest_days": 5,
+                "elo": 1605.891357651136,
+                "surface_rate": 0.558,
+                "momentum": 0.443,
+                "fatigue": 7,
+                "set_dominance": 0.574,
+                "game_dominance": 0.54,
+                "rest_days": 2,
                 "clutch_win_rate": 40.0,
-                "straight_sets_rate": 80.0,
+                "straight_sets_rate": 79.2,
+                "tiebreak_win_rate": 36.4,
+                "first_set_win_rate": 65.1,
+                "comeback_rate": 0.0,
+                "close_set_rate": 15.6,
+                "avg_games_per_set": 8.95,
+                "bagel_breadstick_rate": 27.3,
                 "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Ribeiro E.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "Asuncion 2",
+                        "date": "2026-06-16"
+                    },
                     {
                         "result": "L",
                         "opponent": "Pucinelli de Almeida M.",
@@ -678,30 +651,36 @@
                         "surface": "Clay",
                         "tournament": "Santos",
                         "date": "2026-05-08"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Justo G. I.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "Santos",
-                        "date": "2026-05-07"
                     }
                 ],
                 "name": "Rodriguez L. J."
             },
             "p2_stats": {
                 "rank": 386,
-                "elo": 1619.5579147348058,
-                "surface_rate": 0.619,
-                "momentum": 0.466,
+                "elo": 1619.2561741083418,
+                "surface_rate": 0.61,
+                "momentum": 0.519,
                 "fatigue": 7,
-                "set_dominance": 0.621,
-                "game_dominance": 0.524,
-                "rest_days": 5,
-                "clutch_win_rate": 41.2,
-                "straight_sets_rate": 74.1,
+                "set_dominance": 0.62,
+                "game_dominance": 0.553,
+                "rest_days": 2,
+                "clutch_win_rate": 37.5,
+                "straight_sets_rate": 76.9,
+                "tiebreak_win_rate": 33.3,
+                "first_set_win_rate": 65.1,
+                "comeback_rate": 20.0,
+                "close_set_rate": 20.8,
+                "avg_games_per_set": 9.43,
+                "bagel_breadstick_rate": 15.9,
                 "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Rodriguez L. J.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Asuncion 2",
+                        "date": "2026-06-16"
+                    },
                     {
                         "result": "L",
                         "opponent": "Rodriguez J. A.",
@@ -733,14 +712,6 @@
                         "surface": "Clay",
                         "tournament": "Cordoba",
                         "date": "2026-05-13"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Cavallo F.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "Cordoba",
-                        "date": "2026-05-11"
                     }
                 ],
                 "name": "Ribeiro E."

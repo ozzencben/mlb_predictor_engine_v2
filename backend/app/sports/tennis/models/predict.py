@@ -237,38 +237,49 @@ def get_match_prediction(p1_name, p1_id, p2_name, p2_id, ground_type, model):
 
     return float(p1_win_chance)
 
+def _prob_to_model_odds(p: float, vig: float = 0.05) -> float:
+    """Converts a win probability (0-1) to decimal model-implied odds with a small vig."""
+    p = max(0.10, min(0.92, p))
+    return round((1.0 - vig) / p, 2)
+
+
 def generate_alternative_bets(model_prob_p1, p1_metrics, p2_metrics):
     """
     Rule engine: produces alternative market recommendations using model probabilities
-    and player metrics. Markets: Set Handicap, Total Games O/U, Game Spread,
-    Both Players to Win a Set, First Set Winner.
+    and player metrics. Each recommendation includes probability and model-implied odds.
+    Markets: Set Handicap, Total Games O/U, Game Spread, Both Players to Win a Set,
+    First Set Winner, Any Set to Tiebreak, Bagel/Breadstick.
     """
     recommendations = []
-    
+
     p1_name = p1_metrics["name"]
     p2_name = p2_metrics["name"]
-    
+
     is_p1_fav = model_prob_p1 >= 50.0
     fav_prob = model_prob_p1 if is_p1_fav else (100.0 - model_prob_p1)
-    
+
     favorite = p1_metrics if is_p1_fav else p2_metrics
     underdog = p2_metrics if is_p1_fav else p1_metrics
-    
+
     fav_name = favorite["name"]
     und_name = underdog["name"]
-    
+
     set_dominance_diff = favorite["set_dominance"] - underdog["set_dominance"]
     game_dominance_diff = favorite["game_dominance"] - underdog["game_dominance"]
 
     # ── 1. SET HANDİKAPI ───────────────────────────────────────────────────
     if fav_prob >= 70.0 and set_dominance_diff > 0.15 and favorite["fatigue"] <= 6:
+        p_straight = max(0.35, min(0.82, (fav_prob - 50) / 100 * 1.5 + 0.35 + set_dominance_diff * 0.5))
         recommendations.append({
             "market": "Set Handicap",
             "selection": f"{fav_name} -1.5 Sets",
             "confidence": "High",
+            "probability": round(p_straight * 100, 1),
+            "model_odds": _prob_to_model_odds(p_straight),
             "reason": f"AI models project {fav_name} for a straight-set win backed by set dominance diff (+{set_dominance_diff*100:.1f}%) and optimal fatigue ({favorite['fatigue']} sets)."
         })
     elif fav_prob < 58.0 or favorite["fatigue"] >= 8:
+        p_cover = max(0.40, min(0.80, 1.0 - max(0.15, (fav_prob - 50) / 100 * 1.2 + 0.25)))
         if fav_prob < 58.0:
             reason_str = f"Close projection ({fav_prob:.1f}%) indicates a tight contest — value on {und_name} to take at least one set."
         else:
@@ -277,10 +288,12 @@ def generate_alternative_bets(model_prob_p1, p1_metrics, p2_metrics):
             "market": "Set Handicap",
             "selection": f"{und_name} +1.5 Sets",
             "confidence": "Medium",
+            "probability": round(p_cover * 100, 1),
+            "model_odds": _prob_to_model_odds(p_cover),
             "reason": reason_str
         })
 
-    # ── 2. TOPLAM OYUN ALT/ÜST — avg_games_per_set enhanced ──────────────
+    # ── 2. TOPLAM OYUN ALT/ÜST ─────────────────────────────────────────────
     p1_avg = p1_metrics.get("avg_games_per_set", 11.0)
     p2_avg = p2_metrics.get("avg_games_per_set", 11.0)
     combined_avg = (p1_avg + p2_avg) / 2.0
@@ -288,41 +301,49 @@ def generate_alternative_bets(model_prob_p1, p1_metrics, p2_metrics):
 
     if combined_avg >= 11.5 or (abs_set_dom_diff < 0.08 and fav_prob < 58.0):
         line = "Over 22.5 Games" if combined_avg >= 11.8 else "Over 21.5 Games"
+        base = 11.8 if combined_avg >= 11.8 else 11.5
+        p_over = max(0.40, min(0.80, (combined_avg - base + 0.3) / 2.5 + 0.45))
         recommendations.append({
             "market": "Total Games",
             "selection": line,
             "confidence": "High" if combined_avg >= 11.8 else "Medium",
-            "reason": f"Both players average {p1_avg:.1f} and {p2_avg:.1f} games/set respectively — combined style projects a high-game-count match ({line})."
+            "probability": round(p_over * 100, 1),
+            "model_odds": _prob_to_model_odds(p_over),
+            "reason": f"Both players average {p1_avg:.1f} and {p2_avg:.1f} games/set — combined style projects a high-game-count match ({line})."
         })
     elif combined_avg <= 10.3 and fav_prob >= 72.0:
+        p_under = max(0.42, min(0.80, (11.5 - combined_avg) / 2.5 + 0.38 + (fav_prob - 50) / 300))
         recommendations.append({
             "market": "Total Games",
             "selection": "Under 21.5 Games",
             "confidence": "High" if fav_prob >= 78.0 else "Medium",
+            "probability": round(p_under * 100, 1),
+            "model_odds": _prob_to_model_odds(p_under),
             "reason": f"Quick-set profiles (avg {p1_avg:.1f}/{p2_avg:.1f} games/set) and a dominant favorite ({fav_prob:.1f}%) point to an efficient, low-game match."
         })
 
     # ── 3. OYUN HANDİKAPI ─────────────────────────────────────────────────
     if game_dominance_diff > 0.08 and fav_prob >= 65.0 and favorite["fatigue"] < 7:
         spread = "-4.5 Games" if game_dominance_diff > 0.12 else "-3.5 Games"
+        p_spread = max(0.40, min(0.78, game_dominance_diff * 2.2 + (fav_prob - 50) / 150 + 0.40))
         recommendations.append({
             "market": "Game Spread",
             "selection": f"{fav_name} {spread}",
             "confidence": "High",
+            "probability": round(p_spread * 100, 1),
+            "model_odds": _prob_to_model_odds(p_spread),
             "reason": f"Game dominance diff of +{game_dominance_diff*100:.1f}% and low fatigue for {fav_name} support a comfortable margin across sets."
         })
 
-    # ── 4. BOTH PLAYERS TO WIN A SET (müşteri talebi) ─────────────────────
+    # ── 4. BOTH PLAYERS TO WIN A SET ──────────────────────────────────────
     fav_straight_rate = favorite.get("straight_sets_rate", 50.0) / 100.0
     und_comeback_rate = underdog.get("comeback_rate", 50.0) / 100.0
-    fav_comeback_rate = favorite.get("comeback_rate", 50.0) / 100.0
 
-    # Probability that match goes to 3 sets (underdog wins at least one)
-    p_three_sets = (
+    p_three_sets = max(0.20, min(0.88, (
         (1.0 - fav_straight_rate) * 0.45
         + (1.0 - fav_prob / 100.0) * 0.35
         + und_comeback_rate * 0.20
-    )
+    )))
 
     if p_three_sets >= 0.55:
         conf = "High" if p_three_sets >= 0.65 else "Medium"
@@ -330,18 +351,23 @@ def generate_alternative_bets(model_prob_p1, p1_metrics, p2_metrics):
             "market": "Both Players to Win a Set",
             "selection": "Yes",
             "confidence": conf,
+            "probability": round(p_three_sets * 100, 1),
+            "model_odds": _prob_to_model_odds(p_three_sets),
             "reason": (
-                f"{und_name} has a {und_comeback_rate*100:.0f}% comeback rate after losing the first set, "
-                f"and {fav_name} wins in straight sets only {fav_straight_rate*100:.0f}% of the time — "
-                f"a competitive 3-set battle is the likely outcome."
+                f"{und_name} has a {und_comeback_rate*100:.0f}% comeback rate and "
+                f"{fav_name} wins in straight sets only {fav_straight_rate*100:.0f}% of the time — "
+                f"a competitive 3-set battle is the projected outcome."
             )
         })
     elif p_three_sets < 0.38 and fav_prob >= 68.0:
+        p_no = 1.0 - p_three_sets
         conf = "High" if p_three_sets < 0.28 else "Medium"
         recommendations.append({
             "market": "Both Players to Win a Set",
             "selection": "No",
             "confidence": conf,
+            "probability": round(p_no * 100, 1),
+            "model_odds": _prob_to_model_odds(p_no),
             "reason": (
                 f"{fav_name} wins in straight sets {fav_straight_rate*100:.0f}% of the time with a {fav_prob:.1f}% "
                 f"match projection — a clean sweep is the dominant scenario."
@@ -355,15 +381,17 @@ def generate_alternative_bets(model_prob_p1, p1_metrics, p2_metrics):
 
     if abs(fsr_diff) >= 0.12:
         fsw_name = p1_name if fsr_diff > 0 else p2_name
-        fsw_rate = max(p1_fsr, p2_fsr)
+        fsw_rate = max(0.30, min(0.88, max(p1_fsr, p2_fsr)))
         conf = "High" if abs(fsr_diff) >= 0.20 else "Medium"
         recommendations.append({
             "market": "First Set Winner",
             "selection": fsw_name,
             "confidence": conf,
+            "probability": round(fsw_rate * 100, 1),
+            "model_odds": _prob_to_model_odds(fsw_rate),
             "reason": (
-                f"{fsw_name} wins the opening set in {fsw_rate*100:.0f}% of matches, "
-                f"a +{abs(fsr_diff)*100:.0f}% edge over their opponent for the first-set market."
+                f"{fsw_name} wins the opening set in {fsw_rate*100:.0f}% of matches — "
+                f"a +{abs(fsr_diff)*100:.0f}% edge over the opponent on the first-set market."
             )
         })
 
@@ -373,12 +401,11 @@ def generate_alternative_bets(model_prob_p1, p1_metrics, p2_metrics):
     p1_csr = p1_metrics.get("close_set_rate", 30.0) / 100.0
     p2_csr = p2_metrics.get("close_set_rate", 30.0) / 100.0
 
-    # Combined probability: weighted average of tiebreak involvement & close set frequency
-    combined_tb_prob = (
+    combined_tb_prob = max(0.15, min(0.85, (
         (p1_tbr + p2_tbr) / 2.0 * 0.55
         + (p1_csr + p2_csr) / 2.0 * 0.35
         + (1.0 - fav_prob / 100.0) * 0.10
-    )
+    )))
 
     if combined_tb_prob >= 0.48:
         conf = "High" if combined_tb_prob >= 0.58 else "Medium"
@@ -386,21 +413,47 @@ def generate_alternative_bets(model_prob_p1, p1_metrics, p2_metrics):
             "market": "Any Set to Tiebreak",
             "selection": "Yes",
             "confidence": conf,
+            "probability": round(combined_tb_prob * 100, 1),
+            "model_odds": _prob_to_model_odds(combined_tb_prob),
             "reason": (
-                f"Both players have strong tiebreak records "
+                f"Both players have strong tiebreak profiles "
                 f"({p1_tbr*100:.0f}% / {p2_tbr*100:.0f}%) and close-set rates "
                 f"({p1_csr*100:.0f}% / {p2_csr*100:.0f}%) — at least one set reaching a tiebreak is the projected outcome."
             )
         })
     elif combined_tb_prob < 0.30 and fav_prob >= 68.0:
+        p_no_tb = 1.0 - combined_tb_prob
         conf = "High" if combined_tb_prob < 0.20 else "Medium"
         recommendations.append({
             "market": "Any Set to Tiebreak",
             "selection": "No",
             "confidence": conf,
+            "probability": round(p_no_tb * 100, 1),
+            "model_odds": _prob_to_model_odds(p_no_tb),
             "reason": (
                 f"A dominant favorite ({fav_prob:.1f}%) with low close-set profiles "
                 f"({p1_csr*100:.0f}% / {p2_csr*100:.0f}%) makes a clean, non-tiebreak win the likely scenario."
+            )
+        })
+
+    # ── 7. BAGEL / BREADSTICK (A Set Won 6-0 or 6-1) ─────────────────────
+    p1_bagel = p1_metrics.get("bagel_breadstick_rate", 10.0) / 100.0
+    p2_bagel = p2_metrics.get("bagel_breadstick_rate", 10.0) / 100.0
+    p_bagel = max(0.10, min(0.65, 1.0 - (1.0 - p1_bagel) * (1.0 - p2_bagel)))
+
+    if p_bagel >= 0.28:
+        conf = "High" if p_bagel >= 0.42 else "Medium"
+        higher_bagel = p1_name if p1_bagel >= p2_bagel else p2_name
+        recommendations.append({
+            "market": "Bagel / Breadstick",
+            "selection": "Yes — A Set Won 6-0 or 6-1",
+            "confidence": conf,
+            "probability": round(p_bagel * 100, 1),
+            "model_odds": _prob_to_model_odds(p_bagel),
+            "reason": (
+                f"{higher_bagel} wins a dominant set (6-0/6-1) in "
+                f"{max(p1_bagel, p2_bagel)*100:.0f}% of their matches — "
+                f"the combined match profile projects at least one lopsided set."
             )
         })
 
