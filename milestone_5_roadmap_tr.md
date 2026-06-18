@@ -231,11 +231,11 @@ Müşterimizden gelen son mesajdaki yeni istekler ve hata bildirimleri aşağıd
   * *Talep:* Maç kartlarının hemen üzerine, o an filtrede seçili olan turnuvanın adını/detaylarını gösteren dinamik bir başlık eklenmesi (Eğer "All" seçiliyse bu başlık gizlenebilir).
 * **Tema Seçici - Gece/Gündüz Modu ("dark or light mode for the user to choose"):**
   * *Talep:* Sayfanın üst kısmına (Navbar vb.) kullanıcının açık veya koyu tema arasında geçiş yapabilmesi için bir Tema Değiştirici eklenmesi.
-* **Kategori Sekmelerinin Sadeleştirilmesi ("get rid of risky/challenger and main"):**
+* **Kategori Sekmelerinin Sadeleştirilmesi ("get rid of risky/challenger and main"):** (YAPILDI)
   * *Talep:* Üst kısımdaki "Main / Challenger Tour / Low Confidence" sekmelerinin tamamen kaldırılması. Bunun yerine Challenger maçlarının da birer "Tur" (Tour Filter) olarak ATP ve WTA butonlarının yanına ("Challenger Tour" butonu şeklinde) konumlandırılması.
-* **Riskli Maçlar İçin Uyarı İkonu ("risky plays ... caution sign"):**
+* **Riskli Maçlar İçin Uyarı İkonu ("risky plays ... caution sign"):** (YAPILDI)
   * *Talep:* Düşük güvenli (risky) maçların ayrı bir sekmede gizlenmesi yerine genel listede gösterilmesi, ancak kartların üzerine dikkat çekici bir uyarı/ünlem işareti yerleştirilmesi.
-* **Tek Ekranda Tüm Maçları Listeleme ("once i click what tourney i want to look at id rather just see all of the matches"):**
+* **Tek Ekranda Tüm Maçları Listeleme ("once i click what tourney i want to look at id rather just see all of the matches"):** (YAPILDI)
   * *Talep:* Dropdown'dan bir turnuva seçildiğinde, o turnuvaya ait tüm maçların (risk seviyesinden bağımsız olarak) tek bir listede listelenmesi.
 
 ### C. Tahmin ve Analitik Modeli Genişletmeleri (Model & Data Updates)
@@ -245,6 +245,45 @@ Müşterimizden gelen son mesajdaki yeni istekler ve hata bildirimleri aşağıd
   * *Talep:* Maç projeksiyonları/tahmin oranları bölümlerinin oyuncu kartlarının en altına kaydırılması.
 * **Kullanılan İstatistiklerin Listesi ("send a list of stats we’re using now"):**
   * *Talep:* Tenis tahminlerinde arka planda simüle edilen ve kullanılan istatistiklerin/metriklerin (Hold%, Break% vb.) detaylı bir listesinin müşteriye gönderilmesi.
+
+---
+
+## 🎾 11. Tenis ML Güncelleme Sonrası Yapılacaklar (Haziran 2026)
+
+Haziran 2026'da gerçekleştirilen veri ve model güncellemesinin ardından (3.000+ oyuncuya oyun skoru verisi eklenmesi, 14 feature'lı yeni XGBoost modeli, Platt kalibrasyonu) sıradaki açık geliştirmeler aşağıda önem sırasına ve zorluk derecesine göre listelenmiştir.
+
+### ✅ Tamamlananlar (Haziran 2026 ML Güncellemesi)
+* `set_scores` verisinin tüm metrik fonksiyonlarına entegrasyonu (`calculate_game_dominance`, `calculate_tiebreak_win_rate`, `calculate_first_set_win_rate`, `calculate_comeback_rate`, `calculate_avg_games_per_set` vb.)
+* ML model feature sayısı 10 → 14'e çıkarıldı; `feature_fatigue_diff` asimetri düzeltmesi yapıldı
+* Platt scaling kalibrasyonu eklendi (`tennis_brain_calibration.json`) — Kelly criterion hesapları artık daha güvenilir
+* Yeni bahis kategorileri backend'e eklendi: **Both Players to Win a Set** ve **First Set Winner**
+* `Total Games O/U` heuristic'i `avg_games_per_set` metriğiyle güçlendirildi
+* Günlük pipeline'a inkremental Elo güncelleme adımı eklendi (`update_elo_incremental`)
+
+---
+
+### 📋 Öncelikli Yapılacaklar Listesi
+
+| Öncelik | İş Kodu | Görev Tanımı | Zorluk Derecesi | Etkilenecek Alanlar |
+|:---:|:---:|:---|:---:|:---|
+| **1** | **M5-P15** | **Frontend:** `alternative_bets` listesinde yeni marketleri kartlarda göster (Both Players to Win a Set, First Set Winner) | 🟢 Kolay | `TennisDashboard.jsx` |
+| **2** | **M5-P16** | **Frontend:** Röntgen / Sabermetrics bölümüne yeni metrikleri ekle (Tiebreak Win Rate, First Set Win Rate, Comeback Rate, Avg Games/Set, Bagel Rate) | 🟢 Kolay | `TennisDashboard.jsx` |
+| **3** | **M5-P17** | **Frontend:** Seçili turnuva başlığını maç kartlarının üstüne dinamik olarak ekle ("All" seçiliyse gizle) | 🟡 Orta | `TennisDashboard.jsx` |
+| **4** | **M5-P18** | **Backend:** `feature_h2h_score` asimetrisini düzelt — H2H'yi 0.5 merkezli diff'e çevir, dataset ve modeli yeniden eğit | 🟡 Orta | `dataset_generator.py`, `train_model.py`, `predict.py` |
+| **5** | **M5-P19** | **Backend:** `Any Set to Tiebreak (Yes/No)` bahis marketi ekle — `tiebreak_win_rate` + `close_set_rate` kullanarak kural motoru | 🟢 Kolay | `predict.py` |
+
+---
+
+### 🔮 İleri Aşama (Düşük Öncelik / İleride Planlanacak)
+
+| İş Kodu | Görev Tanımı | Zorluk Derecesi | Notlar |
+|:---:|:---|:---:|:---|
+| **M5-P20** | **Frontend:** Dark / Light tema seçici (Navbar'a toggle ekle) | 🟢 Kolay | Şu an öncelikli değil |
+| **M5-P21** | **Frontend:** Oyuncu avatar görüntüsü bug fix | 🟢 Kolay | Şu an öncelikli değil |
+| **M5-P22** | **Backend:** `Correct Score (2-0 / 2-1)` bahis marketi — win_prob² yaklaşımıyla kural motoru | 🟡 Orta | Yüksek güvenli maçlarda sunulacak |
+| **M5-P23** | **Backend:** Set Handicap ve Total Games için ayrı ML modeli eğitimi (şu an heuristic) | 🔴 Zor | Yeni etiket veri setine ihtiyaç var |
+| **M5-P24** | **Backend:** Haftalık otomatik retraining görevi (`train_model.py` cron ile çalıştırılması) | 🟡 Orta | Pipeline'a ek adım |
+| **M5-P25** | **Backend:** Bilinmeyen oyuncu rank fallback = 100 sorununu düzelt (dinamik tahmin) | 🟡 Orta | Qualifier maçlarında accuracy artışı sağlar |
 
 ---
 

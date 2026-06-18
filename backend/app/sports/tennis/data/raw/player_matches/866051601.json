@@ -9,6 +9,16 @@
         "home_score": 0,
         "away_score": 2,
         "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            }
+        ],
         "date": "2026-02-12"
     },
     {
@@ -21,6 +31,16 @@
         "home_score": 0,
         "away_score": 1,
         "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "3"
+            }
+        ],
         "date": "2026-02-11"
     }
 ]

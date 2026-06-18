@@ -1,5 +1,27 @@
 [
     {
+        "match_id": "pQpH6FW7",
+        "tournament": "M15 Mungia-Laukariz (Spain), clay",
+        "ground": "Clay",
+        "date_text": "16.06. 12:00",
+        "home_player": "Martinez M.",
+        "away_player": "Nijboer R.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-06-16"
+    },
+    {
         "match_id": "t49Mp9Ph",
         "tournament": "M15 Madrid 2 (Spain), hard",
         "ground": "Hard",
@@ -9,6 +31,16 @@
         "home_score": 2,
         "away_score": 0,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
         "date": "2025-09-12"
     },
     {
@@ -21,6 +53,20 @@
         "home_score": 2,
         "away_score": 1,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
         "date": "2025-09-11"
     },
     {
@@ -33,6 +79,16 @@
         "home_score": 2,
         "away_score": 0,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
         "date": "2025-09-10"
     },
     {
@@ -45,6 +101,20 @@
         "home_score": 2,
         "away_score": 1,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
         "date": "2025-09-03"
     },
     {
@@ -57,6 +127,20 @@
         "home_score": 2,
         "away_score": 1,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
         "date": "2025-08-26"
     },
     {
@@ -69,6 +153,16 @@
         "home_score": 0,
         "away_score": 2,
         "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            }
+        ],
         "date": "2025-07-02"
     },
     {
@@ -81,6 +175,16 @@
         "home_score": 2,
         "away_score": 0,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
         "date": "2025-06-17"
     },
     {
@@ -93,6 +197,16 @@
         "home_score": 2,
         "away_score": 0,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
         "date": "2025-05-14"
     },
     {
@@ -105,6 +219,16 @@
         "home_score": 0,
         "away_score": 2,
         "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            }
+        ],
         "date": "2025-02-12"
     },
     {
@@ -117,6 +241,16 @@
         "home_score": 0,
         "away_score": 2,
         "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
         "date": "2024-11-20"
     },
     {
@@ -129,6 +263,16 @@
         "home_score": 2,
         "away_score": 0,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
         "date": "2024-06-25"
     },
     {
@@ -141,6 +285,16 @@
         "home_score": 0,
         "away_score": 2,
         "winner": "away",
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
         "date": "2024-06-18"
     },
     {
@@ -153,6 +307,16 @@
         "home_score": 2,
         "away_score": 0,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
         "date": "2024-06-12"
     },
     {
@@ -165,6 +329,16 @@
         "home_score": 2,
         "away_score": 0,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
         "date": "2023-12-13"
     },
     {
@@ -177,6 +351,16 @@
         "home_score": 2,
         "away_score": 0,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
         "date": "2023-12-06"
     },
     {
@@ -189,6 +373,16 @@
         "home_score": 2,
         "away_score": 0,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
         "date": "2023-09-13"
     },
     {
@@ -201,6 +395,16 @@
         "home_score": 2,
         "away_score": 0,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
         "date": "2023-09-06"
     },
     {
@@ -213,6 +417,16 @@
         "home_score": 2,
         "away_score": 0,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
         "date": "2023-08-22"
     },
     {
@@ -225,6 +439,20 @@
         "home_score": 2,
         "away_score": 1,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
         "date": "2023-08-02"
     },
     {
@@ -237,6 +465,16 @@
         "home_score": 2,
         "away_score": 0,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
         "date": "2023-07-25"
     },
     {
@@ -249,6 +487,16 @@
         "home_score": 2,
         "away_score": 0,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
         "date": "2023-05-03"
     },
     {
@@ -261,6 +509,16 @@
         "home_score": 2,
         "away_score": 0,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
         "date": "2023-03-16"
     },
     {
@@ -273,6 +531,16 @@
         "home_score": 2,
         "away_score": 0,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
         "date": "2023-03-15"
     },
     {
@@ -285,6 +553,16 @@
         "home_score": 2,
         "away_score": 0,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
         "date": "2023-03-09"
     },
     {
@@ -297,6 +575,16 @@
         "home_score": 2,
         "away_score": 0,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
         "date": "2022-09-13"
     },
     {
@@ -309,6 +597,20 @@
         "home_score": 2,
         "away_score": 1,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
         "date": "2022-09-08"
     },
     {
@@ -321,6 +623,20 @@
         "home_score": 2,
         "away_score": 1,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
         "date": "2022-09-07"
     },
     {
@@ -333,6 +649,20 @@
         "home_score": 1,
         "away_score": 2,
         "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
         "date": "2022-06-28"
     },
     {
@@ -345,6 +675,16 @@
         "home_score": 2,
         "away_score": 0,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
         "date": "2022-06-21"
     },
     {
@@ -357,6 +697,16 @@
         "home_score": 2,
         "away_score": 0,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
         "date": "2021-10-26"
     }
 ]

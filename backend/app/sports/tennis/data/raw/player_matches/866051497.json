@@ -9,6 +9,16 @@
         "home_score": 0,
         "away_score": 2,
         "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
         "date": "2026-05-31"
     },
     {
@@ -21,6 +31,16 @@
         "home_score": 0,
         "away_score": 2,
         "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
         "date": "2026-01-15"
     },
     {
@@ -33,6 +53,12 @@
         "home_score": 0,
         "away_score": 0,
         "winner": "unknown",
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "3"
+            }
+        ],
         "date": "2026-01-13"
     }
 ]

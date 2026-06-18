@@ -20,7 +20,11 @@ from app.sports.tennis.services.feature_builder import (
     calculate_rest_days,
     calculate_elo_expectation,
     update_elo_rating,
-    get_match_k_factor
+    get_match_k_factor,
+    calculate_tiebreak_win_rate,
+    calculate_first_set_win_rate,
+    calculate_comeback_rate,
+    calculate_avg_games_per_set,
 )
 
 data_dir = base_dir / "data"
@@ -233,13 +237,17 @@ def build_feature_matrix():
             opponent_name = target_match["away_player"] if is_home else target_match["home_player"]
             p2_id = name_to_id_map.get(opponent_name.lower())
             
-            p2_ground_ratio = 0.5  # Varsayılan
-            p2_momentum = 0.5      # Varsayılan
-            p2_fatigue = 5         # Varsayılan
-            p2_dominance = 0.5     # Varsayılan
-            p2_game_dominance = 0.5 # Varsayılan
-            p2_rest_days = 7        # Varsayılan
-            
+            p2_ground_ratio = 0.5
+            p2_momentum = 0.5
+            p2_fatigue = 5
+            p2_dominance = 0.5
+            p2_game_dominance = 0.5
+            p2_rest_days = 7
+            p2_tiebreak_rate = 0.5
+            p2_first_set_rate = 0.5
+            p2_comeback_rate = 0.5
+            p2_avg_games = 11.0
+
             if p2_id:
                 p2_matches = load_player_matches(p2_id)
                 # Rakibin SADECE O GÜNKÜ MAÇTAN ÖNCEKİ maçlarını bul!
@@ -253,6 +261,10 @@ def build_feature_matrix():
                     p2_dominance = calculate_dominance_score(p2_history_pool, opponent_name)
                     p2_game_dominance = calculate_game_dominance(p2_history_pool, opponent_name)
                     p2_rest_days = calculate_rest_days(target_date, p2_history_pool)
+                    p2_tiebreak_rate = calculate_tiebreak_win_rate(p2_history_pool, opponent_name)
+                    p2_first_set_rate = calculate_first_set_win_rate(p2_history_pool, opponent_name)
+                    p2_comeback_rate = calculate_comeback_rate(p2_history_pool, opponent_name)
+                    p2_avg_games = calculate_avg_games_per_set(p2_history_pool, opponent_name)
 
             # 3. MATEMATİKSEL FARKLARI HESAPLAMA (Yapay Zekanın Öğreneceği Asıl Şeyler!)
             p2_rank = get_player_rank(opponent_name)
@@ -271,6 +283,18 @@ def build_feature_matrix():
 
             p1_rest_days = calculate_rest_days(target_date, history_pool)
             rest_days_diff = p1_rest_days - p2_rest_days
+
+            # New set-score based metrics
+            p1_tiebreak_rate = calculate_tiebreak_win_rate(history_pool, p_name)
+            p1_first_set_rate = calculate_first_set_win_rate(history_pool, p_name)
+            p1_comeback_rate = calculate_comeback_rate(history_pool, p_name)
+            p1_avg_games = calculate_avg_games_per_set(history_pool, p_name)
+
+            fatigue_diff = p1_fatigue - p2_fatigue
+            tiebreak_rate_diff = p1_tiebreak_rate - p2_tiebreak_rate
+            first_set_rate_diff = p1_first_set_rate - p2_first_set_rate
+            comeback_rate_diff = p1_comeback_rate - p2_comeback_rate
+            avg_games_diff = p1_avg_games - p2_avg_games
 
             # Elo farkını bulalım
             p1_key = p_id
@@ -309,16 +333,20 @@ def build_feature_matrix():
             row = {
                 "player_id": p_id,
                 "player_name": p_name,
-                "feature_surface_rate": p1_ground_ratio,    # P1'in zemin sevgisi
-                "feature_momentum_diff": momentum_diff,     # Form üstünlüğü
-                "feature_ground_diff": ground_diff,         # Zemine yatkınlık farkı
-                "feature_fatigue": p1_fatigue,              # Yorgunluk
-                "feature_rank_diff": rank_diff,             # Klasman farkı
-                "feature_dominance_diff": dominance_diff,   # Set dominantlığı farkı
-                "feature_h2h_score": h2h_score,             # İkili rekabet üstünlüğü
-                "feature_game_dominance_diff": game_dominance_diff, # Oyun dominantlığı farkı
-                "feature_rest_days_diff": rest_days_diff,   # Dinlenme günü farkı
-                "feature_surface_elo_diff": surface_elo_diff, # Elo farkı (Aşama 3)
+                "feature_surface_rate": p1_ground_ratio,
+                "feature_momentum_diff": momentum_diff,
+                "feature_ground_diff": ground_diff,
+                "feature_fatigue_diff": fatigue_diff,
+                "feature_rank_diff": rank_diff,
+                "feature_dominance_diff": dominance_diff,
+                "feature_h2h_score": h2h_score - 0.5,
+                "feature_game_dominance_diff": game_dominance_diff,
+                "feature_rest_days_diff": rest_days_diff,
+                "feature_surface_elo_diff": surface_elo_diff,
+                "feature_tiebreak_win_rate_diff": tiebreak_rate_diff,
+                "feature_first_set_win_rate_diff": first_set_rate_diff,
+                "feature_comeback_rate_diff": comeback_rate_diff,
+                "feature_avg_games_per_set_diff": avg_games_diff,
                 "target_winner": was_winner
             }
 
@@ -326,6 +354,74 @@ def build_feature_matrix():
 
     print(f"\nMatris başarıyla inşa edildi! Toplam Satır Sayısı: {len(feature_rows)}")
     return feature_rows
+
+def update_elo_incremental(matches_path=None):
+    """
+    Lightweight incremental Elo update based on recently completed matches.
+    Loads player_elo.json, applies Elo deltas for each finished match, and saves back.
+    Returns the count of matches processed.
+    """
+    from app.sports.tennis.services.feature_builder import update_elo_rating, get_match_k_factor
+
+    elo_path = data_dir / "player_elo.json"
+    if matches_path is None:
+        matches_path = data_dir / "today_matches.json"
+
+    if not elo_path.exists() or not matches_path.exists():
+        return 0
+
+    with open(elo_path, "r", encoding="utf-8") as f:
+        elo_dict = json.load(f)
+
+    with open(matches_path, "r", encoding="utf-8") as f:
+        matches = json.load(f)
+
+    finished = [m for m in matches if m.get("status_code") == "3" and m.get("winner") in [1, 2]]
+
+    def _elo_surface(ground):
+        return ground if ground in ["Hard", "Clay", "Grass"] else "Hard"
+
+    def _get_elo(p_key, surface):
+        if p_key not in elo_dict:
+            elo_dict[p_key] = {"Hard": 1500, "Clay": 1500, "Grass": 1500}
+        return elo_dict[p_key].get(surface, 1500)
+
+    updated = 0
+    for m in finished:
+        t_info = m.get("tournament", {})
+        t_name = t_info.get("name", "") if isinstance(t_info, dict) else str(t_info)
+
+        t_lower = t_name.lower()
+        ground = "Clay" if "clay" in t_lower else ("Grass" if "grass" in t_lower else "Hard")
+        surface = _elo_surface(ground)
+
+        p1_id = str(m.get("home_player", {}).get("id", ""))
+        p2_id = str(m.get("away_player", {}).get("id", ""))
+        if not p1_id or not p2_id:
+            continue
+
+        winner = m.get("winner")
+        K = get_match_k_factor(t_name)
+
+        p1_elo = _get_elo(p1_id, surface)
+        p2_elo = _get_elo(p2_id, surface)
+
+        if winner == 1:
+            new_p1 = update_elo_rating(p1_elo, p2_elo, did_win=True, K=K)
+            new_p2 = update_elo_rating(p2_elo, p1_elo, did_win=False, K=K)
+        else:
+            new_p1 = update_elo_rating(p1_elo, p2_elo, did_win=False, K=K)
+            new_p2 = update_elo_rating(p2_elo, p1_elo, did_win=True, K=K)
+
+        elo_dict[p1_id][surface] = new_p1
+        elo_dict[p2_id][surface] = new_p2
+        updated += 1
+
+    with open(elo_path, "w", encoding="utf-8") as f:
+        json.dump(elo_dict, f, ensure_ascii=False, indent=4)
+
+    return updated
+
 
 if __name__ == "__main__":
     dataset = build_feature_matrix()

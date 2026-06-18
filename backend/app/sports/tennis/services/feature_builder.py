@@ -30,6 +30,11 @@ def _load_pi_to_id_cache():
 
 _player_matches_cache = {}
 
+def clear_matches_cache():
+    """Clears the in-memory player matches cache so stale data is not served after profile updates."""
+    global _player_matches_cache
+    _player_matches_cache = {}
+
 def load_player_matches(player_id):
     """Belirtilen oyuncunun ID'sine ait olan JSON dosyasını okur ve maç listesini döner."""
     if player_id in _player_matches_cache:
@@ -353,10 +358,33 @@ def calculate_h2h_score(p1_history_pool, p1_name, p2_name):
         
     return p1_h2h_wins / h2h_matches_count
 
+def _extract_set_scores(set_scores):
+    """Parses set_scores list of dicts into (home_games, away_games) int tuples, stripping tiebreak notations."""
+    result = []
+    for s in (set_scores or []):
+        try:
+            h_str = str(s.get("home", "")).split("(")[0].strip()
+            a_str = str(s.get("away", "")).split("(")[0].strip()
+            if h_str and a_str:
+                result.append((int(h_str), int(a_str)))
+        except (ValueError, TypeError):
+            continue
+    return result
+
+def _is_tiebreak_set(h_games, a_games):
+    """Returns True if a set ended in a tiebreak (7-6 in either direction)."""
+    return (h_games == 7 and a_games == 6) or (h_games == 6 and a_games == 7)
+
+def _is_close_set(h_games, a_games):
+    """Returns True if the set was closely contested: 7-5 or tiebreak (7-6)."""
+    max_g = max(h_games, a_games)
+    min_g = min(h_games, a_games)
+    return max_g == 7 and min_g in [5, 6]
+
 def calculate_game_dominance(history_pool, player_name):
     """
-    Oyuncunun geçmiş maçlarında aldığı 'Kazanılan Toplam Oyun / Oynanan Toplam Oyun' oranını hesaplar.
-    Eğer detaylı oyun skorları yoksa, set başına kazanan için 6, kaybeden için 4 oyun varsayılır.
+    Calculates games won / total games ratio.
+    Uses actual set_scores when available; falls back to 6-4 heuristic per set for older data.
     """
     if not history_pool:
         return 0.5
@@ -370,34 +398,32 @@ def calculate_game_dominance(history_pool, player_name):
         
         if not is_home and not is_away:
             continue
-            
-        home_sets = m.get("home_score", 0)
-        away_sets = m.get("away_score", 0)
-        
-        if not isinstance(home_sets, int) or not isinstance(away_sets, int):
-            try:
-                home_sets = int(home_sets)
-                away_sets = int(away_sets)
-            except (ValueError, TypeError):
+
+        set_scores = _extract_set_scores(m.get("set_scores", []))
+
+        if set_scores:
+            for (h_games, a_games) in set_scores:
+                total_games_played += h_games + a_games
+                total_games_won += h_games if is_home else a_games
+        else:
+            home_sets = m.get("home_score", 0)
+            away_sets = m.get("away_score", 0)
+            if not isinstance(home_sets, int) or not isinstance(away_sets, int):
+                try:
+                    home_sets = int(home_sets)
+                    away_sets = int(away_sets)
+                except (ValueError, TypeError):
+                    continue
+                    
+            sets_played = home_sets + away_sets
+            if sets_played == 0:
                 continue
                 
-        sets_played = home_sets + away_sets
-        if sets_played == 0:
-            continue
+            sets_won = home_sets if is_home else away_sets
+            sets_lost = away_sets if is_home else home_sets
             
-        if is_home:
-            sets_won = home_sets
-            sets_lost = away_sets
-        else:
-            sets_won = away_sets
-            sets_lost = home_sets
-            
-        games_won = sets_won * 6 + sets_lost * 4
-        games_lost = sets_won * 4 + sets_lost * 6
-        games_played = games_won + games_lost
-        
-        total_games_won += games_won
-        total_games_played += games_played
+            total_games_won += sets_won * 6 + sets_lost * 4
+            total_games_played += sets_won * 10 + sets_lost * 10
         
     if total_games_played == 0:
         return 0.5
@@ -452,6 +478,183 @@ def get_match_k_factor(tournament_name):
     if any(keyword in t_lower for keyword in gs_keywords):
         return 48
     return 32
+
+def calculate_tiebreak_win_rate(history_pool, player_name, min_tiebreaks=3):
+    """
+    Returns the player's win rate in tiebreak sets (7-6).
+    Returns 0.5 if fewer than min_tiebreaks tiebreak sets are found.
+    """
+    if not history_pool:
+        return 0.5
+
+    tiebreaks_played = 0
+    tiebreaks_won = 0
+
+    for m in history_pool:
+        is_home = is_player_match(m["home_player"], player_name)
+        is_away = is_player_match(m["away_player"], player_name)
+        if not is_home and not is_away:
+            continue
+
+        for (h_games, a_games) in _extract_set_scores(m.get("set_scores", [])):
+            if _is_tiebreak_set(h_games, a_games):
+                tiebreaks_played += 1
+                if (is_home and h_games > a_games) or (is_away and a_games > h_games):
+                    tiebreaks_won += 1
+
+    if tiebreaks_played < min_tiebreaks:
+        return 0.5
+    return tiebreaks_won / tiebreaks_played
+
+
+def calculate_first_set_win_rate(history_pool, player_name, min_matches=5):
+    """
+    Returns the player's win rate in the first set of matches.
+    Returns 0.5 if fewer than min_matches valid first-set data points exist.
+    """
+    if not history_pool:
+        return 0.5
+
+    first_set_played = 0
+    first_set_won = 0
+
+    for m in history_pool:
+        is_home = is_player_match(m["home_player"], player_name)
+        is_away = is_player_match(m["away_player"], player_name)
+        if not is_home and not is_away:
+            continue
+
+        parsed = _extract_set_scores(m.get("set_scores", []))
+        if not parsed:
+            continue
+
+        h_games, a_games = parsed[0]
+        first_set_played += 1
+        if (is_home and h_games > a_games) or (is_away and a_games > h_games):
+            first_set_won += 1
+
+    if first_set_played < min_matches:
+        return 0.5
+    return first_set_won / first_set_played
+
+
+def calculate_comeback_rate(history_pool, player_name, min_comebacks=3):
+    """
+    Returns the player's win rate in matches where they lost the first set.
+    Returns 0.5 if fewer than min_comebacks 'down first set' situations exist.
+    """
+    if not history_pool:
+        return 0.5
+
+    lost_first_count = 0
+    comeback_wins = 0
+
+    for m in history_pool:
+        is_home = is_player_match(m["home_player"], player_name)
+        is_away = is_player_match(m["away_player"], player_name)
+        if not is_home and not is_away:
+            continue
+
+        parsed = _extract_set_scores(m.get("set_scores", []))
+        if len(parsed) < 2:
+            continue
+
+        h_games, a_games = parsed[0]
+        player_lost_first = (is_home and h_games < a_games) or (is_away and a_games < h_games)
+        if not player_lost_first:
+            continue
+
+        lost_first_count += 1
+        player_won_match = (m["winner"] == "home" and is_home) or (m["winner"] == "away" and is_away)
+        if player_won_match:
+            comeback_wins += 1
+
+    if lost_first_count < min_comebacks:
+        return 0.5
+    return comeback_wins / lost_first_count
+
+
+def calculate_close_set_rate(history_pool, player_name, min_sets=5):
+    """
+    Returns the fraction of sets in the player's matches that were closely contested (7-5 or tiebreak).
+    """
+    if not history_pool:
+        return 0.3
+
+    total_sets = 0
+    close_sets = 0
+
+    for m in history_pool:
+        is_home = is_player_match(m["home_player"], player_name)
+        is_away = is_player_match(m["away_player"], player_name)
+        if not is_home and not is_away:
+            continue
+
+        for (h_games, a_games) in _extract_set_scores(m.get("set_scores", [])):
+            total_sets += 1
+            if _is_close_set(h_games, a_games):
+                close_sets += 1
+
+    if total_sets < min_sets:
+        return 0.3
+    return close_sets / total_sets
+
+
+def calculate_avg_games_per_set(history_pool, player_name, min_sets=5):
+    """
+    Returns the average total games per set in the player's matches.
+    High values indicate grindy baseline style; low values indicate big-serve/quick sets.
+    """
+    if not history_pool:
+        return 11.0
+
+    total_sets = 0
+    total_games = 0
+
+    for m in history_pool:
+        is_home = is_player_match(m["home_player"], player_name)
+        is_away = is_player_match(m["away_player"], player_name)
+        if not is_home and not is_away:
+            continue
+
+        for (h_games, a_games) in _extract_set_scores(m.get("set_scores", [])):
+            total_sets += 1
+            total_games += h_games + a_games
+
+    if total_sets < min_sets:
+        return 11.0
+    return total_games / total_sets
+
+
+def calculate_bagel_breadstick_rate(history_pool, player_name, min_sets=10):
+    """
+    Returns the fraction of the player's WON sets that were bagels (6-0) or breadsticks (6-1).
+    High values indicate dominant, shutout-style performance.
+    """
+    if not history_pool:
+        return 0.1
+
+    sets_won = 0
+    dominant_sets = 0
+
+    for m in history_pool:
+        is_home = is_player_match(m["home_player"], player_name)
+        is_away = is_player_match(m["away_player"], player_name)
+        if not is_home and not is_away:
+            continue
+
+        for (h_games, a_games) in _extract_set_scores(m.get("set_scores", [])):
+            player_games = h_games if is_home else a_games
+            opp_games = a_games if is_home else h_games
+            if player_games > opp_games:
+                sets_won += 1
+                if opp_games <= 1:
+                    dominant_sets += 1
+
+    if sets_won < min_sets:
+        return 0.1
+    return dominant_sets / sets_won
+
 
 if __name__ == "__main__":
     test_id = "6HdC3z4H"

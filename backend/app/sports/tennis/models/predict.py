@@ -1,5 +1,6 @@
 import sys
 import json
+import math
 import asyncio
 import httpx
 from pathlib import Path
@@ -29,6 +30,13 @@ from app.sports.tennis.services.feature_builder import (
     calculate_h2h_score,
     calculate_game_dominance,
     calculate_rest_days,
+    calculate_tiebreak_win_rate,
+    calculate_first_set_win_rate,
+    calculate_comeback_rate,
+    calculate_close_set_rate,
+    calculate_avg_games_per_set,
+    calculate_bagel_breadstick_rate,
+    clear_matches_cache,
     _load_pi_to_id_cache
 )
 
@@ -54,6 +62,38 @@ def _load_player_elo():
         _player_elo_cache = {}
     return _player_elo_cache
 
+def reset_elo_cache():
+    """Resets the in-memory Elo cache so the next call re-reads from disk."""
+    global _player_elo_cache
+    _player_elo_cache = None
+
+_calibration_cache = None
+
+def _load_calibration():
+    global _calibration_cache
+    if _calibration_cache is not None:
+        return _calibration_cache
+    calib_path = data_dir / "tennis_brain_calibration.json"
+    if calib_path.exists():
+        try:
+            with open(calib_path, "r", encoding="utf-8") as f:
+                _calibration_cache = json.load(f)
+        except Exception:
+            _calibration_cache = {}
+    else:
+        _calibration_cache = {}
+    return _calibration_cache
+
+def _calibrate_prob(raw_prob):
+    """Applies Platt scaling calibration to a raw XGBoost probability."""
+    cal = _load_calibration()
+    if not cal or "coef" not in cal:
+        return raw_prob
+    coef = cal["coef"]
+    intercept = cal["intercept"]
+    logit = coef * raw_prob + intercept
+    return 1.0 / (1.0 + math.exp(-logit))
+
 def get_player_elo_from_cache(p_id, p_name, surface):
     elo_data = _load_player_elo()
     pi_to_id = _load_pi_to_id_cache()
@@ -70,49 +110,56 @@ def get_player_elo_from_cache(p_id, p_name, surface):
 
 
 def get_current_player_features(p1_name, p1_id, p2_name, p2_id, current_ground):
-    """İki oyuncunun verilerini karşılaştırarak P1'in gözünden en güncel 9 metrik değerini hesaplar"""
+    """Returns P1's 14-feature vector vs P2 for the current match context."""
     p1_matches = load_player_matches(p1_id)
     p2_matches = load_player_matches(p2_id)
 
     if not p1_matches:
         return None
 
-    # P1 metrikleri
+    # P1 metrics
     p1_ground_ratio, _ = calculate_surface_win_rate(p1_matches, current_ground, p1_name)
     p1_momentum = calculate_momentum_score(p1_matches, p1_name)
     p1_fatigue = calculate_fatigue_score(p1_matches, target_matches=3)
     p1_rank = get_player_rank(p1_name)
     p1_dominance = calculate_dominance_score(p1_matches, p1_name)
 
-    # P2 metrikleri (varsayılan değerler)
+    # P2 defaults
     p2_ground_ratio = 0.5
     p2_momentum = 0.5
     p2_fatigue = 5
     p2_rank = get_player_rank(p2_name)
     p2_dominance = 0.5
+    p2_game_dominance = 0.5
+    p2_rest_days = 7
+    p2_tiebreak_rate = 0.5
+    p2_first_set_rate = 0.5
+    p2_comeback_rate = 0.5
+    p2_avg_games = 11.0
 
     if p2_matches:
         p2_ground_ratio, _ = calculate_surface_win_rate(p2_matches, current_ground, p2_name)
         p2_momentum = calculate_momentum_score(p2_matches, p2_name)
         p2_fatigue = calculate_fatigue_score(p2_matches, target_matches=3)
         p2_dominance = calculate_dominance_score(p2_matches, p2_name)
+        p2_tiebreak_rate = calculate_tiebreak_win_rate(p2_matches, p2_name)
+        p2_first_set_rate = calculate_first_set_win_rate(p2_matches, p2_name)
+        p2_comeback_rate = calculate_comeback_rate(p2_matches, p2_name)
+        p2_avg_games = calculate_avg_games_per_set(p2_matches, p2_name)
 
-    # Diferansiyel metrikler
+    # Differential features
     momentum_diff = p1_momentum - p2_momentum
     ground_diff = p1_ground_ratio - p2_ground_ratio
     rank_diff = p1_rank - p2_rank
     dominance_diff = p1_dominance - p2_dominance
-    
-    # H2H (P1 vs P2)
-    h2h_score = calculate_h2h_score(p1_matches, p1_name, p2_name)
+    fatigue_diff = p1_fatigue - p2_fatigue
 
-    # Oyun Dominantlığı & Dinlenme Süresi (Aşama 2)
+    h2h_score = calculate_h2h_score(p1_matches, p1_name, p2_name) - 0.5
+
     today_str = datetime.now().strftime("%Y-%m-%d")
     p1_game_dominance = calculate_game_dominance(p1_matches, p1_name)
     p1_rest_days = calculate_rest_days(today_str, p1_matches)
 
-    p2_game_dominance = 0.5
-    p2_rest_days = 7
     if p2_matches:
         p2_game_dominance = calculate_game_dominance(p2_matches, p2_name)
         p2_rest_days = calculate_rest_days(today_str, p2_matches)
@@ -120,27 +167,42 @@ def get_current_player_features(p1_name, p1_id, p2_name, p2_id, current_ground):
     game_dominance_diff = p1_game_dominance - p2_game_dominance
     rest_days_diff = p1_rest_days - p2_rest_days
 
-    # Zemine Özel Elo Puanı (Aşama 3)
+    # New set-score based metrics
+    p1_tiebreak_rate = calculate_tiebreak_win_rate(p1_matches, p1_name)
+    p1_first_set_rate = calculate_first_set_win_rate(p1_matches, p1_name)
+    p1_comeback_rate = calculate_comeback_rate(p1_matches, p1_name)
+    p1_avg_games = calculate_avg_games_per_set(p1_matches, p1_name)
+
+    tiebreak_rate_diff = p1_tiebreak_rate - p2_tiebreak_rate
+    first_set_rate_diff = p1_first_set_rate - p2_first_set_rate
+    comeback_rate_diff = p1_comeback_rate - p2_comeback_rate
+    avg_games_diff = p1_avg_games - p2_avg_games
+
+    # Surface Elo
     p1_elo = get_player_elo_from_cache(p1_id, p1_name, current_ground)
     p2_elo = get_player_elo_from_cache(p2_id, p2_name, current_ground)
     surface_elo_diff = p1_elo - p2_elo
 
-    # Dinamik Grass Ağırlıklandırması (Çim Kort Dinamikleri)
+    # Grass court adjustment
     if current_ground == "Grass":
         momentum_diff = momentum_diff * 1.20
         surface_elo_diff = surface_elo_diff * 0.90
 
     return [
-        p1_ground_ratio, 
-        momentum_diff, 
-        ground_diff, 
-        p1_fatigue, 
-        rank_diff, 
-        dominance_diff, 
+        p1_ground_ratio,
+        momentum_diff,
+        ground_diff,
+        fatigue_diff,
+        rank_diff,
+        dominance_diff,
         h2h_score,
         game_dominance_diff,
         rest_days_diff,
-        surface_elo_diff
+        surface_elo_diff,
+        tiebreak_rate_diff,
+        first_set_rate_diff,
+        comeback_rate_diff,
+        avg_games_diff,
     ]
 
 def detect_surface(tournament_name: str) -> str:
@@ -164,8 +226,8 @@ def get_match_prediction(p1_name, p1_id, p2_name, p2_id, ground_type, model):
     if not p1_features or not p2_features:
         return None
 
-    p1_raw_prob = model.predict_proba([p1_features])[0][1]
-    p2_raw_prob = model.predict_proba([p2_features])[0][1]
+    p1_raw_prob = _calibrate_prob(model.predict_proba([p1_features])[0][1])
+    p2_raw_prob = _calibrate_prob(model.predict_proba([p2_features])[0][1])
 
     sum_prob = p1_raw_prob + p2_raw_prob
     if sum_prob == 0.0:
@@ -177,15 +239,15 @@ def get_match_prediction(p1_name, p1_id, p2_name, p2_id, ground_type, model):
 
 def generate_alternative_bets(model_prob_p1, p1_metrics, p2_metrics):
     """
-    Kural Motoru: AI olasılıkları ve diferansiyel metrikleri kullanarak
-    alternatif pazarlarda (Set Handicap, Total Games O/U, Game Spread) bahis önerileri üretir.
+    Rule engine: produces alternative market recommendations using model probabilities
+    and player metrics. Markets: Set Handicap, Total Games O/U, Game Spread,
+    Both Players to Win a Set, First Set Winner.
     """
     recommendations = []
     
     p1_name = p1_metrics["name"]
     p2_name = p2_metrics["name"]
     
-    # Favori tespiti
     is_p1_fav = model_prob_p1 >= 50.0
     fav_prob = model_prob_p1 if is_p1_fav else (100.0 - model_prob_p1)
     
@@ -197,60 +259,151 @@ def generate_alternative_bets(model_prob_p1, p1_metrics, p2_metrics):
     
     set_dominance_diff = favorite["set_dominance"] - underdog["set_dominance"]
     game_dominance_diff = favorite["game_dominance"] - underdog["game_dominance"]
-    
-    # 1. SET HANDİKAPI (Set Spread)
+
+    # ── 1. SET HANDİKAPI ───────────────────────────────────────────────────
     if fav_prob >= 70.0 and set_dominance_diff > 0.15 and favorite["fatigue"] <= 6:
         recommendations.append({
             "market": "Set Handicap",
             "selection": f"{fav_name} -1.5 Sets",
             "confidence": "High",
-            "reason": f"AI models select {fav_name} to win in straight sets, backed by high set dominance diff (+{set_dominance_diff*100:.1f}%) and optimal fatigue level ({favorite['fatigue']} sets)."
+            "reason": f"AI models project {fav_name} for a straight-set win backed by set dominance diff (+{set_dominance_diff*100:.1f}%) and optimal fatigue ({favorite['fatigue']} sets)."
         })
     elif fav_prob < 58.0 or favorite["fatigue"] >= 8:
-        reason_str = ""
         if fav_prob < 58.0:
-            reason_str = f"Close H2H projection ({fav_prob:.1f}%) indicates a tight contest, raising value on {und_name} to steal at least a set."
+            reason_str = f"Close projection ({fav_prob:.1f}%) indicates a tight contest — value on {und_name} to take at least one set."
         else:
-            reason_str = f"Favorite {fav_name} shows high fatigue accumulation ({favorite['fatigue']} sets), creating a strong set cover opportunity for {und_name}."
-            
+            reason_str = f"{fav_name} carries high fatigue ({favorite['fatigue']} sets in last 3 matches), creating a set-cover opportunity for {und_name}."
         recommendations.append({
             "market": "Set Handicap",
             "selection": f"{und_name} +1.5 Sets",
             "confidence": "Medium",
             "reason": reason_str
         })
-        
-    # 2. TOPLAM OYUN ALT/ÜST (Total Games O/U)
+
+    # ── 2. TOPLAM OYUN ALT/ÜST — avg_games_per_set enhanced ──────────────
+    p1_avg = p1_metrics.get("avg_games_per_set", 11.0)
+    p2_avg = p2_metrics.get("avg_games_per_set", 11.0)
+    combined_avg = (p1_avg + p2_avg) / 2.0
     abs_set_dom_diff = abs(p1_metrics["set_dominance"] - p2_metrics["set_dominance"])
-    if abs_set_dom_diff < 0.08 and fav_prob < 58.0 and (p1_metrics["fatigue"] >= 7 or p2_metrics["fatigue"] >= 7):
+
+    if combined_avg >= 11.5 or (abs_set_dom_diff < 0.08 and fav_prob < 58.0):
+        line = "Over 22.5 Games" if combined_avg >= 11.8 else "Over 21.5 Games"
         recommendations.append({
             "market": "Total Games",
-            "selection": "Over 22.5 Games",
-            "confidence": "High",
-            "reason": f"Symmetric set dominance (diff: {abs_set_dom_diff*100:.1f}%) and high fatigue levels suggest a grueling, three-set match going Over."
+            "selection": line,
+            "confidence": "High" if combined_avg >= 11.8 else "Medium",
+            "reason": f"Both players average {p1_avg:.1f} and {p2_avg:.1f} games/set respectively — combined style projects a high-game-count match ({line})."
         })
-    elif fav_prob >= 75.0 and set_dominance_diff > 0.20:
+    elif combined_avg <= 10.3 and fav_prob >= 72.0:
         recommendations.append({
             "market": "Total Games",
             "selection": "Under 21.5 Games",
-            "confidence": "Medium",
-            "reason": f"Severe match mismatch projected with {fav_name} set dominance (+{set_dominance_diff*100:.1f}%), pointing to a swift, low-game sweep."
+            "confidence": "High" if fav_prob >= 78.0 else "Medium",
+            "reason": f"Quick-set profiles (avg {p1_avg:.1f}/{p2_avg:.1f} games/set) and a dominant favorite ({fav_prob:.1f}%) point to an efficient, low-game match."
         })
-        
-    # 3. OYUN HANDİKAPI (Game Spread)
+
+    # ── 3. OYUN HANDİKAPI ─────────────────────────────────────────────────
     if game_dominance_diff > 0.08 and fav_prob >= 65.0 and favorite["fatigue"] < 7:
-        if game_dominance_diff > 0.12:
-            spread = "-4.5 Games"
-        else:
-            spread = "-3.5 Games"
-            
+        spread = "-4.5 Games" if game_dominance_diff > 0.12 else "-3.5 Games"
         recommendations.append({
             "market": "Game Spread",
             "selection": f"{fav_name} {spread}",
             "confidence": "High",
-            "reason": f"Strong game dominance diff (+{game_dominance_diff*100:.1f}%) and low fatigue for {fav_name} favor a clean margin coverage."
+            "reason": f"Game dominance diff of +{game_dominance_diff*100:.1f}% and low fatigue for {fav_name} support a comfortable margin across sets."
         })
-        
+
+    # ── 4. BOTH PLAYERS TO WIN A SET (müşteri talebi) ─────────────────────
+    fav_straight_rate = favorite.get("straight_sets_rate", 50.0) / 100.0
+    und_comeback_rate = underdog.get("comeback_rate", 50.0) / 100.0
+    fav_comeback_rate = favorite.get("comeback_rate", 50.0) / 100.0
+
+    # Probability that match goes to 3 sets (underdog wins at least one)
+    p_three_sets = (
+        (1.0 - fav_straight_rate) * 0.45
+        + (1.0 - fav_prob / 100.0) * 0.35
+        + und_comeback_rate * 0.20
+    )
+
+    if p_three_sets >= 0.55:
+        conf = "High" if p_three_sets >= 0.65 else "Medium"
+        recommendations.append({
+            "market": "Both Players to Win a Set",
+            "selection": "Yes",
+            "confidence": conf,
+            "reason": (
+                f"{und_name} has a {und_comeback_rate*100:.0f}% comeback rate after losing the first set, "
+                f"and {fav_name} wins in straight sets only {fav_straight_rate*100:.0f}% of the time — "
+                f"a competitive 3-set battle is the likely outcome."
+            )
+        })
+    elif p_three_sets < 0.38 and fav_prob >= 68.0:
+        conf = "High" if p_three_sets < 0.28 else "Medium"
+        recommendations.append({
+            "market": "Both Players to Win a Set",
+            "selection": "No",
+            "confidence": conf,
+            "reason": (
+                f"{fav_name} wins in straight sets {fav_straight_rate*100:.0f}% of the time with a {fav_prob:.1f}% "
+                f"match projection — a clean sweep is the dominant scenario."
+            )
+        })
+
+    # ── 5. FIRST SET WINNER ───────────────────────────────────────────────
+    p1_fsr = p1_metrics.get("first_set_win_rate", 50.0) / 100.0
+    p2_fsr = p2_metrics.get("first_set_win_rate", 50.0) / 100.0
+    fsr_diff = p1_fsr - p2_fsr
+
+    if abs(fsr_diff) >= 0.12:
+        fsw_name = p1_name if fsr_diff > 0 else p2_name
+        fsw_rate = max(p1_fsr, p2_fsr)
+        conf = "High" if abs(fsr_diff) >= 0.20 else "Medium"
+        recommendations.append({
+            "market": "First Set Winner",
+            "selection": fsw_name,
+            "confidence": conf,
+            "reason": (
+                f"{fsw_name} wins the opening set in {fsw_rate*100:.0f}% of matches, "
+                f"a +{abs(fsr_diff)*100:.0f}% edge over their opponent for the first-set market."
+            )
+        })
+
+    # ── 6. ANY SET TO TIEBREAK ────────────────────────────────────────────
+    p1_tbr = p1_metrics.get("tiebreak_win_rate", 50.0) / 100.0
+    p2_tbr = p2_metrics.get("tiebreak_win_rate", 50.0) / 100.0
+    p1_csr = p1_metrics.get("close_set_rate", 30.0) / 100.0
+    p2_csr = p2_metrics.get("close_set_rate", 30.0) / 100.0
+
+    # Combined probability: weighted average of tiebreak involvement & close set frequency
+    combined_tb_prob = (
+        (p1_tbr + p2_tbr) / 2.0 * 0.55
+        + (p1_csr + p2_csr) / 2.0 * 0.35
+        + (1.0 - fav_prob / 100.0) * 0.10
+    )
+
+    if combined_tb_prob >= 0.48:
+        conf = "High" if combined_tb_prob >= 0.58 else "Medium"
+        recommendations.append({
+            "market": "Any Set to Tiebreak",
+            "selection": "Yes",
+            "confidence": conf,
+            "reason": (
+                f"Both players have strong tiebreak records "
+                f"({p1_tbr*100:.0f}% / {p2_tbr*100:.0f}%) and close-set rates "
+                f"({p1_csr*100:.0f}% / {p2_csr*100:.0f}%) — at least one set reaching a tiebreak is the projected outcome."
+            )
+        })
+    elif combined_tb_prob < 0.30 and fav_prob >= 68.0:
+        conf = "High" if combined_tb_prob < 0.20 else "Medium"
+        recommendations.append({
+            "market": "Any Set to Tiebreak",
+            "selection": "No",
+            "confidence": conf,
+            "reason": (
+                f"A dominant favorite ({fav_prob:.1f}%) with low close-set profiles "
+                f"({p1_csr*100:.0f}% / {p2_csr*100:.0f}%) makes a clean, non-tiebreak win the likely scenario."
+            )
+        })
+
     return recommendations
 
 def went_to_deciding_set(match):
@@ -416,6 +569,12 @@ def compile_player_stats(player_name, player_id, ground, matches=None):
             "rest_days": 7,
             "clutch_win_rate": 50.0,
             "straight_sets_rate": 50.0,
+            "tiebreak_win_rate": 50.0,
+            "first_set_win_rate": 50.0,
+            "comeback_rate": 50.0,
+            "close_set_rate": 30.0,
+            "avg_games_per_set": 11.0,
+            "bagel_breadstick_rate": 10.0,
             "recent_form": []
         }
         
@@ -430,6 +589,12 @@ def compile_player_stats(player_name, player_id, ground, matches=None):
     
     clutch = calculate_clutch_win_rate(matches, player_name)
     straight = calculate_straight_sets_rate(matches, player_name)
+    tiebreak_rate = calculate_tiebreak_win_rate(matches, player_name)
+    first_set_rate = calculate_first_set_win_rate(matches, player_name)
+    comeback_rate = calculate_comeback_rate(matches, player_name)
+    close_set_rate = calculate_close_set_rate(matches, player_name)
+    avg_games = calculate_avg_games_per_set(matches, player_name)
+    bagel_rate = calculate_bagel_breadstick_rate(matches, player_name)
     recent_form = _build_recent_form(matches, player_name, count=5)
     
     return {
@@ -443,6 +608,12 @@ def compile_player_stats(player_name, player_id, ground, matches=None):
         "rest_days": int(rest_days),
         "clutch_win_rate": round(clutch * 100, 1),
         "straight_sets_rate": round(straight * 100, 1),
+        "tiebreak_win_rate": round(tiebreak_rate * 100, 1),
+        "first_set_win_rate": round(first_set_rate * 100, 1),
+        "comeback_rate": round(comeback_rate * 100, 1),
+        "close_set_rate": round(close_set_rate * 100, 1),
+        "avg_games_per_set": round(avg_games, 2),
+        "bagel_breadstick_rate": round(bagel_rate * 100, 1),
         "recent_form": recent_form
     }
 
@@ -1072,11 +1243,12 @@ def predict_match(p1_name, p2_name, p1_id, p2_id, ground_type):
     print("==============================================")
     print(f"Zemin Turu: {ground_type}")
     print("----------------------------------------------")
-    print(f"[P1] {p1_name} -> Rank: {p1_rank} | Elo: {p1_elo:.0f} | Zemin: %{p1_features[0]*100:.1f} | Form: {p1_features[1]:+.2f} | Set Dom: %{p1_dom*100:.1f} | Oyun Dom: %{p1_game_dom*100:.1f} | Yorgunluk: {p1_features[3]} set | Dinlenme: {p1_rest} gun")
-    print(f"[P2] {p2_name} -> Rank: {p2_rank} | Elo: {p2_elo:.0f} | Zemin: %{p2_features[0]*100:.1f} | Form: {p2_features[1]:+.2f} | Set Dom: %{p2_dom*100:.1f} | Oyun Dom: %{p2_game_dom*100:.1f} | Yorgunluk: {p2_features[3]} set | Dinlenme: {p2_rest} gun")
+    print(f"[P1] {p1_name} -> Rank: {p1_rank} | Elo: {p1_elo:.0f} | Zemin: %{p1_features[0]*100:.1f} | Form: {p1_features[1]:+.2f} | Set Dom: %{p1_dom*100:.1f} | Oyun Dom: %{p1_game_dom*100:.1f} | Yorgunluk Fark: {p1_features[3]:+.0f} set | Dinlenme: {p1_rest} gun")
+    print(f"[P2] {p2_name} -> Rank: {p2_rank} | Elo: {p2_elo:.0f} | Zemin: %{p2_features[0]*100:.1f} | Form: {p2_features[1]:+.2f} | Set Dom: %{p2_dom*100:.1f} | Oyun Dom: %{p2_game_dom*100:.1f} | Yorgunluk Fark: {p2_features[3]:+.0f} set | Dinlenme: {p2_rest} gun")
     print("----------------------------------------------")
     print("Diferansiyel Farklar (P1 - P2):")
-    print(f"   -> Elo Farki: {p1_features[9]:+.0f} | Set Dom Farki: {p1_features[5]:+.2f} | Oyun Dom Farki: {p1_features[7]:+.2f} | Dinlenme Farki: {p1_features[8]:+d} gun")
+    print(f"   -> Elo: {p1_features[9]:+.0f} | Set Dom: {p1_features[5]:+.2f} | Oyun Dom: {p1_features[7]:+.2f} | Dinlenme: {p1_features[8]:+d} gun")
+    print(f"   -> TB Win Rate: {p1_features[10]:+.2f} | 1st Set Win Rate: {p1_features[11]:+.2f} | Comeback Rate: {p1_features[12]:+.2f} | Avg Games/Set: {p1_features[13]:+.1f}")
     print("----------------------------------------------")
     print(f"Head-to-Head (H2H) Ustunlugu (P1 vs P2): %{p1_features[6]*100:.1f}")
     print("----------------------------------------------")

@@ -69,6 +69,7 @@ def parse_match_block(raw_data):
                 "winner": ""
             }
 
+            set_raw = {}
             match_pieces = p.split("\xac")  # ¬ ayırıcısı
             for mp in match_pieces:
                 if mp.startswith("AA\xf7"):
@@ -95,10 +96,26 @@ def parse_match_block(raw_data):
                     if outcome == "1": match_dict["winner"] = "home"
                     elif outcome == "2": match_dict["winner"] = "away"
 
+                # Set skorlarını yakala (BA-BJ)
+                for key in ["BA", "BB", "BC", "BD", "BE", "BF", "BG", "BH", "BI", "BJ"]:
+                    if mp.startswith(f"{key}\xf7"):
+                        set_raw[key] = mp.replace(f"{key}\xf7", "")
+
+            # Set skorlarını listeye ekle
+            set_scores = []
+            for h_key, a_key in [("BA", "BB"), ("BC", "BD"), ("BE", "BF"), ("BG", "BH"), ("BI", "BJ")]:
+                if h_key in set_raw or a_key in set_raw:
+                    set_scores.append({
+                        "home": set_raw.get(h_key, ""),
+                        "away": set_raw.get(a_key, "")
+                    })
+            match_dict["set_scores"] = set_scores
+
             if match_dict["match_id"]:
                 match_list.append(match_dict)
 
     return match_list
+
 
 # --- 4. JS-BASED DOM EXTRACTOR QUERY ---
 FULL_EXTRACTOR_JS = r"""
@@ -156,6 +173,30 @@ FULL_EXTRACTOR_JS = r"""
         const timeEl = el.querySelector('.event__time, [class*="event__time"]');
         const dateText = timeEl ? timeEl.innerText.trim() : '';
         
+        // Extract set game scores
+        const homePartEls = el.querySelectorAll('.event__part--home, [class*="event__part--home"]');
+        const awayPartEls = el.querySelectorAll('.event__part--away, [class*="event__part--away"]');
+        const setScores = [];
+        
+        const numSets = Math.min(homePartEls.length, awayPartEls.length);
+        for (let i = 0; i < numSets; i++) {
+            // Tiebreak puanlarını (sup/extraScore) temizlemek için klonluyoruz
+            const hClone = homePartEls[i].cloneNode(true);
+            hClone.querySelectorAll('sup, [class*="extraScore"]').forEach(s => s.remove());
+            const hText = hClone.innerText.trim();
+            
+            const aClone = awayPartEls[i].cloneNode(true);
+            aClone.querySelectorAll('sup, [class*="extraScore"]').forEach(s => s.remove());
+            const aText = aClone.innerText.trim();
+            
+            if (hText || aText) {
+                setScores.push({
+                    home: hText,
+                    away: aText
+                });
+            }
+        }
+        
         if (homePlayer) {
             results.push({
                 match_id: matchId,
@@ -166,7 +207,8 @@ FULL_EXTRACTOR_JS = r"""
                 away_player: awayPlayer,
                 home_score: homeScore,
                 away_score: awayScore,
-                winner: winner
+                winner: winner,
+                set_scores: setScores
             });
         }
     });

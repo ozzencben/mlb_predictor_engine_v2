@@ -35,6 +35,20 @@ function getSurfaceStyles(surface) {
 }
 
 // ─────────────────────────────────────────────────────────────
+//  Helper: Market-specific icons for Alternative Bets
+// ─────────────────────────────────────────────────────────────
+function getMarketIcon(market) {
+    const m = (market || '').toLowerCase();
+    if (m.includes('set handicap')) return '📐';
+    if (m.includes('total games')) return '🔢';
+    if (m.includes('game spread')) return '⚖️';
+    if (m.includes('both players to win')) return '🤝';
+    if (m.includes('first set winner')) return '🚀';
+    if (m.includes('tiebreak')) return '🎯';
+    return '🎾';
+}
+
+// ─────────────────────────────────────────────────────────────
 //  Helper: Oyuncu Baş Harfleri (Avatar için)
 // ─────────────────────────────────────────────────────────────
 function getPlayerInitials(name) {
@@ -102,7 +116,12 @@ function StatsComparison({ p1, p2 }) {
         { label: 'Game Dominance', p1Val: p1.game_dominance * 100, p2Val: p2.game_dominance * 100, format: v => `${v.toFixed(1)}%`, higherIsBetter: true, icon: '🎮' },
         { label: 'Recovery Window', p1Val: p1.rest_days, p2Val: p2.rest_days, format: v => `${v} Days`, higherIsBetter: true, icon: '💤' },
         { label: 'Clutch Deciding Set %', p1Val: p1.clutch_win_rate, p2Val: p2.clutch_win_rate, format: v => `${v.toFixed(1)}%`, higherIsBetter: true, icon: '🔥' },
-        { label: 'Straight Sets Sweep %', p1Val: p1.straight_sets_rate, p2Val: p2.straight_sets_rate, format: v => `${v.toFixed(1)}%`, higherIsBetter: true, icon: '🧹' }
+        { label: 'Straight Sets Sweep %', p1Val: p1.straight_sets_rate, p2Val: p2.straight_sets_rate, format: v => `${v.toFixed(1)}%`, higherIsBetter: true, icon: '🧹' },
+        { label: 'Tiebreak Win Rate', p1Val: p1.tiebreak_win_rate ?? 50.0, p2Val: p2.tiebreak_win_rate ?? 50.0, format: v => `${v.toFixed(1)}%`, higherIsBetter: true, icon: '🎯' },
+        { label: 'First Set Win Rate', p1Val: p1.first_set_win_rate ?? 50.0, p2Val: p2.first_set_win_rate ?? 50.0, format: v => `${v.toFixed(1)}%`, higherIsBetter: true, icon: '🚀' },
+        { label: 'Comeback Rate', p1Val: p1.comeback_rate ?? 50.0, p2Val: p2.comeback_rate ?? 50.0, format: v => `${v.toFixed(1)}%`, higherIsBetter: true, icon: '💪' },
+        { label: 'Avg Games / Set', p1Val: p1.avg_games_per_set ?? 11.0, p2Val: p2.avg_games_per_set ?? 11.0, format: v => v.toFixed(1), higherIsBetter: false, icon: '📊' },
+        { label: 'Bagel / Breadstick Rate', p1Val: p1.bagel_breadstick_rate ?? 10.0, p2Val: p2.bagel_breadstick_rate ?? 10.0, format: v => `${v.toFixed(1)}%`, higherIsBetter: true, icon: '🥐' },
     ];
 
     return (
@@ -688,19 +707,20 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                                                             : 'bg-slate-950/40 border border-slate-900/60'
                                                         }`}
                                                 >
-                                                    <div className="flex justify-between items-center gap-2">
-                                                        <div className="flex items-center gap-2 min-w-0 flex-wrap">
-                                                            <span className={`text-[8px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded border flex-shrink-0
-                                                                ${isHigh
-                                                                    ? 'bg-indigo-950/80 text-indigo-300 border-indigo-500/30'
-                                                                    : 'bg-slate-900 text-slate-500 border-slate-850'
-                                                                }`}>
-                                                                {alt.market}
-                                                            </span>
-                                                            <strong className={`text-[11px] font-black leading-tight ${isHigh ? 'text-white' : 'text-indigo-300'}`}>
-                                                                {alt.selection}
-                                                            </strong>
-                                                        </div>
+                                <div className="flex justify-between items-center gap-2">
+                                        <div className="flex items-center gap-2 min-w-0 flex-wrap">
+                                            <span className={`text-[8px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded border flex-shrink-0 flex items-center gap-1
+                                                ${isHigh
+                                                    ? 'bg-indigo-950/80 text-indigo-300 border-indigo-500/30'
+                                                    : 'bg-slate-900 text-slate-500 border-slate-850'
+                                                }`}>
+                                                <span>{getMarketIcon(alt.market)}</span>
+                                                {alt.market}
+                                            </span>
+                                            <strong className={`text-[11px] font-black leading-tight ${isHigh ? 'text-white' : 'text-indigo-300'}`}>
+                                                {alt.selection}
+                                            </strong>
+                                        </div>
                                                         <span className={`text-[7px] font-black tracking-wider uppercase px-2 py-0.5 rounded-full border flex-shrink-0
                                                             ${isHigh
                                                                 ? 'bg-emerald-950/60 text-emerald-400 border-emerald-500/30 shadow-[0_0_8px_rgba(52,211,153,0.2)]'
@@ -1026,6 +1046,31 @@ function TennisDashboard({ selectedDate }) {
                     </span>
                 </button>
             </div>
+
+            {/* ── SEÇİLİ TURNUVA BAŞLIĞI (M5-P17) ── */}
+            {activeSelectedTourney !== 'ALL' && (() => {
+                const firstMatch = finalMatchList[0];
+                const tourSurface = firstMatch ? getSurfaceStyles(firstMatch.surface) : getSurfaceStyles('');
+                return (
+                    <div className={`flex items-center gap-3 border rounded-2xl px-4 py-3 ${tourSurface.bg}`}>
+                        <span className={`h-2.5 w-2.5 rounded-full flex-shrink-0 ${tourSurface.dot}`} />
+                        <div className="flex-1 min-w-0">
+                            <span className="text-sm font-black text-white uppercase tracking-wider block truncate">
+                                {activeSelectedTourney}
+                            </span>
+                            <span className="text-[9px] font-bold text-slate-400 block mt-0.5">
+                                {tourSurface.label} Court · {finalMatchList.length} Match{finalMatchList.length !== 1 ? 'es' : ''}
+                            </span>
+                        </div>
+                        <button
+                            onClick={() => setSelectedTourney('ALL')}
+                            className="text-[9px] font-black text-slate-400 hover:text-white transition-colors px-2 py-1 rounded-lg hover:bg-slate-800/60 flex-shrink-0 cursor-pointer"
+                        >
+                            ✕ Clear
+                        </button>
+                    </div>
+                );
+            })()}
 
             {/* ── MAÇ LİSTESİ (TÜM RISK SEVİYELERİ) ── */}
             {matchView === 'upcoming' ? (

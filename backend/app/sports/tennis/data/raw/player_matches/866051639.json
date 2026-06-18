@@ -1,5 +1,27 @@
 [
     {
+        "match_id": "lnP96vz1",
+        "tournament": "M15 Saarlouis (Germany), clay",
+        "ground": "Clay",
+        "date_text": "16.06. 13:00",
+        "home_player": "Todorov M.",
+        "away_player": "Lagerbohm L.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-06-16"
+    },
+    {
         "match_id": "hM7T6Yqh",
         "tournament": "M15 Alcala de Henares (Spain), hard",
         "ground": "Hard",
@@ -9,6 +31,16 @@
         "home_score": 2,
         "away_score": 0,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
         "date": "2025-11-20"
     },
     {
@@ -21,6 +53,16 @@
         "home_score": 2,
         "away_score": 0,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
         "date": "2025-11-19"
     },
     {
@@ -33,6 +75,20 @@
         "home_score": 1,
         "away_score": 2,
         "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
         "date": "2018-10-23"
     }
 ]

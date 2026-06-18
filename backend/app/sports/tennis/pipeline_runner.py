@@ -71,31 +71,49 @@ class TennisPipelineRunner:
         
         # Import the service modules dynamically inside run to keep startup clean
         from app.sports.tennis.services import update_profiles, fetch_fexture
+        from app.sports.tennis.services.dataset_generator import update_elo_incremental
+        from app.sports.tennis.services.feature_builder import clear_matches_cache
         from app.sports.tennis.models import predict
         
         # 2. Update player profiles with completed matches in the current matches file
-        logger.info("🎾 Step 1/4: Updating player profiles with completed matches...")
+        logger.info("🎾 Step 1/5: Updating player profiles with completed matches...")
         try:
             update_profiles.main()
         except Exception as e:
             logger.error(f"❌ Error updating tennis player profiles: {e}")
+
+        # 2b. Clear stale player-matches cache so new profile data is used immediately
+        try:
+            clear_matches_cache()
+            logger.info("🎾 Player matches cache cleared.")
+        except Exception as e:
+            logger.error(f"❌ Error clearing matches cache: {e}")
+
+        # 2c. Incremental Elo update based on today's finished matches
+        logger.info("🎾 Step 2/5: Running incremental Elo update...")
+        try:
+            n_updated = update_elo_incremental()
+            logger.info(f"🎾 Elo updated for {n_updated} completed matches.")
+            predict.reset_elo_cache()
+        except Exception as e:
+            logger.error(f"❌ Error running incremental Elo update: {e}")
             
         # 3. Fetch today's new matches
-        logger.info("🎾 Step 2/4: Fetching today's matches fixture...")
+        logger.info("🎾 Step 3/5: Fetching today's matches fixture...")
         try:
             fetch_fexture.main()
         except Exception as e:
             logger.error(f"❌ Error fetching tennis matches: {e}")
             
         # 4. Predict today's matches
-        logger.info("🎾 Step 3/4: Generating today's predictions...")
+        logger.info("🎾 Step 4/5: Generating today's predictions...")
         try:
             predict.predict_today_matches()
         except Exception as e:
             logger.error(f"❌ Error generating tennis predictions: {e}")
             
         # 5. Evaluate today's accuracy results
-        logger.info("🎾 Step 4/4: Evaluating match accuracy results...")
+        logger.info("🎾 Step 5/5: Evaluating match accuracy results...")
         try:
             predict.evaluate_today_accuracy()
         except Exception as e:

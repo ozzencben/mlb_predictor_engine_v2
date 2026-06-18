@@ -1,8 +1,10 @@
 import json
 import optuna
+import numpy as np
 from pathlib import Path
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.metrics import accuracy_score
+from sklearn.linear_model import LogisticRegression
 import xgboost as xgb
 
 base_dir = Path(__file__).parent.parent
@@ -46,13 +48,17 @@ def train_test_model():
             row["feature_surface_rate"],
             row["feature_momentum_diff"],
             row["feature_ground_diff"],
-            row["feature_fatigue"],
+            row.get("feature_fatigue_diff", row.get("feature_fatigue", 0)),
             row["feature_rank_diff"],
             row["feature_dominance_diff"],
             row["feature_h2h_score"],
             row["feature_game_dominance_diff"],
             row["feature_rest_days_diff"],
             row["feature_surface_elo_diff"],
+            row.get("feature_tiebreak_win_rate_diff", 0.0),
+            row.get("feature_first_set_win_rate_diff", 0.0),
+            row.get("feature_comeback_rate_diff", 0.0),
+            row.get("feature_avg_games_per_set_diff", 0.0),
         ]
         X.append(features)
         y.append(row["target_winner"])
@@ -89,6 +95,23 @@ def train_test_model():
     model_output_dir = base_dir / "data" / "tennis_brain.json"
     final_model.save_model(str(model_output_dir))
     print(f"-> Başarı: Optimize edilmiş model beyni '{model_output_dir.name}' adıyla diske mühürlendi!")
+
+    # --- 4. PLATT SCALING (Olasılık Kalibrasyonu) ---
+    print("\n=== PLATT SCALING KALİBRASYONU BAŞLIYOR ===")
+    raw_probs_val = final_model.predict_proba(X_test)[:, 1]
+    lr_cal = LogisticRegression()
+    lr_cal.fit(np.array(raw_probs_val).reshape(-1, 1), y_test)
+
+    calib_data = {
+        "method": "platt",
+        "coef": float(lr_cal.coef_[0][0]),
+        "intercept": float(lr_cal.intercept_[0])
+    }
+    calib_path = base_dir / "data" / "tennis_brain_calibration.json"
+    with open(calib_path, "w", encoding="utf-8") as f:
+        json.dump(calib_data, f, ensure_ascii=False, indent=4)
+    print(f"-> Kalibrasyon parametreleri '{calib_path.name}' adıyla kaydedildi!")
+    print(f"   Coef: {calib_data['coef']:.4f}, Intercept: {calib_data['intercept']:.4f}")
 
     return final_model
 

@@ -1,5 +1,27 @@
 [
     {
+        "match_id": "ULdYICZi",
+        "tournament": "M25 Tulsa, OK (USA), hard",
+        "ground": "Hard",
+        "date_text": "16.06. 21:25",
+        "home_player": "Jacome Jaramillo A.",
+        "away_player": "Cui J.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-06-16"
+    },
+    {
         "match_id": "ETwXPHwJ",
         "tournament": "M15 Rochester, NY (USA), clay",
         "ground": "Clay",
@@ -9,6 +31,16 @@
         "home_score": 0,
         "away_score": 2,
         "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
         "date": "2025-07-16"
     },
     {
@@ -21,6 +53,16 @@
         "home_score": 0,
         "away_score": 2,
         "winner": "away",
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
         "date": "2025-06-12"
     },
     {
@@ -33,6 +75,20 @@
         "home_score": 2,
         "away_score": 1,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
         "date": "2025-06-12"
     },
     {
@@ -45,6 +101,16 @@
         "home_score": 2,
         "away_score": 0,
         "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
         "date": "2024-06-13"
     }
 ]
