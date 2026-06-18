@@ -1,91 +1,82 @@
 {
-    "Philadelphia": {
-        "temp_f": 70.2,
-        "wind_mph": 8.2,
-        "wind_direction": "WNW to ESE",
-        "humidity": 86.0,
-        "condition": "Clear Sky",
-        "cbs_alert_word": "Clear",
-        "red_flag_alert": false
+    "Boston": {
+        "temp_f": 75.3,
+        "wind_mph": 15.5,
+        "wind_direction": "S to N",
+        "humidity": 62.0,
+        "condition": "Overcast",
+        "cbs_alert_word": "High Wind",
+        "red_flag_alert": true
     },
-    "Washington": {
-        "temp_f": 69.1,
-        "wind_mph": 7.4,
-        "wind_direction": "WNW to ESE",
-        "humidity": 76.0,
-        "condition": "Clear Sky",
-        "cbs_alert_word": "Clear",
-        "red_flag_alert": false
-    },
-    "Cincinnati": {
-        "temp_f": 56.9,
-        "wind_mph": 3.2,
+    "Milwaukee": {
+        "temp_f": 61.0,
+        "wind_mph": 11.6,
         "wind_direction": "NW to SE",
-        "humidity": 86.0,
-        "condition": "Clear Sky",
-        "cbs_alert_word": "Clear",
-        "red_flag_alert": false
-    },
-    "St Louis": {
-        "temp_f": 59.0,
-        "wind_mph": 4.1,
-        "wind_direction": "WNW to ESE",
-        "humidity": 85.0,
-        "condition": "Clear Sky",
-        "cbs_alert_word": "Clear",
-        "red_flag_alert": false
-    },
-    "Chi Cubs": {
-        "temp_f": 52.1,
-        "wind_mph": 4.8,
-        "wind_direction": "SW to NE",
         "humidity": 82.0,
-        "condition": "Clear Sky",
-        "cbs_alert_word": "Clear",
+        "condition": "Partly Cloudy",
+        "cbs_alert_word": "Overcast",
         "red_flag_alert": false
     },
     "Texas": {
-        "temp_f": 75.1,
-        "wind_mph": 4.0,
-        "wind_direction": "ENE to WSW",
+        "temp_f": 81.7,
+        "wind_mph": 10.5,
+        "wind_direction": "S to N",
+        "humidity": 75.0,
+        "condition": "Clear Sky",
+        "cbs_alert_word": "Clear",
+        "red_flag_alert": false
+    },
+    "Seattle": {
+        "temp_f": 56.6,
+        "wind_mph": 5.4,
+        "wind_direction": "NNE to SSW",
         "humidity": 77.0,
+        "condition": "Clear Sky",
+        "cbs_alert_word": "Clear",
+        "red_flag_alert": false
+    },
+    "Philadelphia": {
+        "temp_f": 81.2,
+        "wind_mph": 13.6,
+        "wind_direction": "SSW to NNE",
+        "humidity": 64.0,
         "condition": "Overcast",
         "cbs_alert_word": "Overcast",
         "red_flag_alert": false
     },
-    "Houston": {
-        "temp_f": 80.8,
-        "wind_mph": 0.0,
-        "wind_direction": "Calm (Roof Closed)",
-        "humidity": 91.0,
-        "condition": "Roof Closed (Expected Thunderstorm)",
-        "cbs_alert_word": "Ideal (Roof Closed)",
+    "NY Yankees": {
+        "temp_f": 76.3,
+        "wind_mph": 14.4,
+        "wind_direction": "SSE to NNW",
+        "humidity": 83.0,
+        "condition": "Overcast",
+        "cbs_alert_word": "Overcast",
         "red_flag_alert": false
     },
-    "Arizona": {
-        "temp_f": 91.3,
-        "wind_mph": 10.0,
-        "wind_direction": "SSE to NNW",
-        "humidity": 35.0,
+    "Atlanta": {
+        "temp_f": 78.5,
+        "wind_mph": 9.4,
+        "wind_direction": "SW to NE",
+        "humidity": 84.0,
+        "condition": "Thunderstorm",
+        "cbs_alert_word": "Nasty Weather",
+        "red_flag_alert": true
+    },
+    "Kansas City": {
+        "temp_f": 70.9,
+        "wind_mph": 5.0,
+        "wind_direction": "NNW to SSE",
+        "humidity": 47.0,
         "condition": "Overcast",
         "cbs_alert_word": "Overcast",
         "red_flag_alert": false
     },
     "Athletics": {
-        "temp_f": 66.0,
-        "wind_mph": 7.7,
-        "wind_direction": "S to N",
-        "humidity": 61.0,
+        "temp_f": 61.4,
+        "wind_mph": 8.5,
+        "wind_direction": "SW to NE",
+        "humidity": 80.0,
         "condition": "Clear Sky",
-        "cbs_alert_word": "Clear",
-        "red_flag_alert": false
-    },
-    "LA Dodgers": {
-        "temp_f": 61.8,
-        "wind_mph": 2.0,
-        "wind_direction": "WSW to ENE",
-        "humidity": 93.0,
-        "condition": "Mainly Clear",
         "cbs_alert_word": "Clear",
         "red_flag_alert": false
     }

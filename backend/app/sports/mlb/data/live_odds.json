@@ -1,281 +1,59 @@
 [
     {
-        "id": "87cc10ad1f5377b838eb240a510a0f9f",
+        "id": "10b797abe19952451af8a428ab530deb",
         "sport_key": "baseball_mlb",
         "sport_title": "MLB",
-        "commence_time": "2026-06-15T22:41:00Z",
-        "home_team": "Philadelphia Phillies",
-        "away_team": "Miami Marlins",
+        "commence_time": "2026-06-18T17:36:00Z",
+        "home_team": "Boston Red Sox",
+        "away_team": "Toronto Blue Jays",
         "bookmakers": [
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T08:28:10Z",
+                "last_update": "2026-06-18T14:08:13Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T08:28:10Z",
+                        "last_update": "2026-06-18T14:08:13Z",
                         "outcomes": [
                             {
-                                "name": "Miami Marlins",
-                                "price": 2.8
+                                "name": "Boston Red Sox",
+                                "price": 1.81
                             },
                             {
-                                "name": "Philadelphia Phillies",
-                                "price": 1.47
+                                "name": "Toronto Blue Jays",
+                                "price": 2.06
                             }
                         ]
                     },
                     {
                         "key": "spreads",
-                        "last_update": "2026-06-15T08:28:10Z",
+                        "last_update": "2026-06-18T14:08:13Z",
                         "outcomes": [
                             {
-                                "name": "Miami Marlins",
-                                "price": 1.78,
-                                "point": 1.5
+                                "name": "Boston Red Sox",
+                                "price": 2.68,
+                                "point": -1.5
                             },
                             {
-                                "name": "Philadelphia Phillies",
-                                "price": 2.06,
-                                "point": -1.5
+                                "name": "Toronto Blue Jays",
+                                "price": 1.49,
+                                "point": 1.5
                             }
                         ]
                     },
                     {
                         "key": "totals",
-                        "last_update": "2026-06-15T08:28:10Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 1.91,
-                                "point": 7.5
-                            },
-                            {
-                                "name": "Under",
-                                "price": 1.91,
-                                "point": 7.5
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "fanatics",
-                "title": "Fanatics",
-                "last_update": "2026-06-15T08:28:12Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:12Z",
-                        "outcomes": [
-                            {
-                                "name": "Miami Marlins",
-                                "price": 2.75
-                            },
-                            {
-                                "name": "Philadelphia Phillies",
-                                "price": 1.47
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:12Z",
-                        "outcomes": [
-                            {
-                                "name": "Miami Marlins",
-                                "price": 1.83,
-                                "point": 1.5
-                            },
-                            {
-                                "name": "Philadelphia Phillies",
-                                "price": 2.0,
-                                "point": -1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:12Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 1.91,
-                                "point": 7.5
-                            },
-                            {
-                                "name": "Under",
-                                "price": 1.91,
-                                "point": 7.5
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "betmgm",
-                "title": "BetMGM",
-                "last_update": "2026-06-15T08:28:22Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:22Z",
-                        "outcomes": [
-                            {
-                                "name": "Miami Marlins",
-                                "price": 2.85
-                            },
-                            {
-                                "name": "Philadelphia Phillies",
-                                "price": 1.44
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:22Z",
-                        "outcomes": [
-                            {
-                                "name": "Miami Marlins",
-                                "price": 1.87,
-                                "point": 1.5
-                            },
-                            {
-                                "name": "Philadelphia Phillies",
-                                "price": 1.95,
-                                "point": -1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:22Z",
+                        "last_update": "2026-06-18T14:08:13Z",
                         "outcomes": [
                             {
                                 "name": "Over",
                                 "price": 1.95,
-                                "point": 7.5
-                            },
-                            {
-                                "name": "Under",
-                                "price": 1.87,
-                                "point": 7.5
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "draftkings",
-                "title": "DraftKings",
-                "last_update": "2026-06-15T08:28:26Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:25Z",
-                        "outcomes": [
-                            {
-                                "name": "Miami Marlins",
-                                "price": 2.77
-                            },
-                            {
-                                "name": "Philadelphia Phillies",
-                                "price": 1.46
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:25Z",
-                        "outcomes": [
-                            {
-                                "name": "Miami Marlins",
-                                "price": 1.85,
-                                "point": 1.5
-                            },
-                            {
-                                "name": "Philadelphia Phillies",
-                                "price": 1.98,
-                                "point": -1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:25Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 1.91,
-                                "point": 7.5
-                            },
-                            {
-                                "name": "Under",
-                                "price": 1.91,
-                                "point": 7.5
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "id": "fa294eb768832d8c8870b2c0559291c1",
-        "sport_key": "baseball_mlb",
-        "sport_title": "MLB",
-        "commence_time": "2026-06-15T22:46:00Z",
-        "home_team": "Washington Nationals",
-        "away_team": "Kansas City Royals",
-        "bookmakers": [
-            {
-                "key": "fanduel",
-                "title": "FanDuel",
-                "last_update": "2026-06-15T08:28:10Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:10Z",
-                        "outcomes": [
-                            {
-                                "name": "Kansas City Royals",
-                                "price": 2.2
-                            },
-                            {
-                                "name": "Washington Nationals",
-                                "price": 1.7
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:10Z",
-                        "outcomes": [
-                            {
-                                "name": "Kansas City Royals",
-                                "price": 1.6,
-                                "point": 1.5
-                            },
-                            {
-                                "name": "Washington Nationals",
-                                "price": 2.38,
-                                "point": -1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:10Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 1.87,
                                 "point": 9.0
                             },
                             {
                                 "name": "Under",
-                                "price": 1.95,
+                                "price": 1.87,
                                 "point": 9.0
                             }
                         ]
@@ -285,202 +63,33 @@
             {
                 "key": "fanatics",
                 "title": "Fanatics",
-                "last_update": "2026-06-15T08:28:12Z",
+                "last_update": "2026-06-18T14:07:48Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T08:28:12Z",
+                        "last_update": "2026-06-18T14:07:48Z",
                         "outcomes": [
                             {
-                                "name": "Kansas City Royals",
-                                "price": 2.15
+                                "name": "Boston Red Sox",
+                                "price": 1.8
                             },
                             {
-                                "name": "Washington Nationals",
-                                "price": 1.71
+                                "name": "Toronto Blue Jays",
+                                "price": 2.05
                             }
                         ]
                     },
                     {
                         "key": "spreads",
-                        "last_update": "2026-06-15T08:28:12Z",
+                        "last_update": "2026-06-18T14:07:48Z",
                         "outcomes": [
                             {
-                                "name": "Kansas City Royals",
-                                "price": 1.56,
-                                "point": 1.5
-                            },
-                            {
-                                "name": "Washington Nationals",
-                                "price": 2.5,
-                                "point": -1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:12Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 1.87,
-                                "point": 9.0
-                            },
-                            {
-                                "name": "Under",
-                                "price": 1.95,
-                                "point": 9.0
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "draftkings",
-                "title": "DraftKings",
-                "last_update": "2026-06-15T08:28:26Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:25Z",
-                        "outcomes": [
-                            {
-                                "name": "Kansas City Royals",
-                                "price": 2.19
-                            },
-                            {
-                                "name": "Washington Nationals",
-                                "price": 1.7
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:25Z",
-                        "outcomes": [
-                            {
-                                "name": "Kansas City Royals",
-                                "price": 1.58,
-                                "point": 1.5
-                            },
-                            {
-                                "name": "Washington Nationals",
-                                "price": 2.41,
-                                "point": -1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:25Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 1.88,
-                                "point": 9.0
-                            },
-                            {
-                                "name": "Under",
-                                "price": 1.95,
-                                "point": 9.0
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "betmgm",
-                "title": "BetMGM",
-                "last_update": "2026-06-15T08:28:22Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:22Z",
-                        "outcomes": [
-                            {
-                                "name": "Kansas City Royals",
-                                "price": 2.2
-                            },
-                            {
-                                "name": "Washington Nationals",
-                                "price": 1.69
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:22Z",
-                        "outcomes": [
-                            {
-                                "name": "Kansas City Royals",
-                                "price": 1.59,
-                                "point": 1.5
-                            },
-                            {
-                                "name": "Washington Nationals",
-                                "price": 2.4,
-                                "point": -1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:22Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 1.87,
-                                "point": 9.0
-                            },
-                            {
-                                "name": "Under",
-                                "price": 1.95,
-                                "point": 9.0
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "id": "6b47a66c52d27dacd1c7bbcd808713c1",
-        "sport_key": "baseball_mlb",
-        "sport_title": "MLB",
-        "commence_time": "2026-06-15T23:11:00Z",
-        "home_team": "Cincinnati Reds",
-        "away_team": "New York Mets",
-        "bookmakers": [
-            {
-                "key": "fanduel",
-                "title": "FanDuel",
-                "last_update": "2026-06-15T08:28:10Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:10Z",
-                        "outcomes": [
-                            {
-                                "name": "Cincinnati Reds",
-                                "price": 1.7
-                            },
-                            {
-                                "name": "New York Mets",
-                                "price": 2.2
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:10Z",
-                        "outcomes": [
-                            {
-                                "name": "Cincinnati Reds",
+                                "name": "Boston Red Sox",
                                 "price": 2.55,
                                 "point": -1.5
                             },
                             {
-                                "name": "New York Mets",
+                                "name": "Toronto Blue Jays",
                                 "price": 1.53,
                                 "point": 1.5
                             }
@@ -488,70 +97,17 @@
                     },
                     {
                         "key": "totals",
-                        "last_update": "2026-06-15T08:28:10Z",
+                        "last_update": "2026-06-18T14:07:48Z",
                         "outcomes": [
                             {
                                 "name": "Over",
-                                "price": 1.96,
-                                "point": 8.5
+                                "price": 1.91,
+                                "point": 9.0
                             },
                             {
                                 "name": "Under",
-                                "price": 1.85,
-                                "point": 8.5
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "fanatics",
-                "title": "Fanatics",
-                "last_update": "2026-06-15T08:28:12Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:12Z",
-                        "outcomes": [
-                            {
-                                "name": "Cincinnati Reds",
-                                "price": 1.77
-                            },
-                            {
-                                "name": "New York Mets",
-                                "price": 2.1
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:12Z",
-                        "outcomes": [
-                            {
-                                "name": "Cincinnati Reds",
-                                "price": 2.5,
-                                "point": -1.5
-                            },
-                            {
-                                "name": "New York Mets",
-                                "price": 1.56,
-                                "point": 1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:12Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 1.87,
-                                "point": 8.0
-                            },
-                            {
-                                "name": "Under",
-                                "price": 1.95,
-                                "point": 8.0
+                                "price": 1.91,
+                                "point": 9.0
                             }
                         ]
                     }
@@ -560,51 +116,51 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T08:28:26Z",
+                "last_update": "2026-06-18T14:07:36Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T08:28:25Z",
+                        "last_update": "2026-06-18T14:07:36Z",
                         "outcomes": [
                             {
-                                "name": "Cincinnati Reds",
-                                "price": 1.7
+                                "name": "Boston Red Sox",
+                                "price": 1.79
                             },
                             {
-                                "name": "New York Mets",
-                                "price": 2.19
+                                "name": "Toronto Blue Jays",
+                                "price": 2.04
                             }
                         ]
                     },
                     {
                         "key": "spreads",
-                        "last_update": "2026-06-15T08:28:25Z",
+                        "last_update": "2026-06-18T14:07:36Z",
                         "outcomes": [
                             {
-                                "name": "Cincinnati Reds",
-                                "price": 2.53,
+                                "name": "Boston Red Sox",
+                                "price": 2.62,
                                 "point": -1.5
                             },
                             {
-                                "name": "New York Mets",
-                                "price": 1.54,
+                                "name": "Toronto Blue Jays",
+                                "price": 1.51,
                                 "point": 1.5
                             }
                         ]
                     },
                     {
                         "key": "totals",
-                        "last_update": "2026-06-15T08:28:25Z",
+                        "last_update": "2026-06-18T14:07:36Z",
                         "outcomes": [
                             {
                                 "name": "Over",
-                                "price": 1.88,
-                                "point": 8.0
+                                "price": 1.9,
+                                "point": 9.0
                             },
                             {
                                 "name": "Under",
-                                "price": 1.95,
-                                "point": 8.0
+                                "price": 1.93,
+                                "point": 9.0
                             }
                         ]
                     }
@@ -613,51 +169,51 @@
             {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T08:28:22Z",
+                "last_update": "2026-06-18T14:08:14Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T08:28:22Z",
+                        "last_update": "2026-06-18T14:08:14Z",
                         "outcomes": [
                             {
-                                "name": "Cincinnati Reds",
-                                "price": 1.71
+                                "name": "Boston Red Sox",
+                                "price": 1.77
                             },
                             {
-                                "name": "New York Mets",
-                                "price": 2.15
+                                "name": "Toronto Blue Jays",
+                                "price": 2.05
                             }
                         ]
                     },
                     {
                         "key": "spreads",
-                        "last_update": "2026-06-15T08:28:22Z",
+                        "last_update": "2026-06-18T14:08:14Z",
                         "outcomes": [
                             {
-                                "name": "Cincinnati Reds",
-                                "price": 2.5,
+                                "name": "Boston Red Sox",
+                                "price": 2.55,
                                 "point": -1.5
                             },
                             {
-                                "name": "New York Mets",
-                                "price": 1.54,
+                                "name": "Toronto Blue Jays",
+                                "price": 1.53,
                                 "point": 1.5
                             }
                         ]
                     },
                     {
                         "key": "totals",
-                        "last_update": "2026-06-15T08:28:22Z",
+                        "last_update": "2026-06-18T14:08:14Z",
                         "outcomes": [
                             {
                                 "name": "Over",
-                                "price": 1.87,
-                                "point": 8.0
+                                "price": 1.91,
+                                "point": 9.0
                             },
                             {
                                 "name": "Under",
-                                "price": 1.95,
-                                "point": 8.0
+                                "price": 1.91,
+                                "point": 9.0
                             }
                         ]
                     }
@@ -666,61 +222,61 @@
         ]
     },
     {
-        "id": "6dc67dec6b0c9f4a591f05d0f5912d23",
+        "id": "872e319f5c105d18457014bc855cdc85",
         "sport_key": "baseball_mlb",
         "sport_title": "MLB",
-        "commence_time": "2026-06-15T23:46:00Z",
-        "home_team": "St. Louis Cardinals",
-        "away_team": "San Diego Padres",
+        "commence_time": "2026-06-18T18:11:00Z",
+        "home_team": "Milwaukee Brewers",
+        "away_team": "Cleveland Guardians",
         "bookmakers": [
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T08:28:10Z",
+                "last_update": "2026-06-18T14:08:13Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T08:28:10Z",
+                        "last_update": "2026-06-18T14:08:13Z",
                         "outcomes": [
                             {
-                                "name": "San Diego Padres",
+                                "name": "Cleveland Guardians",
                                 "price": 2.24
                             },
                             {
-                                "name": "St. Louis Cardinals",
+                                "name": "Milwaukee Brewers",
                                 "price": 1.68
                             }
                         ]
                     },
                     {
                         "key": "spreads",
-                        "last_update": "2026-06-15T08:28:10Z",
+                        "last_update": "2026-06-18T14:08:13Z",
                         "outcomes": [
                             {
-                                "name": "San Diego Padres",
-                                "price": 1.59,
+                                "name": "Cleveland Guardians",
+                                "price": 1.56,
                                 "point": 1.5
                             },
                             {
-                                "name": "St. Louis Cardinals",
-                                "price": 2.4,
+                                "name": "Milwaukee Brewers",
+                                "price": 2.46,
                                 "point": -1.5
                             }
                         ]
                     },
                     {
                         "key": "totals",
-                        "last_update": "2026-06-15T08:28:10Z",
+                        "last_update": "2026-06-18T14:08:13Z",
                         "outcomes": [
                             {
                                 "name": "Over",
-                                "price": 1.95,
-                                "point": 8.5
+                                "price": 1.96,
+                                "point": 7.5
                             },
                             {
                                 "name": "Under",
-                                "price": 1.87,
-                                "point": 8.5
+                                "price": 1.85,
+                                "point": 7.5
                             }
                         ]
                     }
@@ -729,33 +285,33 @@
             {
                 "key": "fanatics",
                 "title": "Fanatics",
-                "last_update": "2026-06-15T08:28:12Z",
+                "last_update": "2026-06-18T14:07:48Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T08:28:12Z",
+                        "last_update": "2026-06-18T14:07:48Z",
                         "outcomes": [
                             {
-                                "name": "San Diego Padres",
-                                "price": 2.2
+                                "name": "Cleveland Guardians",
+                                "price": 2.3
                             },
                             {
-                                "name": "St. Louis Cardinals",
-                                "price": 1.69
+                                "name": "Milwaukee Brewers",
+                                "price": 1.65
                             }
                         ]
                     },
                     {
                         "key": "spreads",
-                        "last_update": "2026-06-15T08:28:12Z",
+                        "last_update": "2026-06-18T14:07:48Z",
                         "outcomes": [
                             {
-                                "name": "San Diego Padres",
+                                "name": "Cleveland Guardians",
                                 "price": 1.57,
                                 "point": 1.5
                             },
                             {
-                                "name": "St. Louis Cardinals",
+                                "name": "Milwaukee Brewers",
                                 "price": 2.45,
                                 "point": -1.5
                             }
@@ -763,17 +319,17 @@
                     },
                     {
                         "key": "totals",
-                        "last_update": "2026-06-15T08:28:12Z",
+                        "last_update": "2026-06-18T14:07:48Z",
                         "outcomes": [
                             {
                                 "name": "Over",
                                 "price": 1.91,
-                                "point": 8.5
+                                "point": 7.5
                             },
                             {
                                 "name": "Under",
                                 "price": 1.91,
-                                "point": 8.5
+                                "point": 7.5
                             }
                         ]
                     }
@@ -782,699 +338,33 @@
             {
                 "key": "draftkings",
                 "title": "DraftKings",
-                "last_update": "2026-06-15T08:28:26Z",
+                "last_update": "2026-06-18T14:07:36Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T08:28:25Z",
+                        "last_update": "2026-06-18T14:07:36Z",
                         "outcomes": [
                             {
-                                "name": "San Diego Padres",
-                                "price": 2.23
+                                "name": "Cleveland Guardians",
+                                "price": 2.3
                             },
                             {
-                                "name": "St. Louis Cardinals",
-                                "price": 1.67
+                                "name": "Milwaukee Brewers",
+                                "price": 1.64
                             }
                         ]
                     },
                     {
                         "key": "spreads",
-                        "last_update": "2026-06-15T08:28:25Z",
+                        "last_update": "2026-06-18T14:07:36Z",
                         "outcomes": [
                             {
-                                "name": "San Diego Padres",
-                                "price": 1.55,
-                                "point": 1.5
-                            },
-                            {
-                                "name": "St. Louis Cardinals",
-                                "price": 2.49,
-                                "point": -1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:25Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 1.91,
-                                "point": 8.5
-                            },
-                            {
-                                "name": "Under",
-                                "price": 1.91,
-                                "point": 8.5
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "betmgm",
-                "title": "BetMGM",
-                "last_update": "2026-06-15T08:28:22Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:22Z",
-                        "outcomes": [
-                            {
-                                "name": "San Diego Padres",
-                                "price": 2.25
-                            },
-                            {
-                                "name": "St. Louis Cardinals",
-                                "price": 1.67
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:22Z",
-                        "outcomes": [
-                            {
-                                "name": "San Diego Padres",
+                                "name": "Cleveland Guardians",
                                 "price": 1.54,
                                 "point": 1.5
                             },
                             {
-                                "name": "St. Louis Cardinals",
-                                "price": 2.5,
-                                "point": -1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:22Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 1.91,
-                                "point": 8.5
-                            },
-                            {
-                                "name": "Under",
-                                "price": 1.91,
-                                "point": 8.5
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "id": "9c2784938a40031b48e75139185e2491",
-        "sport_key": "baseball_mlb",
-        "sport_title": "MLB",
-        "commence_time": "2026-06-16T00:06:00Z",
-        "home_team": "Chicago Cubs",
-        "away_team": "Colorado Rockies",
-        "bookmakers": [
-            {
-                "key": "fanduel",
-                "title": "FanDuel",
-                "last_update": "2026-06-15T08:28:10Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:10Z",
-                        "outcomes": [
-                            {
-                                "name": "Chicago Cubs",
-                                "price": 1.48
-                            },
-                            {
-                                "name": "Colorado Rockies",
-                                "price": 2.76
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:10Z",
-                        "outcomes": [
-                            {
-                                "name": "Chicago Cubs",
-                                "price": 2.0,
-                                "point": -1.5
-                            },
-                            {
-                                "name": "Colorado Rockies",
-                                "price": 1.83,
-                                "point": 1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:10Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 1.81,
-                                "point": 9.0
-                            },
-                            {
-                                "name": "Under",
-                                "price": 2.02,
-                                "point": 9.0
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "fanatics",
-                "title": "Fanatics",
-                "last_update": "2026-06-15T08:28:12Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:12Z",
-                        "outcomes": [
-                            {
-                                "name": "Chicago Cubs",
-                                "price": 1.49
-                            },
-                            {
-                                "name": "Colorado Rockies",
-                                "price": 2.7
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:12Z",
-                        "outcomes": [
-                            {
-                                "name": "Chicago Cubs",
-                                "price": 2.0,
-                                "point": -1.5
-                            },
-                            {
-                                "name": "Colorado Rockies",
-                                "price": 1.83,
-                                "point": 1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:12Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 2.0,
-                                "point": 9.5
-                            },
-                            {
-                                "name": "Under",
-                                "price": 1.83,
-                                "point": 9.5
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "betmgm",
-                "title": "BetMGM",
-                "last_update": "2026-06-15T08:28:22Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:22Z",
-                        "outcomes": [
-                            {
-                                "name": "Chicago Cubs",
-                                "price": 1.48
-                            },
-                            {
-                                "name": "Colorado Rockies",
-                                "price": 2.7
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:22Z",
-                        "outcomes": [
-                            {
-                                "name": "Chicago Cubs",
-                                "price": 2.0,
-                                "point": -1.5
-                            },
-                            {
-                                "name": "Colorado Rockies",
-                                "price": 1.83,
-                                "point": 1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:22Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 2.0,
-                                "point": 9.5
-                            },
-                            {
-                                "name": "Under",
-                                "price": 1.83,
-                                "point": 9.5
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "draftkings",
-                "title": "DraftKings",
-                "last_update": "2026-06-15T08:28:26Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:25Z",
-                        "outcomes": [
-                            {
-                                "name": "Chicago Cubs",
-                                "price": 1.48
-                            },
-                            {
-                                "name": "Colorado Rockies",
-                                "price": 2.69
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:25Z",
-                        "outcomes": [
-                            {
-                                "name": "Chicago Cubs",
-                                "price": 1.98,
-                                "point": -1.5
-                            },
-                            {
-                                "name": "Colorado Rockies",
-                                "price": 1.85,
-                                "point": 1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:25Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 2.01,
-                                "point": 9.5
-                            },
-                            {
-                                "name": "Under",
-                                "price": 1.82,
-                                "point": 9.5
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "id": "35d9a6cb5c11499a313b0205abf1c1f9",
-        "sport_key": "baseball_mlb",
-        "sport_title": "MLB",
-        "commence_time": "2026-06-16T00:06:00Z",
-        "home_team": "Texas Rangers",
-        "away_team": "Minnesota Twins",
-        "bookmakers": [
-            {
-                "key": "fanduel",
-                "title": "FanDuel",
-                "last_update": "2026-06-15T08:28:10Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:10Z",
-                        "outcomes": [
-                            {
-                                "name": "Minnesota Twins",
-                                "price": 2.42
-                            },
-                            {
-                                "name": "Texas Rangers",
-                                "price": 1.6
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:10Z",
-                        "outcomes": [
-                            {
-                                "name": "Minnesota Twins",
-                                "price": 1.64,
-                                "point": 1.5
-                            },
-                            {
-                                "name": "Texas Rangers",
-                                "price": 2.3,
-                                "point": -1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:10Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 1.91,
-                                "point": 8.0
-                            },
-                            {
-                                "name": "Under",
-                                "price": 1.91,
-                                "point": 8.0
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "fanatics",
-                "title": "Fanatics",
-                "last_update": "2026-06-15T08:28:12Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:12Z",
-                        "outcomes": [
-                            {
-                                "name": "Minnesota Twins",
-                                "price": 2.4
-                            },
-                            {
-                                "name": "Texas Rangers",
-                                "price": 1.59
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:12Z",
-                        "outcomes": [
-                            {
-                                "name": "Minnesota Twins",
-                                "price": 1.61,
-                                "point": 1.5
-                            },
-                            {
-                                "name": "Texas Rangers",
-                                "price": 2.35,
-                                "point": -1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:12Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 1.91,
-                                "point": 8.0
-                            },
-                            {
-                                "name": "Under",
-                                "price": 1.91,
-                                "point": 8.0
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "draftkings",
-                "title": "DraftKings",
-                "last_update": "2026-06-15T08:28:26Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:25Z",
-                        "outcomes": [
-                            {
-                                "name": "Minnesota Twins",
-                                "price": 2.39
-                            },
-                            {
-                                "name": "Texas Rangers",
-                                "price": 1.6
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:25Z",
-                        "outcomes": [
-                            {
-                                "name": "Minnesota Twins",
-                                "price": 1.64,
-                                "point": 1.5
-                            },
-                            {
-                                "name": "Texas Rangers",
-                                "price": 2.29,
-                                "point": -1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:25Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 1.91,
-                                "point": 8.0
-                            },
-                            {
-                                "name": "Under",
-                                "price": 1.91,
-                                "point": 8.0
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "id": "d5349ae869ae1b1c6c38042687a3e57b",
-        "sport_key": "baseball_mlb",
-        "sport_title": "MLB",
-        "commence_time": "2026-06-16T00:11:00Z",
-        "home_team": "Houston Astros",
-        "away_team": "Detroit Tigers",
-        "bookmakers": [
-            {
-                "key": "fanduel",
-                "title": "FanDuel",
-                "last_update": "2026-06-15T08:28:10Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:10Z",
-                        "outcomes": [
-                            {
-                                "name": "Detroit Tigers",
-                                "price": 2.1
-                            },
-                            {
-                                "name": "Houston Astros",
-                                "price": 1.77
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:10Z",
-                        "outcomes": [
-                            {
-                                "name": "Detroit Tigers",
-                                "price": 1.54,
-                                "point": 1.5
-                            },
-                            {
-                                "name": "Houston Astros",
-                                "price": 2.52,
-                                "point": -1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:10Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 1.81,
-                                "point": 8.5
-                            },
-                            {
-                                "name": "Under",
-                                "price": 2.02,
-                                "point": 8.5
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "fanatics",
-                "title": "Fanatics",
-                "last_update": "2026-06-15T08:28:12Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:12Z",
-                        "outcomes": [
-                            {
-                                "name": "Detroit Tigers",
-                                "price": 2.1
-                            },
-                            {
-                                "name": "Houston Astros",
-                                "price": 1.77
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:12Z",
-                        "outcomes": [
-                            {
-                                "name": "Detroit Tigers",
-                                "price": 1.56,
-                                "point": 1.5
-                            },
-                            {
-                                "name": "Houston Astros",
-                                "price": 2.5,
-                                "point": -1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:12Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 1.83,
-                                "point": 8.5
-                            },
-                            {
-                                "name": "Under",
-                                "price": 2.0,
-                                "point": 8.5
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "betmgm",
-                "title": "BetMGM",
-                "last_update": "2026-06-15T08:28:22Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:22Z",
-                        "outcomes": [
-                            {
-                                "name": "Detroit Tigers",
-                                "price": 2.05
-                            },
-                            {
-                                "name": "Houston Astros",
-                                "price": 1.77
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:22Z",
-                        "outcomes": [
-                            {
-                                "name": "Detroit Tigers",
-                                "price": 1.54,
-                                "point": 1.5
-                            },
-                            {
-                                "name": "Houston Astros",
-                                "price": 2.5,
-                                "point": -1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:22Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 1.85,
-                                "point": 8.5
-                            },
-                            {
-                                "name": "Under",
-                                "price": 1.98,
-                                "point": 8.5
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "draftkings",
-                "title": "DraftKings",
-                "last_update": "2026-06-15T08:28:26Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:25Z",
-                        "outcomes": [
-                            {
-                                "name": "Detroit Tigers",
-                                "price": 2.09
-                            },
-                            {
-                                "name": "Houston Astros",
-                                "price": 1.76
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:25Z",
-                        "outcomes": [
-                            {
-                                "name": "Detroit Tigers",
-                                "price": 1.54,
-                                "point": 1.5
-                            },
-                            {
-                                "name": "Houston Astros",
+                                "name": "Milwaukee Brewers",
                                 "price": 2.53,
                                 "point": -1.5
                             }
@@ -1482,80 +372,17 @@
                     },
                     {
                         "key": "totals",
-                        "last_update": "2026-06-15T08:28:25Z",
+                        "last_update": "2026-06-18T14:07:36Z",
                         "outcomes": [
                             {
                                 "name": "Over",
-                                "price": 1.82,
-                                "point": 8.5
+                                "price": 1.93,
+                                "point": 7.5
                             },
                             {
                                 "name": "Under",
-                                "price": 2.02,
-                                "point": 8.5
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "id": "38a1ef501107d0410c8595f25612567d",
-        "sport_key": "baseball_mlb",
-        "sport_title": "MLB",
-        "commence_time": "2026-06-16T01:41:00Z",
-        "home_team": "Arizona Diamondbacks",
-        "away_team": "Los Angeles Angels",
-        "bookmakers": [
-            {
-                "key": "fanduel",
-                "title": "FanDuel",
-                "last_update": "2026-06-15T08:28:10Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:10Z",
-                        "outcomes": [
-                            {
-                                "name": "Arizona Diamondbacks",
-                                "price": 1.77
-                            },
-                            {
-                                "name": "Los Angeles Angels",
-                                "price": 2.1
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:10Z",
-                        "outcomes": [
-                            {
-                                "name": "Arizona Diamondbacks",
-                                "price": 2.64,
-                                "point": -1.5
-                            },
-                            {
-                                "name": "Los Angeles Angels",
-                                "price": 1.5,
-                                "point": 1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:10Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 1.95,
-                                "point": 9.0
-                            },
-                            {
-                                "name": "Under",
-                                "price": 1.87,
-                                "point": 9.0
+                                "price": 1.89,
+                                "point": 7.5
                             }
                         ]
                     }
@@ -1564,157 +391,51 @@
             {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T08:28:22Z",
+                "last_update": "2026-06-18T14:08:14Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T08:28:22Z",
+                        "last_update": "2026-06-18T14:08:14Z",
                         "outcomes": [
                             {
-                                "name": "Arizona Diamondbacks",
-                                "price": 1.74
+                                "name": "Cleveland Guardians",
+                                "price": 2.25
                             },
                             {
-                                "name": "Los Angeles Angels",
-                                "price": 2.1
+                                "name": "Milwaukee Brewers",
+                                "price": 1.65
                             }
                         ]
                     },
                     {
                         "key": "spreads",
-                        "last_update": "2026-06-15T08:28:22Z",
+                        "last_update": "2026-06-18T14:08:14Z",
                         "outcomes": [
                             {
-                                "name": "Arizona Diamondbacks",
-                                "price": 2.55,
-                                "point": -1.5
-                            },
-                            {
-                                "name": "Los Angeles Angels",
+                                "name": "Cleveland Guardians",
                                 "price": 1.53,
                                 "point": 1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:22Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 1.83,
-                                "point": 9.0
                             },
                             {
-                                "name": "Under",
-                                "price": 2.0,
-                                "point": 9.0
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "fanatics",
-                "title": "Fanatics",
-                "last_update": "2026-06-15T08:28:12Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:12Z",
-                        "outcomes": [
-                            {
-                                "name": "Arizona Diamondbacks",
-                                "price": 1.8
-                            },
-                            {
-                                "name": "Los Angeles Angels",
-                                "price": 2.05
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:12Z",
-                        "outcomes": [
-                            {
-                                "name": "Arizona Diamondbacks",
-                                "price": 2.55,
+                                "name": "Milwaukee Brewers",
+                                "price": 2.54,
                                 "point": -1.5
-                            },
-                            {
-                                "name": "Los Angeles Angels",
-                                "price": 1.53,
-                                "point": 1.5
                             }
                         ]
                     },
                     {
                         "key": "totals",
-                        "last_update": "2026-06-15T08:28:12Z",
+                        "last_update": "2026-06-18T14:08:14Z",
                         "outcomes": [
                             {
                                 "name": "Over",
-                                "price": 1.87,
-                                "point": 9.0
+                                "price": 1.91,
+                                "point": 7.5
                             },
                             {
                                 "name": "Under",
-                                "price": 1.95,
-                                "point": 9.0
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "draftkings",
-                "title": "DraftKings",
-                "last_update": "2026-06-15T08:28:26Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:26Z",
-                        "outcomes": [
-                            {
-                                "name": "Arizona Diamondbacks",
-                                "price": 1.76
-                            },
-                            {
-                                "name": "Los Angeles Angels",
-                                "price": 2.08
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:26Z",
-                        "outcomes": [
-                            {
-                                "name": "Arizona Diamondbacks",
-                                "price": 2.57,
-                                "point": -1.5
-                            },
-                            {
-                                "name": "Los Angeles Angels",
-                                "price": 1.52,
-                                "point": 1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:26Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 1.85,
-                                "point": 9.0
-                            },
-                            {
-                                "name": "Under",
-                                "price": 1.98,
-                                "point": 9.0
+                                "price": 1.91,
+                                "point": 7.5
                             }
                         ]
                     }
@@ -1723,96 +444,43 @@
         ]
     },
     {
-        "id": "8e54fa4eee405d90f575942ad15b1d52",
+        "id": "bb47b41c0a375d2df45331898a1e7ec1",
         "sport_key": "baseball_mlb",
         "sport_title": "MLB",
-        "commence_time": "2026-06-16T01:41:00Z",
-        "home_team": "Athletics",
-        "away_team": "Pittsburgh Pirates",
+        "commence_time": "2026-06-18T18:36:00Z",
+        "home_team": "Texas Rangers",
+        "away_team": "Minnesota Twins",
         "bookmakers": [
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T08:28:10Z",
+                "last_update": "2026-06-18T14:08:13Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T08:28:10Z",
+                        "last_update": "2026-06-18T14:08:13Z",
                         "outcomes": [
                             {
-                                "name": "Athletics",
-                                "price": 1.79
+                                "name": "Minnesota Twins",
+                                "price": 1.81
                             },
                             {
-                                "name": "Pittsburgh Pirates",
-                                "price": 2.08
+                                "name": "Texas Rangers",
+                                "price": 2.06
                             }
                         ]
                     },
                     {
                         "key": "spreads",
-                        "last_update": "2026-06-15T08:28:10Z",
+                        "last_update": "2026-06-18T14:08:13Z",
                         "outcomes": [
                             {
-                                "name": "Athletics",
-                                "price": 1.55,
-                                "point": 1.5
-                            },
-                            {
-                                "name": "Pittsburgh Pirates",
-                                "price": 2.5,
-                                "point": -1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:10Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 1.83,
-                                "point": 10.5
-                            },
-                            {
-                                "name": "Under",
-                                "price": 1.98,
-                                "point": 10.5
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "betmgm",
-                "title": "BetMGM",
-                "last_update": "2026-06-15T08:28:22Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:22Z",
-                        "outcomes": [
-                            {
-                                "name": "Athletics",
-                                "price": 1.8
-                            },
-                            {
-                                "name": "Pittsburgh Pirates",
-                                "price": 2.05
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:22Z",
-                        "outcomes": [
-                            {
-                                "name": "Athletics",
+                                "name": "Minnesota Twins",
                                 "price": 2.4,
                                 "point": -1.5
                             },
                             {
-                                "name": "Pittsburgh Pirates",
+                                "name": "Texas Rangers",
                                 "price": 1.59,
                                 "point": 1.5
                             }
@@ -1820,70 +488,17 @@
                     },
                     {
                         "key": "totals",
-                        "last_update": "2026-06-15T08:28:22Z",
+                        "last_update": "2026-06-18T14:08:13Z",
                         "outcomes": [
                             {
                                 "name": "Over",
-                                "price": 1.87,
-                                "point": 10.5
+                                "price": 1.83,
+                                "point": 7.5
                             },
                             {
                                 "name": "Under",
-                                "price": 1.95,
-                                "point": 10.5
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "key": "draftkings",
-                "title": "DraftKings",
-                "last_update": "2026-06-15T08:28:26Z",
-                "markets": [
-                    {
-                        "key": "h2h",
-                        "last_update": "2026-06-15T08:28:25Z",
-                        "outcomes": [
-                            {
-                                "name": "Athletics",
-                                "price": 1.76
-                            },
-                            {
-                                "name": "Pittsburgh Pirates",
-                                "price": 2.08
-                            }
-                        ]
-                    },
-                    {
-                        "key": "spreads",
-                        "last_update": "2026-06-15T08:28:25Z",
-                        "outcomes": [
-                            {
-                                "name": "Athletics",
-                                "price": 2.44,
-                                "point": -1.5
-                            },
-                            {
-                                "name": "Pittsburgh Pirates",
-                                "price": 1.57,
-                                "point": 1.5
-                            }
-                        ]
-                    },
-                    {
-                        "key": "totals",
-                        "last_update": "2026-06-15T08:28:25Z",
-                        "outcomes": [
-                            {
-                                "name": "Over",
-                                "price": 1.85,
-                                "point": 10.5
-                            },
-                            {
-                                "name": "Under",
-                                "price": 1.97,
-                                "point": 10.5
+                                "price": 1.98,
+                                "point": 7.5
                             }
                         ]
                     }
@@ -1892,51 +507,157 @@
             {
                 "key": "fanatics",
                 "title": "Fanatics",
-                "last_update": "2026-06-15T08:28:12Z",
+                "last_update": "2026-06-18T14:07:48Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T08:28:12Z",
+                        "last_update": "2026-06-18T14:07:48Z",
                         "outcomes": [
                             {
-                                "name": "Athletics",
-                                "price": 1.77
+                                "name": "Minnesota Twins",
+                                "price": 1.8
                             },
                             {
-                                "name": "Pittsburgh Pirates",
-                                "price": 2.1
+                                "name": "Texas Rangers",
+                                "price": 2.05
                             }
                         ]
                     },
                     {
                         "key": "spreads",
-                        "last_update": "2026-06-15T08:28:12Z",
+                        "last_update": "2026-06-18T14:07:48Z",
                         "outcomes": [
                             {
-                                "name": "Athletics",
-                                "price": 2.5,
+                                "name": "Minnesota Twins",
+                                "price": 2.3,
                                 "point": -1.5
                             },
                             {
-                                "name": "Pittsburgh Pirates",
-                                "price": 1.56,
+                                "name": "Texas Rangers",
+                                "price": 1.65,
                                 "point": 1.5
                             }
                         ]
                     },
                     {
                         "key": "totals",
-                        "last_update": "2026-06-15T08:28:12Z",
+                        "last_update": "2026-06-18T14:07:48Z",
                         "outcomes": [
                             {
                                 "name": "Over",
-                                "price": 1.83,
-                                "point": 10.5
+                                "price": 1.87,
+                                "point": 7.5
                             },
                             {
                                 "name": "Under",
-                                "price": 2.0,
-                                "point": 10.5
+                                "price": 1.95,
+                                "point": 7.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2026-06-18T14:07:36Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-18T14:07:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Minnesota Twins",
+                                "price": 1.79
+                            },
+                            {
+                                "name": "Texas Rangers",
+                                "price": 2.05
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "last_update": "2026-06-18T14:07:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Minnesota Twins",
+                                "price": 2.3,
+                                "point": -1.5
+                            },
+                            {
+                                "name": "Texas Rangers",
+                                "price": 1.64,
+                                "point": 1.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "last_update": "2026-06-18T14:07:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.85,
+                                "point": 7.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.97,
+                                "point": 7.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2026-06-18T14:08:14Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-18T14:08:14Z",
+                        "outcomes": [
+                            {
+                                "name": "Minnesota Twins",
+                                "price": 1.77
+                            },
+                            {
+                                "name": "Texas Rangers",
+                                "price": 2.05
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "last_update": "2026-06-18T14:08:14Z",
+                        "outcomes": [
+                            {
+                                "name": "Minnesota Twins",
+                                "price": 2.35,
+                                "point": -1.5
+                            },
+                            {
+                                "name": "Texas Rangers",
+                                "price": 1.62,
+                                "point": 1.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "last_update": "2026-06-18T14:08:14Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.85,
+                                "point": 7.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.98,
+                                "point": 7.5
                             }
                         ]
                     }
@@ -1945,60 +666,1054 @@
         ]
     },
     {
-        "id": "da125dfa2d7fe97d5836e50dd394db59",
+        "id": "cad6df1fc1aadca9fdbb359d7d43e40f",
         "sport_key": "baseball_mlb",
         "sport_title": "MLB",
-        "commence_time": "2026-06-16T02:11:00Z",
-        "home_team": "Los Angeles Dodgers",
-        "away_team": "Tampa Bay Rays",
+        "commence_time": "2026-06-18T20:11:00Z",
+        "home_team": "Seattle Mariners",
+        "away_team": "Baltimore Orioles",
         "bookmakers": [
             {
                 "key": "fanduel",
                 "title": "FanDuel",
-                "last_update": "2026-06-15T08:28:10Z",
+                "last_update": "2026-06-18T14:08:13Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T08:28:10Z",
+                        "last_update": "2026-06-18T14:08:13Z",
                         "outcomes": [
                             {
-                                "name": "Los Angeles Dodgers",
-                                "price": 1.6
+                                "name": "Baltimore Orioles",
+                                "price": 2.24
                             },
                             {
-                                "name": "Tampa Bay Rays",
-                                "price": 2.42
+                                "name": "Seattle Mariners",
+                                "price": 1.68
                             }
                         ]
                     },
                     {
                         "key": "spreads",
-                        "last_update": "2026-06-15T08:28:10Z",
+                        "last_update": "2026-06-18T14:08:13Z",
                         "outcomes": [
                             {
-                                "name": "Los Angeles Dodgers",
+                                "name": "Baltimore Orioles",
+                                "price": 1.56,
+                                "point": 1.5
+                            },
+                            {
+                                "name": "Seattle Mariners",
+                                "price": 2.46,
+                                "point": -1.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "last_update": "2026-06-18T14:08:13Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.87,
+                                "point": 7.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.95,
+                                "point": 7.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanatics",
+                "title": "Fanatics",
+                "last_update": "2026-06-18T14:07:48Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-18T14:07:48Z",
+                        "outcomes": [
+                            {
+                                "name": "Baltimore Orioles",
+                                "price": 2.2
+                            },
+                            {
+                                "name": "Seattle Mariners",
+                                "price": 1.69
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "last_update": "2026-06-18T14:07:48Z",
+                        "outcomes": [
+                            {
+                                "name": "Baltimore Orioles",
+                                "price": 1.57,
+                                "point": 1.5
+                            },
+                            {
+                                "name": "Seattle Mariners",
+                                "price": 2.45,
+                                "point": -1.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "last_update": "2026-06-18T14:07:48Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.87,
+                                "point": 7.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.95,
+                                "point": 7.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2026-06-18T14:07:36Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-18T14:07:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Baltimore Orioles",
+                                "price": 2.23
+                            },
+                            {
+                                "name": "Seattle Mariners",
+                                "price": 1.67
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "last_update": "2026-06-18T14:07:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Baltimore Orioles",
+                                "price": 1.57,
+                                "point": 1.5
+                            },
+                            {
+                                "name": "Seattle Mariners",
+                                "price": 2.44,
+                                "point": -1.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "last_update": "2026-06-18T14:07:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.88,
+                                "point": 7.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.95,
+                                "point": 7.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2026-06-18T14:08:14Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-18T14:08:14Z",
+                        "outcomes": [
+                            {
+                                "name": "Baltimore Orioles",
+                                "price": 2.25
+                            },
+                            {
+                                "name": "Seattle Mariners",
+                                "price": 1.67
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "last_update": "2026-06-18T14:08:14Z",
+                        "outcomes": [
+                            {
+                                "name": "Baltimore Orioles",
+                                "price": 1.54,
+                                "point": 1.5
+                            },
+                            {
+                                "name": "Seattle Mariners",
+                                "price": 2.5,
+                                "point": -1.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "last_update": "2026-06-18T14:08:14Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.85,
+                                "point": 7.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.98,
+                                "point": 7.5
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "7fc018ccf3790baea15d29b581f9d0ce",
+        "sport_key": "baseball_mlb",
+        "sport_title": "MLB",
+        "commence_time": "2026-06-18T22:41:00Z",
+        "home_team": "Philadelphia Phillies",
+        "away_team": "New York Mets",
+        "bookmakers": [
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2026-06-18T14:08:13Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-18T14:08:13Z",
+                        "outcomes": [
+                            {
+                                "name": "New York Mets",
+                                "price": 2.04
+                            },
+                            {
+                                "name": "Philadelphia Phillies",
+                                "price": 1.82
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "last_update": "2026-06-18T14:08:13Z",
+                        "outcomes": [
+                            {
+                                "name": "New York Mets",
+                                "price": 1.49,
+                                "point": 1.5
+                            },
+                            {
+                                "name": "Philadelphia Phillies",
+                                "price": 2.68,
+                                "point": -1.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "last_update": "2026-06-18T14:08:13Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.95,
+                                "point": 9.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.87,
+                                "point": 9.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanatics",
+                "title": "Fanatics",
+                "last_update": "2026-06-18T14:07:48Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-18T14:07:48Z",
+                        "outcomes": [
+                            {
+                                "name": "New York Mets",
+                                "price": 2.05
+                            },
+                            {
+                                "name": "Philadelphia Phillies",
+                                "price": 1.8
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "last_update": "2026-06-18T14:07:48Z",
+                        "outcomes": [
+                            {
+                                "name": "New York Mets",
+                                "price": 1.53,
+                                "point": 1.5
+                            },
+                            {
+                                "name": "Philadelphia Phillies",
+                                "price": 2.55,
+                                "point": -1.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "last_update": "2026-06-18T14:07:48Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.95,
+                                "point": 9.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.87,
+                                "point": 9.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2026-06-18T14:07:36Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-18T14:07:36Z",
+                        "outcomes": [
+                            {
+                                "name": "New York Mets",
+                                "price": 2.04
+                            },
+                            {
+                                "name": "Philadelphia Phillies",
+                                "price": 1.8
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "last_update": "2026-06-18T14:07:36Z",
+                        "outcomes": [
+                            {
+                                "name": "New York Mets",
+                                "price": 1.52,
+                                "point": 1.5
+                            },
+                            {
+                                "name": "Philadelphia Phillies",
+                                "price": 2.57,
+                                "point": -1.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "last_update": "2026-06-18T14:07:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.95,
+                                "point": 9.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.88,
+                                "point": 9.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2026-06-18T14:08:14Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-18T14:08:14Z",
+                        "outcomes": [
+                            {
+                                "name": "New York Mets",
+                                "price": 2.05
+                            },
+                            {
+                                "name": "Philadelphia Phillies",
+                                "price": 1.77
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "last_update": "2026-06-18T14:08:14Z",
+                        "outcomes": [
+                            {
+                                "name": "New York Mets",
+                                "price": 1.53,
+                                "point": 1.5
+                            },
+                            {
+                                "name": "Philadelphia Phillies",
+                                "price": 2.55,
+                                "point": -1.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "last_update": "2026-06-18T14:08:14Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.98,
+                                "point": 9.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.85,
+                                "point": 9.5
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "adfa73cc70f5a62d6d0bb903eaa0f24b",
+        "sport_key": "baseball_mlb",
+        "sport_title": "MLB",
+        "commence_time": "2026-06-18T23:06:00Z",
+        "home_team": "New York Yankees",
+        "away_team": "Chicago White Sox",
+        "bookmakers": [
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2026-06-18T14:08:13Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-18T14:08:13Z",
+                        "outcomes": [
+                            {
+                                "name": "Chicago White Sox",
+                                "price": 2.34
+                            },
+                            {
+                                "name": "New York Yankees",
+                                "price": 1.63
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "last_update": "2026-06-18T14:08:13Z",
+                        "outcomes": [
+                            {
+                                "name": "Chicago White Sox",
+                                "price": 1.66,
+                                "point": 1.5
+                            },
+                            {
+                                "name": "New York Yankees",
                                 "price": 2.26,
+                                "point": -1.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "last_update": "2026-06-18T14:08:13Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.91,
+                                "point": 9.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.91,
+                                "point": 9.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanatics",
+                "title": "Fanatics",
+                "last_update": "2026-06-18T14:07:48Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-18T14:07:48Z",
+                        "outcomes": [
+                            {
+                                "name": "Chicago White Sox",
+                                "price": 2.3
+                            },
+                            {
+                                "name": "New York Yankees",
+                                "price": 1.65
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "last_update": "2026-06-18T14:07:48Z",
+                        "outcomes": [
+                            {
+                                "name": "Chicago White Sox",
+                                "price": 1.67,
+                                "point": 1.5
+                            },
+                            {
+                                "name": "New York Yankees",
+                                "price": 2.25,
+                                "point": -1.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "last_update": "2026-06-18T14:07:48Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.87,
+                                "point": 9.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.95,
+                                "point": 9.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2026-06-18T14:07:36Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-18T14:07:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Chicago White Sox",
+                                "price": 2.35
+                            },
+                            {
+                                "name": "New York Yankees",
+                                "price": 1.61
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "last_update": "2026-06-18T14:07:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Chicago White Sox",
+                                "price": 1.67,
+                                "point": 1.5
+                            },
+                            {
+                                "name": "New York Yankees",
+                                "price": 2.24,
+                                "point": -1.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "last_update": "2026-06-18T14:07:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.89,
+                                "point": 9.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.93,
+                                "point": 9.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2026-06-18T14:08:14Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-18T14:08:14Z",
+                        "outcomes": [
+                            {
+                                "name": "Chicago White Sox",
+                                "price": 2.35
+                            },
+                            {
+                                "name": "New York Yankees",
+                                "price": 1.61
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "last_update": "2026-06-18T14:08:14Z",
+                        "outcomes": [
+                            {
+                                "name": "Chicago White Sox",
+                                "price": 1.67,
+                                "point": 1.5
+                            },
+                            {
+                                "name": "New York Yankees",
+                                "price": 2.25,
+                                "point": -1.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "last_update": "2026-06-18T14:08:14Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.87,
+                                "point": 9.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.95,
+                                "point": 9.5
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "e92122c8f905eb41a57faabf21daf468",
+        "sport_key": "baseball_mlb",
+        "sport_title": "MLB",
+        "commence_time": "2026-06-18T23:16:00Z",
+        "home_team": "Atlanta Braves",
+        "away_team": "San Francisco Giants",
+        "bookmakers": [
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2026-06-18T14:08:13Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-18T14:08:13Z",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Braves",
+                                "price": 1.69
+                            },
+                            {
+                                "name": "San Francisco Giants",
+                                "price": 2.22
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "last_update": "2026-06-18T14:08:13Z",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Braves",
+                                "price": 2.46,
                                 "point": -1.5
                             },
                             {
-                                "name": "Tampa Bay Rays",
-                                "price": 1.66,
+                                "name": "San Francisco Giants",
+                                "price": 1.56,
                                 "point": 1.5
                             }
                         ]
                     },
                     {
                         "key": "totals",
-                        "last_update": "2026-06-15T08:28:10Z",
+                        "last_update": "2026-06-18T14:08:13Z",
                         "outcomes": [
                             {
                                 "name": "Over",
-                                "price": 1.94,
+                                "price": 1.98,
+                                "point": 8.0
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.83,
+                                "point": 8.0
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanatics",
+                "title": "Fanatics",
+                "last_update": "2026-06-18T14:07:48Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-18T14:07:48Z",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Braves",
+                                "price": 1.71
+                            },
+                            {
+                                "name": "San Francisco Giants",
+                                "price": 2.15
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "last_update": "2026-06-18T14:07:48Z",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Braves",
+                                "price": 2.5,
+                                "point": -1.5
+                            },
+                            {
+                                "name": "San Francisco Giants",
+                                "price": 1.56,
+                                "point": 1.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "last_update": "2026-06-18T14:07:48Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.83,
+                                "point": 7.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 2.0,
+                                "point": 7.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2026-06-18T14:07:36Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-18T14:07:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Braves",
+                                "price": 1.69
+                            },
+                            {
+                                "name": "San Francisco Giants",
+                                "price": 2.19
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "last_update": "2026-06-18T14:07:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Braves",
+                                "price": 2.51,
+                                "point": -1.5
+                            },
+                            {
+                                "name": "San Francisco Giants",
+                                "price": 1.54,
+                                "point": 1.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "last_update": "2026-06-18T14:07:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.85,
+                                "point": 7.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.97,
+                                "point": 7.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2026-06-18T14:08:14Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-18T14:08:14Z",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Braves",
+                                "price": 1.71
+                            },
+                            {
+                                "name": "San Francisco Giants",
+                                "price": 2.15
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "last_update": "2026-06-18T14:08:14Z",
+                        "outcomes": [
+                            {
+                                "name": "Atlanta Braves",
+                                "price": 2.55,
+                                "point": -1.5
+                            },
+                            {
+                                "name": "San Francisco Giants",
+                                "price": 1.53,
+                                "point": 1.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "last_update": "2026-06-18T14:08:14Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.98,
+                                "point": 8.0
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.85,
+                                "point": 8.0
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "13234b203ca4ea57ec2f1381b3e6a046",
+        "sport_key": "baseball_mlb",
+        "sport_title": "MLB",
+        "commence_time": "2026-06-18T23:41:00Z",
+        "home_team": "Kansas City Royals",
+        "away_team": "St. Louis Cardinals",
+        "bookmakers": [
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2026-06-18T14:08:13Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-18T14:08:13Z",
+                        "outcomes": [
+                            {
+                                "name": "Kansas City Royals",
+                                "price": 1.85
+                            },
+                            {
+                                "name": "St. Louis Cardinals",
+                                "price": 2.0
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "last_update": "2026-06-18T14:08:13Z",
+                        "outcomes": [
+                            {
+                                "name": "Kansas City Royals",
+                                "price": 1.51,
+                                "point": 1.5
+                            },
+                            {
+                                "name": "St. Louis Cardinals",
+                                "price": 2.62,
+                                "point": -1.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "last_update": "2026-06-18T14:08:13Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.96,
                                 "point": 9.0
                             },
                             {
                                 "name": "Under",
-                                "price": 1.88,
+                                "price": 1.85,
+                                "point": 9.0
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanatics",
+                "title": "Fanatics",
+                "last_update": "2026-06-18T14:07:48Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-18T14:07:48Z",
+                        "outcomes": [
+                            {
+                                "name": "Kansas City Royals",
+                                "price": 1.87
+                            },
+                            {
+                                "name": "St. Louis Cardinals",
+                                "price": 1.95
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "last_update": "2026-06-18T14:07:48Z",
+                        "outcomes": [
+                            {
+                                "name": "Kansas City Royals",
+                                "price": 1.53,
+                                "point": 1.5
+                            },
+                            {
+                                "name": "St. Louis Cardinals",
+                                "price": 2.55,
+                                "point": -1.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "last_update": "2026-06-18T14:07:48Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 2.0,
+                                "point": 9.0
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.83,
+                                "point": 9.0
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2026-06-18T14:07:36Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-18T14:07:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Kansas City Royals",
+                                "price": 1.87
+                            },
+                            {
+                                "name": "St. Louis Cardinals",
+                                "price": 1.95
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "last_update": "2026-06-18T14:07:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Kansas City Royals",
+                                "price": 1.53,
+                                "point": 1.5
+                            },
+                            {
+                                "name": "St. Louis Cardinals",
+                                "price": 2.55,
+                                "point": -1.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "last_update": "2026-06-18T14:07:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.98,
+                                "point": 9.0
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.85,
                                 "point": 9.0
                             }
                         ]
@@ -2008,104 +1723,114 @@
             {
                 "key": "betmgm",
                 "title": "BetMGM",
-                "last_update": "2026-06-15T08:28:22Z",
+                "last_update": "2026-06-18T14:08:14Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T08:28:22Z",
+                        "last_update": "2026-06-18T14:08:14Z",
                         "outcomes": [
                             {
-                                "name": "Los Angeles Dodgers",
-                                "price": 1.61
+                                "name": "Kansas City Royals",
+                                "price": 1.87
                             },
                             {
-                                "name": "Tampa Bay Rays",
-                                "price": 2.35
+                                "name": "St. Louis Cardinals",
+                                "price": 1.95
                             }
                         ]
                     },
                     {
                         "key": "spreads",
-                        "last_update": "2026-06-15T08:28:22Z",
+                        "last_update": "2026-06-18T14:08:14Z",
                         "outcomes": [
                             {
-                                "name": "Los Angeles Dodgers",
-                                "price": 2.2,
-                                "point": -1.5
+                                "name": "Kansas City Royals",
+                                "price": 1.53,
+                                "point": 1.5
                             },
                             {
-                                "name": "Tampa Bay Rays",
-                                "price": 1.69,
-                                "point": 1.5
+                                "name": "St. Louis Cardinals",
+                                "price": 2.55,
+                                "point": -1.5
                             }
                         ]
                     },
                     {
                         "key": "totals",
-                        "last_update": "2026-06-15T08:28:22Z",
+                        "last_update": "2026-06-18T14:08:14Z",
                         "outcomes": [
                             {
                                 "name": "Over",
-                                "price": 1.91,
-                                "point": 9.0
+                                "price": 1.83,
+                                "point": 8.5
                             },
                             {
                                 "name": "Under",
-                                "price": 1.91,
-                                "point": 9.0
+                                "price": 2.0,
+                                "point": 8.5
                             }
                         ]
                     }
                 ]
-            },
+            }
+        ]
+    },
+    {
+        "id": "4d7345756b0575f6a757888c78a290f2",
+        "sport_key": "baseball_mlb",
+        "sport_title": "MLB",
+        "commence_time": "2026-06-19T01:41:00Z",
+        "home_team": "Athletics",
+        "away_team": "Los Angeles Angels",
+        "bookmakers": [
             {
-                "key": "draftkings",
-                "title": "DraftKings",
-                "last_update": "2026-06-15T08:28:26Z",
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2026-06-18T14:08:13Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T08:28:26Z",
+                        "last_update": "2026-06-18T14:08:13Z",
                         "outcomes": [
                             {
-                                "name": "Los Angeles Dodgers",
-                                "price": 1.6
+                                "name": "Athletics",
+                                "price": 1.74
                             },
                             {
-                                "name": "Tampa Bay Rays",
-                                "price": 2.38
+                                "name": "Los Angeles Angels",
+                                "price": 2.16
                             }
                         ]
                     },
                     {
                         "key": "spreads",
-                        "last_update": "2026-06-15T08:28:26Z",
+                        "last_update": "2026-06-18T14:08:13Z",
                         "outcomes": [
                             {
-                                "name": "Los Angeles Dodgers",
-                                "price": 2.23,
+                                "name": "Athletics",
+                                "price": 2.46,
                                 "point": -1.5
                             },
                             {
-                                "name": "Tampa Bay Rays",
-                                "price": 1.68,
+                                "name": "Los Angeles Angels",
+                                "price": 1.57,
                                 "point": 1.5
                             }
                         ]
                     },
                     {
                         "key": "totals",
-                        "last_update": "2026-06-15T08:28:26Z",
+                        "last_update": "2026-06-18T14:08:13Z",
                         "outcomes": [
                             {
                                 "name": "Over",
-                                "price": 1.93,
-                                "point": 9.0
+                                "price": 1.98,
+                                "point": 10.5
                             },
                             {
                                 "name": "Under",
-                                "price": 1.9,
-                                "point": 9.0
+                                "price": 1.83,
+                                "point": 10.5
                             }
                         ]
                     }
@@ -2114,51 +1839,157 @@
             {
                 "key": "fanatics",
                 "title": "Fanatics",
-                "last_update": "2026-06-15T08:28:12Z",
+                "last_update": "2026-06-18T14:07:48Z",
                 "markets": [
                     {
                         "key": "h2h",
-                        "last_update": "2026-06-15T08:28:12Z",
+                        "last_update": "2026-06-18T14:07:48Z",
                         "outcomes": [
                             {
-                                "name": "Los Angeles Dodgers",
-                                "price": 1.61
+                                "name": "Athletics",
+                                "price": 1.71
                             },
                             {
-                                "name": "Tampa Bay Rays",
-                                "price": 2.35
+                                "name": "Los Angeles Angels",
+                                "price": 2.15
                             }
                         ]
                     },
                     {
                         "key": "spreads",
-                        "last_update": "2026-06-15T08:28:12Z",
+                        "last_update": "2026-06-18T14:07:48Z",
                         "outcomes": [
                             {
-                                "name": "Los Angeles Dodgers",
-                                "price": 2.25,
+                                "name": "Athletics",
+                                "price": 2.45,
                                 "point": -1.5
                             },
                             {
-                                "name": "Tampa Bay Rays",
-                                "price": 1.67,
+                                "name": "Los Angeles Angels",
+                                "price": 1.57,
                                 "point": 1.5
                             }
                         ]
                     },
                     {
                         "key": "totals",
-                        "last_update": "2026-06-15T08:28:12Z",
+                        "last_update": "2026-06-18T14:07:48Z",
                         "outcomes": [
                             {
                                 "name": "Over",
                                 "price": 1.91,
-                                "point": 9.0
+                                "point": 10.5
                             },
                             {
                                 "name": "Under",
                                 "price": 1.91,
-                                "point": 9.0
+                                "point": 10.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2026-06-18T14:07:36Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-18T14:07:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Athletics",
+                                "price": 1.73
+                            },
+                            {
+                                "name": "Los Angeles Angels",
+                                "price": 2.14
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "last_update": "2026-06-18T14:07:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Athletics",
+                                "price": 2.41,
+                                "point": -1.5
+                            },
+                            {
+                                "name": "Los Angeles Angels",
+                                "price": 1.58,
+                                "point": 1.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "last_update": "2026-06-18T14:07:36Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.93,
+                                "point": 10.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.88,
+                                "point": 10.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2026-06-18T14:08:14Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "last_update": "2026-06-18T14:08:14Z",
+                        "outcomes": [
+                            {
+                                "name": "Athletics",
+                                "price": 1.71
+                            },
+                            {
+                                "name": "Los Angeles Angels",
+                                "price": 2.15
+                            }
+                        ]
+                    },
+                    {
+                        "key": "spreads",
+                        "last_update": "2026-06-18T14:08:14Z",
+                        "outcomes": [
+                            {
+                                "name": "Athletics",
+                                "price": 2.4,
+                                "point": -1.5
+                            },
+                            {
+                                "name": "Los Angeles Angels",
+                                "price": 1.59,
+                                "point": 1.5
+                            }
+                        ]
+                    },
+                    {
+                        "key": "totals",
+                        "last_update": "2026-06-18T14:08:14Z",
+                        "outcomes": [
+                            {
+                                "name": "Over",
+                                "price": 1.98,
+                                "point": 10.5
+                            },
+                            {
+                                "name": "Under",
+                                "price": 1.85,
+                                "point": 10.5
                             }
                         ]
                     }

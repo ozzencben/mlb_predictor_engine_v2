@@ -1,215 +1,86 @@
 {
-    "miami marlins-philadelphia phillies": {
+    "toronto blue jays-boston red sox": {
         "is_scraper_fallback": false,
         "away_pitcher": {
-            "season_record": "12-7",
-            "season_nrfi_pct": 63.2,
-            "location_record": "5-0",
-            "location_nrfi_pct": 100.0,
-            "last10_record": "6-4",
-            "last10_nrfi_pct": 60.0,
-            "streak_score": 0,
-            "streak_emoji": ""
-        },
-        "home_pitcher": {
-            "season_record": "26-7",
-            "season_nrfi_pct": 78.8,
-            "location_record": "120-23",
-            "location_nrfi_pct": 83.9,
-            "last10_record": "7-3",
-            "last10_nrfi_pct": 70.0,
-            "streak_score": 2,
-            "streak_emoji": "✅"
-        },
-        "away_team_nrfi": {
-            "season_record": "34-36",
-            "season_nrfi_pct": 48.6,
-            "location_record": "15-16",
-            "location_nrfi_pct": 48.4,
-            "last10_record": "6-4",
-            "last10_nrfi_pct": 60.0,
-            "streak_score": -1,
-            "streak_emoji": "⚠️"
-        },
-        "home_team_nrfi": {
-            "season_record": "34-35",
-            "season_nrfi_pct": 49.3,
-            "location_record": "17-19",
-            "location_nrfi_pct": 47.2,
-            "last10_record": "5-5",
-            "last10_nrfi_pct": 50.0,
-            "streak_score": 1,
-            "streak_emoji": "✅"
-        }
-    },
-    "kansas city royals-washington nationals": {
-        "is_scraper_fallback": false,
-        "away_pitcher": {
-            "season_record": "5-3",
-            "season_nrfi_pct": 62.5,
-            "location_record": "13-4",
-            "location_nrfi_pct": 76.5,
-            "last10_record": "6-4",
-            "last10_nrfi_pct": 60.0,
-            "streak_score": -2,
-            "streak_emoji": "⚠️"
-        },
-        "home_pitcher": {
-            "season_record": "6-1",
-            "season_nrfi_pct": 85.7,
-            "location_record": "3-0",
-            "location_nrfi_pct": 100.0,
-            "last10_record": "6-1",
-            "last10_nrfi_pct": 85.7,
-            "streak_score": 3,
-            "streak_emoji": "✅"
-        },
-        "away_team_nrfi": {
-            "season_record": "36-34",
-            "season_nrfi_pct": 51.4,
-            "location_record": "15-19",
-            "location_nrfi_pct": 44.1,
-            "last10_record": "4-6",
-            "last10_nrfi_pct": 40.0,
-            "streak_score": 1,
-            "streak_emoji": "✅"
-        },
-        "home_team_nrfi": {
-            "season_record": "36-34",
-            "season_nrfi_pct": 51.4,
-            "location_record": "16-18",
-            "location_nrfi_pct": 47.1,
-            "last10_record": "5-5",
-            "last10_nrfi_pct": 50.0,
-            "streak_score": -1,
-            "streak_emoji": "⚠️"
-        }
-    },
-    "new york mets-cincinnati reds": {
-        "is_scraper_fallback": false,
-        "away_pitcher": {
-            "season_record": "6-2",
-            "season_nrfi_pct": 75.0,
-            "location_record": "13-5",
-            "location_nrfi_pct": 72.2,
+            "season_record": "8-3",
+            "season_nrfi_pct": 72.7,
+            "location_record": "4-2",
+            "location_nrfi_pct": 66.7,
             "last10_record": "8-2",
             "last10_nrfi_pct": 80.0,
-            "streak_score": 3,
-            "streak_emoji": "✅"
-        },
-        "home_pitcher": {
-            "season_record": "18-3",
-            "season_nrfi_pct": 85.7,
-            "location_record": "9-2",
-            "location_nrfi_pct": 81.8,
-            "last10_record": "9-1",
-            "last10_nrfi_pct": 90.0,
             "streak_score": 0,
             "streak_emoji": ""
         },
-        "away_team_nrfi": {
-            "season_record": "35-34",
-            "season_nrfi_pct": 50.7,
-            "location_record": "20-15",
-            "location_nrfi_pct": 57.1,
+        "home_pitcher": {
+            "season_record": "30-14",
+            "season_nrfi_pct": 68.2,
+            "location_record": "141-43",
+            "location_nrfi_pct": 76.6,
             "last10_record": "5-5",
             "last10_nrfi_pct": 50.0,
-            "streak_score": 1,
-            "streak_emoji": "✅"
-        },
-        "home_team_nrfi": {
-            "season_record": "34-34",
-            "season_nrfi_pct": 50.0,
-            "location_record": "18-16",
-            "location_nrfi_pct": 52.9,
-            "last10_record": "6-4",
-            "last10_nrfi_pct": 60.0,
-            "streak_score": -1,
-            "streak_emoji": "⚠️"
-        }
-    },
-    "san diego padres-st. louis cardinals": {
-        "is_scraper_fallback": false,
-        "away_pitcher": {
-            "season_record": "0-0",
-            "season_nrfi_pct": 50.0,
-            "location_record": "0-0",
-            "location_nrfi_pct": 50.0,
-            "last10_record": "0-0",
-            "last10_nrfi_pct": 50.0,
-            "streak_score": 0,
-            "streak_emoji": ""
-        },
-        "home_pitcher": {
-            "season_record": "23-13",
-            "season_nrfi_pct": 63.9,
-            "location_record": "27-9",
-            "location_nrfi_pct": 75.0,
-            "last10_record": "6-4",
-            "last10_nrfi_pct": 60.0,
-            "streak_score": 3,
-            "streak_emoji": "✅"
-        },
-        "away_team_nrfi": {
-            "season_record": "44-24",
-            "season_nrfi_pct": 64.7,
-            "location_record": "22-9",
-            "location_nrfi_pct": 71.0,
-            "last10_record": "6-4",
-            "last10_nrfi_pct": 60.0,
-            "streak_score": -3,
-            "streak_emoji": "⚠️"
-        },
-        "home_team_nrfi": {
-            "season_record": "36-31",
-            "season_nrfi_pct": 53.7,
-            "location_record": "19-16",
-            "location_nrfi_pct": 54.3,
-            "last10_record": "4-6",
-            "last10_nrfi_pct": 40.0,
             "streak_score": -4,
             "streak_emoji": "⚠️"
-        }
-    },
-    "colorado rockies-chicago cubs": {
-        "is_scraper_fallback": false,
-        "away_pitcher": {
-            "season_record": "33-7",
-            "season_nrfi_pct": 82.5,
-            "location_record": "51-18",
-            "location_nrfi_pct": 73.9,
-            "last10_record": "8-2",
-            "last10_nrfi_pct": 80.0,
-            "streak_score": 5,
-            "streak_emoji": "🔥"
-        },
-        "home_pitcher": {
-            "season_record": "25-14",
-            "season_nrfi_pct": 64.1,
-            "location_record": "29-7",
-            "location_nrfi_pct": 80.6,
-            "last10_record": "8-2",
-            "last10_nrfi_pct": 80.0,
-            "streak_score": 2,
-            "streak_emoji": "✅"
         },
         "away_team_nrfi": {
-            "season_record": "27-43",
-            "season_nrfi_pct": 38.6,
-            "location_record": "18-18",
-            "location_nrfi_pct": 50.0,
-            "last10_record": "5-5",
-            "last10_nrfi_pct": 50.0,
+            "season_record": "38-35",
+            "season_nrfi_pct": 52.1,
+            "location_record": "19-16",
+            "location_nrfi_pct": 54.3,
+            "last10_record": "7-3",
+            "last10_nrfi_pct": 70.0,
+            "streak_score": 4,
+            "streak_emoji": "✅"
+        },
+        "home_team_nrfi": {
+            "season_record": "34-37",
+            "season_nrfi_pct": 47.9,
+            "location_record": "20-16",
+            "location_nrfi_pct": 55.6,
+            "last10_record": "6-4",
+            "last10_nrfi_pct": 60.0,
+            "streak_score": 2,
+            "streak_emoji": "✅"
+        }
+    },
+    "cleveland guardians-milwaukee brewers": {
+        "is_scraper_fallback": false,
+        "away_pitcher": {
+            "season_record": "17-4",
+            "season_nrfi_pct": 81.0,
+            "location_record": "8-2",
+            "location_nrfi_pct": 80.0,
+            "last10_record": "10-0",
+            "last10_nrfi_pct": 100.0,
+            "streak_score": 14,
+            "streak_emoji": "👑"
+        },
+        "home_pitcher": {
+            "season_record": "3-1",
+            "season_nrfi_pct": 75.0,
+            "location_record": "2-0",
+            "location_nrfi_pct": 100.0,
+            "last10_record": "3-1",
+            "last10_nrfi_pct": 75.0,
+            "streak_score": 0,
+            "streak_emoji": ""
+        },
+        "away_team_nrfi": {
+            "season_record": "42-31",
+            "season_nrfi_pct": 57.5,
+            "location_record": "22-16",
+            "location_nrfi_pct": 57.9,
+            "last10_record": "4-6",
+            "last10_nrfi_pct": 40.0,
             "streak_score": -1,
             "streak_emoji": "⚠️"
         },
         "home_team_nrfi": {
-            "season_record": "41-29",
-            "season_nrfi_pct": 58.6,
-            "location_record": "21-14",
-            "location_nrfi_pct": 60.0,
-            "last10_record": "5-5",
-            "last10_nrfi_pct": 50.0,
+            "season_record": "33-37",
+            "season_nrfi_pct": 47.1,
+            "location_record": "19-19",
+            "location_nrfi_pct": 50.0,
+            "last10_record": "2-8",
+            "last10_nrfi_pct": 20.0,
             "streak_score": -1,
             "streak_emoji": "⚠️"
         }
@@ -217,6 +88,264 @@
     "minnesota twins-texas rangers": {
         "is_scraper_fallback": false,
         "away_pitcher": {
+            "season_record": "30-15",
+            "season_nrfi_pct": 66.7,
+            "location_record": "41-21",
+            "location_nrfi_pct": 66.1,
+            "last10_record": "5-5",
+            "last10_nrfi_pct": 50.0,
+            "streak_score": -2,
+            "streak_emoji": "⚠️"
+        },
+        "home_pitcher": {
+            "season_record": "30-13",
+            "season_nrfi_pct": 69.8,
+            "location_record": "20-4",
+            "location_nrfi_pct": 83.3,
+            "last10_record": "7-3",
+            "last10_nrfi_pct": 70.0,
+            "streak_score": 0,
+            "streak_emoji": ""
+        },
+        "away_team_nrfi": {
+            "season_record": "34-40",
+            "season_nrfi_pct": 45.9,
+            "location_record": "15-20",
+            "location_nrfi_pct": 42.9,
+            "last10_record": "3-7",
+            "last10_nrfi_pct": 30.0,
+            "streak_score": -2,
+            "streak_emoji": "⚠️"
+        },
+        "home_team_nrfi": {
+            "season_record": "25-47",
+            "season_nrfi_pct": 34.7,
+            "location_record": "11-21",
+            "location_nrfi_pct": 34.4,
+            "last10_record": "4-6",
+            "last10_nrfi_pct": 40.0,
+            "streak_score": -3,
+            "streak_emoji": "⚠️"
+        }
+    },
+    "baltimore orioles-seattle mariners": {
+        "is_scraper_fallback": false,
+        "away_pitcher": {
+            "season_record": "34-11",
+            "season_nrfi_pct": 75.6,
+            "location_record": "27-9",
+            "location_nrfi_pct": 75.0,
+            "last10_record": "5-5",
+            "last10_nrfi_pct": 50.0,
+            "streak_score": 0,
+            "streak_emoji": ""
+        },
+        "home_pitcher": {
+            "season_record": "31-13",
+            "season_nrfi_pct": 70.5,
+            "location_record": "29-8",
+            "location_nrfi_pct": 78.4,
+            "last10_record": "8-2",
+            "last10_nrfi_pct": 80.0,
+            "streak_score": 7,
+            "streak_emoji": "🔥"
+        },
+        "away_team_nrfi": {
+            "season_record": "41-33",
+            "season_nrfi_pct": 55.4,
+            "location_record": "17-17",
+            "location_nrfi_pct": 50.0,
+            "last10_record": "5-5",
+            "last10_nrfi_pct": 50.0,
+            "streak_score": 1,
+            "streak_emoji": "✅"
+        },
+        "home_team_nrfi": {
+            "season_record": "33-41",
+            "season_nrfi_pct": 44.6,
+            "location_record": "14-23",
+            "location_nrfi_pct": 37.8,
+            "last10_record": "5-5",
+            "last10_nrfi_pct": 50.0,
+            "streak_score": 1,
+            "streak_emoji": "✅"
+        }
+    },
+    "new york mets-philadelphia phillies": {
+        "is_scraper_fallback": false,
+        "away_pitcher": {
+            "season_record": "9-4",
+            "season_nrfi_pct": 69.2,
+            "location_record": "74-32",
+            "location_nrfi_pct": 69.8,
+            "last10_record": "7-3",
+            "last10_nrfi_pct": 70.0,
+            "streak_score": 3,
+            "streak_emoji": "✅"
+        },
+        "home_pitcher": {
+            "season_record": "23-8",
+            "season_nrfi_pct": 74.2,
+            "location_record": "115-32",
+            "location_nrfi_pct": 78.2,
+            "last10_record": "9-1",
+            "last10_nrfi_pct": 90.0,
+            "streak_score": 8,
+            "streak_emoji": "🔥"
+        },
+        "away_team_nrfi": {
+            "season_record": "36-37",
+            "season_nrfi_pct": 49.3,
+            "location_record": "21-17",
+            "location_nrfi_pct": 55.3,
+            "last10_record": "3-7",
+            "last10_nrfi_pct": 30.0,
+            "streak_score": 1,
+            "streak_emoji": "✅"
+        },
+        "home_team_nrfi": {
+            "season_record": "35-38",
+            "season_nrfi_pct": 47.9,
+            "location_record": "18-21",
+            "location_nrfi_pct": 46.2,
+            "last10_record": "3-7",
+            "last10_nrfi_pct": 30.0,
+            "streak_score": -2,
+            "streak_emoji": "⚠️"
+        }
+    },
+    "chicago white sox-new york yankees": {
+        "is_scraper_fallback": false,
+        "away_pitcher": {
+            "season_record": "18-15",
+            "season_nrfi_pct": 54.5,
+            "location_record": "9-5",
+            "location_nrfi_pct": 64.3,
+            "last10_record": "7-3",
+            "last10_nrfi_pct": 70.0,
+            "streak_score": -2,
+            "streak_emoji": "⚠️"
+        },
+        "home_pitcher": {
+            "season_record": "15-6",
+            "season_nrfi_pct": 71.4,
+            "location_record": "22-9",
+            "location_nrfi_pct": 71.0,
+            "last10_record": "6-4",
+            "last10_nrfi_pct": 60.0,
+            "streak_score": 0,
+            "streak_emoji": ""
+        },
+        "away_team_nrfi": {
+            "season_record": "29-42",
+            "season_nrfi_pct": 40.8,
+            "location_record": "15-21",
+            "location_nrfi_pct": 41.7,
+            "last10_record": "2-8",
+            "last10_nrfi_pct": 20.0,
+            "streak_score": -5,
+            "streak_emoji": "🚨"
+        },
+        "home_team_nrfi": {
+            "season_record": "32-39",
+            "season_nrfi_pct": 45.1,
+            "location_record": "13-20",
+            "location_nrfi_pct": 39.4,
+            "last10_record": "4-6",
+            "last10_nrfi_pct": 40.0,
+            "streak_score": -2,
+            "streak_emoji": "⚠️"
+        }
+    },
+    "san francisco giants-atlanta braves": {
+        "is_scraper_fallback": false,
+        "away_pitcher": {
+            "season_record": "27-8",
+            "season_nrfi_pct": 77.1,
+            "location_record": "16-6",
+            "location_nrfi_pct": 72.7,
+            "last10_record": "8-2",
+            "last10_nrfi_pct": 80.0,
+            "streak_score": 3,
+            "streak_emoji": "✅"
+        },
+        "home_pitcher": {
+            "season_record": "13-7",
+            "season_nrfi_pct": 65.0,
+            "location_record": "108-43",
+            "location_nrfi_pct": 71.5,
+            "last10_record": "7-3",
+            "last10_nrfi_pct": 70.0,
+            "streak_score": 4,
+            "streak_emoji": "✅"
+        },
+        "away_team_nrfi": {
+            "season_record": "39-34",
+            "season_nrfi_pct": 53.4,
+            "location_record": "18-22",
+            "location_nrfi_pct": 45.0,
+            "last10_record": "5-5",
+            "last10_nrfi_pct": 50.0,
+            "streak_score": -2,
+            "streak_emoji": "⚠️"
+        },
+        "home_team_nrfi": {
+            "season_record": "31-42",
+            "season_nrfi_pct": 42.5,
+            "location_record": "18-17",
+            "location_nrfi_pct": 51.4,
+            "last10_record": "3-7",
+            "last10_nrfi_pct": 30.0,
+            "streak_score": -3,
+            "streak_emoji": "⚠️"
+        }
+    },
+    "st. louis cardinals-kansas city royals": {
+        "is_scraper_fallback": false,
+        "away_pitcher": {
+            "season_record": "31-11",
+            "season_nrfi_pct": 73.8,
+            "location_record": "22-11",
+            "location_nrfi_pct": 66.7,
+            "last10_record": "7-3",
+            "last10_nrfi_pct": 70.0,
+            "streak_score": 5,
+            "streak_emoji": "🔥"
+        },
+        "home_pitcher": {
+            "season_record": "28-9",
+            "season_nrfi_pct": 75.7,
+            "location_record": "15-4",
+            "location_nrfi_pct": 78.9,
+            "last10_record": "8-2",
+            "last10_nrfi_pct": 80.0,
+            "streak_score": 5,
+            "streak_emoji": "🔥"
+        },
+        "away_team_nrfi": {
+            "season_record": "39-32",
+            "season_nrfi_pct": 54.9,
+            "location_record": "18-15",
+            "location_nrfi_pct": 54.5,
+            "last10_record": "5-5",
+            "last10_nrfi_pct": 50.0,
+            "streak_score": -1,
+            "streak_emoji": "⚠️"
+        },
+        "home_team_nrfi": {
+            "season_record": "38-36",
+            "season_nrfi_pct": 51.4,
+            "location_record": "21-16",
+            "location_nrfi_pct": 56.8,
+            "last10_record": "6-4",
+            "last10_nrfi_pct": 60.0,
+            "streak_score": -1,
+            "streak_emoji": "⚠️"
+        }
+    },
+    "los angeles angels-athletics": {
+        "is_scraper_fallback": false,
+        "away_pitcher": {
             "season_record": "0-0",
             "season_nrfi_pct": 50.0,
             "location_record": "0-0",
@@ -227,204 +356,32 @@
             "streak_emoji": ""
         },
         "home_pitcher": {
-            "season_record": "28-16",
-            "season_nrfi_pct": 63.6,
-            "location_record": "43-13",
-            "location_nrfi_pct": 76.8,
-            "last10_record": "6-4",
-            "last10_nrfi_pct": 60.0,
-            "streak_score": 0,
-            "streak_emoji": ""
-        },
-        "away_team_nrfi": {
-            "season_record": "33-38",
-            "season_nrfi_pct": 46.5,
-            "location_record": "15-18",
-            "location_nrfi_pct": 45.5,
-            "last10_record": "2-8",
-            "last10_nrfi_pct": 20.0,
-            "streak_score": -3,
-            "streak_emoji": "⚠️"
-        },
-        "home_team_nrfi": {
-            "season_record": "25-44",
-            "season_nrfi_pct": 36.2,
-            "location_record": "11-19",
-            "location_nrfi_pct": 36.7,
-            "last10_record": "5-5",
-            "last10_nrfi_pct": 50.0,
-            "streak_score": 1,
-            "streak_emoji": "✅"
-        }
-    },
-    "detroit tigers-houston astros": {
-        "is_scraper_fallback": false,
-        "away_pitcher": {
-            "season_record": "5-3",
-            "season_nrfi_pct": 62.5,
-            "location_record": "4-2",
-            "location_nrfi_pct": 66.7,
-            "last10_record": "5-3",
-            "last10_nrfi_pct": 62.5,
-            "streak_score": -2,
-            "streak_emoji": "⚠️"
-        },
-        "home_pitcher": {
-            "season_record": "7-7",
-            "season_nrfi_pct": 50.0,
-            "location_record": "3-1",
-            "location_nrfi_pct": 75.0,
-            "last10_record": "5-5",
-            "last10_nrfi_pct": 50.0,
-            "streak_score": -2,
-            "streak_emoji": "⚠️"
-        },
-        "away_team_nrfi": {
-            "season_record": "38-33",
-            "season_nrfi_pct": 53.5,
-            "location_record": "17-20",
-            "location_nrfi_pct": 45.9,
-            "last10_record": "4-6",
-            "last10_nrfi_pct": 40.0,
-            "streak_score": -1,
-            "streak_emoji": "⚠️"
-        },
-        "home_team_nrfi": {
-            "season_record": "28-43",
-            "season_nrfi_pct": 39.4,
-            "location_record": "13-22",
-            "location_nrfi_pct": 37.1,
-            "last10_record": "4-6",
-            "last10_nrfi_pct": 40.0,
-            "streak_score": 1,
-            "streak_emoji": "✅"
-        }
-    },
-    "los angeles angels-arizona diamondbacks": {
-        "is_scraper_fallback": false,
-        "away_pitcher": {
-            "season_record": "9-1",
-            "season_nrfi_pct": 90.0,
-            "location_record": "2-1",
-            "location_nrfi_pct": 66.7,
-            "last10_record": "9-1",
-            "last10_nrfi_pct": 90.0,
+            "season_record": "3-1",
+            "season_nrfi_pct": 75.0,
+            "location_record": "2-0",
+            "location_nrfi_pct": 100.0,
+            "last10_record": "3-1",
+            "last10_nrfi_pct": 75.0,
             "streak_score": 2,
             "streak_emoji": "✅"
         },
-        "home_pitcher": {
-            "season_record": "31-6",
-            "season_nrfi_pct": 83.8,
-            "location_record": "33-11",
-            "location_nrfi_pct": 75.0,
-            "last10_record": "9-1",
-            "last10_nrfi_pct": 90.0,
-            "streak_score": 9,
-            "streak_emoji": "🔥"
-        },
         "away_team_nrfi": {
-            "season_record": "34-37",
-            "season_nrfi_pct": 47.9,
-            "location_record": "18-17",
-            "location_nrfi_pct": 51.4,
-            "last10_record": "6-4",
-            "last10_nrfi_pct": 60.0,
-            "streak_score": 1,
-            "streak_emoji": "✅"
-        },
-        "home_team_nrfi": {
-            "season_record": "30-39",
-            "season_nrfi_pct": 43.5,
-            "location_record": "15-20",
-            "location_nrfi_pct": 42.9,
-            "last10_record": "4-6",
-            "last10_nrfi_pct": 40.0,
-            "streak_score": -1,
-            "streak_emoji": "⚠️"
-        }
-    },
-    "pittsburgh pirates-athletics": {
-        "is_scraper_fallback": false,
-        "away_pitcher": {
-            "season_record": "2-1",
-            "season_nrfi_pct": 66.7,
-            "location_record": "10-1",
-            "location_nrfi_pct": 90.9,
-            "last10_record": "8-2",
-            "last10_nrfi_pct": 80.0,
-            "streak_score": 2,
-            "streak_emoji": "✅"
-        },
-        "home_pitcher": {
-            "season_record": "19-9",
-            "season_nrfi_pct": 67.9,
-            "location_record": "11-7",
-            "location_nrfi_pct": 61.1,
-            "last10_record": "8-2",
-            "last10_nrfi_pct": 80.0,
-            "streak_score": 0,
-            "streak_emoji": ""
-        },
-        "away_team_nrfi": {
-            "season_record": "33-37",
-            "season_nrfi_pct": 47.1,
-            "location_record": "15-18",
-            "location_nrfi_pct": 45.5,
+            "season_record": "36-39",
+            "season_nrfi_pct": 48.0,
+            "location_record": "19-19",
+            "location_nrfi_pct": 50.0,
             "last10_record": "5-5",
             "last10_nrfi_pct": 50.0,
             "streak_score": -1,
             "streak_emoji": "⚠️"
         },
         "home_team_nrfi": {
-            "season_record": "28-41",
-            "season_nrfi_pct": 40.6,
-            "location_record": "11-21",
-            "location_nrfi_pct": 34.4,
+            "season_record": "29-44",
+            "season_nrfi_pct": 39.7,
+            "location_record": "12-24",
+            "location_nrfi_pct": 33.3,
             "last10_record": "3-7",
             "last10_nrfi_pct": 30.0,
-            "streak_score": -1,
-            "streak_emoji": "⚠️"
-        }
-    },
-    "tampa bay rays-los angeles dodgers": {
-        "is_scraper_fallback": false,
-        "away_pitcher": {
-            "season_record": "31-8",
-            "season_nrfi_pct": 79.5,
-            "location_record": "56-20",
-            "location_nrfi_pct": 73.7,
-            "last10_record": "9-1",
-            "last10_nrfi_pct": 90.0,
-            "streak_score": 0,
-            "streak_emoji": ""
-        },
-        "home_pitcher": {
-            "season_record": "16-8",
-            "season_nrfi_pct": 66.7,
-            "location_record": "49-18",
-            "location_nrfi_pct": 73.1,
-            "last10_record": "5-5",
-            "last10_nrfi_pct": 50.0,
-            "streak_score": 0,
-            "streak_emoji": ""
-        },
-        "away_team_nrfi": {
-            "season_record": "32-34",
-            "season_nrfi_pct": 48.5,
-            "location_record": "19-14",
-            "location_nrfi_pct": 57.6,
-            "last10_record": "5-5",
-            "last10_nrfi_pct": 50.0,
-            "streak_score": 1,
-            "streak_emoji": "✅"
-        },
-        "home_team_nrfi": {
-            "season_record": "36-34",
-            "season_nrfi_pct": 51.4,
-            "location_record": "19-14",
-            "location_nrfi_pct": 57.6,
-            "last10_record": "6-4",
-            "last10_nrfi_pct": 60.0,
             "streak_score": -2,
             "streak_emoji": "⚠️"
         }
