@@ -23,8 +23,10 @@ services:
       - "8000:8000"      # Host:Container — API erişimi için
     volumes:
       # Veri dosyalarını dışarıya bağla: container yeniden başlatılsa bile
-      # JSON verileri korunur ve host üzerinden düzenlenebilir
-      - ./backend/app/data:/app/app/data
+      # JSON verileri korunur ve host üzerinden düzenlenebilir.
+      # MLB ve Tennis veri dizinleri ayrı ayrı mount edilir.
+      - ./backend/app/sports/mlb/data:/app/app/sports/mlb/data
+      - ./backend/app/sports/tennis/data:/app/app/sports/tennis/data
     environment:
       - PYTHONUNBUFFERED=1
       - APP_ENV=${APP_ENV:-development}

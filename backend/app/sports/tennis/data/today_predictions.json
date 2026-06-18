@@ -6,8 +6,8 @@
             "match_id": "h8uYZdlL",
             "tournament": "ATP - SINGLES: London (United Kingdom), grass",
             "match_stage": "Round of 32",
-            "match_time": "13:30 ET",
-            "timestamp": 1781803800,
+            "match_time": "13:40 ET",
+            "timestamp": 1781804400,
             "surface": "Grass",
             "home_player": "Medjedovic H.",
             "away_player": "Humbert U.",
@@ -18,9 +18,9 @@
             "home_win_probability": 44.57,
             "away_win_probability": 55.43,
             "predicted_winner": "Humbert U.",
-            "p1_odds": 2.44,
-            "p2_odds": 1.63,
-            "edge_percentage": -5.92,
+            "p1_odds": 2.57,
+            "p2_odds": 1.58,
+            "edge_percentage": -7.87,
             "recommended_kelly_bet_percentage": 0.0,
             "alternative_bets": [
                 {
@@ -167,177 +167,11 @@
                 "p2_wins": 0,
                 "total_matches": 0,
                 "matches": []
-            }
+            },
+            "ai_insight": "- Medjedovic holds the decisive grass-court edge, boasting a perfect 1.0 Court DNA compared to Humbert's 0.667, despite Humbert's marginally higher overall ELO.\n- Medjedovic enters slightly more fatigued, having played 9 sets recently against Humbert's 7, though both players benefit from an identical 2-day recovery window.\n- The model projects Medjedovic's win probability at 44.57%, significantly higher than his implied market odds of 2.57 (38.91%). Recommend Medjedovic Moneyline for positive expected value."
         }
     ],
     "skipped_low_tier": [
-        {
-            "match_id": "OEIGggzh",
-            "tournament": "CHALLENGER MEN - SINGLES: Asuncion 2 (Paraguay), clay",
-            "match_stage": "Round of 32",
-            "match_time": "13:05 ET",
-            "timestamp": 1781802300,
-            "surface": "Clay",
-            "home_player": "Hardt N.",
-            "away_player": "Soto M.",
-            "p1_id": "QaQOIXla",
-            "p2_id": "ChWlBYr1",
-            "p1_country": "Dominican Republic",
-            "p2_country": "Chile",
-            "home_win_probability": 38.59,
-            "away_win_probability": 61.41,
-            "predicted_winner": "Soto M.",
-            "p1_odds": null,
-            "p2_odds": null,
-            "edge_percentage": null,
-            "recommended_kelly_bet_percentage": null,
-            "alternative_bets": [
-                {
-                    "market": "First Set Winner",
-                    "selection": "Hardt N.",
-                    "confidence": "High",
-                    "probability": 79.1,
-                    "model_odds": 1.2,
-                    "reason": "Hardt N. wins the opening set in 79% of matches — a +28% edge over the opponent on the first-set market."
-                },
-                {
-                    "market": "Bagel / Breadstick",
-                    "selection": "Yes — A Set Won 6-0 or 6-1",
-                    "confidence": "High",
-                    "probability": 43.5,
-                    "model_odds": 2.19,
-                    "reason": "Soto M. wins a dominant set (6-0/6-1) in 25% of their matches — the combined match profile projects at least one lopsided set."
-                }
-            ],
-            "p1_stats": {
-                "rank": 390,
-                "elo": 1727.9323718288595,
-                "surface_rate": 0.788,
-                "momentum": 0.843,
-                "fatigue": 7,
-                "set_dominance": 0.701,
-                "game_dominance": 0.578,
-                "rest_days": 3,
-                "clutch_win_rate": 76.9,
-                "straight_sets_rate": 68.8,
-                "tiebreak_win_rate": 60.0,
-                "first_set_win_rate": 79.1,
-                "comeback_rate": 33.3,
-                "close_set_rate": 19.2,
-                "avg_games_per_set": 8.98,
-                "bagel_breadstick_rate": 24.6,
-                "recent_form": [
-                    {
-                        "result": "W",
-                        "opponent": "Fernandez B.",
-                        "score": "2-1",
-                        "surface": "Clay",
-                        "tournament": "Asuncion 2",
-                        "date": "2026-06-15"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Kicker N.",
-                        "score": "0-2",
-                        "surface": "Clay",
-                        "tournament": "San Miguel de Tucuman",
-                        "date": "2026-06-12"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Fernandez B.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "San Miguel de Tucuman",
-                        "date": "2026-06-10"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Zarate C. M.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "M25 Cuiaba",
-                        "date": "2026-06-08"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Villanueva G.",
-                        "score": "2-1",
-                        "surface": "Clay",
-                        "tournament": "M25 Cuiaba",
-                        "date": "2026-06-07"
-                    }
-                ],
-                "name": "Hardt N."
-            },
-            "p2_stats": {
-                "rank": 316,
-                "elo": 1632.7232636239698,
-                "surface_rate": 0.6,
-                "momentum": 0.592,
-                "fatigue": 5,
-                "set_dominance": 0.543,
-                "game_dominance": 0.515,
-                "rest_days": 8,
-                "clutch_win_rate": 77.8,
-                "straight_sets_rate": 68.0,
-                "tiebreak_win_rate": 61.5,
-                "first_set_win_rate": 51.2,
-                "comeback_rate": 19.0,
-                "close_set_rate": 22.1,
-                "avg_games_per_set": 9.38,
-                "bagel_breadstick_rate": 25.0,
-                "recent_form": [
-                    {
-                        "result": "L",
-                        "opponent": "Estevez J.",
-                        "score": "0-2",
-                        "surface": "Clay",
-                        "tournament": "San Miguel de Tucuman",
-                        "date": "2026-06-10"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Prado Angelo J. C.",
-                        "score": "0-2",
-                        "surface": "Clay",
-                        "tournament": "Santa Cruz",
-                        "date": "2026-04-18"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Bueno G.",
-                        "score": "1-0",
-                        "surface": "Clay",
-                        "tournament": "Santa Cruz",
-                        "date": "2026-04-17"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Justo G. I.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "Santa Cruz",
-                        "date": "2026-04-16"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Kestelboim M.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "Santa Cruz",
-                        "date": "2026-04-14"
-                    }
-                ],
-                "name": "Soto M."
-            },
-            "h2h_summary": {
-                "p1_wins": 0,
-                "p2_wins": 0,
-                "total_matches": 0,
-                "matches": []
-            }
-        },
         {
             "match_id": "t8rqufLb",
             "tournament": "CHALLENGER MEN - SINGLES: Asuncion 2 (Paraguay), clay",
@@ -715,8 +549,8 @@
             "p2_id": "OQxrsJs8",
             "p1_country": "Argentina",
             "p2_country": "Argentina",
-            "home_win_probability": 49.88,
-            "away_win_probability": 50.12,
+            "home_win_probability": 49.57,
+            "away_win_probability": 50.43,
             "predicted_winner": "Villanueva G.",
             "p1_odds": null,
             "p2_odds": null,
@@ -727,9 +561,9 @@
                     "market": "Set Handicap",
                     "selection": "Estevez J. +1.5 Sets",
                     "confidence": "Medium",
-                    "probability": 74.9,
-                    "model_odds": 1.27,
-                    "reason": "Close projection (50.1%) indicates a tight contest — value on Estevez J. to take at least one set."
+                    "probability": 74.5,
+                    "model_odds": 1.28,
+                    "reason": "Close projection (50.4%) indicates a tight contest — value on Estevez J. to take at least one set."
                 },
                 {
                     "market": "First Set Winner",
@@ -751,14 +585,14 @@
             "p1_stats": {
                 "rank": 385,
                 "elo": 1588.7005564128906,
-                "surface_rate": 0.651,
-                "momentum": 0.543,
+                "surface_rate": 0.659,
+                "momentum": 0.589,
                 "fatigue": 7,
-                "set_dominance": 0.67,
+                "set_dominance": 0.677,
                 "game_dominance": 0.581,
-                "rest_days": 3,
+                "rest_days": 1,
                 "clutch_win_rate": 25.0,
-                "straight_sets_rate": 92.9,
+                "straight_sets_rate": 93.1,
                 "tiebreak_win_rate": 69.2,
                 "first_set_win_rate": 67.4,
                 "comeback_rate": 14.3,
@@ -766,6 +600,14 @@
                 "avg_games_per_set": 9.09,
                 "bagel_breadstick_rate": 37.5,
                 "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Casanova H.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "CHALLENGER MEN - SINGLES: Asuncion 2",
+                        "date": "2026-06-17"
+                    },
                     {
                         "result": "W",
                         "opponent": "Linde Palacios S. A.",
@@ -797,14 +639,6 @@
                         "surface": "Clay",
                         "tournament": "M25 Cuiaba",
                         "date": "2026-06-02"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Collarini A.",
-                        "score": "0-2",
-                        "surface": "Clay",
-                        "tournament": "Cordoba",
-                        "date": "2026-05-12"
                     }
                 ],
                 "name": "Estevez J."
@@ -890,173 +724,6 @@
                         "score": "0-2"
                     }
                 ]
-            }
-        },
-        {
-            "match_id": "ShSQO9XO",
-            "tournament": "CHALLENGER MEN - SINGLES: Nottingham (United Kingdom), grass",
-            "match_stage": "Round of 32",
-            "match_time": "13:10 ET",
-            "timestamp": 1781802600,
-            "surface": "Grass",
-            "home_player": "Harris B.",
-            "away_player": "Virtanen O.",
-            "p1_id": "G0X2O6XR",
-            "p2_id": "hnYnFaTm",
-            "p1_country": "United Kingdom",
-            "p2_country": "Finland",
-            "home_win_probability": 53.28,
-            "away_win_probability": 46.72,
-            "predicted_winner": "Harris B.",
-            "p1_odds": null,
-            "p2_odds": null,
-            "edge_percentage": null,
-            "recommended_kelly_bet_percentage": null,
-            "alternative_bets": [
-                {
-                    "market": "Set Handicap",
-                    "selection": "Virtanen O. +1.5 Sets",
-                    "confidence": "Medium",
-                    "probability": 71.1,
-                    "model_odds": 1.34,
-                    "reason": "Close projection (53.3%) indicates a tight contest — value on Virtanen O. to take at least one set."
-                },
-                {
-                    "market": "First Set Winner",
-                    "selection": "Virtanen O.",
-                    "confidence": "High",
-                    "probability": 81.0,
-                    "model_odds": 1.17,
-                    "reason": "Virtanen O. wins the opening set in 81% of matches — a +48% edge over the opponent on the first-set market."
-                }
-            ],
-            "p1_stats": {
-                "rank": 144,
-                "elo": 1516.0,
-                "surface_rate": 0.6,
-                "momentum": 0.361,
-                "fatigue": 8,
-                "set_dominance": 0.394,
-                "game_dominance": 0.463,
-                "rest_days": 3,
-                "clutch_win_rate": 38.9,
-                "straight_sets_rate": 53.3,
-                "tiebreak_win_rate": 51.9,
-                "first_set_win_rate": 32.6,
-                "comeback_rate": 17.2,
-                "close_set_rate": 32.7,
-                "avg_games_per_set": 10.22,
-                "bagel_breadstick_rate": 4.9,
-                "recent_form": [
-                    {
-                        "result": "W",
-                        "opponent": "Wong C.",
-                        "score": "2-1",
-                        "surface": "Grass",
-                        "tournament": "Nottingham",
-                        "date": "2026-06-15"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Sweeny D.",
-                        "score": "0-2",
-                        "surface": "Grass",
-                        "tournament": "Ilkley",
-                        "date": "2026-06-12"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Chidekh C.",
-                        "score": "2-1",
-                        "surface": "Grass",
-                        "tournament": "Ilkley",
-                        "date": "2026-06-09"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Bu Y.",
-                        "score": "0-2",
-                        "surface": "Grass",
-                        "tournament": "Birmingham",
-                        "date": "2026-06-04"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Damm M.",
-                        "score": "2-1",
-                        "surface": "Grass",
-                        "tournament": "Birmingham",
-                        "date": "2026-06-02"
-                    }
-                ],
-                "name": "Harris B."
-            },
-            "p2_stats": {
-                "rank": 158,
-                "elo": 1548.2482186560896,
-                "surface_rate": 0.571,
-                "momentum": 0.47,
-                "fatigue": 8,
-                "set_dominance": 0.612,
-                "game_dominance": 0.531,
-                "rest_days": 2,
-                "clutch_win_rate": 31.6,
-                "straight_sets_rate": 76.0,
-                "tiebreak_win_rate": 48.0,
-                "first_set_win_rate": 81.0,
-                "comeback_rate": 25.0,
-                "close_set_rate": 34.0,
-                "avg_games_per_set": 10.25,
-                "bagel_breadstick_rate": 7.9,
-                "recent_form": [
-                    {
-                        "result": "W",
-                        "opponent": "Kwon S.",
-                        "score": "2-0",
-                        "surface": "Grass",
-                        "tournament": "Nottingham",
-                        "date": "2026-06-16"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Majchrzak K.",
-                        "score": "1-2",
-                        "surface": "Grass",
-                        "tournament": "Hertogenbosch",
-                        "date": "2026-06-10"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Bu Y.",
-                        "score": "1-2",
-                        "surface": "Grass",
-                        "tournament": "Birmingham",
-                        "date": "2026-06-07"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Majchrzak K.",
-                        "score": "2-1",
-                        "surface": "Grass",
-                        "tournament": "Birmingham",
-                        "date": "2026-06-07"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Romano F.",
-                        "score": "2-0",
-                        "surface": "Grass",
-                        "tournament": "Birmingham",
-                        "date": "2026-06-05"
-                    }
-                ],
-                "name": "Virtanen O."
-            },
-            "h2h_summary": {
-                "p1_wins": 0,
-                "p2_wins": 0,
-                "total_matches": 0,
-                "matches": []
             }
         },
         {
@@ -1244,10 +911,10 @@
         }
     ],
     "statistics": {
-        "total_unplayed": 16,
+        "total_unplayed": 12,
         "active_predictions_count": 0,
         "skipped_low_confidence_count": 1,
-        "skipped_low_tier_count": 6,
-        "skipped_data_missing_count": 9
+        "skipped_low_tier_count": 4,
+        "skipped_data_missing_count": 7
     }
 }
