@@ -741,8 +741,10 @@ def predict_today_matches():
     for m in unplayed:
         p1_name = m["home_player"]["name"]
         p1_id = m["home_player"]["id"]
+        p1_country = m["home_player"].get("country", "")
         p2_name = m["away_player"]["name"]
         p2_id = m["away_player"]["id"]
+        p2_country = m["away_player"].get("country", "")
         t_name = m["tournament"]["name"] if m.get("tournament") else "Unknown"
         ground = detect_surface(t_name)
 
@@ -833,6 +835,8 @@ def predict_today_matches():
             "away_player": p2_name,
             "p1_id": str(p1_id),
             "p2_id": str(p2_id),
+            "p1_country": p1_country,
+            "p2_country": p2_country,
             "home_win_probability": round(p1_prob, 2),
             "away_win_probability": round(p2_prob, 2),
             "predicted_winner": predicted_winner,
