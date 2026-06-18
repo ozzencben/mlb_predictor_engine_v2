@@ -59,6 +59,7 @@ function App() {
     const [loadingStepIdx, setLoadingStepIdx] = useState(0);
     const [randomTipIdx] = useState(() => Math.floor(Math.random() * mlbTips.length));
     const [menuOpen, setMenuOpen] = useState(false);
+    const [moreOpen, setMoreOpen] = useState(false);
     const [toastMessage, setToastMessage] = useState(null);
     const { data, loading, error, isPreparing } = usePredictions(selectedDate);
     const { data: tennisData, loading: tennisLoading } = useTennisPredictions(selectedDate);
@@ -623,41 +624,95 @@ function App() {
                 {/* KATMAN 2: DESKTOP SPOR SEKMELERI & BİLGİ SAYFALARI (Masaüstü/Geniş Ekran) */}
                 <div className="hidden lg:block w-full border-b border-slate-900/20 py-2 px-8">
                     <div className="max-w-7xl xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto flex justify-between items-center">
-                        {/* Spor Dalları Sekmeleri */}
+                        {/* Spor Dalları Sekmeleri — ACTIVE/BETA ana bar, COMING_SOON "More" dropdown'da */}
                         <nav className="flex items-center gap-1 bg-slate-900/30 border border-slate-900 p-0.5 rounded-xl select-none">
-                            {Object.entries(SPORTS_CONFIG).map(([key, sport]) => {
-                                const isSelected = activeSport === sport.id;
-                                const isComingSoon = sport.status === 'COMING_SOON';
-                                const isBeta = sport.status === 'BETA';
+                            {Object.entries(SPORTS_CONFIG)
+                                .filter(([, s]) => s.status === 'ACTIVE' || s.status === 'BETA')
+                                .map(([key, sport]) => {
+                                    const isSelected = activeSport === sport.id;
+                                    const isBeta = sport.status === 'BETA';
+                                    return (
+                                        <button
+                                            key={sport.id}
+                                            onClick={() => {
+                                                if (sport.status !== 'ACTIVE') {
+                                                    setToastMessage(`${sport.name} predictor is currently in Beta training and will be available soon!`);
+                                                } else {
+                                                    setActiveSport(sport.id);
+                                                    setMoreOpen(false);
+                                                }
+                                            }}
+                                            className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
+                                                isSelected
+                                                    ? 'bg-indigo-600/20 border border-indigo-500/20 text-indigo-400 font-extrabold shadow-[0_0_12px_rgba(99,102,241,0.1)]'
+                                                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40 border border-transparent'
+                                            } ${isBeta ? 'opacity-60 hover:opacity-100' : ''}`}
+                                        >
+                                            <span>{sport.icon}</span>
+                                            <span>{sport.name}</span>
+                                            {isBeta && <span className="text-[7px] px-1 bg-cyan-950 text-cyan-400 border border-cyan-500/30 rounded">BETA</span>}
+                                        </button>
+                                    );
+                                })
+                            }
 
-                                return (
+                            {/* More ▾ — COMING_SOON sporlar */}
+                            {Object.values(SPORTS_CONFIG).some(s => s.status === 'COMING_SOON') && (
+                                <div className="relative">
                                     <button
-                                        key={sport.id}
-                                        onClick={() => {
-                                            if (sport.status !== 'ACTIVE') {
-                                                setToastMessage(sport.status === 'BETA'
-                                                    ? `${sport.name} predictor is currently in Beta training and will be available soon!`
-                                                    : `${sport.name} predictor is currently in training and will be available soon!`);
-                                            } else {
-                                                setActiveSport(sport.id);
-                                            }
-                                        }}
-                                        className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${isSelected
-                                                ? 'bg-indigo-600/20 border border-indigo-500/20 text-indigo-400 font-extrabold shadow-[0_0_12px_rgba(99,102,241,0.1)] border-t border-t-indigo-400/20'
-                                                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40 border border-transparent'
-                                            } ${sport.status !== 'ACTIVE' ? 'opacity-40 hover:opacity-100' : ''}`}
+                                        onClick={() => setMoreOpen(prev => !prev)}
+                                        className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all duration-200 cursor-pointer flex items-center gap-1.5 border ${
+                                            moreOpen
+                                                ? 'bg-slate-800/60 border-slate-700 text-slate-200'
+                                                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40 border-transparent'
+                                        }`}
                                     >
-                                        <span>{sport.icon}</span>
-                                        <span>{sport.name}</span>
-                                        {isBeta && <span className="text-[7px] px-1 py-0.2 bg-cyan-950 text-cyan-400 border border-cyan-500/30 rounded">BETA</span>}
-                                        {isComingSoon && <span className="text-[7px] px-1 py-0.2 bg-slate-900 text-slate-500 border border-slate-800 rounded">SOON</span>}
+                                        <span>More</span>
+                                        <span className={`transition-transform duration-200 ${moreOpen ? 'rotate-180' : ''}`}>▾</span>
                                     </button>
-                                );
-                            })}
+
+                                    {moreOpen && (
+                                        <>
+                                            {/* Backdrop */}
+                                            <div
+                                                className="fixed inset-0 z-40"
+                                                onClick={() => setMoreOpen(false)}
+                                            />
+                                            {/* Dropdown Panel */}
+                                            <div className="absolute left-0 top-[calc(100%+6px)] z-50 w-52 rounded-2xl border border-slate-800 bg-slate-950/98 p-2 shadow-2xl backdrop-blur-xl animate-fade-in">
+                                                <span className="text-[9px] text-slate-600 font-black uppercase tracking-[0.2em] px-2 py-1 block">
+                                                    Coming Soon
+                                                </span>
+                                                {Object.entries(SPORTS_CONFIG)
+                                                    .filter(([, s]) => s.status === 'COMING_SOON')
+                                                    .map(([, sport]) => (
+                                                        <button
+                                                            key={sport.id}
+                                                            onClick={() => {
+                                                                setToastMessage(`${sport.name} predictor is currently in training and will be available soon!`);
+                                                                setMoreOpen(false);
+                                                            }}
+                                                            className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-slate-500 hover:text-slate-300 hover:bg-slate-900/50 transition-all cursor-pointer text-left"
+                                                        >
+                                                            <span className="flex items-center gap-2.5">
+                                                                <span>{sport.icon}</span>
+                                                                <span>{sport.name}</span>
+                                                            </span>
+                                                            <span className="text-[7px] font-black tracking-widest text-slate-600 bg-slate-900 border border-slate-800 px-1.5 py-0.5 rounded">
+                                                                SOON
+                                                            </span>
+                                                        </button>
+                                                    ))
+                                                }
+                                            </div>
+                                        </>
+                                    )}
+                                </div>
+                            )}
                         </nav>
 
                         {/* Hakkımızda & İletişim Butonları (Desktop) */}
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 flex-shrink-0">
                             <button
                                 onClick={() => setShowAboutModal(true)}
                                 className="px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-slate-200 hover:bg-slate-900/60 border border-slate-900 cursor-pointer transition-all"
