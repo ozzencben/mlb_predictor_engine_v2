@@ -521,12 +521,17 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                 {/* P1 */}
                 <div className="flex justify-between items-center gap-2">
                     <div className="flex items-center gap-3 min-w-0">
-                        {/* Circular avatar: flag emoji or initials */}
-                        <div className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 flex items-center justify-center group-hover:border-indigo-500/30 transition-all select-none shadow-[0_0_8px_rgba(0,0,0,0.5)]">
-                            {getCountryFlag(predict.p1_country)
-                                ? <span className="text-sm leading-none">{getCountryFlag(predict.p1_country)}</span>
-                                : <span className="text-[9px] font-black text-slate-400">{getPlayerInitials(predict.home_player)}</span>
-                            }
+                        {/* Circular avatar: photo > flag emoji > initials */}
+                        <div className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 flex items-center justify-center group-hover:border-indigo-500/30 transition-all select-none shadow-[0_0_8px_rgba(0,0,0,0.5)] overflow-hidden">
+                            {predict.p1_image
+                                ? <img src={predict.p1_image} alt={predict.home_player} className="w-full h-full object-cover" onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
+                                : null}
+                            <span className="w-full h-full items-center justify-center" style={{ display: predict.p1_image ? 'none' : 'flex' }}>
+                                {getCountryFlag(predict.p1_country)
+                                    ? <span className="text-sm leading-none">{getCountryFlag(predict.p1_country)}</span>
+                                    : <span className="text-[9px] font-black text-slate-400">{getPlayerInitials(predict.home_player)}</span>
+                                }
+                            </span>
                         </div>
 
                         <div className="space-y-0.5 min-w-0">
@@ -571,12 +576,17 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                 {/* P2 */}
                 <div className="flex justify-between items-center gap-2">
                     <div className="flex items-center gap-3 min-w-0">
-                        {/* Circular avatar: flag emoji or initials */}
-                        <div className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 flex items-center justify-center group-hover:border-indigo-500/30 transition-all select-none shadow-[0_0_8px_rgba(0,0,0,0.5)]">
-                            {getCountryFlag(predict.p2_country)
-                                ? <span className="text-sm leading-none">{getCountryFlag(predict.p2_country)}</span>
-                                : <span className="text-[9px] font-black text-slate-400">{getPlayerInitials(predict.away_player)}</span>
-                            }
+                        {/* Circular avatar: photo > flag emoji > initials */}
+                        <div className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 flex items-center justify-center group-hover:border-indigo-500/30 transition-all select-none shadow-[0_0_8px_rgba(0,0,0,0.5)] overflow-hidden">
+                            {predict.p2_image
+                                ? <img src={predict.p2_image} alt={predict.away_player} className="w-full h-full object-cover" onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
+                                : null}
+                            <span className="w-full h-full items-center justify-center" style={{ display: predict.p2_image ? 'none' : 'flex' }}>
+                                {getCountryFlag(predict.p2_country)
+                                    ? <span className="text-sm leading-none">{getCountryFlag(predict.p2_country)}</span>
+                                    : <span className="text-[9px] font-black text-slate-400">{getPlayerInitials(predict.away_player)}</span>
+                                }
+                            </span>
                         </div>
 
                         <div className="space-y-0.5 min-w-0">
