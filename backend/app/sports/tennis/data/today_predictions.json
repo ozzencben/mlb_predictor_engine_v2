@@ -1,233 +1,25 @@
 {
-    "date": "2026-06-18",
+    "date": "2026-06-19",
     "active_predictions": [],
     "skipped_low_confidence": [
         {
-            "match_id": "h8uYZdlL",
-            "tournament": "ATP - SINGLES: London (United Kingdom), grass",
+            "match_id": "UVRdE6YG",
+            "tournament": "TEAMS - MEN: Davis Cup - Group IV (World)",
             "match_stage": "Round of 32",
-            "match_time": "13:40 ET",
-            "timestamp": 1781804400,
-            "surface": "Grass",
-            "home_player": "Medjedovic H.",
-            "away_player": "Humbert U.",
-            "p1_id": "nDcBkcu7",
-            "p2_id": "O4ywE5Ah",
-            "p1_country": "Serbia",
-            "p2_country": "France",
-            "home_win_probability": 44.57,
-            "away_win_probability": 55.43,
-            "predicted_winner": "Humbert U.",
-            "p1_odds": 1.4,
-            "p2_odds": 4.0,
-            "edge_percentage": 30.43,
-            "recommended_kelly_bet_percentage": 10.14,
-            "alternative_bets": [
-                {
-                    "market": "Set Handicap",
-                    "selection": "Medjedovic H. +1.5 Sets",
-                    "confidence": "Medium",
-                    "probability": 68.5,
-                    "model_odds": 1.39,
-                    "reason": "Close projection (55.4%) indicates a tight contest — value on Medjedovic H. to take at least one set."
-                },
-                {
-                    "market": "Total Games",
-                    "selection": "Over 22.5 Games",
-                    "confidence": "High",
-                    "probability": 64.0,
-                    "model_odds": 1.48,
-                    "reason": "Both players average 10.2 and 13.8 games/set — combined style projects a high-game-count match (Over 22.5 Games)."
-                },
-                {
-                    "market": "Game Spread",
-                    "selection": "Humbert U. -3.5 Games",
-                    "confidence": "Low",
-                    "probability": 40.8,
-                    "model_odds": 2.33,
-                    "reason": "Insufficient game dominance gap (-0.5%) for a strong spread signal. Shown for reference only."
-                },
-                {
-                    "market": "Both Players to Win a Set",
-                    "selection": "No",
-                    "confidence": "Low",
-                    "probability": 69.6,
-                    "model_odds": 1.36,
-                    "reason": "Borderline 3-set probability (30.4%). No strong edge detected — shown for reference only."
-                },
-                {
-                    "market": "First Set Winner",
-                    "selection": "Medjedovic H.",
-                    "confidence": "Low",
-                    "probability": 62.8,
-                    "model_odds": 1.51,
-                    "reason": "First-set win rate gap is small (4.7%). Minimal edge — shown for reference only."
-                },
-                {
-                    "market": "Any Set to Tiebreak",
-                    "selection": "Yes",
-                    "confidence": "Low",
-                    "probability": 46.4,
-                    "model_odds": 2.05,
-                    "reason": "Borderline tiebreak probability (46.4%). No strong edge — shown for reference only."
-                },
-                {
-                    "market": "Bagel / Breadstick",
-                    "selection": "Yes — A Set Won 6-0 or 6-1",
-                    "confidence": "Low",
-                    "probability": 12.7,
-                    "model_odds": 7.48,
-                    "reason": "Low combined bagel profile (12.7%). Unlikely but possible — shown for reference only."
-                }
-            ],
-            "p1_stats": {
-                "rank": 68,
-                "elo": 1500.0,
-                "surface_rate": 1.0,
-                "momentum": 0.691,
-                "fatigue": 9,
-                "set_dominance": 0.581,
-                "game_dominance": 0.515,
-                "rest_days": 2,
-                "clutch_win_rate": 50.0,
-                "straight_sets_rate": 65.4,
-                "tiebreak_win_rate": 62.1,
-                "first_set_win_rate": 62.8,
-                "comeback_rate": 12.5,
-                "close_set_rate": 34.6,
-                "avg_games_per_set": 10.16,
-                "bagel_breadstick_rate": 4.8,
-                "recent_form": [
-                    {
-                        "result": "W",
-                        "opponent": "Rinderknech A.",
-                        "score": "2-0",
-                        "surface": "Grass",
-                        "tournament": "London",
-                        "date": "2026-06-16"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Ruud C.",
-                        "score": "0-3",
-                        "surface": "Clay",
-                        "tournament": "French Open",
-                        "date": "2026-05-27"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Hanfmann Y.",
-                        "score": "3-1",
-                        "surface": "Clay",
-                        "tournament": "French Open",
-                        "date": "2026-05-24"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Landaluce M.",
-                        "score": "0-2",
-                        "surface": "Clay",
-                        "tournament": "Rome",
-                        "date": "2026-05-12"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Navone M.",
-                        "score": "2-1",
-                        "surface": "Clay",
-                        "tournament": "Rome",
-                        "date": "2026-05-11"
-                    }
-                ],
-                "name": "Medjedovic H."
-            },
-            "p2_stats": {
-                "rank": 33,
-                "elo": 1514.7969749395518,
-                "surface_rate": 0.667,
-                "momentum": 0.519,
-                "fatigue": 7,
-                "set_dominance": 0.531,
-                "game_dominance": 0.51,
-                "rest_days": 2,
-                "clutch_win_rate": 31.2,
-                "straight_sets_rate": 72.7,
-                "tiebreak_win_rate": 52.4,
-                "first_set_win_rate": 58.1,
-                "comeback_rate": 0.0,
-                "close_set_rate": 25.4,
-                "avg_games_per_set": 13.79,
-                "bagel_breadstick_rate": 8.3,
-                "recent_form": [
-                    {
-                        "result": "W",
-                        "opponent": "Cilic M.",
-                        "score": "2-0",
-                        "surface": "Grass",
-                        "tournament": "London",
-                        "date": "2026-06-16"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Bonzi B.",
-                        "score": "1-2",
-                        "surface": "Grass",
-                        "tournament": "Hertogenbosch",
-                        "date": "2026-06-11"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Ymer E.",
-                        "score": "2-0",
-                        "surface": "Grass",
-                        "tournament": "Hertogenbosch",
-                        "date": "2026-06-08"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Halys Q.",
-                        "score": "0-3",
-                        "surface": "Clay",
-                        "tournament": "French Open",
-                        "date": "2026-05-27"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Mannarino A.",
-                        "score": "3-0",
-                        "surface": "Clay",
-                        "tournament": "French Open",
-                        "date": "2026-05-25"
-                    }
-                ],
-                "name": "Humbert U."
-            },
-            "h2h_summary": {
-                "p1_wins": 0,
-                "p2_wins": 0,
-                "total_matches": 0,
-                "matches": []
-            },
-            "ai_insight": "- Medjedovic's perfect 1.0 Court DNA on grass sharply contrasts Humbert's 0.667, granting Medjedovic a significant surface-specific advantage despite Humbert's marginal overall ELO lead.\n- Medjedovic enters slightly more fatigued with 9 sets played recently compared to Humbert's 7, though both share an identical 2-day recovery window. Fatigue might marginally favor Humbert.\n- A substantial 30.43% edge signals strong value on Humbert Moneyline (Odds: 4.0), as his 55.43% win probability is significantly underestimated by the market."
-        }
-    ],
-    "skipped_low_tier": [
-        {
-            "match_id": "t8rqufLb",
-            "tournament": "CHALLENGER MEN - SINGLES: Asuncion 2 (Paraguay), clay",
-            "match_stage": "Round of 32",
-            "match_time": "14:35 ET",
-            "timestamp": 1781807700,
-            "surface": "Clay",
-            "home_player": "Justo G. I.",
-            "away_player": "Ambrogi L. E.",
-            "p1_id": "CjaTkiTr",
-            "p2_id": "zuhsTKYK",
-            "p1_country": "Argentina",
-            "p2_country": "Argentina",
-            "home_win_probability": 56.94,
-            "away_win_probability": 43.06,
-            "predicted_winner": "Justo G. I.",
+            "match_time": "03:30 ET",
+            "timestamp": 1781854200,
+            "surface": "Hard",
+            "home_player": "San Marino",
+            "away_player": "Andorra",
+            "p1_id": "2k9L9tih",
+            "p2_id": "2ez3iayO",
+            "p1_country": null,
+            "p2_country": null,
+            "p1_image": null,
+            "p2_image": null,
+            "home_win_probability": 40.85,
+            "away_win_probability": 59.15,
+            "predicted_winner": "Andorra",
             "p1_odds": null,
             "p2_odds": null,
             "edge_percentage": null,
@@ -235,11 +27,1040 @@
             "alternative_bets": [
                 {
                     "market": "Set Handicap",
-                    "selection": "Ambrogi L. E. +1.5 Sets",
+                    "selection": "Andorra -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 59.2,
+                    "model_odds": 1.61,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=59.2%, dom_diff=100.0%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Andorra -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 58.0,
+                    "model_odds": 1.64,
+                    "reason": "Insufficient game dominance gap (20.0%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "Yes",
+                    "confidence": "High",
+                    "probability": 69.3,
+                    "model_odds": 1.37,
+                    "reason": "San Marino has a 50% comeback rate and Andorra wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "San Marino",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 42.1,
+                    "model_odds": 2.26,
+                    "reason": "Borderline tiebreak probability (42.1%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
+                }
+            ],
+            "p1_stats": {
+                "rank": 100,
+                "elo": 1484.0,
+                "surface_rate": 0.0,
+                "momentum": 0.0,
+                "fatigue": 3,
+                "set_dominance": 0.0,
+                "game_dominance": 0.4,
+                "rest_days": 1,
+                "clutch_win_rate": 0.0,
+                "straight_sets_rate": 0.0,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 50.0,
+                "comeback_rate": 50.0,
+                "close_set_rate": 30.0,
+                "avg_games_per_set": 11.0,
+                "bagel_breadstick_rate": 10.0,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Malta",
+                        "score": "0-3",
+                        "surface": "Hard",
+                        "tournament": "TEAMS - MEN: Davis Cup - Group IV",
+                        "date": "2026-06-18"
+                    }
+                ],
+                "name": "San Marino"
+            },
+            "p2_stats": {
+                "rank": 100,
+                "elo": 1516.0,
+                "surface_rate": 1.0,
+                "momentum": 1.0,
+                "fatigue": 3,
+                "set_dominance": 1.0,
+                "game_dominance": 0.6,
+                "rest_days": 1,
+                "clutch_win_rate": 100.0,
+                "straight_sets_rate": 0.0,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 50.0,
+                "comeback_rate": 50.0,
+                "close_set_rate": 30.0,
+                "avg_games_per_set": 11.0,
+                "bagel_breadstick_rate": 10.0,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Albania",
+                        "score": "3-0",
+                        "surface": "Hard",
+                        "tournament": "TEAMS - MEN: Davis Cup - Group IV",
+                        "date": "2026-06-18"
+                    }
+                ],
+                "name": "Andorra"
+            },
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 0,
+                "total_matches": 0,
+                "matches": []
+            },
+            "ai_insight": "- Andorra boasts a dominant 1.0 Court DNA on hard, directly contrasting San Marino's 0.0, amplified by a 32-point ELO advantage (1516 vs 1484) on this surface.\n- Both players enter with identical 3 sets played recently and a short 1-day recovery window, indicating an even physical playing field with no discernible fatigue edge.\n- Back Andorra on the Moneyline; their superior hard court proficiency, higher ELO, and perfect Clutch Win Rate (100%) make them the statistically sound play despite unknown market odds."
+        },
+        {
+            "match_id": "8xDObwNj",
+            "tournament": "TEAMS - MEN: Davis Cup - Group IV (World)",
+            "match_stage": "Round of 32",
+            "match_time": "04:00 ET",
+            "timestamp": 1781856000,
+            "surface": "Hard",
+            "home_player": "Algeria",
+            "away_player": "Botswana",
+            "p1_id": "GOHH5IHr",
+            "p2_id": "65WdlUmF",
+            "p1_country": null,
+            "p2_country": null,
+            "p1_image": null,
+            "p2_image": null,
+            "home_win_probability": 54.32,
+            "away_win_probability": 45.68,
+            "predicted_winner": "Algeria",
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Botswana +1.5 Sets",
                     "confidence": "Medium",
-                    "probability": 66.7,
-                    "model_odds": 1.42,
-                    "reason": "Close projection (56.9%) indicates a tight contest — value on Ambrogi L. E. to take at least one set."
+                    "probability": 69.8,
+                    "model_odds": 1.36,
+                    "reason": "Close projection (54.3%) indicates a tight contest — value on Botswana to take at least one set."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Algeria -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 49.9,
+                    "model_odds": 1.9,
+                    "reason": "Insufficient game dominance gap (6.6%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "Yes",
+                    "confidence": "High",
+                    "probability": 71.0,
+                    "model_odds": 1.34,
+                    "reason": "Botswana has a 50% comeback rate and Algeria wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Algeria",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 42.6,
+                    "model_odds": 2.23,
+                    "reason": "Borderline tiebreak probability (42.6%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
+                }
+            ],
+            "p1_stats": {
+                "rank": 100,
+                "elo": 1516.0,
+                "surface_rate": 1.0,
+                "momentum": 1.0,
+                "fatigue": 3,
+                "set_dominance": 0.667,
+                "game_dominance": 0.533,
+                "rest_days": 1,
+                "clutch_win_rate": 100.0,
+                "straight_sets_rate": 0.0,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 50.0,
+                "comeback_rate": 50.0,
+                "close_set_rate": 30.0,
+                "avg_games_per_set": 11.0,
+                "bagel_breadstick_rate": 10.0,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Ghana",
+                        "score": "2-1",
+                        "surface": "Hard",
+                        "tournament": "TEAMS - MEN: Davis Cup - Group IV",
+                        "date": "2026-06-18"
+                    }
+                ],
+                "name": "Algeria"
+            },
+            "p2_stats": {
+                "rank": 100,
+                "elo": 1484.0,
+                "surface_rate": 0.0,
+                "momentum": 0.0,
+                "fatigue": 3,
+                "set_dominance": 0.333,
+                "game_dominance": 0.467,
+                "rest_days": 1,
+                "clutch_win_rate": 0.0,
+                "straight_sets_rate": 0.0,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 50.0,
+                "comeback_rate": 50.0,
+                "close_set_rate": 30.0,
+                "avg_games_per_set": 11.0,
+                "bagel_breadstick_rate": 10.0,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Kenya",
+                        "score": "1-2",
+                        "surface": "Hard",
+                        "tournament": "TEAMS - MEN: Davis Cup - Group IV",
+                        "date": "2026-06-18"
+                    }
+                ],
+                "name": "Botswana"
+            },
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 0,
+                "total_matches": 0,
+                "matches": []
+            },
+            "ai_insight": "- Algeria dominates the Hard court DNA (1.0 vs 0.0) and holds a significant 32-point ELO advantage (1516.0 vs 1484.0), establishing a clear edge on this surface.\n- Both players enter the match with identical recent fatigue (3 sets played) and a 1-day recovery window, indicating neither player holds a physical advantage.\n- With market lines unavailable, the model projects Algeria as the winner (54.32%). Back Algeria Moneyline based on their superior ELO, Court DNA, and significantly higher Set/Game Dominance metrics."
+        },
+        {
+            "match_id": "AcckZJb3",
+            "tournament": "TEAMS - MEN: Davis Cup - Group IV (World)",
+            "match_stage": "Round of 32",
+            "match_time": "04:00 ET",
+            "timestamp": 1781856000,
+            "surface": "Hard",
+            "home_player": "D.R. Congo",
+            "away_player": "Mozambique",
+            "p1_id": "dvpkWKMi",
+            "p2_id": "GzA9vNzE",
+            "p1_country": null,
+            "p2_country": null,
+            "p1_image": null,
+            "p2_image": null,
+            "home_win_probability": 52.22,
+            "away_win_probability": 47.78,
+            "predicted_winner": "D.R. Congo",
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Mozambique +1.5 Sets",
+                    "confidence": "Medium",
+                    "probability": 72.3,
+                    "model_odds": 1.31,
+                    "reason": "Close projection (52.2%) indicates a tight contest — value on Mozambique to take at least one set."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "D.R. Congo -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 55.0,
+                    "model_odds": 1.73,
+                    "reason": "Insufficient game dominance gap (10.0%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "Yes",
+                    "confidence": "High",
+                    "probability": 71.7,
+                    "model_odds": 1.32,
+                    "reason": "Mozambique has a 50% comeback rate and D.R. Congo wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "D.R. Congo",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 42.8,
+                    "model_odds": 2.22,
+                    "reason": "Borderline tiebreak probability (42.8%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
+                }
+            ],
+            "p1_stats": {
+                "rank": 100,
+                "elo": 1484.0,
+                "surface_rate": 0.0,
+                "momentum": 0.0,
+                "fatigue": 3,
+                "set_dominance": 0.5,
+                "game_dominance": 0.5,
+                "rest_days": 1,
+                "clutch_win_rate": 50.0,
+                "straight_sets_rate": 0.0,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 50.0,
+                "comeback_rate": 50.0,
+                "close_set_rate": 30.0,
+                "avg_games_per_set": 11.0,
+                "bagel_breadstick_rate": 10.0,
+                "recent_form": [],
+                "name": "D.R. Congo"
+            },
+            "p2_stats": {
+                "rank": 100,
+                "elo": 1484.0,
+                "surface_rate": 0.0,
+                "momentum": 0.0,
+                "fatigue": 3,
+                "set_dominance": 0.0,
+                "game_dominance": 0.4,
+                "rest_days": 1,
+                "clutch_win_rate": 0.0,
+                "straight_sets_rate": 0.0,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 50.0,
+                "comeback_rate": 50.0,
+                "close_set_rate": 30.0,
+                "avg_games_per_set": 11.0,
+                "bagel_breadstick_rate": 10.0,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Angola",
+                        "score": "0-3",
+                        "surface": "Hard",
+                        "tournament": "TEAMS - MEN: Davis Cup - Group IV",
+                        "date": "2026-06-18"
+                    }
+                ],
+                "name": "Mozambique"
+            },
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 0,
+                "total_matches": 0,
+                "matches": []
+            },
+            "ai_insight": "- D.R. Congo and Mozambique exhibit identical Court DNA and Surface ELO, indicating no inherent advantage on this hard court surface.\n- Both players enter with identical fatigue levels, having played 3 sets, and equally refreshed with 1 day of recovery; no physical disparity is evident.\n- With no market lines to identify value, the tight 52.22% vs 47.78% model projection and superior Clutch Win Rate (50% vs 0%) technically favors D.R. Congo for a Moneyline play."
+        },
+        {
+            "match_id": "C6Rh4aaT",
+            "tournament": "TEAMS - MEN: Davis Cup - Group IV (World)",
+            "match_stage": "Round of 32",
+            "match_time": "04:00 ET",
+            "timestamp": 1781856000,
+            "surface": "Hard",
+            "home_player": "Ghana",
+            "away_player": "Kenya",
+            "p1_id": "nTXr9ivs",
+            "p2_id": "ImEY1zH7",
+            "p1_country": null,
+            "p2_country": null,
+            "p1_image": null,
+            "p2_image": null,
+            "home_win_probability": 45.68,
+            "away_win_probability": 54.32,
+            "predicted_winner": "Kenya",
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Ghana +1.5 Sets",
+                    "confidence": "Medium",
+                    "probability": 69.8,
+                    "model_odds": 1.36,
+                    "reason": "Close projection (54.3%) indicates a tight contest — value on Ghana to take at least one set."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Kenya -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 49.9,
+                    "model_odds": 1.9,
+                    "reason": "Insufficient game dominance gap (6.6%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "Yes",
+                    "confidence": "High",
+                    "probability": 71.0,
+                    "model_odds": 1.34,
+                    "reason": "Ghana has a 50% comeback rate and Kenya wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Ghana",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 42.6,
+                    "model_odds": 2.23,
+                    "reason": "Borderline tiebreak probability (42.6%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
+                }
+            ],
+            "p1_stats": {
+                "rank": 100,
+                "elo": 1484.0,
+                "surface_rate": 0.0,
+                "momentum": 0.0,
+                "fatigue": 3,
+                "set_dominance": 0.333,
+                "game_dominance": 0.467,
+                "rest_days": 1,
+                "clutch_win_rate": 0.0,
+                "straight_sets_rate": 0.0,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 50.0,
+                "comeback_rate": 50.0,
+                "close_set_rate": 30.0,
+                "avg_games_per_set": 11.0,
+                "bagel_breadstick_rate": 10.0,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Algeria",
+                        "score": "1-2",
+                        "surface": "Hard",
+                        "tournament": "TEAMS - MEN: Davis Cup - Group IV",
+                        "date": "2026-06-18"
+                    }
+                ],
+                "name": "Ghana"
+            },
+            "p2_stats": {
+                "rank": 100,
+                "elo": 1516.0,
+                "surface_rate": 1.0,
+                "momentum": 1.0,
+                "fatigue": 3,
+                "set_dominance": 0.667,
+                "game_dominance": 0.533,
+                "rest_days": 1,
+                "clutch_win_rate": 100.0,
+                "straight_sets_rate": 0.0,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 50.0,
+                "comeback_rate": 50.0,
+                "close_set_rate": 30.0,
+                "avg_games_per_set": 11.0,
+                "bagel_breadstick_rate": 10.0,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Botswana",
+                        "score": "2-1",
+                        "surface": "Hard",
+                        "tournament": "TEAMS - MEN: Davis Cup - Group IV",
+                        "date": "2026-06-18"
+                    }
+                ],
+                "name": "Kenya"
+            },
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 0,
+                "total_matches": 0,
+                "matches": []
+            },
+            "ai_insight": "- Kenya holds a decisive Hard Court DNA of 1.0 against Ghana's 0.0, amplified by a 32-point ELO advantage (1516 vs 1484).\n- Both players enter with identical fatigue levels, having played 3 sets recently and benefiting from a 1-day recovery window.\n- Back Kenya on the Moneyline; their superior Court DNA, higher ELO, and strong model projection (54.32%) make them the statistically sound play."
+        },
+        {
+            "match_id": "I3A3BG6d",
+            "tournament": "TEAMS - MEN: Davis Cup - Group IV (World)",
+            "match_stage": "Round of 32",
+            "match_time": "04:00 ET",
+            "timestamp": 1781856000,
+            "surface": "Hard",
+            "home_player": "Zimbabwe",
+            "away_player": "Angola",
+            "p1_id": "WtDejyHM",
+            "p2_id": "AmNYZoHk",
+            "p1_country": null,
+            "p2_country": null,
+            "p1_image": null,
+            "p2_image": null,
+            "home_win_probability": 45.3,
+            "away_win_probability": 54.7,
+            "predicted_winner": "Angola",
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Zimbabwe +1.5 Sets",
+                    "confidence": "Medium",
+                    "probability": 69.4,
+                    "model_odds": 1.37,
+                    "reason": "Close projection (54.7%) indicates a tight contest — value on Zimbabwe to take at least one set."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Angola -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "Insufficient game dominance gap (6.7%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "Yes",
+                    "confidence": "High",
+                    "probability": 70.9,
+                    "model_odds": 1.34,
+                    "reason": "Zimbabwe has a 50% comeback rate and Angola wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Zimbabwe",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 42.5,
+                    "model_odds": 2.23,
+                    "reason": "Borderline tiebreak probability (42.5%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
+                }
+            ],
+            "p1_stats": {
+                "rank": 100,
+                "elo": 1516.0,
+                "surface_rate": 1.0,
+                "momentum": 1.0,
+                "fatigue": 3,
+                "set_dominance": 0.667,
+                "game_dominance": 0.533,
+                "rest_days": 1,
+                "clutch_win_rate": 100.0,
+                "straight_sets_rate": 0.0,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 50.0,
+                "comeback_rate": 50.0,
+                "close_set_rate": 30.0,
+                "avg_games_per_set": 11.0,
+                "bagel_breadstick_rate": 10.0,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "D.R. Congo",
+                        "score": "2-1",
+                        "surface": "Hard",
+                        "tournament": "TEAMS - MEN: Davis Cup - Group IV",
+                        "date": "2026-06-18"
+                    }
+                ],
+                "name": "Zimbabwe"
+            },
+            "p2_stats": {
+                "rank": 100,
+                "elo": 1516.0,
+                "surface_rate": 1.0,
+                "momentum": 1.0,
+                "fatigue": 3,
+                "set_dominance": 1.0,
+                "game_dominance": 0.6,
+                "rest_days": 1,
+                "clutch_win_rate": 100.0,
+                "straight_sets_rate": 0.0,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 50.0,
+                "comeback_rate": 50.0,
+                "close_set_rate": 30.0,
+                "avg_games_per_set": 11.0,
+                "bagel_breadstick_rate": 10.0,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Mozambique",
+                        "score": "3-0",
+                        "surface": "Hard",
+                        "tournament": "TEAMS - MEN: Davis Cup - Group IV",
+                        "date": "2026-06-18"
+                    }
+                ],
+                "name": "Angola"
+            },
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 0,
+                "total_matches": 0,
+                "matches": []
+            },
+            "ai_insight": "- Both players exhibit perfect Hard Court DNA (1.0) and identical ELO ratings (1516.0), indicating an even contest on the target surface with no discernible surface-specific advantage.\n- With both players having played 3 sets recently and enjoying only 1 day of recovery, neither holds a significant physical edge; fatigue and recovery factors are perfectly balanced.\n- Despite the highly symmetrical core stats, Angola's superior Set (1.0 vs 0.667) and Game (0.6 vs 0.533) Dominance edges them to a 54.7% win probability; back Angola Moneyline as the model's favored outcome."
+        },
+        {
+            "match_id": "hzKCDugD",
+            "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II (World)",
+            "match_stage": "Round of 32",
+            "match_time": "22:00 ET",
+            "timestamp": 1781834400,
+            "surface": "Hard",
+            "home_player": "Hong Kong W",
+            "away_player": "Singapore W",
+            "p1_id": "UPqVEi3A",
+            "p2_id": "tdIL3VtH",
+            "p1_country": null,
+            "p2_country": null,
+            "p1_image": null,
+            "p2_image": null,
+            "home_win_probability": 50.86,
+            "away_win_probability": 49.14,
+            "predicted_winner": "Hong Kong W",
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Singapore W +1.5 Sets",
+                    "confidence": "Medium",
+                    "probability": 74.0,
+                    "model_odds": 1.28,
+                    "reason": "Close projection (50.9%) indicates a tight contest — value on Singapore W to take at least one set."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Hong Kong W -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 52.0,
+                    "model_odds": 1.83,
+                    "reason": "Insufficient game dominance gap (8.0%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "Yes",
+                    "confidence": "High",
+                    "probability": 72.2,
+                    "model_odds": 1.32,
+                    "reason": "Singapore W has a 50% comeback rate and Hong Kong W wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Hong Kong W",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 42.9,
+                    "model_odds": 2.21,
+                    "reason": "Borderline tiebreak probability (42.9%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
+                }
+            ],
+            "p1_stats": {
+                "rank": 100,
+                "elo": 1516.0,
+                "surface_rate": 1.0,
+                "momentum": 1.0,
+                "fatigue": 3,
+                "set_dominance": 1.0,
+                "game_dominance": 0.6,
+                "rest_days": 3,
+                "clutch_win_rate": 100.0,
+                "straight_sets_rate": 0.0,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 50.0,
+                "comeback_rate": 50.0,
+                "close_set_rate": 30.0,
+                "avg_games_per_set": 11.0,
+                "bagel_breadstick_rate": 10.0,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Pacific Oceania W",
+                        "score": "3-0",
+                        "surface": "Hard",
+                        "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II",
+                        "date": "2026-06-16"
+                    }
+                ],
+                "name": "Hong Kong W"
+            },
+            "p2_stats": {
+                "rank": 100,
+                "elo": 1500.736306793522,
+                "surface_rate": 0.5,
+                "momentum": 0.526,
+                "fatigue": 5,
+                "set_dominance": 0.6,
+                "game_dominance": 0.52,
+                "rest_days": 1,
+                "clutch_win_rate": 0.0,
+                "straight_sets_rate": 100.0,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 50.0,
+                "comeback_rate": 50.0,
+                "close_set_rate": 30.0,
+                "avg_games_per_set": 11.0,
+                "bagel_breadstick_rate": 10.0,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Kyrgyzstan W",
+                        "score": "2-0",
+                        "surface": "Hard",
+                        "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II",
+                        "date": "2026-06-18"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Philippines W",
+                        "score": "1-2",
+                        "surface": "Hard",
+                        "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II",
+                        "date": "2026-06-16"
+                    }
+                ],
+                "name": "Singapore W"
+            },
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 0,
+                "total_matches": 0,
+                "matches": []
+            },
+            "ai_insight": "- Hong Kong W holds the surface advantage with a superior Court DNA (1.0 vs 0.5) and a slight ELO edge (1516.0 vs 1500.7), indicating stronger historical performance and current form on hard courts.\n- Singapore W enters this contest significantly depleted, having played 5 sets recently compared to Hong Kong W's 3, and crucially, has a meager 1-day recovery window versus Hong Kong W's 3 days.\n- Despite tight model probabilities, Hong Kong W's distinct advantages in physical readiness, surface preference, and clutch play (100% vs 0%) make a Moneyline bet on Hong Kong W the mathematically sound play."
+        },
+        {
+            "match_id": "tdtAr0hm",
+            "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II (World)",
+            "match_stage": "Round of 32",
+            "match_time": "22:00 ET",
+            "timestamp": 1781834400,
+            "surface": "Hard",
+            "home_player": "Malaysia W",
+            "away_player": "Uzbekistan W",
+            "p1_id": "hj419oqc",
+            "p2_id": "fk4UARym",
+            "p1_country": null,
+            "p2_country": null,
+            "p1_image": null,
+            "p2_image": null,
+            "home_win_probability": 47.35,
+            "away_win_probability": 52.65,
+            "predicted_winner": "Uzbekistan W",
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Malaysia W +1.5 Sets",
+                    "confidence": "Medium",
+                    "probability": 71.8,
+                    "model_odds": 1.32,
+                    "reason": "Close projection (52.7%) indicates a tight contest — value on Malaysia W to take at least one set."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Uzbekistan W -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 50.1,
+                    "model_odds": 1.9,
+                    "reason": "Insufficient game dominance gap (-6.7%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "Yes",
+                    "confidence": "High",
+                    "probability": 71.6,
+                    "model_odds": 1.33,
+                    "reason": "Malaysia W has a 50% comeback rate and Uzbekistan W wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Malaysia W",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 42.7,
+                    "model_odds": 2.22,
+                    "reason": "Borderline tiebreak probability (42.7%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
+                }
+            ],
+            "p1_stats": {
+                "rank": 100,
+                "elo": 1501.4695015289756,
+                "surface_rate": 0.5,
+                "momentum": 0.526,
+                "fatigue": 6,
+                "set_dominance": 0.333,
+                "game_dominance": 0.467,
+                "rest_days": 1,
+                "clutch_win_rate": 50.0,
+                "straight_sets_rate": 0.0,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 50.0,
+                "comeback_rate": 50.0,
+                "close_set_rate": 30.0,
+                "avg_games_per_set": 11.0,
+                "bagel_breadstick_rate": 10.0,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Sri Lanka W",
+                        "score": "2-1",
+                        "surface": "Hard",
+                        "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II",
+                        "date": "2026-06-18"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Chinese Taipei W",
+                        "score": "0-3",
+                        "surface": "Hard",
+                        "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II",
+                        "date": "2026-06-16"
+                    }
+                ],
+                "name": "Malaysia W"
+            },
+            "p2_stats": {
+                "rank": 100,
+                "elo": 1484.736306793522,
+                "surface_rate": 0.0,
+                "momentum": 0.0,
+                "fatigue": 3,
+                "set_dominance": 0.0,
+                "game_dominance": 0.4,
+                "rest_days": 1,
+                "clutch_win_rate": 0.0,
+                "straight_sets_rate": 0.0,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 50.0,
+                "comeback_rate": 50.0,
+                "close_set_rate": 30.0,
+                "avg_games_per_set": 11.0,
+                "bagel_breadstick_rate": 10.0,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Chinese Taipei W",
+                        "score": "0-3",
+                        "surface": "Hard",
+                        "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II",
+                        "date": "2026-06-18"
+                    }
+                ],
+                "name": "Uzbekistan W"
+            },
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 0,
+                "total_matches": 0,
+                "matches": []
+            },
+            "ai_insight": "- Malaysia W holds a notable ELO edge (1501.47 vs 1484.74) and a significant Court DNA advantage (0.5 vs 0.0) on this hard court surface.\n- Both players have one day of recovery, but Malaysia W carries a higher fatigue load, having played 6 sets recently compared to Uzbekistan W's 3.\n- Despite the model's slight lean towards Uzbekistan W, the pronounced ELO and surface DNA advantage for Malaysia W suggests a Moneyline play on Malaysia W presents the best mathematical value."
+        },
+        {
+            "match_id": "xnpQEsWO",
+            "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group III (World)",
+            "match_stage": "Round of 32",
+            "match_time": "04:00 ET",
+            "timestamp": 1781856000,
+            "surface": "Hard",
+            "home_player": "Albania W",
+            "away_player": "Azerbaijan W",
+            "p1_id": "dhHyShUd",
+            "p2_id": "x8CdNUrS",
+            "p1_country": null,
+            "p2_country": null,
+            "p1_image": null,
+            "p2_image": null,
+            "home_win_probability": 50.0,
+            "away_win_probability": 50.0,
+            "predicted_winner": "Azerbaijan W",
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Azerbaijan W +1.5 Sets",
+                    "confidence": "Medium",
+                    "probability": 75.0,
+                    "model_odds": 1.27,
+                    "reason": "Close projection (50.0%) indicates a tight contest — value on Azerbaijan W to take at least one set."
                 },
                 {
                     "market": "Total Games",
@@ -247,423 +1068,133 @@
                     "confidence": "Medium",
                     "probability": 40.0,
                     "model_odds": 2.37,
-                    "reason": "Both players average 9.0 and 9.1 games/set — combined style projects a high-game-count match (Over 21.5 Games)."
+                    "reason": "Both players average 11.0 and 11.0 games/set — combined style projects a high-game-count match (Over 21.5 Games)."
                 },
                 {
                     "market": "Game Spread",
-                    "selection": "Justo G. I. -3.5 Games",
+                    "selection": "Albania W -3.5 Games",
                     "confidence": "Low",
-                    "probability": 40.9,
-                    "model_odds": 2.32,
-                    "reason": "Insufficient game dominance gap (0.6%) for a strong spread signal. Shown for reference only."
+                    "probability": 40.0,
+                    "model_odds": 2.37,
+                    "reason": "Insufficient game dominance gap (0.0%) for a strong spread signal. Shown for reference only."
                 },
                 {
                     "market": "Both Players to Win a Set",
-                    "selection": "No",
-                    "confidence": "Low",
-                    "probability": 68.9,
-                    "model_odds": 1.38,
-                    "reason": "Borderline 3-set probability (31.1%). No strong edge detected — shown for reference only."
+                    "selection": "Yes",
+                    "confidence": "High",
+                    "probability": 72.5,
+                    "model_odds": 1.31,
+                    "reason": "Azerbaijan W has a 50% comeback rate and Albania W wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
                 },
                 {
                     "market": "First Set Winner",
-                    "selection": "Ambrogi L. E.",
+                    "selection": "Albania W",
                     "confidence": "Low",
-                    "probability": 69.8,
-                    "model_odds": 1.36,
-                    "reason": "First-set win rate gap is small (7.0%). Minimal edge — shown for reference only."
-                },
-                {
-                    "market": "Any Set to Tiebreak",
-                    "selection": "No",
-                    "confidence": "Low",
-                    "probability": 64.0,
-                    "model_odds": 1.48,
-                    "reason": "Borderline tiebreak probability (36.0%). No strong edge — shown for reference only."
-                },
-                {
-                    "market": "Bagel / Breadstick",
-                    "selection": "Yes — A Set Won 6-0 or 6-1",
-                    "confidence": "Medium",
-                    "probability": 39.7,
-                    "model_odds": 2.39,
-                    "reason": "Justo G. I. wins a dominant set (6-0/6-1) in 25% of their matches — the combined match profile projects at least one lopsided set."
-                }
-            ],
-            "p1_stats": {
-                "rank": 254,
-                "elo": 1642.672553186638,
-                "surface_rate": 0.651,
-                "momentum": 0.627,
-                "fatigue": 7,
-                "set_dominance": 0.628,
-                "game_dominance": 0.555,
-                "rest_days": 2,
-                "clutch_win_rate": 50.0,
-                "straight_sets_rate": 67.9,
-                "tiebreak_win_rate": 50.0,
-                "first_set_win_rate": 62.8,
-                "comeback_rate": 18.8,
-                "close_set_rate": 16.5,
-                "avg_games_per_set": 8.96,
-                "bagel_breadstick_rate": 24.6,
-                "recent_form": [
-                    {
-                        "result": "W",
-                        "opponent": "Hernandez A.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "Asuncion 2",
-                        "date": "2026-06-16"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Ambrogi L. E.",
-                        "score": "1-2",
-                        "surface": "Clay",
-                        "tournament": "San Miguel de Tucuman",
-                        "date": "2026-06-13"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Cigarran T.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "San Miguel de Tucuman",
-                        "date": "2026-06-12"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Casanova H.",
-                        "score": "2-1",
-                        "surface": "Clay",
-                        "tournament": "San Miguel de Tucuman",
-                        "date": "2026-06-11"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Aguilar Cardozo J.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "San Miguel de Tucuman",
-                        "date": "2026-06-09"
-                    }
-                ],
-                "name": "Justo G. I."
-            },
-            "p2_stats": {
-                "rank": 408,
-                "elo": 1697.9253184525794,
-                "surface_rate": 0.605,
-                "momentum": 0.74,
-                "fatigue": 8,
-                "set_dominance": 0.617,
-                "game_dominance": 0.549,
-                "rest_days": 4,
-                "clutch_win_rate": 54.5,
-                "straight_sets_rate": 76.9,
-                "tiebreak_win_rate": 42.9,
-                "first_set_win_rate": 69.8,
-                "comeback_rate": 7.7,
-                "close_set_rate": 18.6,
-                "avg_games_per_set": 9.07,
-                "bagel_breadstick_rate": 20.0,
-                "recent_form": [
-                    {
-                        "result": "W",
-                        "opponent": "Rodriguez J. A.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "San Miguel de Tucuman",
-                        "date": "2026-06-14"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Justo G. I.",
-                        "score": "2-1",
-                        "surface": "Clay",
-                        "tournament": "San Miguel de Tucuman",
-                        "date": "2026-06-13"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Zarate C. M.",
-                        "score": "2-1",
-                        "surface": "Clay",
-                        "tournament": "San Miguel de Tucuman",
-                        "date": "2026-06-12"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Rodriguez Taverna S.",
-                        "score": "2-1",
-                        "surface": "Clay",
-                        "tournament": "San Miguel de Tucuman",
-                        "date": "2026-06-11"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Gomez J. S.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "San Miguel de Tucuman",
-                        "date": "2026-06-09"
-                    }
-                ],
-                "name": "Ambrogi L. E."
-            },
-            "h2h_summary": {
-                "p1_wins": 2,
-                "p2_wins": 1,
-                "total_matches": 3,
-                "matches": [
-                    {
-                        "date": "2026-06-13",
-                        "tournament": "San Miguel de Tucuman",
-                        "surface": "Clay",
-                        "winner": "Ambrogi L. E.",
-                        "score": "1-2"
-                    },
-                    {
-                        "date": "2026-05-13",
-                        "tournament": "Cordoba",
-                        "surface": "Clay",
-                        "winner": "Justo G. I.",
-                        "score": "2-0"
-                    },
-                    {
-                        "date": "2026-04-14",
-                        "tournament": "Santa Cruz",
-                        "surface": "Clay",
-                        "winner": "Justo G. I.",
-                        "score": "2-1"
-                    }
-                ]
-            }
-        },
-        {
-            "match_id": "h6fs6rsC",
-            "tournament": "CHALLENGER MEN - SINGLES: Asuncion 2 (Paraguay), clay",
-            "match_stage": "Round of 32",
-            "match_time": "15:00 ET",
-            "timestamp": 1781809200,
-            "surface": "Clay",
-            "home_player": "Huertas Del Pino C.",
-            "away_player": "La Serna J. M.",
-            "p1_id": "dvetkyid",
-            "p2_id": "OUerK0bc",
-            "p1_country": "Peru",
-            "p2_country": "Argentina",
-            "home_win_probability": 28.52,
-            "away_win_probability": 71.48,
-            "predicted_winner": "La Serna J. M.",
-            "p1_odds": null,
-            "p2_odds": null,
-            "edge_percentage": null,
-            "recommended_kelly_bet_percentage": null,
-            "alternative_bets": [
-                {
-                    "market": "Set Handicap",
-                    "selection": "La Serna J. M. -1.5 Sets",
-                    "confidence": "Low",
-                    "probability": 62.0,
-                    "model_odds": 1.53,
-                    "reason": "No strong set-handicap signal for this matchup (fav_prob=71.5%, dom_diff=0.7%). Shown for reference only."
-                },
-                {
-                    "market": "Total Games",
-                    "selection": "Under 21.5 Games",
-                    "confidence": "Low",
-                    "probability": 38.0,
-                    "model_odds": 2.5,
-                    "reason": "Mixed total-games signal (avg 9.2/9.2 games/set). Shown for reference only."
-                },
-                {
-                    "market": "Game Spread",
-                    "selection": "La Serna J. M. -3.5 Games",
-                    "confidence": "Low",
-                    "probability": 42.7,
-                    "model_odds": 2.22,
-                    "reason": "Insufficient game dominance gap (1.8%) for a strong spread signal. Shown for reference only."
-                },
-                {
-                    "market": "Both Players to Win a Set",
-                    "selection": "No",
-                    "confidence": "Medium",
-                    "probability": 69.8,
-                    "model_odds": 1.36,
-                    "reason": "La Serna J. M. wins in straight sets 58% of the time with a 71.5% match projection — a clean sweep is the dominant scenario."
-                },
-                {
-                    "market": "First Set Winner",
-                    "selection": "Huertas Del Pino C.",
-                    "confidence": "Low",
-                    "probability": 60.5,
-                    "model_odds": 1.57,
+                    "probability": 50.0,
+                    "model_odds": 1.9,
                     "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
                 },
                 {
                     "market": "Any Set to Tiebreak",
-                    "selection": "No",
+                    "selection": "Yes",
                     "confidence": "Low",
-                    "probability": 62.2,
-                    "model_odds": 1.53,
-                    "reason": "Borderline tiebreak probability (37.8%). No strong edge — shown for reference only."
+                    "probability": 43.0,
+                    "model_odds": 2.21,
+                    "reason": "Borderline tiebreak probability (43.0%). No strong edge — shown for reference only."
                 },
                 {
                     "market": "Bagel / Breadstick",
                     "selection": "Yes — A Set Won 6-0 or 6-1",
-                    "confidence": "Medium",
-                    "probability": 37.3,
-                    "model_odds": 2.55,
-                    "reason": "La Serna J. M. wins a dominant set (6-0/6-1) in 22% of their matches — the combined match profile projects at least one lopsided set."
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
-                "rank": 767,
-                "elo": 1580.0268553045585,
-                "surface_rate": 0.535,
-                "momentum": 0.617,
-                "fatigue": 6,
-                "set_dominance": 0.562,
-                "game_dominance": 0.51,
-                "rest_days": 2,
-                "clutch_win_rate": 33.3,
-                "straight_sets_rate": 78.3,
-                "tiebreak_win_rate": 63.6,
-                "first_set_win_rate": 60.5,
-                "comeback_rate": 5.9,
-                "close_set_rate": 20.2,
-                "avg_games_per_set": 9.17,
-                "bagel_breadstick_rate": 19.6,
+                "rank": 100,
+                "elo": 1484.0,
+                "surface_rate": 0.0,
+                "momentum": 0.0,
+                "fatigue": 3,
+                "set_dominance": 0.0,
+                "game_dominance": 0.4,
+                "rest_days": 1,
+                "clutch_win_rate": 0.0,
+                "straight_sets_rate": 0.0,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 50.0,
+                "comeback_rate": 50.0,
+                "close_set_rate": 30.0,
+                "avg_games_per_set": 11.0,
+                "bagel_breadstick_rate": 10.0,
                 "recent_form": [
                     {
-                        "result": "W",
-                        "opponent": "Zeitune M.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "Asuncion 2",
-                        "date": "2026-06-16"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Kohlmann E.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "Asuncion 2",
-                        "date": "2026-06-15"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Price S.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "Asuncion 2",
-                        "date": "2026-06-14"
-                    },
-                    {
                         "result": "L",
-                        "opponent": "Del Pino M.",
-                        "score": "1-2",
-                        "surface": "Clay",
-                        "tournament": "San Miguel de Tucuman",
-                        "date": "2026-06-07"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Huertas Del Pino Cordova A.",
-                        "score": "1-1",
-                        "surface": "Clay",
-                        "tournament": "Cordoba",
-                        "date": "2026-05-11"
+                        "opponent": "Armenia W",
+                        "score": "0-3",
+                        "surface": "Hard",
+                        "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group III",
+                        "date": "2026-06-18"
                     }
                 ],
-                "name": "Huertas Del Pino C."
+                "name": "Albania W"
             },
             "p2_stats": {
-                "rank": 290,
-                "elo": 1608.0013319491602,
-                "surface_rate": 0.6,
-                "momentum": 0.6,
-                "fatigue": 7,
-                "set_dominance": 0.569,
-                "game_dominance": 0.528,
-                "rest_days": 8,
-                "clutch_win_rate": 68.8,
-                "straight_sets_rate": 57.7,
-                "tiebreak_win_rate": 37.5,
-                "first_set_win_rate": 60.5,
-                "comeback_rate": 23.5,
-                "close_set_rate": 20.4,
-                "avg_games_per_set": 9.19,
-                "bagel_breadstick_rate": 22.0,
+                "rank": 100,
+                "elo": 1484.0,
+                "surface_rate": 0.0,
+                "momentum": 0.0,
+                "fatigue": 3,
+                "set_dominance": 0.0,
+                "game_dominance": 0.4,
+                "rest_days": 1,
+                "clutch_win_rate": 0.0,
+                "straight_sets_rate": 0.0,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 50.0,
+                "comeback_rate": 50.0,
+                "close_set_rate": 30.0,
+                "avg_games_per_set": 11.0,
+                "bagel_breadstick_rate": 10.0,
                 "recent_form": [
                     {
                         "result": "L",
-                        "opponent": "Rodriguez J. A.",
-                        "score": "1-2",
-                        "surface": "Clay",
-                        "tournament": "San Miguel de Tucuman",
-                        "date": "2026-06-10"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Oliveira N.",
-                        "score": "0-2",
-                        "surface": "Clay",
-                        "tournament": "M25 Cuiaba",
-                        "date": "2026-06-06"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Kohlmann E.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "M25 Cuiaba",
-                        "date": "2026-06-04"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Linde Palacios S. A.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "M25 Cuiaba",
-                        "date": "2026-06-04"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Roncadelli F.",
-                        "score": "2-1",
-                        "surface": "Clay",
-                        "tournament": "Cordoba",
-                        "date": "2026-05-16"
+                        "opponent": "Montenegro W",
+                        "score": "0-3",
+                        "surface": "Hard",
+                        "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group III",
+                        "date": "2026-06-18"
                     }
                 ],
-                "name": "La Serna J. M."
+                "name": "Azerbaijan W"
             },
             "h2h_summary": {
                 "p1_wins": 0,
                 "p2_wins": 0,
                 "total_matches": 0,
                 "matches": []
-            }
+            },
+            "ai_insight": "AI analysis is temporarily unavailable due to daily API limits."
         },
         {
-            "match_id": "46HvtkOr",
-            "tournament": "CHALLENGER MEN - SINGLES: Asuncion 2 (Paraguay), clay",
+            "match_id": "nF6p24nJ",
+            "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group III (World)",
             "match_stage": "Round of 32",
-            "match_time": "16:00 ET",
-            "timestamp": 1781812800,
-            "surface": "Clay",
-            "home_player": "Estevez J.",
-            "away_player": "Villanueva G.",
-            "p1_id": "v3mDD6Cq",
-            "p2_id": "OQxrsJs8",
-            "p1_country": "Argentina",
-            "p2_country": "Argentina",
-            "home_win_probability": 49.57,
-            "away_win_probability": 50.43,
-            "predicted_winner": "Villanueva G.",
+            "match_time": "04:00 ET",
+            "timestamp": 1781856000,
+            "surface": "Hard",
+            "home_player": "Armenia W",
+            "away_player": "Montenegro W",
+            "p1_id": "xj0EtZic",
+            "p2_id": "CpE9E9b7",
+            "p1_country": null,
+            "p2_country": null,
+            "p1_image": null,
+            "p2_image": null,
+            "home_win_probability": 50.0,
+            "away_win_probability": 50.0,
+            "predicted_winner": "Montenegro W",
             "p1_odds": null,
             "p2_odds": null,
             "edge_percentage": null,
@@ -671,426 +1202,134 @@
             "alternative_bets": [
                 {
                     "market": "Set Handicap",
-                    "selection": "Estevez J. +1.5 Sets",
+                    "selection": "Montenegro W +1.5 Sets",
                     "confidence": "Medium",
-                    "probability": 74.5,
-                    "model_odds": 1.28,
-                    "reason": "Close projection (50.4%) indicates a tight contest — value on Estevez J. to take at least one set."
+                    "probability": 75.0,
+                    "model_odds": 1.27,
+                    "reason": "Close projection (50.0%) indicates a tight contest — value on Montenegro W to take at least one set."
                 },
                 {
                     "market": "Total Games",
-                    "selection": "Under 21.5 Games",
-                    "confidence": "Low",
-                    "probability": 38.0,
-                    "model_odds": 2.5,
-                    "reason": "Mixed total-games signal (avg 9.1/9.3 games/set). Shown for reference only."
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Medium",
+                    "probability": 40.0,
+                    "model_odds": 2.37,
+                    "reason": "Both players average 11.0 and 11.0 games/set — combined style projects a high-game-count match (Over 21.5 Games)."
                 },
                 {
                     "market": "Game Spread",
-                    "selection": "Villanueva G. -3.5 Games",
+                    "selection": "Armenia W -3.5 Games",
                     "confidence": "Low",
-                    "probability": 48.5,
-                    "model_odds": 1.96,
-                    "reason": "Insufficient game dominance gap (-5.7%) for a strong spread signal. Shown for reference only."
+                    "probability": 40.0,
+                    "model_odds": 2.37,
+                    "reason": "Insufficient game dominance gap (0.0%) for a strong spread signal. Shown for reference only."
                 },
                 {
                     "market": "Both Players to Win a Set",
-                    "selection": "No",
-                    "confidence": "Low",
-                    "probability": 69.6,
-                    "model_odds": 1.37,
-                    "reason": "Borderline 3-set probability (30.4%). No strong edge detected — shown for reference only."
+                    "selection": "Yes",
+                    "confidence": "High",
+                    "probability": 72.5,
+                    "model_odds": 1.31,
+                    "reason": "Montenegro W has a 50% comeback rate and Armenia W wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
                 },
                 {
                     "market": "First Set Winner",
-                    "selection": "Estevez J.",
-                    "confidence": "High",
-                    "probability": 67.4,
-                    "model_odds": 1.41,
-                    "reason": "Estevez J. wins the opening set in 67% of matches — a +22% edge over the opponent on the first-set market."
+                    "selection": "Armenia W",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
                 },
                 {
                     "market": "Any Set to Tiebreak",
                     "selection": "Yes",
                     "confidence": "Low",
-                    "probability": 44.9,
-                    "model_odds": 2.12,
-                    "reason": "Borderline tiebreak probability (44.9%). No strong edge — shown for reference only."
+                    "probability": 43.0,
+                    "model_odds": 2.21,
+                    "reason": "Borderline tiebreak probability (43.0%). No strong edge — shown for reference only."
                 },
                 {
                     "market": "Bagel / Breadstick",
                     "selection": "Yes — A Set Won 6-0 or 6-1",
-                    "confidence": "High",
-                    "probability": 50.0,
-                    "model_odds": 1.9,
-                    "reason": "Estevez J. wins a dominant set (6-0/6-1) in 38% of their matches — the combined match profile projects at least one lopsided set."
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
                 }
             ],
             "p1_stats": {
-                "rank": 385,
-                "elo": 1588.7005564128906,
-                "surface_rate": 0.659,
-                "momentum": 0.589,
-                "fatigue": 7,
-                "set_dominance": 0.677,
-                "game_dominance": 0.581,
+                "rank": 100,
+                "elo": 1516.0,
+                "surface_rate": 1.0,
+                "momentum": 1.0,
+                "fatigue": 3,
+                "set_dominance": 1.0,
+                "game_dominance": 0.6,
                 "rest_days": 1,
-                "clutch_win_rate": 25.0,
-                "straight_sets_rate": 93.1,
-                "tiebreak_win_rate": 69.2,
-                "first_set_win_rate": 67.4,
-                "comeback_rate": 14.3,
-                "close_set_rate": 22.1,
-                "avg_games_per_set": 9.09,
-                "bagel_breadstick_rate": 37.5,
+                "clutch_win_rate": 100.0,
+                "straight_sets_rate": 0.0,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 50.0,
+                "comeback_rate": 50.0,
+                "close_set_rate": 30.0,
+                "avg_games_per_set": 11.0,
+                "bagel_breadstick_rate": 10.0,
                 "recent_form": [
                     {
                         "result": "W",
-                        "opponent": "Casanova H.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "CHALLENGER MEN - SINGLES: Asuncion 2",
-                        "date": "2026-06-17"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Linde Palacios S. A.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "Asuncion 2",
-                        "date": "2026-06-15"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Cigarran T.",
-                        "score": "1-2",
-                        "surface": "Clay",
-                        "tournament": "San Miguel de Tucuman",
-                        "date": "2026-06-11"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Soto M.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "San Miguel de Tucuman",
-                        "date": "2026-06-10"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Ribeiro de Almeida G.",
-                        "score": "0-2",
-                        "surface": "Clay",
-                        "tournament": "M25 Cuiaba",
-                        "date": "2026-06-02"
+                        "opponent": "Albania W",
+                        "score": "3-0",
+                        "surface": "Hard",
+                        "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group III",
+                        "date": "2026-06-18"
                     }
                 ],
-                "name": "Estevez J."
+                "name": "Armenia W"
             },
             "p2_stats": {
-                "rank": 400,
-                "elo": 1647.0936379117015,
-                "surface_rate": 0.512,
-                "momentum": 0.625,
-                "fatigue": 7,
-                "set_dominance": 0.526,
-                "game_dominance": 0.524,
-                "rest_days": 5,
-                "clutch_win_rate": 45.5,
-                "straight_sets_rate": 77.3,
+                "rank": 100,
+                "elo": 1516.0,
+                "surface_rate": 1.0,
+                "momentum": 1.0,
+                "fatigue": 3,
+                "set_dominance": 1.0,
+                "game_dominance": 0.6,
+                "rest_days": 1,
+                "clutch_win_rate": 100.0,
+                "straight_sets_rate": 0.0,
                 "tiebreak_win_rate": 50.0,
-                "first_set_win_rate": 45.2,
-                "comeback_rate": 17.4,
-                "close_set_rate": 18.9,
-                "avg_games_per_set": 9.31,
-                "bagel_breadstick_rate": 20.0,
+                "first_set_win_rate": 50.0,
+                "comeback_rate": 50.0,
+                "close_set_rate": 30.0,
+                "avg_games_per_set": 11.0,
+                "bagel_breadstick_rate": 10.0,
                 "recent_form": [
                     {
-                        "result": "L",
-                        "opponent": "Oliveira N.",
-                        "score": "1-2",
-                        "surface": "Clay",
-                        "tournament": "M15 Brasilia",
-                        "date": "2026-06-13"
-                    },
-                    {
                         "result": "W",
-                        "opponent": "Loureiro J. V. C.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "M15 Brasilia",
-                        "date": "2026-06-12"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Grippo V.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "M15 Brasilia",
-                        "date": "2026-06-11"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Torres A. G.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "M15 Brasilia",
-                        "date": "2026-06-10"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Hardt N.",
-                        "score": "1-2",
-                        "surface": "Clay",
-                        "tournament": "M25 Cuiaba",
-                        "date": "2026-06-07"
+                        "opponent": "Azerbaijan W",
+                        "score": "3-0",
+                        "surface": "Hard",
+                        "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group III",
+                        "date": "2026-06-18"
                     }
                 ],
-                "name": "Villanueva G."
+                "name": "Montenegro W"
             },
             "h2h_summary": {
                 "p1_wins": 0,
-                "p2_wins": 2,
-                "total_matches": 2,
-                "matches": [
-                    {
-                        "date": "2026-05-09",
-                        "tournament": "M25 Villa Maria",
-                        "surface": "Clay",
-                        "winner": "Villanueva G.",
-                        "score": "0-2"
-                    },
-                    {
-                        "date": "2026-01-27",
-                        "tournament": "Concepcion",
-                        "surface": "Clay",
-                        "winner": "Villanueva G.",
-                        "score": "0-2"
-                    }
-                ]
-            }
-        },
-        {
-            "match_id": "ELtiwYkB",
-            "tournament": "CHALLENGER MEN - SINGLES: Parma (Italy), clay",
-            "match_stage": "Round of 32",
-            "match_time": "14:00 ET",
-            "timestamp": 1781805600,
-            "surface": "Clay",
-            "home_player": "Rincon D.",
-            "away_player": "Gadamauri B.",
-            "p1_id": "67MpdccF",
-            "p2_id": "QX3MNSXf",
-            "p1_country": "Spain",
-            "p2_country": "Belgium",
-            "home_win_probability": 42.25,
-            "away_win_probability": 57.75,
-            "predicted_winner": "Gadamauri B.",
-            "p1_odds": null,
-            "p2_odds": null,
-            "edge_percentage": null,
-            "recommended_kelly_bet_percentage": null,
-            "alternative_bets": [
-                {
-                    "market": "Set Handicap",
-                    "selection": "Rincon D. +1.5 Sets",
-                    "confidence": "Medium",
-                    "probability": 65.7,
-                    "model_odds": 1.45,
-                    "reason": "Close projection (57.8%) indicates a tight contest — value on Rincon D. to take at least one set."
-                },
-                {
-                    "market": "Total Games",
-                    "selection": "Under 21.5 Games",
-                    "confidence": "Low",
-                    "probability": 38.0,
-                    "model_odds": 2.5,
-                    "reason": "Mixed total-games signal (avg 9.3/9.7 games/set). Shown for reference only."
-                },
-                {
-                    "market": "Game Spread",
-                    "selection": "Gadamauri B. -3.5 Games",
-                    "confidence": "Low",
-                    "probability": 44.4,
-                    "model_odds": 2.14,
-                    "reason": "Insufficient game dominance gap (2.9%) for a strong spread signal. Shown for reference only."
-                },
-                {
-                    "market": "Both Players to Win a Set",
-                    "selection": "No",
-                    "confidence": "Low",
-                    "probability": 67.8,
-                    "model_odds": 1.4,
-                    "reason": "Borderline 3-set probability (32.2%). No strong edge detected — shown for reference only."
-                },
-                {
-                    "market": "First Set Winner",
-                    "selection": "Gadamauri B.",
-                    "confidence": "High",
-                    "probability": 69.8,
-                    "model_odds": 1.36,
-                    "reason": "Gadamauri B. wins the opening set in 70% of matches — a +23% edge over the opponent on the first-set market."
-                },
-                {
-                    "market": "Any Set to Tiebreak",
-                    "selection": "Yes",
-                    "confidence": "Low",
-                    "probability": 43.4,
-                    "model_odds": 2.19,
-                    "reason": "Borderline tiebreak probability (43.4%). No strong edge — shown for reference only."
-                },
-                {
-                    "market": "Bagel / Breadstick",
-                    "selection": "Yes — A Set Won 6-0 or 6-1",
-                    "confidence": "Medium",
-                    "probability": 28.7,
-                    "model_odds": 3.31,
-                    "reason": "Rincon D. wins a dominant set (6-0/6-1) in 20% of their matches — the combined match profile projects at least one lopsided set."
-                }
-            ],
-            "p1_stats": {
-                "rank": 283,
-                "elo": 1576.9682006998214,
-                "surface_rate": 0.594,
-                "momentum": 0.663,
-                "fatigue": 6,
-                "set_dominance": 0.526,
-                "game_dominance": 0.521,
-                "rest_days": 2,
-                "clutch_win_rate": 72.7,
-                "straight_sets_rate": 66.7,
-                "tiebreak_win_rate": 50.0,
-                "first_set_win_rate": 46.5,
-                "comeback_rate": 21.7,
-                "close_set_rate": 24.7,
-                "avg_games_per_set": 9.32,
-                "bagel_breadstick_rate": 19.6,
-                "recent_form": [
-                    {
-                        "result": "W",
-                        "opponent": "Martinez P.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "Parma",
-                        "date": "2026-06-16"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Blanch D.",
-                        "score": "0-2",
-                        "surface": "Clay",
-                        "tournament": "Lyon",
-                        "date": "2026-06-11"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Giustino L.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "Lyon",
-                        "date": "2026-06-08"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Kuzmanov D.",
-                        "score": "0-2",
-                        "surface": "Clay",
-                        "tournament": "Istanbul",
-                        "date": "2026-05-19"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Perez Contri S.",
-                        "score": "2-1",
-                        "surface": "Clay",
-                        "tournament": "M25 Vic",
-                        "date": "2026-05-17"
-                    }
-                ],
-                "name": "Rincon D."
-            },
-            "p2_stats": {
-                "rank": 261,
-                "elo": 1649.4809053681186,
-                "surface_rate": 0.765,
-                "momentum": 0.728,
-                "fatigue": 8,
-                "set_dominance": 0.683,
-                "game_dominance": 0.55,
-                "rest_days": 3,
-                "clutch_win_rate": 50.0,
-                "straight_sets_rate": 71.0,
-                "tiebreak_win_rate": 62.5,
-                "first_set_win_rate": 69.8,
-                "comeback_rate": 38.5,
-                "close_set_rate": 22.1,
-                "avg_games_per_set": 9.71,
-                "bagel_breadstick_rate": 11.3,
-                "recent_form": [
-                    {
-                        "result": "W",
-                        "opponent": "Dzumhur D.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "Parma",
-                        "date": "2026-06-15"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Barton H.",
-                        "score": "1-2",
-                        "surface": "Clay",
-                        "tournament": "Bratislava",
-                        "date": "2026-06-09"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Kuzmanov D.",
-                        "score": "2-1",
-                        "surface": "Clay",
-                        "tournament": "Bratislava",
-                        "date": "2026-06-08"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Donald M.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "Bratislava",
-                        "date": "2026-06-07"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Alcala Gurri M.",
-                        "score": "1-2",
-                        "surface": "Clay",
-                        "tournament": "Cervia",
-                        "date": "2026-05-23"
-                    }
-                ],
-                "name": "Gadamauri B."
-            },
-            "h2h_summary": {
-                "p1_wins": 1,
                 "p2_wins": 0,
-                "total_matches": 1,
-                "matches": [
-                    {
-                        "date": "2026-03-10",
-                        "tournament": "Hersonissos 2",
-                        "surface": "Hard",
-                        "winner": "Rincon D.",
-                        "score": "2-1"
-                    }
-                ]
-            }
+                "total_matches": 0,
+                "matches": []
+            },
+            "ai_insight": "- Both players exhibit identical Hard Court DNA (1.0) and ELO ratings (1516.0), indicating no discernible surface or skill advantage.\n- With 3 sets played and 1 rest day each, both athletes present identical fatigue and recovery profiles, suggesting neither holds a physical edge.\n- Given 50/50 win probabilities, N/A market odds, and a 0.0% calculated edge across perfectly matched stats, there is no mathematically justifiable play for Moneyline, Set Handicap, or Game Total; avoid."
         }
     ],
+    "skipped_low_tier": [],
     "statistics": {
-        "total_unplayed": 12,
+        "total_unplayed": 62,
         "active_predictions_count": 0,
-        "skipped_low_confidence_count": 1,
-        "skipped_low_tier_count": 4,
-        "skipped_data_missing_count": 7
+        "skipped_low_confidence_count": 9,
+        "skipped_low_tier_count": 0,
+        "skipped_data_missing_count": 53
     }
 }

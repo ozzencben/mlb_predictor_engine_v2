@@ -45,6 +45,22 @@ data_dir = base_dir / "data"
 brain_path = data_dir / "tennis_brain.json"
 
 _player_elo_cache = None
+_player_images_cache: dict | None = None
+
+def _load_player_images() -> dict:
+    global _player_images_cache
+    if _player_images_cache is not None:
+        return _player_images_cache
+    images_path = data_dir / "player_images.json"
+    if images_path.exists():
+        try:
+            with open(images_path, "r", encoding="utf-8") as f:
+                _player_images_cache = json.load(f)
+        except Exception:
+            _player_images_cache = {}
+    else:
+        _player_images_cache = {}
+    return _player_images_cache
 
 def _load_player_elo():
     global _player_elo_cache
@@ -902,6 +918,7 @@ def predict_today_matches():
             except Exception:
                 pass
 
+        _images = _load_player_images()
         match_data = {
             "match_id": m["match_id"],
             "tournament": t_name,
@@ -915,6 +932,8 @@ def predict_today_matches():
             "p2_id": str(p2_id),
             "p1_country": p1_country,
             "p2_country": p2_country,
+            "p1_image": _images.get(str(p1_id)),
+            "p2_image": _images.get(str(p2_id)),
             "home_win_probability": round(p1_prob, 2),
             "away_win_probability": round(p2_prob, 2),
             "predicted_winner": predicted_winner,
