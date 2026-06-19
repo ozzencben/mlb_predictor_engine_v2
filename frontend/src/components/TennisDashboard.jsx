@@ -732,7 +732,10 @@ function MatchCard({ predict, isResultCard, onPlayerClick }) {
                                         <span className="text-[7.5px] font-bold text-slate-600 uppercase tracking-wider">Model-Implied Odds</span>
                                     </div>
                                     <div className="space-y-2">
-                                        {predict.alternative_bets.map((alt, idx) => {
+                                        {[...predict.alternative_bets].sort((a, b) => {
+                                            const order = { High: 0, Medium: 1, Low: 2 };
+                                            return (order[a.confidence] ?? 2) - (order[b.confidence] ?? 2);
+                                        }).map((alt, idx) => {
                                             const conf = alt.confidence || 'Low';
                                             const isHigh = conf === 'High';
                                             const isMed  = conf === 'Medium';
