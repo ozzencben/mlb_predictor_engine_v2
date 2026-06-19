@@ -1,0 +1,979 @@
+[
+    {
+        "match_id": "GnKvCVPp",
+        "tournament": "Figueira Da Foz (Portugal), hard",
+        "ground": "Hard",
+        "date_text": "17.06. 13:00\nWO",
+        "home_player": "Aksu A.",
+        "away_player": "Vickery S.",
+        "home_score": 0,
+        "away_score": 0,
+        "winner": "unknown",
+        "set_scores": [],
+        "date": "2026-06-17"
+    },
+    {
+        "match_id": "d88q25T9",
+        "tournament": "Figueira Da Foz (Portugal), hard",
+        "ground": "Hard",
+        "date_text": "15.06. 17:30",
+        "home_player": "Aksu A.",
+        "away_player": "Sanchez A. S.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-06-15"
+    },
+    {
+        "match_id": "6Rw6g2dC",
+        "tournament": "W75 Kosice (Slovakia), clay",
+        "ground": "Clay",
+        "date_text": "20.05. 13:45",
+        "home_player": "Aksu A.",
+        "away_player": "Ciric Bagaric L.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-20"
+    },
+    {
+        "match_id": "KrTQakqR",
+        "tournament": "W75 Kosice (Slovakia), clay",
+        "ground": "Clay",
+        "date_text": "18.05. 13:55",
+        "home_player": "Aksu A.",
+        "away_player": "Supova K.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-05-18"
+    },
+    {
+        "match_id": "8rWHahrH",
+        "tournament": "W75 Zagreb (Croatia), clay",
+        "ground": "Clay",
+        "date_text": "13.05. 19:10",
+        "home_player": "Hercog P.",
+        "away_player": "Aksu A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2026-05-13"
+    },
+    {
+        "match_id": "jkMAvz8l",
+        "tournament": "W75 Zagreb (Croatia), clay",
+        "ground": "Clay",
+        "date_text": "13.05. 13:45",
+        "home_player": "Miskovic D.",
+        "away_player": "Aksu A.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-13"
+    },
+    {
+        "match_id": "2NOCvgqT",
+        "tournament": "Istanbul (Turkey), clay",
+        "ground": "Clay",
+        "date_text": "04.05. 16:25",
+        "home_player": "Yaneva E.",
+        "away_player": "Aksu A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-05-04"
+    },
+    {
+        "match_id": "SjFo5oJq",
+        "tournament": "Saint Malo (France), clay",
+        "ground": "Clay",
+        "date_text": "28.04. 12:05",
+        "home_player": "Costoulas S.",
+        "away_player": "Aksu A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-28"
+    },
+    {
+        "match_id": "p4oq6GPN",
+        "tournament": "Saint Malo (France) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "27.04. 12:10",
+        "home_player": "Aksu A.",
+        "away_player": "Ovcharenko E.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-04-27"
+    },
+    {
+        "match_id": "x0qwZcJ8",
+        "tournament": "Saint Malo (France) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "26.04. 14:05",
+        "home_player": "Aksu A.",
+        "away_player": "Zaytseva K.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-04-26"
+    },
+    {
+        "match_id": "K845IxJ0",
+        "tournament": "W75 Chiasso (Switzerland), clay",
+        "ground": "Clay",
+        "date_text": "23.04. 13:10",
+        "home_player": "Aksu A.",
+        "away_player": "De Stefano S.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-23"
+    },
+    {
+        "match_id": "AHsGupJl",
+        "tournament": "W75 Chiasso (Switzerland), clay",
+        "ground": "Clay",
+        "date_text": "21.04. 14:45",
+        "home_player": "Burillo Escorihuela I.",
+        "away_player": "Aksu A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-04-21"
+    },
+    {
+        "match_id": "UeBKxcnA",
+        "tournament": "Billie Jean King Cup - Group I (World)",
+        "ground": "Unknown",
+        "date_text": "09.04. 18:00",
+        "home_player": "Lamens S.",
+        "away_player": "Aksu A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-09"
+    },
+    {
+        "match_id": "bwrkuxDd",
+        "tournament": "Billie Jean King Cup - Group I (World)",
+        "ground": "Unknown",
+        "date_text": "08.04. 21:05",
+        "home_player": "Aksu A.",
+        "away_player": "Bondar A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-08"
+    },
+    {
+        "match_id": "WzEvkHIG",
+        "tournament": "Billie Jean King Cup - Group I (World)",
+        "ground": "Unknown",
+        "date_text": "08.04. 13:40",
+        "home_player": "Aksu A.",
+        "away_player": "Gorgodze E.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-08"
+    },
+    {
+        "match_id": "nwDk0HIi",
+        "tournament": "W50 Nantes (France), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "02.04. 13:40",
+        "home_player": "Aksu A.",
+        "away_player": "Wolff V.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-02"
+    },
+    {
+        "match_id": "UqgpmhIP",
+        "tournament": "W50 Nantes (France), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "01.04. 13:50",
+        "home_player": "Bandecchi S.",
+        "away_player": "Aksu A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-01"
+    },
+    {
+        "match_id": "0STQMiXO",
+        "tournament": "W50 Nantes (France), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "30.03. 16:00",
+        "home_player": "Aksu A.",
+        "away_player": "Leonard M.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
+        "date": "2026-03-30"
+    },
+    {
+        "match_id": "OGBg1jWP",
+        "tournament": "W50 Croissy-Beaubourg (France), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "25.03. 14:30",
+        "home_player": "Aksu A.",
+        "away_player": "Curmi F.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-25"
+    },
+    {
+        "match_id": "4Cj3CpA7",
+        "tournament": "W50 Croissy-Beaubourg (France), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "24.03. 16:00",
+        "home_player": "Avdeeva J.",
+        "away_player": "Aksu A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-03-24"
+    },
+    {
+        "match_id": "23pnhEeM",
+        "tournament": "Miami (USA) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "16.03. 19:00",
+        "home_player": "Aksu A.",
+        "away_player": "Sasnovich A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-16"
+    },
+    {
+        "match_id": "Aar1yKZI",
+        "tournament": "W75 Porto 2 (Portugal), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "28.02. 15:50\nRetired",
+        "home_player": "Dart H.",
+        "away_player": "Aksu A.",
+        "home_score": 1,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "0",
+                "away": "1"
+            }
+        ],
+        "date": "2026-02-28"
+    },
+    {
+        "match_id": "Ol5AnHp4",
+        "tournament": "W75 Porto 2 (Portugal), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "27.02. 16:20",
+        "home_player": "Aksu A.",
+        "away_player": "Falei A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-02-27"
+    },
+    {
+        "match_id": "lzRymXwn",
+        "tournament": "W75 Porto 2 (Portugal), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "26.02. 17:55",
+        "home_player": "Rinaldo Persson K.",
+        "away_player": "Aksu A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-26"
+    },
+    {
+        "match_id": "hhBJ7ZUl",
+        "tournament": "W75 Porto 2 (Portugal), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "24.02. 15:05",
+        "home_player": "Voloshchuk A.",
+        "away_player": "Aksu A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-24"
+    },
+    {
+        "match_id": "vNhGe3Gs",
+        "tournament": "W50 Macon (France), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "20.02. 16:00",
+        "home_player": "Naef C.",
+        "away_player": "Aksu A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2026-02-20"
+    },
+    {
+        "match_id": "pSaPzBkt",
+        "tournament": "W50 Macon (France), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "19.02. 16:00",
+        "home_player": "Iliev S.",
+        "away_player": "Aksu A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-19"
+    },
+    {
+        "match_id": "ddWLyCJb",
+        "tournament": "W50 Macon (France), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "17.02. 12:00",
+        "home_player": "Chiesa E.",
+        "away_player": "Aksu A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-17"
+    },
+    {
+        "match_id": "CnPvXAJc",
+        "tournament": "W50 Porto (Portugal), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "05.02. 13:00",
+        "home_player": "Aksu A.",
+        "away_player": "Crawley F.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-05"
+    },
+    {
+        "match_id": "xpD7y6Ti",
+        "tournament": "W50 Porto (Portugal), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "04.02. 13:00",
+        "home_player": "Aksu A.",
+        "away_player": "Fita Boluda A.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2026-02-04"
+    },
+    {
+        "match_id": "U7LedojS",
+        "tournament": "W75 Porto (Portugal), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "01.02. 14:10",
+        "home_player": "Yaneva E.",
+        "away_player": "Aksu A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-01"
+    },
+    {
+        "match_id": "KfVkxF2F",
+        "tournament": "W75 Porto (Portugal), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "31.01. 15:00",
+        "home_player": "Aksu A.",
+        "away_player": "Koevermans A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-31"
+    },
+    {
+        "match_id": "0MEIq8te",
+        "tournament": "W75 Porto (Portugal), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "30.01. 15:40",
+        "home_player": "Aksu A.",
+        "away_player": "Crawley F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-01-30"
+    },
+    {
+        "match_id": "tCP3S7oQ",
+        "tournament": "W75 Porto (Portugal), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "29.01. 16:00",
+        "home_player": "Gjorcheska L.",
+        "away_player": "Aksu A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-29"
+    },
+    {
+        "match_id": "vcAX5zHr",
+        "tournament": "W75 Porto (Portugal), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "27.01. 15:25",
+        "home_player": "Schunk N.",
+        "away_player": "Aksu A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-27"
+    },
+    {
+        "match_id": "GbDaBKJj",
+        "tournament": "W75 Trnava 4 (Slovakia), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "26.11.2025",
+        "home_player": "Sevastova A.",
+        "away_player": "Aksu A.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-11-26"
+    },
+    {
+        "match_id": "KbCKZ2KP",
+        "tournament": "W50 Trnava (Slovakia), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "19.11.2025",
+        "home_player": "Aksu A.",
+        "away_player": "Gjorcheska L.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-19"
+    },
+    {
+        "match_id": "SICvM4id",
+        "tournament": "Billie Jean King Cup - World Group (World) - Relegation - Play Offs",
+        "ground": "Unknown",
+        "date_text": "15.11.2025",
+        "home_player": "Costoulas S.",
+        "away_player": "Aksu A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-15"
+    },
+    {
+        "match_id": "CnUNoQgM",
+        "tournament": "W75 Toronto (Canada), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "28.10.2025",
+        "home_player": "Aksu A.",
+        "away_player": "Koevermans A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-28"
+    },
+    {
+        "match_id": "MmATeQ1b",
+        "tournament": "W75 Saguenay (Canada), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "22.10.2025",
+        "home_player": "Aksu A.",
+        "away_player": "Kuhl C.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2025-10-22"
+    },
+    {
+        "match_id": "SY4heqAb",
+        "tournament": "W75 Saguenay (Canada), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "20.10.2025",
+        "home_player": "Aksu A.",
+        "away_player": "Arseneault A.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-20"
+    },
+    {
+        "match_id": "MXm6NIe5",
+        "tournament": "W75 Quinta do Lago (Portugal), hard",
+        "ground": "Hard",
+        "date_text": "16.10.2025",
+        "home_player": "Timofeeva M.",
+        "away_player": "Aksu A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "0"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-10-16"
+    },
+    {
+        "match_id": "McTrSJa6",
+        "tournament": "W75 Quinta do Lago (Portugal), hard",
+        "ground": "Hard",
+        "date_text": "15.10.2025",
+        "home_player": "Voloshchuk A.",
+        "away_player": "Aksu A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-15"
+    }
+]

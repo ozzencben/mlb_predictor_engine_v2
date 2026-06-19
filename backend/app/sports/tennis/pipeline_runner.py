@@ -104,6 +104,14 @@ class TennisPipelineRunner:
             fetch_fexture.main()
         except Exception as e:
             logger.error(f"❌ Error fetching tennis matches: {e}")
+
+        # 3b. Fetch player match histories for today's fixture players (incremental)
+        logger.info("🎾 Step 3b/5: Fetching player match histories for today's players...")
+        try:
+            from app.sports.tennis.services import fetch_matches
+            fetch_matches.fetch_todays_players()
+        except Exception as e:
+            logger.error(f"❌ Error fetching player match histories: {e}")
             
         # 4. Predict today's matches
         logger.info("🎾 Step 4/5: Generating today's predictions...")
