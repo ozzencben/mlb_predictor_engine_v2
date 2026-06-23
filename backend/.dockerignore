@@ -56,27 +56,4 @@ docs/
 # CI/CD
 .github/
 
-# Runtime / bulk data — sunucuda pipeline üretir (local'de volume mount)
-# TENİS: raw/player_matches + model + ranks image'da KALMALI (Render'da Playwright yok)
-app/sports/mlb/data/raw/
-app/sports/mlb/data/history/
-app/sports/mlb/data/archive/
-app/sports/wnba/data/raw/
-app/sports/wnba/data/processed/
-app/sports/wnba/data/archive/
-app/sports/tennis/data/archive/
-app/sports/**/data/today_*.json
-app/sports/**/data/todays_*.json
-app/sports/**/data/live_odds*.json
-app/sports/**/data/live_stats.json
-app/sports/**/data/live_weather.json
-app/sports/**/data/daily_matchups.json
-app/sports/**/data/player_props_odds.json
-app/sports/**/data/*_cache.json
-app/sports/**/data/predictions_*.json
-app/sports/**/data/nrfi_trends.json
-app/sports/**/data/sonny_moore.json
-app/sports/**/data/bullpen_siera.json
-app/sports/**/data/pitcher_stats.json
-app/sports/**/data/team_splits.json
-app/sports/tennis/data/live_odds_tennis.json
+

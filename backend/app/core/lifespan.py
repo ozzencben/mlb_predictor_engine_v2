@@ -176,14 +176,25 @@ async def _sequential_low_memory_startup():
     if not is_low_memory_host():
         return
 
-    logger.info("📉 Render düşük bellek modu: 30s bekleniyor, sonra yalnızca tenis startup...")
+    logger.info("📉 Render düşük bellek modu: 30s bekleniyor, sonra sıralı startup kazımaları...")
     await asyncio.sleep(30)
 
+    # 1. Tenis
     if _tennis_predictions_file_is_stale():
         await _tennis_startup_scrape()
         gc.collect()
 
-    logger.info("⏭️  Render: MLB/WNBA startup atlandı (bellek koruması — scheduler halleder).")
+    # 2. WNBA
+    if _wnba_predictions_file_is_stale():
+        await _wnba_startup_scrape()
+        gc.collect()
+
+    # 3. MLB
+    if _predictions_file_is_stale():
+        await _startup_scrape()
+        gc.collect()
+
+    logger.info("✅ Render: Sıralı startup kazımaları tamamlandı (bellek koruması aktif).")
 
 
 async def _delayed_scheduler_loop():
