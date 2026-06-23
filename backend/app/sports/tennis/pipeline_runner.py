@@ -63,15 +63,20 @@ class TennisPipelineRunner:
                 logger.error(f"❌ Error archiving tennis results: {e}")
 
     def run_refresh_pipeline(self):
-        """Light refresh: fixture + predictions + accuracy (no archive/profile/elo)."""
+        """Light refresh: fixture + missing player histories + predictions + accuracy."""
         logger.info("🎾 Starting Tennis LIGHT refresh (rolling 24h window)...")
-        from app.sports.tennis.services import fetch_fexture
+        from app.sports.tennis.services import fetch_fexture, fetch_matches
         from app.sports.tennis.models import predict
 
         try:
             fetch_fexture.main()
         except Exception as e:
             logger.error(f"❌ Error fetching tennis matches: {e}")
+
+        try:
+            fetch_matches.fetch_todays_players()
+        except Exception as e:
+            logger.error(f"❌ Error fetching missing tennis player histories: {e}")
 
         try:
             predict.predict_today_matches()

@@ -1,0 +1,976 @@
+[
+    {
+        "match_id": "CbeIbWMH",
+        "tournament": "Figueira Da Foz (Portugal), hard",
+        "ground": "Hard",
+        "date_text": "15.06. 13:20",
+        "home_player": "Kinoshita H.",
+        "away_player": "Hruncakova V.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-06-15"
+    },
+    {
+        "match_id": "KfZlxLHF",
+        "tournament": "W100 Takasaki (Japan), hard",
+        "ground": "Hard",
+        "date_text": "22.05. 08:45",
+        "home_player": "Ryser V.",
+        "away_player": "Kinoshita H.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-05-22"
+    },
+    {
+        "match_id": "A5NUU1pd",
+        "tournament": "W100 Takasaki (Japan), hard",
+        "ground": "Hard",
+        "date_text": "22.05. 04:40",
+        "home_player": "Saito S.",
+        "away_player": "Kinoshita H.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-22"
+    },
+    {
+        "match_id": "zmqlwpfL",
+        "tournament": "W100 Takasaki (Japan), hard",
+        "ground": "Hard",
+        "date_text": "20.05. 01:10\nRetired",
+        "home_player": "Mushika Mio",
+        "away_player": "Kinoshita H.",
+        "home_score": 0,
+        "away_score": 0,
+        "winner": "unknown",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "5"
+            }
+        ],
+        "date": "2026-05-20"
+    },
+    {
+        "match_id": "bNBlVd7K",
+        "tournament": "Jiujiang (China), hard",
+        "ground": "Hard",
+        "date_text": "08.05. 05:20",
+        "home_player": "Kinoshita H.",
+        "away_player": "Liang E. S.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-08"
+    },
+    {
+        "match_id": "G0kQn93k",
+        "tournament": "Jiujiang (China), hard",
+        "ground": "Hard",
+        "date_text": "06.05. 05:50",
+        "home_player": "Yamaguchi M.",
+        "away_player": "Kinoshita H.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-06"
+    },
+    {
+        "match_id": "j1fcvYE4",
+        "tournament": "Jiujiang (China), hard",
+        "ground": "Hard",
+        "date_text": "05.05. 03:10",
+        "home_player": "Kinoshita H.",
+        "away_player": "Sidorova K.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-05-05"
+    },
+    {
+        "match_id": "8nd14NYA",
+        "tournament": "W100 Gifu (Japan), hard",
+        "ground": "Hard",
+        "date_text": "02.05. 02:10",
+        "home_player": "Sawangkaew M.",
+        "away_player": "Kinoshita H.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-05-02"
+    },
+    {
+        "match_id": "MekoOnfB",
+        "tournament": "W100 Gifu (Japan), hard",
+        "ground": "Hard",
+        "date_text": "01.05. 02:10",
+        "home_player": "Koike E.",
+        "away_player": "Kinoshita H.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-05-01"
+    },
+    {
+        "match_id": "6oGgw4Mc",
+        "tournament": "W100 Gifu (Japan), hard",
+        "ground": "Hard",
+        "date_text": "30.04. 04:45",
+        "home_player": "Kinoshita H.",
+        "away_player": "Sakatsume H.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-04-30"
+    },
+    {
+        "match_id": "U9nBai1d",
+        "tournament": "W100 Gifu (Japan), hard",
+        "ground": "Hard",
+        "date_text": "29.04. 04:05",
+        "home_player": "Kinoshita H.",
+        "away_player": "Liang E. S.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-04-29"
+    },
+    {
+        "match_id": "McEiVgEU",
+        "tournament": "W100 Tokyo (Japan), hard",
+        "ground": "Hard",
+        "date_text": "24.04. 05:15",
+        "home_player": "Hontama M.",
+        "away_player": "Kinoshita H.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2026-04-24"
+    },
+    {
+        "match_id": "C2abAz2c",
+        "tournament": "W100 Tokyo (Japan), hard",
+        "ground": "Hard",
+        "date_text": "23.04. 08:45",
+        "home_player": "Kinoshita H.",
+        "away_player": "Zhu L.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-04-23"
+    },
+    {
+        "match_id": "lS8eJ5aE",
+        "tournament": "W100 Tokyo (Japan), hard",
+        "ground": "Hard",
+        "date_text": "22.04. 01:40",
+        "home_player": "Kinoshita H.",
+        "away_player": "Ito A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-04-22"
+    },
+    {
+        "match_id": "SQwzFLr1",
+        "tournament": "W35 Miyazaki (Japan), hard",
+        "ground": "Hard",
+        "date_text": "19.04. 03:00",
+        "home_player": "Kinoshita H.",
+        "away_player": "Chang H.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-19"
+    },
+    {
+        "match_id": "Szujvbu2",
+        "tournament": "W35 Miyazaki (Japan), hard",
+        "ground": "Hard",
+        "date_text": "18.04. 02:00",
+        "home_player": "Kinoshita H.",
+        "away_player": "Hosogi S.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-04-18"
+    },
+    {
+        "match_id": "OtXUWnOE",
+        "tournament": "W35 Miyazaki (Japan), hard",
+        "ground": "Hard",
+        "date_text": "17.04. 01:10",
+        "home_player": "Ku Y.",
+        "away_player": "Kinoshita H.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-17"
+    },
+    {
+        "match_id": "YNKfQKW9",
+        "tournament": "W35 Miyazaki (Japan), hard",
+        "ground": "Hard",
+        "date_text": "16.04. 01:30",
+        "home_player": "Arseneault A.",
+        "away_player": "Kinoshita H.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-16"
+    },
+    {
+        "match_id": "zmTwhp6l",
+        "tournament": "W35 Miyazaki (Japan), hard",
+        "ground": "Hard",
+        "date_text": "15.04. 04:15",
+        "home_player": "Defalco J.",
+        "away_player": "Kinoshita H.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-04-15"
+    },
+    {
+        "match_id": "MXfvhwt3",
+        "tournament": "W35 Osaka (Japan), hard",
+        "ground": "Hard",
+        "date_text": "09.04. 01:10",
+        "home_player": "Kinoshita H.",
+        "away_player": "Matsuda M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-09"
+    },
+    {
+        "match_id": "63snym0e",
+        "tournament": "W35 Osaka (Japan), hard",
+        "ground": "Hard",
+        "date_text": "08.04. 02:55",
+        "home_player": "Kinoshita H.",
+        "away_player": "Deng T. T.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-04-08"
+    },
+    {
+        "match_id": "2kBjOw7d",
+        "tournament": "W75 Kofu (Japan), hard",
+        "ground": "Hard",
+        "date_text": "20.03. 03:25",
+        "home_player": "Costoulas S.",
+        "away_player": "Kinoshita H.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2026-03-20"
+    },
+    {
+        "match_id": "tSGNakef",
+        "tournament": "W75 Kofu (Japan), hard",
+        "ground": "Hard",
+        "date_text": "19.03. 01:00",
+        "home_player": "Saito S.",
+        "away_player": "Kinoshita H.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-19"
+    },
+    {
+        "match_id": "OlkXue4L",
+        "tournament": "W75 Kofu (Japan), hard",
+        "ground": "Hard",
+        "date_text": "18.03. 01:00",
+        "home_player": "Kinoshita H.",
+        "away_player": "Ozeki M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-03-18"
+    },
+    {
+        "match_id": "C42dQ1Z8",
+        "tournament": "W75 Kyoto (Japan), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "15.03. 03:30",
+        "home_player": "Shibahara E.",
+        "away_player": "Kinoshita H.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-15"
+    },
+    {
+        "match_id": "YRltJHdC",
+        "tournament": "W75 Kyoto (Japan), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "14.03. 01:30",
+        "home_player": "Deichmann K.",
+        "away_player": "Kinoshita H.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-14"
+    },
+    {
+        "match_id": "Olc4PxWG",
+        "tournament": "W75 Kyoto (Japan), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "13.03. 01:30",
+        "home_player": "Kinoshita H.",
+        "away_player": "Kawaguchi N.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-03-13"
+    },
+    {
+        "match_id": "IqSnMDDD",
+        "tournament": "W75 Kyoto (Japan), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "12.03. 02:55",
+        "home_player": "Kinoshita H.",
+        "away_player": "Park S.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-12"
+    },
+    {
+        "match_id": "xWDPf2kJ",
+        "tournament": "W75 Kyoto (Japan), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "11.03. 02:45",
+        "home_player": "Ku Y.",
+        "away_player": "Kinoshita H.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-03-11"
+    },
+    {
+        "match_id": "O8e3J6Tk",
+        "tournament": "W75 Trnava 2 (Slovakia), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "04.03. 12:15",
+        "home_player": "Vandewinkel H.",
+        "away_player": "Kinoshita H.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-03-04"
+    },
+    {
+        "match_id": "KALEyZdL",
+        "tournament": "W75 Brisbane 2 (Australia), hard",
+        "ground": "Hard",
+        "date_text": "12.02. 03:00",
+        "home_player": "Kinoshita H.",
+        "away_player": "Preston T.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-12"
+    },
+    {
+        "match_id": "foev6ucB",
+        "tournament": "W75 Brisbane 2 (Australia), hard",
+        "ground": "Hard",
+        "date_text": "11.02. 03:00",
+        "home_player": "Defalco J.",
+        "away_player": "Kinoshita H.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-11"
+    },
+    {
+        "match_id": "0Y8T46FU",
+        "tournament": "W75 Brisbane (Australia), hard",
+        "ground": "Hard",
+        "date_text": "06.02. 01:05",
+        "home_player": "Gibson T.",
+        "away_player": "Kinoshita H.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-02-06"
+    },
+    {
+        "match_id": "d0InEJJD",
+        "tournament": "W75 Brisbane (Australia), hard",
+        "ground": "Hard",
+        "date_text": "05.02. 00:10",
+        "home_player": "Kinoshita H.",
+        "away_player": "Abe H.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-02-05"
+    },
+    {
+        "match_id": "0QG6VaUj",
+        "tournament": "W75 Brisbane (Australia), hard",
+        "ground": "Hard",
+        "date_text": "03.02. 00:10",
+        "home_player": "Kinoshita H.",
+        "away_player": "Naito Y.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-02-03"
+    },
+    {
+        "match_id": "EFnGYhAl",
+        "tournament": "W75 Nonthaburi 2 (Thailand), hard",
+        "ground": "Hard",
+        "date_text": "16.01. 03:10",
+        "home_player": "Kinoshita H.",
+        "away_player": "Maklakova E.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-16"
+    },
+    {
+        "match_id": "MuvaweW8",
+        "tournament": "W75 Nonthaburi 2 (Thailand), hard",
+        "ground": "Hard",
+        "date_text": "15.01. 08:45",
+        "home_player": "Schunk N.",
+        "away_player": "Kinoshita H.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-15"
+    },
+    {
+        "match_id": "WMTKXTjA",
+        "tournament": "W75 Nonthaburi 2 (Thailand), hard",
+        "ground": "Hard",
+        "date_text": "13.01. 04:55",
+        "home_player": "Kinoshita H.",
+        "away_player": "Novak K.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-01-13"
+    },
+    {
+        "match_id": "QVXdG1sn",
+        "tournament": "W50 Yokohama (Japan), hard",
+        "ground": "Hard",
+        "date_text": "26.11.2025",
+        "home_player": "Zhang S.",
+        "away_player": "Kinoshita H.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-11-26"
+    },
+    {
+        "match_id": "0CzYVVf4",
+        "tournament": "W100 Takasaki (Japan), hard",
+        "ground": "Hard",
+        "date_text": "19.11.2025",
+        "home_player": "Kinoshita H.",
+        "away_player": "Sakatsume H.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2025-11-19"
+    },
+    {
+        "match_id": "6wTr2vNH",
+        "tournament": "W35 Hamamatsu (Japan), hard",
+        "ground": "Hard",
+        "date_text": "06.11.2025",
+        "home_player": "Saito S.",
+        "away_player": "Kinoshita H.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-11-06"
+    },
+    {
+        "match_id": "bDZxZVp1",
+        "tournament": "W35 Hamamatsu (Japan), hard",
+        "ground": "Hard",
+        "date_text": "05.11.2025",
+        "home_player": "Kinoshita H.",
+        "away_player": "Chen M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "0"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-11-05"
+    },
+    {
+        "match_id": "6TkFXqmm",
+        "tournament": "W35 Makinohara (Japan), hard",
+        "ground": "Hard",
+        "date_text": "30.10.2025",
+        "home_player": "Shimizu A.",
+        "away_player": "Kinoshita H.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-10-30"
+    }
+]

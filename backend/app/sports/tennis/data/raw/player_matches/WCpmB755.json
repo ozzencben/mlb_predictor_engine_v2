@@ -1,0 +1,983 @@
+[
+    {
+        "match_id": "SbBEgbg4",
+        "tournament": "Ilkley (United Kingdom), grass",
+        "ground": "Grass",
+        "date_text": "10.06. 13:10",
+        "home_player": "Jones E.",
+        "away_player": "Galfi D.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-06-10"
+    },
+    {
+        "match_id": "0bQVEOQ8",
+        "tournament": "Birmingham (United Kingdom), grass",
+        "ground": "Grass",
+        "date_text": "02.06. 11:00",
+        "home_player": "Stojsavljevic M.",
+        "away_player": "Jones E.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2026-06-02"
+    },
+    {
+        "match_id": "CCOzVnth",
+        "tournament": "French Open (France), clay",
+        "ground": "Clay",
+        "date_text": "25.05. 10:10",
+        "home_player": "Jones E.",
+        "away_player": "Swiatek I.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-25"
+    },
+    {
+        "match_id": "bX21i826",
+        "tournament": "W100 Gifu (Japan), hard",
+        "ground": "Hard",
+        "date_text": "03.05. 04:20",
+        "home_player": "Jones E.",
+        "away_player": "Sawangkaew M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-03"
+    },
+    {
+        "match_id": "jq1eapAc",
+        "tournament": "W100 Gifu (Japan), hard",
+        "ground": "Hard",
+        "date_text": "02.05. 07:10\nWO",
+        "home_player": "Tararudee L.",
+        "away_player": "Jones E.",
+        "home_score": 0,
+        "away_score": 0,
+        "winner": "unknown",
+        "set_scores": [],
+        "date": "2026-05-02"
+    },
+    {
+        "match_id": "nk34f2HN",
+        "tournament": "W100 Gifu (Japan), hard",
+        "ground": "Hard",
+        "date_text": "01.05. 03:20",
+        "home_player": "Jones E.",
+        "away_player": "Preston T.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-01"
+    },
+    {
+        "match_id": "dr3ip3Gb",
+        "tournament": "W100 Gifu (Japan), hard",
+        "ground": "Hard",
+        "date_text": "30.04. 03:25",
+        "home_player": "Jones E.",
+        "away_player": "Shimizu A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-04-30"
+    },
+    {
+        "match_id": "rRFKAMQb",
+        "tournament": "W100 Gifu (Japan), hard",
+        "ground": "Hard",
+        "date_text": "28.04. 02:40",
+        "home_player": "Jones E.",
+        "away_player": "Kimura M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
+        "date": "2026-04-28"
+    },
+    {
+        "match_id": "6VoHuXXO",
+        "tournament": "W100 Tokyo (Japan), hard",
+        "ground": "Hard",
+        "date_text": "23.04. 04:15",
+        "home_player": "Jones E.",
+        "away_player": "Knutson G.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-04-23"
+    },
+    {
+        "match_id": "0S36w9UO",
+        "tournament": "W100 Tokyo (Japan), hard",
+        "ground": "Hard",
+        "date_text": "21.04. 08:30",
+        "home_player": "Jones E.",
+        "away_player": "Koike E.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-04-21"
+    },
+    {
+        "match_id": "QFERuqO8",
+        "tournament": "Billie Jean King Cup - World Group (World) - Qualification",
+        "ground": "Unknown",
+        "date_text": "11.04. 04:15",
+        "home_player": "Jones E.",
+        "away_player": "Swan K.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-04-11"
+    },
+    {
+        "match_id": "W41gUws4",
+        "tournament": "Miami (USA), hard",
+        "ground": "Hard",
+        "date_text": "20.03. 23:45",
+        "home_player": "Svitolina E.",
+        "away_player": "Jones E.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-03-20"
+    },
+    {
+        "match_id": "2NAc2lGa",
+        "tournament": "Miami (USA), hard",
+        "ground": "Hard",
+        "date_text": "19.03. 23:55",
+        "home_player": "Jones E.",
+        "away_player": "Fruhvirtova L.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-19"
+    },
+    {
+        "match_id": "rwrrmcIP",
+        "tournament": "Austin (USA), hard",
+        "ground": "Hard",
+        "date_text": "12.03. 22:10",
+        "home_player": "Andreescu B.",
+        "away_player": "Jones E.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-03-12"
+    },
+    {
+        "match_id": "nLJ1hPt3",
+        "tournament": "Austin (USA), hard",
+        "ground": "Hard",
+        "date_text": "11.03. 18:25",
+        "home_player": "Jones E.",
+        "away_player": "Vekic D.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-11"
+    },
+    {
+        "match_id": "APR1F6Yg",
+        "tournament": "Austin (USA), hard",
+        "ground": "Hard",
+        "date_text": "10.03. 19:35",
+        "home_player": "Inglis M.",
+        "away_player": "Jones E.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-10"
+    },
+    {
+        "match_id": "G2QUD40B",
+        "tournament": "Austin (USA) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "09.03. 16:15",
+        "home_player": "Sakatsume H.",
+        "away_player": "Jones E.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-09"
+    },
+    {
+        "match_id": "ddOtmuQj",
+        "tournament": "Indian Wells (USA) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "01.03. 18:10",
+        "home_player": "Jones E.",
+        "away_player": "Bartunkova N.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-01"
+    },
+    {
+        "match_id": "bDluTrg5",
+        "tournament": "W75 Brisbane 2 (Australia), hard",
+        "ground": "Hard",
+        "date_text": "15.02. 02:00",
+        "home_player": "Jones E.",
+        "away_player": "Zhu L.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2026-02-15"
+    },
+    {
+        "match_id": "AHwKS9Gr",
+        "tournament": "W75 Brisbane 2 (Australia), hard",
+        "ground": "Hard",
+        "date_text": "14.02. 00:00",
+        "home_player": "Gibson T.",
+        "away_player": "Jones E.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-14"
+    },
+    {
+        "match_id": "AuO1lqHq",
+        "tournament": "W75 Brisbane 2 (Australia), hard",
+        "ground": "Hard",
+        "date_text": "13.02. 00:00",
+        "home_player": "Jones E.",
+        "away_player": "Kuramochi M.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-02-13"
+    },
+    {
+        "match_id": "URwr9Xa3",
+        "tournament": "W75 Brisbane 2 (Australia), hard",
+        "ground": "Hard",
+        "date_text": "12.02. 00:10",
+        "home_player": "Jones E.",
+        "away_player": "Jeong B.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-12"
+    },
+    {
+        "match_id": "IefBKvC4",
+        "tournament": "W75 Brisbane 2 (Australia), hard",
+        "ground": "Hard",
+        "date_text": "11.02. 00:00",
+        "home_player": "Jones E.",
+        "away_player": "Jang S. J.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-02-11"
+    },
+    {
+        "match_id": "SGGjnGLO",
+        "tournament": "W75 Brisbane (Australia), hard",
+        "ground": "Hard",
+        "date_text": "06.02. 01:00",
+        "home_player": "Ma Y.",
+        "away_player": "Jones E.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-02-06"
+    },
+    {
+        "match_id": "rcORcJjU",
+        "tournament": "W75 Brisbane (Australia), hard",
+        "ground": "Hard",
+        "date_text": "05.02. 01:20",
+        "home_player": "Subasic A.",
+        "away_player": "Jones E.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-05"
+    },
+    {
+        "match_id": "UsQzyM6T",
+        "tournament": "W75 Brisbane (Australia), hard",
+        "ground": "Hard",
+        "date_text": "03.02. 06:25",
+        "home_player": "Yuan C.",
+        "away_player": "Jones E.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-03"
+    },
+    {
+        "match_id": "rNrGrpne",
+        "tournament": "Australian Open (Australia), hard",
+        "ground": "Hard",
+        "date_text": "19.01. 06:00",
+        "home_player": "Mboko V.",
+        "away_player": "Jones E.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-01-19"
+    },
+    {
+        "match_id": "b5eFoqKb",
+        "tournament": "Adelaide (Australia), hard",
+        "ground": "Hard",
+        "date_text": "12.01. 00:40",
+        "home_player": "Jones E.",
+        "away_player": "Navarro E.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-12"
+    },
+    {
+        "match_id": "Ak2CmBmg",
+        "tournament": "Brisbane (Australia), hard",
+        "ground": "Hard",
+        "date_text": "07.01. 02:45",
+        "home_player": "Jones E.",
+        "away_player": "Samsonova L.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-07"
+    },
+    {
+        "match_id": "zuzrQwTi",
+        "tournament": "Brisbane (Australia), hard",
+        "ground": "Hard",
+        "date_text": "05.01. 10:40",
+        "home_player": "Maria T.",
+        "away_player": "Jones E.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-05"
+    },
+    {
+        "match_id": "jo73zghd",
+        "tournament": "W75 Playford (Australia), hard",
+        "ground": "Hard",
+        "date_text": "30.11.2025",
+        "home_player": "Inglis M.",
+        "away_player": "Jones E.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-30"
+    },
+    {
+        "match_id": "G8pMiu5t",
+        "tournament": "W75 Playford (Australia), hard",
+        "ground": "Hard",
+        "date_text": "29.11.2025",
+        "home_player": "Jones E.",
+        "away_player": "Gibson T.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-11-29"
+    },
+    {
+        "match_id": "6saCBTNE",
+        "tournament": "W75 Playford (Australia), hard",
+        "ground": "Hard",
+        "date_text": "28.11.2025",
+        "home_player": "Tian F.",
+        "away_player": "Jones E.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-28"
+    },
+    {
+        "match_id": "C0J59SOq",
+        "tournament": "W75 Playford (Australia), hard",
+        "ground": "Hard",
+        "date_text": "27.11.2025",
+        "home_player": "Yamaguchi M.",
+        "away_player": "Jones E.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-27"
+    },
+    {
+        "match_id": "AkvHzdgD",
+        "tournament": "W75 Playford (Australia), hard",
+        "ground": "Hard",
+        "date_text": "26.11.2025",
+        "home_player": "Thompson B.",
+        "away_player": "Jones E.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-26"
+    },
+    {
+        "match_id": "0hbDvMZ7",
+        "tournament": "W75 Sydney (Australia), hard",
+        "ground": "Hard",
+        "date_text": "23.11.2025",
+        "home_player": "Gibson T.",
+        "away_player": "Jones E.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-11-23"
+    },
+    {
+        "match_id": "67Gk7OlU",
+        "tournament": "W75 Sydney (Australia), hard",
+        "ground": "Hard",
+        "date_text": "21.11.2025",
+        "home_player": "Hunter S.",
+        "away_player": "Jones E.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-21"
+    },
+    {
+        "match_id": "xnXSywlB",
+        "tournament": "W75 Sydney (Australia), hard",
+        "ground": "Hard",
+        "date_text": "21.11.2025",
+        "home_player": "Jones E.",
+        "away_player": "Micic E.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2025-11-21"
+    },
+    {
+        "match_id": "jTTNddh3",
+        "tournament": "W75 Sydney (Australia), hard",
+        "ground": "Hard",
+        "date_text": "19.11.2025",
+        "home_player": "Jones E.",
+        "away_player": "Lee E.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2025-11-19"
+    },
+    {
+        "match_id": "Aon3Y9bC",
+        "tournament": "W75 Sydney (Australia), hard",
+        "ground": "Hard",
+        "date_text": "18.11.2025",
+        "home_player": "Jones E.",
+        "away_player": "Imamura S.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-11-18"
+    },
+    {
+        "match_id": "tKsHupc6",
+        "tournament": "W50 Brisbane (Australia), hard",
+        "ground": "Hard",
+        "date_text": "15.11.2025",
+        "home_player": "Swan K.",
+        "away_player": "Jones E.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-11-15"
+    },
+    {
+        "match_id": "YB17AxLc",
+        "tournament": "W50 Brisbane (Australia), hard",
+        "ground": "Hard",
+        "date_text": "14.11.2025",
+        "home_player": "Yamaguchi M.",
+        "away_player": "Jones E.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-14"
+    },
+    {
+        "match_id": "GdhxCxBr",
+        "tournament": "W50 Brisbane (Australia), hard",
+        "ground": "Hard",
+        "date_text": "13.11.2025",
+        "home_player": "Zavatska K.",
+        "away_player": "Jones E.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-13"
+    }
+]

@@ -1,0 +1,992 @@
+[
+    {
+        "match_id": "8GqsZg5T",
+        "tournament": "W100 Sumter, SC (USA), hard",
+        "ground": "Hard",
+        "date_text": "06.06. 19:00",
+        "home_player": "Brantmeier R.",
+        "away_player": "Brace C.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-06-06"
+    },
+    {
+        "match_id": "YRAes08E",
+        "tournament": "W100 Sumter, SC (USA), hard",
+        "ground": "Hard",
+        "date_text": "05.06. 17:55",
+        "home_player": "Rapolu M.",
+        "away_player": "Brace C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-06-05"
+    },
+    {
+        "match_id": "8nbUpzAb",
+        "tournament": "W100 Sumter, SC (USA), hard",
+        "ground": "Hard",
+        "date_text": "04.06. 20:10",
+        "home_player": "Okalova M.",
+        "away_player": "Brace C.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-06-04"
+    },
+    {
+        "match_id": "r7L9dG8M",
+        "tournament": "W100 Sumter, SC (USA), hard",
+        "ground": "Hard",
+        "date_text": "03.06. 21:50",
+        "home_player": "Khayrutdinova E.",
+        "away_player": "Brace C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-06-03"
+    },
+    {
+        "match_id": "AoFi2gTh",
+        "tournament": "French Open (France) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "19.05. 16:50",
+        "home_player": "Brace C.",
+        "away_player": "Timofeeva M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-19"
+    },
+    {
+        "match_id": "04yz7F3l",
+        "tournament": "W100 Charlottesville, VA (USA), clay",
+        "ground": "Clay",
+        "date_text": "21.04. 20:40\nRetired",
+        "home_player": "Brady J.",
+        "away_player": "Brace C.",
+        "home_score": 0,
+        "away_score": 0,
+        "winner": "unknown",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "0"
+            }
+        ],
+        "date": "2026-04-21"
+    },
+    {
+        "match_id": "46TtxMem",
+        "tournament": "Merida (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "25.02. 00:10",
+        "home_player": "Brace C.",
+        "away_player": "Sonmez Z.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-25"
+    },
+    {
+        "match_id": "nanpDCdT",
+        "tournament": "Merida (Mexico) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "22.02. 17:50",
+        "home_player": "Hon P.",
+        "away_player": "Brace C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-22"
+    },
+    {
+        "match_id": "2uMdyc8M",
+        "tournament": "Merida (Mexico) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "21.02. 17:10",
+        "home_player": "Vickery S.",
+        "away_player": "Brace C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-21"
+    },
+    {
+        "match_id": "IPeHoxKE",
+        "tournament": "Midland (USA), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "17.02. 18:15",
+        "home_player": "Brace C.",
+        "away_player": "Cross K.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-17"
+    },
+    {
+        "match_id": "MRiWHjwf",
+        "tournament": "W100 San Diego, CA (USA), hard",
+        "ground": "Hard",
+        "date_text": "30.01. 20:15",
+        "home_player": "Brace C.",
+        "away_player": "Brady J.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-30"
+    },
+    {
+        "match_id": "d6L2Kfum",
+        "tournament": "W100 San Diego, CA (USA), hard",
+        "ground": "Hard",
+        "date_text": "30.01. 00:10",
+        "home_player": "Brace C.",
+        "away_player": "Nguyen A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "0"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-01-30"
+    },
+    {
+        "match_id": "CMGYPTxI",
+        "tournament": "W100 San Diego, CA (USA), hard",
+        "ground": "Hard",
+        "date_text": "28.01. 18:10",
+        "home_player": "Brace C.",
+        "away_player": "Scott K.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-01-28"
+    },
+    {
+        "match_id": "x6HLnVtm",
+        "tournament": "Australian Open (Australia) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "11.01. 23:10",
+        "home_player": "Smith T. N.",
+        "away_player": "Brace C.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-11"
+    },
+    {
+        "match_id": "rm4WSnXQ",
+        "tournament": "Auckland (New Zealand) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "03.01. 02:10",
+        "home_player": "Semenistaja D.",
+        "away_player": "Brace C.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-01-03"
+    },
+    {
+        "match_id": "2XdQEifc",
+        "tournament": "Billie Jean King Cup - World Group (World) - Relegation - Play Offs",
+        "ground": "Unknown",
+        "date_text": "15.11.2025",
+        "home_player": "Brace C.",
+        "away_player": "Munk Mortensen R.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2025-11-15"
+    },
+    {
+        "match_id": "n5d1ZA43",
+        "tournament": "Austin (USA), hard",
+        "ground": "Hard",
+        "date_text": "04.11.2025",
+        "home_player": "Brace C.",
+        "away_player": "Gasanova A.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-04"
+    },
+    {
+        "match_id": "AwMPuXu0",
+        "tournament": "Tampico (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "19.10.2025",
+        "home_player": "Brace C.",
+        "away_player": "Vandewinkel H.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-19"
+    },
+    {
+        "match_id": "hGElo14m",
+        "tournament": "Tampico (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "18.10.2025",
+        "home_player": "Pieri J.",
+        "away_player": "Brace C.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-18"
+    },
+    {
+        "match_id": "2RkMTuS7",
+        "tournament": "Tampico (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "16.10.2025",
+        "home_player": "Kalieva E.",
+        "away_player": "Brace C.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-16"
+    },
+    {
+        "match_id": "rsJQZS6e",
+        "tournament": "Tampico (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "16.10.2025",
+        "home_player": "Kung L.",
+        "away_player": "Brace C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-16"
+    },
+    {
+        "match_id": "QDYaHmOc",
+        "tournament": "Tampico (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "14.10.2025",
+        "home_player": "Chang H.",
+        "away_player": "Brace C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-14"
+    },
+    {
+        "match_id": "pdEAleHj",
+        "tournament": "W100 Edmond, OK (USA), hard",
+        "ground": "Hard",
+        "date_text": "11.10.2025",
+        "home_player": "Brace C.",
+        "away_player": "Mandlik E.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-11"
+    },
+    {
+        "match_id": "fygJ0jUj",
+        "tournament": "W100 Edmond, OK (USA), hard",
+        "ground": "Hard",
+        "date_text": "10.10.2025",
+        "home_player": "Brace C.",
+        "away_player": "Sebov K.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-10-10"
+    },
+    {
+        "match_id": "GpYS0Fhc",
+        "tournament": "W100 Edmond, OK (USA), hard",
+        "ground": "Hard",
+        "date_text": "09.10.2025",
+        "home_player": "Brace C.",
+        "away_player": "Guzman D.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2025-10-09"
+    },
+    {
+        "match_id": "YRX1i7KF",
+        "tournament": "W100 Edmond, OK (USA), hard",
+        "ground": "Hard",
+        "date_text": "07.10.2025",
+        "home_player": "Brace C.",
+        "away_player": "Hammond Z.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "0"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-10-07"
+    },
+    {
+        "match_id": "n5MKp3TQ",
+        "tournament": "W75 Templeton, CA (USA), hard",
+        "ground": "Hard",
+        "date_text": "24.09.2025",
+        "home_player": "Brace C.",
+        "away_player": "Liu C.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-09-24"
+    },
+    {
+        "match_id": "zZOZm6rC",
+        "tournament": "Guadalajara (Mexico) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "07.09.2025",
+        "home_player": "Jimenez Kasintseva V.",
+        "away_player": "Brace C.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-09-07"
+    },
+    {
+        "match_id": "4CHQCNDl",
+        "tournament": "Guadalajara (Mexico) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "06.09.2025",
+        "home_player": "Kubka M.",
+        "away_player": "Brace C.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2025-09-06"
+    },
+    {
+        "match_id": "Ct3ZVlKa",
+        "tournament": "US Open (USA) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "21.08.2025",
+        "home_player": "Brace C.",
+        "away_player": "Erjavec V.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-08-21"
+    },
+    {
+        "match_id": "82VTz6Rr",
+        "tournament": "US Open (USA) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "19.08.2025",
+        "home_player": "Brace C.",
+        "away_player": "Hibino N.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-08-19"
+    },
+    {
+        "match_id": "AFqK94YG",
+        "tournament": "W35 Southaven, MS (USA), hard",
+        "ground": "Hard",
+        "date_text": "08.08.2025",
+        "home_player": "Brace C.",
+        "away_player": "Rodriguez V.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-08-08"
+    },
+    {
+        "match_id": "G0IX9srf",
+        "tournament": "W35 Southaven, MS (USA), hard",
+        "ground": "Hard",
+        "date_text": "07.08.2025",
+        "home_player": "Brace C.",
+        "away_player": "Kuwata H.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2025-08-07"
+    },
+    {
+        "match_id": "t22CTStP",
+        "tournament": "W35 Southaven, MS (USA), hard",
+        "ground": "Hard",
+        "date_text": "05.08.2025",
+        "home_player": "Brace C.",
+        "away_player": "Hewitt D.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-08-05"
+    },
+    {
+        "match_id": "AqkvHmft",
+        "tournament": "Montreal (Canada) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "26.07.2025",
+        "home_player": "Jeanjean L.",
+        "away_player": "Brace C.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-07-26"
+    },
+    {
+        "match_id": "6JlwPqQH",
+        "tournament": "W100 Evansville (USA), hard",
+        "ground": "Hard",
+        "date_text": "24.07.2025",
+        "home_player": "Brace C.",
+        "away_player": "Wang Xiy.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2025-07-24"
+    },
+    {
+        "match_id": "hIPILcdJ",
+        "tournament": "W100 Evansville (USA), hard",
+        "ground": "Hard",
+        "date_text": "23.07.2025",
+        "home_player": "Rogers A. S.",
+        "away_player": "Brace C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2025-07-23"
+    },
+    {
+        "match_id": "I9W5j3fT",
+        "tournament": "W75 Granby (Canada), hard",
+        "ground": "Hard",
+        "date_text": "19.07.2025",
+        "home_player": "Gibson T.",
+        "away_player": "Brace C.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-07-19"
+    },
+    {
+        "match_id": "UVIJXeGt",
+        "tournament": "W75 Granby (Canada), hard",
+        "ground": "Hard",
+        "date_text": "19.07.2025",
+        "home_player": "Brace C.",
+        "away_player": "Scott K.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-07-19"
+    },
+    {
+        "match_id": "tQUoPvl1",
+        "tournament": "W75 Granby (Canada), hard",
+        "ground": "Hard",
+        "date_text": "17.07.2025",
+        "home_player": "Imamura S.",
+        "away_player": "Brace C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            }
+        ],
+        "date": "2025-07-17"
+    },
+    {
+        "match_id": "MwFtCBTp",
+        "tournament": "W75 Granby (Canada), hard",
+        "ground": "Hard",
+        "date_text": "15.07.2025",
+        "home_player": "Brace C.",
+        "away_player": "Anderson R.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-07-15"
+    },
+    {
+        "match_id": "G6FFouIj",
+        "tournament": "W100 Cary, NC (USA), hard",
+        "ground": "Hard",
+        "date_text": "05.07.2025",
+        "home_player": "Brace C.",
+        "away_player": "Ekstrand M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            }
+        ],
+        "date": "2025-07-05"
+    },
+    {
+        "match_id": "hIeq3LN8",
+        "tournament": "W100 Cary, NC (USA), hard",
+        "ground": "Hard",
+        "date_text": "04.07.2025",
+        "home_player": "Brace C.",
+        "away_player": "Stefanini L.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2025-07-04"
+    }
+]

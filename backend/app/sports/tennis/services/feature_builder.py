@@ -6,13 +6,15 @@ base_dir = Path(__file__).parent.parent
 raw_data_dir = base_dir / "data" / "raw" / "player_matches"
 
 _pi_to_id_cache = None
+_pi_to_ids_cache = None
 
-def _load_pi_to_id_cache():
-    global _pi_to_id_cache
-    if _pi_to_id_cache is not None:
-        return _pi_to_id_cache
-    
-    _pi_to_id_cache = {}
+def _load_pi_to_ids_cache():
+    """PI slug -> list of ranking entry IDs (newest last)."""
+    global _pi_to_ids_cache
+    if _pi_to_ids_cache is not None:
+        return _pi_to_ids_cache
+
+    _pi_to_ids_cache = {}
     atp_ranks_dir = raw_data_dir.parent.parent / "atp_ranks.json"
     wta_ranks_dir = raw_data_dir.parent.parent / "wta_ranks.json"
     for path in [atp_ranks_dir, wta_ranks_dir]:
@@ -23,9 +25,25 @@ def _load_pi_to_id_cache():
                     for r_id, p_info in data.items():
                         pi = p_info.get("PI")
                         if pi:
-                            _pi_to_id_cache[pi] = r_id
+                            _pi_to_ids_cache.setdefault(pi, []).append(r_id)
             except Exception:
                 pass
+    return _pi_to_ids_cache
+
+def _load_pi_to_id_cache():
+    global _pi_to_id_cache
+    if _pi_to_id_cache is not None:
+        return _pi_to_id_cache
+    
+    _pi_to_id_cache = {}
+    for pi, ids in _load_pi_to_ids_cache().items():
+        # Prefer a ranking entry that already has a cached match file
+        chosen = ids[-1]
+        for r_id in reversed(ids):
+            if (raw_data_dir / f"{r_id}.json").exists():
+                chosen = r_id
+                break
+        _pi_to_id_cache[pi] = chosen
     return _pi_to_id_cache
 
 _player_matches_cache = {}
@@ -43,10 +61,15 @@ def load_player_matches(player_id):
     file_path = raw_data_dir / f"{player_id}.json"
     
     if not file_path.exists():
-        cache = _load_pi_to_id_cache()
-        resolved_id = cache.get(player_id)
-        if resolved_id:
-            file_path = raw_data_dir / f"{resolved_id}.json"
+        for resolved_id in _load_pi_to_ids_cache().get(player_id, []):
+            candidate = raw_data_dir / f"{resolved_id}.json"
+            if candidate.exists():
+                file_path = candidate
+                break
+        if not file_path.exists():
+            resolved_id = _load_pi_to_id_cache().get(player_id)
+            if resolved_id:
+                file_path = raw_data_dir / f"{resolved_id}.json"
             
     if not file_path.exists():
         _player_matches_cache[player_id] = []

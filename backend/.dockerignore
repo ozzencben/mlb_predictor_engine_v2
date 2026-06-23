@@ -55,3 +55,6 @@ docs/
 
 # CI/CD
 .github/
+
+# Spor verileri host'tan volume ile mount edilir — build context'i şişirmez
+app/sports/**/data/

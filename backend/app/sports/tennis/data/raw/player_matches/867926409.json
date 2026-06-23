@@ -1,0 +1,1040 @@
+[
+    {
+        "match_id": "rT8ryDc2",
+        "tournament": "ATP - SINGLES: Eastbourne (United Kingdom), grass",
+        "ground": "Grass",
+        "date_text": "23.06. 10:05",
+        "home_player": "Brooksby J.",
+        "away_player": "Vukic A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "date": "2026-06-23"
+    },
+    {
+        "match_id": "pfUaRgXb",
+        "tournament": "London (United Kingdom), grass",
+        "ground": "Grass",
+        "date_text": "17.06. 15:40",
+        "home_player": "Brooksby J.",
+        "away_player": "Cerundolo F.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-06-17"
+    },
+    {
+        "match_id": "jspKFwGa",
+        "tournament": "London (United Kingdom), grass",
+        "ground": "Grass",
+        "date_text": "16.06. 13:35",
+        "home_player": "Brooksby J.",
+        "away_player": "Damm M.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-06-16"
+    },
+    {
+        "match_id": "0duQVMWg",
+        "tournament": "Hertogenbosch (Netherlands), grass",
+        "ground": "Grass",
+        "date_text": "09.06. 11:25",
+        "home_player": "Zhang Z.",
+        "away_player": "Brooksby J.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-06-09"
+    },
+    {
+        "match_id": "4rouCmh3",
+        "tournament": "French Open (France), clay",
+        "ground": "Clay",
+        "date_text": "25.05. 12:30",
+        "home_player": "Navone M.",
+        "away_player": "Brooksby J.",
+        "home_score": 3,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-05-25"
+    },
+    {
+        "match_id": "U1GHKvYq",
+        "tournament": "Geneva (Switzerland), clay",
+        "ground": "Clay",
+        "date_text": "19.05. 13:35",
+        "home_player": "Brooksby J.",
+        "away_player": "Ruud C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-05-19"
+    },
+    {
+        "match_id": "MXnmF9Q1",
+        "tournament": "Bordeaux (France), clay",
+        "ground": "Clay",
+        "date_text": "12.05. 09:40",
+        "home_player": "Brooksby J.",
+        "away_player": "Molcan A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-05-12"
+    },
+    {
+        "match_id": "dSEfx4pQ",
+        "tournament": "Rome (Italy), clay",
+        "ground": "Clay",
+        "date_text": "06.05. 09:10",
+        "home_player": "Brooksby J.",
+        "away_player": "Baez S.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-05-06"
+    },
+    {
+        "match_id": "jLKgMzyp",
+        "tournament": "Madrid (Spain), clay",
+        "ground": "Clay",
+        "date_text": "22.04. 09:10",
+        "home_player": "Brooksby J.",
+        "away_player": "Nava E.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-04-22"
+    },
+    {
+        "match_id": "8j0tciV9",
+        "tournament": "Houston (USA), clay",
+        "ground": "Clay",
+        "date_text": "30.03. 23:05",
+        "home_player": "McDonald M.",
+        "away_player": "Brooksby J.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-03-30"
+    },
+    {
+        "match_id": "61jxTZO9",
+        "tournament": "Miami (USA), hard",
+        "ground": "Hard",
+        "date_text": "19.03. 15:10",
+        "home_player": "Bergs Z.",
+        "away_player": "Brooksby J.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-03-19"
+    },
+    {
+        "match_id": "fFpzEgfU",
+        "tournament": "Indian Wells (USA), hard",
+        "ground": "Hard",
+        "date_text": "06.03. 23:45",
+        "home_player": "Brooksby J.",
+        "away_player": "Tiafoe F.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-06"
+    },
+    {
+        "match_id": "4p4KjA7E",
+        "tournament": "Indian Wells (USA), hard",
+        "ground": "Hard",
+        "date_text": "05.03. 00:15",
+        "home_player": "Brooksby J.",
+        "away_player": "Popyrin A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-03-05"
+    },
+    {
+        "match_id": "j7oZQIJr",
+        "tournament": "Dubai (United Arab Emirates), hard",
+        "ground": "Hard",
+        "date_text": "26.02. 10:15",
+        "home_player": "Medvedev D.",
+        "away_player": "Brooksby J.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-02-26"
+    },
+    {
+        "match_id": "AgXdyPG6",
+        "tournament": "Dubai (United Arab Emirates), hard",
+        "ground": "Hard",
+        "date_text": "25.02. 10:15",
+        "home_player": "Brooksby J.",
+        "away_player": "Khachanov K.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-02-25"
+    },
+    {
+        "match_id": "OW9tyc0e",
+        "tournament": "Dubai (United Arab Emirates), hard",
+        "ground": "Hard",
+        "date_text": "24.02. 10:10",
+        "home_player": "Bergs Z.",
+        "away_player": "Brooksby J.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-24"
+    },
+    {
+        "match_id": "0SwuGu8m",
+        "tournament": "Doha (Qatar), hard",
+        "ground": "Hard",
+        "date_text": "17.02. 12:05",
+        "home_player": "Lehecka J.",
+        "away_player": "Brooksby J.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-02-17"
+    },
+    {
+        "match_id": "dbH4uFSP",
+        "tournament": "Dallas (USA), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "11.02. 18:10",
+        "home_player": "Paul T.",
+        "away_player": "Brooksby J.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-11"
+    },
+    {
+        "match_id": "pMcOzjkA",
+        "tournament": "Australian Open (Australia), hard",
+        "ground": "Hard",
+        "date_text": "18.01. 08:10",
+        "home_player": "Bublik A.",
+        "away_player": "Brooksby J.",
+        "home_score": 3,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-01-18"
+    },
+    {
+        "match_id": "zgwlAZhn",
+        "tournament": "Auckland (New Zealand), hard",
+        "ground": "Hard",
+        "date_text": "14.01. 00:25",
+        "home_player": "Brooksby J.",
+        "away_player": "Baez S.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-14"
+    },
+    {
+        "match_id": "S8cSO6fe",
+        "tournament": "Auckland (New Zealand), hard",
+        "ground": "Hard",
+        "date_text": "12.01. 00:45",
+        "home_player": "Brooksby J.",
+        "away_player": "Watt J.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-01-12"
+    },
+    {
+        "match_id": "drrOKxem",
+        "tournament": "Paris (France) - Qualification, hard (indoor)",
+        "ground": "Hard",
+        "date_text": "25.10.2025",
+        "home_player": "Brooksby J.",
+        "away_player": "Van De Zandschulp B.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-25"
+    },
+    {
+        "match_id": "zcJ7rZN8",
+        "tournament": "Basel (Switzerland), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "22.10.2025",
+        "home_player": "Brooksby J.",
+        "away_player": "Davidovich Fokina A.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2025-10-22"
+    },
+    {
+        "match_id": "ITbku1H8",
+        "tournament": "Basel (Switzerland), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "20.10.2025",
+        "home_player": "Brooksby J.",
+        "away_player": "Muller A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-10-20"
+    },
+    {
+        "match_id": "Sj07CeiL",
+        "tournament": "Shanghai (China), hard",
+        "ground": "Hard",
+        "date_text": "03.10.2025",
+        "home_player": "Griekspoor T.",
+        "away_player": "Brooksby J.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-10-03"
+    },
+    {
+        "match_id": "fJTdw17e",
+        "tournament": "Shanghai (China), hard",
+        "ground": "Hard",
+        "date_text": "02.10.2025",
+        "home_player": "Brooksby J.",
+        "away_player": "Trotter J. K.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-10-02"
+    },
+    {
+        "match_id": "84Sez3Br",
+        "tournament": "Tokyo (Japan), hard",
+        "ground": "Hard",
+        "date_text": "29.09.2025",
+        "home_player": "Brooksby J.",
+        "away_player": "Fritz T.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-09-29"
+    },
+    {
+        "match_id": "fLdN7IA7",
+        "tournament": "Tokyo (Japan), hard",
+        "ground": "Hard",
+        "date_text": "28.09.2025",
+        "home_player": "Brooksby J.",
+        "away_player": "Rune H.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-09-28"
+    },
+    {
+        "match_id": "44qbaDv1",
+        "tournament": "Tokyo (Japan), hard",
+        "ground": "Hard",
+        "date_text": "27.09.2025",
+        "home_player": "Brooksby J.",
+        "away_player": "Darderi L.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-09-27"
+    },
+    {
+        "match_id": "CWD6aKjn",
+        "tournament": "Tokyo (Japan), hard",
+        "ground": "Hard",
+        "date_text": "25.09.2025",
+        "home_player": "Humbert U.",
+        "away_player": "Brooksby J.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-09-25"
+    },
+    {
+        "match_id": "S4R7wIz8",
+        "tournament": "US Open (USA), hard",
+        "ground": "Hard",
+        "date_text": "28.08.2025",
+        "home_player": "Brooksby J.",
+        "away_player": "Cobolli F.",
+        "home_score": 2,
+        "away_score": 3,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2025-08-28"
+    },
+    {
+        "match_id": "tfGs3CIl",
+        "tournament": "US Open (USA), hard",
+        "ground": "Hard",
+        "date_text": "25.08.2025",
+        "home_player": "Brooksby J.",
+        "away_player": "Vukic A.",
+        "home_score": 3,
+        "away_score": 2,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-08-25"
+    },
+    {
+        "match_id": "jNvNrc05",
+        "tournament": "Cincinnati (USA), hard",
+        "ground": "Hard",
+        "date_text": "12.08.2025",
+        "home_player": "Khachanov K.",
+        "away_player": "Brooksby J.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-08-12"
+    },
+    {
+        "match_id": "IqLSkn43",
+        "tournament": "Cincinnati (USA), hard",
+        "ground": "Hard",
+        "date_text": "10.08.2025",
+        "home_player": "Brooksby J.",
+        "away_player": "Cazaux A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-08-10"
+    },
+    {
+        "match_id": "x8Gvqnz9",
+        "tournament": "Cincinnati (USA), hard",
+        "ground": "Hard",
+        "date_text": "08.08.2025",
+        "home_player": "Brooksby J.",
+        "away_player": "Muller A.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-08-08"
+    },
+    {
+        "match_id": "ImcFLSJ5",
+        "tournament": "Toronto (Canada), hard",
+        "ground": "Hard",
+        "date_text": "29.07.2025",
+        "home_player": "Moutet C.",
+        "away_player": "Brooksby J.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-07-29"
+    },
+    {
+        "match_id": "AXMCWnhC",
+        "tournament": "Washington (USA), hard",
+        "ground": "Hard",
+        "date_text": "21.07.2025",
+        "home_player": "Nishioka Y.",
+        "away_player": "Brooksby J.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-07-21"
+    },
+    {
+        "match_id": "r38iRUgM",
+        "tournament": "Wimbledon (United Kingdom), grass",
+        "ground": "Grass",
+        "date_text": "02.07.2025",
+        "home_player": "Fonseca J.",
+        "away_player": "Brooksby J.",
+        "home_score": 3,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-07-02"
+    },
+    {
+        "match_id": "2RZCjkHF",
+        "tournament": "Wimbledon (United Kingdom), grass",
+        "ground": "Grass",
+        "date_text": "30.06.2025",
+        "home_player": "Brooksby J.",
+        "away_player": "Griekspoor T.",
+        "home_score": 3,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-06-30"
+    },
+    {
+        "match_id": "6JrHFY7l",
+        "tournament": "Eastbourne (United Kingdom), grass",
+        "ground": "Grass",
+        "date_text": "28.06.2025",
+        "home_player": "Fritz T.",
+        "away_player": "Brooksby J.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-06-28"
+    },
+    {
+        "match_id": "8fFZExDb",
+        "tournament": "Eastbourne (United Kingdom), grass",
+        "ground": "Grass",
+        "date_text": "27.06.2025",
+        "home_player": "Humbert U.",
+        "away_player": "Brooksby J.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-06-27"
+    },
+    {
+        "match_id": "ncIY1U7K",
+        "tournament": "Eastbourne (United Kingdom), grass",
+        "ground": "Grass",
+        "date_text": "26.06.2025",
+        "home_player": "Brooksby J.",
+        "away_player": "Evans D.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-06-26"
+    },
+    {
+        "match_id": "jkooDoKO",
+        "tournament": "Eastbourne (United Kingdom), grass",
+        "ground": "Grass",
+        "date_text": "25.06.2025",
+        "home_player": "Borges N.",
+        "away_player": "Brooksby J.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-06-25"
+    },
+    {
+        "match_id": "pnBTNbvK",
+        "tournament": "Eastbourne (United Kingdom), grass",
+        "ground": "Grass",
+        "date_text": "24.06.2025",
+        "home_player": "Brooksby J.",
+        "away_player": "Comesana F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-06-24"
+    }
+]

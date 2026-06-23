@@ -300,10 +300,16 @@ def get_player_matches(player_id, player_url, target=50):
         else:
             m["date"] = ""
 
-    # Diske kaydet
+    # Diske kaydet (ranking entry id + stabil PI slug kopyasi)
     json_file_path = data_dir / f"{player_id}.json"
     with open(json_file_path, "w", encoding="utf-8") as f:
         json.dump(matches[:target], f, ensure_ascii=False, indent=4)
+
+    pi_slug = player_url.rstrip("/").split("/")[-1]
+    if pi_slug and pi_slug != player_id:
+        slug_file_path = data_dir / f"{pi_slug}.json"
+        with open(slug_file_path, "w", encoding="utf-8") as f:
+            json.dump(matches[:target], f, ensure_ascii=False, indent=4)
 
     return matches[:target]
 
@@ -430,15 +436,21 @@ def fetch_todays_players():
 
             ranking_id, url = slug_to_url[slug]
 
-            # Zaten dosya varsa ve geçerliyse atla
-            existing_file = data_dir / f"{ranking_id}.json"
-            if existing_file.exists():
+            # Zaten dosya varsa ve geçerliyse atla (rank id veya PI slug)
+            existing_paths = [data_dir / f"{ranking_id}.json", data_dir / f"{slug}.json"]
+            cached = False
+            for existing_file in existing_paths:
+                if not existing_file.exists():
+                    continue
                 try:
                     existing_data = json.loads(existing_file.read_text(encoding="utf-8"))
                     if len(existing_data) > 0 and existing_data[0].get("date"):
-                        continue  # Cache'de mevcut
+                        cached = True
+                        break
                 except Exception:
                     pass
+            if cached:
+                continue
 
             players_to_fetch.append((slug, ranking_id, name, url))
 

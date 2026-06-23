@@ -1,0 +1,992 @@
+[
+    {
+        "match_id": "MNcYYx8k",
+        "tournament": "Asuncion 2 (Paraguay), clay",
+        "ground": "Clay",
+        "date_text": "17.06. 19:15",
+        "home_player": "Kicker N.",
+        "away_player": "Huertas Del Pino C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-06-17"
+    },
+    {
+        "match_id": "fe80m1P1",
+        "tournament": "Asuncion 2 (Paraguay), clay",
+        "ground": "Clay",
+        "date_text": "16.06. 19:10",
+        "home_player": "Kicker N.",
+        "away_player": "Coria F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-06-16"
+    },
+    {
+        "match_id": "p09DYaxB",
+        "tournament": "San Miguel de Tucuman (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "13.06. 14:05",
+        "home_player": "Rodriguez J. A.",
+        "away_player": "Kicker N.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-06-13"
+    },
+    {
+        "match_id": "zy92SDP1",
+        "tournament": "San Miguel de Tucuman (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "12.06. 17:35\nRetired",
+        "home_player": "Kicker N.",
+        "away_player": "Coria F.",
+        "home_score": 1,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "3",
+                "away": "0"
+            }
+        ],
+        "date": "2026-06-12"
+    },
+    {
+        "match_id": "ImIgInG7",
+        "tournament": "San Miguel de Tucuman (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "11.06. 22:45",
+        "home_player": "Kicker N.",
+        "away_player": "Hardt N.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2026-06-11"
+    },
+    {
+        "match_id": "bXnu8nxI",
+        "tournament": "San Miguel de Tucuman (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "10.06. 15:15",
+        "home_player": "Kicker N.",
+        "away_player": "Martinez T.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "0"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-06-10"
+    },
+    {
+        "match_id": "nLaQ6Q1D",
+        "tournament": "Cordoba (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "14.05. 18:15",
+        "home_player": "Roncadelli F.",
+        "away_player": "Kicker N.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2026-05-14"
+    },
+    {
+        "match_id": "EX8NKDqg",
+        "tournament": "Cordoba (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "13.05. 21:10",
+        "home_player": "Dickerson R.",
+        "away_player": "Kicker N.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-13"
+    },
+    {
+        "match_id": "0j2IbJ3s",
+        "tournament": "Cordoba (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "12.05. 14:55",
+        "home_player": "Monzon I.",
+        "away_player": "Kicker N.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-12"
+    },
+    {
+        "match_id": "IySwErhC",
+        "tournament": "Santos (Brazil), clay",
+        "ground": "Clay",
+        "date_text": "07.05. 13:40",
+        "home_player": "Casanova H.",
+        "away_player": "Kicker N.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2026-05-07"
+    },
+    {
+        "match_id": "z31cy6VO",
+        "tournament": "Santos (Brazil), clay",
+        "ground": "Clay",
+        "date_text": "06.05. 13:40",
+        "home_player": "Zanellato N.",
+        "away_player": "Kicker N.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-06"
+    },
+    {
+        "match_id": "YsmcYiFE",
+        "tournament": "Savannah (USA), clay",
+        "ground": "Clay",
+        "date_text": "21.04. 14:10",
+        "home_player": "Kicker N.",
+        "away_player": "Mayo A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-21"
+    },
+    {
+        "match_id": "j5djh4cM",
+        "tournament": "Savannah (USA) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "20.04. 16:30",
+        "home_player": "Kicker N.",
+        "away_player": "Perot R.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "0"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-04-20"
+    },
+    {
+        "match_id": "xl7uwVKE",
+        "tournament": "Savannah (USA) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "19.04. 19:40",
+        "home_player": "Kicker N.",
+        "away_player": "Ingildsen J.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-04-19"
+    },
+    {
+        "match_id": "0lR8N7Sh",
+        "tournament": "Tallahassee (USA), clay",
+        "ground": "Clay",
+        "date_text": "13.04. 18:10",
+        "home_player": "Reis Da Silva J.",
+        "away_player": "Kicker N.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-04-13"
+    },
+    {
+        "match_id": "reDlU9ZO",
+        "tournament": "Sarasota (USA), clay",
+        "ground": "Clay",
+        "date_text": "07.04. 23:45",
+        "home_player": "Nishikori K.",
+        "away_player": "Kicker N.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-04-07"
+    },
+    {
+        "match_id": "zBsJWjR7",
+        "tournament": "Asuncion (Paraguay), clay",
+        "ground": "Clay",
+        "date_text": "18.03. 20:00",
+        "home_player": "Kicker N.",
+        "away_player": "Cigarran T.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-18"
+    },
+    {
+        "match_id": "jDCD7Pw0",
+        "tournament": "Tigre (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "19.02. 13:10",
+        "home_player": "Villanueva G.",
+        "away_player": "Kicker N.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-02-19"
+    },
+    {
+        "match_id": "6ZojUFml",
+        "tournament": "Tigre (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "17.02. 18:25",
+        "home_player": "Cadenasso G.",
+        "away_player": "Kicker N.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-17"
+    },
+    {
+        "match_id": "8jv2z6Zh",
+        "tournament": "Buenos Aires (Argentina) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "07.02. 16:10",
+        "home_player": "Passaro F.",
+        "away_player": "Kicker N.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-02-07"
+    },
+    {
+        "match_id": "hMjc95bK",
+        "tournament": "Rosario (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "04.02. 00:10",
+        "home_player": "Kicker N.",
+        "away_player": "Comesana F.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-04"
+    },
+    {
+        "match_id": "OjT8fWeC",
+        "tournament": "Concepcion (Chile), clay",
+        "ground": "Clay",
+        "date_text": "28.01. 18:10",
+        "home_player": "Soto M.",
+        "away_player": "Kicker N.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-28"
+    },
+    {
+        "match_id": "CEnWGTmR",
+        "tournament": "Itajai 2 (Brazil), clay",
+        "ground": "Clay",
+        "date_text": "20.01. 22:10",
+        "home_player": "Kicker N.",
+        "away_player": "Guillen Meza A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-20"
+    },
+    {
+        "match_id": "653bQ65s",
+        "tournament": "Buenos Aires (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "13.01. 13:05",
+        "home_player": "Dutra Da Silva D.",
+        "away_player": "Kicker N.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-01-13"
+    },
+    {
+        "match_id": "6avarhFN",
+        "tournament": "Temuco (Chile), hard",
+        "ground": "Hard",
+        "date_text": "27.11.2025",
+        "home_player": "Ayeni A.",
+        "away_player": "Kicker N.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-11-27"
+    },
+    {
+        "match_id": "KzhOFETh",
+        "tournament": "Temuco (Chile), hard",
+        "ground": "Hard",
+        "date_text": "25.11.2025",
+        "home_player": "Schachter N.",
+        "away_player": "Kicker N.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-25"
+    },
+    {
+        "match_id": "0GYLfyFL",
+        "tournament": "Florianopolis (Brazil), clay",
+        "ground": "Clay",
+        "date_text": "21.11.2025\nRetired",
+        "home_player": "Heide G.",
+        "away_player": "Kicker N.",
+        "home_score": 1,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "5",
+                "away": "1"
+            }
+        ],
+        "date": "2025-11-21"
+    },
+    {
+        "match_id": "EiAP6Qu1",
+        "tournament": "Florianopolis (Brazil), clay",
+        "ground": "Clay",
+        "date_text": "20.11.2025",
+        "home_player": "Villanueva G.",
+        "away_player": "Kicker N.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-20"
+    },
+    {
+        "match_id": "hzXWBqu9",
+        "tournament": "Florianopolis (Brazil), clay",
+        "ground": "Clay",
+        "date_text": "19.11.2025",
+        "home_player": "Pucinelli de Almeida M.",
+        "away_player": "Kicker N.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-19"
+    },
+    {
+        "match_id": "ULRghMrK",
+        "tournament": "Montevideo (Uruguay) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "10.11.2025",
+        "home_player": "Kicker N.",
+        "away_player": "Jorda Sanchis D.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2025-11-10"
+    },
+    {
+        "match_id": "jJGBryUh",
+        "tournament": "Montevideo (Uruguay) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "09.11.2025",
+        "home_player": "Kicker N.",
+        "away_player": "Merino A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2025-11-09"
+    },
+    {
+        "match_id": "8KY3164m",
+        "tournament": "Lima 2 (Peru), clay",
+        "ground": "Clay",
+        "date_text": "06.11.2025",
+        "home_player": "Kicker N.",
+        "away_player": "Guillen Meza A.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-06"
+    },
+    {
+        "match_id": "Sr6dzNJG",
+        "tournament": "Lima 2 (Peru), clay",
+        "ground": "Clay",
+        "date_text": "04.11.2025",
+        "home_player": "Kestelboim M.",
+        "away_player": "Kicker N.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-04"
+    },
+    {
+        "match_id": "tjvUMO1E",
+        "tournament": "Lima 2 (Peru) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "03.11.2025",
+        "home_player": "Kicker N.",
+        "away_player": "Mena F.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-11-03"
+    },
+    {
+        "match_id": "25UY4eDG",
+        "tournament": "Lima 2 (Peru) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "02.11.2025",
+        "home_player": "Kicker N.",
+        "away_player": "Gima S.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2025-11-02"
+    },
+    {
+        "match_id": "hroiB0pp",
+        "tournament": "Lima 3 (Peru), clay",
+        "ground": "Clay",
+        "date_text": "29.10.2025",
+        "home_player": "Boyer T.",
+        "away_player": "Kicker N.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-10-29"
+    },
+    {
+        "match_id": "UqdCgT9j",
+        "tournament": "Lima 3 (Peru), clay",
+        "ground": "Clay",
+        "date_text": "28.10.2025",
+        "home_player": "Ingildsen J.",
+        "away_player": "Kicker N.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-28"
+    },
+    {
+        "match_id": "AwrXDZ34",
+        "tournament": "Costa do Sauipe (Brazil) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "20.10.2025",
+        "home_player": "Kicker N.",
+        "away_player": "Alves M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-20"
+    },
+    {
+        "match_id": "OMupnsad",
+        "tournament": "Costa do Sauipe (Brazil) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "19.10.2025",
+        "home_player": "Kicker N.",
+        "away_player": "Ribeiro E.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2025-10-19"
+    },
+    {
+        "match_id": "OvcNxq5l",
+        "tournament": "Curitiba (Brazil), clay",
+        "ground": "Clay",
+        "date_text": "14.10.2025",
+        "home_player": "Kicker N.",
+        "away_player": "Monteiro T.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-14"
+    },
+    {
+        "match_id": "SOFk8Cjn",
+        "tournament": "Cali (Colombia), clay",
+        "ground": "Clay",
+        "date_text": "06.10.2025",
+        "home_player": "Kicker N.",
+        "away_player": "Habib H.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-06"
+    },
+    {
+        "match_id": "f5xuAWNk",
+        "tournament": "Antofagasta (Chile), clay",
+        "ground": "Clay",
+        "date_text": "30.09.2025",
+        "home_player": "Kicker N.",
+        "away_player": "Diaz Acosta F.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-09-30"
+    },
+    {
+        "match_id": "AT2YPeG7",
+        "tournament": "Buenos Aires 3 (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "27.09.2025",
+        "home_player": "Burruchaga R. A.",
+        "away_player": "Kicker N.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-09-27"
+    }
+]

@@ -31,14 +31,19 @@ WORKDIR /app
 # Builder aşamasından sanal ortamı kopyala
 COPY --from=builder /app/.venv /app/.venv
 
-# Uygulama kodunu kopyala
-COPY app/ ./app/
-
-# Virtual environment PATH'e ekle
+# Virtual environment PATH'e ekle (app kodundan önce — layer cache için)
 ENV PATH="/app/.venv/bin:$PATH" \
     PYTHONPATH="/app" \
     PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1
+    PYTHONUNBUFFERED=1 \
+    HOME="/app" \
+    PLAYWRIGHT_BROWSERS_PATH="/app/.playwright"
+
+# Tenis oyuncu geçmişi: Chromium yalnızca bağımlılık değişince yeniden kurulur
+RUN playwright install --with-deps chromium
+
+# Uygulama kodunu kopyala (data volume ile mount edilir — image'a gömülmez)
+COPY app/ ./app/
 
 # Veri klasörünün sahibini değiştir
 RUN chown -R appuser:appgroup /app
