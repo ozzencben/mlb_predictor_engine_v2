@@ -1,0 +1,170 @@
+{
+  "game_id": "401391859",
+  "date": "2022-08-13",
+  "season": 2022,
+  "home_team_id": "11",
+  "away_team_id": "3",
+  "players_by_team": {
+    "3": [
+      {
+        "athlete_id": "2529622",
+        "name": "Kayla Thornton",
+        "minutes": 37.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "3913903",
+        "name": "Teaira McCowan",
+        "minutes": 28.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3058901",
+        "name": "Allisha Gray",
+        "minutes": 34.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "3904576",
+        "name": "Marina Mabrey",
+        "minutes": 32.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4398935",
+        "name": "Veronica Burton",
+        "minutes": 19.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "2566453",
+        "name": "Isabelle Harrison",
+        "minutes": 12.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4790266",
+        "name": "Awak Kuier",
+        "minutes": 16.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4065760",
+        "name": "Tyasha Harris",
+        "minutes": 22.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "4281929",
+        "name": "Satou Sabally",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398988",
+        "name": "Charli Collier",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3904577",
+        "name": "Arike Ogunbowale",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4399842",
+        "name": "Jasmine Dickey",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "11": [
+      {
+        "athlete_id": "3142086",
+        "name": "Brianna Turner",
+        "minutes": 33.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "1107",
+        "name": "Shey Peddy",
+        "minutes": 37.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "2999142",
+        "name": "Jennie Simms",
+        "minutes": 34.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "3058902",
+        "name": "Diamond DeShields",
+        "minutes": 32.0,
+        "points": 24
+      },
+      {
+        "athlete_id": "3907781",
+        "name": "Sophie Cunningham",
+        "minutes": 35.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "2566211",
+        "name": "Reshanda Gray",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3058888",
+        "name": "Kaela Davis",
+        "minutes": 5.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3934218",
+        "name": "Megan Gustafson",
+        "minutes": 16.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2235933",
+        "name": "Yvonne Turner",
+        "minutes": 6.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4281914",
+        "name": "Sam Thomas",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2490553",
+        "name": "Brittney Griner",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "585",
+        "name": "Diana Taurasi",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2491205",
+        "name": "Skylar Diggins",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3142327",
+        "name": "Kia Nurse",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:28:21.771182+00:00"
+}

@@ -1,0 +1,134 @@
+{
+  "game_id": "401736141",
+  "date": "2025-05-28",
+  "season": 2025,
+  "home_team_id": "6",
+  "away_team_id": "20",
+  "players_by_team": {
+    "20": [
+      {
+        "athlete_id": "3054590",
+        "name": "Nia Coffey",
+        "minutes": 20.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3058895",
+        "name": "Brionna Jones",
+        "minutes": 35.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "3058901",
+        "name": "Allisha Gray",
+        "minutes": 36.0,
+        "points": 25
+      },
+      {
+        "athlete_id": "4280850",
+        "name": "Maya Caldwell",
+        "minutes": 25.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4398674",
+        "name": "Rhyne Howard",
+        "minutes": 38.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "4398915",
+        "name": "Naz Hillmon",
+        "minutes": 26.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "4898400",
+        "name": "Taylor Thierry",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3058893",
+        "name": "Shatori Walker-Kimbrough",
+        "minutes": 14.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4433431",
+        "name": "Te-Hina Paopao",
+        "minutes": 6.0,
+        "points": 4
+      }
+    ],
+    "6": [
+      {
+        "athlete_id": "2566106",
+        "name": "Dearica Hamby",
+        "minutes": 36.0,
+        "points": 28
+      },
+      {
+        "athlete_id": "3142010",
+        "name": "Azura Stevens",
+        "minutes": 28.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2529047",
+        "name": "Odyssey Sims",
+        "minutes": 27.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3065570",
+        "name": "Kelsey Plum",
+        "minutes": 37.0,
+        "points": 27
+      },
+      {
+        "athlete_id": "4703794",
+        "name": "Sarah Ashlee Barker",
+        "minutes": 20.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2284331",
+        "name": "Emma Cannon",
+        "minutes": 12.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4433630",
+        "name": "Rickea Jackson",
+        "minutes": 12.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4596309",
+        "name": "Liatu King",
+        "minutes": 7.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3056672",
+        "name": "Mercedes Russell",
+        "minutes": 5.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4001679",
+        "name": "Julie Allemand",
+        "minutes": 17.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4433795",
+        "name": "Sania Feagin",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:33:53.383465+00:00"
+}

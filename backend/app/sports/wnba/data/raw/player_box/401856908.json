@@ -1,0 +1,152 @@
+{
+  "game_id": "401856908",
+  "date": "2026-05-15",
+  "season": 2026,
+  "home_team_id": "3",
+  "away_team_id": "8",
+  "players_by_team": {
+    "8": [
+      {
+        "athlete_id": "2529130",
+        "name": "Natasha Howard",
+        "minutes": 35.0,
+        "points": 26
+      },
+      {
+        "athlete_id": "3054590",
+        "name": "Nia Coffey",
+        "minutes": 30.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "2529205",
+        "name": "Kayla McBride",
+        "minutes": 34.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2987891",
+        "name": "Courtney Williams",
+        "minutes": 31.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "4433791",
+        "name": "Olivia Miles",
+        "minutes": 32.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "4873358",
+        "name": "Antonia Delaere",
+        "minutes": 13.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5278237",
+        "name": "Anastasiia Olairi Kosu",
+        "minutes": 5.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "5345322",
+        "name": "Emma Cechova",
+        "minutes": 11.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4280850",
+        "name": "Maya Caldwell",
+        "minutes": 11.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4596309",
+        "name": "Liatu King",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5345478",
+        "name": "Eliska Hamzova",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "3": [
+      {
+        "athlete_id": "3906949",
+        "name": "Jessica Shepard",
+        "minutes": 31.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3913881",
+        "name": "Alanna Smith",
+        "minutes": 27.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2529047",
+        "name": "Odyssey Sims",
+        "minutes": 25.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3904577",
+        "name": "Arike Ogunbowale",
+        "minutes": 30.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4433730",
+        "name": "Paige Bueckers",
+        "minutes": 31.0,
+        "points": 27
+      },
+      {
+        "athlete_id": "924",
+        "name": "Alysha Clark",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4399415",
+        "name": "Maddy Siegrist",
+        "minutes": 16.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "4790266",
+        "name": "Awak Kuier",
+        "minutes": 6.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4433790",
+        "name": "Azzi Fudd",
+        "minutes": 20.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4433807",
+        "name": "Aziaha James",
+        "minutes": 11.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4336633",
+        "name": "Li Yueru",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4434015",
+        "name": "JJ Quinerly",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:36:47.069124+00:00"
+}

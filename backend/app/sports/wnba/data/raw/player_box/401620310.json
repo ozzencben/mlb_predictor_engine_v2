@@ -1,0 +1,152 @@
+{
+  "game_id": "401620310",
+  "date": "2024-06-23",
+  "season": 2024,
+  "home_team_id": "8",
+  "away_team_id": "11",
+  "players_by_team": {
+    "11": [
+      {
+        "athlete_id": "2490553",
+        "name": "Brittney Griner",
+        "minutes": 28.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "585",
+        "name": "Diana Taurasi",
+        "minutes": 24.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "2529137",
+        "name": "Natasha Cloud",
+        "minutes": 34.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "2998938",
+        "name": "Kahleah Copper",
+        "minutes": 32.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "3102133",
+        "name": "Rebecca Allen",
+        "minutes": 28.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "4065759",
+        "name": "Mikiah Herbert Harrigan",
+        "minutes": 8.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4068042",
+        "name": "Natasha Mack",
+        "minutes": 12.0,
+        "points": 1
+      },
+      {
+        "athlete_id": "4398591",
+        "name": "Liz Dixon",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3907781",
+        "name": "Sophie Cunningham",
+        "minutes": 23.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4433293",
+        "name": "Charisma Osborne",
+        "minutes": 8.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4068159",
+        "name": "Sug Sutton",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "8": [
+      {
+        "athlete_id": "3906972",
+        "name": "Bridget Carleton",
+        "minutes": 33.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3913881",
+        "name": "Alanna Smith",
+        "minutes": 22.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "3917450",
+        "name": "Napheesa Collier",
+        "minutes": 37.0,
+        "points": 23
+      },
+      {
+        "athlete_id": "2529205",
+        "name": "Kayla McBride",
+        "minutes": 32.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "2987891",
+        "name": "Courtney Williams",
+        "minutes": 24.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "4257500",
+        "name": "Cecilia Zandalasini",
+        "minutes": 14.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4398938",
+        "name": "Dorka Juhasz",
+        "minutes": 17.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "5017721",
+        "name": "Sika Kone",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5105752",
+        "name": "Alissa Pili",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3906753",
+        "name": "Natisha Hiedeman",
+        "minutes": 11.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4038390",
+        "name": "Olivia Epoupa",
+        "minutes": 5.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4433635",
+        "name": "Diamond Miller",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:31:58.084456+00:00"
+}

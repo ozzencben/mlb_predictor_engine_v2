@@ -1,0 +1,152 @@
+{
+  "game_id": "401507201",
+  "date": "2023-06-23",
+  "season": 2023,
+  "home_team_id": "8",
+  "away_team_id": "18",
+  "players_by_team": {
+    "18": [
+      {
+        "athlete_id": "869",
+        "name": "DeWanna Bonner",
+        "minutes": 20.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2529140",
+        "name": "Alyssa Thomas",
+        "minutes": 28.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "1054",
+        "name": "Tiffany Hayes",
+        "minutes": 24.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "3102133",
+        "name": "Rebecca Allen",
+        "minutes": 29.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "3906753",
+        "name": "Natisha Hiedeman",
+        "minutes": 22.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4398591",
+        "name": "Liz Dixon",
+        "minutes": 4.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4398966",
+        "name": "Olivia Nelson-Ododa",
+        "minutes": 19.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4065760",
+        "name": "Tyasha Harris",
+        "minutes": 19.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4066548",
+        "name": "DiJonai Carrington",
+        "minutes": 22.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "4398928",
+        "name": "Leigha Brown",
+        "minutes": 12.0,
+        "points": 1
+      },
+      {
+        "athlete_id": "3058895",
+        "name": "Brionna Jones",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "8": [
+      {
+        "athlete_id": "3906972",
+        "name": "Bridget Carleton",
+        "minutes": 20.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3917450",
+        "name": "Napheesa Collier",
+        "minutes": 34.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "4398938",
+        "name": "Dorka Juhasz",
+        "minutes": 26.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "2529205",
+        "name": "Kayla McBride",
+        "minutes": 23.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2984741",
+        "name": "Tiffany Mitchell",
+        "minutes": 19.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4398729",
+        "name": "Emily Engstler",
+        "minutes": 17.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4874475",
+        "name": "Nikolina Milic",
+        "minutes": 15.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2566186",
+        "name": "Rachel Banham",
+        "minutes": 18.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "3058908",
+        "name": "Lindsay Allen",
+        "minutes": 28.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "3906949",
+        "name": "Jessica Shepard",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4433635",
+        "name": "Diamond Miller",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2999035",
+        "name": "Aerial Powers",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:29:17.791270+00:00"
+}

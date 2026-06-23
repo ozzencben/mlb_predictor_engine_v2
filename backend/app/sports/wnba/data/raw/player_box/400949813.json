@@ -1,0 +1,200 @@
+{
+  "game_id": "400949813",
+  "date": "2017-05-08",
+  "season": 2017,
+  "home_team_id": "16",
+  "away_team_id": "8",
+  "players_by_team": {
+    "8": [
+      {
+        "athlete_id": "571",
+        "name": "Rebekkah Brunson",
+        "minutes": 17.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "3062267",
+        "name": "Breanna Richardson",
+        "minutes": 18.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "766",
+        "name": "Sylvia Fowles",
+        "minutes": 19.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "545",
+        "name": "Lindsay Whalen",
+        "minutes": 19.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "695",
+        "name": "Seimone Augustus",
+        "minutes": 12.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2529130",
+        "name": "Natasha Howard",
+        "minutes": 25.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "4038365",
+        "name": "Shao Ting",
+        "minutes": 22.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2569044",
+        "name": "Temi Fagbenle",
+        "minutes": 19.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "537",
+        "name": "Jia Perkins",
+        "minutes": 11.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "865",
+        "name": "Renee Montgomery",
+        "minutes": 11.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "2984245",
+        "name": "Alexis Jones",
+        "minutes": 18.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3065202",
+        "name": "Moriah Mack",
+        "minutes": 10.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "491",
+        "name": "Plenette Pierson",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "956",
+        "name": "Maya Moore",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3065569",
+        "name": "Chantel Osahor",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "16": [
+      {
+        "athlete_id": "2490514",
+        "name": "Tianna Hawkins",
+        "minutes": 21.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "1011",
+        "name": "Krystal Thomas",
+        "minutes": 19.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2490528",
+        "name": "Tierra Ruffin-Pratt",
+        "minutes": 23.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "2490769",
+        "name": "Tayler Hill",
+        "minutes": 20.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "2529137",
+        "name": "Natasha Cloud",
+        "minutes": 18.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2491203",
+        "name": "Asia Taylor",
+        "minutes": 18.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2590050",
+        "name": "Ally Malott",
+        "minutes": 12.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "2991558",
+        "name": "Mehryn Kraker",
+        "minutes": 6.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3057037",
+        "name": "Caira Washington",
+        "minutes": 11.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "730",
+        "name": "Ivory Latta",
+        "minutes": 12.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2999142",
+        "name": "Jennie Simms",
+        "minutes": 17.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3058893",
+        "name": "Shatori Walker-Kimbrough",
+        "minutes": 16.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3064624",
+        "name": "Ashley Morrissette",
+        "minutes": 8.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2491877",
+        "name": "Elena Delle Donne",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3027368",
+        "name": "Emma Meesseman",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "856",
+        "name": "Kristi Toliver",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:17:26.587961+00:00"
+}

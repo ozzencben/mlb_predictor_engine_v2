@@ -78,10 +78,25 @@ def run_tennis_pipeline() -> bool:
         return False
 
 
+def run_wnba_pipeline() -> bool:
+    logger.info("=" * 60)
+    logger.info("WNBA Pipeline baslatiliyor...")
+    logger.info("=" * 60)
+    try:
+        from app.sports.wnba.pipeline_runner import run_pipeline
+        run_pipeline()
+        logger.info("WNBA Pipeline basariyla tamamlandi.")
+        return True
+    except Exception as e:
+        logger.error(f"WNBA Pipeline HATASI: {e}", exc_info=True)
+        return False
+
+
 def main():
     parser = argparse.ArgumentParser(description="Legends Sports Gunluk Pipeline")
     parser.add_argument("--mlb-only", action="store_true", help="Sadece MLB pipeline'i calistir")
     parser.add_argument("--tennis-only", action="store_true", help="Sadece Tennis pipeline'i calistir")
+    parser.add_argument("--wnba-only", action="store_true", help="Sadece WNBA pipeline'i calistir")
     args = parser.parse_args()
 
     et_now = datetime.now(ZoneInfo("America/New_York"))
@@ -89,11 +104,14 @@ def main():
 
     results = {}
 
-    if not args.tennis_only:
+    if not args.tennis_only and not args.wnba_only:
         results["mlb"] = run_mlb_pipeline()
 
-    if not args.mlb_only:
+    if not args.mlb_only and not args.wnba_only:
         results["tennis"] = run_tennis_pipeline()
+
+    if not args.mlb_only and not args.tennis_only:
+        results["wnba"] = run_wnba_pipeline()
 
     logger.info("=" * 60)
     for sport, success in results.items():

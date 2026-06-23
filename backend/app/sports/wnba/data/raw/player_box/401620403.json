@@ -1,0 +1,140 @@
+{
+  "game_id": "401620403",
+  "date": "2024-08-30",
+  "season": 2024,
+  "home_team_id": "3",
+  "away_team_id": "8",
+  "players_by_team": {
+    "8": [
+      {
+        "athlete_id": "3906972",
+        "name": "Bridget Carleton",
+        "minutes": 29.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3913881",
+        "name": "Alanna Smith",
+        "minutes": 14.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3917450",
+        "name": "Napheesa Collier",
+        "minutes": 31.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "2529205",
+        "name": "Kayla McBride",
+        "minutes": 26.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "2987891",
+        "name": "Courtney Williams",
+        "minutes": 23.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "3142055",
+        "name": "Myisha Hines-Allen",
+        "minutes": 17.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4257500",
+        "name": "Cecilia Zandalasini",
+        "minutes": 16.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "4398938",
+        "name": "Dorka Juhasz",
+        "minutes": 13.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4433635",
+        "name": "Diamond Miller",
+        "minutes": 9.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "5105752",
+        "name": "Alissa Pili",
+        "minutes": 5.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3906753",
+        "name": "Natisha Hiedeman",
+        "minutes": 17.0,
+        "points": 2
+      }
+    ],
+    "3": [
+      {
+        "athlete_id": "2529130",
+        "name": "Natasha Howard",
+        "minutes": 33.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "4281929",
+        "name": "Satou Sabally",
+        "minutes": 37.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "3913903",
+        "name": "Teaira McCowan",
+        "minutes": 25.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3904577",
+        "name": "Arike Ogunbowale",
+        "minutes": 39.0,
+        "points": 25
+      },
+      {
+        "athlete_id": "4432865",
+        "name": "Jacy Sheldon",
+        "minutes": 10.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4399415",
+        "name": "Maddy Siegrist",
+        "minutes": 7.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3916514",
+        "name": "Kalani Brown",
+        "minutes": 15.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4066527",
+        "name": "Jaelyn Brown",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4399114",
+        "name": "Lou Lopez Senechal",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5209660",
+        "name": "Sevgi Uzun",
+        "minutes": 31.0,
+        "points": 11
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:32:47.020464+00:00"
+}

@@ -1,0 +1,152 @@
+{
+  "game_id": "401230754",
+  "date": "2020-08-01",
+  "season": 2020,
+  "home_team_id": "3",
+  "away_team_id": "5",
+  "players_by_team": {
+    "5": [
+      {
+        "athlete_id": "689",
+        "name": "Candice Dupree",
+        "minutes": 36.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2529203",
+        "name": "Natalie Achonwa",
+        "minutes": 12.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2984741",
+        "name": "Tiffany Mitchell",
+        "minutes": 23.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3142191",
+        "name": "Kelsey Mitchell",
+        "minutes": 32.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4001679",
+        "name": "Julie Allemand",
+        "minutes": 33.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3058900",
+        "name": "Stephanie Mavunga",
+        "minutes": 15.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3913903",
+        "name": "Teaira McCowan",
+        "minutes": 15.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "3142948",
+        "name": "Victoria Vivians",
+        "minutes": 20.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3922628",
+        "name": "Kennedy Burke",
+        "minutes": 15.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4066563",
+        "name": "Lauren Cox",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4068092",
+        "name": "Kathleen Doyle",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "3": [
+      {
+        "athlete_id": "2566453",
+        "name": "Isabelle Harrison",
+        "minutes": 7.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4281929",
+        "name": "Satou Sabally",
+        "minutes": 34.0,
+        "points": 23
+      },
+      {
+        "athlete_id": "3099025",
+        "name": "Astou Ndour-Fall",
+        "minutes": 11.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2998927",
+        "name": "Moriah Jefferson",
+        "minutes": 15.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3904577",
+        "name": "Arike Ogunbowale",
+        "minutes": 31.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "2529622",
+        "name": "Kayla Thornton",
+        "minutes": 28.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3917453",
+        "name": "Katie Lou Samuelson",
+        "minutes": 15.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3934218",
+        "name": "Megan Gustafson",
+        "minutes": 3.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4068600",
+        "name": "Bella Alarie",
+        "minutes": 22.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3058901",
+        "name": "Allisha Gray",
+        "minutes": 9.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4065760",
+        "name": "Tyasha Harris",
+        "minutes": 25.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3904576",
+        "name": "Marina Mabrey",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:23:38.134591+00:00"
+}

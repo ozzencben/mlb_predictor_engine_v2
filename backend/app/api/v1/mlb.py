@@ -423,7 +423,13 @@ async def _run_refresh_pipelines():
             tennis_runner = TennisPipelineRunner()
             await run_in_threadpool(tennis_runner.run_pipeline)
         except Exception as tennis_err:
-            print(f"Tenis zamanlı kazıma hatası: {tennis_err}")
+            print(f"Tenis zamanli kazima hatasi: {tennis_err}")
+
+        try:
+            from app.sports.wnba.pipeline_runner import run_pipeline as run_wnba_pipeline
+            await run_in_threadpool(run_wnba_pipeline)
+        except Exception as wnba_err:
+            print(f"WNBA zamanli kazima hatasi: {wnba_err}")
     except Exception as e:
         print(f"Sistem güncelleme arka plan hatası: {e}")
     finally:
@@ -460,7 +466,7 @@ async def refresh_data(
     
     return {
         "status": "success",
-        "message": "Sistem verilerini güncelleme işlemi (MLB ve Tenis) arka planda başlatıldı.",
+        "message": "Sistem verilerini guncelleme islemi (MLB, Tenis, WNBA) arka planda baslatildi.",
     }
 
 

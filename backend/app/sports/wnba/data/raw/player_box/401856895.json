@@ -1,0 +1,140 @@
+{
+  "game_id": "401856895",
+  "date": "2026-05-10",
+  "season": 2026,
+  "home_team_id": "132052",
+  "away_team_id": "19",
+  "players_by_team": {
+    "19": [
+      {
+        "athlete_id": "4433630",
+        "name": "Rickea Jackson",
+        "minutes": 36.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "4433405",
+        "name": "Kamilla Cardoso",
+        "minutes": 25.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "2491205",
+        "name": "Skylar Diggins",
+        "minutes": 33.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "4432865",
+        "name": "Jacy Sheldon",
+        "minutes": 34.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4858656",
+        "name": "Gabriela Jaquez",
+        "minutes": 32.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2566081",
+        "name": "Elizabeth Williams",
+        "minutes": 15.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2566186",
+        "name": "Rachel Banham",
+        "minutes": 15.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4433433",
+        "name": "Aicha Coulibaly",
+        "minutes": 6.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4594786",
+        "name": "Sydney Taylor",
+        "minutes": 4.0,
+        "points": 0
+      }
+    ],
+    "132052": [
+      {
+        "athlete_id": "3906972",
+        "name": "Bridget Carleton",
+        "minutes": 30.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4398729",
+        "name": "Emily Engstler",
+        "minutes": 23.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "5209202",
+        "name": "Nyadiew Puoch",
+        "minutes": 17.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4682797",
+        "name": "Luisa Geiselsoder",
+        "minutes": 25.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "5208982",
+        "name": "Carla Leite",
+        "minutes": 29.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "5105406",
+        "name": "Frieda Buhner",
+        "minutes": 13.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3934218",
+        "name": "Megan Gustafson",
+        "minutes": 14.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "5108550",
+        "name": "Serah Williams",
+        "minutes": 8.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4595910",
+        "name": "Haley Jones",
+        "minutes": 7.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4703794",
+        "name": "Sarah Ashlee Barker",
+        "minutes": 24.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "5108051",
+        "name": "Jordan Harrison",
+        "minutes": 11.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "5346554",
+        "name": "Teja Oblak",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:36:40.066444+00:00"
+}

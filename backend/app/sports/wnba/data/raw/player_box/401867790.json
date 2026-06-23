@@ -1,0 +1,182 @@
+{
+  "game_id": "401867790",
+  "date": "2026-04-25",
+  "season": 2026,
+  "home_team_id": "6",
+  "away_team_id": "17476",
+  "players_by_team": {
+    "17476": [
+      {
+        "athlete_id": "3918557",
+        "name": "Nicole Enabosi",
+        "minutes": 20.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3926411",
+        "name": "Pallas Kunaiyi",
+        "minutes": 10.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2491811",
+        "name": "Victoria Macaulay",
+        "minutes": 15.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2531437",
+        "name": "Ezinne Kalu",
+        "minutes": 27.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "2592228",
+        "name": "Promise Amukamara",
+        "minutes": 32.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4434019",
+        "name": "Maryam Dauda",
+        "minutes": 7.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5311604",
+        "name": "Favour Nwaedozi",
+        "minutes": 18.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "5312420",
+        "name": "Nora Ezike",
+        "minutes": 11.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4280899",
+        "name": "Blessing Ejiofor",
+        "minutes": 10.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "5312424",
+        "name": "Uche Izoje",
+        "minutes": 22.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "5238309",
+        "name": "Shay Ijiwoye",
+        "minutes": 9.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5312434",
+        "name": "Gabby White",
+        "minutes": 20.0,
+        "points": 7
+      }
+    ],
+    "6": [
+      {
+        "athlete_id": "2566106",
+        "name": "Dearica Hamby",
+        "minutes": 16.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4433404",
+        "name": "Cameron Brink",
+        "minutes": 18.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2491214",
+        "name": "Erica Wheeler",
+        "minutes": 15.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3065570",
+        "name": "Kelsey Plum",
+        "minutes": 21.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "3146151",
+        "name": "Ariel Atkins",
+        "minutes": 23.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "2284331",
+        "name": "Emma Cannon",
+        "minutes": 10.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4433795",
+        "name": "Sania Feagin",
+        "minutes": 10.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "5107515",
+        "name": "Laura Ziegler",
+        "minutes": 14.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "5239080",
+        "name": "Amelia Hassett",
+        "minutes": 12.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "2566110",
+        "name": "Julie Vanloo",
+        "minutes": 9.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4609797",
+        "name": "Ta'Niya Latson",
+        "minutes": 22.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "5105729",
+        "name": "Chance Gray",
+        "minutes": 17.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "5209660",
+        "name": "Sevgi Uzun",
+        "minutes": 13.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "1068",
+        "name": "Nneka Ogwumike",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4874375",
+        "name": "Jihyun Park",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398764",
+        "name": "Rae Burrell",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:36:28.136368+00:00"
+}

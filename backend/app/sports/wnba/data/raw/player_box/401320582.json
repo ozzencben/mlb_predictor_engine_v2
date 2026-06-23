@@ -1,0 +1,128 @@
+{
+  "game_id": "401320582",
+  "date": "2021-05-22",
+  "season": 2021,
+  "home_team_id": "17",
+  "away_team_id": "6",
+  "players_by_team": {
+    "6": [
+      {
+        "athlete_id": "1068",
+        "name": "Nneka Ogwumike",
+        "minutes": 28.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "2529950",
+        "name": "Chiney Ogwumike",
+        "minutes": 31.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "856",
+        "name": "Kristi Toliver",
+        "minutes": 18.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "2491214",
+        "name": "Erica Wheeler",
+        "minutes": 19.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2988756",
+        "name": "Brittney Sykes",
+        "minutes": 23.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3054590",
+        "name": "Nia Coffey",
+        "minutes": 21.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4065832",
+        "name": "Jasmine Walker",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2999140",
+        "name": "Bria Holmes",
+        "minutes": 15.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3907789",
+        "name": "Te'a Cooper",
+        "minutes": 21.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4068178",
+        "name": "Arella Guirantes",
+        "minutes": 21.0,
+        "points": 6
+      }
+    ],
+    "17": [
+      {
+        "athlete_id": "1017",
+        "name": "Liz Cambage",
+        "minutes": 21.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3149391",
+        "name": "A'ja Wilson",
+        "minutes": 30.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "1049",
+        "name": "Riquna Williams",
+        "minutes": 24.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "2529122",
+        "name": "Chelsea Gray",
+        "minutes": 30.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "4065870",
+        "name": "Jackie Young",
+        "minutes": 31.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "2284331",
+        "name": "Emma Cannon",
+        "minutes": 6.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2566106",
+        "name": "Dearica Hamby",
+        "minutes": 26.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "4329389",
+        "name": "Ji-Su Park",
+        "minutes": 18.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4065781",
+        "name": "Destiny Slocum",
+        "minutes": 15.0,
+        "points": 6
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:24:56.662669+00:00"
+}

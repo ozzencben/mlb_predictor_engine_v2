@@ -1,0 +1,158 @@
+{
+  "game_id": "401230765",
+  "date": "2020-08-05",
+  "season": 2020,
+  "home_team_id": "9",
+  "away_team_id": "8",
+  "players_by_team": {
+    "8": [
+      {
+        "athlete_id": "3906972",
+        "name": "Bridget Carleton",
+        "minutes": 33.0,
+        "points": 25
+      },
+      {
+        "athlete_id": "3917450",
+        "name": "Napheesa Collier",
+        "minutes": 25.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "2955898",
+        "name": "Damiris Dantas",
+        "minutes": 20.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3058892",
+        "name": "Lexie Brown",
+        "minutes": 32.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "4066585",
+        "name": "Crystal Dangerfield",
+        "minutes": 25.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3056728",
+        "name": "Erica McCall",
+        "minutes": 19.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3164610",
+        "name": "Megan Huff",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4065759",
+        "name": "Mikiah Herbert Harrigan",
+        "minutes": 13.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2491232",
+        "name": "Kayla Alexander",
+        "minutes": 7.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2566186",
+        "name": "Rachel Banham",
+        "minutes": 25.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "766",
+        "name": "Sylvia Fowles",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1074",
+        "name": "Shenise Johnson",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "9": [
+      {
+        "athlete_id": "2590093",
+        "name": "Kiah Stokes",
+        "minutes": 22.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3007473",
+        "name": "Amanda Zahui B.",
+        "minutes": 24.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "2490794",
+        "name": "Layshia Clarendon",
+        "minutes": 26.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3142327",
+        "name": "Kia Nurse",
+        "minutes": 25.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4065879",
+        "name": "Jocelyn Willoughby",
+        "minutes": 14.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4065818",
+        "name": "Leaonna Odom",
+        "minutes": 28.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4065849",
+        "name": "Kylee Shook",
+        "minutes": 18.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "4068161",
+        "name": "Joyner Holmes",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4281077",
+        "name": "Megan Walker",
+        "minutes": 21.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4065850",
+        "name": "Jazmine Jones",
+        "minutes": 22.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3904553",
+        "name": "AD Durr",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4066533",
+        "name": "Sabrina Ionescu",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:23:43.659042+00:00"
+}

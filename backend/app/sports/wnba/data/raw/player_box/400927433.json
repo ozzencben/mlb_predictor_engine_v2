@@ -1,0 +1,158 @@
+{
+  "game_id": "400927433",
+  "date": "2017-06-07",
+  "season": 2017,
+  "home_team_id": "17",
+  "away_team_id": "14",
+  "players_by_team": {
+    "14": [
+      {
+        "athlete_id": "805",
+        "name": "Crystal Langhorne",
+        "minutes": 30.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "924",
+        "name": "Alysha Clark",
+        "minutes": 28.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "2998928",
+        "name": "Breanna Stewart",
+        "minutes": 35.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "91",
+        "name": "Sue Bird",
+        "minutes": 30.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2987869",
+        "name": "Jewell Loyd",
+        "minutes": 32.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "993",
+        "name": "Ramu Tokashiki",
+        "minutes": 8.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "982",
+        "name": "Carolyn Swords",
+        "minutes": 8.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "737",
+        "name": "Noelle Quinn",
+        "minutes": 19.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "887",
+        "name": "Sami Whitcomb",
+        "minutes": 11.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "2590092",
+        "name": "Kaleena Mosqueda-Lewis",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2999141",
+        "name": "Lanay Montgomery",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3058915",
+        "name": "Alexis Peterson",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "17": [
+      {
+        "athlete_id": "2",
+        "name": "Erika de Souza",
+        "minutes": 13.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "1006",
+        "name": "Alex Montgomery",
+        "minutes": 26.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2566453",
+        "name": "Isabelle Harrison",
+        "minutes": 23.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2529205",
+        "name": "Kayla McBride",
+        "minutes": 33.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "3065570",
+        "name": "Kelsey Plum",
+        "minutes": 25.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "651",
+        "name": "Monique Currie",
+        "minutes": 14.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "2566106",
+        "name": "Dearica Hamby",
+        "minutes": 7.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3054590",
+        "name": "Nia Coffey",
+        "minutes": 12.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2491232",
+        "name": "Kayla Alexander",
+        "minutes": 25.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "2998927",
+        "name": "Moriah Jefferson",
+        "minutes": 22.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "814",
+        "name": "Sequoia Holmes",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1004",
+        "name": "Sydney Colson",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:17:48.513928+00:00"
+}

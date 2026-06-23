@@ -1,0 +1,152 @@
+{
+  "game_id": "401320650",
+  "date": "2021-06-26",
+  "season": 2021,
+  "home_team_id": "8",
+  "away_team_id": "17",
+  "players_by_team": {
+    "17": [
+      {
+        "athlete_id": "1017",
+        "name": "Liz Cambage",
+        "minutes": 34.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "3149391",
+        "name": "A'ja Wilson",
+        "minutes": 43.0,
+        "points": 28
+      },
+      {
+        "athlete_id": "1049",
+        "name": "Riquna Williams",
+        "minutes": 19.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "2529122",
+        "name": "Chelsea Gray",
+        "minutes": 37.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4065870",
+        "name": "Jackie Young",
+        "minutes": 25.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2566106",
+        "name": "Dearica Hamby",
+        "minutes": 27.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4329389",
+        "name": "Ji-Su Park",
+        "minutes": 10.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3065570",
+        "name": "Kelsey Plum",
+        "minutes": 29.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "872",
+        "name": "Angel McCoughtry",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4068161",
+        "name": "Joyner Holmes",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4065781",
+        "name": "Destiny Slocum",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "8": [
+      {
+        "athlete_id": "3917450",
+        "name": "Napheesa Collier",
+        "minutes": 44.0,
+        "points": 23
+      },
+      {
+        "athlete_id": "766",
+        "name": "Sylvia Fowles",
+        "minutes": 40.0,
+        "points": 30
+      },
+      {
+        "athlete_id": "2955898",
+        "name": "Damiris Dantas",
+        "minutes": 30.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2490794",
+        "name": "Layshia Clarendon",
+        "minutes": 37.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "2529205",
+        "name": "Kayla McBride",
+        "minutes": 42.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "3906949",
+        "name": "Jessica Shepard",
+        "minutes": 11.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3906972",
+        "name": "Bridget Carleton",
+        "minutes": 10.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2566186",
+        "name": "Rachel Banham",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4066585",
+        "name": "Crystal Dangerfield",
+        "minutes": 8.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2529203",
+        "name": "Natalie Achonwa",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2999035",
+        "name": "Aerial Powers",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4280888",
+        "name": "Rennia Davis",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:25:29.565314+00:00"
+}

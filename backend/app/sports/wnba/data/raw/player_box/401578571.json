@@ -1,0 +1,134 @@
+{
+  "game_id": "401578571",
+  "date": "2023-10-08",
+  "season": 2023,
+  "home_team_id": "17",
+  "away_team_id": "9",
+  "players_by_team": {
+    "9": [
+      {
+        "athlete_id": "2998928",
+        "name": "Breanna Stewart",
+        "minutes": 36.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "2999101",
+        "name": "Jonquel Jones",
+        "minutes": 34.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "981",
+        "name": "Courtney Vandersloot",
+        "minutes": 26.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2593770",
+        "name": "Betnijah Laney-Hamilton",
+        "minutes": 36.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "4066533",
+        "name": "Sabrina Ionescu",
+        "minutes": 34.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "2529622",
+        "name": "Kayla Thornton",
+        "minutes": 8.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4398768",
+        "name": "Nyara Sabally",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2529183",
+        "name": "Stefanie Dolson",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4038379",
+        "name": "Marine Johannes",
+        "minutes": 20.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "4065879",
+        "name": "Jocelyn Willoughby",
+        "minutes": 2.0,
+        "points": 0
+      }
+    ],
+    "17": [
+      {
+        "athlete_id": "2590093",
+        "name": "Kiah Stokes",
+        "minutes": 22.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3149391",
+        "name": "A'ja Wilson",
+        "minutes": 35.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "2529122",
+        "name": "Chelsea Gray",
+        "minutes": 37.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "3065570",
+        "name": "Kelsey Plum",
+        "minutes": 36.0,
+        "points": 26
+      },
+      {
+        "athlete_id": "4065870",
+        "name": "Jackie Young",
+        "minutes": 37.0,
+        "points": 26
+      },
+      {
+        "athlete_id": "924",
+        "name": "Alysha Clark",
+        "minutes": 28.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "3888043",
+        "name": "Cayla George",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4433633",
+        "name": "Kierstan Bell",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3056664",
+        "name": "Alaina Coates",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1004",
+        "name": "Sydney Colson",
+        "minutes": 1.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:30:59.283464+00:00"
+}

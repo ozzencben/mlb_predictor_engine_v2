@@ -1,0 +1,170 @@
+{
+  "game_id": "401105066",
+  "date": "2019-08-17",
+  "season": 2019,
+  "home_team_id": "11",
+  "away_team_id": "20",
+  "players_by_team": {
+    "20": [
+      {
+        "athlete_id": "1002",
+        "name": "Jessica Breland",
+        "minutes": 29.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2566081",
+        "name": "Elizabeth Williams",
+        "minutes": 31.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "865",
+        "name": "Renee Montgomery",
+        "minutes": 35.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "1054",
+        "name": "Tiffany Hayes",
+        "minutes": 30.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "2988756",
+        "name": "Brittney Sykes",
+        "minutes": 28.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "3054590",
+        "name": "Nia Coffey",
+        "minutes": 10.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3151645",
+        "name": "Marie Guelich",
+        "minutes": 10.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2490773",
+        "name": "Alex Bentley",
+        "minutes": 18.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "3907713",
+        "name": "Maite Cazorla",
+        "minutes": 9.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "872",
+        "name": "Angel McCoughtry",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3142255",
+        "name": "Monique Billings",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3056664",
+        "name": "Alaina Coates",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "11": [
+      {
+        "athlete_id": "869",
+        "name": "DeWanna Bonner",
+        "minutes": 39.0,
+        "points": 27
+      },
+      {
+        "athlete_id": "3142086",
+        "name": "Brianna Turner",
+        "minutes": 35.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "796",
+        "name": "Leilani Mitchell",
+        "minutes": 33.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "860",
+        "name": "Briann January",
+        "minutes": 29.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "2235933",
+        "name": "Yvonne Turner",
+        "minutes": 29.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "732",
+        "name": "Camille Little",
+        "minutes": 23.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3142057",
+        "name": "Arica Carter",
+        "minutes": 4.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3907781",
+        "name": "Sophie Cunningham",
+        "minutes": 8.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "609",
+        "name": "Sancho Lyttle",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "802",
+        "name": "Essence Carson",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2491203",
+        "name": "Asia Taylor",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3913881",
+        "name": "Alanna Smith",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2490553",
+        "name": "Brittney Griner",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "585",
+        "name": "Diana Taurasi",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:22:57.340964+00:00"
+}

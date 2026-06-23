@@ -1,0 +1,152 @@
+{
+  "game_id": "401507178",
+  "date": "2023-06-11",
+  "season": 2023,
+  "home_team_id": "5",
+  "away_team_id": "11",
+  "players_by_team": {
+    "11": [
+      {
+        "athlete_id": "4282173",
+        "name": "Michaela Onyenwere",
+        "minutes": 32.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2490553",
+        "name": "Brittney Griner",
+        "minutes": 30.0,
+        "points": 29
+      },
+      {
+        "athlete_id": "585",
+        "name": "Diana Taurasi",
+        "minutes": 33.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "3907781",
+        "name": "Sophie Cunningham",
+        "minutes": 34.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4068159",
+        "name": "Sug Sutton",
+        "minutes": 38.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3142086",
+        "name": "Brianna Turner",
+        "minutes": 15.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398731",
+        "name": "Kadi Sissoko",
+        "minutes": 8.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3934218",
+        "name": "Megan Gustafson",
+        "minutes": 6.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4280890",
+        "name": "Evina Westbrook",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1107",
+        "name": "Shey Peddy",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2998927",
+        "name": "Moriah Jefferson",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "5": [
+      {
+        "athlete_id": "4398776",
+        "name": "NaLyssa Smith",
+        "minutes": 35.0,
+        "points": 29
+      },
+      {
+        "athlete_id": "4432831",
+        "name": "Aliyah Boston",
+        "minutes": 23.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2491214",
+        "name": "Erica Wheeler",
+        "minutes": 32.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "3142191",
+        "name": "Kelsey Mitchell",
+        "minutes": 36.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "4398829",
+        "name": "Lexie Hull",
+        "minutes": 16.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2284331",
+        "name": "Emma Cannon",
+        "minutes": 4.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4398779",
+        "name": "Queen Egbo",
+        "minutes": 17.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "3142948",
+        "name": "Victoria Vivians",
+        "minutes": 9.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3156318",
+        "name": "Kristy Wallace",
+        "minutes": 20.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4280850",
+        "name": "Maya Caldwell",
+        "minutes": 4.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398899",
+        "name": "Grace Berger",
+        "minutes": 5.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398752",
+        "name": "Victaria Saxton",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:29:05.905057+00:00"
+}

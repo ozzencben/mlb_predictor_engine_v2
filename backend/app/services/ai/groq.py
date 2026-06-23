@@ -175,3 +175,83 @@ class GroqPredictor(BaseAIPredictor):
                 else:
                     print(f"❌ Groq AI Hatası: {e}")
                     return f"AI analysis is temporarily unavailable: {e}"
+
+    async def generate_wnba_insight_async(self, prediction_data: dict) -> str:
+        if not self.client:
+            return "AI analysis currently unavailable (Groq API Key missing)."
+
+        home = prediction_data.get("home_team_name", "Home")
+        away = prediction_data.get("away_team_name", "Away")
+        h_prob = round(float(prediction_data.get("home_win_prob", 0.5)) * 100, 1)
+        a_prob = round(float(prediction_data.get("away_win_prob", 0.5)) * 100, 1)
+        spread = prediction_data.get("predicted_spread", 0)
+        total = prediction_data.get("predicted_total", 0)
+        elo_h = prediction_data.get("elo_home", 1500)
+        elo_a = prediction_data.get("elo_away", 1500)
+        rest_h = prediction_data.get("rest_home", "N/A")
+        rest_a = prediction_data.get("rest_away", "N/A")
+        odds = prediction_data.get("odds") or {}
+        ml_h = odds.get("moneyline_home", "N/A")
+        ml_a = odds.get("moneyline_away", "N/A")
+        sp_line = odds.get("spread_home", "N/A")
+        tot_line = odds.get("total_over", "N/A")
+        top_bets = prediction_data.get("alt_bets") or []
+        bet_summary = "; ".join(
+            f"{b.get('market')} {b.get('pick')} (edge {b.get('edge')}%)" for b in top_bets[:3]
+        ) or "No strong edge plays"
+
+        h_l5 = prediction_data.get("home_l5") or {}
+        a_l5 = prediction_data.get("away_l5") or {}
+        feats = prediction_data.get("features") or {}
+        star_impact = feats.get("feature_star_out_impact_diff", 0)
+
+        context = (
+            f"Matchup: {away} @ {home}\n"
+            f"Model: {home} {h_prob}% | {away} {a_prob}% | Spread {spread:+.1f} | Total {total:.1f}\n"
+            f"ELO: {home} {elo_h} vs {away} {elo_a} | Rest days: {home} {rest_h}, {away} {rest_a}\n"
+            f"L5 Net Rating: {home} {h_l5.get('net_rtg', 'N/A')} vs {away} {a_l5.get('net_rtg', 'N/A')}\n"
+            f"Star absence impact diff (home-away PPG): {star_impact}\n"
+            f"Market: ML {home}/{away} = {ml_h}/{ml_a} | Spread {sp_line} | Total {tot_line}\n"
+            f"Top model edges: {bet_summary}"
+        )
+
+        system_instruction = (
+            "You are a professional WNBA analytics & betting expert for a premium sports terminal.\n"
+            "Return EXACTLY 3 markdown bullet points (-), no intro text.\n"
+            "- Bullet 1 (Team Strength): ELO, L5 net rating, home court edge.\n"
+            "- Bullet 2 (Situational Factors): Rest, star absences, form.\n"
+            "- Bullet 3 (The Betting Angle): Best ML/Spread/Total play from model edges."
+        )
+
+        import asyncio
+        max_retries = 4
+        base_delay = 12.0
+
+        for attempt in range(max_retries):
+            try:
+                completion = await self.client.chat.completions.create(
+                    model=self.model_name,
+                    messages=[
+                        {"role": "system", "content": system_instruction},
+                        {"role": "user", "content": f"DATA:\n{context}"},
+                    ],
+                    temperature=0.2,
+                    max_tokens=220,
+                )
+                return completion.choices[0].message.content.strip()
+            except Exception as e:
+                error_msg = str(e).lower()
+                is_429 = "429" in error_msg or "rate_limit" in error_msg or "quota" in error_msg
+                is_daily_limit = "tpd" in error_msg or "daily limit" in error_msg or "quota" in error_msg
+
+                if is_429:
+                    if is_daily_limit:
+                        self.quota_exhausted = True
+                        return "AI analysis is temporarily unavailable due to daily API limits."
+                    if attempt < max_retries - 1:
+                        await asyncio.sleep(base_delay)
+                        base_delay *= 1.5
+                        continue
+                    self.quota_exhausted = True
+                    return "AI analysis is temporarily unavailable due to upstream API limits."
+                return f"AI analysis is temporarily unavailable: {e}"

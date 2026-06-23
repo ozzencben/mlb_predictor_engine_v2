@@ -1,0 +1,134 @@
+{
+  "game_id": "401507364",
+  "date": "2023-09-10",
+  "season": 2023,
+  "home_team_id": "20",
+  "away_team_id": "3",
+  "players_by_team": {
+    "3": [
+      {
+        "athlete_id": "2529130",
+        "name": "Natasha Howard",
+        "minutes": 32.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "4281929",
+        "name": "Satou Sabally",
+        "minutes": 21.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "3913903",
+        "name": "Teaira McCowan",
+        "minutes": 24.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3904577",
+        "name": "Arike Ogunbowale",
+        "minutes": 37.0,
+        "points": 32
+      },
+      {
+        "athlete_id": "4398935",
+        "name": "Veronica Burton",
+        "minutes": 18.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4399415",
+        "name": "Maddy Siegrist",
+        "minutes": 7.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4790266",
+        "name": "Awak Kuier",
+        "minutes": 20.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3916514",
+        "name": "Kalani Brown",
+        "minutes": 16.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2529047",
+        "name": "Odyssey Sims",
+        "minutes": 10.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4066585",
+        "name": "Crystal Dangerfield",
+        "minutes": 15.0,
+        "points": 3
+      }
+    ],
+    "20": [
+      {
+        "athlete_id": "2529458",
+        "name": "Cheyenne Parker-Tyus",
+        "minutes": 26.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "3142255",
+        "name": "Monique Billings",
+        "minutes": 26.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "1014",
+        "name": "Danielle Robinson",
+        "minutes": 21.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3058901",
+        "name": "Allisha Gray",
+        "minutes": 30.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4398674",
+        "name": "Rhyne Howard",
+        "minutes": 30.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "4398915",
+        "name": "Naz Hillmon",
+        "minutes": 17.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4432834",
+        "name": "Laeticia Amihere",
+        "minutes": 6.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4790263",
+        "name": "Iliana Rupert",
+        "minutes": 5.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4066553",
+        "name": "Aari McDonald",
+        "minutes": 23.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4595910",
+        "name": "Haley Jones",
+        "minutes": 16.0,
+        "points": 1
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:30:47.442949+00:00"
+}

@@ -1,0 +1,140 @@
+{
+  "game_id": "401320685",
+  "date": "2021-08-15",
+  "season": 2021,
+  "home_team_id": "3",
+  "away_team_id": "18",
+  "players_by_team": {
+    "18": [
+      {
+        "athlete_id": "869",
+        "name": "DeWanna Bonner",
+        "minutes": 35.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "3058895",
+        "name": "Brionna Jones",
+        "minutes": 31.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "2999101",
+        "name": "Jonquel Jones",
+        "minutes": 35.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "860",
+        "name": "Briann January",
+        "minutes": 30.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "1008",
+        "name": "Jasmine Thomas",
+        "minutes": 29.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3916517",
+        "name": "Beatrice Mompremier",
+        "minutes": 6.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4065785",
+        "name": "Stephanie Jones",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3906753",
+        "name": "Natisha Hiedeman",
+        "minutes": 16.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4065780",
+        "name": "Kaila Charles",
+        "minutes": 16.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4066548",
+        "name": "DiJonai Carrington",
+        "minutes": 2.0,
+        "points": 0
+      }
+    ],
+    "3": [
+      {
+        "athlete_id": "2566453",
+        "name": "Isabelle Harrison",
+        "minutes": 34.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4068600",
+        "name": "Bella Alarie",
+        "minutes": 18.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3058901",
+        "name": "Allisha Gray",
+        "minutes": 32.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3904577",
+        "name": "Arike Ogunbowale",
+        "minutes": 34.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "4065760",
+        "name": "Tyasha Harris",
+        "minutes": 19.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "2529622",
+        "name": "Kayla Thornton",
+        "minutes": 22.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4398988",
+        "name": "Charli Collier",
+        "minutes": 4.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4790266",
+        "name": "Awak Kuier",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2998927",
+        "name": "Moriah Jefferson",
+        "minutes": 13.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3904576",
+        "name": "Marina Mabrey",
+        "minutes": 22.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4068110",
+        "name": "Chelsea Dungee",
+        "minutes": 1.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:25:47.936823+00:00"
+}

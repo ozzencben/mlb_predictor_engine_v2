@@ -1,0 +1,140 @@
+{
+  "game_id": "401104969",
+  "date": "2019-06-23",
+  "season": 2019,
+  "home_team_id": "11",
+  "away_team_id": "6",
+  "players_by_team": {
+    "6": [
+      {
+        "athlete_id": "812",
+        "name": "Candace Parker",
+        "minutes": 28.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "1068",
+        "name": "Nneka Ogwumike",
+        "minutes": 28.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "581",
+        "name": "Alana Beard",
+        "minutes": 16.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2490528",
+        "name": "Tierra Ruffin-Pratt",
+        "minutes": 18.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2529122",
+        "name": "Chelsea Gray",
+        "minutes": 30.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "2529950",
+        "name": "Chiney Ogwumike",
+        "minutes": 24.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "1049",
+        "name": "Riquna Williams",
+        "minutes": 27.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "2984245",
+        "name": "Alexis Jones",
+        "minutes": 15.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "3904576",
+        "name": "Marina Mabrey",
+        "minutes": 13.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3916514",
+        "name": "Kalani Brown",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3055808",
+        "name": "Sydney Wiese",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "11": [
+      {
+        "athlete_id": "802",
+        "name": "Essence Carson",
+        "minutes": 30.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "869",
+        "name": "DeWanna Bonner",
+        "minutes": 35.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "2490553",
+        "name": "Brittney Griner",
+        "minutes": 31.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "796",
+        "name": "Leilani Mitchell",
+        "minutes": 37.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "860",
+        "name": "Briann January",
+        "minutes": 36.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "609",
+        "name": "Sancho Lyttle",
+        "minutes": 14.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "732",
+        "name": "Camille Little",
+        "minutes": 4.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3907781",
+        "name": "Sophie Cunningham",
+        "minutes": 12.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3142086",
+        "name": "Brianna Turner",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3913881",
+        "name": "Alanna Smith",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:22:01.075708+00:00"
+}

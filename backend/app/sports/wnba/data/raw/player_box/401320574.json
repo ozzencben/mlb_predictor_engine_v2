@@ -1,0 +1,152 @@
+{
+  "game_id": "401320574",
+  "date": "2021-05-19",
+  "season": 2021,
+  "home_team_id": "16",
+  "away_team_id": "11",
+  "players_by_team": {
+    "11": [
+      {
+        "athlete_id": "3142086",
+        "name": "Brianna Turner",
+        "minutes": 32.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2490553",
+        "name": "Brittney Griner",
+        "minutes": 27.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "585",
+        "name": "Diana Taurasi",
+        "minutes": 27.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "2491205",
+        "name": "Skylar Diggins",
+        "minutes": 27.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3142327",
+        "name": "Kia Nurse",
+        "minutes": 23.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "2566452",
+        "name": "Cierra Burdick",
+        "minutes": 2.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3913881",
+        "name": "Alanna Smith",
+        "minutes": 20.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4281077",
+        "name": "Megan Walker",
+        "minutes": 9.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "1107",
+        "name": "Shey Peddy",
+        "minutes": 16.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3907781",
+        "name": "Sophie Cunningham",
+        "minutes": 18.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "2529185",
+        "name": "Bria Hartley",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "16": [
+      {
+        "athlete_id": "2530082",
+        "name": "Theresa Plaisance",
+        "minutes": 23.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "918",
+        "name": "Tina Charles",
+        "minutes": 33.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "796",
+        "name": "Leilani Mitchell",
+        "minutes": 21.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2529137",
+        "name": "Natasha Cloud",
+        "minutes": 31.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "3146151",
+        "name": "Ariel Atkins",
+        "minutes": 30.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "2984730",
+        "name": "Jillian Alleyne",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3056728",
+        "name": "Erica McCall",
+        "minutes": 22.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "851",
+        "name": "Shavonte Zellous",
+        "minutes": 13.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3055808",
+        "name": "Sydney Wiese",
+        "minutes": 19.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "3142149",
+        "name": "Kiara Leslie",
+        "minutes": 6.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2491877",
+        "name": "Elena Delle Donne",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4068890",
+        "name": "Stella Johnson",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:24:53.481185+00:00"
+}

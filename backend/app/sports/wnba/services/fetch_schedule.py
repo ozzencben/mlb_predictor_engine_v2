@@ -9,27 +9,18 @@ from datetime import datetime, timezone
 from typing import Any
 from zoneinfo import ZoneInfo
 
-import requests
-
-from app.sports.wnba.services.config import DATA_DIR, ESPN_BASE
+from app.sports.wnba.services.config import DATA_DIR
+from app.sports.wnba.services.espn_client import EspnClient
+from app.sports.wnba.services.team_branding import extract_team_logo
 
 TODAY_MATCHES_FILE = DATA_DIR / "today_matches.json"
 ET = ZoneInfo("America/New_York")
 
-_HEADERS = {
-    "Accept": "application/json",
-    "User-Agent": "Mozilla/5.0 (compatible; WNBAScheduleFetcher/1.0)",
-}
 
-
-def _fetch_scoreboard(date_str: str | None = None) -> dict[str, Any]:
+def _fetch_scoreboard(date_str: str | None = None, client: EspnClient | None = None) -> dict[str, Any]:
     """ESPN WNBA scoreboard. date_str = 'YYYYMMDD', None = bugün."""
-    params = {}
-    if date_str:
-        params["dates"] = date_str
-    resp = requests.get(f"{ESPN_BASE}/scoreboard", headers=_HEADERS, params=params, timeout=20)
-    resp.raise_for_status()
-    return resp.json()
+    client = client or EspnClient()
+    return client.get_scoreboard(date_str)
 
 
 def _parse_game(event: dict[str, Any]) -> dict[str, Any] | None:
@@ -41,14 +32,13 @@ def _parse_game(event: dict[str, Any]) -> dict[str, Any] | None:
     home = away = None
     for c in competitors:
         team = c.get("team", {})
+        tid = str(team.get("id", ""))
+        abbr = team.get("abbreviation", "")
         rec = {
-            "team_id": str(team.get("id", "")),
-            "team_abbr": team.get("abbreviation", ""),
+            "team_id": tid,
+            "team_abbr": abbr,
             "team_name": team.get("displayName", ""),
-            "logo": next(
-                (l.get("href") for l in team.get("logos", []) if "default" in l.get("rel", [])),
-                None,
-            ),
+            "logo": extract_team_logo(team, team_id=tid, team_abbr=abbr),
             "score": c.get("score"),
         }
         if c.get("homeAway") == "home":
@@ -98,6 +88,7 @@ def _parse_game(event: dict[str, Any]) -> dict[str, Any] | None:
 def fetch_today_matches(
     date_str: str | None = None,
     save: bool = True,
+    client: EspnClient | None = None,
 ) -> list[dict[str, Any]]:
     """
     Bugünün (veya verilen tarihin) WNBA maçlarını ESPN'den çeker.
@@ -113,7 +104,7 @@ def fetch_today_matches(
     else:
         today_iso = f"{date_str[:4]}-{date_str[4:6]}-{date_str[6:]}"
 
-    raw = _fetch_scoreboard(date_str)
+    raw = _fetch_scoreboard(date_str, client=client)
     events = raw.get("events", [])
 
     matches = []

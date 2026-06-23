@@ -1,0 +1,140 @@
+{
+  "game_id": "401320575",
+  "date": "2021-05-19",
+  "season": 2021,
+  "home_team_id": "14",
+  "away_team_id": "17",
+  "players_by_team": {
+    "17": [
+      {
+        "athlete_id": "1017",
+        "name": "Liz Cambage",
+        "minutes": 22.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "3149391",
+        "name": "A'ja Wilson",
+        "minutes": 35.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "1049",
+        "name": "Riquna Williams",
+        "minutes": 26.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2529122",
+        "name": "Chelsea Gray",
+        "minutes": 28.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "4065870",
+        "name": "Jackie Young",
+        "minutes": 37.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "2284331",
+        "name": "Emma Cannon",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2566106",
+        "name": "Dearica Hamby",
+        "minutes": 21.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4329389",
+        "name": "Ji-Su Park",
+        "minutes": 4.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3065570",
+        "name": "Kelsey Plum",
+        "minutes": 24.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4065781",
+        "name": "Destiny Slocum",
+        "minutes": 1.0,
+        "points": 0
+      }
+    ],
+    "14": [
+      {
+        "athlete_id": "2998928",
+        "name": "Breanna Stewart",
+        "minutes": 36.0,
+        "points": 26
+      },
+      {
+        "athlete_id": "3917453",
+        "name": "Katie Lou Samuelson",
+        "minutes": 28.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4420318",
+        "name": "Ezi Magbegor",
+        "minutes": 26.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "91",
+        "name": "Sue Bird",
+        "minutes": 25.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2987869",
+        "name": "Jewell Loyd",
+        "minutes": 34.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "689",
+        "name": "Candice Dupree",
+        "minutes": 15.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3099736",
+        "name": "Stephanie Talbot",
+        "minutes": 13.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4065759",
+        "name": "Mikiah Herbert Harrigan",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3142250",
+        "name": "Jordin Canada",
+        "minutes": 15.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3922628",
+        "name": "Kennedy Burke",
+        "minutes": 1.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4282168",
+        "name": "Kiana Williams",
+        "minutes": 5.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:24:53.797581+00:00"
+}

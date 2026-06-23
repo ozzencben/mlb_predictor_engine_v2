@@ -1,0 +1,128 @@
+{
+  "game_id": "401507341",
+  "date": "2023-08-30",
+  "season": 2023,
+  "home_team_id": "6",
+  "away_team_id": "19",
+  "players_by_team": {
+    "19": [
+      {
+        "athlete_id": "3143510",
+        "name": "Morgan Bertsch",
+        "minutes": 27.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "2566081",
+        "name": "Elizabeth Williams",
+        "minutes": 35.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "2987891",
+        "name": "Courtney Williams",
+        "minutes": 27.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "2998938",
+        "name": "Kahleah Copper",
+        "minutes": 34.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "3904576",
+        "name": "Marina Mabrey",
+        "minutes": 37.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "2529567",
+        "name": "Robyn Parks",
+        "minutes": 9.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "5017721",
+        "name": "Sika Kone",
+        "minutes": 10.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4281190",
+        "name": "Dana Evans",
+        "minutes": 22.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4066534",
+        "name": "Ruthy Hebard",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398567",
+        "name": "Taylor Soule",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "6": [
+      {
+        "athlete_id": "1068",
+        "name": "Nneka Ogwumike",
+        "minutes": 36.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "3142010",
+        "name": "Azura Stevens",
+        "minutes": 27.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "1008",
+        "name": "Jasmine Thomas",
+        "minutes": 23.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3056730",
+        "name": "Karlie Samuelson",
+        "minutes": 32.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3142250",
+        "name": "Jordin Canada",
+        "minutes": 39.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "2566106",
+        "name": "Dearica Hamby",
+        "minutes": 18.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "4398764",
+        "name": "Rae Burrell",
+        "minutes": 6.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4432832",
+        "name": "Zia Cooke",
+        "minutes": 19.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "4280890",
+        "name": "Evina Westbrook",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:30:34.054165+00:00"
+}

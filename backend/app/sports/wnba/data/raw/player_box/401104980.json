@@ -1,0 +1,152 @@
+{
+  "game_id": "401104980",
+  "date": "2019-06-30",
+  "season": 2019,
+  "home_team_id": "17",
+  "away_team_id": "5",
+  "players_by_team": {
+    "5": [
+      {
+        "athlete_id": "689",
+        "name": "Candice Dupree",
+        "minutes": 43.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "3913903",
+        "name": "Teaira McCowan",
+        "minutes": 30.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "2491214",
+        "name": "Erica Wheeler",
+        "minutes": 41.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "2593770",
+        "name": "Betnijah Laney-Hamilton",
+        "minutes": 38.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "3142191",
+        "name": "Kelsey Mitchell",
+        "minutes": 29.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "2529203",
+        "name": "Natalie Achonwa",
+        "minutes": 17.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2984741",
+        "name": "Tiffany Mitchell",
+        "minutes": 20.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "3922628",
+        "name": "Kennedy Burke",
+        "minutes": 8.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3056728",
+        "name": "Erica McCall",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3058900",
+        "name": "Stephanie Mavunga",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1074",
+        "name": "Shenise Johnson",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3143149",
+        "name": "Paris Kea",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "17": [
+      {
+        "athlete_id": "1017",
+        "name": "Liz Cambage",
+        "minutes": 24.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "3149391",
+        "name": "A'ja Wilson",
+        "minutes": 41.0,
+        "points": 39
+      },
+      {
+        "athlete_id": "2529205",
+        "name": "Kayla McBride",
+        "minutes": 37.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "3065570",
+        "name": "Kelsey Plum",
+        "minutes": 31.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4065870",
+        "name": "Jackie Young",
+        "minutes": 35.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "819",
+        "name": "Tamera Young",
+        "minutes": 10.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2566106",
+        "name": "Dearica Hamby",
+        "minutes": 23.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "982",
+        "name": "Carolyn Swords",
+        "minutes": 6.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "1004",
+        "name": "Sydney Colson",
+        "minutes": 6.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2491197",
+        "name": "Sugar Rodgers",
+        "minutes": 12.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4329389",
+        "name": "Ji-Su Park",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:22:06.617646+00:00"
+}

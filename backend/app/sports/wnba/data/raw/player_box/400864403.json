@@ -1,0 +1,158 @@
+{
+  "game_id": "400864403",
+  "date": "2016-05-21",
+  "season": 2016,
+  "home_team_id": "11",
+  "away_team_id": "14",
+  "players_by_team": {
+    "14": [
+      {
+        "athlete_id": "805",
+        "name": "Crystal Langhorne",
+        "minutes": 26.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "924",
+        "name": "Alysha Clark",
+        "minutes": 28.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2998928",
+        "name": "Breanna Stewart",
+        "minutes": 35.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "91",
+        "name": "Sue Bird",
+        "minutes": 34.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "2987869",
+        "name": "Jewell Loyd",
+        "minutes": 36.0,
+        "points": 30
+      },
+      {
+        "athlete_id": "993",
+        "name": "Ramu Tokashiki",
+        "minutes": 12.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2590092",
+        "name": "Kaleena Mosqueda-Lewis",
+        "minutes": 21.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "2984366",
+        "name": "Markeisha Gatling",
+        "minutes": 8.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "952",
+        "name": "Abby Bishop",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "881",
+        "name": "Monica Wright",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1012",
+        "name": "Jenna O'Hea",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2569047",
+        "name": "Blake Dietrick",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "11": [
+      {
+        "athlete_id": "388",
+        "name": "Penny Taylor",
+        "minutes": 28.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "689",
+        "name": "Candice Dupree",
+        "minutes": 28.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "869",
+        "name": "DeWanna Bonner",
+        "minutes": 33.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "2490553",
+        "name": "Brittney Griner",
+        "minutes": 30.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "585",
+        "name": "Diana Taurasi",
+        "minutes": 34.0,
+        "points": 23
+      },
+      {
+        "athlete_id": "660",
+        "name": "Mistie McCray Bass",
+        "minutes": 12.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "1106",
+        "name": "Sonja Petrovic",
+        "minutes": 12.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2566453",
+        "name": "Isabelle Harrison",
+        "minutes": 10.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "737",
+        "name": "Noelle Quinn",
+        "minutes": 10.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2569244",
+        "name": "Alex Harden",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2987891",
+        "name": "Courtney Williams",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3007761",
+        "name": "Nirra Fields",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:15:26.615418+00:00"
+}

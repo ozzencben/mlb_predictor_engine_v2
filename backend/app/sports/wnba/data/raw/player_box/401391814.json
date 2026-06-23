@@ -1,0 +1,134 @@
+{
+  "game_id": "401391814",
+  "date": "2022-07-24",
+  "season": 2022,
+  "home_team_id": "17",
+  "away_team_id": "6",
+  "players_by_team": {
+    "6": [
+      {
+        "athlete_id": "1068",
+        "name": "Nneka Ogwumike",
+        "minutes": 30.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3917453",
+        "name": "Katie Lou Samuelson",
+        "minutes": 36.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "1017",
+        "name": "Liz Cambage",
+        "minutes": 22.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2988756",
+        "name": "Brittney Sykes",
+        "minutes": 25.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3142250",
+        "name": "Jordin Canada",
+        "minutes": 38.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "4065832",
+        "name": "Jasmine Walker",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398966",
+        "name": "Olivia Nelson-Ododa",
+        "minutes": 20.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4280892",
+        "name": "Chennedy Carter",
+        "minutes": 25.0,
+        "points": 15
+      }
+    ],
+    "17": [
+      {
+        "athlete_id": "2566106",
+        "name": "Dearica Hamby",
+        "minutes": 31.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3149391",
+        "name": "A'ja Wilson",
+        "minutes": 32.0,
+        "points": 24
+      },
+      {
+        "athlete_id": "2529122",
+        "name": "Chelsea Gray",
+        "minutes": 30.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3065570",
+        "name": "Kelsey Plum",
+        "minutes": 35.0,
+        "points": 29
+      },
+      {
+        "athlete_id": "4065870",
+        "name": "Jackie Young",
+        "minutes": 32.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2530082",
+        "name": "Theresa Plaisance",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4433633",
+        "name": "Kierstan Bell",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2590093",
+        "name": "Kiah Stokes",
+        "minutes": 12.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4790263",
+        "name": "Iliana Rupert",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1004",
+        "name": "Sydney Colson",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1049",
+        "name": "Riquna Williams",
+        "minutes": 19.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4281223",
+        "name": "Aisha Sheppard",
+        "minutes": 1.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:27:58.569800+00:00"
+}

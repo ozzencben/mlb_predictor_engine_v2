@@ -1,0 +1,140 @@
+{
+  "game_id": "401620365",
+  "date": "2024-07-17",
+  "season": 2024,
+  "home_team_id": "3",
+  "away_team_id": "5",
+  "players_by_team": {
+    "5": [
+      {
+        "athlete_id": "3917453",
+        "name": "Katie Lou Samuelson",
+        "minutes": 28.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4398776",
+        "name": "NaLyssa Smith",
+        "minutes": 27.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4432831",
+        "name": "Aliyah Boston",
+        "minutes": 28.0,
+        "points": 28
+      },
+      {
+        "athlete_id": "3142191",
+        "name": "Kelsey Mitchell",
+        "minutes": 36.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4433403",
+        "name": "Caitlin Clark",
+        "minutes": 40.0,
+        "points": 24
+      },
+      {
+        "athlete_id": "2955898",
+        "name": "Damiris Dantas",
+        "minutes": 13.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2491214",
+        "name": "Erica Wheeler",
+        "minutes": 4.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398829",
+        "name": "Lexie Hull",
+        "minutes": 23.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4398752",
+        "name": "Victaria Saxton",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3156318",
+        "name": "Kristy Wallace",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398899",
+        "name": "Grace Berger",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "3": [
+      {
+        "athlete_id": "2529130",
+        "name": "Natasha Howard",
+        "minutes": 35.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "3913903",
+        "name": "Teaira McCowan",
+        "minutes": 21.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2529047",
+        "name": "Odyssey Sims",
+        "minutes": 39.0,
+        "points": 24
+      },
+      {
+        "athlete_id": "3904577",
+        "name": "Arike Ogunbowale",
+        "minutes": 40.0,
+        "points": 24
+      },
+      {
+        "athlete_id": "4432865",
+        "name": "Jacy Sheldon",
+        "minutes": 34.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3142255",
+        "name": "Monique Billings",
+        "minutes": 5.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3916514",
+        "name": "Kalani Brown",
+        "minutes": 19.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "5209660",
+        "name": "Sevgi Uzun",
+        "minutes": 8.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5106150",
+        "name": "Stephanie Soares",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4399114",
+        "name": "Lou Lopez Senechal",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:32:27.198558+00:00"
+}

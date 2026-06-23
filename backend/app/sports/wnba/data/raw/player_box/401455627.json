@@ -1,0 +1,146 @@
+{
+  "game_id": "401455627",
+  "date": "2022-08-18",
+  "season": 2022,
+  "home_team_id": "19",
+  "away_team_id": "9",
+  "players_by_team": {
+    "9": [
+      {
+        "athlete_id": "2529130",
+        "name": "Natasha Howard",
+        "minutes": 34.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "2529183",
+        "name": "Stefanie Dolson",
+        "minutes": 32.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "2593770",
+        "name": "Betnijah Laney-Hamilton",
+        "minutes": 27.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "4066533",
+        "name": "Sabrina Ionescu",
+        "minutes": 36.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "4066585",
+        "name": "Crystal Dangerfield",
+        "minutes": 11.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4282173",
+        "name": "Michaela Onyenwere",
+        "minutes": 4.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4337216",
+        "name": "Han Xu",
+        "minutes": 5.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "887",
+        "name": "Sami Whitcomb",
+        "minutes": 12.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3102133",
+        "name": "Rebecca Allen",
+        "minutes": 11.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4038379",
+        "name": "Marine Johannes",
+        "minutes": 27.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4065879",
+        "name": "Jocelyn Willoughby",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4281253",
+        "name": "DiDi Richards",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "19": [
+      {
+        "athlete_id": "812",
+        "name": "Candace Parker",
+        "minutes": 30.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "3027368",
+        "name": "Emma Meesseman",
+        "minutes": 26.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "764",
+        "name": "Allie Quigley",
+        "minutes": 31.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "981",
+        "name": "Courtney Vandersloot",
+        "minutes": 31.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "2998938",
+        "name": "Kahleah Copper",
+        "minutes": 31.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "3142010",
+        "name": "Azura Stevens",
+        "minutes": 24.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "2327695",
+        "name": "Rebekah Gardner",
+        "minutes": 17.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4001679",
+        "name": "Julie Allemand",
+        "minutes": 9.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4066534",
+        "name": "Ruthy Hebard",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4281190",
+        "name": "Dana Evans",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:28:25.047148+00:00"
+}

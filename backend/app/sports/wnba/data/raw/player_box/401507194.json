@@ -1,0 +1,140 @@
+{
+  "game_id": "401507194",
+  "date": "2023-06-18",
+  "season": 2023,
+  "home_team_id": "6",
+  "away_team_id": "18",
+  "players_by_team": {
+    "18": [
+      {
+        "athlete_id": "869",
+        "name": "DeWanna Bonner",
+        "minutes": 34.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "2529140",
+        "name": "Alyssa Thomas",
+        "minutes": 40.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "3058895",
+        "name": "Brionna Jones",
+        "minutes": 33.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "1054",
+        "name": "Tiffany Hayes",
+        "minutes": 19.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "3906753",
+        "name": "Natisha Hiedeman",
+        "minutes": 25.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4398966",
+        "name": "Olivia Nelson-Ododa",
+        "minutes": 7.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3102133",
+        "name": "Rebecca Allen",
+        "minutes": 6.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4065760",
+        "name": "Tyasha Harris",
+        "minutes": 15.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4066548",
+        "name": "DiJonai Carrington",
+        "minutes": 21.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "4398591",
+        "name": "Liz Dixon",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398928",
+        "name": "Leigha Brown",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "6": [
+      {
+        "athlete_id": "1068",
+        "name": "Nneka Ogwumike",
+        "minutes": 36.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "2566106",
+        "name": "Dearica Hamby",
+        "minutes": 31.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "3142010",
+        "name": "Azura Stevens",
+        "minutes": 30.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3142250",
+        "name": "Jordin Canada",
+        "minutes": 34.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "4432832",
+        "name": "Zia Cooke",
+        "minutes": 14.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2529950",
+        "name": "Chiney Ogwumike",
+        "minutes": 14.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "1008",
+        "name": "Jasmine Thomas",
+        "minutes": 11.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3056730",
+        "name": "Karlie Samuelson",
+        "minutes": 24.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "4398751",
+        "name": "Destanni Henderson",
+        "minutes": 6.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4398764",
+        "name": "Rae Burrell",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:29:13.740161+00:00"
+}

@@ -1,0 +1,152 @@
+{
+  "game_id": "401230734",
+  "date": "2020-07-25",
+  "season": 2020,
+  "home_team_id": "11",
+  "away_team_id": "6",
+  "players_by_team": {
+    "6": [
+      {
+        "athlete_id": "812",
+        "name": "Candace Parker",
+        "minutes": 21.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "1068",
+        "name": "Nneka Ogwumike",
+        "minutes": 24.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "1049",
+        "name": "Riquna Williams",
+        "minutes": 29.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "2490528",
+        "name": "Tierra Ruffin-Pratt",
+        "minutes": 14.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2529122",
+        "name": "Chelsea Gray",
+        "minutes": 20.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "2566211",
+        "name": "Reshanda Gray",
+        "minutes": 7.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3913868",
+        "name": "Kristine Anigwe",
+        "minutes": 14.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "695",
+        "name": "Seimone Augustus",
+        "minutes": 18.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "2988756",
+        "name": "Brittney Sykes",
+        "minutes": 19.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3055808",
+        "name": "Sydney Wiese",
+        "minutes": 18.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "3907789",
+        "name": "Te'a Cooper",
+        "minutes": 16.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3151645",
+        "name": "Marie Guelich",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "11": [
+      {
+        "athlete_id": "3054590",
+        "name": "Nia Coffey",
+        "minutes": 9.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3142086",
+        "name": "Brianna Turner",
+        "minutes": 23.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "2490553",
+        "name": "Brittney Griner",
+        "minutes": 26.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "585",
+        "name": "Diana Taurasi",
+        "minutes": 22.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "2491205",
+        "name": "Skylar Diggins",
+        "minutes": 28.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "3913881",
+        "name": "Alanna Smith",
+        "minutes": 12.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "838",
+        "name": "Kia Vaughn",
+        "minutes": 19.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2529185",
+        "name": "Bria Hartley",
+        "minutes": 29.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3058893",
+        "name": "Shatori Walker-Kimbrough",
+        "minutes": 17.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "3907781",
+        "name": "Sophie Cunningham",
+        "minutes": 15.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "1002",
+        "name": "Jessica Breland",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:23:31.161005+00:00"
+}

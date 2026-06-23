@@ -1,0 +1,134 @@
+{
+  "game_id": "401736205",
+  "date": "2025-06-26",
+  "season": 2025,
+  "home_team_id": "129689",
+  "away_team_id": "9",
+  "players_by_team": {
+    "9": [
+      {
+        "athlete_id": "2998928",
+        "name": "Breanna Stewart",
+        "minutes": 37.0,
+        "points": 23
+      },
+      {
+        "athlete_id": "4398768",
+        "name": "Nyara Sabally",
+        "minutes": 16.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "2327695",
+        "name": "Rebekah Gardner",
+        "minutes": 34.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2529137",
+        "name": "Natasha Cloud",
+        "minutes": 27.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4066533",
+        "name": "Sabrina Ionescu",
+        "minutes": 29.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2566453",
+        "name": "Isabelle Harrison",
+        "minutes": 5.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3922628",
+        "name": "Kennedy Burke",
+        "minutes": 30.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "4038379",
+        "name": "Marine Johannes",
+        "minutes": 18.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "4433386",
+        "name": "Jaylyn Sherrod",
+        "minutes": 4.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4433661",
+        "name": "Marquesha Davis",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "129689": [
+      {
+        "athlete_id": "2529622",
+        "name": "Kayla Thornton",
+        "minutes": 34.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3099736",
+        "name": "Stephanie Talbot",
+        "minutes": 28.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "3142255",
+        "name": "Monique Billings",
+        "minutes": 20.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "1054",
+        "name": "Tiffany Hayes",
+        "minutes": 34.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "4398935",
+        "name": "Veronica Burton",
+        "minutes": 34.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4280877",
+        "name": "Chloe Bibby",
+        "minutes": 4.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4432834",
+        "name": "Laeticia Amihere",
+        "minutes": 13.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4398907",
+        "name": "Kate Martin",
+        "minutes": 24.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "4899328",
+        "name": "Kaitlyn Chen",
+        "minutes": 9.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4898383",
+        "name": "Bree Hall",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:34:29.721191+00:00"
+}

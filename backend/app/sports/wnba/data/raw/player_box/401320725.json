@@ -1,0 +1,128 @@
+{
+  "game_id": "401320725",
+  "date": "2021-09-03",
+  "season": 2021,
+  "home_team_id": "17",
+  "away_team_id": "19",
+  "players_by_team": {
+    "19": [
+      {
+        "athlete_id": "812",
+        "name": "Candace Parker",
+        "minutes": 34.0,
+        "points": 30
+      },
+      {
+        "athlete_id": "3142010",
+        "name": "Azura Stevens",
+        "minutes": 22.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "764",
+        "name": "Allie Quigley",
+        "minutes": 27.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "981",
+        "name": "Courtney Vandersloot",
+        "minutes": 32.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2998938",
+        "name": "Kahleah Copper",
+        "minutes": 26.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "4066534",
+        "name": "Ruthy Hebard",
+        "minutes": 6.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2529183",
+        "name": "Stefanie Dolson",
+        "minutes": 18.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "3058892",
+        "name": "Lexie Brown",
+        "minutes": 11.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3058902",
+        "name": "Diamond DeShields",
+        "minutes": 19.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4281190",
+        "name": "Dana Evans",
+        "minutes": 5.0,
+        "points": 3
+      }
+    ],
+    "17": [
+      {
+        "athlete_id": "2590093",
+        "name": "Kiah Stokes",
+        "minutes": 34.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3149391",
+        "name": "A'ja Wilson",
+        "minutes": 37.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "1049",
+        "name": "Riquna Williams",
+        "minutes": 36.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "2529122",
+        "name": "Chelsea Gray",
+        "minutes": 25.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4065870",
+        "name": "Jackie Young",
+        "minutes": 31.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4329389",
+        "name": "Ji-Su Park",
+        "minutes": 9.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3065570",
+        "name": "Kelsey Plum",
+        "minutes": 28.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "2999140",
+        "name": "Bria Holmes",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4065781",
+        "name": "Destiny Slocum",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:26:08.294117+00:00"
+}

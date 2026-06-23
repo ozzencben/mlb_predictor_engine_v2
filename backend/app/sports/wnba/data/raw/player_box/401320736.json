@@ -1,0 +1,128 @@
+{
+  "game_id": "401320736",
+  "date": "2021-09-10",
+  "season": 2021,
+  "home_team_id": "6",
+  "away_team_id": "18",
+  "players_by_team": {
+    "18": [
+      {
+        "athlete_id": "869",
+        "name": "DeWanna Bonner",
+        "minutes": 28.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3058895",
+        "name": "Brionna Jones",
+        "minutes": 27.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "2999101",
+        "name": "Jonquel Jones",
+        "minutes": 33.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "860",
+        "name": "Briann January",
+        "minutes": 23.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "1008",
+        "name": "Jasmine Thomas",
+        "minutes": 30.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3916517",
+        "name": "Beatrice Mompremier",
+        "minutes": 5.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4065785",
+        "name": "Stephanie Jones",
+        "minutes": 5.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3906753",
+        "name": "Natisha Hiedeman",
+        "minutes": 14.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4065780",
+        "name": "Kaila Charles",
+        "minutes": 24.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4066548",
+        "name": "DiJonai Carrington",
+        "minutes": 11.0,
+        "points": 3
+      }
+    ],
+    "6": [
+      {
+        "athlete_id": "1068",
+        "name": "Nneka Ogwumike",
+        "minutes": 32.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3007473",
+        "name": "Amanda Zahui B.",
+        "minutes": 16.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2491214",
+        "name": "Erica Wheeler",
+        "minutes": 31.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2988756",
+        "name": "Brittney Sykes",
+        "minutes": 30.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3907789",
+        "name": "Te'a Cooper",
+        "minutes": 29.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2529950",
+        "name": "Chiney Ogwumike",
+        "minutes": 6.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3054590",
+        "name": "Nia Coffey",
+        "minutes": 28.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "4066563",
+        "name": "Lauren Cox",
+        "minutes": 14.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4068178",
+        "name": "Arella Guirantes",
+        "minutes": 15.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:26:13.519534+00:00"
+}

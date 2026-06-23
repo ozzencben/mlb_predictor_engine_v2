@@ -1,0 +1,116 @@
+{
+  "game_id": "401320737",
+  "date": "2021-09-10",
+  "season": 2021,
+  "home_team_id": "16",
+  "away_team_id": "20",
+  "players_by_team": {
+    "20": [
+      {
+        "athlete_id": "3142255",
+        "name": "Monique Billings",
+        "minutes": 28.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "2566081",
+        "name": "Elizabeth Williams",
+        "minutes": 19.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "1054",
+        "name": "Tiffany Hayes",
+        "minutes": 33.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "2987891",
+        "name": "Courtney Williams",
+        "minutes": 34.0,
+        "points": 23
+      },
+      {
+        "athlete_id": "4066553",
+        "name": "Aari McDonald",
+        "minutes": 33.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "689",
+        "name": "Candice Dupree",
+        "minutes": 25.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "1110",
+        "name": "Shekinna Stricklen",
+        "minutes": 12.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "2569047",
+        "name": "Blake Dietrick",
+        "minutes": 15.0,
+        "points": 2
+      }
+    ],
+    "16": [
+      {
+        "athlete_id": "3056728",
+        "name": "Erica McCall",
+        "minutes": 18.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "918",
+        "name": "Tina Charles",
+        "minutes": 30.0,
+        "points": 26
+      },
+      {
+        "athlete_id": "796",
+        "name": "Leilani Mitchell",
+        "minutes": 31.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2529137",
+        "name": "Natasha Cloud",
+        "minutes": 34.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "3058893",
+        "name": "Shatori Walker-Kimbrough",
+        "minutes": 29.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "2530082",
+        "name": "Theresa Plaisance",
+        "minutes": 25.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "851",
+        "name": "Shavonte Zellous",
+        "minutes": 14.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3055808",
+        "name": "Sydney Wiese",
+        "minutes": 18.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3934218",
+        "name": "Megan Gustafson",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:26:14.205427+00:00"
+}

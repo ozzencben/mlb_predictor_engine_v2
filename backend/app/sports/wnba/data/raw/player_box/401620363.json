@@ -1,0 +1,140 @@
+{
+  "game_id": "401620363",
+  "date": "2024-07-17",
+  "season": 2024,
+  "home_team_id": "17",
+  "away_team_id": "19",
+  "players_by_team": {
+    "19": [
+      {
+        "athlete_id": "4433402",
+        "name": "Angel Reese",
+        "minutes": 35.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4433405",
+        "name": "Kamilla Cardoso",
+        "minutes": 30.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3058908",
+        "name": "Lindsay Allen",
+        "minutes": 27.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3904576",
+        "name": "Marina Mabrey",
+        "minutes": 36.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "4280892",
+        "name": "Chennedy Carter",
+        "minutes": 30.0,
+        "points": 34
+      },
+      {
+        "athlete_id": "2566453",
+        "name": "Isabelle Harrison",
+        "minutes": 14.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4282173",
+        "name": "Michaela Onyenwere",
+        "minutes": 14.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "4281190",
+        "name": "Dana Evans",
+        "minutes": 13.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3142086",
+        "name": "Brianna Turner",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3058902",
+        "name": "Diamond DeShields",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "17": [
+      {
+        "athlete_id": "2590093",
+        "name": "Kiah Stokes",
+        "minutes": 16.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3149391",
+        "name": "A'ja Wilson",
+        "minutes": 37.0,
+        "points": 28
+      },
+      {
+        "athlete_id": "2529122",
+        "name": "Chelsea Gray",
+        "minutes": 25.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3065570",
+        "name": "Kelsey Plum",
+        "minutes": 30.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4065870",
+        "name": "Jackie Young",
+        "minutes": 32.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "924",
+        "name": "Alysha Clark",
+        "minutes": 16.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3934218",
+        "name": "Megan Gustafson",
+        "minutes": 11.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "1004",
+        "name": "Sydney Colson",
+        "minutes": 6.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "1054",
+        "name": "Tiffany Hayes",
+        "minutes": 24.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "4398907",
+        "name": "Kate Martin",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4433633",
+        "name": "Kierstan Bell",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:32:25.683181+00:00"
+}

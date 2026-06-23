@@ -1,0 +1,146 @@
+{
+  "game_id": "401391857",
+  "date": "2022-08-12",
+  "season": 2022,
+  "home_team_id": "20",
+  "away_team_id": "9",
+  "players_by_team": {
+    "9": [
+      {
+        "athlete_id": "2529130",
+        "name": "Natasha Howard",
+        "minutes": 34.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "2529183",
+        "name": "Stefanie Dolson",
+        "minutes": 26.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2593770",
+        "name": "Betnijah Laney-Hamilton",
+        "minutes": 26.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "4066533",
+        "name": "Sabrina Ionescu",
+        "minutes": 34.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "4066585",
+        "name": "Crystal Dangerfield",
+        "minutes": 36.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "4282173",
+        "name": "Michaela Onyenwere",
+        "minutes": 5.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4337216",
+        "name": "Han Xu",
+        "minutes": 7.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "887",
+        "name": "Sami Whitcomb",
+        "minutes": 6.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3102133",
+        "name": "Rebecca Allen",
+        "minutes": 20.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4038379",
+        "name": "Marine Johannes",
+        "minutes": 6.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4065879",
+        "name": "Jocelyn Willoughby",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4281253",
+        "name": "DiDi Richards",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "20": [
+      {
+        "athlete_id": "2529458",
+        "name": "Cheyenne Parker-Tyus",
+        "minutes": 32.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4398915",
+        "name": "Naz Hillmon",
+        "minutes": 21.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2491214",
+        "name": "Erica Wheeler",
+        "minutes": 30.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "4280850",
+        "name": "Maya Caldwell",
+        "minutes": 25.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "4398674",
+        "name": "Rhyne Howard",
+        "minutes": 33.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "3142255",
+        "name": "Monique Billings",
+        "minutes": 15.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "838",
+        "name": "Kia Vaughn",
+        "minutes": 11.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4065780",
+        "name": "Kaila Charles",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4066553",
+        "name": "Aari McDonald",
+        "minutes": 30.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3916517",
+        "name": "Beatrice Mompremier",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:28:21.006523+00:00"
+}

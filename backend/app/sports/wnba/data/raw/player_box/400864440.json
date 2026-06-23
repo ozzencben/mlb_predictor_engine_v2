@@ -1,0 +1,158 @@
+{
+  "game_id": "400864440",
+  "date": "2016-09-01",
+  "season": 2016,
+  "home_team_id": "14",
+  "away_team_id": "3",
+  "players_by_team": {
+    "3": [
+      {
+        "athlete_id": "491",
+        "name": "Plenette Pierson",
+        "minutes": 34.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "1003",
+        "name": "Karima Christmas-Kelly",
+        "minutes": 25.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "842",
+        "name": "Courtney Paris",
+        "minutes": 8.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2491205",
+        "name": "Skylar Diggins",
+        "minutes": 28.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2529047",
+        "name": "Odyssey Sims",
+        "minutes": 35.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "1053",
+        "name": "Glory Johnson",
+        "minutes": 30.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "2529078",
+        "name": "Jordan Hooper",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2530082",
+        "name": "Theresa Plaisance",
+        "minutes": 8.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "678",
+        "name": "Erin Phillips",
+        "minutes": 8.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2529089",
+        "name": "Tiffany Bias",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2999035",
+        "name": "Aerial Powers",
+        "minutes": 18.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "2999038",
+        "name": "Ruth Hamblin",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "14": [
+      {
+        "athlete_id": "805",
+        "name": "Crystal Langhorne",
+        "minutes": 25.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "924",
+        "name": "Alysha Clark",
+        "minutes": 31.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "2998928",
+        "name": "Breanna Stewart",
+        "minutes": 37.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "91",
+        "name": "Sue Bird",
+        "minutes": 35.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "2987869",
+        "name": "Jewell Loyd",
+        "minutes": 32.0,
+        "points": 23
+      },
+      {
+        "athlete_id": "993",
+        "name": "Ramu Tokashiki",
+        "minutes": 14.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2590092",
+        "name": "Kaleena Mosqueda-Lewis",
+        "minutes": 4.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "1011",
+        "name": "Krystal Thomas",
+        "minutes": 5.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "737",
+        "name": "Noelle Quinn",
+        "minutes": 13.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1012",
+        "name": "Jenna O'Hea",
+        "minutes": 5.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "952",
+        "name": "Abby Bishop",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "881",
+        "name": "Monica Wright",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:16:48.495346+00:00"
+}

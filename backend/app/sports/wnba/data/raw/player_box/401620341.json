@@ -1,0 +1,128 @@
+{
+  "game_id": "401620341",
+  "date": "2024-07-07",
+  "season": 2024,
+  "home_team_id": "17",
+  "away_team_id": "3",
+  "players_by_team": {
+    "3": [
+      {
+        "athlete_id": "2529130",
+        "name": "Natasha Howard",
+        "minutes": 26.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "3913903",
+        "name": "Teaira McCowan",
+        "minutes": 23.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "2529047",
+        "name": "Odyssey Sims",
+        "minutes": 34.0,
+        "points": 25
+      },
+      {
+        "athlete_id": "3904577",
+        "name": "Arike Ogunbowale",
+        "minutes": 37.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4432865",
+        "name": "Jacy Sheldon",
+        "minutes": 33.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3142255",
+        "name": "Monique Billings",
+        "minutes": 17.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "3916514",
+        "name": "Kalani Brown",
+        "minutes": 13.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "5106150",
+        "name": "Stephanie Soares",
+        "minutes": 5.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "5209660",
+        "name": "Sevgi Uzun",
+        "minutes": 12.0,
+        "points": 1
+      }
+    ],
+    "17": [
+      {
+        "athlete_id": "924",
+        "name": "Alysha Clark",
+        "minutes": 29.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3149391",
+        "name": "A'ja Wilson",
+        "minutes": 31.0,
+        "points": 28
+      },
+      {
+        "athlete_id": "2529122",
+        "name": "Chelsea Gray",
+        "minutes": 26.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3065570",
+        "name": "Kelsey Plum",
+        "minutes": 31.0,
+        "points": 23
+      },
+      {
+        "athlete_id": "4065870",
+        "name": "Jackie Young",
+        "minutes": 29.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "4433633",
+        "name": "Kierstan Bell",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3934218",
+        "name": "Megan Gustafson",
+        "minutes": 17.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "1004",
+        "name": "Sydney Colson",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1054",
+        "name": "Tiffany Hayes",
+        "minutes": 21.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4398907",
+        "name": "Kate Martin",
+        "minutes": 11.0,
+        "points": 6
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:32:14.117700+00:00"
+}

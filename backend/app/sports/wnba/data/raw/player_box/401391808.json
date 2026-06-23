@@ -1,0 +1,134 @@
+{
+  "game_id": "401391808",
+  "date": "2022-07-21",
+  "season": 2022,
+  "home_team_id": "6",
+  "away_team_id": "20",
+  "players_by_team": {
+    "20": [
+      {
+        "athlete_id": "2529458",
+        "name": "Cheyenne Parker-Tyus",
+        "minutes": 33.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4398915",
+        "name": "Naz Hillmon",
+        "minutes": 31.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "1054",
+        "name": "Tiffany Hayes",
+        "minutes": 31.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "2491214",
+        "name": "Erica Wheeler",
+        "minutes": 24.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4398674",
+        "name": "Rhyne Howard",
+        "minutes": 32.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3916517",
+        "name": "Beatrice Mompremier",
+        "minutes": 9.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "838",
+        "name": "Kia Vaughn",
+        "minutes": 7.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3156318",
+        "name": "Kristy Wallace",
+        "minutes": 5.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3904553",
+        "name": "AD Durr",
+        "minutes": 9.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4066553",
+        "name": "Aari McDonald",
+        "minutes": 18.0,
+        "points": 18
+      }
+    ],
+    "6": [
+      {
+        "athlete_id": "1068",
+        "name": "Nneka Ogwumike",
+        "minutes": 31.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "2529950",
+        "name": "Chiney Ogwumike",
+        "minutes": 26.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "3917453",
+        "name": "Katie Lou Samuelson",
+        "minutes": 28.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "2988756",
+        "name": "Brittney Sykes",
+        "minutes": 28.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3142250",
+        "name": "Jordin Canada",
+        "minutes": 31.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4065832",
+        "name": "Jasmine Walker",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1017",
+        "name": "Liz Cambage",
+        "minutes": 16.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4398966",
+        "name": "Olivia Nelson-Ododa",
+        "minutes": 7.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3058892",
+        "name": "Lexie Brown",
+        "minutes": 20.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4280892",
+        "name": "Chennedy Carter",
+        "minutes": 12.0,
+        "points": 7
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:27:55.524831+00:00"
+}

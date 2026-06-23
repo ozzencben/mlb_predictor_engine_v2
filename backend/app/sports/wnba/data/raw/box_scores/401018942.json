@@ -1,0 +1,53 @@
+{
+  "game_id": "401018942",
+  "date": "2018-08-04",
+  "season": 2018,
+  "season_type": "unknown",
+  "name": "Las Vegas Aces at Washington Mystics",
+  "home_team_id": "16",
+  "away_team_id": "17",
+  "home_team_abbr": "WSH",
+  "away_team_abbr": "LV",
+  "home_score": 0,
+  "away_score": 0,
+  "home_box": {},
+  "away_box": {},
+  "fetched_at": "2026-06-20T16:52:48.281623+00:00",
+  "validation_warnings": {
+    "home_missing": [
+      "FGM",
+      "FGA",
+      "3PM",
+      "3PA",
+      "FTM",
+      "FTA",
+      "OREB",
+      "DRB",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TOV",
+      "PF",
+      "PTS"
+    ],
+    "away_missing": [
+      "FGM",
+      "FGA",
+      "3PM",
+      "3PA",
+      "FTM",
+      "FTA",
+      "OREB",
+      "DRB",
+      "REB",
+      "AST",
+      "STL",
+      "BLK",
+      "TOV",
+      "PF",
+      "PTS"
+    ]
+  },
+  "period": 0
+}

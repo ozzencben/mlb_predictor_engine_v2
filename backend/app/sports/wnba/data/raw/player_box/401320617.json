@@ -1,0 +1,146 @@
+{
+  "game_id": "401320617",
+  "date": "2021-06-09",
+  "season": 2021,
+  "home_team_id": "20",
+  "away_team_id": "14",
+  "players_by_team": {
+    "14": [
+      {
+        "athlete_id": "2998928",
+        "name": "Breanna Stewart",
+        "minutes": 32.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "3917453",
+        "name": "Katie Lou Samuelson",
+        "minutes": 19.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3056672",
+        "name": "Mercedes Russell",
+        "minutes": 18.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "91",
+        "name": "Sue Bird",
+        "minutes": 24.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2987869",
+        "name": "Jewell Loyd",
+        "minutes": 25.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "689",
+        "name": "Candice Dupree",
+        "minutes": 20.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3099736",
+        "name": "Stephanie Talbot",
+        "minutes": 19.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4420318",
+        "name": "Ezi Magbegor",
+        "minutes": 10.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "882",
+        "name": "Epiphanny Prince",
+        "minutes": 13.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "3142250",
+        "name": "Jordin Canada",
+        "minutes": 16.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3922628",
+        "name": "Kennedy Burke",
+        "minutes": 2.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4282168",
+        "name": "Kiana Williams",
+        "minutes": 2.0,
+        "points": 0
+      }
+    ],
+    "20": [
+      {
+        "athlete_id": "2529458",
+        "name": "Cheyenne Parker-Tyus",
+        "minutes": 18.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2566081",
+        "name": "Elizabeth Williams",
+        "minutes": 24.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "1054",
+        "name": "Tiffany Hayes",
+        "minutes": 26.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "2529047",
+        "name": "Odyssey Sims",
+        "minutes": 30.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "2987891",
+        "name": "Courtney Williams",
+        "minutes": 31.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "1110",
+        "name": "Shekinna Stricklen",
+        "minutes": 5.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2490514",
+        "name": "Tianna Hawkins",
+        "minutes": 17.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "2591976",
+        "name": "Crystal Bradford",
+        "minutes": 14.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3142255",
+        "name": "Monique Billings",
+        "minutes": 21.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4066553",
+        "name": "Aari McDonald",
+        "minutes": 14.0,
+        "points": 7
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:25:14.326347+00:00"
+}

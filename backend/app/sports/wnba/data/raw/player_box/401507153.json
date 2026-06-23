@@ -1,0 +1,152 @@
+{
+  "game_id": "401507153",
+  "date": "2023-05-31",
+  "season": 2023,
+  "home_team_id": "14",
+  "away_team_id": "9",
+  "players_by_team": {
+    "9": [
+      {
+        "athlete_id": "2998928",
+        "name": "Breanna Stewart",
+        "minutes": 37.0,
+        "points": 25
+      },
+      {
+        "athlete_id": "2999101",
+        "name": "Jonquel Jones",
+        "minutes": 18.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "981",
+        "name": "Courtney Vandersloot",
+        "minutes": 36.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2593770",
+        "name": "Betnijah Laney-Hamilton",
+        "minutes": 32.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4066533",
+        "name": "Sabrina Ionescu",
+        "minutes": 37.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "2529622",
+        "name": "Kayla Thornton",
+        "minutes": 16.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "4398768",
+        "name": "Nyara Sabally",
+        "minutes": 7.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "2529183",
+        "name": "Stefanie Dolson",
+        "minutes": 18.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4337216",
+        "name": "Han Xu",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4038379",
+        "name": "Marine Johannes",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4065879",
+        "name": "Jocelyn Willoughby",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "14": [
+      {
+        "athlete_id": "4420318",
+        "name": "Ezi Magbegor",
+        "minutes": 38.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3056672",
+        "name": "Mercedes Russell",
+        "minutes": 24.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2235933",
+        "name": "Yvonne Turner",
+        "minutes": 12.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2987869",
+        "name": "Jewell Loyd",
+        "minutes": 35.0,
+        "points": 26
+      },
+      {
+        "athlete_id": "3142327",
+        "name": "Kia Nurse",
+        "minutes": 34.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4432830",
+        "name": "Jordan Horston",
+        "minutes": 18.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "887",
+        "name": "Sami Whitcomb",
+        "minutes": 21.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "4065780",
+        "name": "Kaila Charles",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4068178",
+        "name": "Arella Guirantes",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5017726",
+        "name": "Jade Melbourne",
+        "minutes": 15.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4594527",
+        "name": "Dulcy Fankam Mendjiadeu",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5130672",
+        "name": "Ivana Dojkic",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:28:54.734203+00:00"
+}

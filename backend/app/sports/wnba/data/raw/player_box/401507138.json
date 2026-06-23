@@ -1,0 +1,158 @@
+{
+  "game_id": "401507138",
+  "date": "2023-05-21",
+  "season": 2023,
+  "home_team_id": "11",
+  "away_team_id": "19",
+  "players_by_team": {
+    "19": [
+      {
+        "athlete_id": "3143510",
+        "name": "Morgan Bertsch",
+        "minutes": 24.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "2566081",
+        "name": "Elizabeth Williams",
+        "minutes": 27.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2987891",
+        "name": "Courtney Williams",
+        "minutes": 37.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "2998938",
+        "name": "Kahleah Copper",
+        "minutes": 28.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "4281190",
+        "name": "Dana Evans",
+        "minutes": 34.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "2529567",
+        "name": "Robyn Parks",
+        "minutes": 8.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3913868",
+        "name": "Kristine Anigwe",
+        "minutes": 13.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3913881",
+        "name": "Alanna Smith",
+        "minutes": 16.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2327695",
+        "name": "Rebekah Gardner",
+        "minutes": 13.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "2566453",
+        "name": "Isabelle Harrison",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5017721",
+        "name": "Sika Kone",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3904576",
+        "name": "Marina Mabrey",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "11": [
+      {
+        "athlete_id": "4282173",
+        "name": "Michaela Onyenwere",
+        "minutes": 30.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2490553",
+        "name": "Brittney Griner",
+        "minutes": 31.0,
+        "points": 27
+      },
+      {
+        "athlete_id": "585",
+        "name": "Diana Taurasi",
+        "minutes": 33.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "2998927",
+        "name": "Moriah Jefferson",
+        "minutes": 26.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3907781",
+        "name": "Sophie Cunningham",
+        "minutes": 19.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3142086",
+        "name": "Brianna Turner",
+        "minutes": 22.0,
+        "points": 1
+      },
+      {
+        "athlete_id": "4398731",
+        "name": "Kadi Sissoko",
+        "minutes": 4.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4068159",
+        "name": "Sug Sutton",
+        "minutes": 30.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4280890",
+        "name": "Evina Westbrook",
+        "minutes": 4.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398591",
+        "name": "Liz Dixon",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3934218",
+        "name": "Megan Gustafson",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1107",
+        "name": "Shey Peddy",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:28:47.245974+00:00"
+}

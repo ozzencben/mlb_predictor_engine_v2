@@ -18,12 +18,17 @@ import json
 import math
 import sys
 import argparse
+import asyncio
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+from zoneinfo import ZoneInfo
 
 import numpy as np
 import xgboost as xgb
+
+from app.sports.wnba.models.model_features import SPREAD_TOTAL_FEATURE_COLS, WIN_FEATURE_COLS
+from app.sports.wnba.services.beta_ops import BETA_VERSION, load_model_meta
 
 # -----------------------------------------------------------------------
 # Paths
@@ -35,29 +40,8 @@ MODELS_DIR = DATA_DIR / "models"
 RAW_FILE = DATA_DIR / "today_predictions_raw.json"
 OUTPUT_FILE = DATA_DIR / "today_predictions.json"
 
-FEATURE_COLS = [
-    # Orijinal 12 diferansiyel
-    "feature_net_rating_diff",
-    "feature_elo_diff",
-    "feature_ppg_diff",
-    "feature_efg_diff",
-    "feature_tov_diff",
-    "feature_pace_diff",
-    "feature_ts_diff",
-    "feature_reb_diff",
-    "feature_rest_diff",
-    "feature_b2b_fatigue",
-    "feature_h2h_edge",
-    "feature_hca_weight",
-    # Yeni 7
-    "feature_home_off_abs",
-    "feature_away_off_abs",
-    "feature_home_def_abs",
-    "feature_away_def_abs",
-    "feature_pace_abs",
-    "feature_opp_quality_diff",
-    "feature_form_streak_diff",
-]
+# Geriye uyumluluk
+FEATURE_COLS = SPREAD_TOTAL_FEATURE_COLS
 
 # -----------------------------------------------------------------------
 # Model yukleme (tek seferlik, modül seviyesi önbellek)
@@ -326,10 +310,48 @@ def _moneyline_bet(
 
 
 # -----------------------------------------------------------------------
+# AI insights
+# -----------------------------------------------------------------------
+
+async def generate_wnba_ai_insights_async(output: dict[str, Any]) -> None:
+    from app.services.ai.factory import get_ai_predictor
+
+    predictor = get_ai_predictor()
+    if getattr(predictor, "quota_exhausted", False):
+        for pred in output.get("predictions", []):
+            pred.setdefault("ai_insight", "AI analysis is temporarily unavailable due to API limits.")
+        return
+
+    for pred in output.get("predictions", []):
+        if pred.get("ai_insight") and "unavailable" not in str(pred["ai_insight"]).lower():
+            continue
+        name = pred.get("name", "?")
+        print(f"  [AI] {name}...")
+        try:
+            pred["ai_insight"] = await predictor.generate_wnba_insight_async(pred)
+        except Exception as e:
+            pred["ai_insight"] = f"AI insight generation failed: {e}"
+
+
+def _load_cached_ai_insights() -> dict[str, str]:
+    if not OUTPUT_FILE.exists():
+        return {}
+    try:
+        data = json.loads(OUTPUT_FILE.read_text(encoding="utf-8"))
+        return {
+            p["game_id"]: p["ai_insight"]
+            for p in data.get("predictions", [])
+            if p.get("game_id") and p.get("ai_insight")
+        }
+    except Exception:
+        return {}
+
+
+# -----------------------------------------------------------------------
 # Ana tahmin fonksiyonu
 # -----------------------------------------------------------------------
 
-def generate_predictions(save: bool = True) -> list[dict[str, Any]]:
+def generate_predictions(save: bool = True, skip_ai: bool = False) -> list[dict[str, Any]]:
     """
     today_predictions_raw.json'daki her mac icin:
       - Win olasiligi (kalibrasyon + Platt)
@@ -354,27 +376,37 @@ def generate_predictions(save: bool = True) -> list[dict[str, Any]]:
     win_model, spread_model, total_model, calib = _load_models()
     print(f"[INFO] {len(matches)} mac icin tahmin uretiliyor...")
 
+    cached_ai = _load_cached_ai_insights()
     predictions: list[dict[str, Any]] = []
 
     for match in matches:
         feats = match.get("features", {})
-        row = []
+
+        win_row = []
+        reg_row = []
         ok = True
-        for col in FEATURE_COLS:
+        for col in WIN_FEATURE_COLS:
             v = feats.get(col)
             if v is None:
                 ok = False
                 break
-            row.append(float(v))
+            win_row.append(float(v))
+        for col in SPREAD_TOTAL_FEATURE_COLS:
+            v = feats.get(col)
+            if v is None:
+                ok = False
+                break
+            reg_row.append(float(v))
 
         if not ok:
             print(f"  [SKIP] Eksik feature: {match.get('name', '?')}")
             continue
 
-        X = np.array([row], dtype=np.float32)
+        X_win = np.array([win_row], dtype=np.float32)
+        X_reg = np.array([reg_row], dtype=np.float32)
 
         # --- Model tahminleri ---
-        raw_prob_home = float(win_model.predict_proba(X)[0][1])
+        raw_prob_home = float(win_model.predict_proba(X_win)[0][1])
 
         if calib.get("coef"):
             home_win_prob = _platt_calibrate(
@@ -384,8 +416,8 @@ def generate_predictions(save: bool = True) -> list[dict[str, Any]]:
             home_win_prob = max(0.04, min(0.96, raw_prob_home))
 
         away_win_prob = 1.0 - home_win_prob
-        pred_spread = float(spread_model.predict(X)[0])
-        pred_total = float(total_model.predict(X)[0])
+        pred_spread = float(spread_model.predict(X_reg)[0])
+        pred_total = float(total_model.predict(X_reg)[0])
 
         # --- Model-implied odds ---
         implied_home_ml = prob_to_american(home_win_prob)
@@ -448,6 +480,7 @@ def generate_predictions(save: bool = True) -> list[dict[str, Any]]:
             "rest_home": match.get("rest_home"),
             "rest_away": match.get("rest_away"),
             "features": feats,
+            "ai_insight": cached_ai.get(match["game_id"]),
         })
 
         print(
@@ -463,11 +496,23 @@ def generate_predictions(save: bool = True) -> list[dict[str, Any]]:
             "date": raw_data.get("date", ""),
             "generated_at": datetime.now(timezone.utc).isoformat(),
             "match_count": len(predictions),
+            "beta_version": BETA_VERSION,
+            "model_meta": load_model_meta(),
             "predictions": predictions,
         }
+        if predictions and not skip_ai:
+            asyncio.run(generate_wnba_ai_insights_async(output))
+
         OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
         with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
             json.dump(output, f, ensure_ascii=False, indent=2)
+
+        archive_dir = DATA_DIR / "archive"
+        archive_dir.mkdir(parents=True, exist_ok=True)
+        archive_path = archive_dir / f"predictions_{output['date']}.json"
+        with open(archive_path, "w", encoding="utf-8") as f:
+            json.dump(output, f, ensure_ascii=False, indent=2)
+
         print(f"[OK] {len(predictions)} tahmin kaydedildi -> {OUTPUT_FILE}")
 
     return predictions
@@ -475,9 +520,11 @@ def generate_predictions(save: bool = True) -> list[dict[str, Any]]:
 
 def _save_empty(date_str: str) -> None:
     output = {
-        "date": date_str,
+        "date": date_str or datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d"),
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "match_count": 0,
+        "beta_version": BETA_VERSION,
+        "model_meta": load_model_meta(),
         "predictions": [],
     }
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
@@ -492,8 +539,9 @@ def _save_empty(date_str: str) -> None:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="WNBA gunluk tahmin")
     parser.add_argument("--no-save", action="store_true")
+    parser.add_argument("--skip-ai", action="store_true")
     args = parser.parse_args(argv)
-    generate_predictions(save=not args.no_save)
+    generate_predictions(save=not args.no_save, skip_ai=args.skip_ai)
     return 0
 
 

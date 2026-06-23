@@ -1,0 +1,152 @@
+{
+  "game_id": "401391778",
+  "date": "2022-07-05",
+  "season": 2022,
+  "home_team_id": "5",
+  "away_team_id": "14",
+  "players_by_team": {
+    "14": [
+      {
+        "athlete_id": "2998928",
+        "name": "Breanna Stewart",
+        "minutes": 24.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3142328",
+        "name": "Gabby Williams",
+        "minutes": 23.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "4420318",
+        "name": "Ezi Magbegor",
+        "minutes": 22.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "91",
+        "name": "Sue Bird",
+        "minutes": 23.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2987869",
+        "name": "Jewell Loyd",
+        "minutes": 29.0,
+        "points": 25
+      },
+      {
+        "athlete_id": "1013",
+        "name": "Jantel Lavender",
+        "minutes": 12.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3099736",
+        "name": "Stephanie Talbot",
+        "minutes": 17.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "918",
+        "name": "Tina Charles",
+        "minutes": 22.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "860",
+        "name": "Briann January",
+        "minutes": 17.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "882",
+        "name": "Epiphanny Prince",
+        "minutes": 11.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3056672",
+        "name": "Mercedes Russell",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "5": [
+      {
+        "athlete_id": "4398729",
+        "name": "Emily Engstler",
+        "minutes": 21.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4398776",
+        "name": "NaLyssa Smith",
+        "minutes": 33.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "1014",
+        "name": "Danielle Robinson",
+        "minutes": 21.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3142191",
+        "name": "Kelsey Mitchell",
+        "minutes": 38.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "3142948",
+        "name": "Victoria Vivians",
+        "minutes": 22.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "2284331",
+        "name": "Emma Cannon",
+        "minutes": 17.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2529185",
+        "name": "Bria Hartley",
+        "minutes": 18.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2984741",
+        "name": "Tiffany Mitchell",
+        "minutes": 13.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4280859",
+        "name": "Khayla Pointer",
+        "minutes": 6.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4398751",
+        "name": "Destanni Henderson",
+        "minutes": 13.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4398779",
+        "name": "Queen Egbo",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398829",
+        "name": "Lexie Hull",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:27:40.065558+00:00"
+}

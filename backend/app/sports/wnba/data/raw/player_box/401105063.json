@@ -1,0 +1,158 @@
+{
+  "game_id": "401105063",
+  "date": "2019-08-17",
+  "season": 2019,
+  "home_team_id": "19",
+  "away_team_id": "6",
+  "players_by_team": {
+    "6": [
+      {
+        "athlete_id": "812",
+        "name": "Candace Parker",
+        "minutes": 30.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "1068",
+        "name": "Nneka Ogwumike",
+        "minutes": 24.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "2490528",
+        "name": "Tierra Ruffin-Pratt",
+        "minutes": 22.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "2529122",
+        "name": "Chelsea Gray",
+        "minutes": 39.0,
+        "points": 25
+      },
+      {
+        "athlete_id": "3055808",
+        "name": "Sydney Wiese",
+        "minutes": 28.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2529950",
+        "name": "Chiney Ogwumike",
+        "minutes": 13.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4329370",
+        "name": "Maria Kliundikova",
+        "minutes": 14.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "581",
+        "name": "Alana Beard",
+        "minutes": 25.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2984245",
+        "name": "Alexis Jones",
+        "minutes": 6.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3916514",
+        "name": "Kalani Brown",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1049",
+        "name": "Riquna Williams",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3904576",
+        "name": "Marina Mabrey",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "19": [
+      {
+        "athlete_id": "2529183",
+        "name": "Stefanie Dolson",
+        "minutes": 29.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3099025",
+        "name": "Astou Ndour-Fall",
+        "minutes": 25.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "764",
+        "name": "Allie Quigley",
+        "minutes": 33.0,
+        "points": 26
+      },
+      {
+        "athlete_id": "981",
+        "name": "Courtney Vandersloot",
+        "minutes": 33.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "3058902",
+        "name": "Diamond DeShields",
+        "minutes": 28.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2529458",
+        "name": "Cheyenne Parker-Tyus",
+        "minutes": 23.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3142328",
+        "name": "Gabby Williams",
+        "minutes": 13.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3917453",
+        "name": "Katie Lou Samuelson",
+        "minutes": 4.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "2998938",
+        "name": "Kahleah Copper",
+        "minutes": 13.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "1013",
+        "name": "Jantel Lavender",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2529603",
+        "name": "Jamierra Faulkner",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3142082",
+        "name": "Chloe Jackson",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:22:55.748812+00:00"
+}

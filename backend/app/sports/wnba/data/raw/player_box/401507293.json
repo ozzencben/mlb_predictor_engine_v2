@@ -1,0 +1,134 @@
+{
+  "game_id": "401507293",
+  "date": "2023-08-06",
+  "season": 2023,
+  "home_team_id": "16",
+  "away_team_id": "6",
+  "players_by_team": {
+    "6": [
+      {
+        "athlete_id": "1068",
+        "name": "Nneka Ogwumike",
+        "minutes": 32.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "3142010",
+        "name": "Azura Stevens",
+        "minutes": 25.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "2490794",
+        "name": "Layshia Clarendon",
+        "minutes": 21.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3056730",
+        "name": "Karlie Samuelson",
+        "minutes": 30.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "3142250",
+        "name": "Jordin Canada",
+        "minutes": 40.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "2566106",
+        "name": "Dearica Hamby",
+        "minutes": 23.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "1008",
+        "name": "Jasmine Thomas",
+        "minutes": 7.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398764",
+        "name": "Rae Burrell",
+        "minutes": 4.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4432832",
+        "name": "Zia Cooke",
+        "minutes": 19.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4280890",
+        "name": "Evina Westbrook",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "16": [
+      {
+        "athlete_id": "2490514",
+        "name": "Tianna Hawkins",
+        "minutes": 29.0,
+        "points": 23
+      },
+      {
+        "athlete_id": "3142055",
+        "name": "Myisha Hines-Allen",
+        "minutes": 24.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "2529137",
+        "name": "Natasha Cloud",
+        "minutes": 35.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "2988756",
+        "name": "Brittney Sykes",
+        "minutes": 33.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "3058893",
+        "name": "Shatori Walker-Kimbrough",
+        "minutes": 34.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "2590356",
+        "name": "Cyesha Damian Goree",
+        "minutes": 8.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4398779",
+        "name": "Queen Egbo",
+        "minutes": 18.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "3056639",
+        "name": "Linnae Harper",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4422424",
+        "name": "Li Meng",
+        "minutes": 18.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "4281402",
+        "name": "Abby Meyers",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:30:06.554307+00:00"
+}

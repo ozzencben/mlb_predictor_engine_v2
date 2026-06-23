@@ -1,0 +1,152 @@
+{
+  "game_id": "401507165",
+  "date": "2023-06-07",
+  "season": 2023,
+  "home_team_id": "19",
+  "away_team_id": "5",
+  "players_by_team": {
+    "5": [
+      {
+        "athlete_id": "4398776",
+        "name": "NaLyssa Smith",
+        "minutes": 19.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4432831",
+        "name": "Aliyah Boston",
+        "minutes": 39.0,
+        "points": 25
+      },
+      {
+        "athlete_id": "2491214",
+        "name": "Erica Wheeler",
+        "minutes": 38.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3142191",
+        "name": "Kelsey Mitchell",
+        "minutes": 38.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "4398829",
+        "name": "Lexie Hull",
+        "minutes": 24.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4398779",
+        "name": "Queen Egbo",
+        "minutes": 6.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3142948",
+        "name": "Victoria Vivians",
+        "minutes": 26.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "3156318",
+        "name": "Kristy Wallace",
+        "minutes": 28.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "4398899",
+        "name": "Grace Berger",
+        "minutes": 7.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2284331",
+        "name": "Emma Cannon",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398752",
+        "name": "Victaria Saxton",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4280850",
+        "name": "Maya Caldwell",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "19": [
+      {
+        "athlete_id": "3913881",
+        "name": "Alanna Smith",
+        "minutes": 39.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "2566081",
+        "name": "Elizabeth Williams",
+        "minutes": 30.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2987891",
+        "name": "Courtney Williams",
+        "minutes": 31.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "2998938",
+        "name": "Kahleah Copper",
+        "minutes": 38.0,
+        "points": 24
+      },
+      {
+        "athlete_id": "3904576",
+        "name": "Marina Mabrey",
+        "minutes": 30.0,
+        "points": 28
+      },
+      {
+        "athlete_id": "2529567",
+        "name": "Robyn Parks",
+        "minutes": 15.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5017721",
+        "name": "Sika Kone",
+        "minutes": 9.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4281190",
+        "name": "Dana Evans",
+        "minutes": 32.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "2566453",
+        "name": "Isabelle Harrison",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3143510",
+        "name": "Morgan Bertsch",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2327695",
+        "name": "Rebekah Gardner",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:28:59.906426+00:00"
+}

@@ -1,0 +1,152 @@
+{
+  "game_id": "401230756",
+  "date": "2020-08-01",
+  "season": 2020,
+  "home_team_id": "18",
+  "away_team_id": "8",
+  "players_by_team": {
+    "8": [
+      {
+        "athlete_id": "3917450",
+        "name": "Napheesa Collier",
+        "minutes": 37.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "766",
+        "name": "Sylvia Fowles",
+        "minutes": 27.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "2955898",
+        "name": "Damiris Dantas",
+        "minutes": 34.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "1074",
+        "name": "Shenise Johnson",
+        "minutes": 5.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4066585",
+        "name": "Crystal Dangerfield",
+        "minutes": 37.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "3056728",
+        "name": "Erica McCall",
+        "minutes": 8.0,
+        "points": 1
+      },
+      {
+        "athlete_id": "3164610",
+        "name": "Megan Huff",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3906972",
+        "name": "Bridget Carleton",
+        "minutes": 23.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4065759",
+        "name": "Mikiah Herbert Harrigan",
+        "minutes": 10.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2491232",
+        "name": "Kayla Alexander",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2566186",
+        "name": "Rachel Banham",
+        "minutes": 18.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3058892",
+        "name": "Lexie Brown",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "18": [
+      {
+        "athlete_id": "869",
+        "name": "DeWanna Bonner",
+        "minutes": 38.0,
+        "points": 28
+      },
+      {
+        "athlete_id": "2529140",
+        "name": "Alyssa Thomas",
+        "minutes": 39.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3058895",
+        "name": "Brionna Jones",
+        "minutes": 27.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "1008",
+        "name": "Jasmine Thomas",
+        "minutes": 31.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "2999140",
+        "name": "Bria Holmes",
+        "minutes": 25.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "2530082",
+        "name": "Theresa Plaisance",
+        "minutes": 6.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2590092",
+        "name": "Kaleena Mosqueda-Lewis",
+        "minutes": 14.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3916517",
+        "name": "Beatrice Mompremier",
+        "minutes": 1.0,
+        "points": 1
+      },
+      {
+        "athlete_id": "2238341",
+        "name": "Jacki Gemelos",
+        "minutes": 8.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3906753",
+        "name": "Natisha Hiedeman",
+        "minutes": 9.0,
+        "points": 1
+      },
+      {
+        "athlete_id": "4065780",
+        "name": "Kaila Charles",
+        "minutes": 2.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:23:39.117192+00:00"
+}

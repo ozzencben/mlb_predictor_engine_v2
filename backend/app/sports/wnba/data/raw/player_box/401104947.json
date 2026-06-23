@@ -1,0 +1,134 @@
+{
+  "game_id": "401104947",
+  "date": "2019-06-14",
+  "season": 2019,
+  "home_team_id": "3",
+  "away_team_id": "5",
+  "players_by_team": {
+    "5": [
+      {
+        "athlete_id": "689",
+        "name": "Candice Dupree",
+        "minutes": 35.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "2529203",
+        "name": "Natalie Achonwa",
+        "minutes": 29.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2491214",
+        "name": "Erica Wheeler",
+        "minutes": 19.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2593770",
+        "name": "Betnijah Laney-Hamilton",
+        "minutes": 39.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3142191",
+        "name": "Kelsey Mitchell",
+        "minutes": 30.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "3913903",
+        "name": "Teaira McCowan",
+        "minutes": 16.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2984741",
+        "name": "Tiffany Mitchell",
+        "minutes": 31.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "3143149",
+        "name": "Paris Kea",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3056728",
+        "name": "Erica McCall",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3058900",
+        "name": "Stephanie Mavunga",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "3": [
+      {
+        "athlete_id": "1053",
+        "name": "Glory Johnson",
+        "minutes": 18.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "2529622",
+        "name": "Kayla Thornton",
+        "minutes": 36.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "2566453",
+        "name": "Isabelle Harrison",
+        "minutes": 18.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3058888",
+        "name": "Kaela Davis",
+        "minutes": 21.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "3058901",
+        "name": "Allisha Gray",
+        "minutes": 35.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2530082",
+        "name": "Theresa Plaisance",
+        "minutes": 26.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "2984237",
+        "name": "Imani McGee-Stafford",
+        "minutes": 15.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3142010",
+        "name": "Azura Stevens",
+        "minutes": 8.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3146149",
+        "name": "Brooke McCarty-Williams",
+        "minutes": 23.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3934218",
+        "name": "Megan Gustafson",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:21:48.146515+00:00"
+}

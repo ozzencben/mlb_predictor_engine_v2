@@ -1,0 +1,134 @@
+{
+  "game_id": "401736268",
+  "date": "2025-07-26",
+  "season": 2025,
+  "home_team_id": "129689",
+  "away_team_id": "3",
+  "players_by_team": {
+    "3": [
+      {
+        "athlete_id": "4336633",
+        "name": "Li Yueru",
+        "minutes": 13.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4682797",
+        "name": "Luisa Geiselsoder",
+        "minutes": 30.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "3904577",
+        "name": "Arike Ogunbowale",
+        "minutes": 34.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "4433730",
+        "name": "Paige Bueckers",
+        "minutes": 37.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "4434015",
+        "name": "JJ Quinerly",
+        "minutes": 24.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4066548",
+        "name": "DiJonai Carrington",
+        "minutes": 15.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4433807",
+        "name": "Aziaha James",
+        "minutes": 19.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4595910",
+        "name": "Haley Jones",
+        "minutes": 28.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3913903",
+        "name": "Teaira McCowan",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398899",
+        "name": "Grace Berger",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "129689": [
+      {
+        "athlete_id": "4257500",
+        "name": "Cecilia Zandalasini",
+        "minutes": 30.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4790264",
+        "name": "Janelle Salaun",
+        "minutes": 34.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "2569044",
+        "name": "Temi Fagbenle",
+        "minutes": 25.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "1054",
+        "name": "Tiffany Hayes",
+        "minutes": 31.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "4398935",
+        "name": "Veronica Burton",
+        "minutes": 31.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4432834",
+        "name": "Laeticia Amihere",
+        "minutes": 13.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4790263",
+        "name": "Iliana Rupert",
+        "minutes": 15.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "4899328",
+        "name": "Kaitlyn Chen",
+        "minutes": 4.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5208982",
+        "name": "Carla Leite",
+        "minutes": 17.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "4398907",
+        "name": "Kate Martin",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:35:05.166027+00:00"
+}

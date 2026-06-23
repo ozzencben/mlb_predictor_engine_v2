@@ -1,0 +1,2039 @@
+{
+    "date": "2026-06-19",
+    "active_predictions": [
+        {
+            "match_id": "E9URZYwg",
+            "tournament": "WTA - SINGLES: Berlin (Germany), grass",
+            "match_stage": "Round of 32",
+            "match_time": "12:30 ET",
+            "timestamp": 1781886600,
+            "surface": "Grass",
+            "home_player": "Svitolina E.",
+            "away_player": "Eala A.",
+            "p1_id": "jyngIesG",
+            "p2_id": "ppu9X7PH",
+            "p1_country": "Ukraine",
+            "p2_country": "Philippines",
+            "p1_image": "https://static.flashscore.com/res/image/data/0hCIo7h5-WCqsXbkh.png",
+            "p2_image": "https://static.flashscore.com/res/image/data/Me9Rt2Yg-44Oegl12.png",
+            "home_win_probability": 64.44,
+            "away_win_probability": 35.56,
+            "predicted_winner": "Svitolina E.",
+            "p1_odds": 1.45,
+            "p2_odds": 3.1,
+            "edge_percentage": -4.53,
+            "recommended_kelly_bet_percentage": 0.0,
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Svitolina E. -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 62.0,
+                    "model_odds": 1.53,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=64.4%, dom_diff=13.4%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 9.2/9.1 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Svitolina E. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 49.6,
+                    "model_odds": 1.92,
+                    "reason": "Insufficient game dominance gap (6.4%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 55.9,
+                    "model_odds": 1.7,
+                    "reason": "Borderline 3-set probability (44.1%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Svitolina E.",
+                    "confidence": "Low",
+                    "probability": 69.8,
+                    "model_odds": 1.36,
+                    "reason": "First-set win rate gap is small (9.3%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 45.1,
+                    "model_odds": 2.11,
+                    "reason": "Borderline tiebreak probability (45.1%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Medium",
+                    "probability": 35.1,
+                    "model_odds": 2.7,
+                    "reason": "Svitolina E. wins a dominant set (6-0/6-1) in 24% of their matches — the combined match profile projects at least one lopsided set."
+                }
+            ],
+            "p1_stats": {
+                "rank": 8,
+                "elo": 1532.736212601762,
+                "surface_rate": 1.0,
+                "momentum": 0.827,
+                "fatigue": 6,
+                "set_dominance": 0.719,
+                "game_dominance": 0.589,
+                "rest_days": 1,
+                "clutch_win_rate": 84.6,
+                "straight_sets_rate": 40.0,
+                "tiebreak_win_rate": 70.0,
+                "first_set_win_rate": 69.8,
+                "comeback_rate": 38.5,
+                "close_set_rate": 15.3,
+                "avg_games_per_set": 9.15,
+                "bagel_breadstick_rate": 24.3,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Lys E.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "Berlin",
+                        "date": "2026-06-18"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Kalinskaya A.",
+                        "score": "1-0",
+                        "surface": "Grass",
+                        "tournament": "Berlin",
+                        "date": "2026-06-16"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Kostyuk M.",
+                        "score": "1-2",
+                        "surface": "Clay",
+                        "tournament": "French Open",
+                        "date": "2026-06-02"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Bencic B.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "French Open",
+                        "date": "2026-05-31"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Korpatsch T.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "French Open",
+                        "date": "2026-05-29"
+                    }
+                ],
+                "name": "Svitolina E."
+            },
+            "p2_stats": {
+                "rank": 35,
+                "elo": 1466.0373710219303,
+                "surface_rate": 0.889,
+                "momentum": 0.705,
+                "fatigue": 6,
+                "set_dominance": 0.585,
+                "game_dominance": 0.525,
+                "rest_days": 1,
+                "clutch_win_rate": 70.0,
+                "straight_sets_rate": 66.7,
+                "tiebreak_win_rate": 60.0,
+                "first_set_win_rate": 60.5,
+                "comeback_rate": 23.5,
+                "close_set_rate": 17.7,
+                "avg_games_per_set": 9.12,
+                "bagel_breadstick_rate": 14.3,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Rybakina E.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "Berlin",
+                        "date": "2026-06-18"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Vekic D.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "Berlin",
+                        "date": "2026-06-17"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Jovic I.",
+                        "score": "0-2",
+                        "surface": "Grass",
+                        "tournament": "London",
+                        "date": "2026-06-10"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Zhang S.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "London",
+                        "date": "2026-06-09"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Bartunkova N.",
+                        "score": "2-1",
+                        "surface": "Grass",
+                        "tournament": "Birmingham",
+                        "date": "2026-06-07"
+                    }
+                ],
+                "name": "Eala A."
+            },
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 0,
+                "total_matches": 0,
+                "matches": []
+            },
+            "ai_insight": "- Svitolina E. commands the grass court with a perfect 1.0 Court DNA and a substantial ELO advantage (1532.74 vs 1466.04), establishing her as the superior player on this surface.\n- Both athletes arrive equally rested with 1 recovery day and identical recent workloads (6 sets played), indicating no discernible physical or fatigue advantage for either player.\n- With the model projecting Eala A. to win 35.56% of the time against market odds of 3.1 (implying 32.26%), there's a +3.3% positive edge. Bet Eala A. on the Moneyline."
+        }
+    ],
+    "skipped_low_confidence": [
+        {
+            "match_id": "E9fihY2N",
+            "tournament": "ATP - SINGLES: Halle (Germany), grass",
+            "match_stage": "Round of 32",
+            "match_time": "13:00 ET",
+            "timestamp": 1781888400,
+            "surface": "Grass",
+            "home_player": "Tiafoe F.",
+            "away_player": "Auger-Aliassime F.",
+            "p1_id": "AHDLJaph",
+            "p2_id": "CzXh4LAb",
+            "p1_country": "USA",
+            "p2_country": "Canada",
+            "p1_image": "https://static.flashscore.com/res/image/data/A3X3wNil-AJjcvBgm.png",
+            "p2_image": "https://static.flashscore.com/res/image/data/vyQLHQEG-8fYqFF2n.png",
+            "home_win_probability": 45.35,
+            "away_win_probability": 54.65,
+            "predicted_winner": "Auger-Aliassime F.",
+            "p1_odds": 2.34,
+            "p2_odds": 1.68,
+            "edge_percentage": -4.87,
+            "recommended_kelly_bet_percentage": 0.0,
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Tiafoe F. +1.5 Sets",
+                    "confidence": "Medium",
+                    "probability": 69.4,
+                    "model_odds": 1.37,
+                    "reason": "Close projection (54.7%) indicates a tight contest — value on Tiafoe F. to take at least one set."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Medium",
+                    "probability": 40.0,
+                    "model_odds": 2.37,
+                    "reason": "Both players average 10.3 and 11.6 games/set — combined style projects a high-game-count match (Over 21.5 Games)."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Auger-Aliassime F. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 41.2,
+                    "model_odds": 2.31,
+                    "reason": "Insufficient game dominance gap (0.8%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 59.1,
+                    "model_odds": 1.61,
+                    "reason": "Borderline 3-set probability (40.9%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Auger-Aliassime F.",
+                    "confidence": "Low",
+                    "probability": 58.1,
+                    "model_odds": 1.64,
+                    "reason": "First-set win rate gap is small (4.6%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 43.8,
+                    "model_odds": 2.17,
+                    "reason": "Borderline tiebreak probability (43.8%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.5,
+                    "model_odds": 4.87,
+                    "reason": "Low combined bagel profile (19.5%). Unlikely but possible — shown for reference only."
+                }
+            ],
+            "p1_stats": {
+                "rank": 26,
+                "elo": 1472.3689865937208,
+                "surface_rate": 0.8,
+                "momentum": 0.703,
+                "fatigue": 6,
+                "set_dominance": 0.573,
+                "game_dominance": 0.52,
+                "rest_days": 2,
+                "clutch_win_rate": 71.4,
+                "straight_sets_rate": 42.9,
+                "tiebreak_win_rate": 48.1,
+                "first_set_win_rate": 53.5,
+                "comeback_rate": 35.0,
+                "close_set_rate": 29.1,
+                "avg_games_per_set": 10.3,
+                "bagel_breadstick_rate": 4.5,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Shimabukuro S.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "Halle",
+                        "date": "2026-06-17"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Cobolli F.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "Halle",
+                        "date": "2026-06-15"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Lehecka J.",
+                        "score": "0-2",
+                        "surface": "Grass",
+                        "tournament": "Stuttgart",
+                        "date": "2026-06-12"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Hijikata R.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "Stuttgart",
+                        "date": "2026-06-11"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Altmaier D.",
+                        "score": "2-1",
+                        "surface": "Grass",
+                        "tournament": "Stuttgart",
+                        "date": "2026-06-09"
+                    }
+                ],
+                "name": "Tiafoe F."
+            },
+            "p2_stats": {
+                "rank": 4,
+                "elo": 1495.9217886270187,
+                "surface_rate": 0.75,
+                "momentum": 0.69,
+                "fatigue": 8,
+                "set_dominance": 0.625,
+                "game_dominance": 0.528,
+                "rest_days": 2,
+                "clutch_win_rate": 70.0,
+                "straight_sets_rate": 60.0,
+                "tiebreak_win_rate": 60.0,
+                "first_set_win_rate": 58.1,
+                "comeback_rate": 44.4,
+                "close_set_rate": 25.4,
+                "avg_games_per_set": 11.58,
+                "bagel_breadstick_rate": 15.7,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Tien L.",
+                        "score": "2-1",
+                        "surface": "Grass",
+                        "tournament": "Halle",
+                        "date": "2026-06-17"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Borges N.",
+                        "score": "2-1",
+                        "surface": "Grass",
+                        "tournament": "Halle",
+                        "date": "2026-06-15"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Majchrzak K.",
+                        "score": "0-2",
+                        "surface": "Grass",
+                        "tournament": "Hertogenbosch",
+                        "date": "2026-06-12"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Fucsovics M.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "Hertogenbosch",
+                        "date": "2026-06-11"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Cobolli F.",
+                        "score": "1-3",
+                        "surface": "Clay",
+                        "tournament": "French Open",
+                        "date": "2026-06-03"
+                    }
+                ],
+                "name": "Auger-Aliassime F."
+            },
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 0,
+                "total_matches": 0,
+                "matches": []
+            },
+            "ai_insight": "AI analysis is temporarily unavailable due to daily API limits."
+        },
+        {
+            "match_id": "hhLGiMld",
+            "tournament": "ATP - SINGLES: London (United Kingdom), grass",
+            "match_stage": "Round of 32",
+            "match_time": "12:30 ET",
+            "timestamp": 1781886600,
+            "surface": "Grass",
+            "home_player": "Paul T.",
+            "away_player": "Davidovich Fokina A.",
+            "p1_id": "pd3ye1BS",
+            "p2_id": "0zQXLfz4",
+            "p1_country": "USA",
+            "p2_country": "Spain",
+            "p1_image": "https://static.flashscore.com/res/image/data/v7Wf42il-pQ0ElVBe.png",
+            "p2_image": "https://static.flashscore.com/res/image/data/fLk5DXhl-SbT3RDiH.png",
+            "home_win_probability": 49.57,
+            "away_win_probability": 50.43,
+            "predicted_winner": "Davidovich Fokina A.",
+            "p1_odds": 1.4,
+            "p2_odds": 3.22,
+            "edge_percentage": 19.38,
+            "recommended_kelly_bet_percentage": 7.03,
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Paul T. +1.5 Sets",
+                    "confidence": "Medium",
+                    "probability": 74.5,
+                    "model_odds": 1.28,
+                    "reason": "Close projection (50.4%) indicates a tight contest — value on Paul T. to take at least one set."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 40.2,
+                    "model_odds": 2.36,
+                    "reason": "Mixed total-games signal (avg 10.1/10.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Davidovich Fokina A. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.9,
+                    "model_odds": 2.07,
+                    "reason": "Insufficient game dominance gap (-3.9%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 57.6,
+                    "model_odds": 1.65,
+                    "reason": "Borderline 3-set probability (42.4%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Paul T.",
+                    "confidence": "Low",
+                    "probability": 65.1,
+                    "model_odds": 1.46,
+                    "reason": "First-set win rate gap is small (9.3%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 46.1,
+                    "model_odds": 2.06,
+                    "reason": "Borderline tiebreak probability (46.1%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 15.3,
+                    "model_odds": 6.22,
+                    "reason": "Low combined bagel profile (15.3%). Unlikely but possible — shown for reference only."
+                }
+            ],
+            "p1_stats": {
+                "rank": 28,
+                "elo": 1485.4813714186128,
+                "surface_rate": 1.0,
+                "momentum": 0.743,
+                "fatigue": 9,
+                "set_dominance": 0.655,
+                "game_dominance": 0.548,
+                "rest_days": 1,
+                "clutch_win_rate": 64.0,
+                "straight_sets_rate": 54.8,
+                "tiebreak_win_rate": 59.1,
+                "first_set_win_rate": 65.1,
+                "comeback_rate": 53.3,
+                "close_set_rate": 28.6,
+                "avg_games_per_set": 10.08,
+                "bagel_breadstick_rate": 9.0,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Van De Zandschulp B.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "London",
+                        "date": "2026-06-18"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Svajda Z.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "London",
+                        "date": "2026-06-15"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Ruud C.",
+                        "score": "2-3",
+                        "surface": "Clay",
+                        "tournament": "French Open",
+                        "date": "2026-05-29"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Sonego L.",
+                        "score": "3-0",
+                        "surface": "Clay",
+                        "tournament": "French Open",
+                        "date": "2026-05-27"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Hijikata R.",
+                        "score": "3-1",
+                        "surface": "Clay",
+                        "tournament": "French Open",
+                        "date": "2026-05-25"
+                    }
+                ],
+                "name": "Paul T."
+            },
+            "p2_stats": {
+                "rank": 22,
+                "elo": 1525.8227368069183,
+                "surface_rate": 0.667,
+                "momentum": 0.552,
+                "fatigue": 7,
+                "set_dominance": 0.559,
+                "game_dominance": 0.509,
+                "rest_days": 1,
+                "clutch_win_rate": 58.3,
+                "straight_sets_rate": 68.0,
+                "tiebreak_win_rate": 54.5,
+                "first_set_win_rate": 55.8,
+                "comeback_rate": 21.1,
+                "close_set_rate": 28.2,
+                "avg_games_per_set": 10.0,
+                "bagel_breadstick_rate": 6.9,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Moutet C.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "London",
+                        "date": "2026-06-18"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Norrie C.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "London",
+                        "date": "2026-06-16"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Bellucci M.",
+                        "score": "1-2",
+                        "surface": "Grass",
+                        "tournament": "Stuttgart",
+                        "date": "2026-06-08"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Tirante T. A.",
+                        "score": "1-3",
+                        "surface": "Clay",
+                        "tournament": "French Open",
+                        "date": "2026-05-27"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Dzumhur D.",
+                        "score": "3-2",
+                        "surface": "Clay",
+                        "tournament": "French Open",
+                        "date": "2026-05-24"
+                    }
+                ],
+                "name": "Davidovich Fokina A."
+            },
+            "h2h_summary": {
+                "p1_wins": 1,
+                "p2_wins": 0,
+                "total_matches": 1,
+                "matches": [
+                    {
+                        "date": "2026-01-23",
+                        "tournament": "Australian Open",
+                        "surface": "Hard",
+                        "winner": "Paul T.",
+                        "score": "2-0"
+                    }
+                ]
+            },
+            "ai_insight": "AI analysis is temporarily unavailable due to daily API limits."
+        },
+        {
+            "match_id": "lSQUzeue",
+            "tournament": "ATP - SINGLES: London (United Kingdom), grass",
+            "match_stage": "Round of 32",
+            "match_time": "13:45 ET",
+            "timestamp": 1781891100,
+            "surface": "Grass",
+            "home_player": "Humbert U.",
+            "away_player": "Hijikata R.",
+            "p1_id": "O4ywE5Ah",
+            "p2_id": "f9eT4NTQ",
+            "p1_country": "France",
+            "p2_country": "Australia",
+            "p1_image": "https://static.flashscore.com/res/image/data/MVi1SsWg-x6lv4PUq.png",
+            "p2_image": "https://static.flashscore.com/res/image/data/tzqKkUjl-vatznZpf.png",
+            "home_win_probability": 56.43,
+            "away_win_probability": 43.57,
+            "predicted_winner": "Humbert U.",
+            "p1_odds": 1.5,
+            "p2_odds": 2.76,
+            "edge_percentage": -10.23,
+            "recommended_kelly_bet_percentage": 0.0,
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Hijikata R. +1.5 Sets",
+                    "confidence": "Medium",
+                    "probability": 67.3,
+                    "model_odds": 1.41,
+                    "reason": "Close projection (56.4%) indicates a tight contest — value on Hijikata R. to take at least one set."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 22.5 Games",
+                    "confidence": "High",
+                    "probability": 61.0,
+                    "model_odds": 1.56,
+                    "reason": "Both players average 13.8 and 10.0 games/set — combined style projects a high-game-count match (Over 22.5 Games)."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Humbert U. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 41.4,
+                    "model_odds": 2.3,
+                    "reason": "Insufficient game dominance gap (0.9%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 64.8,
+                    "model_odds": 1.47,
+                    "reason": "Borderline 3-set probability (35.2%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Humbert U.",
+                    "confidence": "Medium",
+                    "probability": 58.1,
+                    "model_odds": 1.64,
+                    "reason": "Humbert U. wins the opening set in 58% of matches — a +19% edge over the opponent on the first-set market."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 45.1,
+                    "model_odds": 2.11,
+                    "reason": "Borderline tiebreak probability (45.1%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 14.6,
+                    "model_odds": 6.49,
+                    "reason": "Low combined bagel profile (14.6%). Unlikely but possible — shown for reference only."
+                }
+            ],
+            "p1_stats": {
+                "rank": 33,
+                "elo": 1504.7873823276045,
+                "surface_rate": 0.667,
+                "momentum": 0.519,
+                "fatigue": 7,
+                "set_dominance": 0.531,
+                "game_dominance": 0.51,
+                "rest_days": 3,
+                "clutch_win_rate": 31.2,
+                "straight_sets_rate": 72.7,
+                "tiebreak_win_rate": 52.4,
+                "first_set_win_rate": 58.1,
+                "comeback_rate": 0.0,
+                "close_set_rate": 25.4,
+                "avg_games_per_set": 13.79,
+                "bagel_breadstick_rate": 8.3,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Cilic M.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "London",
+                        "date": "2026-06-16"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Bonzi B.",
+                        "score": "1-2",
+                        "surface": "Grass",
+                        "tournament": "Hertogenbosch",
+                        "date": "2026-06-11"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Ymer E.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "Hertogenbosch",
+                        "date": "2026-06-08"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Halys Q.",
+                        "score": "0-3",
+                        "surface": "Clay",
+                        "tournament": "French Open",
+                        "date": "2026-05-27"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Mannarino A.",
+                        "score": "3-0",
+                        "surface": "Clay",
+                        "tournament": "French Open",
+                        "date": "2026-05-25"
+                    }
+                ],
+                "name": "Humbert U."
+            },
+            "p2_stats": {
+                "rank": 104,
+                "elo": 1553.6440703955036,
+                "surface_rate": 0.778,
+                "momentum": 0.676,
+                "fatigue": 8,
+                "set_dominance": 0.527,
+                "game_dominance": 0.501,
+                "rest_days": 1,
+                "clutch_win_rate": 75.0,
+                "straight_sets_rate": 44.0,
+                "tiebreak_win_rate": 60.9,
+                "first_set_win_rate": 39.5,
+                "comeback_rate": 38.5,
+                "close_set_rate": 29.1,
+                "avg_games_per_set": 10.01,
+                "bagel_breadstick_rate": 6.9,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Lehecka J.",
+                        "score": "2-1",
+                        "surface": "Grass",
+                        "tournament": "London",
+                        "date": "2026-06-18"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Tabilo A.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "London",
+                        "date": "2026-06-16"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Giron M.",
+                        "score": "2-1",
+                        "surface": "Grass",
+                        "tournament": "London",
+                        "date": "2026-06-14"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Prizmic D.",
+                        "score": "2-1",
+                        "surface": "Grass",
+                        "tournament": "London",
+                        "date": "2026-06-13"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Tiafoe F.",
+                        "score": "0-2",
+                        "surface": "Grass",
+                        "tournament": "Stuttgart",
+                        "date": "2026-06-11"
+                    }
+                ],
+                "name": "Hijikata R."
+            },
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 0,
+                "total_matches": 0,
+                "matches": []
+            },
+            "ai_insight": "AI analysis is temporarily unavailable due to daily API limits."
+        },
+        {
+            "match_id": "hzKCDugD",
+            "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II (World)",
+            "match_stage": "Round of 32",
+            "match_time": "22:00 ET",
+            "timestamp": 1781834400,
+            "surface": "Hard",
+            "home_player": "Hong Kong W",
+            "away_player": "Singapore W",
+            "p1_id": "UPqVEi3A",
+            "p2_id": "tdIL3VtH",
+            "p1_country": null,
+            "p2_country": null,
+            "p1_image": null,
+            "p2_image": null,
+            "home_win_probability": 50.86,
+            "away_win_probability": 49.14,
+            "predicted_winner": "Hong Kong W",
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Singapore W +1.5 Sets",
+                    "confidence": "Medium",
+                    "probability": 74.0,
+                    "model_odds": 1.28,
+                    "reason": "Close projection (50.9%) indicates a tight contest — value on Singapore W to take at least one set."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Over 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Mixed total-games signal (avg 11.0/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Hong Kong W -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 52.0,
+                    "model_odds": 1.83,
+                    "reason": "Insufficient game dominance gap (8.0%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "Yes",
+                    "confidence": "High",
+                    "probability": 72.2,
+                    "model_odds": 1.32,
+                    "reason": "Singapore W has a 50% comeback rate and Hong Kong W wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Hong Kong W",
+                    "confidence": "Low",
+                    "probability": 50.0,
+                    "model_odds": 1.9,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 42.9,
+                    "model_odds": 2.21,
+                    "reason": "Borderline tiebreak probability (42.9%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 19.0,
+                    "model_odds": 5.0,
+                    "reason": "Low combined bagel profile (19.0%). Unlikely but possible — shown for reference only."
+                }
+            ],
+            "p1_stats": {
+                "rank": 100,
+                "elo": 1516.0,
+                "surface_rate": 1.0,
+                "momentum": 1.0,
+                "fatigue": 3,
+                "set_dominance": 1.0,
+                "game_dominance": 0.6,
+                "rest_days": 3,
+                "clutch_win_rate": 100.0,
+                "straight_sets_rate": 0.0,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 50.0,
+                "comeback_rate": 50.0,
+                "close_set_rate": 30.0,
+                "avg_games_per_set": 11.0,
+                "bagel_breadstick_rate": 10.0,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Pacific Oceania W",
+                        "score": "3-0",
+                        "surface": "Hard",
+                        "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II",
+                        "date": "2026-06-16"
+                    }
+                ],
+                "name": "Hong Kong W"
+            },
+            "p2_stats": {
+                "rank": 100,
+                "elo": 1500.736306793522,
+                "surface_rate": 0.5,
+                "momentum": 0.526,
+                "fatigue": 5,
+                "set_dominance": 0.6,
+                "game_dominance": 0.52,
+                "rest_days": 1,
+                "clutch_win_rate": 0.0,
+                "straight_sets_rate": 100.0,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 50.0,
+                "comeback_rate": 50.0,
+                "close_set_rate": 30.0,
+                "avg_games_per_set": 11.0,
+                "bagel_breadstick_rate": 10.0,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Kyrgyzstan W",
+                        "score": "2-0",
+                        "surface": "Hard",
+                        "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II",
+                        "date": "2026-06-18"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Philippines W",
+                        "score": "1-2",
+                        "surface": "Hard",
+                        "tournament": "TEAMS - WOMEN: Billie Jean King Cup - Group II",
+                        "date": "2026-06-16"
+                    }
+                ],
+                "name": "Singapore W"
+            },
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 0,
+                "total_matches": 0,
+                "matches": []
+            },
+            "ai_insight": "AI analysis is temporarily unavailable due to daily API limits."
+        }
+    ],
+    "skipped_low_tier": [
+        {
+            "match_id": "v91lVObs",
+            "tournament": "CHALLENGER MEN - SINGLES: Asuncion 2 (Paraguay), clay",
+            "match_stage": "Round of 32",
+            "match_time": "15:00 ET",
+            "timestamp": 1781895600,
+            "surface": "Clay",
+            "home_player": "Huertas Del Pino C.",
+            "away_player": "Estevez J.",
+            "p1_id": "dvetkyid",
+            "p2_id": "v3mDD6Cq",
+            "p1_country": "Peru",
+            "p2_country": "Argentina",
+            "p1_image": "https://static.flashscore.com/res/image/data/zyajFwzB-8WFSabPm.png",
+            "p2_image": "https://static.flashscore.com/res/image/data/UiJSkcxS-vPg6xndO.png",
+            "home_win_probability": 59.52,
+            "away_win_probability": 40.48,
+            "predicted_winner": "Huertas Del Pino C.",
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Huertas Del Pino C. -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 59.5,
+                    "model_odds": 1.6,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=59.5%, dom_diff=-43.8%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 40.7,
+                    "model_odds": 2.33,
+                    "reason": "Mixed total-games signal (avg 9.3/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Huertas Del Pino C. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 54.2,
+                    "model_odds": 1.75,
+                    "reason": "Insufficient game dominance gap (-9.5%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 66.1,
+                    "model_odds": 1.44,
+                    "reason": "Borderline 3-set probability (33.9%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Huertas Del Pino C.",
+                    "confidence": "Low",
+                    "probability": 60.5,
+                    "model_odds": 1.57,
+                    "reason": "First-set win rate gap is small (10.5%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 45.3,
+                    "model_odds": 2.1,
+                    "reason": "Borderline tiebreak probability (45.3%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Low",
+                    "probability": 26.1,
+                    "model_odds": 3.64,
+                    "reason": "Low combined bagel profile (26.1%). Unlikely but possible — shown for reference only."
+                }
+            ],
+            "p1_stats": {
+                "rank": 766,
+                "elo": 1561.499380298906,
+                "surface_rate": 0.535,
+                "momentum": 0.689,
+                "fatigue": 6,
+                "set_dominance": 0.562,
+                "game_dominance": 0.505,
+                "rest_days": 1,
+                "clutch_win_rate": 33.3,
+                "straight_sets_rate": 78.3,
+                "tiebreak_win_rate": 66.7,
+                "first_set_win_rate": 60.5,
+                "comeback_rate": 5.9,
+                "close_set_rate": 22.2,
+                "avg_games_per_set": 9.29,
+                "bagel_breadstick_rate": 17.9,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "La Serna J. M.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Asuncion 2",
+                        "date": "2026-06-18"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Kicker N.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Asuncion 2",
+                        "date": "2026-06-17"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Zeitune M.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Asuncion 2",
+                        "date": "2026-06-16"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Kohlmann E.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Asuncion 2",
+                        "date": "2026-06-15"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Price S.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Asuncion 2",
+                        "date": "2026-06-14"
+                    }
+                ],
+                "name": "Huertas Del Pino C."
+            },
+            "p2_stats": {
+                "rank": 1103,
+                "elo": 1478.6550896005083,
+                "surface_rate": 1.0,
+                "momentum": 1.0,
+                "fatigue": 2,
+                "set_dominance": 1.0,
+                "game_dominance": 0.6,
+                "rest_days": 1,
+                "clutch_win_rate": 50.0,
+                "straight_sets_rate": 100.0,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 50.0,
+                "comeback_rate": 50.0,
+                "close_set_rate": 30.0,
+                "avg_games_per_set": 11.0,
+                "bagel_breadstick_rate": 10.0,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Villanueva G.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "CHALLENGER MEN - SINGLES: Asuncion 2",
+                        "date": "2026-06-18"
+                    }
+                ],
+                "name": "Estevez J."
+            },
+            "h2h_summary": {
+                "p1_wins": 1,
+                "p2_wins": 0,
+                "total_matches": 1,
+                "matches": [
+                    {
+                        "date": "2025-05-05",
+                        "tournament": "Santos",
+                        "surface": "Clay",
+                        "winner": "Huertas Del Pino C.",
+                        "score": "2-0"
+                    }
+                ]
+            }
+        },
+        {
+            "match_id": "IiYJ8Rht",
+            "tournament": "CHALLENGER MEN - SINGLES: Asuncion 2 (Paraguay), clay",
+            "match_stage": "Round of 32",
+            "match_time": "16:30 ET",
+            "timestamp": 1781901000,
+            "surface": "Clay",
+            "home_player": "Justo G. I.",
+            "away_player": "Hardt N.",
+            "p1_id": "CjaTkiTr",
+            "p2_id": "QaQOIXla",
+            "p1_country": "Argentina",
+            "p2_country": "Dominican Republic",
+            "p1_image": "https://static.flashscore.com/res/image/data/dtvJrEyB-tQXS0f5M.png",
+            "p2_image": "https://static.flashscore.com/res/image/data/MNyq4mxS-zHdQoVPP.png",
+            "home_win_probability": 60.77,
+            "away_win_probability": 39.23,
+            "predicted_winner": "Justo G. I.",
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Justo G. I. -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 60.8,
+                    "model_odds": 1.56,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=60.8%, dom_diff=-7.5%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 8.9/9.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Justo G. I. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 43.6,
+                    "model_odds": 2.18,
+                    "reason": "Insufficient game dominance gap (-2.4%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 64.5,
+                    "model_odds": 1.47,
+                    "reason": "Borderline 3-set probability (35.5%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Hardt N.",
+                    "confidence": "Medium",
+                    "probability": 79.1,
+                    "model_odds": 1.2,
+                    "reason": "Hardt N. wins the opening set in 79% of matches — a +16% edge over the opponent on the first-set market."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 61.6,
+                    "model_odds": 1.54,
+                    "reason": "Borderline tiebreak probability (38.4%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "High",
+                    "probability": 46.0,
+                    "model_odds": 2.07,
+                    "reason": "Hardt N. wins a dominant set (6-0/6-1) in 27% of their matches — the combined match profile projects at least one lopsided set."
+                }
+            ],
+            "p1_stats": {
+                "rank": 248,
+                "elo": 1613.4054714950425,
+                "surface_rate": 0.651,
+                "momentum": 0.698,
+                "fatigue": 6,
+                "set_dominance": 0.632,
+                "game_dominance": 0.558,
+                "rest_days": 1,
+                "clutch_win_rate": 50.0,
+                "straight_sets_rate": 71.4,
+                "tiebreak_win_rate": 42.9,
+                "first_set_win_rate": 62.8,
+                "comeback_rate": 18.8,
+                "close_set_rate": 15.5,
+                "avg_games_per_set": 8.94,
+                "bagel_breadstick_rate": 26.2,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Ambrogi L. E.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Asuncion 2",
+                        "date": "2026-06-18"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Gomez J. S.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Asuncion 2",
+                        "date": "2026-06-17"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Hernandez A.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Asuncion 2",
+                        "date": "2026-06-16"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Ambrogi L. E.",
+                        "score": "1-2",
+                        "surface": "Clay",
+                        "tournament": "San Miguel de Tucuman",
+                        "date": "2026-06-13"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Cigarran T.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "San Miguel de Tucuman",
+                        "date": "2026-06-12"
+                    }
+                ],
+                "name": "Justo G. I."
+            },
+            "p2_stats": {
+                "rank": 340,
+                "elo": 1577.6030141281997,
+                "surface_rate": 0.818,
+                "momentum": 0.874,
+                "fatigue": 9,
+                "set_dominance": 0.707,
+                "game_dominance": 0.582,
+                "rest_days": 1,
+                "clutch_win_rate": 80.0,
+                "straight_sets_rate": 63.6,
+                "tiebreak_win_rate": 60.0,
+                "first_set_win_rate": 79.1,
+                "comeback_rate": 44.4,
+                "close_set_rate": 19.8,
+                "avg_games_per_set": 9.01,
+                "bagel_breadstick_rate": 26.8,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Soto M.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "Asuncion 2",
+                        "date": "2026-06-18"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Seyboth Wild T.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "Asuncion 2",
+                        "date": "2026-06-17"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Fernandez B.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "Asuncion 2",
+                        "date": "2026-06-15"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Kicker N.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "San Miguel de Tucuman",
+                        "date": "2026-06-12"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Fernandez B.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "San Miguel de Tucuman",
+                        "date": "2026-06-10"
+                    }
+                ],
+                "name": "Hardt N."
+            },
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 0,
+                "total_matches": 0,
+                "matches": []
+            }
+        },
+        {
+            "match_id": "MJDZYAwg",
+            "tournament": "CHALLENGER MEN - SINGLES: Dublin (Ireland), grass",
+            "match_stage": "Round of 32",
+            "match_time": "11:25 ET",
+            "timestamp": 1781882700,
+            "surface": "Grass",
+            "home_player": "Droguet T.",
+            "away_player": "Rodionov J.",
+            "p1_id": "A57Xet1f",
+            "p2_id": "CKjcTLz1",
+            "p1_country": "France",
+            "p2_country": "Austria",
+            "p1_image": "https://static.flashscore.com/res/image/data/dMaVh5Fa-SjkozvWo.png",
+            "p2_image": "https://static.flashscore.com/res/image/data/SxSmgYjl-hYA50Gfg.png",
+            "home_win_probability": 60.73,
+            "away_win_probability": 39.27,
+            "predicted_winner": "Droguet T.",
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Rodionov J. +1.5 Sets",
+                    "confidence": "Medium",
+                    "probability": 62.1,
+                    "model_odds": 1.53,
+                    "reason": "Droguet T. carries high fatigue (8 sets in last 3 matches), creating a set-cover opportunity for Rodionov J.."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.6,
+                    "model_odds": 2.46,
+                    "reason": "Mixed total-games signal (avg 9.8/9.6 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Droguet T. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 40.5,
+                    "model_odds": 2.35,
+                    "reason": "Insufficient game dominance gap (-0.3%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 62.5,
+                    "model_odds": 1.52,
+                    "reason": "Borderline 3-set probability (37.5%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Droguet T.",
+                    "confidence": "Low",
+                    "probability": 60.5,
+                    "model_odds": 1.57,
+                    "reason": "First-set win rate gap is small (2.4%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 45.0,
+                    "model_odds": 2.11,
+                    "reason": "Borderline tiebreak probability (45.0%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Medium",
+                    "probability": 29.5,
+                    "model_odds": 3.22,
+                    "reason": "Rodionov J. wins a dominant set (6-0/6-1) in 17% of their matches — the combined match profile projects at least one lopsided set."
+                }
+            ],
+            "p1_stats": {
+                "rank": 112,
+                "elo": 1524.0,
+                "surface_rate": 1.0,
+                "momentum": 0.662,
+                "fatigue": 8,
+                "set_dominance": 0.613,
+                "game_dominance": 0.532,
+                "rest_days": 1,
+                "clutch_win_rate": 55.0,
+                "straight_sets_rate": 57.1,
+                "tiebreak_win_rate": 69.6,
+                "first_set_win_rate": 60.5,
+                "comeback_rate": 41.2,
+                "close_set_rate": 27.1,
+                "avg_games_per_set": 9.85,
+                "bagel_breadstick_rate": 15.4,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Sakellaridis S.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "Dublin",
+                        "date": "2026-06-18"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Kym J.",
+                        "score": "2-1",
+                        "surface": "Grass",
+                        "tournament": "Dublin",
+                        "date": "2026-06-17"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Broom C.",
+                        "score": "2-1",
+                        "surface": "Grass",
+                        "tournament": "Dublin",
+                        "date": "2026-06-16"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Mensik J.",
+                        "score": "0-3",
+                        "surface": "Clay",
+                        "tournament": "French Open",
+                        "date": "2026-05-24"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Collignon R.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "Bordeaux",
+                        "date": "2026-05-15"
+                    }
+                ],
+                "name": "Droguet T."
+            },
+            "p2_stats": {
+                "rank": 152,
+                "elo": 1486.191108204718,
+                "surface_rate": 0.8,
+                "momentum": 0.678,
+                "fatigue": 6,
+                "set_dominance": 0.59,
+                "game_dominance": 0.535,
+                "rest_days": 1,
+                "clutch_win_rate": 53.3,
+                "straight_sets_rate": 51.9,
+                "tiebreak_win_rate": 46.7,
+                "first_set_win_rate": 58.1,
+                "comeback_rate": 22.2,
+                "close_set_rate": 24.8,
+                "avg_games_per_set": 9.6,
+                "bagel_breadstick_rate": 16.7,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Zhou Y.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "Dublin",
+                        "date": "2026-06-18"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Smith C.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "Dublin",
+                        "date": "2026-06-17"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Vandecasteele Q.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "Dublin",
+                        "date": "2026-06-16"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Shimabukuro S.",
+                        "score": "0-2",
+                        "surface": "Grass",
+                        "tournament": "Stuttgart",
+                        "date": "2026-06-07"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Castelnuovo L.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "Stuttgart",
+                        "date": "2026-06-06"
+                    }
+                ],
+                "name": "Rodionov J."
+            },
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 0,
+                "total_matches": 0,
+                "matches": []
+            }
+        },
+        {
+            "match_id": "tlzxZx9U",
+            "tournament": "CHALLENGER MEN - SINGLES: Parma (Italy), clay",
+            "match_stage": "Round of 32",
+            "match_time": "13:00 ET",
+            "timestamp": 1781888400,
+            "surface": "Clay",
+            "home_player": "Rincon D.",
+            "away_player": "van Assche L.",
+            "p1_id": "67MpdccF",
+            "p2_id": "nP9K42Bg",
+            "p1_country": "Spain",
+            "p2_country": "France",
+            "p1_image": "https://static.flashscore.com/res/image/data/nBSjF7cM-WKPKQZr7.png",
+            "p2_image": "https://static.flashscore.com/res/image/data/dCxPsrZg-46Trc3Pm.png",
+            "home_win_probability": 42.85,
+            "away_win_probability": 57.15,
+            "predicted_winner": "van Assche L.",
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Rincon D. +1.5 Sets",
+                    "confidence": "Medium",
+                    "probability": 66.4,
+                    "model_odds": 1.43,
+                    "reason": "Close projection (57.2%) indicates a tight contest — value on Rincon D. to take at least one set."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 9.3/9.2 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "van Assche L. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 42.3,
+                    "model_odds": 2.25,
+                    "reason": "Insufficient game dominance gap (1.5%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 62.1,
+                    "model_odds": 1.53,
+                    "reason": "Borderline 3-set probability (37.9%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "van Assche L.",
+                    "confidence": "Medium",
+                    "probability": 60.5,
+                    "model_odds": 1.57,
+                    "reason": "van Assche L. wins the opening set in 60% of matches — a +14% edge over the opponent on the first-set market."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 61.3,
+                    "model_odds": 1.55,
+                    "reason": "Borderline tiebreak probability (38.7%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Medium",
+                    "probability": 40.5,
+                    "model_odds": 2.35,
+                    "reason": "van Assche L. wins a dominant set (6-0/6-1) in 23% of their matches — the combined match profile projects at least one lopsided set."
+                }
+            ],
+            "p1_stats": {
+                "rank": 271,
+                "elo": 1563.632483764401,
+                "surface_rate": 0.636,
+                "momentum": 0.728,
+                "fatigue": 6,
+                "set_dominance": 0.536,
+                "game_dominance": 0.53,
+                "rest_days": 1,
+                "clutch_win_rate": 75.0,
+                "straight_sets_rate": 60.0,
+                "tiebreak_win_rate": 42.9,
+                "first_set_win_rate": 46.5,
+                "comeback_rate": 26.1,
+                "close_set_rate": 24.5,
+                "avg_games_per_set": 9.27,
+                "bagel_breadstick_rate": 22.6,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Gadamauri B.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "Parma",
+                        "date": "2026-06-18"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Napolitano S.",
+                        "score": "1-0",
+                        "surface": "Clay",
+                        "tournament": "Parma",
+                        "date": "2026-06-17"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Martinez P.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Parma",
+                        "date": "2026-06-16"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Blanch D.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "Lyon",
+                        "date": "2026-06-11"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Giustino L.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Lyon",
+                        "date": "2026-06-08"
+                    }
+                ],
+                "name": "Rincon D."
+            },
+            "p2_stats": {
+                "rank": 100,
+                "elo": 1428.7221331709814,
+                "surface_rate": 0.526,
+                "momentum": 0.585,
+                "fatigue": 8,
+                "set_dominance": 0.621,
+                "game_dominance": 0.545,
+                "rest_days": 1,
+                "clutch_win_rate": 50.0,
+                "straight_sets_rate": 60.7,
+                "tiebreak_win_rate": 55.6,
+                "first_set_win_rate": 60.5,
+                "comeback_rate": 23.5,
+                "close_set_rate": 17.3,
+                "avg_games_per_set": 9.21,
+                "bagel_breadstick_rate": 23.1,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Cecchinato M.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "Parma",
+                        "date": "2026-06-18"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Galan D. E.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Parma",
+                        "date": "2026-06-17"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Sanchez Izquierdo N.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "Parma",
+                        "date": "2026-06-15"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Sanchez Izquierdo N.",
+                        "score": "1-2",
+                        "surface": "Clay",
+                        "tournament": "Lyon",
+                        "date": "2026-06-10"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Grenier H.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Lyon",
+                        "date": "2026-06-08"
+                    }
+                ],
+                "name": "van Assche L."
+            },
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 0,
+                "total_matches": 0,
+                "matches": []
+            }
+        },
+        {
+            "match_id": "UBTAzrgU",
+            "tournament": "CHALLENGER WOMEN - SINGLES: Brescia (Italy), clay",
+            "match_stage": "Round of 32",
+            "match_time": "12:05 ET",
+            "timestamp": 1781885100,
+            "surface": "Clay",
+            "home_player": "Rakotomanga Rajaonah T.",
+            "away_player": "Sherif M.",
+            "p1_id": "pz7Viwx2",
+            "p2_id": "0QlxEb7i",
+            "p1_country": "France",
+            "p2_country": "Egypt",
+            "p1_image": "https://static.flashscore.com/res/image/data/AHqqbwvS-t6DiYriL.png",
+            "p2_image": "https://static.flashscore.com/res/image/data/zcbevOfM-GC9sqBUs.png",
+            "home_win_probability": 35.0,
+            "away_win_probability": 65.0,
+            "predicted_winner": "Sherif M.",
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Sherif M. -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 62.0,
+                    "model_odds": 1.53,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=65.0%, dom_diff=19.1%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 9.2/9.4 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Sherif M. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 51.6,
+                    "model_odds": 1.84,
+                    "reason": "Insufficient game dominance gap (7.7%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 62.7,
+                    "model_odds": 1.52,
+                    "reason": "Borderline 3-set probability (37.3%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Sherif M.",
+                    "confidence": "High",
+                    "probability": 62.8,
+                    "model_odds": 1.51,
+                    "reason": "Sherif M. wins the opening set in 63% of matches — a +28% edge over the opponent on the first-set market."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 71.6,
+                    "model_odds": 1.33,
+                    "reason": "Borderline tiebreak probability (28.4%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Medium",
+                    "probability": 34.8,
+                    "model_odds": 2.73,
+                    "reason": "Sherif M. wins a dominant set (6-0/6-1) in 21% of their matches — the combined match profile projects at least one lopsided set."
+                }
+            ],
+            "p1_stats": {
+                "rank": 185,
+                "elo": 1473.6383715775253,
+                "surface_rate": 0.308,
+                "momentum": 0.415,
+                "fatigue": 7,
+                "set_dominance": 0.394,
+                "game_dominance": 0.462,
+                "rest_days": 2,
+                "clutch_win_rate": 66.7,
+                "straight_sets_rate": 41.2,
+                "tiebreak_win_rate": 30.0,
+                "first_set_win_rate": 34.9,
+                "comeback_rate": 21.4,
+                "close_set_rate": 18.0,
+                "avg_games_per_set": 9.17,
+                "bagel_breadstick_rate": 17.5,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Ristic M.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "Brescia",
+                        "date": "2026-06-17"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Lizarazo Y.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Brescia",
+                        "date": "2026-06-15"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Noha Akugue N.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "Modena",
+                        "date": "2026-06-08"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Paquet C.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "Modena",
+                        "date": "2026-06-07"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Anisimova A.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "French Open",
+                        "date": "2026-05-25"
+                    }
+                ],
+                "name": "Rakotomanga Rajaonah T."
+            },
+            "p2_stats": {
+                "rank": 127,
+                "elo": 1508.7096701919038,
+                "surface_rate": 0.641,
+                "momentum": 0.626,
+                "fatigue": 7,
+                "set_dominance": 0.585,
+                "game_dominance": 0.539,
+                "rest_days": 1,
+                "clutch_win_rate": 50.0,
+                "straight_sets_rate": 53.8,
+                "tiebreak_win_rate": 36.4,
+                "first_set_win_rate": 62.8,
+                "comeback_rate": 37.5,
+                "close_set_rate": 19.8,
+                "avg_games_per_set": 9.43,
+                "bagel_breadstick_rate": 21.0,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Ruggeri J.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "Brescia",
+                        "date": "2026-06-18"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Serban R.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Brescia",
+                        "date": "2026-06-15"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Romero Gormaz L.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "Modena",
+                        "date": "2026-06-11"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Pedone G.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Modena",
+                        "date": "2026-06-09"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Pedone G.",
+                        "score": "1-2",
+                        "surface": "Clay",
+                        "tournament": "Foggia",
+                        "date": "2026-06-04"
+                    }
+                ],
+                "name": "Sherif M."
+            },
+            "h2h_summary": {
+                "p1_wins": 0,
+                "p2_wins": 0,
+                "total_matches": 0,
+                "matches": []
+            }
+        }
+    ],
+    "statistics": {
+        "total_unplayed": 20,
+        "active_predictions_count": 1,
+        "skipped_low_confidence_count": 4,
+        "skipped_low_tier_count": 5,
+        "skipped_data_missing_count": 10
+    }
+}

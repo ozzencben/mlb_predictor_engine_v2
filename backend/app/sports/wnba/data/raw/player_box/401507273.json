@@ -1,0 +1,134 @@
+{
+  "game_id": "401507273",
+  "date": "2023-07-29",
+  "season": 2023,
+  "home_team_id": "3",
+  "away_team_id": "16",
+  "players_by_team": {
+    "16": [
+      {
+        "athlete_id": "2490514",
+        "name": "Tianna Hawkins",
+        "minutes": 26.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3142055",
+        "name": "Myisha Hines-Allen",
+        "minutes": 22.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "2529137",
+        "name": "Natasha Cloud",
+        "minutes": 30.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2988756",
+        "name": "Brittney Sykes",
+        "minutes": 29.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3058893",
+        "name": "Shatori Walker-Kimbrough",
+        "minutes": 35.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "2590356",
+        "name": "Cyesha Damian Goree",
+        "minutes": 23.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4398779",
+        "name": "Queen Egbo",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3056639",
+        "name": "Linnae Harper",
+        "minutes": 5.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4281402",
+        "name": "Abby Meyers",
+        "minutes": 5.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4422424",
+        "name": "Li Meng",
+        "minutes": 24.0,
+        "points": 6
+      }
+    ],
+    "3": [
+      {
+        "athlete_id": "2529130",
+        "name": "Natasha Howard",
+        "minutes": 28.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "4281929",
+        "name": "Satou Sabally",
+        "minutes": 33.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "3913903",
+        "name": "Teaira McCowan",
+        "minutes": 25.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "3904577",
+        "name": "Arike Ogunbowale",
+        "minutes": 35.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "4066585",
+        "name": "Crystal Dangerfield",
+        "minutes": 19.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4399415",
+        "name": "Maddy Siegrist",
+        "minutes": 11.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4790266",
+        "name": "Awak Kuier",
+        "minutes": 14.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3916514",
+        "name": "Kalani Brown",
+        "minutes": 12.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2529047",
+        "name": "Odyssey Sims",
+        "minutes": 14.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398935",
+        "name": "Veronica Burton",
+        "minutes": 10.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:29:55.041938+00:00"
+}

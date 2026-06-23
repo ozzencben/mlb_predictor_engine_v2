@@ -1,0 +1,152 @@
+{
+  "game_id": "401320606",
+  "date": "2021-06-03",
+  "season": 2021,
+  "home_team_id": "9",
+  "away_team_id": "17",
+  "players_by_team": {
+    "17": [
+      {
+        "athlete_id": "1017",
+        "name": "Liz Cambage",
+        "minutes": 24.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3149391",
+        "name": "A'ja Wilson",
+        "minutes": 35.0,
+        "points": 30
+      },
+      {
+        "athlete_id": "1049",
+        "name": "Riquna Williams",
+        "minutes": 25.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "2529122",
+        "name": "Chelsea Gray",
+        "minutes": 33.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "4065870",
+        "name": "Jackie Young",
+        "minutes": 40.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "2566106",
+        "name": "Dearica Hamby",
+        "minutes": 24.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4068161",
+        "name": "Joyner Holmes",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3065570",
+        "name": "Kelsey Plum",
+        "minutes": 14.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4065781",
+        "name": "Destiny Slocum",
+        "minutes": 5.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "872",
+        "name": "Angel McCoughtry",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4329389",
+        "name": "Ji-Su Park",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "9": [
+      {
+        "athlete_id": "4065849",
+        "name": "Kylee Shook",
+        "minutes": 5.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4282173",
+        "name": "Michaela Onyenwere",
+        "minutes": 20.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "887",
+        "name": "Sami Whitcomb",
+        "minutes": 29.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "2593770",
+        "name": "Betnijah Laney-Hamilton",
+        "minutes": 36.0,
+        "points": 23
+      },
+      {
+        "athlete_id": "4066533",
+        "name": "Sabrina Ionescu",
+        "minutes": 32.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4065818",
+        "name": "Leaonna Odom",
+        "minutes": 12.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "2590093",
+        "name": "Kiah Stokes",
+        "minutes": 32.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3102133",
+        "name": "Rebecca Allen",
+        "minutes": 25.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "4065850",
+        "name": "Jazmine Jones",
+        "minutes": 4.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4281253",
+        "name": "DiDi Richards",
+        "minutes": 5.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2529130",
+        "name": "Natasha Howard",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4065879",
+        "name": "Jocelyn Willoughby",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:25:08.664959+00:00"
+}

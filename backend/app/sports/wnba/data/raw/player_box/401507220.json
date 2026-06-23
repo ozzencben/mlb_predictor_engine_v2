@@ -1,0 +1,170 @@
+{
+  "game_id": "401507220",
+  "date": "2023-07-01",
+  "season": 2023,
+  "home_team_id": "19",
+  "away_team_id": "6",
+  "players_by_team": {
+    "6": [
+      {
+        "athlete_id": "1068",
+        "name": "Nneka Ogwumike",
+        "minutes": 26.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "2566106",
+        "name": "Dearica Hamby",
+        "minutes": 30.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "1008",
+        "name": "Jasmine Thomas",
+        "minutes": 19.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3056730",
+        "name": "Karlie Samuelson",
+        "minutes": 35.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3142250",
+        "name": "Jordin Canada",
+        "minutes": 16.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3142010",
+        "name": "Azura Stevens",
+        "minutes": 25.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "4398751",
+        "name": "Destanni Henderson",
+        "minutes": 24.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4398764",
+        "name": "Rae Burrell",
+        "minutes": 6.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4432832",
+        "name": "Zia Cooke",
+        "minutes": 19.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2529950",
+        "name": "Chiney Ogwumike",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2490794",
+        "name": "Layshia Clarendon",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3058892",
+        "name": "Lexie Brown",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398921",
+        "name": "Nia Clouden",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "19": [
+      {
+        "athlete_id": "3913881",
+        "name": "Alanna Smith",
+        "minutes": 33.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "2566081",
+        "name": "Elizabeth Williams",
+        "minutes": 26.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "2987891",
+        "name": "Courtney Williams",
+        "minutes": 26.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "2998938",
+        "name": "Kahleah Copper",
+        "minutes": 31.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "3904576",
+        "name": "Marina Mabrey",
+        "minutes": 29.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "2529567",
+        "name": "Robyn Parks",
+        "minutes": 8.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3143510",
+        "name": "Morgan Bertsch",
+        "minutes": 21.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4281190",
+        "name": "Dana Evans",
+        "minutes": 27.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "2566453",
+        "name": "Isabelle Harrison",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3913868",
+        "name": "Kristine Anigwe",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398567",
+        "name": "Taylor Soule",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5017721",
+        "name": "Sika Kone",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2327695",
+        "name": "Rebekah Gardner",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:29:28.345509+00:00"
+}

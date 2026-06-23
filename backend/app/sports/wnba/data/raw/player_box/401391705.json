@@ -1,0 +1,140 @@
+{
+  "game_id": "401391705",
+  "date": "2022-06-01",
+  "season": 2022,
+  "home_team_id": "20",
+  "away_team_id": "8",
+  "players_by_team": {
+    "8": [
+      {
+        "athlete_id": "3906949",
+        "name": "Jessica Shepard",
+        "minutes": 13.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "766",
+        "name": "Sylvia Fowles",
+        "minutes": 36.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "2529205",
+        "name": "Kayla McBride",
+        "minutes": 34.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "2566186",
+        "name": "Rachel Banham",
+        "minutes": 17.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "4280890",
+        "name": "Evina Westbrook",
+        "minutes": 24.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "3906972",
+        "name": "Bridget Carleton",
+        "minutes": 13.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4068346",
+        "name": "Kamiah Smalls",
+        "minutes": 15.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4874475",
+        "name": "Nikolina Milic",
+        "minutes": 28.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "4398625",
+        "name": "Elissa Cunane",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2999035",
+        "name": "Aerial Powers",
+        "minutes": 18.0,
+        "points": 8
+      }
+    ],
+    "20": [
+      {
+        "athlete_id": "2529458",
+        "name": "Cheyenne Parker-Tyus",
+        "minutes": 21.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3054590",
+        "name": "Nia Coffey",
+        "minutes": 17.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2491214",
+        "name": "Erica Wheeler",
+        "minutes": 30.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "3156318",
+        "name": "Kristy Wallace",
+        "minutes": 29.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "4398674",
+        "name": "Rhyne Howard",
+        "minutes": 30.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "3142255",
+        "name": "Monique Billings",
+        "minutes": 23.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3916517",
+        "name": "Beatrice Mompremier",
+        "minutes": 4.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4281077",
+        "name": "Megan Walker",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "838",
+        "name": "Kia Vaughn",
+        "minutes": 14.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4066553",
+        "name": "Aari McDonald",
+        "minutes": 28.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4398915",
+        "name": "Naz Hillmon",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:27:03.038429+00:00"
+}

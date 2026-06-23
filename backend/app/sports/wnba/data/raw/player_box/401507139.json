@@ -1,0 +1,140 @@
+{
+  "game_id": "401507139",
+  "date": "2023-05-23",
+  "season": 2023,
+  "home_team_id": "16",
+  "away_team_id": "18",
+  "players_by_team": {
+    "18": [
+      {
+        "athlete_id": "869",
+        "name": "DeWanna Bonner",
+        "minutes": 32.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "2529140",
+        "name": "Alyssa Thomas",
+        "minutes": 36.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "3058895",
+        "name": "Brionna Jones",
+        "minutes": 23.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "1054",
+        "name": "Tiffany Hayes",
+        "minutes": 31.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "3906753",
+        "name": "Natisha Hiedeman",
+        "minutes": 37.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4066563",
+        "name": "Lauren Cox",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398966",
+        "name": "Olivia Nelson-Ododa",
+        "minutes": 15.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "3102133",
+        "name": "Rebecca Allen",
+        "minutes": 14.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4065760",
+        "name": "Tyasha Harris",
+        "minutes": 7.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4398928",
+        "name": "Leigha Brown",
+        "minutes": 6.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4066548",
+        "name": "DiJonai Carrington",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "16": [
+      {
+        "athlete_id": "2491877",
+        "name": "Elena Delle Donne",
+        "minutes": 36.0,
+        "points": 27
+      },
+      {
+        "athlete_id": "4398911",
+        "name": "Shakira Austin",
+        "minutes": 27.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "2529137",
+        "name": "Natasha Cloud",
+        "minutes": 34.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "2988756",
+        "name": "Brittney Sykes",
+        "minutes": 32.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "3146151",
+        "name": "Ariel Atkins",
+        "minutes": 23.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "2490514",
+        "name": "Tianna Hawkins",
+        "minutes": 16.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3007473",
+        "name": "Amanda Zahui B.",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "856",
+        "name": "Kristi Toliver",
+        "minutes": 12.0,
+        "points": 1
+      },
+      {
+        "athlete_id": "3058893",
+        "name": "Shatori Walker-Kimbrough",
+        "minutes": 18.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4422424",
+        "name": "Li Meng",
+        "minutes": 3.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:28:47.572332+00:00"
+}

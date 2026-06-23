@@ -1,0 +1,128 @@
+{
+  "game_id": "401320693",
+  "date": "2021-08-18",
+  "season": 2021,
+  "home_team_id": "11",
+  "away_team_id": "5",
+  "players_by_team": {
+    "5": [
+      {
+        "athlete_id": "1002",
+        "name": "Jessica Breland",
+        "minutes": 15.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3913903",
+        "name": "Teaira McCowan",
+        "minutes": 25.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "1014",
+        "name": "Danielle Robinson",
+        "minutes": 33.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "2984741",
+        "name": "Tiffany Mitchell",
+        "minutes": 28.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3142191",
+        "name": "Kelsey Mitchell",
+        "minutes": 36.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "2284331",
+        "name": "Emma Cannon",
+        "minutes": 15.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3058908",
+        "name": "Lindsay Allen",
+        "minutes": 11.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3142948",
+        "name": "Victoria Vivians",
+        "minutes": 30.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "4065692",
+        "name": "Aaliyah Wilson",
+        "minutes": 7.0,
+        "points": 3
+      }
+    ],
+    "11": [
+      {
+        "athlete_id": "3142086",
+        "name": "Brianna Turner",
+        "minutes": 29.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2490553",
+        "name": "Brittney Griner",
+        "minutes": 33.0,
+        "points": 25
+      },
+      {
+        "athlete_id": "585",
+        "name": "Diana Taurasi",
+        "minutes": 33.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "2491205",
+        "name": "Skylar Diggins",
+        "minutes": 1.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3142327",
+        "name": "Kia Nurse",
+        "minutes": 25.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "3913881",
+        "name": "Alanna Smith",
+        "minutes": 11.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4281077",
+        "name": "Megan Walker",
+        "minutes": 16.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "838",
+        "name": "Kia Vaughn",
+        "minutes": 7.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1107",
+        "name": "Shey Peddy",
+        "minutes": 21.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3907781",
+        "name": "Sophie Cunningham",
+        "minutes": 24.0,
+        "points": 8
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:25:52.450732+00:00"
+}

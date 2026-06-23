@@ -1,0 +1,140 @@
+{
+  "game_id": "401391721",
+  "date": "2022-06-09",
+  "season": 2022,
+  "home_team_id": "16",
+  "away_team_id": "19",
+  "players_by_team": {
+    "19": [
+      {
+        "athlete_id": "812",
+        "name": "Candace Parker",
+        "minutes": 27.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "3027368",
+        "name": "Emma Meesseman",
+        "minutes": 25.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "764",
+        "name": "Allie Quigley",
+        "minutes": 24.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "981",
+        "name": "Courtney Vandersloot",
+        "minutes": 23.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2998938",
+        "name": "Kahleah Copper",
+        "minutes": 31.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3142010",
+        "name": "Azura Stevens",
+        "minutes": 20.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "4066534",
+        "name": "Ruthy Hebard",
+        "minutes": 7.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2327695",
+        "name": "Rebekah Gardner",
+        "minutes": 25.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "4281190",
+        "name": "Dana Evans",
+        "minutes": 17.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4336633",
+        "name": "Li Yueru",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "16": [
+      {
+        "athlete_id": "924",
+        "name": "Alysha Clark",
+        "minutes": 28.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "2491877",
+        "name": "Elena Delle Donne",
+        "minutes": 7.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4398911",
+        "name": "Shakira Austin",
+        "minutes": 22.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "2529137",
+        "name": "Natasha Cloud",
+        "minutes": 34.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3146151",
+        "name": "Ariel Atkins",
+        "minutes": 34.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "2490514",
+        "name": "Tianna Hawkins",
+        "minutes": 20.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "3142055",
+        "name": "Myisha Hines-Allen",
+        "minutes": 12.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "2566081",
+        "name": "Elizabeth Williams",
+        "minutes": 18.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3922628",
+        "name": "Kennedy Burke",
+        "minutes": 11.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4038394",
+        "name": "Rui Machida",
+        "minutes": 14.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3058893",
+        "name": "Shatori Walker-Kimbrough",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:27:11.374224+00:00"
+}

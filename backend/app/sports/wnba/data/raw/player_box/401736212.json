@@ -1,0 +1,152 @@
+{
+  "game_id": "401736212",
+  "date": "2025-06-28",
+  "season": 2025,
+  "home_team_id": "11",
+  "away_team_id": "9",
+  "players_by_team": {
+    "9": [
+      {
+        "athlete_id": "2998928",
+        "name": "Breanna Stewart",
+        "minutes": 31.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "4398768",
+        "name": "Nyara Sabally",
+        "minutes": 22.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "2327695",
+        "name": "Rebekah Gardner",
+        "minutes": 16.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2529137",
+        "name": "Natasha Cloud",
+        "minutes": 30.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "4066533",
+        "name": "Sabrina Ionescu",
+        "minutes": 26.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "2566453",
+        "name": "Isabelle Harrison",
+        "minutes": 15.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3922628",
+        "name": "Kennedy Burke",
+        "minutes": 23.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4038379",
+        "name": "Marine Johannes",
+        "minutes": 18.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4433386",
+        "name": "Jaylyn Sherrod",
+        "minutes": 11.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4433661",
+        "name": "Marquesha Davis",
+        "minutes": 8.0,
+        "points": 1
+      },
+      {
+        "athlete_id": "2999101",
+        "name": "Jonquel Jones",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "11": [
+      {
+        "athlete_id": "2529140",
+        "name": "Alyssa Thomas",
+        "minutes": 31.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "3142087",
+        "name": "Kathryn Westbeld",
+        "minutes": 18.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4281929",
+        "name": "Satou Sabally",
+        "minutes": 24.0,
+        "points": 25
+      },
+      {
+        "athlete_id": "2998938",
+        "name": "Kahleah Copper",
+        "minutes": 25.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "5274110",
+        "name": "Monique Akoa Makani",
+        "minutes": 18.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "4068042",
+        "name": "Natasha Mack",
+        "minutes": 19.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3916514",
+        "name": "Kalani Brown",
+        "minutes": 8.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "5220167",
+        "name": "Murjanatu Musa",
+        "minutes": 3.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "887",
+        "name": "Sami Whitcomb",
+        "minutes": 22.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "3920741",
+        "name": "Kitija Laksa",
+        "minutes": 27.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4282168",
+        "name": "Kiana Williams",
+        "minutes": 3.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4399342",
+        "name": "Lexi Held",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:34:33.380205+00:00"
+}

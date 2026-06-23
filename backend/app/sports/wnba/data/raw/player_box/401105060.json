@@ -1,0 +1,128 @@
+{
+  "game_id": "401105060",
+  "date": "2019-08-15",
+  "season": 2019,
+  "home_team_id": "3",
+  "away_team_id": "6",
+  "players_by_team": {
+    "6": [
+      {
+        "athlete_id": "812",
+        "name": "Candace Parker",
+        "minutes": 28.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "1068",
+        "name": "Nneka Ogwumike",
+        "minutes": 32.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "2490528",
+        "name": "Tierra Ruffin-Pratt",
+        "minutes": 27.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "2529122",
+        "name": "Chelsea Gray",
+        "minutes": 37.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "3055808",
+        "name": "Sydney Wiese",
+        "minutes": 30.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "2529950",
+        "name": "Chiney Ogwumike",
+        "minutes": 11.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4329370",
+        "name": "Maria Kliundikova",
+        "minutes": 11.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "581",
+        "name": "Alana Beard",
+        "minutes": 13.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2984245",
+        "name": "Alexis Jones",
+        "minutes": 7.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3904576",
+        "name": "Marina Mabrey",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3916514",
+        "name": "Kalani Brown",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "3": [
+      {
+        "athlete_id": "1053",
+        "name": "Glory Johnson",
+        "minutes": 31.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "2566453",
+        "name": "Isabelle Harrison",
+        "minutes": 28.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3058888",
+        "name": "Kaela Davis",
+        "minutes": 26.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "3058901",
+        "name": "Allisha Gray",
+        "minutes": 38.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3904577",
+        "name": "Arike Ogunbowale",
+        "minutes": 39.0,
+        "points": 35
+      },
+      {
+        "athlete_id": "2984237",
+        "name": "Imani McGee-Stafford",
+        "minutes": 21.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3934218",
+        "name": "Megan Gustafson",
+        "minutes": 9.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3146149",
+        "name": "Brooke McCarty-Williams",
+        "minutes": 8.0,
+        "points": 6
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:22:53.927595+00:00"
+}

@@ -1,0 +1,152 @@
+{
+  "game_id": "401620423",
+  "date": "2024-09-08",
+  "season": 2024,
+  "home_team_id": "14",
+  "away_team_id": "11",
+  "players_by_team": {
+    "11": [
+      {
+        "athlete_id": "2490553",
+        "name": "Brittney Griner",
+        "minutes": 25.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "585",
+        "name": "Diana Taurasi",
+        "minutes": 25.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "2529137",
+        "name": "Natasha Cloud",
+        "minutes": 28.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "2998938",
+        "name": "Kahleah Copper",
+        "minutes": 27.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3907781",
+        "name": "Sophie Cunningham",
+        "minutes": 18.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "3142255",
+        "name": "Monique Billings",
+        "minutes": 20.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4065759",
+        "name": "Mikiah Herbert Harrigan",
+        "minutes": 8.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4068042",
+        "name": "Natasha Mack",
+        "minutes": 17.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4068885",
+        "name": "Amy Atwell",
+        "minutes": 12.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4432864",
+        "name": "Celeste Taylor",
+        "minutes": 21.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3102133",
+        "name": "Rebecca Allen",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4433293",
+        "name": "Charisma Osborne",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "14": [
+      {
+        "athlete_id": "1068",
+        "name": "Nneka Ogwumike",
+        "minutes": 23.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3142328",
+        "name": "Gabby Williams",
+        "minutes": 21.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4420318",
+        "name": "Ezi Magbegor",
+        "minutes": 22.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "2491205",
+        "name": "Skylar Diggins",
+        "minutes": 26.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "2987869",
+        "name": "Jewell Loyd",
+        "minutes": 22.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "4068161",
+        "name": "Joyner Holmes",
+        "minutes": 10.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4432830",
+        "name": "Jordan Horston",
+        "minutes": 19.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "3056672",
+        "name": "Mercedes Russell",
+        "minutes": 25.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "887",
+        "name": "Sami Whitcomb",
+        "minutes": 20.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "3142948",
+        "name": "Victoria Vivians",
+        "minutes": 7.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4433468",
+        "name": "Nika Muhl",
+        "minutes": 6.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:32:58.965665+00:00"
+}

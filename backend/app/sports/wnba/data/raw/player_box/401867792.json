@@ -1,0 +1,236 @@
+{
+  "game_id": "401867792",
+  "date": "2026-04-30",
+  "season": 2026,
+  "home_team_id": "11",
+  "away_team_id": "17475",
+  "players_by_team": {
+    "17475": [
+      {
+        "athlete_id": "5346553",
+        "name": "Minami Yabu",
+        "minutes": 14.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "5346804",
+        "name": "Kadysha Juna Umezawa",
+        "minutes": 17.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "5346805",
+        "name": "Kokoro Tanaka",
+        "minutes": 19.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "5346806",
+        "name": "Mio Shiraishi",
+        "minutes": 18.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5220104",
+        "name": "Mai Yamamoto",
+        "minutes": 22.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4873391",
+        "name": "Nanako Todo",
+        "minutes": 20.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "5346801",
+        "name": "Nanami Tsuno",
+        "minutes": 16.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "5346802",
+        "name": "Ririka Okuyama",
+        "minutes": 12.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5346803",
+        "name": "Mona Tateyama",
+        "minutes": 10.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "5346807",
+        "name": "Suzuno Higuchi",
+        "minutes": 9.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "5346552",
+        "name": "Azusa Asahina",
+        "minutes": 23.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4433094",
+        "name": "Norika Konno",
+        "minutes": 19.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "5280553",
+        "name": "Aika Hirashita",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "11": [
+      {
+        "athlete_id": "869",
+        "name": "DeWanna Bonner",
+        "minutes": 23.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "2529140",
+        "name": "Alyssa Thomas",
+        "minutes": 26.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4068042",
+        "name": "Natasha Mack",
+        "minutes": 22.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "887",
+        "name": "Sami Whitcomb",
+        "minutes": 21.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "2998938",
+        "name": "Kahleah Copper",
+        "minutes": 24.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "2984730",
+        "name": "Jillian Alleyne",
+        "minutes": 8.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4433634",
+        "name": "Ashten Prechtel",
+        "minutes": 9.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5107506",
+        "name": "Maggie Doogan",
+        "minutes": 4.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4281223",
+        "name": "Aisha Sheppard",
+        "minutes": 7.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4282168",
+        "name": "Kiana Williams",
+        "minutes": 16.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4597505",
+        "name": "Lauren Jensen",
+        "minutes": 9.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4599199",
+        "name": "Morgan Maly",
+        "minutes": 13.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4688629",
+        "name": "Shay Ciezki",
+        "minutes": 8.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "5107404",
+        "name": "Quionche Carter",
+        "minutes": 11.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3142087",
+        "name": "Kathryn Westbeld",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3919496",
+        "name": "Valeriane Ayayi",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5345524",
+        "name": "Noemie Brochant",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4873359",
+        "name": "Kyara Linskens",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3143136",
+        "name": "Jaime Nared",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3906769",
+        "name": "Jovana Nogic",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4667986",
+        "name": "Lee-Seul Kang",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4698730",
+        "name": "Kara Dunn",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5107834",
+        "name": "Yarden Garzon",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5274110",
+        "name": "Monique Akoa Makani",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:36:32.730905+00:00"
+}

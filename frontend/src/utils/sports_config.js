@@ -63,8 +63,8 @@ export const SPORTS_CONFIG = {
     name: 'WNBA',
     icon: '🏀',
     logo: `${ESPN}/wnba.png`,
-    status: 'COMING_SOON',
-    models: []
+    status: 'BETA',
+    models: ['Match Projections']
   },
   NHL: {
     id: 'nhl',

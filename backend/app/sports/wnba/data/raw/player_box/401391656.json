@@ -1,0 +1,140 @@
+{
+  "game_id": "401391656",
+  "date": "2022-05-08",
+  "season": 2022,
+  "home_team_id": "5",
+  "away_team_id": "6",
+  "players_by_team": {
+    "6": [
+      {
+        "athlete_id": "1068",
+        "name": "Nneka Ogwumike",
+        "minutes": 31.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4065832",
+        "name": "Jasmine Walker",
+        "minutes": 13.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "1017",
+        "name": "Liz Cambage",
+        "minutes": 22.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "2988756",
+        "name": "Brittney Sykes",
+        "minutes": 25.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "3142250",
+        "name": "Jordin Canada",
+        "minutes": 28.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2529950",
+        "name": "Chiney Ogwumike",
+        "minutes": 17.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4068885",
+        "name": "Amy Atwell",
+        "minutes": 5.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3058892",
+        "name": "Lexie Brown",
+        "minutes": 29.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4280892",
+        "name": "Chennedy Carter",
+        "minutes": 21.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "4398764",
+        "name": "Rae Burrell",
+        "minutes": 10.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398966",
+        "name": "Olivia Nelson-Ododa",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "5": [
+      {
+        "athlete_id": "4398776",
+        "name": "NaLyssa Smith",
+        "minutes": 28.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4398779",
+        "name": "Queen Egbo",
+        "minutes": 14.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "2984741",
+        "name": "Tiffany Mitchell",
+        "minutes": 26.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3142191",
+        "name": "Kelsey Mitchell",
+        "minutes": 30.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "4398751",
+        "name": "Destanni Henderson",
+        "minutes": 30.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "3913881",
+        "name": "Alanna Smith",
+        "minutes": 17.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4398729",
+        "name": "Emily Engstler",
+        "minutes": 18.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "3142948",
+        "name": "Victoria Vivians",
+        "minutes": 13.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4066585",
+        "name": "Crystal Dangerfield",
+        "minutes": 10.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4398829",
+        "name": "Lexie Hull",
+        "minutes": 14.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:26:39.228371+00:00"
+}

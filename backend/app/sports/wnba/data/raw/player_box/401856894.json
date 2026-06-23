@@ -1,0 +1,140 @@
+{
+  "game_id": "401856894",
+  "date": "2026-05-09",
+  "season": 2026,
+  "home_team_id": "17",
+  "away_team_id": "11",
+  "players_by_team": {
+    "11": [
+      {
+        "athlete_id": "869",
+        "name": "DeWanna Bonner",
+        "minutes": 22.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "2529140",
+        "name": "Alyssa Thomas",
+        "minutes": 26.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "4068042",
+        "name": "Natasha Mack",
+        "minutes": 25.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2998938",
+        "name": "Kahleah Copper",
+        "minutes": 28.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "3906769",
+        "name": "Jovana Nogic",
+        "minutes": 21.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "4068104",
+        "name": "Peyton Williams",
+        "minutes": 6.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4281930",
+        "name": "Anneli Maley",
+        "minutes": 6.0,
+        "points": 1
+      },
+      {
+        "athlete_id": "5345524",
+        "name": "Noemie Brochant",
+        "minutes": 18.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4873359",
+        "name": "Kyara Linskens",
+        "minutes": 14.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4282168",
+        "name": "Kiana Williams",
+        "minutes": 21.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "5107404",
+        "name": "Quionche Carter",
+        "minutes": 12.0,
+        "points": 2
+      }
+    ],
+    "17": [
+      {
+        "athlete_id": "3099736",
+        "name": "Stephanie Talbot",
+        "minutes": 19.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4398776",
+        "name": "NaLyssa Smith",
+        "minutes": 21.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3149391",
+        "name": "A'ja Wilson",
+        "minutes": 24.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "2529122",
+        "name": "Chelsea Gray",
+        "minutes": 22.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4065870",
+        "name": "Jackie Young",
+        "minutes": 25.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "2529458",
+        "name": "Cheyenne Parker-Tyus",
+        "minutes": 12.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3142086",
+        "name": "Brianna Turner",
+        "minutes": 14.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4433633",
+        "name": "Kierstan Bell",
+        "minutes": 19.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2987869",
+        "name": "Jewell Loyd",
+        "minutes": 24.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4280892",
+        "name": "Chennedy Carter",
+        "minutes": 19.0,
+        "points": 10
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:36:39.301415+00:00"
+}

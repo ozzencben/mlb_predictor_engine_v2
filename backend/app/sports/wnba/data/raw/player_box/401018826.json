@@ -1,0 +1,134 @@
+{
+  "game_id": "401018826",
+  "date": "2018-06-10",
+  "season": 2018,
+  "home_team_id": "9",
+  "away_team_id": "5",
+  "players_by_team": {
+    "5": [
+      {
+        "athlete_id": "2529203",
+        "name": "Natalie Achonwa",
+        "minutes": 27.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3056728",
+        "name": "Erica McCall",
+        "minutes": 31.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "2491214",
+        "name": "Erica Wheeler",
+        "minutes": 18.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2984741",
+        "name": "Tiffany Mitchell",
+        "minutes": 31.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "3142191",
+        "name": "Kelsey Mitchell",
+        "minutes": 33.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "3058900",
+        "name": "Stephanie Mavunga",
+        "minutes": 15.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "2491232",
+        "name": "Kayla Alexander",
+        "minutes": 6.0,
+        "points": 1
+      },
+      {
+        "athlete_id": "2568417",
+        "name": "Jazmon Gwathmey",
+        "minutes": 21.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3055794",
+        "name": "Hind Ben Abdelkader",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3142948",
+        "name": "Victoria Vivians",
+        "minutes": 14.0,
+        "points": 11
+      }
+    ],
+    "9": [
+      {
+        "athlete_id": "838",
+        "name": "Kia Vaughn",
+        "minutes": 24.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "918",
+        "name": "Tina Charles",
+        "minutes": 34.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "835",
+        "name": "Marissa Coleman",
+        "minutes": 19.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "851",
+        "name": "Shavonte Zellous",
+        "minutes": 21.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2529185",
+        "name": "Bria Hartley",
+        "minutes": 28.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3007473",
+        "name": "Amanda Zahui B.",
+        "minutes": 19.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "2491197",
+        "name": "Sugar Rodgers",
+        "minutes": 15.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "2566210",
+        "name": "Brittany Boyd-Jones",
+        "minutes": 12.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3142327",
+        "name": "Kia Nurse",
+        "minutes": 28.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3102133",
+        "name": "Rebecca Allen",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:19:55.330968+00:00"
+}

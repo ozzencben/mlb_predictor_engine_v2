@@ -1,0 +1,248 @@
+{
+  "game_id": "401866513",
+  "date": "2026-04-25",
+  "season": 2026,
+  "home_team_id": "16",
+  "away_team_id": "8",
+  "players_by_team": {
+    "8": [
+      {
+        "athlete_id": "3054590",
+        "name": "Nia Coffey",
+        "minutes": 13.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4703766",
+        "name": "Ra Shaya Kyle",
+        "minutes": 13.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "2987891",
+        "name": "Courtney Williams",
+        "minutes": 12.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4433543",
+        "name": "Reigan Richardson",
+        "minutes": 11.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4433791",
+        "name": "Olivia Miles",
+        "minutes": 17.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4432844",
+        "name": "Aubrey Griffin",
+        "minutes": 15.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4596309",
+        "name": "Liatu King",
+        "minutes": 18.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4873358",
+        "name": "Antonia Delaere",
+        "minutes": 18.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "5109356",
+        "name": "Jade Masogayo",
+        "minutes": 8.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4433745",
+        "name": "Sakima Walker",
+        "minutes": 13.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4433386",
+        "name": "Jaylyn Sherrod",
+        "minutes": 14.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "4433542",
+        "name": "Saylor Poffenbarger",
+        "minutes": 26.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "4682766",
+        "name": "Amaya Battle",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5105748",
+        "name": "Lani White",
+        "minutes": 8.0,
+        "points": 1
+      },
+      {
+        "athlete_id": "5345478",
+        "name": "Eliska Hamzova",
+        "minutes": 13.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2529130",
+        "name": "Natasha Howard",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3917450",
+        "name": "Napheesa Collier",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398938",
+        "name": "Dorka Juhasz",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5278237",
+        "name": "Anastasiia Olairi Kosu",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5345322",
+        "name": "Emma Cechova",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2529205",
+        "name": "Kayla McBride",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "16": [
+      {
+        "athlete_id": "4433411",
+        "name": "Angela Dugalic",
+        "minutes": 20.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "5105737",
+        "name": "Lauren Betts",
+        "minutes": 23.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4433524",
+        "name": "Sonia Citron",
+        "minutes": 20.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "4583144",
+        "name": "Cotie McMahon",
+        "minutes": 23.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "4704180",
+        "name": "Georgia Amoore",
+        "minutes": 13.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4565510",
+        "name": "Nyla Harris",
+        "minutes": 11.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4682992",
+        "name": "Christeen Iwuala",
+        "minutes": 7.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4281233",
+        "name": "Kamaria McDaniel",
+        "minutes": 8.0,
+        "points": 1
+      },
+      {
+        "athlete_id": "4433416",
+        "name": "Madison Scott",
+        "minutes": 7.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4433523",
+        "name": "Rori Harmon",
+        "minutes": 16.0,
+        "points": 1
+      },
+      {
+        "athlete_id": "4433815",
+        "name": "Lucy Olsen",
+        "minutes": 22.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "5106145",
+        "name": "Darianna Littlepage-Buggs",
+        "minutes": 10.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "5122345",
+        "name": "Cassandre Prosper",
+        "minutes": 20.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "4281923",
+        "name": "Mya Hollingshed",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4282173",
+        "name": "Michaela Onyenwere",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4898384",
+        "name": "Kiki Iriafen",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398911",
+        "name": "Shakira Austin",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5278157",
+        "name": "Alex Wilson",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:36:27.672673+00:00"
+}

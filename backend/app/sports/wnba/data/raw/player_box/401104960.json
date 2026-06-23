@@ -1,0 +1,128 @@
+{
+  "game_id": "401104960",
+  "date": "2019-06-21",
+  "season": 2019,
+  "home_team_id": "3",
+  "away_team_id": "11",
+  "players_by_team": {
+    "11": [
+      {
+        "athlete_id": "609",
+        "name": "Sancho Lyttle",
+        "minutes": 16.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "869",
+        "name": "DeWanna Bonner",
+        "minutes": 36.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "2490553",
+        "name": "Brittney Griner",
+        "minutes": 37.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "860",
+        "name": "Briann January",
+        "minutes": 27.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2235933",
+        "name": "Yvonne Turner",
+        "minutes": 11.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "732",
+        "name": "Camille Little",
+        "minutes": 12.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "802",
+        "name": "Essence Carson",
+        "minutes": 31.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3142086",
+        "name": "Brianna Turner",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3913881",
+        "name": "Alanna Smith",
+        "minutes": 7.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "796",
+        "name": "Leilani Mitchell",
+        "minutes": 21.0,
+        "points": 12
+      }
+    ],
+    "3": [
+      {
+        "athlete_id": "2529622",
+        "name": "Kayla Thornton",
+        "minutes": 37.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "2530082",
+        "name": "Theresa Plaisance",
+        "minutes": 28.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "2984237",
+        "name": "Imani McGee-Stafford",
+        "minutes": 16.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3058888",
+        "name": "Kaela Davis",
+        "minutes": 31.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "3058901",
+        "name": "Allisha Gray",
+        "minutes": 30.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "3142010",
+        "name": "Azura Stevens",
+        "minutes": 22.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3934218",
+        "name": "Megan Gustafson",
+        "minutes": 10.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3146149",
+        "name": "Brooke McCarty-Williams",
+        "minutes": 9.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3904577",
+        "name": "Arike Ogunbowale",
+        "minutes": 18.0,
+        "points": 9
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:21:55.671202+00:00"
+}

@@ -1,0 +1,140 @@
+{
+  "game_id": "401230766",
+  "date": "2020-08-06",
+  "season": 2020,
+  "home_team_id": "16",
+  "away_team_id": "17",
+  "players_by_team": {
+    "17": [
+      {
+        "athlete_id": "872",
+        "name": "Angel McCoughtry",
+        "minutes": 25.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "982",
+        "name": "Carolyn Swords",
+        "minutes": 12.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3149391",
+        "name": "A'ja Wilson",
+        "minutes": 35.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "2529205",
+        "name": "Kayla McBride",
+        "minutes": 25.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "3058908",
+        "name": "Lindsay Allen",
+        "minutes": 16.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2566106",
+        "name": "Dearica Hamby",
+        "minutes": 32.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "2566452",
+        "name": "Cierra Burdick",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1014",
+        "name": "Danielle Robinson",
+        "minutes": 24.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "2491197",
+        "name": "Sugar Rodgers",
+        "minutes": 14.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4065870",
+        "name": "Jackie Young",
+        "minutes": 15.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1085",
+        "name": "Avery Warley-Talbert",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "16": [
+      {
+        "athlete_id": "3142055",
+        "name": "Myisha Hines-Allen",
+        "minutes": 29.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "3027368",
+        "name": "Emma Meesseman",
+        "minutes": 33.0,
+        "points": 24
+      },
+      {
+        "athlete_id": "796",
+        "name": "Leilani Mitchell",
+        "minutes": 31.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2999035",
+        "name": "Aerial Powers",
+        "minutes": 31.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3146151",
+        "name": "Ariel Atkins",
+        "minutes": 30.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "802",
+        "name": "Essence Carson",
+        "minutes": 6.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2490514",
+        "name": "Tianna Hawkins",
+        "minutes": 16.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3056664",
+        "name": "Alaina Coates",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1107",
+        "name": "Shey Peddy",
+        "minutes": 9.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3142149",
+        "name": "Kiara Leslie",
+        "minutes": 12.0,
+        "points": 2
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:23:44.126504+00:00"
+}

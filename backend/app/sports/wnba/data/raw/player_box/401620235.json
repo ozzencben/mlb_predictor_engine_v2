@@ -1,0 +1,134 @@
+{
+  "game_id": "401620235",
+  "date": "2024-05-22",
+  "season": 2024,
+  "home_team_id": "17",
+  "away_team_id": "11",
+  "players_by_team": {
+    "11": [
+      {
+        "athlete_id": "4068042",
+        "name": "Natasha Mack",
+        "minutes": 22.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "585",
+        "name": "Diana Taurasi",
+        "minutes": 30.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "2529137",
+        "name": "Natasha Cloud",
+        "minutes": 30.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2998938",
+        "name": "Kahleah Copper",
+        "minutes": 30.0,
+        "points": 37
+      },
+      {
+        "athlete_id": "3102133",
+        "name": "Rebecca Allen",
+        "minutes": 28.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "3143510",
+        "name": "Morgan Bertsch",
+        "minutes": 4.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4065759",
+        "name": "Mikiah Herbert Harrigan",
+        "minutes": 4.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398591",
+        "name": "Liz Dixon",
+        "minutes": 12.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3907781",
+        "name": "Sophie Cunningham",
+        "minutes": 23.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "4068159",
+        "name": "Sug Sutton",
+        "minutes": 18.0,
+        "points": 12
+      }
+    ],
+    "17": [
+      {
+        "athlete_id": "924",
+        "name": "Alysha Clark",
+        "minutes": 34.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2590093",
+        "name": "Kiah Stokes",
+        "minutes": 28.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3149391",
+        "name": "A'ja Wilson",
+        "minutes": 32.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "3065570",
+        "name": "Kelsey Plum",
+        "minutes": 38.0,
+        "points": 27
+      },
+      {
+        "athlete_id": "4065870",
+        "name": "Jackie Young",
+        "minutes": 40.0,
+        "points": 23
+      },
+      {
+        "athlete_id": "3934218",
+        "name": "Megan Gustafson",
+        "minutes": 10.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "1004",
+        "name": "Sydney Colson",
+        "minutes": 5.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398907",
+        "name": "Kate Martin",
+        "minutes": 14.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2284331",
+        "name": "Emma Cannon",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4595236",
+        "name": "Dyaisha Fair",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:31:16.898435+00:00"
+}

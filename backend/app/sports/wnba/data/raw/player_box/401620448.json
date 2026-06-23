@@ -1,0 +1,146 @@
+{
+  "game_id": "401620448",
+  "date": "2024-09-17",
+  "season": 2024,
+  "home_team_id": "16",
+  "away_team_id": "9",
+  "players_by_team": {
+    "9": [
+      {
+        "athlete_id": "2998928",
+        "name": "Breanna Stewart",
+        "minutes": 26.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "2999101",
+        "name": "Jonquel Jones",
+        "minutes": 24.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "981",
+        "name": "Courtney Vandersloot",
+        "minutes": 22.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "2593770",
+        "name": "Betnijah Laney-Hamilton",
+        "minutes": 24.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "4066533",
+        "name": "Sabrina Ionescu",
+        "minutes": 28.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "2529622",
+        "name": "Kayla Thornton",
+        "minutes": 20.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4398768",
+        "name": "Nyara Sabally",
+        "minutes": 15.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "4683006",
+        "name": "Leonie Fiebich",
+        "minutes": 21.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "3922628",
+        "name": "Kennedy Burke",
+        "minutes": 13.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4433386",
+        "name": "Jaylyn Sherrod",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4433661",
+        "name": "Marquesha Davis",
+        "minutes": 3.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "5130672",
+        "name": "Ivana Dojkic",
+        "minutes": 3.0,
+        "points": 0
+      }
+    ],
+    "16": [
+      {
+        "athlete_id": "4398729",
+        "name": "Emily Engstler",
+        "minutes": 26.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "2529183",
+        "name": "Stefanie Dolson",
+        "minutes": 19.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "2566110",
+        "name": "Julie Vanloo",
+        "minutes": 20.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "2988756",
+        "name": "Brittney Sykes",
+        "minutes": 20.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "3146151",
+        "name": "Ariel Atkins",
+        "minutes": 24.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "5017721",
+        "name": "Sika Kone",
+        "minutes": 24.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "3056730",
+        "name": "Karlie Samuelson",
+        "minutes": 22.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3058893",
+        "name": "Shatori Walker-Kimbrough",
+        "minutes": 22.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4068159",
+        "name": "Sug Sutton",
+        "minutes": 10.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5017726",
+        "name": "Jade Melbourne",
+        "minutes": 14.0,
+        "points": 5
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:33:13.911813+00:00"
+}

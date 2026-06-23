@@ -1,0 +1,146 @@
+{
+  "game_id": "401620300",
+  "date": "2024-06-19",
+  "season": 2024,
+  "home_team_id": "11",
+  "away_team_id": "9",
+  "players_by_team": {
+    "9": [
+      {
+        "athlete_id": "2529622",
+        "name": "Kayla Thornton",
+        "minutes": 22.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "2998928",
+        "name": "Breanna Stewart",
+        "minutes": 36.0,
+        "points": 28
+      },
+      {
+        "athlete_id": "2999101",
+        "name": "Jonquel Jones",
+        "minutes": 36.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "2593770",
+        "name": "Betnijah Laney-Hamilton",
+        "minutes": 34.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "4066533",
+        "name": "Sabrina Ionescu",
+        "minutes": 36.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "4683006",
+        "name": "Leonie Fiebich",
+        "minutes": 20.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3922628",
+        "name": "Kennedy Burke",
+        "minutes": 8.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5130672",
+        "name": "Ivana Dojkic",
+        "minutes": 7.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4398768",
+        "name": "Nyara Sabally",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "981",
+        "name": "Courtney Vandersloot",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4433661",
+        "name": "Marquesha Davis",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "11": [
+      {
+        "athlete_id": "2490553",
+        "name": "Brittney Griner",
+        "minutes": 31.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "585",
+        "name": "Diana Taurasi",
+        "minutes": 31.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "2529137",
+        "name": "Natasha Cloud",
+        "minutes": 33.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2998938",
+        "name": "Kahleah Copper",
+        "minutes": 31.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "3102133",
+        "name": "Rebecca Allen",
+        "minutes": 33.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "4068042",
+        "name": "Natasha Mack",
+        "minutes": 9.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3907781",
+        "name": "Sophie Cunningham",
+        "minutes": 21.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4068159",
+        "name": "Sug Sutton",
+        "minutes": 12.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4065759",
+        "name": "Mikiah Herbert Harrigan",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398591",
+        "name": "Liz Dixon",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4433293",
+        "name": "Charisma Osborne",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:31:52.086241+00:00"
+}

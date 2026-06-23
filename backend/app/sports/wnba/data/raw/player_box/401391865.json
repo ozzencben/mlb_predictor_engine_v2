@@ -1,0 +1,116 @@
+{
+  "game_id": "401391865",
+  "date": "2022-08-14",
+  "season": 2022,
+  "home_team_id": "6",
+  "away_team_id": "3",
+  "players_by_team": {
+    "3": [
+      {
+        "athlete_id": "2529622",
+        "name": "Kayla Thornton",
+        "minutes": 29.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "3913903",
+        "name": "Teaira McCowan",
+        "minutes": 23.0,
+        "points": 24
+      },
+      {
+        "athlete_id": "3058901",
+        "name": "Allisha Gray",
+        "minutes": 30.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "3904576",
+        "name": "Marina Mabrey",
+        "minutes": 37.0,
+        "points": 27
+      },
+      {
+        "athlete_id": "4398935",
+        "name": "Veronica Burton",
+        "minutes": 24.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4398988",
+        "name": "Charli Collier",
+        "minutes": 10.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4790266",
+        "name": "Awak Kuier",
+        "minutes": 19.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4065760",
+        "name": "Tyasha Harris",
+        "minutes": 21.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "4399842",
+        "name": "Jasmine Dickey",
+        "minutes": 8.0,
+        "points": 2
+      }
+    ],
+    "6": [
+      {
+        "athlete_id": "3917453",
+        "name": "Katie Lou Samuelson",
+        "minutes": 22.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4398966",
+        "name": "Olivia Nelson-Ododa",
+        "minutes": 29.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "2988756",
+        "name": "Brittney Sykes",
+        "minutes": 36.0,
+        "points": 35
+      },
+      {
+        "athlete_id": "3058892",
+        "name": "Lexie Brown",
+        "minutes": 16.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3142250",
+        "name": "Jordin Canada",
+        "minutes": 17.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4065832",
+        "name": "Jasmine Walker",
+        "minutes": 29.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4280892",
+        "name": "Chennedy Carter",
+        "minutes": 28.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4281919",
+        "name": "Kianna Smith",
+        "minutes": 22.0,
+        "points": 10
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:28:24.568947+00:00"
+}

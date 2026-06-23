@@ -1,0 +1,128 @@
+{
+  "game_id": "401230771",
+  "date": "2020-08-07",
+  "season": 2020,
+  "home_team_id": "8",
+  "away_team_id": "5",
+  "players_by_team": {
+    "5": [
+      {
+        "athlete_id": "689",
+        "name": "Candice Dupree",
+        "minutes": 31.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "3913903",
+        "name": "Teaira McCowan",
+        "minutes": 32.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2984741",
+        "name": "Tiffany Mitchell",
+        "minutes": 26.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "3142191",
+        "name": "Kelsey Mitchell",
+        "minutes": 40.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "4001679",
+        "name": "Julie Allemand",
+        "minutes": 32.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3058900",
+        "name": "Stephanie Mavunga",
+        "minutes": 3.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4066563",
+        "name": "Lauren Cox",
+        "minutes": 14.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3922628",
+        "name": "Kennedy Burke",
+        "minutes": 17.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "4068092",
+        "name": "Kathleen Doyle",
+        "minutes": 5.0,
+        "points": 0
+      }
+    ],
+    "8": [
+      {
+        "athlete_id": "3917450",
+        "name": "Napheesa Collier",
+        "minutes": 33.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "766",
+        "name": "Sylvia Fowles",
+        "minutes": 31.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "2955898",
+        "name": "Damiris Dantas",
+        "minutes": 17.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3058892",
+        "name": "Lexie Brown",
+        "minutes": 36.0,
+        "points": 26
+      },
+      {
+        "athlete_id": "4066585",
+        "name": "Crystal Dangerfield",
+        "minutes": 28.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3056728",
+        "name": "Erica McCall",
+        "minutes": 7.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3906972",
+        "name": "Bridget Carleton",
+        "minutes": 24.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4065759",
+        "name": "Mikiah Herbert Harrigan",
+        "minutes": 8.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "2491232",
+        "name": "Kayla Alexander",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2566186",
+        "name": "Rachel Banham",
+        "minutes": 16.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:23:46.973961+00:00"
+}

@@ -1,0 +1,140 @@
+{
+  "game_id": "401391652",
+  "date": "2022-05-07",
+  "season": 2022,
+  "home_team_id": "11",
+  "away_team_id": "17",
+  "players_by_team": {
+    "17": [
+      {
+        "athlete_id": "2566106",
+        "name": "Dearica Hamby",
+        "minutes": 31.0,
+        "points": 24
+      },
+      {
+        "athlete_id": "3149391",
+        "name": "A'ja Wilson",
+        "minutes": 29.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "2529122",
+        "name": "Chelsea Gray",
+        "minutes": 15.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3065570",
+        "name": "Kelsey Plum",
+        "minutes": 34.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "4065870",
+        "name": "Jackie Young",
+        "minutes": 31.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "2530082",
+        "name": "Theresa Plaisance",
+        "minutes": 21.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4433633",
+        "name": "Kierstan Bell",
+        "minutes": 14.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1004",
+        "name": "Sydney Colson",
+        "minutes": 11.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4281223",
+        "name": "Aisha Sheppard",
+        "minutes": 15.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "1049",
+        "name": "Riquna Williams",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "11": [
+      {
+        "athlete_id": "3913868",
+        "name": "Kristine Anigwe",
+        "minutes": 14.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "918",
+        "name": "Tina Charles",
+        "minutes": 32.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "585",
+        "name": "Diana Taurasi",
+        "minutes": 32.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "1107",
+        "name": "Shey Peddy",
+        "minutes": 29.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "2491205",
+        "name": "Skylar Diggins",
+        "minutes": 32.0,
+        "points": 25
+      },
+      {
+        "athlete_id": "2284331",
+        "name": "Emma Cannon",
+        "minutes": 6.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4281914",
+        "name": "Sam Thomas",
+        "minutes": 8.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3934218",
+        "name": "Megan Gustafson",
+        "minutes": 11.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2999142",
+        "name": "Jennie Simms",
+        "minutes": 12.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3907781",
+        "name": "Sophie Cunningham",
+        "minutes": 22.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3142327",
+        "name": "Kia Nurse",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:26:37.441874+00:00"
+}

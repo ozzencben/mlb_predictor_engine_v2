@@ -1,0 +1,134 @@
+{
+  "game_id": "401620248",
+  "date": "2024-05-27",
+  "season": 2024,
+  "home_team_id": "6",
+  "away_team_id": "3",
+  "players_by_team": {
+    "3": [
+      {
+        "athlete_id": "3142255",
+        "name": "Monique Billings",
+        "minutes": 36.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "4399415",
+        "name": "Maddy Siegrist",
+        "minutes": 34.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "3913903",
+        "name": "Teaira McCowan",
+        "minutes": 22.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3904577",
+        "name": "Arike Ogunbowale",
+        "minutes": 37.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "5209660",
+        "name": "Sevgi Uzun",
+        "minutes": 35.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3916514",
+        "name": "Kalani Brown",
+        "minutes": 18.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "5106150",
+        "name": "Stephanie Soares",
+        "minutes": 10.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4432865",
+        "name": "Jacy Sheldon",
+        "minutes": 8.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4399114",
+        "name": "Lou Lopez Senechal",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "6": [
+      {
+        "athlete_id": "2566106",
+        "name": "Dearica Hamby",
+        "minutes": 38.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "4433404",
+        "name": "Cameron Brink",
+        "minutes": 24.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "2490794",
+        "name": "Layshia Clarendon",
+        "minutes": 7.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3058892",
+        "name": "Lexie Brown",
+        "minutes": 27.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3142327",
+        "name": "Kia Nurse",
+        "minutes": 17.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3099736",
+        "name": "Stephanie Talbot",
+        "minutes": 7.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4433630",
+        "name": "Rickea Jackson",
+        "minutes": 24.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4336633",
+        "name": "Li Yueru",
+        "minutes": 18.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4066553",
+        "name": "Aari McDonald",
+        "minutes": 19.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "4398764",
+        "name": "Rae Burrell",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4432832",
+        "name": "Zia Cooke",
+        "minutes": 15.0,
+        "points": 4
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:31:24.284513+00:00"
+}

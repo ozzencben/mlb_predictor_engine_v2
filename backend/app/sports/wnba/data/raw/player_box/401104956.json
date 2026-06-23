@@ -1,0 +1,152 @@
+{
+  "game_id": "401104956",
+  "date": "2019-06-16",
+  "season": 2019,
+  "home_team_id": "8",
+  "away_team_id": "17",
+  "players_by_team": {
+    "17": [
+      {
+        "athlete_id": "1017",
+        "name": "Liz Cambage",
+        "minutes": 33.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "3149391",
+        "name": "A'ja Wilson",
+        "minutes": 32.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "2529205",
+        "name": "Kayla McBride",
+        "minutes": 32.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "3065570",
+        "name": "Kelsey Plum",
+        "minutes": 37.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "4065870",
+        "name": "Jackie Young",
+        "minutes": 13.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "819",
+        "name": "Tamera Young",
+        "minutes": 15.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2566106",
+        "name": "Dearica Hamby",
+        "minutes": 20.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4329389",
+        "name": "Ji-Su Park",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1004",
+        "name": "Sydney Colson",
+        "minutes": 5.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2491197",
+        "name": "Sugar Rodgers",
+        "minutes": 13.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "982",
+        "name": "Carolyn Swords",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "8": [
+      {
+        "athlete_id": "3917450",
+        "name": "Napheesa Collier",
+        "minutes": 32.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "766",
+        "name": "Sylvia Fowles",
+        "minutes": 30.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "2955898",
+        "name": "Damiris Dantas",
+        "minutes": 34.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "1014",
+        "name": "Danielle Robinson",
+        "minutes": 29.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "2529047",
+        "name": "Odyssey Sims",
+        "minutes": 29.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "1003",
+        "name": "Karima Christmas-Kelly",
+        "minutes": 12.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3099736",
+        "name": "Stephanie Talbot",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3056664",
+        "name": "Alaina Coates",
+        "minutes": 12.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3058892",
+        "name": "Lexie Brown",
+        "minutes": 21.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3906949",
+        "name": "Jessica Shepard",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4038365",
+        "name": "Shao Ting",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "695",
+        "name": "Seimone Augustus",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:21:53.513987+00:00"
+}

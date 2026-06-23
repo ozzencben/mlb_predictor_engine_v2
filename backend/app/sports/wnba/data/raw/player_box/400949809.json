@@ -1,0 +1,242 @@
+{
+  "game_id": "400949809",
+  "date": "2017-05-06",
+  "season": 2017,
+  "home_team_id": "6",
+  "away_team_id": "17",
+  "players_by_team": {
+    "17": [
+      {
+        "athlete_id": "1006",
+        "name": "Alex Montgomery",
+        "minutes": 24.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3054590",
+        "name": "Nia Coffey",
+        "minutes": 22.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4216405",
+        "name": "Briana Day",
+        "minutes": 14.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "814",
+        "name": "Sequoia Holmes",
+        "minutes": 28.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "3058896",
+        "name": "Jessica Thomas",
+        "minutes": 22.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "608",
+        "name": "Roneeka Hodges",
+        "minutes": 12.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "651",
+        "name": "Monique Currie",
+        "minutes": 15.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "1052",
+        "name": "Vicki Baugh",
+        "minutes": 5.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2529125",
+        "name": "Haley Peters",
+        "minutes": 14.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2566453",
+        "name": "Isabelle Harrison",
+        "minutes": 26.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "3007779",
+        "name": "Shae Kelley",
+        "minutes": 6.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2568417",
+        "name": "Jazmon Gwathmey",
+        "minutes": 10.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "2",
+        "name": "Erika de Souza",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2566106",
+        "name": "Dearica Hamby",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2491232",
+        "name": "Kayla Alexander",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2968408",
+        "name": "Clarissa dos Santos",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1004",
+        "name": "Sydney Colson",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2529205",
+        "name": "Kayla McBride",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2998927",
+        "name": "Moriah Jefferson",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3065570",
+        "name": "Kelsey Plum",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "6": [
+      {
+        "athlete_id": "729",
+        "name": "Tiffany Jackson-Jones",
+        "minutes": 23.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "1085",
+        "name": "Avery Warley-Talbert",
+        "minutes": 14.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "1049",
+        "name": "Riquna Williams",
+        "minutes": 26.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "2529047",
+        "name": "Odyssey Sims",
+        "minutes": 28.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "2529122",
+        "name": "Chelsea Gray",
+        "minutes": 30.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "1010",
+        "name": "Ify Ibekwe",
+        "minutes": 8.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2490902",
+        "name": "Mikaela Ruef",
+        "minutes": 24.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "4217540",
+        "name": "Ah-Ra Go",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3057009",
+        "name": "Saicha Grant-Allen",
+        "minutes": 15.0,
+        "points": 1
+      },
+      {
+        "athlete_id": "2324993",
+        "name": "Chelsea Hopkins",
+        "minutes": 4.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2999042",
+        "name": "Jamie Weisner",
+        "minutes": 8.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3055808",
+        "name": "Sydney Wiese",
+        "minutes": 11.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3056730",
+        "name": "Karlie Samuelson",
+        "minutes": 5.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "802",
+        "name": "Essence Carson",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "812",
+        "name": "Candace Parker",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1013",
+        "name": "Jantel Lavender",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1068",
+        "name": "Nneka Ogwumike",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "581",
+        "name": "Alana Beard",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:17:24.163069+00:00"
+}

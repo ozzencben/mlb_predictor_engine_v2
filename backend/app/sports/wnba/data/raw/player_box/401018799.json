@@ -1,0 +1,152 @@
+{
+  "game_id": "401018799",
+  "date": "2018-05-26",
+  "season": 2018,
+  "home_team_id": "18",
+  "away_team_id": "5",
+  "players_by_team": {
+    "5": [
+      {
+        "athlete_id": "689",
+        "name": "Candice Dupree",
+        "minutes": 23.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "2529203",
+        "name": "Natalie Achonwa",
+        "minutes": 11.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2491214",
+        "name": "Erica Wheeler",
+        "minutes": 18.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "2984741",
+        "name": "Tiffany Mitchell",
+        "minutes": 17.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3142191",
+        "name": "Kelsey Mitchell",
+        "minutes": 31.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "3056728",
+        "name": "Erica McCall",
+        "minutes": 17.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3058900",
+        "name": "Stephanie Mavunga",
+        "minutes": 15.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "2491232",
+        "name": "Kayla Alexander",
+        "minutes": 14.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2568417",
+        "name": "Jazmon Gwathmey",
+        "minutes": 6.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3055794",
+        "name": "Hind Ben Abdelkader",
+        "minutes": 22.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3142948",
+        "name": "Victoria Vivians",
+        "minutes": 27.0,
+        "points": 13
+      }
+    ],
+    "18": [
+      {
+        "athlete_id": "1110",
+        "name": "Shekinna Stricklen",
+        "minutes": 16.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2529140",
+        "name": "Alyssa Thomas",
+        "minutes": 32.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "2529950",
+        "name": "Chiney Ogwumike",
+        "minutes": 26.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "1008",
+        "name": "Jasmine Thomas",
+        "minutes": 25.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2987891",
+        "name": "Courtney Williams",
+        "minutes": 29.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2998929",
+        "name": "Morgan Tuck",
+        "minutes": 10.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3058895",
+        "name": "Brionna Jones",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2999101",
+        "name": "Jonquel Jones",
+        "minutes": 15.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2490773",
+        "name": "Alex Bentley",
+        "minutes": 19.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "2566186",
+        "name": "Rachel Banham",
+        "minutes": 18.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "2593770",
+        "name": "Betnijah Laney-Hamilton",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3058892",
+        "name": "Lexie Brown",
+        "minutes": 6.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:19:40.839992+00:00"
+}

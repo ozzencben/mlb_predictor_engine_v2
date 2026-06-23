@@ -1,0 +1,128 @@
+{
+  "game_id": "401620385",
+  "date": "2024-08-23",
+  "season": 2024,
+  "home_team_id": "20",
+  "away_team_id": "11",
+  "players_by_team": {
+    "11": [
+      {
+        "athlete_id": "2490553",
+        "name": "Brittney Griner",
+        "minutes": 33.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "585",
+        "name": "Diana Taurasi",
+        "minutes": 32.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "2529137",
+        "name": "Natasha Cloud",
+        "minutes": 30.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2998938",
+        "name": "Kahleah Copper",
+        "minutes": 36.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "3907781",
+        "name": "Sophie Cunningham",
+        "minutes": 33.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3142255",
+        "name": "Monique Billings",
+        "minutes": 18.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4068042",
+        "name": "Natasha Mack",
+        "minutes": 6.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4432864",
+        "name": "Celeste Taylor",
+        "minutes": 12.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "4065759",
+        "name": "Mikiah Herbert Harrigan",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "20": [
+      {
+        "athlete_id": "4398915",
+        "name": "Naz Hillmon",
+        "minutes": 27.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "918",
+        "name": "Tina Charles",
+        "minutes": 34.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "3058901",
+        "name": "Allisha Gray",
+        "minutes": 37.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "3142250",
+        "name": "Jordin Canada",
+        "minutes": 31.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4398674",
+        "name": "Rhyne Howard",
+        "minutes": 30.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "3054590",
+        "name": "Nia Coffey",
+        "minutes": 13.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4281183",
+        "name": "Lorela Cubaj",
+        "minutes": 6.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4432834",
+        "name": "Laeticia Amihere",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4280850",
+        "name": "Maya Caldwell",
+        "minutes": 19.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4595910",
+        "name": "Haley Jones",
+        "minutes": 3.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:32:37.930592+00:00"
+}

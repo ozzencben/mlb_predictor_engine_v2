@@ -1,0 +1,128 @@
+{
+  "game_id": "401507199",
+  "date": "2023-06-21",
+  "season": 2023,
+  "home_team_id": "11",
+  "away_team_id": "17",
+  "players_by_team": {
+    "17": [
+      {
+        "athlete_id": "812",
+        "name": "Candace Parker",
+        "minutes": 23.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "3149391",
+        "name": "A'ja Wilson",
+        "minutes": 26.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "2529122",
+        "name": "Chelsea Gray",
+        "minutes": 28.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3065570",
+        "name": "Kelsey Plum",
+        "minutes": 28.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "4065870",
+        "name": "Jackie Young",
+        "minutes": 25.0,
+        "points": 23
+      },
+      {
+        "athlete_id": "924",
+        "name": "Alysha Clark",
+        "minutes": 22.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3888043",
+        "name": "Cayla George",
+        "minutes": 10.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4433633",
+        "name": "Kierstan Bell",
+        "minutes": 15.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "2590093",
+        "name": "Kiah Stokes",
+        "minutes": 19.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1004",
+        "name": "Sydney Colson",
+        "minutes": 4.0,
+        "points": 1
+      }
+    ],
+    "11": [
+      {
+        "athlete_id": "3142086",
+        "name": "Brianna Turner",
+        "minutes": 27.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4282173",
+        "name": "Michaela Onyenwere",
+        "minutes": 29.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "2998927",
+        "name": "Moriah Jefferson",
+        "minutes": 22.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3907781",
+        "name": "Sophie Cunningham",
+        "minutes": 30.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "4068159",
+        "name": "Sug Sutton",
+        "minutes": 33.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "4281914",
+        "name": "Sam Thomas",
+        "minutes": 11.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398731",
+        "name": "Kadi Sissoko",
+        "minutes": 10.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3934218",
+        "name": "Megan Gustafson",
+        "minutes": 20.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4280890",
+        "name": "Evina Westbrook",
+        "minutes": 18.0,
+        "points": 5
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:29:16.844685+00:00"
+}

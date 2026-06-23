@@ -1,0 +1,122 @@
+{
+  "game_id": "401736210",
+  "date": "2025-06-27",
+  "season": 2025,
+  "home_team_id": "3",
+  "away_team_id": "5",
+  "players_by_team": {
+    "5": [
+      {
+        "athlete_id": "2529130",
+        "name": "Natasha Howard",
+        "minutes": 32.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "4432831",
+        "name": "Aliyah Boston",
+        "minutes": 35.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "3142191",
+        "name": "Kelsey Mitchell",
+        "minutes": 34.0,
+        "points": 32
+      },
+      {
+        "athlete_id": "4066553",
+        "name": "Aari McDonald",
+        "minutes": 30.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4398829",
+        "name": "Lexie Hull",
+        "minutes": 21.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4433546",
+        "name": "Makayla Timpson",
+        "minutes": 14.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "1004",
+        "name": "Sydney Colson",
+        "minutes": 12.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3907781",
+        "name": "Sophie Cunningham",
+        "minutes": 24.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "3142086",
+        "name": "Brianna Turner",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "3": [
+      {
+        "athlete_id": "4398776",
+        "name": "NaLyssa Smith",
+        "minutes": 26.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4336633",
+        "name": "Li Yueru",
+        "minutes": 30.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3904577",
+        "name": "Arike Ogunbowale",
+        "minutes": 32.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "4065780",
+        "name": "Kaila Charles",
+        "minutes": 14.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4433730",
+        "name": "Paige Bueckers",
+        "minutes": 36.0,
+        "points": 27
+      },
+      {
+        "athlete_id": "3142055",
+        "name": "Myisha Hines-Allen",
+        "minutes": 23.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "4433807",
+        "name": "Aziaha James",
+        "minutes": 26.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "4434015",
+        "name": "JJ Quinerly",
+        "minutes": 13.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4595910",
+        "name": "Haley Jones",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:34:32.450881+00:00"
+}

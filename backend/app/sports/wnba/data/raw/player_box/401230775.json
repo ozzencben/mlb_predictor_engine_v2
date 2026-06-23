@@ -1,0 +1,152 @@
+{
+  "game_id": "401230775",
+  "date": "2020-08-08",
+  "season": 2020,
+  "home_team_id": "14",
+  "away_team_id": "11",
+  "players_by_team": {
+    "11": [
+      {
+        "athlete_id": "3142086",
+        "name": "Brianna Turner",
+        "minutes": 19.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2490553",
+        "name": "Brittney Griner",
+        "minutes": 33.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "585",
+        "name": "Diana Taurasi",
+        "minutes": 25.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "2491205",
+        "name": "Skylar Diggins",
+        "minutes": 32.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3907781",
+        "name": "Sophie Cunningham",
+        "minutes": 26.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "3054590",
+        "name": "Nia Coffey",
+        "minutes": 19.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "3913881",
+        "name": "Alanna Smith",
+        "minutes": 18.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "838",
+        "name": "Kia Vaughn",
+        "minutes": 10.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3058893",
+        "name": "Shatori Walker-Kimbrough",
+        "minutes": 17.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1002",
+        "name": "Jessica Breland",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2529185",
+        "name": "Bria Hartley",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "14": [
+      {
+        "athlete_id": "924",
+        "name": "Alysha Clark",
+        "minutes": 31.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2529130",
+        "name": "Natasha Howard",
+        "minutes": 20.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "2998928",
+        "name": "Breanna Stewart",
+        "minutes": 32.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "2987869",
+        "name": "Jewell Loyd",
+        "minutes": 31.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "3142250",
+        "name": "Jordin Canada",
+        "minutes": 32.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "805",
+        "name": "Crystal Langhorne",
+        "minutes": 4.0,
+        "points": 1
+      },
+      {
+        "athlete_id": "2998929",
+        "name": "Morgan Tuck",
+        "minutes": 6.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4420318",
+        "name": "Ezi Magbegor",
+        "minutes": 9.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3056672",
+        "name": "Mercedes Russell",
+        "minutes": 14.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "887",
+        "name": "Sami Whitcomb",
+        "minutes": 20.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "91",
+        "name": "Sue Bird",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "882",
+        "name": "Epiphanny Prince",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:23:49.151125+00:00"
+}

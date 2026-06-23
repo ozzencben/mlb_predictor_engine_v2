@@ -1,0 +1,110 @@
+{
+  "game_id": "401620456",
+  "date": "2024-09-20",
+  "season": 2024,
+  "home_team_id": "17",
+  "away_team_id": "3",
+  "players_by_team": {
+    "3": [
+      {
+        "athlete_id": "2529130",
+        "name": "Natasha Howard",
+        "minutes": 33.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4281929",
+        "name": "Satou Sabally",
+        "minutes": 32.0,
+        "points": 25
+      },
+      {
+        "athlete_id": "4399415",
+        "name": "Maddy Siegrist",
+        "minutes": 34.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3916514",
+        "name": "Kalani Brown",
+        "minutes": 27.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4432865",
+        "name": "Jacy Sheldon",
+        "minutes": 27.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4066527",
+        "name": "Jaelyn Brown",
+        "minutes": 21.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "4399114",
+        "name": "Lou Lopez Senechal",
+        "minutes": 12.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "5209660",
+        "name": "Sevgi Uzun",
+        "minutes": 15.0,
+        "points": 0
+      }
+    ],
+    "17": [
+      {
+        "athlete_id": "924",
+        "name": "Alysha Clark",
+        "minutes": 25.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3934218",
+        "name": "Megan Gustafson",
+        "minutes": 29.0,
+        "points": 24
+      },
+      {
+        "athlete_id": "1004",
+        "name": "Sydney Colson",
+        "minutes": 32.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "1054",
+        "name": "Tiffany Hayes",
+        "minutes": 26.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "4398907",
+        "name": "Kate Martin",
+        "minutes": 32.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4433633",
+        "name": "Kierstan Bell",
+        "minutes": 24.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "2590093",
+        "name": "Kiah Stokes",
+        "minutes": 17.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4398779",
+        "name": "Queen Egbo",
+        "minutes": 15.0,
+        "points": 8
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:33:17.887920+00:00"
+}

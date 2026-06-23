@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { usePredictions } from './hooks/usePredictions';
 import { useTennisPredictions } from './hooks/useTennisPredictions';
+import { useWnbaPredictions } from './hooks/useWnbaPredictions';
 import apiClient from './api/client';
 import MatchupCard from './components/MatchupCard';
 import MatchupSkeleton from './components/MatchupSkeleton';
@@ -13,6 +14,7 @@ import PitcherProjections from './components/PitcherProjections';
 import { SPORTS_CONFIG } from './utils/sports_config';
 import CentralDashboard from './components/CentralDashboard';
 import TennisDashboard from './components/TennisDashboard';
+import WnbaDashboard from './components/WnbaDashboard';
 
 // Cumulative normal distribution CDF using math approximation for erf (to support Spread Probability)
 const normalCDF = (x, mean = 0, stdDev = 1) => {
@@ -63,6 +65,7 @@ function App() {
     const [toastMessage, setToastMessage] = useState(null);
     const { data, loading, error, isPreparing } = usePredictions(selectedDate);
     const { data: tennisData, loading: tennisLoading } = useTennisPredictions(selectedDate);
+    const { data: wnbaData, loading: wnbaLoading } = useWnbaPredictions(null);
     const [yesterdayMlbPredictions, setYesterdayMlbPredictions] = useState([]);
     const [yesterdayTennisResults, setYesterdayTennisResults] = useState([]);
 
@@ -565,7 +568,13 @@ function App() {
                                 </span>
                             </h1>
                             <p className="text-gray-500 text-[9px] md:text-[10px] font-bold tracking-tight mt-0.5">
-                                {activeSport === 'mlb' ? `MLB predictions • ${loading ? 'Syncing...' : systemDate || 'No Date'}` : activeSport === 'tennis' ? 'Tennis Projections (Beta)' : 'AI-Powered Sports Analytics'}
+                                {activeSport === 'mlb'
+                                    ? `MLB predictions • ${loading ? 'Syncing...' : systemDate || 'No Date'}`
+                                    : activeSport === 'tennis'
+                                        ? 'Tennis Projections (Beta)'
+                                        : activeSport === 'wnba'
+                                            ? 'WNBA Projections (Beta)'
+                                            : 'AI-Powered Sports Analytics'}
                             </p>
                         </div>
 
@@ -635,8 +644,8 @@ function App() {
                                         <button
                                             key={sport.id}
                                             onClick={() => {
-                                                if (sport.status !== 'ACTIVE') {
-                                                    setToastMessage(`${sport.name} predictor is currently in Beta training and will be available soon!`);
+                                                if (sport.status === 'COMING_SOON') {
+                                                    setToastMessage(`${sport.name} predictor is currently in training and will be available soon!`);
                                                 } else {
                                                     setActiveSport(sport.id);
                                                     setMoreOpen(false);
@@ -646,7 +655,7 @@ function App() {
                                                 isSelected
                                                     ? 'bg-indigo-600/20 border border-indigo-500/20 text-indigo-400 font-extrabold shadow-[0_0_12px_rgba(99,102,241,0.1)]'
                                                     : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40 border border-transparent'
-                                            } ${isBeta ? 'opacity-60 hover:opacity-100' : ''}`}
+                                            } ${isBeta ? 'border-cyan-500/10' : ''}`}
                                         >
                                             {sport.logo
                                                 ? <img src={sport.logo} alt={sport.name} className="w-4 h-4 object-contain" onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='inline'; }} />
@@ -811,15 +820,16 @@ function App() {
                         setActiveSport={setActiveSport}
                         predictions={predictions}
                         tennisPredictions={tennisData?.predictions || []}
+                        wnbaPayload={wnbaData?.predictions || null}
                         dailyEdges={dailyEdges}
-                        loading={loading || tennisLoading}
+                        loading={loading || tennisLoading || wnbaLoading}
                         systemDate={systemDate}
                         yesterdayMlbPredictions={yesterdayMlbPredictions}
                         yesterdayTennisResults={yesterdayTennisResults}
                     />
                 )}
 
-                {(activeSport === 'mlb' || activeSport === 'tennis') && (
+                {(activeSport === 'mlb' || activeSport === 'tennis' || activeSport === 'wnba') && (
                     /* ================= CALENDAR TAPE ================= */
                     <div className="mb-8 p-1.5 bg-slate-900/40 backdrop-blur-md border border-slate-800/80 rounded-2xl flex items-center justify-between gap-1 overflow-x-auto no-scrollbar scroll-smooth">
                         {calendarDays.map((day) => {
@@ -878,6 +888,10 @@ function App() {
 
                 {activeSport === 'tennis' && (
                     <TennisDashboard selectedDate={selectedDate} />
+                )}
+
+                {activeSport === 'wnba' && (
+                    <WnbaDashboard selectedDate={selectedDate} />
                 )}
 
                 {activeSport === 'mlb' && (

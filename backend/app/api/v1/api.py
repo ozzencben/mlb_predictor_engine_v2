@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 from app.api.v1.mlb import mlb_router
 from app.api.v1.tennis import tennis_router
+from app.api.v1.wnba import wnba_router
 
 api_router = APIRouter()
 
@@ -11,3 +12,6 @@ api_router.include_router(mlb_router)
 
 # Tennis Endpoints:
 api_router.include_router(tennis_router)
+
+# WNBA Endpoints:
+api_router.include_router(wnba_router)

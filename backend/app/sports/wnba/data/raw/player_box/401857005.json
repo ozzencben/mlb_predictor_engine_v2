@@ -1,0 +1,146 @@
+{
+  "game_id": "401857005",
+  "date": "2026-06-20",
+  "season": 2026,
+  "home_team_id": "129689",
+  "away_team_id": "8",
+  "players_by_team": {
+    "8": [
+      {
+        "athlete_id": "2529130",
+        "name": "Natasha Howard",
+        "minutes": 28.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3054590",
+        "name": "Nia Coffey",
+        "minutes": 33.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "2529205",
+        "name": "Kayla McBride",
+        "minutes": 34.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "2987891",
+        "name": "Courtney Williams",
+        "minutes": 36.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "4433791",
+        "name": "Olivia Miles",
+        "minutes": 32.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4873358",
+        "name": "Antonia Delaere",
+        "minutes": 7.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5278237",
+        "name": "Anastasiia Olairi Kosu",
+        "minutes": 19.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4280850",
+        "name": "Maya Caldwell",
+        "minutes": 11.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4596309",
+        "name": "Liatu King",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3913903",
+        "name": "Teaira McCowan",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "129689": [
+      {
+        "athlete_id": "2529622",
+        "name": "Kayla Thornton",
+        "minutes": 23.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3142328",
+        "name": "Gabby Williams",
+        "minutes": 28.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "4257500",
+        "name": "Cecilia Zandalasini",
+        "minutes": 27.0,
+        "points": 23
+      },
+      {
+        "athlete_id": "2590093",
+        "name": "Kiah Stokes",
+        "minutes": 19.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4398935",
+        "name": "Veronica Burton",
+        "minutes": 24.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4432834",
+        "name": "Laeticia Amihere",
+        "minutes": 10.0,
+        "points": 1
+      },
+      {
+        "athlete_id": "4790264",
+        "name": "Janelle Salaun",
+        "minutes": 24.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "1054",
+        "name": "Tiffany Hayes",
+        "minutes": 7.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4065780",
+        "name": "Kaila Charles",
+        "minutes": 21.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4899328",
+        "name": "Kaitlyn Chen",
+        "minutes": 16.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4066546",
+        "name": "Nadia Fingall",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5277552",
+        "name": "Juste Jocyte",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:37:41.825479+00:00"
+}

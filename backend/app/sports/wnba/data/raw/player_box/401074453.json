@@ -1,0 +1,140 @@
+{
+  "game_id": "401074453",
+  "date": "2018-08-22",
+  "season": 2018,
+  "home_team_id": "11",
+  "away_team_id": "3",
+  "players_by_team": {
+    "3": [
+      {
+        "athlete_id": "1053",
+        "name": "Glory Johnson",
+        "minutes": 22.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "2529622",
+        "name": "Kayla Thornton",
+        "minutes": 30.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "1017",
+        "name": "Liz Cambage",
+        "minutes": 35.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "2491205",
+        "name": "Skylar Diggins",
+        "minutes": 38.0,
+        "points": 23
+      },
+      {
+        "athlete_id": "3058901",
+        "name": "Allisha Gray",
+        "minutes": 37.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3142010",
+        "name": "Azura Stevens",
+        "minutes": 13.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3888043",
+        "name": "Cayla George",
+        "minutes": 5.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2528839",
+        "name": "Maggie Lucas",
+        "minutes": 19.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3054107",
+        "name": "Leticia Romero",
+        "minutes": 2.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2530082",
+        "name": "Theresa Plaisance",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "11": [
+      {
+        "athlete_id": "869",
+        "name": "DeWanna Bonner",
+        "minutes": 37.0,
+        "points": 29
+      },
+      {
+        "athlete_id": "3099736",
+        "name": "Stephanie Talbot",
+        "minutes": 32.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2490553",
+        "name": "Brittney Griner",
+        "minutes": 36.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "585",
+        "name": "Diana Taurasi",
+        "minutes": 30.0,
+        "points": 26
+      },
+      {
+        "athlete_id": "860",
+        "name": "Briann January",
+        "minutes": 31.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "732",
+        "name": "Camille Little",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1001",
+        "name": "Angel Robinson",
+        "minutes": 2.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "1101",
+        "name": "Devereaux Peters",
+        "minutes": 9.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "796",
+        "name": "Leilani Mitchell",
+        "minutes": 10.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2235933",
+        "name": "Yvonne Turner",
+        "minutes": 12.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3151645",
+        "name": "Marie Guelich",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:21:15.758530+00:00"
+}

@@ -1,0 +1,134 @@
+{
+  "game_id": "401736223",
+  "date": "2025-07-04",
+  "season": 2025,
+  "home_team_id": "3",
+  "away_team_id": "11",
+  "players_by_team": {
+    "11": [
+      {
+        "athlete_id": "2529140",
+        "name": "Alyssa Thomas",
+        "minutes": 34.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "3142087",
+        "name": "Kathryn Westbeld",
+        "minutes": 17.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4281929",
+        "name": "Satou Sabally",
+        "minutes": 32.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "2998938",
+        "name": "Kahleah Copper",
+        "minutes": 27.0,
+        "points": 33
+      },
+      {
+        "athlete_id": "5274110",
+        "name": "Monique Akoa Makani",
+        "minutes": 22.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "4068042",
+        "name": "Natasha Mack",
+        "minutes": 9.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3916514",
+        "name": "Kalani Brown",
+        "minutes": 16.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "887",
+        "name": "Sami Whitcomb",
+        "minutes": 26.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3920741",
+        "name": "Kitija Laksa",
+        "minutes": 17.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4282168",
+        "name": "Kiana Williams",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5220167",
+        "name": "Murjanatu Musa",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4399342",
+        "name": "Lexi Held",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "3": [
+      {
+        "athlete_id": "4336633",
+        "name": "Li Yueru",
+        "minutes": 24.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "4682797",
+        "name": "Luisa Geiselsoder",
+        "minutes": 33.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4433730",
+        "name": "Paige Bueckers",
+        "minutes": 33.0,
+        "points": 23
+      },
+      {
+        "athlete_id": "4433807",
+        "name": "Aziaha James",
+        "minutes": 38.0,
+        "points": 28
+      },
+      {
+        "athlete_id": "4434015",
+        "name": "JJ Quinerly",
+        "minutes": 35.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "3142055",
+        "name": "Myisha Hines-Allen",
+        "minutes": 17.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4596309",
+        "name": "Liatu King",
+        "minutes": 4.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3913903",
+        "name": "Teaira McCowan",
+        "minutes": 16.0,
+        "points": 9
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:34:40.229105+00:00"
+}

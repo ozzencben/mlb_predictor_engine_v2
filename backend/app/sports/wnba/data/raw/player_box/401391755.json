@@ -1,0 +1,128 @@
+{
+  "game_id": "401391755",
+  "date": "2022-06-24",
+  "season": 2022,
+  "home_team_id": "20",
+  "away_team_id": "9",
+  "players_by_team": {
+    "9": [
+      {
+        "athlete_id": "2529130",
+        "name": "Natasha Howard",
+        "minutes": 32.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "2529183",
+        "name": "Stefanie Dolson",
+        "minutes": 21.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4038379",
+        "name": "Marine Johannes",
+        "minutes": 30.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "4066533",
+        "name": "Sabrina Ionescu",
+        "minutes": 34.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "4066585",
+        "name": "Crystal Dangerfield",
+        "minutes": 22.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4281183",
+        "name": "Lorela Cubaj",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4282173",
+        "name": "Michaela Onyenwere",
+        "minutes": 8.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4337216",
+        "name": "Han Xu",
+        "minutes": 19.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "887",
+        "name": "Sami Whitcomb",
+        "minutes": 21.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4281253",
+        "name": "DiDi Richards",
+        "minutes": 13.0,
+        "points": 2
+      }
+    ],
+    "20": [
+      {
+        "athlete_id": "2529458",
+        "name": "Cheyenne Parker-Tyus",
+        "minutes": 33.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "3142255",
+        "name": "Monique Billings",
+        "minutes": 15.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4066553",
+        "name": "Aari McDonald",
+        "minutes": 34.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "4280850",
+        "name": "Maya Caldwell",
+        "minutes": 16.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4398674",
+        "name": "Rhyne Howard",
+        "minutes": 35.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "3916517",
+        "name": "Beatrice Mompremier",
+        "minutes": 14.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4398915",
+        "name": "Naz Hillmon",
+        "minutes": 18.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2235933",
+        "name": "Yvonne Turner",
+        "minutes": 6.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3904553",
+        "name": "AD Durr",
+        "minutes": 29.0,
+        "points": 23
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:27:28.224716+00:00"
+}

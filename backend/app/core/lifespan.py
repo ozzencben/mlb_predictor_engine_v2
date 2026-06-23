@@ -32,6 +32,10 @@ PREDICTIONS_FILE = os.path.join(DATA_DIR, "todays_predictions.json")
 TENNIS_DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "sports", "tennis", "data"))
 TENNIS_PREDICTIONS_FILE = os.path.join(TENNIS_DATA_DIR, "today_predictions.json")
 
+WNBA_DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "sports", "wnba", "data"))
+WNBA_PREDICTIONS_FILE = os.path.join(WNBA_DATA_DIR, "today_predictions.json")
+WNBA_MATCHES_FILE = os.path.join(WNBA_DATA_DIR, "today_matches.json")
+
 # Başlangıç kazıması için maksimum dosya yaşı (12 saat = 43200 saniye)
 STARTUP_MAX_AGE_SECONDS = 43200
 
@@ -158,17 +162,53 @@ async def _tennis_startup_scrape():
         logger.error(f"❌ Başlangıç tenis kazıma hatası: {e}", exc_info=True)
 
 
+async def _wnba_startup_scrape():
+    from app.sports.wnba.pipeline_runner import run_pipeline
+
+    logger.info("🔄 Baslangic: WNBA tahmin dosyasi yok veya eski — pipeline baslatiliyor...")
+    try:
+        await run_in_threadpool(run_pipeline)
+        logger.info("✅ Baslangic WNBA kazimasi tamamlandi.")
+    except Exception as e:
+        logger.error(f"❌ Baslangic WNBA kazima hatasi: {e}", exc_info=True)
+
+
+def _wnba_predictions_file_is_stale() -> bool:
+    if not os.path.exists(WNBA_PREDICTIONS_FILE):
+        return True
+    if not os.path.exists(WNBA_MATCHES_FILE):
+        return True
+
+    et_today = datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d")
+    try:
+        with open(WNBA_PREDICTIONS_FILE, "r", encoding="utf-8") as f:
+            pred_date = json.load(f).get("date")
+        if pred_date != et_today:
+            return True
+        with open(WNBA_MATCHES_FILE, "r", encoding="utf-8") as f:
+            match_date = json.load(f).get("date")
+        if match_date != et_today:
+            return True
+        logger.info(f"⚡ WNBA onbellek guncel ({et_today}). Baslangic pipeline atlandi.")
+        return False
+    except Exception:
+        return True
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # ─── BAŞLANGIÇ ───────────────────────────────────────────────────────────
     logger.info("------------------------------------------")
-    logger.info("🔥 Legends Sports MLB & Tennis Predictor API Başlatılıyor...")
+    logger.info("🔥 Legends Sports MLB, Tennis & WNBA Predictor API Baslatiliyor...")
 
     # 1. Veri klasörlerini hazırla
     os.makedirs(DATA_DIR, exist_ok=True)
     os.makedirs(TENNIS_DATA_DIR, exist_ok=True)
+    os.makedirs(WNBA_DATA_DIR, exist_ok=True)
+    os.makedirs(os.path.join(WNBA_DATA_DIR, "archive"), exist_ok=True)
     logger.info(f"✅ MLB Veri klasörü hazır: {DATA_DIR}")
     logger.info(f"✅ Tenis Veri klasörü hazır: {TENNIS_DATA_DIR}")
+    logger.info(f"✅ WNBA Veri klasörü hazır: {WNBA_DATA_DIR}")
 
     # 2. Gerekirse başlangıç kazımalarını arka planda başlat
     startup_task = None
@@ -182,6 +222,12 @@ async def lifespan(app: FastAPI):
         tennis_startup_task = asyncio.create_task(_tennis_startup_scrape())
     else:
         logger.info("✅ Tenis tahmin dosyası güncel, başlangıç kazıması atlandı.")
+
+    wnba_startup_task = None
+    if _wnba_predictions_file_is_stale():
+        wnba_startup_task = asyncio.create_task(_wnba_startup_scrape())
+    else:
+        logger.info("✅ WNBA tahmin dosyasi guncel, baslangic kazimasi atlandi.")
 
     # 3. Günlük zamanlayıcıyı başlat (00:00 & 12:00 ET)
     from app.core.scheduler import scheduled_scraping_loop
@@ -213,6 +259,13 @@ async def lifespan(app: FastAPI):
         tennis_startup_task.cancel()
         try:
             await tennis_startup_task
+        except asyncio.CancelledError:
+            pass
+
+    if wnba_startup_task and not wnba_startup_task.done():
+        wnba_startup_task.cancel()
+        try:
+            await wnba_startup_task
         except asyncio.CancelledError:
             pass
 

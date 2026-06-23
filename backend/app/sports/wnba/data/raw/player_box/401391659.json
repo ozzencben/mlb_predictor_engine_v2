@@ -1,0 +1,122 @@
+{
+  "game_id": "401391659",
+  "date": "2022-05-10",
+  "season": 2022,
+  "home_team_id": "16",
+  "away_team_id": "17",
+  "players_by_team": {
+    "17": [
+      {
+        "athlete_id": "2566106",
+        "name": "Dearica Hamby",
+        "minutes": 32.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "3149391",
+        "name": "A'ja Wilson",
+        "minutes": 30.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2529122",
+        "name": "Chelsea Gray",
+        "minutes": 25.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3065570",
+        "name": "Kelsey Plum",
+        "minutes": 35.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "4065870",
+        "name": "Jackie Young",
+        "minutes": 35.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "2530082",
+        "name": "Theresa Plaisance",
+        "minutes": 18.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "4433633",
+        "name": "Kierstan Bell",
+        "minutes": 5.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1004",
+        "name": "Sydney Colson",
+        "minutes": 16.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4281223",
+        "name": "Aisha Sheppard",
+        "minutes": 5.0,
+        "points": 2
+      }
+    ],
+    "16": [
+      {
+        "athlete_id": "2491877",
+        "name": "Elena Delle Donne",
+        "minutes": 29.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "3142055",
+        "name": "Myisha Hines-Allen",
+        "minutes": 29.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "3058893",
+        "name": "Shatori Walker-Kimbrough",
+        "minutes": 34.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3146151",
+        "name": "Ariel Atkins",
+        "minutes": 30.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4038394",
+        "name": "Rui Machida",
+        "minutes": 29.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "2490514",
+        "name": "Tianna Hawkins",
+        "minutes": 18.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4065785",
+        "name": "Stephanie Jones",
+        "minutes": 2.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4398911",
+        "name": "Shakira Austin",
+        "minutes": 14.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4068580",
+        "name": "Katie Benzan",
+        "minutes": 15.0,
+        "points": 12
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:26:40.469376+00:00"
+}

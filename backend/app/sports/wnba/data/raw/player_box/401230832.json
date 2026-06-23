@@ -1,0 +1,164 @@
+{
+  "game_id": "401230832",
+  "date": "2020-08-22",
+  "season": 2020,
+  "home_team_id": "19",
+  "away_team_id": "5",
+  "players_by_team": {
+    "5": [
+      {
+        "athlete_id": "689",
+        "name": "Candice Dupree",
+        "minutes": 29.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "3913903",
+        "name": "Teaira McCowan",
+        "minutes": 15.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3142191",
+        "name": "Kelsey Mitchell",
+        "minutes": 34.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "3922628",
+        "name": "Kennedy Burke",
+        "minutes": 32.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4001679",
+        "name": "Julie Allemand",
+        "minutes": 40.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "2529203",
+        "name": "Natalie Achonwa",
+        "minutes": 25.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "4066563",
+        "name": "Lauren Cox",
+        "minutes": 15.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4068092",
+        "name": "Kathleen Doyle",
+        "minutes": 10.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2987887",
+        "name": "Alisia Jenkins",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3058900",
+        "name": "Stephanie Mavunga",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4068346",
+        "name": "Kamiah Smalls",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2491214",
+        "name": "Erica Wheeler",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2984741",
+        "name": "Tiffany Mitchell",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3142948",
+        "name": "Victoria Vivians",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "19": [
+      {
+        "athlete_id": "3142328",
+        "name": "Gabby Williams",
+        "minutes": 35.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2529183",
+        "name": "Stefanie Dolson",
+        "minutes": 15.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "764",
+        "name": "Allie Quigley",
+        "minutes": 36.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "981",
+        "name": "Courtney Vandersloot",
+        "minutes": 32.0,
+        "points": 23
+      },
+      {
+        "athlete_id": "2998938",
+        "name": "Kahleah Copper",
+        "minutes": 36.0,
+        "points": 26
+      },
+      {
+        "athlete_id": "2529458",
+        "name": "Cheyenne Parker-Tyus",
+        "minutes": 21.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4066534",
+        "name": "Ruthy Hebard",
+        "minutes": 16.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "1004",
+        "name": "Sydney Colson",
+        "minutes": 8.0,
+        "points": 1
+      },
+      {
+        "athlete_id": "1013",
+        "name": "Jantel Lavender",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3142010",
+        "name": "Azura Stevens",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3058902",
+        "name": "Diamond DeShields",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:24:09.406142+00:00"
+}

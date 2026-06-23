@@ -1,0 +1,128 @@
+{
+  "game_id": "401736129",
+  "date": "2025-05-24",
+  "season": 2025,
+  "home_team_id": "17",
+  "away_team_id": "16",
+  "players_by_team": {
+    "16": [
+      {
+        "athlete_id": "4898384",
+        "name": "Kiki Iriafen",
+        "minutes": 35.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "2529183",
+        "name": "Stefanie Dolson",
+        "minutes": 29.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4068159",
+        "name": "Sug Sutton",
+        "minutes": 33.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4433524",
+        "name": "Sonia Citron",
+        "minutes": 36.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "5017726",
+        "name": "Jade Melbourne",
+        "minutes": 35.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "4398729",
+        "name": "Emily Engstler",
+        "minutes": 5.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5017721",
+        "name": "Sika Kone",
+        "minutes": 10.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4433815",
+        "name": "Lucy Olsen",
+        "minutes": 16.0,
+        "points": 4
+      }
+    ],
+    "17": [
+      {
+        "athlete_id": "2590093",
+        "name": "Kiah Stokes",
+        "minutes": 16.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3149391",
+        "name": "A'ja Wilson",
+        "minutes": 38.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "2529122",
+        "name": "Chelsea Gray",
+        "minutes": 34.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "2987869",
+        "name": "Jewell Loyd",
+        "minutes": 29.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "4065870",
+        "name": "Jackie Young",
+        "minutes": 33.0,
+        "points": 25
+      },
+      {
+        "athlete_id": "2591976",
+        "name": "Crystal Bradford",
+        "minutes": 6.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4433633",
+        "name": "Kierstan Bell",
+        "minutes": 8.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2984741",
+        "name": "Tiffany Mitchell",
+        "minutes": 8.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4281190",
+        "name": "Dana Evans",
+        "minutes": 20.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4597509",
+        "name": "Aaliyah Nye",
+        "minutes": 10.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4433309",
+        "name": "Elizabeth Kitley",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:33:46.951856+00:00"
+}

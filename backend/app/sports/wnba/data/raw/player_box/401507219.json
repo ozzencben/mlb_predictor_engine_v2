@@ -1,0 +1,140 @@
+{
+  "game_id": "401507219",
+  "date": "2023-06-30",
+  "season": 2023,
+  "home_team_id": "20",
+  "away_team_id": "16",
+  "players_by_team": {
+    "16": [
+      {
+        "athlete_id": "2490514",
+        "name": "Tianna Hawkins",
+        "minutes": 23.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "2491877",
+        "name": "Elena Delle Donne",
+        "minutes": 34.0,
+        "points": 31
+      },
+      {
+        "athlete_id": "2529137",
+        "name": "Natasha Cloud",
+        "minutes": 36.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "2988756",
+        "name": "Brittney Sykes",
+        "minutes": 23.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "3146151",
+        "name": "Ariel Atkins",
+        "minutes": 29.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3142055",
+        "name": "Myisha Hines-Allen",
+        "minutes": 14.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3007473",
+        "name": "Amanda Zahui B.",
+        "minutes": 9.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3056639",
+        "name": "Linnae Harper",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3058893",
+        "name": "Shatori Walker-Kimbrough",
+        "minutes": 29.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4281402",
+        "name": "Abby Meyers",
+        "minutes": 3.0,
+        "points": 2
+      }
+    ],
+    "20": [
+      {
+        "athlete_id": "2529458",
+        "name": "Cheyenne Parker-Tyus",
+        "minutes": 21.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3054590",
+        "name": "Nia Coffey",
+        "minutes": 26.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "1014",
+        "name": "Danielle Robinson",
+        "minutes": 17.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3058901",
+        "name": "Allisha Gray",
+        "minutes": 40.0,
+        "points": 26
+      },
+      {
+        "athlete_id": "4398674",
+        "name": "Rhyne Howard",
+        "minutes": 39.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "3142255",
+        "name": "Monique Billings",
+        "minutes": 19.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "4398915",
+        "name": "Naz Hillmon",
+        "minutes": 2.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4432834",
+        "name": "Laeticia Amihere",
+        "minutes": 14.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "3904553",
+        "name": "AD Durr",
+        "minutes": 17.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "4595910",
+        "name": "Haley Jones",
+        "minutes": 5.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398912",
+        "name": "Taylor Mikesell",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:29:27.659126+00:00"
+}

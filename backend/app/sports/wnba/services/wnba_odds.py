@@ -13,6 +13,7 @@ import requests
 
 from app.core.config import settings
 from app.sports.wnba.services.config import DATA_DIR
+from app.sports.wnba.services.http import make_requests_session
 
 ODDS_FILE = DATA_DIR / "today_odds.json"
 SPORT_KEY = "basketball_wnba"
@@ -80,7 +81,7 @@ def fetch_wnba_odds(save: bool = True) -> list[dict[str, Any]]:
     }
 
     try:
-        resp = requests.get(BASE_URL, params=params, timeout=15)
+        resp = make_requests_session().get(BASE_URL, params=params, timeout=15)
         if resp.status_code == 422:
             print("[WARN] [WNBAOdds] 422 - Plan bu marketleri desteklemiyor.")
             return []

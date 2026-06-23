@@ -1,0 +1,158 @@
+{
+  "game_id": "401018841",
+  "date": "2018-06-17",
+  "season": 2018,
+  "home_team_id": "8",
+  "away_team_id": "9",
+  "players_by_team": {
+    "9": [
+      {
+        "athlete_id": "838",
+        "name": "Kia Vaughn",
+        "minutes": 13.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "918",
+        "name": "Tina Charles",
+        "minutes": 30.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "835",
+        "name": "Marissa Coleman",
+        "minutes": 13.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "851",
+        "name": "Shavonte Zellous",
+        "minutes": 16.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2529185",
+        "name": "Bria Hartley",
+        "minutes": 23.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "2590093",
+        "name": "Kiah Stokes",
+        "minutes": 11.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3007473",
+        "name": "Amanda Zahui B.",
+        "minutes": 14.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "882",
+        "name": "Epiphanny Prince",
+        "minutes": 14.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "2491197",
+        "name": "Sugar Rodgers",
+        "minutes": 19.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "2566210",
+        "name": "Brittany Boyd-Jones",
+        "minutes": 17.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3102133",
+        "name": "Rebecca Allen",
+        "minutes": 12.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "3142327",
+        "name": "Kia Nurse",
+        "minutes": 18.0,
+        "points": 6
+      }
+    ],
+    "8": [
+      {
+        "athlete_id": "571",
+        "name": "Rebekkah Brunson",
+        "minutes": 26.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "956",
+        "name": "Maya Moore",
+        "minutes": 32.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "766",
+        "name": "Sylvia Fowles",
+        "minutes": 32.0,
+        "points": 25
+      },
+      {
+        "athlete_id": "545",
+        "name": "Lindsay Whalen",
+        "minutes": 16.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "618",
+        "name": "Tanisha Wright",
+        "minutes": 21.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "1051",
+        "name": "Lynetta Kizer",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2970318",
+        "name": "Endy Miyem",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4257500",
+        "name": "Cecilia Zandalasini",
+        "minutes": 23.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "2569044",
+        "name": "Temi Fagbenle",
+        "minutes": 10.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "1014",
+        "name": "Danielle Robinson",
+        "minutes": 20.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2984245",
+        "name": "Alexis Jones",
+        "minutes": 14.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "695",
+        "name": "Seimone Augustus",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:20:03.622179+00:00"
+}

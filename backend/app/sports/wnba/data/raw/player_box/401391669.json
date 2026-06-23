@@ -1,0 +1,146 @@
+{
+  "game_id": "401391669",
+  "date": "2022-05-15",
+  "season": 2022,
+  "home_team_id": "8",
+  "away_team_id": "19",
+  "players_by_team": {
+    "19": [
+      {
+        "athlete_id": "812",
+        "name": "Candace Parker",
+        "minutes": 30.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3142010",
+        "name": "Azura Stevens",
+        "minutes": 25.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "3027368",
+        "name": "Emma Meesseman",
+        "minutes": 32.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "764",
+        "name": "Allie Quigley",
+        "minutes": 21.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "981",
+        "name": "Courtney Vandersloot",
+        "minutes": 31.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "4066534",
+        "name": "Ruthy Hebard",
+        "minutes": 10.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4281930",
+        "name": "Anneli Maley",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2327695",
+        "name": "Rebekah Gardner",
+        "minutes": 28.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4281190",
+        "name": "Dana Evans",
+        "minutes": 20.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4874470",
+        "name": "Tina Krajisnik",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "8": [
+      {
+        "athlete_id": "3906949",
+        "name": "Jessica Shepard",
+        "minutes": 21.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "3906972",
+        "name": "Bridget Carleton",
+        "minutes": 30.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "766",
+        "name": "Sylvia Fowles",
+        "minutes": 33.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "2998927",
+        "name": "Moriah Jefferson",
+        "minutes": 35.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "2999035",
+        "name": "Aerial Powers",
+        "minutes": 26.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "4874475",
+        "name": "Nikolina Milic",
+        "minutes": 22.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "4068349",
+        "name": "Hannah Sjerven",
+        "minutes": 4.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2235933",
+        "name": "Yvonne Turner",
+        "minutes": 4.0,
+        "points": 1
+      },
+      {
+        "athlete_id": "2566186",
+        "name": "Rachel Banham",
+        "minutes": 5.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4280890",
+        "name": "Evina Westbrook",
+        "minutes": 20.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2529203",
+        "name": "Natalie Achonwa",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2955898",
+        "name": "Damiris Dantas",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:26:44.901109+00:00"
+}

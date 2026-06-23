@@ -1,0 +1,128 @@
+{
+  "game_id": "401018812",
+  "date": "2018-06-03",
+  "season": 2018,
+  "home_team_id": "3",
+  "away_team_id": "14",
+  "players_by_team": {
+    "14": [
+      {
+        "athlete_id": "924",
+        "name": "Alysha Clark",
+        "minutes": 32.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2529130",
+        "name": "Natasha Howard",
+        "minutes": 32.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "2998928",
+        "name": "Breanna Stewart",
+        "minutes": 35.0,
+        "points": 28
+      },
+      {
+        "athlete_id": "2987869",
+        "name": "Jewell Loyd",
+        "minutes": 33.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "3142250",
+        "name": "Jordin Canada",
+        "minutes": 29.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "2590092",
+        "name": "Kaleena Mosqueda-Lewis",
+        "minutes": 6.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "842",
+        "name": "Courtney Paris",
+        "minutes": 11.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3056672",
+        "name": "Mercedes Russell",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "737",
+        "name": "Noelle Quinn",
+        "minutes": 11.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "887",
+        "name": "Sami Whitcomb",
+        "minutes": 8.0,
+        "points": 6
+      }
+    ],
+    "3": [
+      {
+        "athlete_id": "1003",
+        "name": "Karima Christmas-Kelly",
+        "minutes": 25.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2529622",
+        "name": "Kayla Thornton",
+        "minutes": 28.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "1017",
+        "name": "Liz Cambage",
+        "minutes": 34.0,
+        "points": 25
+      },
+      {
+        "athlete_id": "2491205",
+        "name": "Skylar Diggins",
+        "minutes": 37.0,
+        "points": 27
+      },
+      {
+        "athlete_id": "3058901",
+        "name": "Allisha Gray",
+        "minutes": 31.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "3058888",
+        "name": "Kaela Davis",
+        "minutes": 22.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "3142010",
+        "name": "Azura Stevens",
+        "minutes": 19.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3054105",
+        "name": "Breanna Lewis",
+        "minutes": 4.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3054107",
+        "name": "Leticia Romero",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:19:47.740384+00:00"
+}

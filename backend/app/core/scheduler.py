@@ -82,6 +82,14 @@ async def _run_scraping_pipeline():
         except Exception as e:
             logger.error(f"❌ Tenis Zamanlı Kazıma Hatası: {e}", exc_info=True)
 
+        # 3. WNBA Pipeline
+        try:
+            from app.sports.wnba.pipeline_runner import run_pipeline as run_wnba_pipeline
+            await run_in_threadpool(run_wnba_pipeline)
+            logger.info("✅ WNBA Zamanlı Kazıma Tamamlandı.")
+        except Exception as e:
+            logger.error(f"❌ WNBA Zamanlı Kazıma Hatası: {e}", exc_info=True)
+
 
 async def scheduled_scraping_loop():
     """

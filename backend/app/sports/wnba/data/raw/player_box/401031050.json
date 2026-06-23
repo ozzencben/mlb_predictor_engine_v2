@@ -1,0 +1,230 @@
+{
+  "game_id": "401031050",
+  "date": "2018-05-07",
+  "season": 2018,
+  "home_team_id": "17",
+  "away_team_id": "21",
+  "players_by_team": {
+    "21": [
+      {
+        "athlete_id": "4038365",
+        "name": "Shao Ting",
+        "minutes": 22.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "4337209",
+        "name": "Wang Jiaqi",
+        "minutes": 22.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4336633",
+        "name": "Li Yueru",
+        "minutes": 12.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4337214",
+        "name": "Liu Jiacen",
+        "minutes": 18.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "4336636",
+        "name": "Meng Li",
+        "minutes": 25.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "3103904",
+        "name": "Yang Hengyu",
+        "minutes": 4.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4038357",
+        "name": "Huang Sijing",
+        "minutes": 12.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4337211",
+        "name": "Jin Jiaboa",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4337212",
+        "name": "Wang Lili",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4337225",
+        "name": "Pan Zhenqi",
+        "minutes": 9.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4038367",
+        "name": "Sun Mengran",
+        "minutes": 17.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4337216",
+        "name": "Han Xu",
+        "minutes": 19.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "4337206",
+        "name": "Li Yuan",
+        "minutes": 18.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4337213",
+        "name": "Wang Xuemeng",
+        "minutes": 18.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4337210",
+        "name": "Yang Banban",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "17": [
+      {
+        "athlete_id": "819",
+        "name": "Tamera Young",
+        "minutes": 18.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "3054590",
+        "name": "Nia Coffey",
+        "minutes": 22.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "2491346",
+        "name": "Kelsey Bone",
+        "minutes": 12.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "3149391",
+        "name": "A'ja Wilson",
+        "minutes": 22.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "1004",
+        "name": "Sydney Colson",
+        "minutes": 17.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "2566452",
+        "name": "Cierra Burdick",
+        "minutes": 7.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3058830",
+        "name": "Ivey Slaughter",
+        "minutes": 17.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "3919496",
+        "name": "Valeriane Ayayi",
+        "minutes": 3.0,
+        "points": 1
+      },
+      {
+        "athlete_id": "4329389",
+        "name": "Ji-Su Park",
+        "minutes": 22.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "814",
+        "name": "Sequoia Holmes",
+        "minutes": 12.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "3056654",
+        "name": "Raigyne Louis",
+        "minutes": 11.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3142946",
+        "name": "Morgan William",
+        "minutes": 9.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3143136",
+        "name": "Jaime Nared",
+        "minutes": 14.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "3144171",
+        "name": "Kahlia Lawrence",
+        "minutes": 8.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3156475",
+        "name": "Brooke Johnson",
+        "minutes": 8.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2566106",
+        "name": "Dearica Hamby",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2566453",
+        "name": "Isabelle Harrison",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "982",
+        "name": "Carolyn Swords",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2238341",
+        "name": "Jacki Gemelos",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2529205",
+        "name": "Kayla McBride",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3065570",
+        "name": "Kelsey Plum",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:19:24.621505+00:00"
+}

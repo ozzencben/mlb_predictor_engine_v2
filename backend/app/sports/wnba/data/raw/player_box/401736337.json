@@ -1,0 +1,134 @@
+{
+  "game_id": "401736337",
+  "date": "2025-08-20",
+  "season": 2025,
+  "home_team_id": "129689",
+  "away_team_id": "11",
+  "players_by_team": {
+    "11": [
+      {
+        "athlete_id": "2529140",
+        "name": "Alyssa Thomas",
+        "minutes": 35.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4068042",
+        "name": "Natasha Mack",
+        "minutes": 18.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "4281929",
+        "name": "Satou Sabally",
+        "minutes": 31.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "887",
+        "name": "Sami Whitcomb",
+        "minutes": 24.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "2998938",
+        "name": "Kahleah Copper",
+        "minutes": 32.0,
+        "points": 25
+      },
+      {
+        "athlete_id": "869",
+        "name": "DeWanna Bonner",
+        "minutes": 28.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "3142087",
+        "name": "Kathryn Westbeld",
+        "minutes": 11.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4399342",
+        "name": "Lexi Held",
+        "minutes": 5.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "5274110",
+        "name": "Monique Akoa Makani",
+        "minutes": 17.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3916514",
+        "name": "Kalani Brown",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3920741",
+        "name": "Kitija Laksa",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4282168",
+        "name": "Kiana Williams",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "129689": [
+      {
+        "athlete_id": "4790264",
+        "name": "Janelle Salaun",
+        "minutes": 37.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "2569044",
+        "name": "Temi Fagbenle",
+        "minutes": 17.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4398907",
+        "name": "Kate Martin",
+        "minutes": 35.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "4398935",
+        "name": "Veronica Burton",
+        "minutes": 34.0,
+        "points": 24
+      },
+      {
+        "athlete_id": "5208982",
+        "name": "Carla Leite",
+        "minutes": 32.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "4432834",
+        "name": "Laeticia Amihere",
+        "minutes": 23.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "4065780",
+        "name": "Kaila Charles",
+        "minutes": 9.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4899328",
+        "name": "Kaitlyn Chen",
+        "minutes": 14.0,
+        "points": 2
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:35:42.457355+00:00"
+}

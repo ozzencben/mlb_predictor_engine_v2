@@ -1,0 +1,152 @@
+{
+  "game_id": "401736313",
+  "date": "2025-08-10",
+  "season": 2025,
+  "home_team_id": "11",
+  "away_team_id": "20",
+  "players_by_team": {
+    "20": [
+      {
+        "athlete_id": "3058895",
+        "name": "Brionna Jones",
+        "minutes": 26.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "4398915",
+        "name": "Naz Hillmon",
+        "minutes": 36.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "3058901",
+        "name": "Allisha Gray",
+        "minutes": 37.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "3142250",
+        "name": "Jordin Canada",
+        "minutes": 25.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "4433431",
+        "name": "Te-Hina Paopao",
+        "minutes": 15.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "3054590",
+        "name": "Nia Coffey",
+        "minutes": 5.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2490553",
+        "name": "Brittney Griner",
+        "minutes": 13.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4280850",
+        "name": "Maya Caldwell",
+        "minutes": 27.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "4398674",
+        "name": "Rhyne Howard",
+        "minutes": 16.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4068346",
+        "name": "Kamiah Smalls",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4898400",
+        "name": "Taylor Thierry",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3058893",
+        "name": "Shatori Walker-Kimbrough",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "11": [
+      {
+        "athlete_id": "2529140",
+        "name": "Alyssa Thomas",
+        "minutes": 34.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "4068042",
+        "name": "Natasha Mack",
+        "minutes": 22.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4281929",
+        "name": "Satou Sabally",
+        "minutes": 29.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "2998938",
+        "name": "Kahleah Copper",
+        "minutes": 32.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "5274110",
+        "name": "Monique Akoa Makani",
+        "minutes": 21.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "869",
+        "name": "DeWanna Bonner",
+        "minutes": 26.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "3142087",
+        "name": "Kathryn Westbeld",
+        "minutes": 16.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "887",
+        "name": "Sami Whitcomb",
+        "minutes": 20.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3916514",
+        "name": "Kalani Brown",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3920741",
+        "name": "Kitija Laksa",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4399342",
+        "name": "Lexi Held",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:35:28.179991+00:00"
+}

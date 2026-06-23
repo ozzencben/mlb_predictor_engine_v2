@@ -1,0 +1,140 @@
+{
+  "game_id": "401736185",
+  "date": "2025-06-18",
+  "season": 2025,
+  "home_team_id": "3",
+  "away_team_id": "129689",
+  "players_by_team": {
+    "129689": [
+      {
+        "athlete_id": "2529622",
+        "name": "Kayla Thornton",
+        "minutes": 35.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "3099736",
+        "name": "Stephanie Talbot",
+        "minutes": 21.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3142255",
+        "name": "Monique Billings",
+        "minutes": 34.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "4398935",
+        "name": "Veronica Burton",
+        "minutes": 27.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "5208982",
+        "name": "Carla Leite",
+        "minutes": 27.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4432834",
+        "name": "Laeticia Amihere",
+        "minutes": 24.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "1054",
+        "name": "Tiffany Hayes",
+        "minutes": 22.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4398907",
+        "name": "Kate Martin",
+        "minutes": 8.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4280877",
+        "name": "Chloe Bibby",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2999035",
+        "name": "Aerial Powers",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4899328",
+        "name": "Kaitlyn Chen",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "3": [
+      {
+        "athlete_id": "3142055",
+        "name": "Myisha Hines-Allen",
+        "minutes": 28.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "4398776",
+        "name": "NaLyssa Smith",
+        "minutes": 17.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3904577",
+        "name": "Arike Ogunbowale",
+        "minutes": 36.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "4433730",
+        "name": "Paige Bueckers",
+        "minutes": 39.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "4433807",
+        "name": "Aziaha James",
+        "minutes": 17.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4336633",
+        "name": "Li Yueru",
+        "minutes": 13.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4065780",
+        "name": "Kaila Charles",
+        "minutes": 24.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4066548",
+        "name": "DiJonai Carrington",
+        "minutes": 22.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4434015",
+        "name": "JJ Quinerly",
+        "minutes": 4.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4595910",
+        "name": "Haley Jones",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:34:18.756882+00:00"
+}

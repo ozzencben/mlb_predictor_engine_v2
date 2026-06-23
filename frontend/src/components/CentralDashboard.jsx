@@ -7,6 +7,7 @@ function CentralDashboard({
     setActiveSport,
     predictions = [],
     tennisPredictions = null,
+    wnbaPayload = null,
     dailyEdges = null,
     loading = false,
     systemDate = '',
@@ -59,6 +60,31 @@ function CentralDashboard({
             isMounted = false;
         };
     }, []);
+
+    const wnbaGames = wnbaPayload?.predictions || [];
+    const wnbaMeta = wnbaPayload?.model_meta || {};
+    const activeTennisList = tennisPredictions?.active_predictions || [];
+
+    const wnbaTopPlay = useMemo(() => {
+        let best = null;
+        let bestEdge = -1;
+        wnbaGames.forEach(game => {
+            (game.alt_bets || []).forEach(bet => {
+                const edge = parseFloat(bet.edge || 0);
+                if (edge > bestEdge) {
+                    bestEdge = edge;
+                    best = { game, bet };
+                }
+            });
+        });
+        return best;
+    }, [wnbaGames]);
+
+    const liveEngineStats = useMemo(() => ({
+        mlb: predictions?.length || 0,
+        tennis: activeTennisList.length,
+        wnba: wnbaGames.length,
+    }), [predictions, activeTennisList, wnbaGames]);
 
     const alEastTeams = useMemo(() => {
         if (!standingsData) return null;
@@ -170,9 +196,8 @@ function CentralDashboard({
         }
 
         // Tennis
-        const activeTennis = tennisPredictions?.active_predictions || [];
-        if (activeTennis && activeTennis.length > 0) {
-            activeTennis.forEach(t => {
+        if (activeTennisList.length > 0) {
+            activeTennisList.forEach(t => {
                 const edge = parseFloat(t.edge_percentage || 0);
                 if (edge > bestEdge) {
                     bestEdge = edge;
@@ -196,8 +221,35 @@ function CentralDashboard({
             });
         }
 
+        // WNBA
+        wnbaGames.forEach(game => {
+            (game.alt_bets || []).forEach(bet => {
+                const edge = parseFloat(bet.edge || 0);
+                if (edge > bestEdge) {
+                    bestEdge = edge;
+                    const oddsVal = bet.odds;
+                    const americanOdds = oddsVal != null
+                        ? (parseInt(oddsVal, 10) > 0 ? `+${oddsVal}` : `${oddsVal}`)
+                        : 'Best Odds';
+                    bestPick = {
+                        sport: '🏀 WNBA',
+                        sportId: 'wnba',
+                        matchup: `${game.away_team_abbr} @ ${game.home_team_abbr}`,
+                        type: (bet.market || 'PICK').toUpperCase(),
+                        selection: bet.pick,
+                        edge: `${edge.toFixed(1)}%`,
+                        odds: americanOdds,
+                        confidence: game.home_win_prob >= 0.5
+                            ? `${(game.home_win_prob * 100).toFixed(0)}% ${game.home_team_abbr}`
+                            : `${(game.away_win_prob * 100).toFixed(0)}% ${game.away_team_abbr}`,
+                        book: 'Best Odds'
+                    };
+                }
+            });
+        });
+
         return bestPick;
-    }, [predictions, tennisPredictions]);
+    }, [predictions, tennisPredictions, wnbaGames]);
 
     // Top 3 value picks for each active sport
     const topValuePicks = useMemo(() => {
@@ -231,9 +283,8 @@ function CentralDashboard({
         }
 
         // Tennis Edge calculation
-        const activeTennis = tennisPredictions?.active_predictions || [];
-        if (activeTennis && activeTennis.length > 0) {
-            activeTennis.forEach(t => {
+        if (activeTennisList.length > 0) {
+            activeTennisList.forEach(t => {
                 const edge = parseFloat(t.edge_percentage || 0);
                 if (edge > 0) {
                     const isHome = t.home_win_probability > t.away_win_probability;
@@ -261,17 +312,115 @@ function CentralDashboard({
             });
         }
 
+        // WNBA Edge calculation
+        const wnbaPicks = [];
+        wnbaGames.forEach(game => {
+            (game.alt_bets || []).forEach(bet => {
+                const edge = parseFloat(bet.edge || 0);
+                if (edge > 0) {
+                    const oddsVal = bet.odds;
+                    const americanOdds = oddsVal != null
+                        ? (parseInt(oddsVal, 10) > 0 ? `+${oddsVal}` : `${oddsVal}`)
+                        : '—';
+                    wnbaPicks.push({
+                        sport: 'wnba',
+                        icon: '🏀',
+                        matchup: `${game.away_team_abbr} @ ${game.home_team_abbr}`,
+                        selection: bet.pick,
+                        edge,
+                        odds: americanOdds,
+                        confidence: game.predicted_winner_abbr
+                            ? `${game.predicted_winner_abbr} ML`
+                            : '—',
+                    });
+                }
+            });
+        });
+
         const topMlb = mlbPicks.sort((a, b) => b.edge - a.edge).slice(0, 3);
         const topTennis = tennisPicks.sort((a, b) => b.edge - a.edge).slice(0, 3);
+        const topWnba = wnbaPicks.sort((a, b) => b.edge - a.edge).slice(0, 3);
 
         return {
             mlb: topMlb,
-            tennis: topTennis
+            tennis: topTennis,
+            wnba: topWnba,
         };
-    }, [predictions, tennisPredictions]);
+    }, [predictions, tennisPredictions, wnbaGames]);
 
     return (
         <div className="space-y-10 animate-fade-in pb-12">
+
+            {/* ================= LIVE ENGINES RIBBON ================= */}
+            <div className="w-full bg-slate-900/40 border border-slate-850 rounded-2xl p-3 md:p-4 backdrop-blur-md">
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                    <div className="flex flex-wrap items-center gap-2 md:gap-3">
+                        <span className="text-[9px] font-black text-slate-500 uppercase tracking-[0.2em] mr-1">Live Engines</span>
+                        {[
+                            { id: 'mlb', icon: '⚾', label: 'MLB', count: liveEngineStats.mlb, status: 'LIVE', color: 'emerald' },
+                            { id: 'tennis', icon: '🎾', label: 'Tennis', count: liveEngineStats.tennis, status: 'LIVE', color: 'emerald' },
+                            { id: 'wnba', icon: '🏀', label: 'WNBA', count: liveEngineStats.wnba, status: 'BETA', color: 'cyan' },
+                        ].map(engine => (
+                            <button
+                                key={engine.id}
+                                onClick={() => setActiveSport(engine.id)}
+                                className={`flex items-center gap-2 px-3 py-2 rounded-xl border transition-all cursor-pointer hover:scale-[1.02]
+                                    ${engine.id === 'wnba'
+                                        ? 'bg-orange-950/20 border-orange-500/25 hover:border-orange-400/40'
+                                        : 'bg-slate-950/50 border-slate-900 hover:border-slate-800'
+                                    }`}
+                            >
+                                <span className="relative flex h-2 w-2">
+                                    <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${engine.color === 'cyan' ? 'bg-cyan-400' : 'bg-emerald-400'}`} />
+                                    <span className={`relative inline-flex rounded-full h-2 w-2 ${engine.color === 'cyan' ? 'bg-cyan-500' : 'bg-emerald-500'}`} />
+                                </span>
+                                <span className="text-[10px] font-black text-white uppercase tracking-wider">
+                                    {engine.icon} {engine.label}
+                                </span>
+                                <span className={`text-[8px] font-black uppercase px-1.5 py-0.5 rounded border
+                                    ${engine.status === 'BETA'
+                                        ? 'text-cyan-400 bg-cyan-950/50 border-cyan-500/30'
+                                        : 'text-emerald-400 bg-emerald-950/50 border-emerald-500/30'
+                                    }`}>
+                                    {engine.status}
+                                </span>
+                                <span className="text-[9px] text-slate-400 font-bold">
+                                    {engine.count} game{engine.count !== 1 ? 's' : ''}
+                                </span>
+                            </button>
+                        ))}
+                    </div>
+
+                    {wnbaGames.length > 0 && (
+                        <div className="flex items-center gap-2 overflow-x-auto pb-1">
+                            <span className="text-[8px] font-black text-slate-600 uppercase tracking-widest flex-shrink-0">WNBA Today</span>
+                            {wnbaGames.map(game => (
+                                <button
+                                    key={game.game_id}
+                                    onClick={() => setActiveSport('wnba')}
+                                    className="flex-shrink-0 flex items-center gap-2 bg-slate-950/60 border border-slate-900 hover:border-orange-500/30 rounded-xl px-3 py-2 transition-all cursor-pointer"
+                                >
+                                    {game.away_logo && (
+                                        <img src={game.away_logo} alt="" className="w-5 h-5 object-contain" />
+                                    )}
+                                    <span className="text-[9px] font-black text-slate-500">@</span>
+                                    {game.home_logo && (
+                                        <img src={game.home_logo} alt="" className="w-5 h-5 object-contain" />
+                                    )}
+                                    <span className="text-[9px] font-black text-white">
+                                        {game.predicted_winner_abbr} {(Math.max(game.home_win_prob, game.away_win_prob) * 100).toFixed(0)}%
+                                    </span>
+                                    {game.bet_count > 0 && (
+                                        <span className="text-[7px] font-black text-emerald-400 bg-emerald-950/40 border border-emerald-500/20 px-1 py-0.5 rounded">
+                                            {game.bet_count} play{game.bet_count !== 1 ? 's' : ''}
+                                        </span>
+                                    )}
+                                </button>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            </div>
 
             {/* ================= BLOK 2: YESTERDAY'S SCOREBOARD RIBBON ================= */}
             <div className="w-full">
@@ -423,7 +572,7 @@ function CentralDashboard({
                     </span>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     {/* MLB Value Picks */}
                     <div className="bg-slate-900/10 border border-slate-900/60 rounded-3xl p-6 space-y-4 relative overflow-hidden backdrop-blur-md">
                         <div className="flex justify-between items-center pb-3 border-b border-slate-950">
@@ -521,6 +670,62 @@ function CentralDashboard({
                             </div>
                         )}
                     </div>
+
+                    {/* WNBA Value Picks */}
+                    <div className="bg-slate-900/10 border border-orange-500/15 rounded-3xl p-6 space-y-4 relative overflow-hidden backdrop-blur-md">
+                        <div className="flex justify-between items-center pb-3 border-b border-slate-950">
+                            <span className="text-sm font-black text-white uppercase tracking-wider flex items-center gap-2">
+                                <span>🏀</span> WNBA Top Value
+                            </span>
+                            <span className="text-[8px] font-black text-cyan-400 bg-cyan-950/50 border border-cyan-500/30 px-1.5 py-0.5 rounded uppercase">Beta</span>
+                        </div>
+
+                        {topValuePicks.wnba.length === 0 ? (
+                            <div className="py-10 text-center text-slate-500 text-xs font-semibold">
+                                No value picks identified for WNBA today.
+                            </div>
+                        ) : (
+                            <div className="space-y-3.5">
+                                {topValuePicks.wnba.map((pick, idx) => (
+                                    <div
+                                        key={idx}
+                                        className="bg-slate-950/40 border border-slate-900 hover:border-orange-500/20 rounded-2xl p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 transition-all"
+                                    >
+                                        <div className="space-y-1">
+                                            <span className="text-[9px] text-slate-500 font-black uppercase tracking-widest">
+                                                Matchup
+                                            </span>
+                                            <h6 className="text-xs font-extrabold text-white">
+                                                {pick.matchup}
+                                            </h6>
+                                        </div>
+
+                                        <div className="grid grid-cols-3 gap-3 bg-slate-900/30 border border-slate-900/60 rounded-xl p-2.5 w-full sm:w-auto">
+                                            <div className="text-center px-2">
+                                                <span className="text-[7px] text-slate-500 font-bold uppercase tracking-wider block">Selection</span>
+                                                <span className="text-[10px] font-black text-white truncate max-w-[80px] block mt-0.5">{pick.selection}</span>
+                                            </div>
+                                            <div className="text-center px-2 border-x border-slate-900/60">
+                                                <span className="text-[7px] text-slate-500 font-bold uppercase tracking-wider block">Odds</span>
+                                                <span className="text-[10px] font-black text-cyan-400 block mt-0.5">{pick.odds}</span>
+                                            </div>
+                                            <div className="text-center px-2">
+                                                <span className="text-[7px] text-slate-500 font-bold uppercase tracking-wider block">Edge</span>
+                                                <span className="text-[10px] font-black text-emerald-400 block mt-0.5">+{pick.edge.toFixed(1)}%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
+                        <button
+                            onClick={() => setActiveSport('wnba')}
+                            className="w-full text-[9px] font-black uppercase tracking-widest text-orange-400 hover:text-orange-300 py-2 border border-orange-500/20 rounded-xl hover:bg-orange-950/20 transition-all cursor-pointer"
+                        >
+                            Open WNBA Dashboard →
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -577,11 +782,64 @@ function CentralDashboard({
                         </div>
                     </div>
 
+                    <div
+                        onClick={() => setActiveSport('wnba')}
+                        className="group bg-slate-900/30 border border-orange-500/20 rounded-3xl p-6 hover:border-orange-400/40 hover:shadow-[0_10px_30px_rgba(249,115,22,0.12)] transition-all duration-300 cursor-pointer flex flex-col justify-between gap-6 relative overflow-hidden"
+                    >
+                        <div className="absolute top-0 right-0 w-24 h-24 bg-orange-500/5 rounded-full blur-xl group-hover:bg-orange-500/10 transition-colors pointer-events-none" />
+                        <div className="flex justify-between items-start">
+                            <span className="text-3xl leading-none">🏀</span>
+                            <div className="flex flex-col items-end gap-1">
+                                <span className="text-[8px] font-black tracking-widest text-cyan-400 bg-cyan-950/50 border border-cyan-500/30 px-2 py-0.5 rounded-full uppercase">
+                                    BETA LIVE
+                                </span>
+                                {wnbaMeta.win_accuracy != null && (
+                                    <span className="text-[8px] font-black text-emerald-400 bg-emerald-950/40 border border-emerald-500/20 px-2 py-0.5 rounded-full">
+                                        {(wnbaMeta.win_accuracy * 100).toFixed(1)}% Win Acc.
+                                    </span>
+                                )}
+                            </div>
+                        </div>
+                        <div className="space-y-2">
+                            <h4 className="text-lg font-black text-white uppercase tracking-wider">WNBA Predictor Engine</h4>
+                            <p className="text-xs text-slate-400 leading-relaxed font-semibold">
+                                XGBoost + ELO models for WNBA pace, rest fatigue, star absence, and team ratings. Moneyline, spread, and total projections.
+                            </p>
+                            <div className="grid grid-cols-3 gap-2 pt-1">
+                                <div className="bg-slate-950/50 border border-slate-900 rounded-xl p-2 text-center">
+                                    <span className="text-[7px] text-slate-500 font-black uppercase block">Today</span>
+                                    <span className="text-sm font-black text-white">{wnbaGames.length}</span>
+                                </div>
+                                <div className="bg-slate-950/50 border border-slate-900 rounded-xl p-2 text-center">
+                                    <span className="text-[7px] text-slate-500 font-black uppercase block">Plays</span>
+                                    <span className="text-sm font-black text-indigo-400">
+                                        {wnbaGames.reduce((s, g) => s + (g.bet_count || 0), 0)}
+                                    </span>
+                                </div>
+                                <div className="bg-slate-950/50 border border-slate-900 rounded-xl p-2 text-center">
+                                    <span className="text-[7px] text-slate-500 font-black uppercase block">Top Edge</span>
+                                    <span className="text-sm font-black text-emerald-400 truncate block">
+                                        {wnbaTopPlay ? `+${wnbaTopPlay.bet.edge.toFixed(1)}%` : '—'}
+                                    </span>
+                                </div>
+                            </div>
+                            {wnbaTopPlay && (
+                                <p className="text-[9px] text-slate-500 font-bold">
+                                    Best play: <span className="text-orange-400 font-black">{wnbaTopPlay.bet.pick}</span>
+                                </p>
+                            )}
+                        </div>
+                        <div className="flex justify-between items-center text-[10px] text-orange-400 font-black uppercase tracking-widest pt-2 border-t border-slate-950">
+                            <span>Open WNBA Dashboard</span>
+                            <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span>
+                        </div>
+                    </div>
+
                     <div className="bg-slate-900/10 border border-slate-900/60 rounded-3xl p-6 flex flex-col justify-between gap-6 relative overflow-hidden opacity-60 hover:opacity-100 hover:border-slate-850 transition-all duration-300">
                         <div className="flex justify-between items-start">
                             <span className="text-3xl leading-none">🏀</span>
-                            <span className="text-[8px] font-black tracking-widest text-cyan-400 bg-cyan-950/50 border border-cyan-500/30 px-2 py-0.5 rounded-full uppercase">
-                                BETA
+                            <span className="text-[8px] font-black tracking-widest text-slate-500 bg-slate-950/60 border border-slate-900 px-2 py-0.5 rounded-full uppercase">
+                                COMING SOON
                             </span>
                         </div>
                         <div className="space-y-1">
@@ -660,24 +918,6 @@ function CentralDashboard({
                             <h4 className="text-lg font-black text-slate-400 uppercase tracking-wider">NHL Predictor</h4>
                             <p className="text-xs text-slate-500 leading-relaxed font-medium">
                                 Corsi/Fenwick possession metrics, goalie save-percentage models, and power-play efficiency ratings. Projecting puck-line, totals, and period-by-period outcomes.
-                            </p>
-                        </div>
-                        <div className="text-[10px] text-slate-600 font-bold uppercase tracking-widest pt-2 border-t border-slate-950">
-                            Model Development Pending
-                        </div>
-                    </div>
-
-                    <div className="bg-slate-900/10 border border-slate-900/60 rounded-3xl p-6 flex flex-col justify-between gap-6 relative overflow-hidden opacity-60">
-                        <div className="flex justify-between items-start">
-                            <span className="text-3xl leading-none">🏀</span>
-                            <span className="text-[8px] font-black tracking-widest text-slate-500 bg-slate-950/60 border border-slate-900 px-2 py-0.5 rounded-full uppercase">
-                                COMING SOON
-                            </span>
-                        </div>
-                        <div className="space-y-1">
-                            <h4 className="text-lg font-black text-slate-400 uppercase tracking-wider">WNBA Predictor</h4>
-                            <p className="text-xs text-slate-500 leading-relaxed font-medium">
-                                Offensive/defensive rating models tuned for WNBA pace and roster dynamics. Projecting moneylines, spreads, and player props across the season.
                             </p>
                         </div>
                         <div className="text-[10px] text-slate-600 font-bold uppercase tracking-widest pt-2 border-t border-slate-950">

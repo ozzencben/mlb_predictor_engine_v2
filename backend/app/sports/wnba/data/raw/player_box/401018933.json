@@ -1,0 +1,152 @@
+{
+  "game_id": "401018933",
+  "date": "2018-07-25",
+  "season": 2018,
+  "home_team_id": "11",
+  "away_team_id": "19",
+  "players_by_team": {
+    "19": [
+      {
+        "athlete_id": "3142328",
+        "name": "Gabby Williams",
+        "minutes": 16.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2529183",
+        "name": "Stefanie Dolson",
+        "minutes": 29.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "764",
+        "name": "Allie Quigley",
+        "minutes": 33.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "981",
+        "name": "Courtney Vandersloot",
+        "minutes": 34.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "3058902",
+        "name": "Diamond DeShields",
+        "minutes": 34.0,
+        "points": 25
+      },
+      {
+        "athlete_id": "2529458",
+        "name": "Cheyenne Parker-Tyus",
+        "minutes": 22.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3056664",
+        "name": "Alaina Coates",
+        "minutes": 14.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2998938",
+        "name": "Kahleah Copper",
+        "minutes": 13.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3056639",
+        "name": "Linnae Harper",
+        "minutes": 6.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "1006",
+        "name": "Alex Montgomery",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3099025",
+        "name": "Astou Ndour-Fall",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2529603",
+        "name": "Jamierra Faulkner",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "11": [
+      {
+        "athlete_id": "869",
+        "name": "DeWanna Bonner",
+        "minutes": 38.0,
+        "points": 30
+      },
+      {
+        "athlete_id": "3099736",
+        "name": "Stephanie Talbot",
+        "minutes": 37.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "2490553",
+        "name": "Brittney Griner",
+        "minutes": 16.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "860",
+        "name": "Briann January",
+        "minutes": 34.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "2235933",
+        "name": "Yvonne Turner",
+        "minutes": 34.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "732",
+        "name": "Camille Little",
+        "minutes": 7.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1001",
+        "name": "Angel Robinson",
+        "minutes": 23.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3151645",
+        "name": "Marie Guelich",
+        "minutes": 11.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "609",
+        "name": "Sancho Lyttle",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "585",
+        "name": "Diana Taurasi",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "796",
+        "name": "Leilani Mitchell",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:20:48.937779+00:00"
+}

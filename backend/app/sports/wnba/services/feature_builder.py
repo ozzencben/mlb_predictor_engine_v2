@@ -1,38 +1,25 @@
 """
-WNBA Feature Builder — Faz 2 (Guclendirilmis v2)
+WNBA Feature Builder — Faz 2 (Guclendirilmis v2 + Stage 2 L10/H-A)
 
-12 orijinal diferansiyel feature + 7 yeni feature = 19 TOPLAM:
+12 orijinal diferansiyel + 7 v2 + 5 Stage 2 = 24 TOPLAM feature:
 
-Diferansiyel (Home - Away):
-  1.  feature_net_rating_diff
-  2.  feature_elo_diff
-  3.  feature_ppg_diff
-  4.  feature_efg_diff
-  5.  feature_tov_diff
-  6.  feature_pace_diff
-  7.  feature_ts_diff
-  8.  feature_reb_diff
-  9.  feature_rest_diff
-  10. feature_b2b_fatigue
-  11. feature_h2h_edge
-  12. feature_hca_weight
+Diferansiyel (Home - Away, L5):
+  1-12. feature_net_rating_diff ... feature_hca_weight
 
 Mutlak (Total model icin kritik):
-  13. feature_home_off_abs     — Ev sahibi L5 ortalama attigi puan
-  14. feature_away_off_abs     — Deplasman L5 ortalama attigi puan
-  15. feature_home_def_abs     — Ev sahibi L5 ortalama yedigi puan
-  16. feature_away_def_abs     — Deplasman L5 ortalama yedigi puan
-  17. feature_pace_abs         — Iki takimin ortalama pace'i (oyun hizi)
+  13-17. feature_home_off_abs ... feature_pace_abs
 
 Rakip kalitesi & Form:
-  18. feature_opp_quality_diff — Son 5 rakipte ortalama opp_pts farki (schedule gucluklugu)
-  19. feature_form_streak_diff — Imzali kazanma/yenilme serisi farki
+  18-19. feature_opp_quality_diff, feature_form_streak_diff
 
-Tyler UI icin:
-  - L5 / L10 stats (rolling)
-  - Home/Away split L5
-  - H2H son 10 mac listesi
-  - target_home_win, target_spread, target_total
+Stage 2 — L10 diferansiyel:
+  20-22. feature_net_rating_diff_l10, feature_ppg_diff_l10, feature_efg_diff_l10
+
+Stage 2 — Home/Away court split (Tyler spec, L5):
+  23-24. feature_home_court_off_diff, feature_home_court_def_diff
+
+Stage 3 — Star player / injury proxy:
+  25-27. feature_star_out_impact_diff, feature_star_out_count_diff, feature_star_minutes_avail_diff
 """
 from __future__ import annotations
 
@@ -44,6 +31,7 @@ from typing import Any
 
 from app.sports.wnba.services.config import DATA_DIR
 from app.sports.wnba.services.elo import DEFAULT_ELO, get_pre_game_elo
+from app.sports.wnba.services.star_player import compute_star_feature_diffs
 
 PROCESSED_DIR = DATA_DIR / "processed"
 FEATURES_FILE = PROCESSED_DIR / "game_features.json"
@@ -268,6 +256,134 @@ def _form_streak(
     return max(-7, min(7, streak))
 
 
+def _feature_or_zero(diff_val: float | None) -> float:
+    return diff_val if diff_val is not None else 0.0
+
+
+def compute_match_features(
+    logs: list[dict[str, Any]],
+    home_id: str,
+    away_id: str,
+    before_date: str,
+    elo_home: float,
+    elo_away: float,
+    player_logs: list[dict[str, Any]] | None = None,
+    injuries_by_team: dict[str, list[dict[str, Any]]] | None = None,
+) -> tuple[dict[str, Any] | None, dict[str, Any]]:
+    """
+    Tek mac icin model feature dict + UI context (L5/L10/H-A rolling).
+    Yetersiz L5 gecmisi varsa (None, {}) doner.
+    """
+    home_l5 = _rolling_stats(logs, home_id, before_date, 5)
+    away_l5 = _rolling_stats(logs, away_id, before_date, 5)
+
+    if not home_l5 or not away_l5:
+        return None, {}
+    if home_l5["n"] < MIN_GAMES_REQUIRED or away_l5["n"] < MIN_GAMES_REQUIRED:
+        return None, {}
+
+    home_l10 = _rolling_stats(logs, home_id, before_date, 10)
+    away_l10 = _rolling_stats(logs, away_id, before_date, 10)
+    home_l5_home = _rolling_stats(logs, home_id, before_date, 5, home_only=True)
+    away_l5_away = _rolling_stats(logs, away_id, before_date, 5, away_only=True)
+
+    rest_home = _rest_days(logs, home_id, before_date)
+    rest_away = _rest_days(logs, away_id, before_date)
+    h2h_rate, h2h_games = _h2h_edge(logs, home_id, away_id, before_date, window=10)
+    hca_home = _hca_weight(logs, home_id, before_date)
+
+    home_opp_quality = _opp_quality_index(logs, home_id, before_date, window=5)
+    away_opp_quality = _opp_quality_index(logs, away_id, before_date, window=5)
+    home_streak = _form_streak(logs, home_id, before_date)
+    away_streak = _form_streak(logs, away_id, before_date)
+
+    home_ppg_abs = home_l5.get("ppg")
+    away_ppg_abs = away_l5.get("ppg")
+    home_def_abs = home_l5.get("oppg")
+    away_def_abs = away_l5.get("oppg")
+    pace_abs = _mean([home_l5.get("pace"), away_l5.get("pace")])
+
+    features: dict[str, Any] = {
+        "feature_net_rating_diff": _diff(home_l5.get("net_rtg"), away_l5.get("net_rtg")),
+        "feature_elo_diff": round(elo_home - elo_away, 2),
+        "feature_ppg_diff": _diff(home_l5.get("ppg"), away_l5.get("ppg")),
+        "feature_efg_diff": _diff(home_l5.get("efg_pct"), away_l5.get("efg_pct")),
+        "feature_tov_diff": _diff(home_l5.get("tov_pct"), away_l5.get("tov_pct")),
+        "feature_pace_diff": _diff(home_l5.get("pace"), away_l5.get("pace")),
+        "feature_ts_diff": _diff(home_l5.get("ts_pct"), away_l5.get("ts_pct")),
+        "feature_reb_diff": _diff(home_l5.get("reb"), away_l5.get("reb")),
+        "feature_rest_diff": _diff(rest_home, rest_away),
+        "feature_b2b_fatigue": _b2b(logs, away_id, before_date) - _b2b(logs, home_id, before_date),
+        "feature_h2h_edge": h2h_rate if h2h_rate is not None else 0.5,
+        "feature_hca_weight": hca_home if hca_home is not None else 0.0,
+        "feature_home_off_abs": home_ppg_abs if home_ppg_abs is not None else 0.0,
+        "feature_away_off_abs": away_ppg_abs if away_ppg_abs is not None else 0.0,
+        "feature_home_def_abs": home_def_abs if home_def_abs is not None else 0.0,
+        "feature_away_def_abs": away_def_abs if away_def_abs is not None else 0.0,
+        "feature_pace_abs": pace_abs if pace_abs is not None else 0.0,
+        "feature_opp_quality_diff": _feature_or_zero(_diff(home_opp_quality, away_opp_quality)),
+        "feature_form_streak_diff": float(home_streak - away_streak),
+        "feature_net_rating_diff_l10": _feature_or_zero(
+            _diff(
+                home_l10.get("net_rtg") if home_l10 else None,
+                away_l10.get("net_rtg") if away_l10 else None,
+            )
+        ),
+        "feature_ppg_diff_l10": _feature_or_zero(
+            _diff(
+                home_l10.get("ppg") if home_l10 else None,
+                away_l10.get("ppg") if away_l10 else None,
+            )
+        ),
+        "feature_efg_diff_l10": _feature_or_zero(
+            _diff(
+                home_l10.get("efg_pct") if home_l10 else None,
+                away_l10.get("efg_pct") if away_l10 else None,
+            )
+        ),
+        "feature_home_court_off_diff": _feature_or_zero(
+            _diff(
+                home_l5_home.get("ortg") if home_l5_home else None,
+                away_l5_away.get("ortg") if away_l5_away else None,
+            )
+        ),
+        "feature_home_court_def_diff": _feature_or_zero(
+            _diff(
+                home_l5_home.get("drtg") if home_l5_home else None,
+                away_l5_away.get("drtg") if away_l5_away else None,
+            )
+        ),
+    }
+
+    if player_logs:
+        features.update(
+            compute_star_feature_diffs(
+                player_logs, home_id, away_id, before_date, injuries_by_team,
+            )
+        )
+    else:
+        features.update({
+            "feature_star_out_impact_diff": 0.0,
+            "feature_star_out_count_diff": 0.0,
+            "feature_star_minutes_avail_diff": 0.0,
+        })
+
+    context: dict[str, Any] = {
+        "home_l5": home_l5,
+        "away_l5": away_l5,
+        "home_l10": home_l10,
+        "away_l10": away_l10,
+        "home_l5_home": home_l5_home,
+        "away_l5_away": away_l5_away,
+        "h2h_last10": h2h_games,
+        "elo_home": round(elo_home, 1),
+        "elo_away": round(elo_away, 1),
+        "rest_home": rest_home,
+        "rest_away": rest_away,
+    }
+    return features, context
+
+
 # ---------------------------------------------------------------------------
 # Ana feature olusturucu
 # ---------------------------------------------------------------------------
@@ -276,8 +392,13 @@ def build_game_features(
     logs: list[dict[str, Any]],
     elo_data: dict[str, Any],
     save: bool = True,
+    player_logs: list[dict[str, Any]] | None = None,
 ) -> list[dict[str, Any]]:
     PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
+
+    if player_logs is None:
+        from app.sports.wnba.services.player_game_logs import load_player_game_logs
+        player_logs = load_player_game_logs()
 
     # Logs'dan benzersiz mac listesi cikar (home satiri = ana kayit)
     seen: set[str] = set()
@@ -299,83 +420,16 @@ def build_game_features(
         home_id = game_log["team_id"]
         away_id = game_log["opp_id"]
 
-        # Rolling L5 (birincil)
-        home_l5 = _rolling_stats(logs, home_id, game_date, 5)
-        away_l5 = _rolling_stats(logs, away_id, game_date, 5)
-
-        if not home_l5 or not away_l5:
-            skipped += 1
-            continue
-        if home_l5["n"] < MIN_GAMES_REQUIRED or away_l5["n"] < MIN_GAMES_REQUIRED:
-            skipped += 1
-            continue
-
-        # Rolling L10 (destek)
-        home_l10 = _rolling_stats(logs, home_id, game_date, 10)
-        away_l10 = _rolling_stats(logs, away_id, game_date, 10)
-
-        # Home/Away split L5
-        home_l5_home = _rolling_stats(logs, home_id, game_date, 5, home_only=True)
-        away_l5_away = _rolling_stats(logs, away_id, game_date, 5, away_only=True)
-
-        # ELO (mac oncesi)
         elo_home = get_pre_game_elo(elo_data, gid, home_id)
         elo_away = get_pre_game_elo(elo_data, gid, away_id)
 
-        # Rest / B2B
-        rest_home = _rest_days(logs, home_id, game_date)
-        rest_away = _rest_days(logs, away_id, game_date)
-
-        # H2H
-        h2h_rate, h2h_games = _h2h_edge(logs, home_id, away_id, game_date, window=10)
-
-        # HCA
-        hca_home = _hca_weight(logs, home_id, game_date)
-
-        # YENI: Mutlak skor degerleri (total model icin kritik)
-        home_ppg_abs = home_l5.get("ppg")        # ev sahibi son 5 mac attigi puan
-        away_ppg_abs = away_l5.get("ppg")        # deplasman son 5 mac attigi puan
-        home_def_abs = home_l5.get("oppg")       # ev sahibi son 5 mac yedigi puan
-        away_def_abs = away_l5.get("oppg")       # deplasman son 5 mac yedigi puan
-
-        home_pace = home_l5.get("pace")
-        away_pace = away_l5.get("pace")
-        pace_abs = _mean([home_pace, away_pace])  # ortalama oyun hizi
-
-        # YENI: Rakip kalite indeksi
-        home_opp_quality = _opp_quality_index(logs, home_id, game_date, window=5)
-        away_opp_quality = _opp_quality_index(logs, away_id, game_date, window=5)
-
-        # YENI: Form serisi
-        home_streak = _form_streak(logs, home_id, game_date)
-        away_streak = _form_streak(logs, away_id, game_date)
-
-        # --- Feature seti (19 feature) ---
-        features: dict[str, Any] = {
-            # --- Orijinal 12 diferansiyel feature ---
-            "feature_net_rating_diff": _diff(home_l5.get("net_rtg"), away_l5.get("net_rtg")),
-            "feature_elo_diff": round(elo_home - elo_away, 2),
-            "feature_ppg_diff": _diff(home_l5.get("ppg"), away_l5.get("ppg")),
-            "feature_efg_diff": _diff(home_l5.get("efg_pct"), away_l5.get("efg_pct")),
-            "feature_tov_diff": _diff(home_l5.get("tov_pct"), away_l5.get("tov_pct")),
-            "feature_pace_diff": _diff(home_l5.get("pace"), away_l5.get("pace")),
-            "feature_ts_diff": _diff(home_l5.get("ts_pct"), away_l5.get("ts_pct")),
-            "feature_reb_diff": _diff(home_l5.get("reb"), away_l5.get("reb")),
-            "feature_rest_diff": _diff(rest_home, rest_away),
-            "feature_b2b_fatigue": _b2b(logs, away_id, game_date) - _b2b(logs, home_id, game_date),
-            "feature_h2h_edge": h2h_rate if h2h_rate is not None else 0.5,
-            "feature_hca_weight": hca_home if hca_home is not None else 0.0,
-            # --- YENI 5: Mutlak skor degerleri ---
-            "feature_home_off_abs": home_ppg_abs if home_ppg_abs is not None else 0.0,
-            "feature_away_off_abs": away_ppg_abs if away_ppg_abs is not None else 0.0,
-            "feature_home_def_abs": home_def_abs if home_def_abs is not None else 0.0,
-            "feature_away_def_abs": away_def_abs if away_def_abs is not None else 0.0,
-            "feature_pace_abs": pace_abs if pace_abs is not None else 0.0,
-            # --- YENI 1: Rakip kalitesi farki ---
-            "feature_opp_quality_diff": _diff(home_opp_quality, away_opp_quality) if (home_opp_quality and away_opp_quality) else 0.0,
-            # --- YENI 1: Form serisi farki ---
-            "feature_form_streak_diff": float(home_streak - away_streak),
-        }
+        features, ctx = compute_match_features(
+            logs, home_id, away_id, game_date, elo_home, elo_away,
+            player_logs=player_logs,
+        )
+        if features is None:
+            skipped += 1
+            continue
 
         # Hedef degerler
         targets = {
@@ -395,18 +449,7 @@ def build_game_features(
             "away_team_abbr": game_log["opp_abbr"],
             **targets,
             "features": features,
-            # Tyler UI icin rolling stats
-            "home_l5": home_l5,
-            "away_l5": away_l5,
-            "home_l10": home_l10,
-            "away_l10": away_l10,
-            "home_l5_home": home_l5_home,
-            "away_l5_away": away_l5_away,
-            "h2h_last10": h2h_games,
-            "elo_home": round(elo_home, 1),
-            "elo_away": round(elo_away, 1),
-            "rest_home": rest_home,
-            "rest_away": rest_away,
+            **ctx,
         }
         features_list.append(entry)
 

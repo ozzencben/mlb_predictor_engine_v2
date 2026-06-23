@@ -1,0 +1,134 @@
+{
+  "game_id": "401391677",
+  "date": "2022-05-19",
+  "season": 2022,
+  "home_team_id": "14",
+  "away_team_id": "19",
+  "players_by_team": {
+    "19": [
+      {
+        "athlete_id": "812",
+        "name": "Candace Parker",
+        "minutes": 28.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3142010",
+        "name": "Azura Stevens",
+        "minutes": 25.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "3027368",
+        "name": "Emma Meesseman",
+        "minutes": 33.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "764",
+        "name": "Allie Quigley",
+        "minutes": 23.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "981",
+        "name": "Courtney Vandersloot",
+        "minutes": 31.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "4066534",
+        "name": "Ruthy Hebard",
+        "minutes": 11.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4281930",
+        "name": "Anneli Maley",
+        "minutes": 9.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2327695",
+        "name": "Rebekah Gardner",
+        "minutes": 24.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4281190",
+        "name": "Dana Evans",
+        "minutes": 17.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4874470",
+        "name": "Tina Krajisnik",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "14": [
+      {
+        "athlete_id": "2998928",
+        "name": "Breanna Stewart",
+        "minutes": 30.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "3142328",
+        "name": "Gabby Williams",
+        "minutes": 19.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4420318",
+        "name": "Ezi Magbegor",
+        "minutes": 31.0,
+        "points": 21
+      },
+      {
+        "athlete_id": "91",
+        "name": "Sue Bird",
+        "minutes": 22.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2987869",
+        "name": "Jewell Loyd",
+        "minutes": 26.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "1013",
+        "name": "Jantel Lavender",
+        "minutes": 12.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "2566211",
+        "name": "Reshanda Gray",
+        "minutes": 7.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3099736",
+        "name": "Stephanie Talbot",
+        "minutes": 21.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "860",
+        "name": "Briann January",
+        "minutes": 18.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "882",
+        "name": "Epiphanny Prince",
+        "minutes": 14.0,
+        "points": 6
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:26:48.425091+00:00"
+}

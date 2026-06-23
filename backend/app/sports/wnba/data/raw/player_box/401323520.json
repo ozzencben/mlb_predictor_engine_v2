@@ -1,0 +1,242 @@
+{
+  "game_id": "401323520",
+  "date": "2021-05-08",
+  "season": 2021,
+  "home_team_id": "11",
+  "away_team_id": "14",
+  "players_by_team": {
+    "14": [
+      {
+        "athlete_id": "689",
+        "name": "Candice Dupree",
+        "minutes": 18.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3099736",
+        "name": "Stephanie Talbot",
+        "minutes": 16.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4420318",
+        "name": "Ezi Magbegor",
+        "minutes": 19.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "91",
+        "name": "Sue Bird",
+        "minutes": 14.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "2987869",
+        "name": "Jewell Loyd",
+        "minutes": 15.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "819",
+        "name": "Tamera Young",
+        "minutes": 17.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2998928",
+        "name": "Breanna Stewart",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4280896",
+        "name": "N'Dea Jones",
+        "minutes": 18.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "4281007",
+        "name": "Natalie Kucowski",
+        "minutes": 12.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3058829",
+        "name": "Brittany Brown",
+        "minutes": 5.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3142250",
+        "name": "Jordin Canada",
+        "minutes": 12.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "3904544",
+        "name": "Haley Gorecki",
+        "minutes": 15.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3920741",
+        "name": "Kitija Laksa",
+        "minutes": 13.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "3922628",
+        "name": "Kennedy Burke",
+        "minutes": 8.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4282168",
+        "name": "Kiana Williams",
+        "minutes": 15.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "3917453",
+        "name": "Katie Lou Samuelson",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4065759",
+        "name": "Mikiah Herbert Harrigan",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4068104",
+        "name": "Peyton Williams",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3056672",
+        "name": "Mercedes Russell",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "882",
+        "name": "Epiphanny Prince",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "11": [
+      {
+        "athlete_id": "3142086",
+        "name": "Brianna Turner",
+        "minutes": 19.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2490553",
+        "name": "Brittney Griner",
+        "minutes": 15.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "585",
+        "name": "Diana Taurasi",
+        "minutes": 13.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "2491205",
+        "name": "Skylar Diggins",
+        "minutes": 13.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3142327",
+        "name": "Kia Nurse",
+        "minutes": 20.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "2566452",
+        "name": "Cierra Burdick",
+        "minutes": 13.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3027366",
+        "name": "Sara Blicavs",
+        "minutes": 19.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3142084",
+        "name": "Akela Maize",
+        "minutes": 10.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3913881",
+        "name": "Alanna Smith",
+        "minutes": 16.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "1085",
+        "name": "Avery Warley-Talbert",
+        "minutes": 9.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4065853",
+        "name": "Ciera Johnson",
+        "minutes": 8.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3888044",
+        "name": "Marta Xargay",
+        "minutes": 12.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3907781",
+        "name": "Sophie Cunningham",
+        "minutes": 18.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4281218",
+        "name": "Tiana Mangakahia",
+        "minutes": 15.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4281077",
+        "name": "Megan Walker",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "838",
+        "name": "Kia Vaughn",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1107",
+        "name": "Shey Peddy",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2529185",
+        "name": "Bria Hartley",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:24:46.535036+00:00"
+}

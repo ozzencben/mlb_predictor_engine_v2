@@ -16,17 +16,28 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 import sys
 from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
 
-from app.sports.wnba.services.config import DATA_DIR
+from app.sports.wnba.services.config import DATA_DIR, DEFAULT_PIPELINE_LOOKBACK_DAYS
 
 logger = logging.getLogger("wnba.pipeline")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
+ET = ZoneInfo("America/New_York")
 
-def _update_yesterday_games() -> int:
-    """Dünün biten maçlarını box score havuzuna ekle (incremental)."""
+
+def _today_et() -> str:
+    return datetime.now(ET).strftime("%Y-%m-%d")
+
+
+def _sync_recent_games(lookback_days: int = DEFAULT_PIPELINE_LOOKBACK_DAYS) -> int:
+    """
+    Son N gundeki biten maclari raw/games ve box_scores'a ekle.
+    PC kapandiginda veya pipeline atlandiginda olusan bosluklari kapatir.
+    """
     from datetime import timedelta
     from zoneinfo import ZoneInfo
     from app.sports.wnba.services.fetch_schedule import _fetch_scoreboard
@@ -36,41 +47,49 @@ def _update_yesterday_games() -> int:
     from app.sports.wnba.services.espn_client import EspnClient
 
     ET = ZoneInfo("America/New_York")
-    yesterday = (datetime.now(ET) - timedelta(days=1)).strftime("%Y%m%d")
-    year = yesterday[:4]
-
     client = EspnClient(delay=0.25)
-    raw = _fetch_scoreboard(yesterday)
-    events = raw.get("events", [])
-
+    now = datetime.now(ET)
     added = 0
-    for event in events:
-        parsed = _parse_game_event(event)
-        if not parsed or not parsed.get("game_id"):
+
+    for delta in range(1, lookback_days + 1):
+        day = (now - timedelta(days=delta)).strftime("%Y%m%d")
+        year = day[:4]
+        try:
+            raw = _fetch_scoreboard(day, client=client)
+        except Exception as e:
+            logger.warning(f"Scoreboard alinamadi {day}: {e}")
             continue
-        gid = parsed["game_id"]
-        if not parsed.get("season"):
-            parsed["season"] = int(year)
 
-        # Box score indir (atla)
-        if not box_score_exists(gid):
-            try:
-                fetch_box_score(gid, client=client, game_meta=parsed, save=True, skip_existing=True)
-                added += 1
-            except Exception as e:
-                logger.warning(f"Box score indirilemedi {gid}: {e}")
+        for event in raw.get("events", []):
+            parsed = _parse_game_event(event)
+            if not parsed or not parsed.get("game_id"):
+                continue
+            gid = parsed["game_id"]
+            if not parsed.get("season"):
+                parsed["season"] = int(year)
 
-        # Games dosyasına ekle
-        games_path = RAW_GAMES_DIR / f"{year}.json"
-        if games_path.exists():
-            data = json.loads(games_path.read_text(encoding="utf-8"))
-            existing_ids = {g["game_id"] for g in data["games"]}
-            if gid not in existing_ids:
-                data["games"].append(parsed)
-                data["game_count"] = len(data["games"])
-                games_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+            if not box_score_exists(gid):
+                try:
+                    fetch_box_score(gid, client=client, game_meta=parsed, save=True, skip_existing=True)
+                    added += 1
+                except Exception as e:
+                    logger.warning(f"Box score indirilemedi {gid}: {e}")
+
+            games_path = RAW_GAMES_DIR / f"{year}.json"
+            if games_path.exists():
+                data = json.loads(games_path.read_text(encoding="utf-8"))
+                existing_ids = {g["game_id"] for g in data["games"]}
+                if gid not in existing_ids:
+                    data["games"].append(parsed)
+                    data["game_count"] = len(data["games"])
+                    games_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
     return added
+
+
+def _update_yesterday_games() -> int:
+    """Geriye uyumluluk: son 1 gun."""
+    return _sync_recent_games(lookback_days=1)
 
 
 def _compute_today_live_features() -> list[dict]:
@@ -80,11 +99,10 @@ def _compute_today_live_features() -> list[dict]:
     """
     from app.sports.wnba.services.fetch_schedule import load_today_matches
     from app.sports.wnba.services.team_game_logs import load_team_game_logs
-    from app.sports.wnba.services.elo import load_elo_history, get_pre_game_elo, DEFAULT_ELO
-    from app.sports.wnba.services.feature_builder import (
-        _rolling_stats, _rest_days, _b2b, _h2h_edge, _hca_weight, _diff,
-        _mean, MIN_GAMES_REQUIRED
-    )
+    from app.sports.wnba.services.elo import load_elo_history, DEFAULT_ELO
+    from app.sports.wnba.services.feature_builder import compute_match_features
+    from app.sports.wnba.services.player_game_logs import load_player_game_logs
+    from app.sports.wnba.services.star_player import load_injuries
     from app.sports.wnba.services.wnba_odds import load_today_odds, match_odds_to_game
 
     matches = load_today_matches()
@@ -95,9 +113,11 @@ def _compute_today_live_features() -> list[dict]:
     logs = load_team_game_logs()
     elo_data = load_elo_history()
     odds_list = load_today_odds()
+    player_logs = load_player_game_logs()
+    injuries_by_team = load_injuries()
 
     results = []
-    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    today = _today_et()
 
     for match in matches:
         if match.get("completed"):
@@ -108,65 +128,17 @@ def _compute_today_live_features() -> list[dict]:
         home_abbr = match["home_team_abbr"]
         away_abbr = match["away_team_abbr"]
 
-        home_l5 = _rolling_stats(logs, home_id, today, 5)
-        away_l5 = _rolling_stats(logs, away_id, today, 5)
-
-        if not home_l5 or not away_l5:
-            logger.warning(f"Yetersiz geçmiş: {home_abbr} vs {away_abbr}")
-            continue
-        if home_l5["n"] < MIN_GAMES_REQUIRED or away_l5["n"] < MIN_GAMES_REQUIRED:
-            logger.warning(f"Min {MIN_GAMES_REQUIRED} maç geçmiş yok: {home_abbr} vs {away_abbr}")
-            continue
-
-        home_l10 = _rolling_stats(logs, home_id, today, 10)
-        away_l10 = _rolling_stats(logs, away_id, today, 10)
-        home_l5_home = _rolling_stats(logs, home_id, today, 5, home_only=True)
-        away_l5_away = _rolling_stats(logs, away_id, today, 5, away_only=True)
-
         elo_home = elo_data["current"].get(home_id, DEFAULT_ELO)
         elo_away = elo_data["current"].get(away_id, DEFAULT_ELO)
-        rest_home = _rest_days(logs, home_id, today)
-        rest_away = _rest_days(logs, away_id, today)
-        h2h_rate, h2h_games = _h2h_edge(logs, home_id, away_id, today, window=10)
-        hca = _hca_weight(logs, home_id, today)
 
-        from app.sports.wnba.services.feature_builder import (
-            _opp_quality_index, _form_streak
+        features, ctx = compute_match_features(
+            logs, home_id, away_id, today, elo_home, elo_away,
+            player_logs=player_logs,
+            injuries_by_team=injuries_by_team,
         )
-        home_opp_q = _opp_quality_index(logs, home_id, today, window=5)
-        away_opp_q = _opp_quality_index(logs, away_id, today, window=5)
-        home_streak = _form_streak(logs, home_id, today)
-        away_streak = _form_streak(logs, away_id, today)
-
-        home_ppg_abs = home_l5.get("ppg")
-        away_ppg_abs = away_l5.get("ppg")
-        home_def_abs = home_l5.get("oppg")
-        away_def_abs = away_l5.get("oppg")
-        pace_abs_val = _mean([home_l5.get("pace"), away_l5.get("pace")])
-
-        features = {
-            # Orijinal 12
-            "feature_net_rating_diff": _diff(home_l5.get("net_rtg"), away_l5.get("net_rtg")),
-            "feature_elo_diff": round(elo_home - elo_away, 2),
-            "feature_ppg_diff": _diff(home_l5.get("ppg"), away_l5.get("ppg")),
-            "feature_efg_diff": _diff(home_l5.get("efg_pct"), away_l5.get("efg_pct")),
-            "feature_tov_diff": _diff(home_l5.get("tov_pct"), away_l5.get("tov_pct")),
-            "feature_pace_diff": _diff(home_l5.get("pace"), away_l5.get("pace")),
-            "feature_ts_diff": _diff(home_l5.get("ts_pct"), away_l5.get("ts_pct")),
-            "feature_reb_diff": _diff(home_l5.get("reb"), away_l5.get("reb")),
-            "feature_rest_diff": _diff(rest_home, rest_away),
-            "feature_b2b_fatigue": _b2b(logs, away_id, today) - _b2b(logs, home_id, today),
-            "feature_h2h_edge": h2h_rate if h2h_rate is not None else 0.5,
-            "feature_hca_weight": hca if hca is not None else 0.0,
-            # Yeni 7
-            "feature_home_off_abs": home_ppg_abs if home_ppg_abs is not None else 0.0,
-            "feature_away_off_abs": away_ppg_abs if away_ppg_abs is not None else 0.0,
-            "feature_home_def_abs": home_def_abs if home_def_abs is not None else 0.0,
-            "feature_away_def_abs": away_def_abs if away_def_abs is not None else 0.0,
-            "feature_pace_abs": pace_abs_val if pace_abs_val is not None else 0.0,
-            "feature_opp_quality_diff": _diff(home_opp_q, away_opp_q) if (home_opp_q and away_opp_q) else 0.0,
-            "feature_form_streak_diff": float(home_streak - away_streak),
-        }
+        if features is None:
+            logger.warning(f"Yetersiz geçmiş: {home_abbr} vs {away_abbr}")
+            continue
 
         odds = match_odds_to_game(odds_list, home_abbr, away_abbr)
 
@@ -184,71 +156,82 @@ def _compute_today_live_features() -> list[dict]:
             "away_logo": match.get("away_logo"),
             "venue": match.get("venue"),
             "features": features,
-            "home_l5": home_l5,
-            "away_l5": away_l5,
-            "home_l10": home_l10,
-            "away_l10": away_l10,
-            "home_l5_home": home_l5_home,
-            "away_l5_away": away_l5_away,
-            "h2h_last10": h2h_games,
-            "elo_home": round(elo_home, 1),
-            "elo_away": round(elo_away, 1),
-            "rest_home": rest_home,
-            "rest_away": rest_away,
+            **ctx,
             "odds": odds,
         })
 
     return results
 
 
-def run_pipeline(skip_yesterday: bool = False) -> dict:
+def run_pipeline(skip_yesterday: bool = False, lookback_days: int = DEFAULT_PIPELINE_LOOKBACK_DAYS) -> dict:
+    from app.sports.wnba.services.beta_ops import archive_past_data, evaluate_today_accuracy
+
     logger.info("=" * 50)
     logger.info("WNBA Günlük Pipeline Başlıyor")
     logger.info("=" * 50)
+
+    logger.info("[0/7] Eski tahminler arsivleniyor...")
+    archive_past_data()
 
     from app.sports.wnba.services.fetch_schedule import fetch_today_matches
     from app.sports.wnba.services.wnba_odds import fetch_wnba_odds
     from app.sports.wnba.services.team_game_logs import build_team_game_logs
     from app.sports.wnba.services.elo import build_elo_history
+    from app.sports.wnba.services.feature_builder import build_game_features
 
     # 1. Bugünkü fikstür
-    logger.info("[1/5] ESPN fikstür çekiliyor...")
+    logger.info("[1/7] ESPN fikstür çekiliyor...")
     matches = fetch_today_matches(save=True)
     logger.info(f"  -> {len(matches)} maç")
 
     # 2. Odds
-    logger.info("[2/5] The Odds API WNBA oranları çekiliyor...")
+    logger.info("[2/7] The Odds API WNBA oranlari cekiliyor...")
     odds = fetch_wnba_odds(save=True)
-    logger.info(f"  -> {len(odds)} maç oranı")
+    logger.info(f"  -> {len(odds)} mac orani")
 
-    # 3. Dünün maçlarını ekle
+    # 2b. ESPN injury feed
+    logger.info("[2b/7] ESPN injury feed cekiliyor...")
+    try:
+        from app.sports.wnba.services.star_player import fetch_wnba_injuries
+        inj = fetch_wnba_injuries(save=True)
+        logger.info(f"  -> {inj.get('team_count', 0)} takim injury")
+    except Exception as e:
+        logger.warning(f"  Injury feed hatasi: {e}")
+
+    # 3. Son N gundeki eksik maclari tamamla
     added = 0
     if not skip_yesterday:
-        logger.info("[3/5] Dünün biten maçları güncelleniyor...")
+        logger.info(f"[3/7] Son {lookback_days} gunun maclari senkronize ediliyor...")
         try:
-            added = _update_yesterday_games()
+            added = _sync_recent_games(lookback_days=lookback_days)
             logger.info(f"  -> {added} yeni box score eklendi")
         except Exception as e:
-            logger.error(f"  Dün güncelleme hatası: {e}")
+            logger.error(f"  Mac senkronizasyon hatasi: {e}")
 
-    # 4. Faz 2 feature'larını artımlı yenile
-    logger.info("[4/5] Feature log ve ELO güncelleniyor...")
+    # 4. Faz 2 feature'larini artimli yenile
+    logger.info("[4/7] Feature log, ELO, player logs ve game_features guncelleniyor...")
     try:
         logs = build_team_game_logs(save=True)
         elo_data = build_elo_history(logs, save=True)
-        logger.info(f"  -> {len(logs)//2} maç logu, {elo_data['total_games']} ELO güncellendi")
+        from app.sports.wnba.services.player_game_logs import build_player_game_logs
+        build_player_game_logs(fetch_missing=True, save=True)
+        features = build_game_features(logs, elo_data, save=True)
+        logger.info(
+            f"  -> {len(logs)//2} mac logu, {elo_data['total_games']} ELO, "
+            f"{len(features)} game_features guncellendi"
+        )
     except Exception as e:
-        logger.error(f"  Feature güncelleme hatası: {e}")
+        logger.error(f"  Feature guncelleme hatasi: {e}")
 
     # 5. Bugünkü canlı feature'lar
-    logger.info("[5/6] Bugunku maclar icin feature hesaplaniyor...")
+    logger.info("[5/7] Bugunku maclar icin feature hesaplaniyor...")
     live_features = _compute_today_live_features()
     logger.info(f"  -> {len(live_features)} mac feature hazir")
 
     # Kaydet
     raw_predictions_file = DATA_DIR / "today_predictions_raw.json"
     output = {
-        "date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+        "date": _today_et(),
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "match_count": len(live_features),
         "matches": live_features,
@@ -257,17 +240,24 @@ def run_pipeline(skip_yesterday: bool = False) -> dict:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
     # 6. Model tahminleri (Faz 4)
-    logger.info("[6/6] Model tahminleri uretiliyor...")
+    logger.info("[6/7] Model tahminleri uretiliyor...")
     predictions = []
     try:
         from app.sports.wnba.models.predict import generate_predictions, reset_model_cache
         reset_model_cache()
-        predictions = generate_predictions(save=True)
+        skip_ai = os.getenv("WNBA_SKIP_AI", "").lower() in ("1", "true", "yes")
+        predictions = generate_predictions(save=True, skip_ai=skip_ai)
         logger.info(f"  -> {len(predictions)} tahmin kaydedildi")
     except FileNotFoundError:
         logger.warning("  Model bulunamadi. 'train_model.py' calistirilmali.")
     except Exception as e:
         logger.error(f"  Tahmin hatasi: {e}")
+
+    logger.info("[7/7] Tamamlanan maclar degerlendiriliyor...")
+    try:
+        evaluate_today_accuracy(save=True)
+    except Exception as e:
+        logger.warning(f"  Accuracy degerlendirme hatasi: {e}")
 
     logger.info("Pipeline tamamlandi.")
     return {
@@ -284,8 +274,14 @@ def main(argv: list[str] | None = None) -> int:
     import argparse
     parser = argparse.ArgumentParser(description="WNBA günlük pipeline")
     parser.add_argument("--skip-yesterday", action="store_true")
+    parser.add_argument(
+        "--lookback-days",
+        type=int,
+        default=DEFAULT_PIPELINE_LOOKBACK_DAYS,
+        help=f"Kac gun geriye eksik mac aransin (varsayilan: {DEFAULT_PIPELINE_LOOKBACK_DAYS})",
+    )
     args = parser.parse_args(argv)
-    run_pipeline(skip_yesterday=args.skip_yesterday)
+    run_pipeline(skip_yesterday=args.skip_yesterday, lookback_days=args.lookback_days)
     return 0
 
 

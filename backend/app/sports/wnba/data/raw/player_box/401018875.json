@@ -1,0 +1,140 @@
+{
+  "game_id": "401018875",
+  "date": "2018-07-01",
+  "season": 2018,
+  "home_team_id": "3",
+  "away_team_id": "8",
+  "players_by_team": {
+    "8": [
+      {
+        "athlete_id": "571",
+        "name": "Rebekkah Brunson",
+        "minutes": 29.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "956",
+        "name": "Maya Moore",
+        "minutes": 31.0,
+        "points": 26
+      },
+      {
+        "athlete_id": "766",
+        "name": "Sylvia Fowles",
+        "minutes": 36.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "545",
+        "name": "Lindsay Whalen",
+        "minutes": 26.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "695",
+        "name": "Seimone Augustus",
+        "minutes": 30.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "2970318",
+        "name": "Endy Miyem",
+        "minutes": 4.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4257500",
+        "name": "Cecilia Zandalasini",
+        "minutes": 16.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "2569044",
+        "name": "Temi Fagbenle",
+        "minutes": 4.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "618",
+        "name": "Tanisha Wright",
+        "minutes": 13.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "2984245",
+        "name": "Alexis Jones",
+        "minutes": 11.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1014",
+        "name": "Danielle Robinson",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "3": [
+      {
+        "athlete_id": "2529622",
+        "name": "Kayla Thornton",
+        "minutes": 32.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "3142010",
+        "name": "Azura Stevens",
+        "minutes": 26.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1017",
+        "name": "Liz Cambage",
+        "minutes": 15.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "2491205",
+        "name": "Skylar Diggins",
+        "minutes": 35.0,
+        "points": 16
+      },
+      {
+        "athlete_id": "3058901",
+        "name": "Allisha Gray",
+        "minutes": 33.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "1053",
+        "name": "Glory Johnson",
+        "minutes": 25.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3888043",
+        "name": "Cayla George",
+        "minutes": 14.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "2999035",
+        "name": "Aerial Powers",
+        "minutes": 15.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3054107",
+        "name": "Leticia Romero",
+        "minutes": 5.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3058888",
+        "name": "Kaela Davis",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:20:20.503081+00:00"
+}

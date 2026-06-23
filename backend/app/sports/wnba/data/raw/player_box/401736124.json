@@ -1,0 +1,140 @@
+{
+  "game_id": "401736124",
+  "date": "2025-05-22",
+  "season": 2025,
+  "home_team_id": "129689",
+  "away_team_id": "16",
+  "players_by_team": {
+    "16": [
+      {
+        "athlete_id": "4898384",
+        "name": "Kiki Iriafen",
+        "minutes": 31.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2529183",
+        "name": "Stefanie Dolson",
+        "minutes": 19.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2988756",
+        "name": "Brittney Sykes",
+        "minutes": 33.0,
+        "points": 30
+      },
+      {
+        "athlete_id": "4068159",
+        "name": "Sug Sutton",
+        "minutes": 13.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4433524",
+        "name": "Sonia Citron",
+        "minutes": 35.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4398729",
+        "name": "Emily Engstler",
+        "minutes": 6.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "5017721",
+        "name": "Sika Kone",
+        "minutes": 14.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4398911",
+        "name": "Shakira Austin",
+        "minutes": 10.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4433815",
+        "name": "Lucy Olsen",
+        "minutes": 10.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "5017726",
+        "name": "Jade Melbourne",
+        "minutes": 29.0,
+        "points": 8
+      }
+    ],
+    "129689": [
+      {
+        "athlete_id": "2529622",
+        "name": "Kayla Thornton",
+        "minutes": 27.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "4790264",
+        "name": "Janelle Salaun",
+        "minutes": 28.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2569044",
+        "name": "Temi Fagbenle",
+        "minutes": 27.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "1054",
+        "name": "Tiffany Hayes",
+        "minutes": 13.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4398935",
+        "name": "Veronica Burton",
+        "minutes": 29.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "3099736",
+        "name": "Stephanie Talbot",
+        "minutes": 8.0,
+        "points": 1
+      },
+      {
+        "athlete_id": "3142255",
+        "name": "Monique Billings",
+        "minutes": 24.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "2566110",
+        "name": "Julie Vanloo",
+        "minutes": 13.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398907",
+        "name": "Kate Martin",
+        "minutes": 9.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "5208982",
+        "name": "Carla Leite",
+        "minutes": 21.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "4873359",
+        "name": "Kyara Linskens",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:33:44.095404+00:00"
+}

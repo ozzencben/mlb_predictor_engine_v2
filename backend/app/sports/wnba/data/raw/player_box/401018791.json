@@ -1,0 +1,170 @@
+{
+  "game_id": "401018791",
+  "date": "2018-05-23",
+  "season": 2018,
+  "home_team_id": "19",
+  "away_team_id": "20",
+  "players_by_team": {
+    "20": [
+      {
+        "athlete_id": "872",
+        "name": "Angel McCoughtry",
+        "minutes": 26.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "1002",
+        "name": "Jessica Breland",
+        "minutes": 26.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2566081",
+        "name": "Elizabeth Williams",
+        "minutes": 24.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "865",
+        "name": "Renee Montgomery",
+        "minutes": 23.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "1054",
+        "name": "Tiffany Hayes",
+        "minutes": 25.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "2984237",
+        "name": "Imani McGee-Stafford",
+        "minutes": 10.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3142255",
+        "name": "Monique Billings",
+        "minutes": 4.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "2955898",
+        "name": "Damiris Dantas",
+        "minutes": 16.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2490794",
+        "name": "Layshia Clarendon",
+        "minutes": 15.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2528839",
+        "name": "Maggie Lucas",
+        "minutes": 10.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2569047",
+        "name": "Blake Dietrick",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2988756",
+        "name": "Brittney Sykes",
+        "minutes": 20.0,
+        "points": 13
+      }
+    ],
+    "19": [
+      {
+        "athlete_id": "3142328",
+        "name": "Gabby Williams",
+        "minutes": 20.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2529183",
+        "name": "Stefanie Dolson",
+        "minutes": 24.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "764",
+        "name": "Allie Quigley",
+        "minutes": 25.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "2324993",
+        "name": "Chelsea Hopkins",
+        "minutes": 12.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "3058902",
+        "name": "Diamond DeShields",
+        "minutes": 21.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "1006",
+        "name": "Alex Montgomery",
+        "minutes": 18.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2529458",
+        "name": "Cheyenne Parker-Tyus",
+        "minutes": 17.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "3056664",
+        "name": "Alaina Coates",
+        "minutes": 19.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "3099025",
+        "name": "Astou Ndour-Fall",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "981",
+        "name": "Courtney Vandersloot",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2529603",
+        "name": "Jamierra Faulkner",
+        "minutes": 22.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "2998938",
+        "name": "Kahleah Copper",
+        "minutes": 16.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "3056639",
+        "name": "Linnae Harper",
+        "minutes": 6.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3142019",
+        "name": "Adut Bulgak",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:19:36.481808+00:00"
+}

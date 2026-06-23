@@ -27,6 +27,7 @@ services:
       # MLB ve Tennis veri dizinleri ayrı ayrı mount edilir.
       - ./backend/app/sports/mlb/data:/app/app/sports/mlb/data
       - ./backend/app/sports/tennis/data:/app/app/sports/tennis/data
+      - ./backend/app/sports/wnba/data:/app/app/sports/wnba/data
     environment:
       - PYTHONUNBUFFERED=1
       - APP_ENV=${APP_ENV:-development}

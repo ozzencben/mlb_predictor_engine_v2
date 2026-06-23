@@ -1,0 +1,158 @@
+{
+  "game_id": "400864509",
+  "date": "2016-09-11",
+  "season": 2016,
+  "home_team_id": "14",
+  "away_team_id": "6",
+  "players_by_team": {
+    "6": [
+      {
+        "athlete_id": "802",
+        "name": "Essence Carson",
+        "minutes": 28.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "812",
+        "name": "Candace Parker",
+        "minutes": 28.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "423",
+        "name": "Ann Wauters",
+        "minutes": 5.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "581",
+        "name": "Alana Beard",
+        "minutes": 28.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2529122",
+        "name": "Chelsea Gray",
+        "minutes": 37.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "724",
+        "name": "Sandrine Gruda",
+        "minutes": 11.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1013",
+        "name": "Jantel Lavender",
+        "minutes": 28.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "2969569",
+        "name": "Evgeniia Belyakova",
+        "minutes": 7.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "4011778",
+        "name": "Jelena Dubljevic",
+        "minutes": 8.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3888042",
+        "name": "Ana Dabovic",
+        "minutes": 21.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "1068",
+        "name": "Nneka Ogwumike",
+        "minutes": 0.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "856",
+        "name": "Kristi Toliver",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ],
+    "14": [
+      {
+        "athlete_id": "805",
+        "name": "Crystal Langhorne",
+        "minutes": 29.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "924",
+        "name": "Alysha Clark",
+        "minutes": 28.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "2998928",
+        "name": "Breanna Stewart",
+        "minutes": 30.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "91",
+        "name": "Sue Bird",
+        "minutes": 30.0,
+        "points": 12
+      },
+      {
+        "athlete_id": "2987869",
+        "name": "Jewell Loyd",
+        "minutes": 32.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "952",
+        "name": "Abby Bishop",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "993",
+        "name": "Ramu Tokashiki",
+        "minutes": 17.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2590092",
+        "name": "Kaleena Mosqueda-Lewis",
+        "minutes": 13.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "1011",
+        "name": "Krystal Thomas",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "737",
+        "name": "Noelle Quinn",
+        "minutes": 13.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "881",
+        "name": "Monica Wright",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1012",
+        "name": "Jenna O'Hea",
+        "minutes": 2.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:17:01.945348+00:00"
+}

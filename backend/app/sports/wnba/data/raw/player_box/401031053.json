@@ -1,0 +1,170 @@
+{
+  "game_id": "401031053",
+  "date": "2018-05-07",
+  "season": 2018,
+  "home_team_id": "5",
+  "away_team_id": "19",
+  "players_by_team": {
+    "19": [
+      {
+        "athlete_id": "1006",
+        "name": "Alex Montgomery",
+        "minutes": 11.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "2986155",
+        "name": "Ameryst Alston",
+        "minutes": 18.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2529183",
+        "name": "Stefanie Dolson",
+        "minutes": 15.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3142019",
+        "name": "Adut Bulgak",
+        "minutes": 20.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "764",
+        "name": "Allie Quigley",
+        "minutes": 12.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "2529078",
+        "name": "Jordan Hooper",
+        "minutes": 11.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "2529458",
+        "name": "Cheyenne Parker-Tyus",
+        "minutes": 18.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3142328",
+        "name": "Gabby Williams",
+        "minutes": 18.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "3056664",
+        "name": "Alaina Coates",
+        "minutes": 16.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3067143",
+        "name": "Renee Bennett",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2324993",
+        "name": "Chelsea Hopkins",
+        "minutes": 16.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "2998938",
+        "name": "Kahleah Copper",
+        "minutes": 25.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3056639",
+        "name": "Linnae Harper",
+        "minutes": 12.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "3142123",
+        "name": "Amarah Coleman",
+        "minutes": 4.0,
+        "points": 3
+      }
+    ],
+    "5": [
+      {
+        "athlete_id": "2529203",
+        "name": "Natalie Achonwa",
+        "minutes": 17.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "2491232",
+        "name": "Kayla Alexander",
+        "minutes": 14.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "2491214",
+        "name": "Erica Wheeler",
+        "minutes": 14.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2568417",
+        "name": "Jazmon Gwathmey",
+        "minutes": 17.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "2984741",
+        "name": "Tiffany Mitchell",
+        "minutes": 8.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2991969",
+        "name": "Bashaara Graves",
+        "minutes": 22.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3058900",
+        "name": "Stephanie Mavunga",
+        "minutes": 19.0,
+        "points": 18
+      },
+      {
+        "athlete_id": "2530679",
+        "name": "Jennifer Hamson",
+        "minutes": 8.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "983",
+        "name": "Jeanette Pohlen-Mavunga",
+        "minutes": 17.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "3058915",
+        "name": "Alexis Peterson",
+        "minutes": 20.0,
+        "points": 17
+      },
+      {
+        "athlete_id": "3142191",
+        "name": "Kelsey Mitchell",
+        "minutes": 26.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "3142948",
+        "name": "Victoria Vivians",
+        "minutes": 20.0,
+        "points": 5
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:19:25.095513+00:00"
+}

@@ -1,0 +1,128 @@
+{
+  "game_id": "400864426",
+  "date": "2016-09-11",
+  "season": 2016,
+  "home_team_id": "3",
+  "away_team_id": "9",
+  "players_by_team": {
+    "9": [
+      {
+        "athlete_id": "918",
+        "name": "Tina Charles",
+        "minutes": 36.0,
+        "points": 29
+      },
+      {
+        "athlete_id": "982",
+        "name": "Carolyn Swords",
+        "minutes": 16.0,
+        "points": 14
+      },
+      {
+        "athlete_id": "2491197",
+        "name": "Sugar Rodgers",
+        "minutes": 30.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "2566210",
+        "name": "Brittany Boyd-Jones",
+        "minutes": 35.0,
+        "points": 6
+      },
+      {
+        "athlete_id": "3102133",
+        "name": "Rebecca Allen",
+        "minutes": 14.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "122",
+        "name": "Swin Cash",
+        "minutes": 17.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "3007473",
+        "name": "Amanda Zahui B.",
+        "minutes": 13.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "851",
+        "name": "Shavonte Zellous",
+        "minutes": 26.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "882",
+        "name": "Epiphanny Prince",
+        "minutes": 13.0,
+        "points": 2
+      }
+    ],
+    "3": [
+      {
+        "athlete_id": "1003",
+        "name": "Karima Christmas-Kelly",
+        "minutes": 37.0,
+        "points": 23
+      },
+      {
+        "athlete_id": "842",
+        "name": "Courtney Paris",
+        "minutes": 33.0,
+        "points": 13
+      },
+      {
+        "athlete_id": "678",
+        "name": "Erin Phillips",
+        "minutes": 16.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2491205",
+        "name": "Skylar Diggins",
+        "minutes": 37.0,
+        "points": 22
+      },
+      {
+        "athlete_id": "2999035",
+        "name": "Aerial Powers",
+        "minutes": 32.0,
+        "points": 15
+      },
+      {
+        "athlete_id": "2529078",
+        "name": "Jordan Hooper",
+        "minutes": 2.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2530082",
+        "name": "Theresa Plaisance",
+        "minutes": 15.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "2999038",
+        "name": "Ruth Hamblin",
+        "minutes": 1.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "2529047",
+        "name": "Odyssey Sims",
+        "minutes": 26.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "2529089",
+        "name": "Tiffany Bias",
+        "minutes": 0.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:17:00.687298+00:00"
+}

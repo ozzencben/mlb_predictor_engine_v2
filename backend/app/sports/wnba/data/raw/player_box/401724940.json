@@ -1,0 +1,152 @@
+{
+  "game_id": "401724940",
+  "date": "2024-10-05",
+  "season": 2024,
+  "home_team_id": "17",
+  "away_team_id": "9",
+  "players_by_team": {
+    "9": [
+      {
+        "athlete_id": "2998928",
+        "name": "Breanna Stewart",
+        "minutes": 33.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "4683006",
+        "name": "Leonie Fiebich",
+        "minutes": 28.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "2999101",
+        "name": "Jonquel Jones",
+        "minutes": 25.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "2593770",
+        "name": "Betnijah Laney-Hamilton",
+        "minutes": 23.0,
+        "points": 7
+      },
+      {
+        "athlete_id": "4066533",
+        "name": "Sabrina Ionescu",
+        "minutes": 30.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "2529622",
+        "name": "Kayla Thornton",
+        "minutes": 11.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "4398768",
+        "name": "Nyara Sabally",
+        "minutes": 10.0,
+        "points": 8
+      },
+      {
+        "athlete_id": "981",
+        "name": "Courtney Vandersloot",
+        "minutes": 20.0,
+        "points": 9
+      },
+      {
+        "athlete_id": "3922628",
+        "name": "Kennedy Burke",
+        "minutes": 8.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "4433386",
+        "name": "Jaylyn Sherrod",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4433661",
+        "name": "Marquesha Davis",
+        "minutes": 3.0,
+        "points": 3
+      },
+      {
+        "athlete_id": "5130672",
+        "name": "Ivana Dojkic",
+        "minutes": 5.0,
+        "points": 3
+      }
+    ],
+    "17": [
+      {
+        "athlete_id": "924",
+        "name": "Alysha Clark",
+        "minutes": 29.0,
+        "points": 5
+      },
+      {
+        "athlete_id": "3149391",
+        "name": "A'ja Wilson",
+        "minutes": 33.0,
+        "points": 19
+      },
+      {
+        "athlete_id": "2529122",
+        "name": "Chelsea Gray",
+        "minutes": 30.0,
+        "points": 10
+      },
+      {
+        "athlete_id": "3065570",
+        "name": "Kelsey Plum",
+        "minutes": 34.0,
+        "points": 20
+      },
+      {
+        "athlete_id": "4065870",
+        "name": "Jackie Young",
+        "minutes": 30.0,
+        "points": 24
+      },
+      {
+        "athlete_id": "4433633",
+        "name": "Kierstan Bell",
+        "minutes": 3.0,
+        "points": 2
+      },
+      {
+        "athlete_id": "3934218",
+        "name": "Megan Gustafson",
+        "minutes": 12.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "4398779",
+        "name": "Queen Egbo",
+        "minutes": 3.0,
+        "points": 0
+      },
+      {
+        "athlete_id": "1004",
+        "name": "Sydney Colson",
+        "minutes": 6.0,
+        "points": 4
+      },
+      {
+        "athlete_id": "1054",
+        "name": "Tiffany Hayes",
+        "minutes": 16.0,
+        "points": 11
+      },
+      {
+        "athlete_id": "4398907",
+        "name": "Kate Martin",
+        "minutes": 3.0,
+        "points": 0
+      }
+    ]
+  },
+  "fetched_at": "2026-06-23T06:33:26.340597+00:00"
+}

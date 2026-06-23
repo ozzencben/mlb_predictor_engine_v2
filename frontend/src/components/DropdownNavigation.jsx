@@ -16,16 +16,14 @@ function DropdownNavigation({
 }) {
     if (!menuOpen) return null;
 
-    const handleSportClick = (sportName, status, sportKey) => {
-        if (status !== 'ACTIVE') {
+    const handleSportClick = (sportName, status, sportId) => {
+        if (status === 'COMING_SOON') {
             if (setToastMessage) {
-                setToastMessage(status === 'BETA'
-                    ? `${sportName} predictor is currently in Beta training and will be available soon!`
-                    : `${sportName} predictor is currently in training and will be available soon!`);
+                setToastMessage(`${sportName} predictor is currently in training and will be available soon!`);
             }
             return;
         }
-        setActiveSport(sportKey.toLowerCase());
+        setActiveSport(sportId);
         setMenuOpen(false);
     };
 
@@ -54,7 +52,7 @@ function DropdownNavigation({
                         return (
                             <div key={sport.id} className="flex flex-col">
                                 <button
-                                    onClick={() => handleSportClick(sport.name, sport.status, key)}
+                                    onClick={() => handleSportClick(sport.name, sport.status, sport.id)}
                                     className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 text-left cursor-pointer ${
                                         isSelected
                                             ? 'bg-indigo-600/20 border border-indigo-500/30 text-indigo-400 font-extrabold shadow-[0_0_15px_rgba(99,102,241,0.1)] border-t border-t-indigo-400/20'
