@@ -276,7 +276,7 @@ def _moneyline_bet(
     if not odds:
         return bets
 
-    picks: list[tuple[str, float, float | None]] = []
+    picks: list[tuple[str, float, float | None, float]] = []
 
     ml_home = odds.get("moneyline_home")
     ml_away = odds.get("moneyline_away")
@@ -437,6 +437,9 @@ def generate_predictions(save: bool = True, skip_ai: bool = False) -> list[dict[
         conf_order = {"High": 0, "Medium": 1, "Low": 2}
         alt_bets.sort(key=lambda b: (conf_order.get(b["confidence"], 3), -b.get("edge", 0)))
 
+        proj_home = round((pred_total + pred_spread) / 2, 1)
+        proj_away = round((pred_total - pred_spread) / 2, 1)
+
         predictions.append({
             "game_id": match["game_id"],
             "date": match["date"],
@@ -457,6 +460,8 @@ def generate_predictions(save: bool = True, skip_ai: bool = False) -> list[dict[
             "away_win_prob_pct": f"{away_win_prob:.1%}",
             "predicted_spread": round(pred_spread, 2),
             "predicted_total": round(pred_total, 1),
+            "predicted_home_score": proj_home,
+            "predicted_away_score": proj_away,
             "predicted_winner": home_name if home_win_prob >= 0.50 else away_name,
             "predicted_winner_abbr": match["home_team_abbr"] if home_win_prob >= 0.50 else match["away_team_abbr"],
             # Model-implied odds

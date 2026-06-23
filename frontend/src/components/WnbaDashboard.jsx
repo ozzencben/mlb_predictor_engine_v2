@@ -263,6 +263,26 @@ function WnbaMatchCard({ predict, injuriesByTeam = {}, isResultCard = false, res
                 </div>
             )}
 
+            {/* Proj Score */}
+            {!isResultCard && predict.predicted_total != null && predict.predicted_spread != null && (
+                (() => {
+                    const homeProj = predict.predicted_home_score !== undefined 
+                        ? predict.predicted_home_score 
+                        : Math.round((predict.predicted_total + predict.predicted_spread) / 2);
+                    const awayProj = predict.predicted_away_score !== undefined 
+                        ? predict.predicted_away_score 
+                        : Math.round((predict.predicted_total - predict.predicted_spread) / 2);
+                    return (
+                        <div className="bg-slate-950/50 border border-slate-900 rounded-2xl px-4 py-2.5 text-center relative z-10 flex flex-col items-center justify-center">
+                            <span className="text-[8px] text-slate-500 font-black uppercase tracking-widest block mb-1">Proj. Score</span>
+                            <div className="text-sm md:text-base font-black text-white tracking-tight tabular-nums">
+                                {predict.away_team_abbr} <span className="text-indigo-400">{awayProj}</span> — <span className="text-indigo-400">{homeProj}</span> {predict.home_team_abbr}
+                            </div>
+                        </div>
+                    );
+                })()
+            )}
+
             {/* Projections */}
             <div className="grid grid-cols-3 gap-2 bg-slate-950/60 border border-slate-900 rounded-2xl p-3.5 shadow-inner relative z-10">
                 <div className="text-center border-r border-slate-900/60 pr-2">
