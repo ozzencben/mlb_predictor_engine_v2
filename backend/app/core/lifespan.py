@@ -100,11 +100,11 @@ async def _startup_scrape():
 
 def _tennis_predictions_file_is_stale() -> bool:
     """
-    today_predictions.json VEYA today_matches.json dosyası yoksa, bugünün takvim
-    tarihini taşımıyorsa veya 12 saatten eskiyse True döner.
-    Her iki dosyanın da güncel olması gerekir — aksi hâlde fixture verisi eski
-    olduğu hâlde predictions'ın tarihi bugün görünerek yanlış bypass'a yol açar.
+    Rolling 24h penceresi: predictions dosyasi yoksa, fixture yoksa veya
+    predictions_are_stale() True donerse yenileme gerekir.
     """
+    from app.sports.tennis.services.window_utils import predictions_are_stale
+
     TENNIS_MATCHES_FILE = os.path.join(TENNIS_DATA_DIR, "today_matches.json")
 
     if not os.path.exists(TENNIS_PREDICTIONS_FILE):
@@ -112,37 +112,26 @@ def _tennis_predictions_file_is_stale() -> bool:
     if not os.path.exists(TENNIS_MATCHES_FILE):
         return True
 
-    et_today = datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d")
-
-    # 1. Predictions dosyasının tarih alanını kontrol et
     try:
         with open(TENNIS_PREDICTIONS_FILE, "r", encoding="utf-8") as f:
             data = json.load(f)
-        pred_date = data.get("date")
-        if pred_date != et_today:
+        if predictions_are_stale(data):
+            logger.info("⚠️ Tennis rolling-window tahminleri eski — yenileme gerekli.")
             return True
     except Exception as e:
-        logger.warning(f"⚠️ Tennis predictions tarihi okunamadı: {e}")
+        logger.warning(f"⚠️ Tennis predictions okunamadi: {e}")
         return True
 
-    # 2. Fixture (today_matches.json) dosyasının içeriğindeki tarihi kontrol et
-    # Sadece predictions tarihine güvenmek yetmez — fixtures güncel olmayabilir.
     try:
         with open(TENNIS_MATCHES_FILE, "r", encoding="utf-8") as f:
             matches = json.load(f)
-        if matches:
-            first_match_date = matches[0].get("date_utc", "")[:10]
-            if first_match_date and first_match_date < et_today:
-                logger.warning(
-                    f"⚠️ Tennis Fixture Staleness: today_matches.json tarihi={first_match_date}, "
-                    f"bugün={et_today}. Pipeline yeniden başlatılıyor."
-                )
-                return True
+        if not matches:
+            return True
     except Exception as e:
-        logger.warning(f"⚠️ Tennis matches tarihi okunamadı: {e}")
+        logger.warning(f"⚠️ Tennis matches okunamadi: {e}")
         return True
 
-    logger.info(f"⚡ Tennis Akıllı Kota Koruması: Hem predictions hem fixture bugüne ({et_today}) ait. Kazıma bypass edildi.")
+    logger.info("⚡ Tennis rolling-window verisi guncel — baslangic kazimasi atlandi.")
     return False
 
 
@@ -153,10 +142,11 @@ async def _tennis_startup_scrape():
     """
     from app.sports.tennis.pipeline_runner import TennisPipelineRunner
 
-    logger.info("🔄 Başlangıç: Mevcut tenis tahmin dosyası yok veya çok eski — ilk tenis kazıması başlatılıyor...")
+    logger.info("🔄 Başlangıç: Mevcut tenis tahmin dosyası yok veya çok eski — tenis yenilemesi başlatılıyor...")
     try:
         runner = TennisPipelineRunner()
-        await run_in_threadpool(runner.run_pipeline)
+        full = not os.path.exists(TENNIS_PREDICTIONS_FILE)
+        await run_in_threadpool(runner.run_pipeline, full)
         logger.info("✅ Başlangıç tenis kazıması tamamlandı.")
     except Exception as e:
         logger.error(f"❌ Başlangıç tenis kazıma hatası: {e}", exc_info=True)
@@ -230,9 +220,11 @@ async def lifespan(app: FastAPI):
         logger.info("✅ WNBA tahmin dosyasi guncel, baslangic kazimasi atlandi.")
 
     # 3. Günlük zamanlayıcıyı başlat (00:00 & 12:00 ET)
-    from app.core.scheduler import scheduled_scraping_loop
+    from app.core.scheduler import scheduled_scraping_loop, scheduled_tennis_refresh_loop
     scheduler_task = asyncio.create_task(scheduled_scraping_loop())
+    tennis_scheduler_task = asyncio.create_task(scheduled_tennis_refresh_loop())
     logger.info("🗓️  Günlük zamanlayıcı arka planda başlatıldı (00:00 & 12:00 ET).")
+    logger.info("🎾 Tenis rolling-window zamanlayıcı başlatıldı (her 4 saat ET).")
     logger.info("------------------------------------------")
 
     yield  # ─── UYGULAMA ÇALIŞIYOR ──────────────────────────────────────────
@@ -243,6 +235,12 @@ async def lifespan(app: FastAPI):
     scheduler_task.cancel()
     try:
         await scheduler_task
+    except asyncio.CancelledError:
+        pass
+
+    tennis_scheduler_task.cancel()
+    try:
+        await tennis_scheduler_task
     except asyncio.CancelledError:
         pass
 

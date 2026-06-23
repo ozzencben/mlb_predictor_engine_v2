@@ -30,6 +30,10 @@ export const useTennisPredictions = (date = null) => {
                     setData({
                         predictions: predRes.data?.data || null,
                         last_updated: predRes.data?.last_updated || null,
+                        window_hours: predRes.data?.window_hours ?? predRes.data?.data?.window_hours ?? null,
+                        window_start: predRes.data?.window_start ?? predRes.data?.data?.window_start ?? null,
+                        window_end: predRes.data?.window_end ?? predRes.data?.data?.window_end ?? null,
+                        generated_at: predRes.data?.generated_at ?? predRes.data?.data?.generated_at ?? null,
                         results: resultsRes.data?.data || null,
                     });
                     setError(null);

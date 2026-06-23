@@ -62,9 +62,36 @@ class TennisPipelineRunner:
             except Exception as e:
                 logger.error(f"❌ Error archiving tennis results: {e}")
 
-    def run_pipeline(self):
-        """Runs the sequential tennis scraping and prediction updates."""
-        logger.info("🎾 Starting Tennis Scraping & Prediction Pipeline...")
+    def run_refresh_pipeline(self):
+        """Light refresh: fixture + predictions + accuracy (no archive/profile/elo)."""
+        logger.info("🎾 Starting Tennis LIGHT refresh (rolling 24h window)...")
+        from app.sports.tennis.services import fetch_fexture
+        from app.sports.tennis.models import predict
+
+        try:
+            fetch_fexture.main()
+        except Exception as e:
+            logger.error(f"❌ Error fetching tennis matches: {e}")
+
+        try:
+            predict.predict_today_matches()
+        except Exception as e:
+            logger.error(f"❌ Error generating tennis predictions: {e}")
+
+        try:
+            predict.evaluate_today_accuracy()
+        except Exception as e:
+            logger.error(f"❌ Error evaluating tennis accuracy: {e}")
+
+        logger.info("🎾 Tennis light refresh completed.")
+
+    def run_pipeline(self, full: bool = True):
+        """Runs tennis pipeline. full=True: archive+profiles+elo+fixture+predict. full=False: light refresh."""
+        if not full:
+            self.run_refresh_pipeline()
+            return
+
+        logger.info("🎾 Starting Tennis FULL Scraping & Prediction Pipeline...")
         
         # 1. Archive yesterday's files
         self.archive_past_data()

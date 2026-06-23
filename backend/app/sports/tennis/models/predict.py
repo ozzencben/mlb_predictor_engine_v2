@@ -19,6 +19,11 @@ sys.path.append(str(project_root))
 from datetime import datetime
 from zoneinfo import ZoneInfo
 from app.sports.tennis.services.odds_provider import TennisOddsProvider
+from app.sports.tennis.services.window_utils import (
+    ROLLING_WINDOW_HOURS,
+    filter_matches_in_window,
+    window_meta,
+)
 from app.sports.tennis.services.feature_builder import (
     is_player_match,
     load_player_matches,
@@ -793,9 +798,32 @@ def predict_today_matches():
 
     # status_code == "1" means Not Started
     unplayed = [m for m in fixtures if m.get("status_code") == "1"]
+    in_window = filter_matches_in_window(unplayed)
 
-    if not unplayed:
-        print("\nTahmin edilecek oynanmamis (baslamamis) mac bulunamadi.")
+    if not in_window:
+        print(
+            f"\nRolling {ROLLING_WINDOW_HOURS}h penceresinde tahmin edilecek mac bulunamadi "
+            f"(toplam baslamamis: {len(unplayed)})."
+        )
+        # Still write metadata so API/clients know the window is active but empty
+        out_data = {
+            **window_meta(),
+            "date": datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d"),
+            "active_predictions": [],
+            "skipped_low_confidence": [],
+            "skipped_low_tier": [],
+            "statistics": {
+                "total_unplayed": len(unplayed),
+                "in_window_count": 0,
+                "active_predictions_count": 0,
+                "skipped_low_confidence_count": 0,
+                "skipped_low_tier_count": 0,
+                "skipped_data_missing_count": 0,
+            },
+        }
+        out_path = data_dir / "today_predictions.json"
+        with open(out_path, "w", encoding="utf-8") as f:
+            json.dump(out_data, f, ensure_ascii=False, indent=4)
         return
 
     if not brain_path.exists():
@@ -832,7 +860,7 @@ def predict_today_matches():
     alt_league_predictions = []
     skipped_count = 0
 
-    for m in unplayed:
+    for m in in_window:
         p1_name = m["home_player"]["name"]
         p1_id = m["home_player"]["id"]
         p1_country = m["home_player"].get("country", "")
@@ -1009,12 +1037,14 @@ def predict_today_matches():
         print("-" * 150)
     # Save to file (Option 2: Structured JSON)
     out_data = {
+        **window_meta(),
         "date": datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d"),
         "active_predictions": active_predictions,
         "skipped_low_confidence": low_confidence_predictions,
         "skipped_low_tier": alt_league_predictions,
         "statistics": {
             "total_unplayed": len(unplayed),
+            "in_window_count": len(in_window),
             "active_predictions_count": len(active_predictions),
             "skipped_low_confidence_count": len(low_confidence_predictions),
             "skipped_low_tier_count": len(alt_league_predictions),
@@ -1328,6 +1358,7 @@ def evaluate_today_accuracy():
     out_path = data_dir / "today_accuracy_results.json"
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump({
+            **window_meta(),
             "date": datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d"),
             "active_statistics": {
                 "total_predicted": total_predicted,

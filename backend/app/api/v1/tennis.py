@@ -18,13 +18,16 @@ def _get_file_modified_time(filepath: str) -> str:
         return datetime.fromtimestamp(mtime).strftime("%Y-%m-%d %H:%M:%S")
     return "Bulunamadı"
 
+from app.sports.tennis.services.window_utils import predictions_are_stale
+
 @tennis_router.get("/predictions")
 async def get_predictions(date: str | None = None):
     """
-    Bugünün veya arşivdeki belirli bir tarihin tenis tahminlerini döndürür.
+    Bugünün rolling 24h penceresi veya arşivdeki belirli bir tarihin tenis tahminlerini döndürür.
     """
     now_et = datetime.now(ZoneInfo("America/New_York"))
     today_str = now_et.strftime("%Y-%m-%d")
+    is_live = not date or date == today_str
     
     target_file = PREDICTIONS_FILE
     if date and date != today_str:
@@ -39,11 +42,21 @@ async def get_predictions(date: str | None = None):
     try:
         with open(target_file, "r", encoding="utf-8") as f:
             data = json.load(f)
+
+        if is_live and predictions_are_stale(data) and not data.get("active_predictions"):
+            raise HTTPException(
+                status_code=503,
+                detail="Tahmin verisi henuz hazir degil. Rolling 24h penceresi yenileniyor."
+            )
             
         last_modified = _get_file_modified_time(target_file)
         return {
             "status": "success",
             "last_updated": last_modified,
+            "window_hours": data.get("window_hours"),
+            "window_start": data.get("window_start"),
+            "window_end": data.get("window_end"),
+            "generated_at": data.get("generated_at"),
             "data": data
         }
     except Exception as e:

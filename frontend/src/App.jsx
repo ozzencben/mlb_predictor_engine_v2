@@ -843,8 +843,8 @@ function App() {
                             else if (day.offset === 1) relativeLabel = 'TOMORROW';
                             else if (day.offset === 2) relativeLabel = '2 DAYS AWAY';
 
-                            // GÖREV 3: Tenis sekmesinde today dışı tarihler disabled
-                            const isTennisLocked = activeSport === 'tennis' && !isToday;
+                            // Tenis: rolling 24h — dün arşiv, yarın kilitli
+                            const isTennisLocked = activeSport === 'tennis' && day.offset > 0;
 
                             return (
                                 <div key={day.dateStr} className="flex-1 min-w-[90px] md:min-w-[120px] relative group/cal">
@@ -875,7 +875,7 @@ function App() {
                                         <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-50 pointer-events-none
                                             opacity-0 group-hover/cal:opacity-100 transition-opacity duration-200">
                                             <div className="bg-slate-800 border border-slate-700 text-slate-300 text-[9px] font-bold px-2.5 py-1.5 rounded-lg shadow-xl whitespace-nowrap">
-                                                Historical data coming soon
+                                                {day.offset > 0 ? 'Rolling 24h window — future dates locked' : 'Historical data coming soon'}
                                             </div>
                                             <div className="w-2 h-2 bg-slate-800 border-r border-b border-slate-700 rotate-45 mx-auto -mt-1" />
                                         </div>

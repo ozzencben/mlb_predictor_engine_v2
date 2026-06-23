@@ -12,6 +12,22 @@ function formatOdds(decimalOdds) {
     return `${Math.round(-100.0 / (dec - 1.0))}`;
 }
 
+function formatWindowLabel(isoString) {
+    if (!isoString) return '—';
+    try {
+        const d = new Date(isoString);
+        return d.toLocaleString(undefined, {
+            month: 'short',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false,
+        });
+    } catch {
+        return isoString;
+    }
+}
+
 // ─────────────────────────────────────────────────────────────
 //  Helper: Zemin renk/stil
 // ─────────────────────────────────────────────────────────────
@@ -934,6 +950,10 @@ function TennisDashboard({ selectedDate }) {
     const predictions = data?.predictions || {};
     const results = data?.results || null;
     const lastUpdated = data?.last_updated || 'Unknown';
+    const windowHours = data?.window_hours ?? predictions.window_hours ?? 24;
+    const windowStart = data?.window_start ?? predictions.window_start;
+    const windowEnd = data?.window_end ?? predictions.window_end;
+    const showRollingBanner = !selectedDate && windowStart && windowEnd;
 
     const activePredictions = predictions.active_predictions || [];
     const skippedLowConfidence = predictions.skipped_low_confidence || [];
@@ -1012,6 +1032,23 @@ function TennisDashboard({ selectedDate }) {
                     </span>
                 </div>
             </div>
+
+            {showRollingBanner && (
+                <div className="bg-indigo-950/25 border border-indigo-500/25 rounded-2xl px-4 py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                        <span className="text-base">🕐</span>
+                        <span className="text-[10px] font-black uppercase tracking-widest text-indigo-300">
+                            Upcoming {windowHours}h Window
+                        </span>
+                    </div>
+                    <p className="text-[11px] text-slate-400 font-semibold">
+                        {formatWindowLabel(windowStart)}
+                        <span className="text-slate-600 mx-2">→</span>
+                        {formatWindowLabel(windowEnd)}
+                        <span className="text-slate-600 ml-2">(your local time)</span>
+                    </p>
+                </div>
+            )}
 
             {/* ── ACCURACY CARD (yalnızca biten maç varsa) ── */}
             {hasResults && (
