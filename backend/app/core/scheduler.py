@@ -79,8 +79,9 @@ async def _run_scraping_pipeline():
 
         # 2. Tennis Pipeline
         try:
+            from app.core.runtime_env import is_low_memory_host
             tennis_runner = TennisPipelineRunner()
-            await run_in_threadpool(tennis_runner.run_pipeline)
+            await run_in_threadpool(tennis_runner.run_pipeline, not is_low_memory_host())
             logger.info("✅ Tenis Zamanlı Kazıma Tamamlandı.")
         except Exception as e:
             logger.error(f"❌ Tenis Zamanlı Kazıma Hatası: {e}", exc_info=True)

@@ -62,10 +62,23 @@ class TennisPipelineRunner:
             except Exception as e:
                 logger.error(f"❌ Error archiving tennis results: {e}")
 
+    def _maybe_fetch_player_histories(self):
+        from app.core.runtime_env import is_low_memory_host
+        from app.sports.tennis.services import fetch_matches
+
+        if is_low_memory_host():
+            logger.warning(
+                "⚠️ Düşük bellek modu (Render): oyuncu geçmişi batch halinde çekiliyor."
+            )
+        try:
+            fetch_matches.fetch_todays_players()
+        except Exception as e:
+            logger.error(f"❌ Error fetching missing tennis player histories: {e}")
+
     def run_refresh_pipeline(self):
         """Light refresh: fixture + missing player histories + predictions + accuracy."""
         logger.info("🎾 Starting Tennis LIGHT refresh (rolling 24h window)...")
-        from app.sports.tennis.services import fetch_fexture, fetch_matches
+        from app.sports.tennis.services import fetch_fexture
         from app.sports.tennis.models import predict
 
         try:
@@ -73,10 +86,7 @@ class TennisPipelineRunner:
         except Exception as e:
             logger.error(f"❌ Error fetching tennis matches: {e}")
 
-        try:
-            fetch_matches.fetch_todays_players()
-        except Exception as e:
-            logger.error(f"❌ Error fetching missing tennis player histories: {e}")
+        self._maybe_fetch_player_histories()
 
         try:
             predict.predict_today_matches()
@@ -139,11 +149,7 @@ class TennisPipelineRunner:
 
         # 3b. Fetch player match histories for today's fixture players (incremental)
         logger.info("🎾 Step 3b/5: Fetching player match histories for today's players...")
-        try:
-            from app.sports.tennis.services import fetch_matches
-            fetch_matches.fetch_todays_players()
-        except Exception as e:
-            logger.error(f"❌ Error fetching player match histories: {e}")
+        self._maybe_fetch_player_histories()
             
         # 4. Predict today's matches
         logger.info("🎾 Step 4/5: Generating today's predictions...")

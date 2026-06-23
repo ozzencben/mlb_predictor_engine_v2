@@ -419,9 +419,10 @@ async def _run_refresh_pipelines():
         
         # 2. Tennis Pipeline
         try:
+            from app.core.runtime_env import is_low_memory_host
             from app.sports.tennis.pipeline_runner import TennisPipelineRunner
             tennis_runner = TennisPipelineRunner()
-            await run_in_threadpool(tennis_runner.run_pipeline)
+            await run_in_threadpool(tennis_runner.run_pipeline, not is_low_memory_host())
         except Exception as tennis_err:
             print(f"Tenis zamanli kazima hatasi: {tennis_err}")
 

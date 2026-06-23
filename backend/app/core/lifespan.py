@@ -141,12 +141,17 @@ async def _tennis_startup_scrape():
     Arka planda asyncio görevi olarak çalışır; API başlangıcını bloklamaz.
     """
     from app.sports.tennis.pipeline_runner import TennisPipelineRunner
+    from app.core.runtime_env import is_low_memory_host
 
     logger.info("🔄 Başlangıç: Mevcut tenis tahmin dosyası yok veya çok eski — tenis yenilemesi başlatılıyor...")
     try:
         runner = TennisPipelineRunner()
-        full = not os.path.exists(TENNIS_PREDICTIONS_FILE)
-        await run_in_threadpool(runner.run_pipeline, full)
+        # Render 512MB: tam pipeline (Playwright x200) OOM yapar — hafif mod
+        if is_low_memory_host():
+            await run_in_threadpool(runner.run_pipeline, False)
+        else:
+            full = not os.path.exists(TENNIS_PREDICTIONS_FILE)
+            await run_in_threadpool(runner.run_pipeline, full)
         logger.info("✅ Başlangıç tenis kazıması tamamlandı.")
     except Exception as e:
         logger.error(f"❌ Başlangıç tenis kazıma hatası: {e}", exc_info=True)

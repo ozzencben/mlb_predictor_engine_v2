@@ -386,12 +386,15 @@ def fetch_all_matches():
     print(f"{'='*60}")
 
 # --- 7. BUGÜNKÜ FİKSTÜR OYUNCULARI İÇİN ÇEKME (VERİMLİ MOD) ---
-def fetch_todays_players():
+def fetch_todays_players(max_players: int | None = None):
     """
     today_matches.json'daki oyuncuların maç verilerini çeker.
-    Günlük pipeline'a entegre edilmek üzere tasarlandı:
-    Her gün sadece oynayan ~40 oyuncuyu çeker, zamanla tüm veri tabanı dolar.
+    max_players: düşük bellekli hostlarda (Render 512MB) döngü başına limit.
     """
+    from app.core.runtime_env import is_low_memory_host, tennis_playwright_batch_size
+
+    if is_low_memory_host() and max_players is None:
+        max_players = tennis_playwright_batch_size()
     import sys
 
     fixtures_path = ranks_dir / "today_matches.json"
@@ -457,6 +460,13 @@ def fetch_todays_players():
     if not players_to_fetch:
         print("⚡ Bugünkü tüm oyuncuların maç verisi zaten mevcut — işlem gerekmiyor.")
         return
+
+    if max_players is not None and len(players_to_fetch) > max_players:
+        print(
+            f"⚠️ Düşük bellek modu: {len(players_to_fetch)} eksik oyuncudan "
+            f"bu turda yalnızca {max_players} çekilecek."
+        )
+        players_to_fetch = players_to_fetch[:max_players]
 
     print(f"📥 Bugünkü fikstür: {len(players_to_fetch)} oyuncu için maç verisi çekiliyor...")
     print(f"   Tahmini süre: ~{len(players_to_fetch) * 12 // 60} dakika\n")
