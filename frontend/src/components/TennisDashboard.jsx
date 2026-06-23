@@ -1121,9 +1121,14 @@ function TennisDashboard({ selectedDate }) {
                             className="w-full bg-slate-950/80 border border-slate-900 hover:border-slate-800 focus:border-indigo-500/50 text-[10px] font-black uppercase tracking-wider text-slate-300 rounded-xl px-3 py-2 cursor-pointer focus:outline-none"
                         >
                             <option value="ALL" className="bg-slate-950 text-slate-300">All Tournaments ({tourFilteredList.length} Match{tourFilteredList.length !== 1 ? 'es' : ''})</option>
-                            {uniqueTourneys.map(t => (
-                                <option key={t} value={t} className="bg-slate-950 text-slate-300">{t}</option>
-                            ))}
+                            {uniqueTourneys.map(t => {
+                                const cleanName = t.split(',')[0].trim();
+                                return (
+                                    <option key={t} value={t} className="bg-slate-950 text-slate-300">
+                                        {cleanName}
+                                    </option>
+                                );
+                            })}
                         </select>
                     </div>
                 </div>

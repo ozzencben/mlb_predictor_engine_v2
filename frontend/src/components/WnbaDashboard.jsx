@@ -273,10 +273,10 @@ function WnbaMatchCard({ predict, injuriesByTeam = {}, isResultCard = false, res
                         ? predict.predicted_away_score 
                         : Math.round((predict.predicted_total - predict.predicted_spread) / 2);
                     return (
-                        <div className="bg-slate-950/50 border border-slate-900 rounded-2xl px-4 py-2.5 text-center relative z-10 flex flex-col items-center justify-center">
+                        <div className="text-center relative z-10 my-1">
                             <span className="text-[8px] text-slate-500 font-black uppercase tracking-widest block mb-1">Proj. Score</span>
-                            <div className="text-sm md:text-base font-black text-white tracking-tight tabular-nums">
-                                {predict.away_team_abbr} <span className="text-indigo-400">{awayProj}</span> — <span className="text-indigo-400">{homeProj}</span> {predict.home_team_abbr}
+                            <div className="inline-block text-xl md:text-2xl font-black text-white bg-slate-950/60 px-6 py-1.5 rounded-xl border border-slate-900 shadow-[0_0_12px_rgba(0,0,0,0.4)] tracking-tight tabular-nums">
+                                {awayProj} <span className="text-slate-500 font-medium mx-2">-</span> {homeProj}
                             </div>
                         </div>
                     );
