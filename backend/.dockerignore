@@ -56,5 +56,25 @@ docs/
 # CI/CD
 .github/
 
-# Spor verileri host'tan volume ile mount edilir — build context'i şişirmez
-app/sports/**/data/
+# Runtime / bulk data — sunucuda pipeline üretir (local'de volume mount)
+# Model ve rank dosyaları image'da KALMALI (tennis_brain.json, wnba/models/, vb.)
+app/sports/**/data/archive/
+app/sports/**/data/raw/
+app/sports/**/data/history/
+app/sports/wnba/data/processed/
+app/sports/**/data/today_*.json
+app/sports/**/data/todays_*.json
+app/sports/**/data/live_odds*.json
+app/sports/**/data/live_stats.json
+app/sports/**/data/live_weather.json
+app/sports/**/data/daily_matchups.json
+app/sports/**/data/player_props_odds.json
+app/sports/**/data/*_cache.json
+app/sports/**/data/predictions_*.json
+app/sports/**/data/nrfi_trends.json
+app/sports/**/data/sonny_moore.json
+app/sports/**/data/bullpen_siera.json
+app/sports/**/data/pitcher_stats.json
+app/sports/**/data/team_splits.json
+app/sports/tennis/data/player_elo.json
+app/sports/tennis/data/live_odds_tennis.json

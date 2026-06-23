@@ -1,6 +1,6 @@
 {
   "date": "2026-06-23",
-  "generated_at": "2026-06-23T07:01:44.599061+00:00",
+  "generated_at": "2026-06-23T15:58:47.658806+00:00",
   "match_count": 1,
   "beta_version": "1.0.0-beta",
   "model_meta": {
@@ -42,14 +42,14 @@
         "away_team": "New York Liberty",
         "home_abbr": "LV",
         "away_abbr": "NY",
-        "moneyline_home": -132,
-        "moneyline_away": 108,
-        "spread_home": -106,
-        "spread_away": -114,
+        "moneyline_home": -134,
+        "moneyline_away": 110,
+        "spread_home": -105,
+        "spread_away": -115,
         "spread_line": -2.5,
         "total_line": 177.5,
-        "total_over": -110,
-        "total_under": -110
+        "total_over": -108,
+        "total_under": -112
       },
       "alt_bets": [
         {
@@ -58,7 +58,7 @@
           "model_prediction": "Predicted total: 168.1",
           "edge": 9.44,
           "confidence": "High",
-          "odds": -110,
+          "odds": -112,
           "odds_format": "american"
         }
       ],
@@ -270,7 +270,7 @@
         "feature_star_out_count_diff": 0.0,
         "feature_star_minutes_avail_diff": -0.0333
       },
-      "ai_insight": null
+      "ai_insight": "- The Las Vegas Aces have a significant team strength advantage with an ELO rating of 1684.2 compared to the New York Liberty's 1592.9, and they also have a home court edge, but the Liberty have a slightly better L5 net rating of 7.996 compared to the Aces' 7.18.\n- Situational factors slightly favor the Las Vegas Aces with 2 rest days compared to the New York Liberty's 1, but there are no star absences to consider, and both teams are in similar form based on their recent net ratings.\n- The best betting angle from the model edges is taking the Total Under 177.5, which has a 9.44% edge, indicating a high confidence in the game going under the projected total of 168.1, and potentially even lower than the market total."
     }
   ]
 }

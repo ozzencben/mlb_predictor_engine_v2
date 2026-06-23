@@ -34,6 +34,11 @@ async def get_predictions(date: str | None = None):
         target_file = os.path.join(DATA_DIR, "archive", f"predictions_{date}.json")
         
     if not os.path.exists(target_file):
+        if is_live:
+            raise HTTPException(
+                status_code=503,
+                detail="Tahmin verisi henuz hazir degil. Tenis pipeline calisiyor."
+            )
         raise HTTPException(
             status_code=404,
             detail=f"Belirtilen tarih ({date or today_str}) için tenis tahmin verisi bulunamadı."
@@ -73,11 +78,24 @@ async def get_results(date: str | None = None):
     now_et = datetime.now(ZoneInfo("America/New_York"))
     today_str = now_et.strftime("%Y-%m-%d")
     
+    is_today = not date or date == today_str
     target_file = RESULTS_FILE
     if date and date != today_str:
         target_file = os.path.join(DATA_DIR, "archive", f"results_{date}.json")
         
     if not os.path.exists(target_file):
+        if is_today:
+            return {
+                "status": "success",
+                "last_updated": None,
+                "data": {
+                    "date": today_str,
+                    "active_results": [],
+                    "low_confidence_results": [],
+                    "alt_league_results": [],
+                    "active_statistics": {"total_predicted": 0, "correct_predictions": 0, "accuracy_percentage": 0},
+                },
+            }
         raise HTTPException(
             status_code=404,
             detail=f"Belirtilen tarih ({date or today_str}) için tenis doğruluk sonuçları bulunamadı."

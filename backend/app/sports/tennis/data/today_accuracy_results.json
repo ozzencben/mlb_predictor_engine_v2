@@ -1,18 +1,18 @@
 {
     "window_hours": 24,
-    "window_start": "2026-06-23T15:38:11.719889+00:00",
-    "window_end": "2026-06-24T15:38:11.719889+00:00",
-    "generated_at": "2026-06-23T15:38:11.719916+00:00",
+    "window_start": "2026-06-23T16:00:21.320291+00:00",
+    "window_end": "2026-06-24T16:00:21.320291+00:00",
+    "generated_at": "2026-06-23T16:00:21.320305+00:00",
     "date": "2026-06-23",
     "active_statistics": {
-        "total_predicted": 25,
-        "correct_predictions": 16,
-        "accuracy_percentage": 64.0
+        "total_predicted": 30,
+        "correct_predictions": 20,
+        "accuracy_percentage": 66.67
     },
     "low_confidence_statistics": {
-        "total_predicted": 35,
-        "correct_predictions": 19,
-        "accuracy_percentage": 54.29
+        "total_predicted": 34,
+        "correct_predictions": 18,
+        "accuracy_percentage": 52.94
     },
     "alt_league_statistics": {
         "total_predicted": 19,
@@ -1248,6 +1248,215 @@
             ]
         },
         {
+            "match_id": "vH1r9FQ6",
+            "tournament": "WTA - SINGLES: Eastbourne (United Kingdom), grass",
+            "match_stage": "Quarter-finals",
+            "match_time": "07:55 ET",
+            "timestamp": 1782215700,
+            "home_player": "Gibson T.",
+            "away_player": "Keys M.",
+            "predicted_winner": 2,
+            "actual_winner": 2,
+            "is_correct": true,
+            "home_win_probability": 39.18,
+            "away_win_probability": 60.82,
+            "result_status": "[DOGRU]",
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Keys M. -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 60.8,
+                    "model_odds": 1.56,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=60.8%, dom_diff=3.9%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 9.3/9.3 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Keys M. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 40.3,
+                    "model_odds": 2.36,
+                    "reason": "Insufficient game dominance gap (0.2%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 62.9,
+                    "model_odds": 1.51,
+                    "reason": "Borderline 3-set probability (37.1%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Gibson T.",
+                    "confidence": "Low",
+                    "probability": 72.1,
+                    "model_odds": 1.32,
+                    "reason": "First-set win rate gap is small (11.6%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 43.5,
+                    "model_odds": 2.18,
+                    "reason": "Borderline tiebreak probability (43.5%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Medium",
+                    "probability": 37.6,
+                    "model_odds": 2.52,
+                    "reason": "Gibson T. wins a dominant set (6-0/6-1) in 23% of their matches — the combined match profile projects at least one lopsided set."
+                }
+            ],
+            "p1_stats": {
+                "rank": 66,
+                "elo": 1523.6846974551445,
+                "surface_rate": 0.333,
+                "momentum": 0.404,
+                "fatigue": 6,
+                "set_dominance": 0.592,
+                "game_dominance": 0.539,
+                "rest_days": 0,
+                "clutch_win_rate": 46.2,
+                "straight_sets_rate": 74.1,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 72.1,
+                "comeback_rate": 8.3,
+                "close_set_rate": 24.2,
+                "avg_games_per_set": 9.35,
+                "bagel_breadstick_rate": 23.0,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Keys M.",
+                        "score": "0-2",
+                        "surface": "Grass",
+                        "tournament": "WTA - SINGLES: Eastbourne",
+                        "date": "2026-06-23"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Pliskova Ka.",
+                        "score": "0-2",
+                        "surface": "Grass",
+                        "tournament": "WTA - SINGLES: Nottingham",
+                        "date": "2026-06-19"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Zheng Q.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "Nottingham",
+                        "date": "2026-06-17"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Jones F.",
+                        "score": "2-1",
+                        "surface": "Grass",
+                        "tournament": "Nottingham",
+                        "date": "2026-06-15"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Charaeva A.",
+                        "score": "0-2",
+                        "surface": "Grass",
+                        "tournament": "London",
+                        "date": "2026-06-07"
+                    }
+                ],
+                "name": "Gibson T."
+            },
+            "p2_stats": {
+                "rank": 28,
+                "elo": 1505.2497796827327,
+                "surface_rate": 0.6,
+                "momentum": 0.739,
+                "fatigue": 6,
+                "set_dominance": 0.631,
+                "game_dominance": 0.541,
+                "rest_days": 0,
+                "clutch_win_rate": 50.0,
+                "straight_sets_rate": 51.7,
+                "tiebreak_win_rate": 66.7,
+                "first_set_win_rate": 60.5,
+                "comeback_rate": 41.2,
+                "close_set_rate": 18.6,
+                "avg_games_per_set": 9.33,
+                "bagel_breadstick_rate": 19.0,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Gibson T.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "WTA - SINGLES: Eastbourne",
+                        "date": "2026-06-23"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Pegula J.",
+                        "score": "0-2",
+                        "surface": "Grass",
+                        "tournament": "Berlin",
+                        "date": "2026-06-19"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Muchova K.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "Berlin",
+                        "date": "2026-06-18"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Wang Xin.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "Berlin",
+                        "date": "2026-06-16"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Shnaider D.",
+                        "score": "1-2",
+                        "surface": "Clay",
+                        "tournament": "French Open",
+                        "date": "2026-06-01"
+                    }
+                ],
+                "name": "Keys M."
+            },
+            "set_scores": [
+                {
+                    "home": "4",
+                    "away": "6"
+                },
+                {
+                    "home": "4",
+                    "away": "6"
+                }
+            ]
+        },
+        {
             "match_id": "CUXbovad",
             "tournament": "WTA - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
             "match_stage": "Quarter-finals",
@@ -2233,6 +2442,187 @@
                 {
                     "home": "4",
                     "away": "6"
+                }
+            ]
+        },
+        {
+            "match_id": "Gt58McQQ",
+            "tournament": "WTA - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
+            "match_stage": "Quarter-finals",
+            "match_time": "06:05 ET",
+            "timestamp": 1782209100,
+            "home_player": "Riera J.",
+            "away_player": "Britton D.",
+            "predicted_winner": 2,
+            "actual_winner": 1,
+            "is_correct": false,
+            "home_win_probability": 33.87,
+            "away_win_probability": 66.13,
+            "result_status": "[YANLIS]",
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Britton D. -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 62.0,
+                    "model_odds": 1.53,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=66.1%, dom_diff=-26.0%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 40.5,
+                    "model_odds": 2.35,
+                    "reason": "Mixed total-games signal (avg 9.2/11.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Britton D. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 52.0,
+                    "model_odds": 1.83,
+                    "reason": "Insufficient game dominance gap (-8.0%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "Yes",
+                    "confidence": "Medium",
+                    "probability": 64.2,
+                    "model_odds": 1.48,
+                    "reason": "Riera J. has a 37% comeback rate and Britton D. wins in straight sets only 0% of the time — a competitive 3-set battle is the projected outcome."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Riera J.",
+                    "confidence": "Low",
+                    "probability": 55.8,
+                    "model_odds": 1.7,
+                    "reason": "First-set win rate gap is small (5.8%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 44.4,
+                    "model_odds": 2.14,
+                    "reason": "Borderline tiebreak probability (44.4%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Medium",
+                    "probability": 40.0,
+                    "model_odds": 2.38,
+                    "reason": "Riera J. wins a dominant set (6-0/6-1) in 33% of their matches — the combined match profile projects at least one lopsided set."
+                }
+            ],
+            "p1_stats": {
+                "rank": 180,
+                "elo": 1500.0,
+                "surface_rate": 0.0,
+                "momentum": 0.679,
+                "fatigue": 8,
+                "set_dominance": 0.593,
+                "game_dominance": 0.547,
+                "rest_days": 5,
+                "clutch_win_rate": 50.0,
+                "straight_sets_rate": 48.1,
+                "tiebreak_win_rate": 64.3,
+                "first_set_win_rate": 55.8,
+                "comeback_rate": 36.8,
+                "close_set_rate": 24.5,
+                "avg_games_per_set": 9.18,
+                "bagel_breadstick_rate": 33.3,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Oz I.",
+                        "score": "1-2",
+                        "surface": "Clay",
+                        "tournament": "W75 Blois",
+                        "date": "2026-06-18"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Dore P.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "W75 Blois",
+                        "date": "2026-06-17"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Lollia M.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "W75 Blois",
+                        "date": "2026-06-16"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Korneeva A.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "French Open",
+                        "date": "2026-05-21"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Montgomery R.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "French Open",
+                        "date": "2026-05-20"
+                    }
+                ],
+                "name": "Riera J."
+            },
+            "p2_stats": {
+                "rank": 100,
+                "elo": 1476.0,
+                "surface_rate": 0.0,
+                "momentum": 0.0,
+                "fatigue": 3,
+                "set_dominance": 0.333,
+                "game_dominance": 0.467,
+                "rest_days": 0,
+                "clutch_win_rate": 0.0,
+                "straight_sets_rate": 0.0,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 50.0,
+                "comeback_rate": 50.0,
+                "close_set_rate": 30.0,
+                "avg_games_per_set": 11.0,
+                "bagel_breadstick_rate": 10.0,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Riera J.",
+                        "score": "1-2",
+                        "surface": "Grass",
+                        "tournament": "WTA - SINGLES: Wimbledon",
+                        "date": "2026-06-23"
+                    }
+                ],
+                "name": "Britton D."
+            },
+            "set_scores": [
+                {
+                    "home": "2",
+                    "away": "6"
+                },
+                {
+                    "home": "6",
+                    "away": "2"
+                },
+                {
+                    "home": "6",
+                    "away": "4"
                 }
             ]
         },
@@ -3726,8 +4116,8 @@
             "predicted_winner": 1,
             "actual_winner": 1,
             "is_correct": true,
-            "home_win_probability": 62.69,
-            "away_win_probability": 37.31,
+            "home_win_probability": 62.96,
+            "away_win_probability": 37.04,
             "result_status": "[DOGRU]",
             "p1_odds": null,
             "p2_odds": null,
@@ -3738,8 +4128,8 @@
                     "market": "Set Handicap",
                     "selection": "Bandecchi S. +1.5 Sets",
                     "confidence": "Medium",
-                    "probability": 59.8,
-                    "model_odds": 1.59,
+                    "probability": 59.4,
+                    "model_odds": 1.6,
                     "reason": "Kawa K. carries high fatigue (8 sets in last 3 matches), creating a set-cover opportunity for Bandecchi S.."
                 },
                 {
@@ -3754,17 +4144,17 @@
                     "market": "Game Spread",
                     "selection": "Kawa K. -3.5 Games",
                     "confidence": "Low",
-                    "probability": 40.5,
-                    "model_odds": 2.35,
-                    "reason": "Insufficient game dominance gap (0.3%) for a strong spread signal. Shown for reference only."
+                    "probability": 40.8,
+                    "model_odds": 2.33,
+                    "reason": "Insufficient game dominance gap (0.5%) for a strong spread signal. Shown for reference only."
                 },
                 {
                     "market": "Both Players to Win a Set",
                     "selection": "No",
                     "confidence": "Low",
-                    "probability": 65.4,
+                    "probability": 65.5,
                     "model_odds": 1.45,
-                    "reason": "Borderline 3-set probability (34.6%). No strong edge detected — shown for reference only."
+                    "reason": "Borderline 3-set probability (34.5%). No strong edge detected — shown for reference only."
                 },
                 {
                     "market": "First Set Winner",
@@ -3856,11 +4246,11 @@
                 "rank": 173,
                 "elo": 1476.0,
                 "surface_rate": 0.0,
-                "momentum": 0.643,
-                "fatigue": 9,
-                "set_dominance": 0.523,
-                "game_dominance": 0.503,
-                "rest_days": 4,
+                "momentum": 0.578,
+                "fatigue": 8,
+                "set_dominance": 0.514,
+                "game_dominance": 0.501,
+                "rest_days": 0,
                 "clutch_win_rate": 63.6,
                 "straight_sets_rate": 37.5,
                 "tiebreak_win_rate": 60.0,
@@ -3870,6 +4260,14 @@
                 "avg_games_per_set": 9.62,
                 "bagel_breadstick_rate": 8.9,
                 "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Kawa K.",
+                        "score": "0-2",
+                        "surface": "Grass",
+                        "tournament": "WTA - SINGLES: Wimbledon",
+                        "date": "2026-06-23"
+                    },
                     {
                         "result": "L",
                         "opponent": "Charaeva A.",
@@ -3901,14 +4299,6 @@
                         "surface": "Clay",
                         "tournament": "French Open",
                         "date": "2026-05-28"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Bucsa C.",
-                        "score": "2-1",
-                        "surface": "Clay",
-                        "tournament": "French Open",
-                        "date": "2026-05-25"
                     }
                 ],
                 "name": "Bandecchi S."
@@ -5175,6 +5565,637 @@
                 {
                     "home": "5",
                     "away": "7"
+                }
+            ]
+        },
+        {
+            "match_id": "KxfnFFI0",
+            "tournament": "WTA - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
+            "match_stage": "Quarter-finals",
+            "match_time": "09:55 ET",
+            "timestamp": 1782222900,
+            "home_player": "Volynets K.",
+            "away_player": "Samson L.",
+            "predicted_winner": 1,
+            "actual_winner": 1,
+            "is_correct": true,
+            "home_win_probability": 60.61,
+            "away_win_probability": 39.39,
+            "result_status": "[DOGRU]",
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Volynets K. -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 60.6,
+                    "model_odds": 1.57,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=60.6%, dom_diff=-5.6%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 9.0/9.2 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Volynets K. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 40.0,
+                    "model_odds": 2.37,
+                    "reason": "Insufficient game dominance gap (0.0%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 58.8,
+                    "model_odds": 1.62,
+                    "reason": "Borderline 3-set probability (41.2%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Volynets K.",
+                    "confidence": "Low",
+                    "probability": 51.2,
+                    "model_odds": 1.86,
+                    "reason": "First-set win rate gap is small (0.0%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 60.9,
+                    "model_odds": 1.56,
+                    "reason": "Borderline tiebreak probability (39.1%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Medium",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Volynets K. wins a dominant set (6-0/6-1) in 26% of their matches — the combined match profile projects at least one lopsided set."
+                }
+            ],
+            "p1_stats": {
+                "rank": 102,
+                "elo": 1531.0958018380024,
+                "surface_rate": 0.714,
+                "momentum": 0.613,
+                "fatigue": 6,
+                "set_dominance": 0.564,
+                "game_dominance": 0.536,
+                "rest_days": 6,
+                "clutch_win_rate": 52.9,
+                "straight_sets_rate": 56.0,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 51.2,
+                "comeback_rate": 28.6,
+                "close_set_rate": 22.3,
+                "avg_games_per_set": 9.04,
+                "bagel_breadstick_rate": 26.3,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Bouzas Maneiro J.",
+                        "score": "0-1",
+                        "surface": "Grass",
+                        "tournament": "Nottingham",
+                        "date": "2026-06-17"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Kessler M.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "Nottingham",
+                        "date": "2026-06-16"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Birrell K.",
+                        "score": "2-1",
+                        "surface": "Grass",
+                        "tournament": "Nottingham",
+                        "date": "2026-06-14"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Udvardy P.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "Nottingham",
+                        "date": "2026-06-13"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Sonmez Z.",
+                        "score": "1-2",
+                        "surface": "Grass",
+                        "tournament": "Hertogenbosch",
+                        "date": "2026-06-09"
+                    }
+                ],
+                "name": "Volynets K."
+            },
+            "p2_stats": {
+                "rank": 147,
+                "elo": 1525.6552293468878,
+                "surface_rate": 0.0,
+                "momentum": 0.663,
+                "fatigue": 6,
+                "set_dominance": 0.62,
+                "game_dominance": 0.536,
+                "rest_days": 10,
+                "clutch_win_rate": 66.7,
+                "straight_sets_rate": 64.3,
+                "tiebreak_win_rate": 50.0,
+                "first_set_win_rate": 51.2,
+                "comeback_rate": 38.1,
+                "close_set_rate": 21.6,
+                "avg_games_per_set": 9.25,
+                "bagel_breadstick_rate": 15.9,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Bronzetti L.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "Modena",
+                        "date": "2026-06-13"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Quevedo K.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Modena",
+                        "date": "2026-06-12"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Semenistaja D.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Modena",
+                        "date": "2026-06-10"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Wang Xiy.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Modena",
+                        "date": "2026-06-08"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Lazaro Garcia A.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "Makarska",
+                        "date": "2026-06-03"
+                    }
+                ],
+                "name": "Samson L."
+            },
+            "set_scores": [
+                {
+                    "home": "7",
+                    "away": "6"
+                },
+                {
+                    "home": "6",
+                    "away": "1"
+                }
+            ]
+        },
+        {
+            "match_id": "xSVpETYa",
+            "tournament": "WTA - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
+            "match_stage": "Quarter-finals",
+            "match_time": "10:05 ET",
+            "timestamp": 1782223500,
+            "home_player": "Kudermetova P.",
+            "away_player": "Ponchet J.",
+            "predicted_winner": 1,
+            "actual_winner": 1,
+            "is_correct": true,
+            "home_win_probability": 70.14,
+            "away_win_probability": 29.86,
+            "result_status": "[DOGRU]",
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Ponchet J. +1.5 Sets",
+                    "confidence": "Medium",
+                    "probability": 50.8,
+                    "model_odds": 1.87,
+                    "reason": "Kudermetova P. carries high fatigue (8 sets in last 3 matches), creating a set-cover opportunity for Ponchet J.."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 9.1/9.2 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Kudermetova P. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 46.2,
+                    "model_odds": 2.06,
+                    "reason": "Insufficient game dominance gap (4.1%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Medium",
+                    "probability": 70.0,
+                    "model_odds": 1.36,
+                    "reason": "Kudermetova P. wins in straight sets 64% of the time with a 70.1% match projection — a clean sweep is the dominant scenario."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Kudermetova P.",
+                    "confidence": "Medium",
+                    "probability": 60.5,
+                    "model_odds": 1.57,
+                    "reason": "Kudermetova P. wins the opening set in 60% of matches — a +14% edge over the opponent on the first-set market."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "Yes",
+                    "confidence": "Low",
+                    "probability": 41.1,
+                    "model_odds": 2.31,
+                    "reason": "Borderline tiebreak probability (41.1%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "Medium",
+                    "probability": 31.4,
+                    "model_odds": 3.03,
+                    "reason": "Kudermetova P. wins a dominant set (6-0/6-1) in 25% of their matches — the combined match profile projects at least one lopsided set."
+                }
+            ],
+            "p1_stats": {
+                "rank": 115,
+                "elo": 1468.736306793522,
+                "surface_rate": 0.667,
+                "momentum": 0.668,
+                "fatigue": 8,
+                "set_dominance": 0.64,
+                "game_dominance": 0.548,
+                "rest_days": 14,
+                "clutch_win_rate": 50.0,
+                "straight_sets_rate": 64.3,
+                "tiebreak_win_rate": 77.8,
+                "first_set_win_rate": 60.5,
+                "comeback_rate": 31.2,
+                "close_set_rate": 18.8,
+                "avg_games_per_set": 9.1,
+                "bagel_breadstick_rate": 25.0,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Bouzkova M.",
+                        "score": "0-2",
+                        "surface": "Grass",
+                        "tournament": "London",
+                        "date": "2026-06-09"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Charaeva A.",
+                        "score": "2-1",
+                        "surface": "Grass",
+                        "tournament": "London",
+                        "date": "2026-06-07"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Hon P.",
+                        "score": "2-1",
+                        "surface": "Grass",
+                        "tournament": "London",
+                        "date": "2026-06-07"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Wang Xiy.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "French Open",
+                        "date": "2026-05-22"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Tomova V.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "French Open",
+                        "date": "2026-05-20"
+                    }
+                ],
+                "name": "Kudermetova P."
+            },
+            "p2_stats": {
+                "rank": 189,
+                "elo": 1512.3140189362784,
+                "surface_rate": 0.0,
+                "momentum": 0.575,
+                "fatigue": 6,
+                "set_dominance": 0.495,
+                "game_dominance": 0.507,
+                "rest_days": 34,
+                "clutch_win_rate": 55.6,
+                "straight_sets_rate": 63.6,
+                "tiebreak_win_rate": 37.5,
+                "first_set_win_rate": 46.5,
+                "comeback_rate": 17.4,
+                "close_set_rate": 17.9,
+                "avg_games_per_set": 9.21,
+                "bagel_breadstick_rate": 8.5,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Fruhvirtova L.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "French Open",
+                        "date": "2026-05-20"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Hon P.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "French Open",
+                        "date": "2026-05-19"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Lazaro Garcia A.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "W75 Saint-Gaudens",
+                        "date": "2026-05-09"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Chwalinska M.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "W75 Saint-Gaudens",
+                        "date": "2026-05-08"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Andreeva E.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "W75 Saint-Gaudens",
+                        "date": "2026-05-07"
+                    }
+                ],
+                "name": "Ponchet J."
+            },
+            "set_scores": [
+                {
+                    "home": "1",
+                    "away": "6"
+                },
+                {
+                    "home": "6",
+                    "away": "2"
+                },
+                {
+                    "home": "6",
+                    "away": "3"
+                }
+            ]
+        },
+        {
+            "match_id": "QgmYs5h4",
+            "tournament": "WTA - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
+            "match_stage": "Quarter-finals",
+            "match_time": "10:35 ET",
+            "timestamp": 1782225300,
+            "home_player": "Miyazaki L.",
+            "away_player": "Yaneva E.",
+            "predicted_winner": 2,
+            "actual_winner": 2,
+            "is_correct": true,
+            "home_win_probability": 34.47,
+            "away_win_probability": 65.53,
+            "result_status": "[DOGRU]",
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
+            "alternative_bets": [
+                {
+                    "market": "Set Handicap",
+                    "selection": "Yaneva E. -1.5 Sets",
+                    "confidence": "Low",
+                    "probability": 62.0,
+                    "model_odds": 1.53,
+                    "reason": "No strong set-handicap signal for this matchup (fav_prob=65.5%, dom_diff=6.8%). Shown for reference only."
+                },
+                {
+                    "market": "Total Games",
+                    "selection": "Under 21.5 Games",
+                    "confidence": "Low",
+                    "probability": 38.0,
+                    "model_odds": 2.5,
+                    "reason": "Mixed total-games signal (avg 9.1/9.0 games/set). Shown for reference only."
+                },
+                {
+                    "market": "Game Spread",
+                    "selection": "Yaneva E. -3.5 Games",
+                    "confidence": "Low",
+                    "probability": 47.2,
+                    "model_odds": 2.01,
+                    "reason": "Insufficient game dominance gap (4.8%) for a strong spread signal. Shown for reference only."
+                },
+                {
+                    "market": "Both Players to Win a Set",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 70.8,
+                    "model_odds": 1.34,
+                    "reason": "Borderline 3-set probability (29.2%). No strong edge detected — shown for reference only."
+                },
+                {
+                    "market": "First Set Winner",
+                    "selection": "Yaneva E.",
+                    "confidence": "Low",
+                    "probability": 67.4,
+                    "model_odds": 1.41,
+                    "reason": "First-set win rate gap is small (9.3%). Minimal edge — shown for reference only."
+                },
+                {
+                    "market": "Any Set to Tiebreak",
+                    "selection": "No",
+                    "confidence": "Low",
+                    "probability": 60.6,
+                    "model_odds": 1.57,
+                    "reason": "Borderline tiebreak probability (39.4%). No strong edge — shown for reference only."
+                },
+                {
+                    "market": "Bagel / Breadstick",
+                    "selection": "Yes — A Set Won 6-0 or 6-1",
+                    "confidence": "High",
+                    "probability": 46.7,
+                    "model_odds": 2.03,
+                    "reason": "Yaneva E. wins a dominant set (6-0/6-1) in 35% of their matches — the combined match profile projects at least one lopsided set."
+                }
+            ],
+            "p1_stats": {
+                "rank": 302,
+                "elo": 1469.6635895900358,
+                "surface_rate": 0.0,
+                "momentum": 0.448,
+                "fatigue": 8,
+                "set_dominance": 0.57,
+                "game_dominance": 0.524,
+                "rest_days": 16,
+                "clutch_win_rate": 31.2,
+                "straight_sets_rate": 78.3,
+                "tiebreak_win_rate": 71.4,
+                "first_set_win_rate": 58.1,
+                "comeback_rate": 23.5,
+                "close_set_rate": 17.8,
+                "avg_games_per_set": 9.11,
+                "bagel_breadstick_rate": 17.5,
+                "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Maria T.",
+                        "score": "1-2",
+                        "surface": "Grass",
+                        "tournament": "London",
+                        "date": "2026-06-07"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Sawangkaew M.",
+                        "score": "0-2",
+                        "surface": "Grass",
+                        "tournament": "Birmingham",
+                        "date": "2026-05-30"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Saito S.",
+                        "score": "1-2",
+                        "surface": "Hard",
+                        "tournament": "W100 Takasaki",
+                        "date": "2026-05-19"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Mushika Mio",
+                        "score": "1-2",
+                        "surface": "Hard",
+                        "tournament": "W75 Kurume",
+                        "date": "2026-05-14"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Nagata A.",
+                        "score": "2-0",
+                        "surface": "Hard",
+                        "tournament": "W75 Kurume",
+                        "date": "2026-05-12"
+                    }
+                ],
+                "name": "Miyazaki L."
+            },
+            "p2_stats": {
+                "rank": 229,
+                "elo": 1503.302558102334,
+                "surface_rate": 0.0,
+                "momentum": 0.583,
+                "fatigue": 7,
+                "set_dominance": 0.638,
+                "game_dominance": 0.572,
+                "rest_days": 4,
+                "clutch_win_rate": 47.1,
+                "straight_sets_rate": 72.4,
+                "tiebreak_win_rate": 37.5,
+                "first_set_win_rate": 67.4,
+                "comeback_rate": 35.7,
+                "close_set_rate": 16.7,
+                "avg_games_per_set": 9.0,
+                "bagel_breadstick_rate": 35.4,
+                "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Gorgodze E.",
+                        "score": "2-1",
+                        "surface": "Clay",
+                        "tournament": "CHALLENGER WOMEN - SINGLES: Brescia",
+                        "date": "2026-06-19"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Ortenzi J.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Brescia",
+                        "date": "2026-06-18"
+                    },
+                    {
+                        "result": "W",
+                        "opponent": "Pedone G.",
+                        "score": "2-0",
+                        "surface": "Clay",
+                        "tournament": "Brescia",
+                        "date": "2026-06-15"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Pigato L.",
+                        "score": "0-2",
+                        "surface": "Clay",
+                        "tournament": "Foggia",
+                        "date": "2026-06-01"
+                    },
+                    {
+                        "result": "L",
+                        "opponent": "Begu I.",
+                        "score": "1-2",
+                        "surface": "Clay",
+                        "tournament": "French Open",
+                        "date": "2026-05-18"
+                    }
+                ],
+                "name": "Yaneva E."
+            },
+            "set_scores": [
+                {
+                    "home": "2",
+                    "away": "6"
+                },
+                {
+                    "home": "4",
+                    "away": "6"
                 }
             ]
         }
@@ -7882,215 +8903,6 @@
             ]
         },
         {
-            "match_id": "vH1r9FQ6",
-            "tournament": "WTA - SINGLES: Eastbourne (United Kingdom), grass",
-            "match_stage": "Quarter-finals",
-            "match_time": "07:55 ET",
-            "timestamp": 1782215700,
-            "home_player": "Gibson T.",
-            "away_player": "Keys M.",
-            "predicted_winner": 2,
-            "actual_winner": 2,
-            "is_correct": true,
-            "home_win_probability": 46.28,
-            "away_win_probability": 53.72,
-            "result_status": "[DOGRU]",
-            "p1_odds": null,
-            "p2_odds": null,
-            "edge_percentage": null,
-            "recommended_kelly_bet_percentage": null,
-            "alternative_bets": [
-                {
-                    "market": "Set Handicap",
-                    "selection": "Gibson T. +1.5 Sets",
-                    "confidence": "Medium",
-                    "probability": 70.5,
-                    "model_odds": 1.35,
-                    "reason": "Close projection (53.7%) indicates a tight contest — value on Gibson T. to take at least one set."
-                },
-                {
-                    "market": "Total Games",
-                    "selection": "Over 21.5 Games",
-                    "confidence": "Medium",
-                    "probability": 40.0,
-                    "model_odds": 2.37,
-                    "reason": "Both players average 9.3 and 9.3 games/set — combined style projects a high-game-count match (Over 21.5 Games)."
-                },
-                {
-                    "market": "Game Spread",
-                    "selection": "Keys M. -3.5 Games",
-                    "confidence": "Low",
-                    "probability": 40.3,
-                    "model_odds": 2.36,
-                    "reason": "Insufficient game dominance gap (-0.2%) for a strong spread signal. Shown for reference only."
-                },
-                {
-                    "market": "Both Players to Win a Set",
-                    "selection": "No",
-                    "confidence": "Low",
-                    "probability": 59.6,
-                    "model_odds": 1.59,
-                    "reason": "Borderline 3-set probability (40.4%). No strong edge detected — shown for reference only."
-                },
-                {
-                    "market": "First Set Winner",
-                    "selection": "Gibson T.",
-                    "confidence": "Low",
-                    "probability": 72.1,
-                    "model_odds": 1.32,
-                    "reason": "First-set win rate gap is small (11.6%). Minimal edge — shown for reference only."
-                },
-                {
-                    "market": "Any Set to Tiebreak",
-                    "selection": "Yes",
-                    "confidence": "Low",
-                    "probability": 44.2,
-                    "model_odds": 2.15,
-                    "reason": "Borderline tiebreak probability (44.2%). No strong edge — shown for reference only."
-                },
-                {
-                    "market": "Bagel / Breadstick",
-                    "selection": "Yes — A Set Won 6-0 or 6-1",
-                    "confidence": "Medium",
-                    "probability": 37.6,
-                    "model_odds": 2.52,
-                    "reason": "Gibson T. wins a dominant set (6-0/6-1) in 23% of their matches — the combined match profile projects at least one lopsided set."
-                }
-            ],
-            "p1_stats": {
-                "rank": 66,
-                "elo": 1523.6846974551445,
-                "surface_rate": 0.4,
-                "momentum": 0.449,
-                "fatigue": 7,
-                "set_dominance": 0.604,
-                "game_dominance": 0.542,
-                "rest_days": 4,
-                "clutch_win_rate": 46.2,
-                "straight_sets_rate": 74.1,
-                "tiebreak_win_rate": 50.0,
-                "first_set_win_rate": 72.1,
-                "comeback_rate": 8.3,
-                "close_set_rate": 24.2,
-                "avg_games_per_set": 9.35,
-                "bagel_breadstick_rate": 23.0,
-                "recent_form": [
-                    {
-                        "result": "L",
-                        "opponent": "Pliskova Ka.",
-                        "score": "0-2",
-                        "surface": "Grass",
-                        "tournament": "WTA - SINGLES: Nottingham",
-                        "date": "2026-06-19"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Zheng Q.",
-                        "score": "2-0",
-                        "surface": "Grass",
-                        "tournament": "Nottingham",
-                        "date": "2026-06-17"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Jones F.",
-                        "score": "2-1",
-                        "surface": "Grass",
-                        "tournament": "Nottingham",
-                        "date": "2026-06-15"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Charaeva A.",
-                        "score": "0-2",
-                        "surface": "Grass",
-                        "tournament": "London",
-                        "date": "2026-06-07"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Kalieva E.",
-                        "score": "1-2",
-                        "surface": "Grass",
-                        "tournament": "Birmingham",
-                        "date": "2026-06-01"
-                    }
-                ],
-                "name": "Gibson T."
-            },
-            "p2_stats": {
-                "rank": 28,
-                "elo": 1505.2497796827327,
-                "surface_rate": 0.5,
-                "momentum": 0.709,
-                "fatigue": 6,
-                "set_dominance": 0.624,
-                "game_dominance": 0.54,
-                "rest_days": 4,
-                "clutch_win_rate": 50.0,
-                "straight_sets_rate": 50.0,
-                "tiebreak_win_rate": 66.7,
-                "first_set_win_rate": 60.5,
-                "comeback_rate": 41.2,
-                "close_set_rate": 18.6,
-                "avg_games_per_set": 9.33,
-                "bagel_breadstick_rate": 19.0,
-                "recent_form": [
-                    {
-                        "result": "L",
-                        "opponent": "Pegula J.",
-                        "score": "0-2",
-                        "surface": "Grass",
-                        "tournament": "Berlin",
-                        "date": "2026-06-19"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Muchova K.",
-                        "score": "2-0",
-                        "surface": "Grass",
-                        "tournament": "Berlin",
-                        "date": "2026-06-18"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Wang Xin.",
-                        "score": "2-0",
-                        "surface": "Grass",
-                        "tournament": "Berlin",
-                        "date": "2026-06-16"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Shnaider D.",
-                        "score": "1-2",
-                        "surface": "Clay",
-                        "tournament": "French Open",
-                        "date": "2026-06-01"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Mboko V.",
-                        "score": "2-1",
-                        "surface": "Clay",
-                        "tournament": "French Open",
-                        "date": "2026-05-30"
-                    }
-                ],
-                "name": "Keys M."
-            },
-            "set_scores": [
-                {
-                    "home": "4",
-                    "away": "6"
-                },
-                {
-                    "home": "4",
-                    "away": "6"
-                }
-            ]
-        },
-        {
             "match_id": "QXaj7geJ",
             "tournament": "WTA - SINGLES: Eastbourne (United Kingdom), grass",
             "match_stage": "Quarter-finals",
@@ -9998,8 +10810,8 @@
             "predicted_winner": 2,
             "actual_winner": 2,
             "is_correct": true,
-            "home_win_probability": 41.43,
-            "away_win_probability": 58.57,
+            "home_win_probability": 42.77,
+            "away_win_probability": 57.23,
             "result_status": "[DOGRU]",
             "p1_odds": null,
             "p2_odds": null,
@@ -10008,11 +10820,11 @@
             "alternative_bets": [
                 {
                     "market": "Set Handicap",
-                    "selection": "Stefanini L. -1.5 Sets",
-                    "confidence": "Low",
-                    "probability": 58.6,
-                    "model_odds": 1.62,
-                    "reason": "No strong set-handicap signal for this matchup (fav_prob=58.6%, dom_diff=-23.1%). Shown for reference only."
+                    "selection": "Giovannini L. +1.5 Sets",
+                    "confidence": "Medium",
+                    "probability": 66.3,
+                    "model_odds": 1.43,
+                    "reason": "Close projection (57.2%) indicates a tight contest — value on Giovannini L. to take at least one set."
                 },
                 {
                     "market": "Total Games",
@@ -10026,17 +10838,17 @@
                     "market": "Game Spread",
                     "selection": "Stefanini L. -3.5 Games",
                     "confidence": "Low",
-                    "probability": 54.7,
-                    "model_odds": 1.74,
-                    "reason": "Insufficient game dominance gap (-9.8%) for a strong spread signal. Shown for reference only."
+                    "probability": 54.1,
+                    "model_odds": 1.76,
+                    "reason": "Insufficient game dominance gap (-9.4%) for a strong spread signal. Shown for reference only."
                 },
                 {
                     "market": "Both Players to Win a Set",
                     "selection": "Yes",
                     "confidence": "Low",
-                    "probability": 51.8,
-                    "model_odds": 1.83,
-                    "reason": "Borderline 3-set probability (51.8%). No strong edge detected — shown for reference only."
+                    "probability": 52.3,
+                    "model_odds": 1.82,
+                    "reason": "Borderline 3-set probability (52.3%). No strong edge detected — shown for reference only."
                 },
                 {
                     "market": "First Set Winner",
@@ -10050,9 +10862,9 @@
                     "market": "Any Set to Tiebreak",
                     "selection": "No",
                     "confidence": "Low",
-                    "probability": 75.1,
+                    "probability": 74.9,
                     "model_odds": 1.27,
-                    "reason": "Borderline tiebreak probability (24.9%). No strong edge — shown for reference only."
+                    "reason": "Borderline tiebreak probability (25.1%). No strong edge — shown for reference only."
                 },
                 {
                     "market": "Bagel / Breadstick",
@@ -10067,11 +10879,11 @@
                 "rank": 174,
                 "elo": 1500.0,
                 "surface_rate": 0.0,
-                "momentum": 0.636,
-                "fatigue": 7,
-                "set_dominance": 0.657,
-                "game_dominance": 0.574,
-                "rest_days": 4,
+                "momentum": 0.572,
+                "fatigue": 6,
+                "set_dominance": 0.644,
+                "game_dominance": 0.57,
+                "rest_days": 0,
                 "clutch_win_rate": 100.0,
                 "straight_sets_rate": 54.5,
                 "tiebreak_win_rate": 28.6,
@@ -10081,6 +10893,14 @@
                 "avg_games_per_set": 8.9,
                 "bagel_breadstick_rate": 24.6,
                 "recent_form": [
+                    {
+                        "result": "L",
+                        "opponent": "Stefanini L.",
+                        "score": "0-2",
+                        "surface": "Grass",
+                        "tournament": "WTA - SINGLES: Wimbledon",
+                        "date": "2026-06-23"
+                    },
                     {
                         "result": "L",
                         "opponent": "Wang Xiy.",
@@ -10112,14 +10932,6 @@
                         "surface": "Clay",
                         "tournament": "W75 Caserta",
                         "date": "2026-06-03"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Day K.",
-                        "score": "0-2",
-                        "surface": "Clay",
-                        "tournament": "W75 Zaragoza",
-                        "date": "2026-05-30"
                     }
                 ],
                 "name": "Giovannini L."
@@ -10423,10 +11235,10 @@
             "home_win_probability": 54.52,
             "away_win_probability": 45.48,
             "result_status": "[YANLIS]",
-            "p1_odds": 1.61,
-            "p2_odds": 2.39,
-            "edge_percentage": -7.59,
-            "recommended_kelly_bet_percentage": 0.0,
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
                     "market": "Set Handicap",
@@ -10846,8 +11658,8 @@
             "predicted_winner": 1,
             "actual_winner": 2,
             "is_correct": false,
-            "home_win_probability": 50.19,
-            "away_win_probability": 49.81,
+            "home_win_probability": 50.73,
+            "away_win_probability": 49.27,
             "result_status": "[YANLIS]",
             "p1_odds": null,
             "p2_odds": null,
@@ -10858,9 +11670,9 @@
                     "market": "Set Handicap",
                     "selection": "Teichmann J. +1.5 Sets",
                     "confidence": "Medium",
-                    "probability": 74.8,
-                    "model_odds": 1.27,
-                    "reason": "Close projection (50.2%) indicates a tight contest — value on Teichmann J. to take at least one set."
+                    "probability": 74.1,
+                    "model_odds": 1.28,
+                    "reason": "Close projection (50.7%) indicates a tight contest — value on Teichmann J. to take at least one set."
                 },
                 {
                     "market": "Total Games",
@@ -10874,17 +11686,17 @@
                     "market": "Game Spread",
                     "selection": "Masarova R. -3.5 Games",
                     "confidence": "Low",
-                    "probability": 43.8,
-                    "model_odds": 2.17,
-                    "reason": "Insufficient game dominance gap (2.5%) for a strong spread signal. Shown for reference only."
+                    "probability": 43.5,
+                    "model_odds": 2.19,
+                    "reason": "Insufficient game dominance gap (2.3%) for a strong spread signal. Shown for reference only."
                 },
                 {
                     "market": "Both Players to Win a Set",
                     "selection": "No",
                     "confidence": "Low",
-                    "probability": 56.2,
+                    "probability": 56.4,
                     "model_odds": 1.69,
-                    "reason": "Borderline 3-set probability (43.8%). No strong edge detected — shown for reference only."
+                    "reason": "Borderline 3-set probability (43.6%). No strong edge detected — shown for reference only."
                 },
                 {
                     "market": "First Set Winner",
@@ -10896,10 +11708,10 @@
                 },
                 {
                     "market": "Any Set to Tiebreak",
-                    "selection": "Yes",
+                    "selection": "No",
                     "confidence": "Low",
-                    "probability": 40.0,
-                    "model_odds": 2.37,
+                    "probability": 60.0,
+                    "model_odds": 1.58,
                     "reason": "Borderline tiebreak probability (40.0%). No strong edge — shown for reference only."
                 },
                 {
@@ -10975,14 +11787,14 @@
             "p2_stats": {
                 "rank": 130,
                 "elo": 1500.0,
-                "surface_rate": 0.0,
-                "momentum": 0.599,
+                "surface_rate": 0.5,
+                "momentum": 0.639,
                 "fatigue": 8,
-                "set_dominance": 0.5,
-                "game_dominance": 0.49,
-                "rest_days": 4,
+                "set_dominance": 0.51,
+                "game_dominance": 0.492,
+                "rest_days": 0,
                 "clutch_win_rate": 50.0,
-                "straight_sets_rate": 54.5,
+                "straight_sets_rate": 52.2,
                 "tiebreak_win_rate": 70.0,
                 "first_set_win_rate": 53.5,
                 "comeback_rate": 15.0,
@@ -10990,6 +11802,14 @@
                 "avg_games_per_set": 9.33,
                 "bagel_breadstick_rate": 22.4,
                 "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Masarova R.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "WTA - SINGLES: Wimbledon",
+                        "date": "2026-06-23"
+                    },
                     {
                         "result": "L",
                         "opponent": "Vidmanova D.",
@@ -11021,14 +11841,6 @@
                         "surface": "Clay",
                         "tournament": "French Open",
                         "date": "2026-05-31"
-                    },
-                    {
-                        "result": "W",
-                        "opponent": "Muchova K.",
-                        "score": "2-0",
-                        "surface": "Clay",
-                        "tournament": "French Open",
-                        "date": "2026-05-29"
                     }
                 ],
                 "name": "Teichmann J."
@@ -11055,8 +11867,8 @@
             "predicted_winner": 2,
             "actual_winner": 1,
             "is_correct": false,
-            "home_win_probability": 43.01,
-            "away_win_probability": 56.99,
+            "home_win_probability": 48.15,
+            "away_win_probability": 51.85,
             "result_status": "[YANLIS]",
             "p1_odds": null,
             "p2_odds": null,
@@ -11067,9 +11879,9 @@
                     "market": "Set Handicap",
                     "selection": "Gorgodze E. +1.5 Sets",
                     "confidence": "Medium",
-                    "probability": 66.6,
-                    "model_odds": 1.43,
-                    "reason": "Close projection (57.0%) indicates a tight contest — value on Gorgodze E. to take at least one set."
+                    "probability": 72.8,
+                    "model_odds": 1.31,
+                    "reason": "Close projection (51.9%) indicates a tight contest — value on Gorgodze E. to take at least one set."
                 },
                 {
                     "market": "Total Games",
@@ -11083,17 +11895,17 @@
                     "market": "Game Spread",
                     "selection": "Valdmannova V. -3.5 Games",
                     "confidence": "Low",
-                    "probability": 53.5,
-                    "model_odds": 1.78,
-                    "reason": "Insufficient game dominance gap (9.0%) for a strong spread signal. Shown for reference only."
+                    "probability": 53.2,
+                    "model_odds": 1.79,
+                    "reason": "Insufficient game dominance gap (8.8%) for a strong spread signal. Shown for reference only."
                 },
                 {
                     "market": "Both Players to Win a Set",
                     "selection": "No",
                     "confidence": "Low",
-                    "probability": 65.3,
-                    "model_odds": 1.46,
-                    "reason": "Borderline 3-set probability (34.7%). No strong edge detected — shown for reference only."
+                    "probability": 63.5,
+                    "model_odds": 1.5,
+                    "reason": "Borderline 3-set probability (36.5%). No strong edge detected — shown for reference only."
                 },
                 {
                     "market": "First Set Winner",
@@ -11107,9 +11919,9 @@
                     "market": "Any Set to Tiebreak",
                     "selection": "Yes",
                     "confidence": "Low",
-                    "probability": 43.0,
-                    "model_odds": 2.21,
-                    "reason": "Borderline tiebreak probability (43.0%). No strong edge — shown for reference only."
+                    "probability": 43.6,
+                    "model_odds": 2.18,
+                    "reason": "Borderline tiebreak probability (43.6%). No strong edge — shown for reference only."
                 },
                 {
                     "market": "Bagel / Breadstick",
@@ -11123,14 +11935,14 @@
             "p1_stats": {
                 "rank": 233,
                 "elo": 1484.0,
-                "surface_rate": 0.0,
-                "momentum": 0.301,
-                "fatigue": 9,
-                "set_dominance": 0.423,
-                "game_dominance": 0.46,
-                "rest_days": 4,
+                "surface_rate": 0.5,
+                "momentum": 0.372,
+                "fatigue": 8,
+                "set_dominance": 0.434,
+                "game_dominance": 0.462,
+                "rest_days": 0,
                 "clutch_win_rate": 38.9,
-                "straight_sets_rate": 56.2,
+                "straight_sets_rate": 52.9,
                 "tiebreak_win_rate": 60.0,
                 "first_set_win_rate": 51.2,
                 "comeback_rate": 10.0,
@@ -11138,6 +11950,14 @@
                 "avg_games_per_set": 8.94,
                 "bagel_breadstick_rate": 20.9,
                 "recent_form": [
+                    {
+                        "result": "W",
+                        "opponent": "Valdmannova V.",
+                        "score": "2-0",
+                        "surface": "Grass",
+                        "tournament": "WTA - SINGLES: Wimbledon",
+                        "date": "2026-06-23"
+                    },
                     {
                         "result": "L",
                         "opponent": "Yaneva E.",
@@ -11169,14 +11989,6 @@
                         "surface": "Grass",
                         "tournament": "London",
                         "date": "2026-06-07"
-                    },
-                    {
-                        "result": "L",
-                        "opponent": "Pedone G.",
-                        "score": "0-2",
-                        "surface": "Clay",
-                        "tournament": "Foggia",
-                        "date": "2026-06-02"
                     }
                 ],
                 "name": "Gorgodze E."
@@ -11894,10 +12706,10 @@
             "home_win_probability": 59.29,
             "away_win_probability": 40.71,
             "result_status": "[DOGRU]",
-            "p1_odds": 1.03,
-            "p2_odds": 27.7,
-            "edge_percentage": -37.8,
-            "recommended_kelly_bet_percentage": 0.0,
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
                     "market": "Set Handicap",
@@ -12103,10 +12915,10 @@
             "home_win_probability": 53.28,
             "away_win_probability": 46.72,
             "result_status": "[DOGRU]",
-            "p1_odds": 1.02,
-            "p2_odds": 45.9,
-            "edge_percentage": -44.76,
-            "recommended_kelly_bet_percentage": 0.0,
+            "p1_odds": null,
+            "p2_odds": null,
+            "edge_percentage": null,
+            "recommended_kelly_bet_percentage": null,
             "alternative_bets": [
                 {
                     "market": "Set Handicap",
