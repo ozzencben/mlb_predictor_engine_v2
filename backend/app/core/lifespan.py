@@ -168,6 +168,39 @@ async def _wnba_startup_scrape():
         logger.error(f"❌ Baslangic WNBA kazima hatasi: {e}", exc_info=True)
 
 
+async def _sequential_low_memory_startup():
+    """Render 512MB: pipeline'ları paralel değil sırayla çalıştır (OOM önleme)."""
+    import gc
+    from app.core.runtime_env import is_low_memory_host
+
+    if not is_low_memory_host():
+        return
+
+    logger.info("📉 Render düşük bellek modu: 30s bekleniyor, sonra yalnızca tenis startup...")
+    await asyncio.sleep(30)
+
+    if _tennis_predictions_file_is_stale():
+        await _tennis_startup_scrape()
+        gc.collect()
+
+    logger.info("⏭️  Render: MLB/WNBA startup atlandı (bellek koruması — scheduler halleder).")
+
+
+async def _delayed_scheduler_loop():
+    """Render'da startup bitene kadar zamanlayıcıları geciktir."""
+    from app.core.runtime_env import is_low_memory_host
+    from app.core.scheduler import scheduled_scraping_loop, scheduled_tennis_refresh_loop
+
+    if is_low_memory_host():
+        logger.info("⏳ Render: zamanlayıcılar 8 dakika geciktirildi (startup bellek koruması).")
+        await asyncio.sleep(480)
+
+    await asyncio.gather(
+        scheduled_scraping_loop(),
+        scheduled_tennis_refresh_loop(),
+    )
+
+
 def _wnba_predictions_file_is_stale() -> bool:
     if not os.path.exists(WNBA_PREDICTIONS_FILE):
         return True
@@ -206,30 +239,37 @@ async def lifespan(app: FastAPI):
     logger.info(f"✅ WNBA Veri klasörü hazır: {WNBA_DATA_DIR}")
 
     # 2. Gerekirse başlangıç kazımalarını arka planda başlat
+    from app.core.runtime_env import is_low_memory_host
+
     startup_task = None
-    if _predictions_file_is_stale():
-        startup_task = asyncio.create_task(_startup_scrape())
-    else:
-        logger.info("✅ MLB Tahmin dosyası güncel, başlangıç kazıması atlandı.")
-
     tennis_startup_task = None
-    if _tennis_predictions_file_is_stale():
-        tennis_startup_task = asyncio.create_task(_tennis_startup_scrape())
-    else:
-        logger.info("✅ Tenis tahmin dosyası güncel, başlangıç kazıması atlandı.")
-
     wnba_startup_task = None
-    if _wnba_predictions_file_is_stale():
-        wnba_startup_task = asyncio.create_task(_wnba_startup_scrape())
-    else:
-        logger.info("✅ WNBA tahmin dosyasi guncel, baslangic kazimasi atlandi.")
 
-    # 3. Günlük zamanlayıcıyı başlat (00:00 & 12:00 ET)
-    from app.core.scheduler import scheduled_scraping_loop, scheduled_tennis_refresh_loop
-    scheduler_task = asyncio.create_task(scheduled_scraping_loop())
-    tennis_scheduler_task = asyncio.create_task(scheduled_tennis_refresh_loop())
-    logger.info("🗓️  Günlük zamanlayıcı arka planda başlatıldı (00:00 & 12:00 ET).")
-    logger.info("🎾 Tenis rolling-window zamanlayıcı başlatıldı (her 4 saat ET).")
+    if is_low_memory_host():
+        startup_task = asyncio.create_task(_sequential_low_memory_startup())
+    else:
+        if _predictions_file_is_stale():
+            startup_task = asyncio.create_task(_startup_scrape())
+        else:
+            logger.info("✅ MLB Tahmin dosyası güncel, başlangıç kazıması atlandı.")
+
+        if _tennis_predictions_file_is_stale():
+            tennis_startup_task = asyncio.create_task(_tennis_startup_scrape())
+        else:
+            logger.info("✅ Tenis tahmin dosyası güncel, başlangıç kazıması atlandı.")
+
+        if _wnba_predictions_file_is_stale():
+            wnba_startup_task = asyncio.create_task(_wnba_startup_scrape())
+        else:
+            logger.info("✅ WNBA tahmin dosyasi guncel, baslangic kazimasi atlandi.")
+
+    # 3. Günlük zamanlayıcıyı başlat (Render'da gecikmeli)
+    scheduler_task = asyncio.create_task(_delayed_scheduler_loop())
+    if is_low_memory_host():
+        logger.info("🗓️  Zamanlayıcılar gecikmeli başlatılacak (Render bellek koruması).")
+    else:
+        logger.info("🗓️  Günlük zamanlayıcı arka planda başlatıldı (00:00 & 12:00 ET).")
+        logger.info("🎾 Tenis rolling-window zamanlayıcı başlatıldı (her 4 saat ET).")
     logger.info("------------------------------------------")
 
     yield  # ─── UYGULAMA ÇALIŞIYOR ──────────────────────────────────────────
@@ -240,12 +280,6 @@ async def lifespan(app: FastAPI):
     scheduler_task.cancel()
     try:
         await scheduler_task
-    except asyncio.CancelledError:
-        pass
-
-    tennis_scheduler_task.cancel()
-    try:
-        await tennis_scheduler_task
     except asyncio.CancelledError:
         pass
 

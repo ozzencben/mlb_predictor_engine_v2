@@ -63,13 +63,12 @@ class TennisPipelineRunner:
                 logger.error(f"❌ Error archiving tennis results: {e}")
 
     def _maybe_fetch_player_histories(self):
-        from app.core.runtime_env import is_low_memory_host
+        from app.core.runtime_env import skip_playwright_on_this_host
         from app.sports.tennis.services import fetch_matches
 
-        if is_low_memory_host():
-            logger.warning(
-                "⚠️ Düşük bellek modu (Render): oyuncu geçmişi batch halinde çekiliyor."
-            )
+        if skip_playwright_on_this_host():
+            logger.info("⚡ Playwright kapalı — gömülü oyuncu verisi kullanılıyor.")
+            return
         try:
             fetch_matches.fetch_todays_players()
         except Exception as e:

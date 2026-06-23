@@ -1,0 +1,24 @@
+# Render Blueprint — https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: mlb-predictor-engine-v2
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    dockerCommand: null
+    plan: free
+    buildFilter:
+      paths:
+        - backend/**
+    buildCommand: ""
+    envVars:
+      - key: RENDER
+        value: "true"
+      - key: TENNIS_SKIP_PLAYWRIGHT
+        value: "true"
+      - key: APP_ENV
+        value: production
+    # Chromium image'a kurulmaz (512MB OOM önleme)
+    dockerBuildArgs:
+      - key: INSTALL_PLAYWRIGHT
+        value: "0"

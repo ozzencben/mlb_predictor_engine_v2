@@ -220,9 +220,13 @@ FULL_EXTRACTOR_JS = r"""
 # --- 5. ANA MAÇ ÇEKME FONKSİYONU (PLAYWRIGHT DOM) ---
 def get_player_matches(player_id, player_url, target=50):
     """
-    Playwright (headless Chromium) kullanarak oyuncunun sonuç sayfasını açar,
-    'Show more' butonuna basarak en az target adet maçı yükler ve DOM'dan parse edip saklar.
+    Playwright (headless Chromium) kullanarak oyuncunun sonuç sayfasını açar.
+    Render 512MB: Playwright kapalı — image'a gömülü JSON kullanılır.
     """
+    from app.core.runtime_env import skip_playwright_on_this_host
+
+    if skip_playwright_on_this_host():
+        return []
     clean_url = player_url.strip("/").replace("oyuncu", "player")
     full_url = f"https://www.flashscore.com/{clean_url}/results/"
 
@@ -389,12 +393,13 @@ def fetch_all_matches():
 def fetch_todays_players(max_players: int | None = None):
     """
     today_matches.json'daki oyuncuların maç verilerini çeker.
-    max_players: düşük bellekli hostlarda (Render 512MB) döngü başına limit.
+    Render 512MB: tamamen atlanır (Playwright OOM yapar).
     """
-    from app.core.runtime_env import is_low_memory_host, tennis_playwright_batch_size
+    from app.core.runtime_env import skip_playwright_on_this_host
 
-    if is_low_memory_host() and max_players is None:
-        max_players = tennis_playwright_batch_size()
+    if skip_playwright_on_this_host():
+        print("⚡ Render/düşük bellek: Playwright kapalı — gömülü oyuncu JSON kullanılıyor.")
+        return
     import sys
 
     fixtures_path = ranks_dir / "today_matches.json"
@@ -460,13 +465,6 @@ def fetch_todays_players(max_players: int | None = None):
     if not players_to_fetch:
         print("⚡ Bugünkü tüm oyuncuların maç verisi zaten mevcut — işlem gerekmiyor.")
         return
-
-    if max_players is not None and len(players_to_fetch) > max_players:
-        print(
-            f"⚠️ Düşük bellek modu: {len(players_to_fetch)} eksik oyuncudan "
-            f"bu turda yalnızca {max_players} çekilecek."
-        )
-        players_to_fetch = players_to_fetch[:max_players]
 
     print(f"📥 Bugünkü fikstür: {len(players_to_fetch)} oyuncu için maç verisi çekiliyor...")
     print(f"   Tahmini süre: ~{len(players_to_fetch) * 12 // 60} dakika\n")

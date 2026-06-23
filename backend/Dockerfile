@@ -39,8 +39,9 @@ ENV PATH="/app/.venv/bin:$PATH" \
     HOME="/app" \
     PLAYWRIGHT_BROWSERS_PATH="/app/.playwright"
 
-# Tenis oyuncu geçmişi: Chromium yalnızca bağımlılık değişince yeniden kurulur
-RUN playwright install --with-deps chromium
+# Render 512MB: Chromium kurma (OOM). Local: docker compose build --build-arg INSTALL_PLAYWRIGHT=1
+ARG INSTALL_PLAYWRIGHT=0
+RUN if [ "$INSTALL_PLAYWRIGHT" = "1" ]; then playwright install --with-deps chromium; fi
 
 # Uygulama kodunu kopyala (data volume ile mount edilir — image'a gömülmez)
 COPY app/ ./app/

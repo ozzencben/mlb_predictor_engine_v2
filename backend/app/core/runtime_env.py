@@ -5,8 +5,8 @@ import os
 def is_low_memory_host() -> bool:
     """
     Render free/starter instances have 512MB RAM.
-    Playwright Chromium + API + MLB pipeline exceeds this and causes OOM kills.
-  """
+    Playwright Chromium + parallel pipelines exceed this and cause OOM kills.
+    """
     if os.getenv("TENNIS_SKIP_PLAYWRIGHT", "").lower() in ("1", "true", "yes"):
         return True
     # Render automatically sets RENDER=true on web services
@@ -15,12 +15,6 @@ def is_low_memory_host() -> bool:
     return False
 
 
-def tennis_playwright_batch_size() -> int | None:
-    """Max players to scrape per cycle on low-memory hosts. None = no limit."""
-    if not is_low_memory_host():
-        return None
-    raw = os.getenv("TENNIS_PLAYWRIGHT_BATCH", "12")
-    try:
-        return max(int(raw), 1)
-    except ValueError:
-        return 12
+def skip_playwright_on_this_host() -> bool:
+    """Never launch Chromium on 512MB hosts — use bundled player JSON instead."""
+    return is_low_memory_host()
