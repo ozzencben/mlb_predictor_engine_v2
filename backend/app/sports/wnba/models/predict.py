@@ -281,30 +281,31 @@ def _moneyline_bet(
     ml_home = odds.get("moneyline_home")
     ml_away = odds.get("moneyline_away")
 
-    if ml_home is not None:
-        market_prob_home = american_to_prob(int(ml_home))
-        edge = _edge_pct(home_win_prob, market_prob_home)
-        if abs(edge) >= 4.0:
-            picks.append((home_name, edge, ml_home, home_win_prob))
-
-    if ml_away is not None:
-        market_prob_away = american_to_prob(int(ml_away))
-        edge = _edge_pct(away_win_prob, market_prob_away)
-        if abs(edge) >= 4.0:
-            picks.append((away_name, edge, ml_away, away_win_prob))
+    # Only consider moneyline bet for the team the model projects to win
+    if home_win_prob >= 0.50:
+        if ml_home is not None:
+            market_prob_home = american_to_prob(int(ml_home))
+            edge = _edge_pct(home_win_prob, market_prob_home)
+            if edge >= 4.0:
+                picks.append((home_name, edge, ml_home, home_win_prob))
+    else:
+        if ml_away is not None:
+            market_prob_away = american_to_prob(int(ml_away))
+            edge = _edge_pct(away_win_prob, market_prob_away)
+            if edge >= 4.0:
+                picks.append((away_name, edge, ml_away, away_win_prob))
 
     for item in picks:
         name, edge, ml, model_prob = item
-        if edge > 0:
-            bets.append({
-                "market": "Moneyline",
-                "pick": name,
-                "model_win_prob": f"{model_prob:.1%}",
-                "edge": round(edge, 2),
-                "confidence": _confidence(abs(edge)),
-                "odds": ml,
-                "odds_format": "american",
-            })
+        bets.append({
+            "market": "Moneyline",
+            "pick": name,
+            "model_win_prob": f"{model_prob:.1%}",
+            "edge": round(edge, 2),
+            "confidence": _confidence(abs(edge)),
+            "odds": ml,
+            "odds_format": "american",
+        })
 
     return bets
 

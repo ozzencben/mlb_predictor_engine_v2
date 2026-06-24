@@ -411,6 +411,7 @@ function WnbaMatchCard({ predict, injuriesByTeam = {}, isResultCard = false, res
 
     return (
         <div
+            id={`wnba-card-${predict.game_id}`}
             className={`relative rounded-3xl p-5 flex flex-col gap-4 transition-all duration-300 shadow-lg group overflow-hidden
                 ${hasHighConf
                     ? 'bg-slate-900/35 border border-indigo-500/30 hover:border-indigo-400/50 shadow-[0_0_20px_rgba(99,102,241,0.07)]'
@@ -602,27 +603,31 @@ function WnbaMatchCard({ predict, injuriesByTeam = {}, isResultCard = false, res
             )}
 
             {/* Röntgen accordion */}
-            <div className="border-t border-slate-900/70 pt-3 relative z-10">
+            <div className="border-t border-slate-900/70 pt-3 relative z-10 flex flex-col items-center">
                 <button
                     onClick={() => setExpanded(!expanded)}
-                    className="w-full flex items-center justify-between cursor-pointer focus:outline-none group/acc"
+                    className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl border transition-all duration-300 font-black uppercase tracking-wider text-[10px] cursor-pointer focus:outline-none
+                        ${expanded 
+                            ? 'bg-indigo-950/40 border-indigo-500/40 text-indigo-300 shadow-[0_0_12px_rgba(99,102,241,0.1)]' 
+                            : 'bg-slate-950/60 border-slate-900 text-slate-400 hover:bg-slate-900/50 hover:border-slate-800 hover:text-slate-200'
+                        }`}
                 >
-                    <span className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest text-slate-400 group-hover/acc:text-indigo-300 transition-colors flex-wrap">
+                    <span className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest flex-wrap">
                         <span className={hasHighConf ? 'text-indigo-400' : ''}>⚡</span>
                         Röntgen &amp; AI Edge
                         {predict.alt_bets?.length > 0 && (
-                            <span className={`px-1.5 py-0.5 rounded text-[8px] font-black border ${hasHighConf ? 'bg-indigo-950/60 text-indigo-400 border-indigo-500/30' : 'bg-slate-900 text-slate-500 border-slate-800'}`}>
-                                {predict.alt_bets.length} Markets
+                            <span className={`px-1.5 py-0.5 rounded text-[8px] font-black border ${expanded ? 'bg-indigo-900/50 border-indigo-500/30 text-indigo-300' : 'bg-slate-900 text-slate-500 border-slate-800'}`}>
+                                {predict.alt_bets.length} Plays
                             </span>
                         )}
                         {predict.ai_insight && (
                             <span className="text-[8px] font-black text-cyan-400 bg-cyan-950/50 border border-cyan-500/20 px-1.5 py-0.5 rounded uppercase">
-                                💡 Insight
+                                Insight
                             </span>
                         )}
                     </span>
-                    <span className="text-[9px] text-slate-500 group-hover/acc:text-slate-300 transition-colors font-bold">
-                        {expanded ? '▲' : '▼'}
+                    <span className="flex items-center gap-1 font-extrabold text-[9px]">
+                        {expanded ? 'Hide Details ▲' : 'Show Details ▼'}
                     </span>
                 </button>
 
@@ -807,6 +812,23 @@ function WnbaMatchCard({ predict, injuriesByTeam = {}, isResultCard = false, res
                                     )
                                 )}
                             </div>
+                        </div>
+
+                        {/* Collapse Details Button */}
+                        <div className="pt-2 flex justify-center w-full">
+                            <button
+                                onClick={() => {
+                                    setExpanded(false);
+                                    const cardEl = document.getElementById(`wnba-card-${predict.game_id}`);
+                                    if (cardEl) {
+                                        cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                    }
+                                }}
+                                className="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl bg-slate-950/80 border border-slate-900 hover:border-slate-850 hover:bg-slate-900/50 text-[10px] font-black uppercase tracking-wider text-slate-400 hover:text-white transition-all cursor-pointer shadow-sm"
+                            >
+                                <span>Collapse Details</span>
+                                <span>▲</span>
+                            </button>
                         </div>
                     </div>
                 )}

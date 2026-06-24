@@ -1,6 +1,6 @@
 {
   "date": "2026-06-24",
-  "generated_at": "2026-06-24T14:00:29.564733+00:00",
+  "generated_at": "2026-06-24T14:46:22.118553+00:00",
   "match_count": 4,
   "beta_version": "1.0.0-beta",
   "model_meta": {
@@ -55,15 +55,6 @@
       },
       "alt_bets": [
         {
-          "market": "Moneyline",
-          "pick": "Phoenix Mercury",
-          "model_win_prob": "36.6%",
-          "edge": 9.59,
-          "confidence": "High",
-          "odds": 270,
-          "odds_format": "american"
-        },
-        {
           "market": "Total",
           "pick": "Under 176.5",
           "model_prediction": "Predicted total: 172.0",
@@ -82,7 +73,7 @@
           "odds_format": "american"
         }
       ],
-      "bet_count": 3,
+      "bet_count": 2,
       "home_l5": {
         "n": 5,
         "ppg": 96.2,
@@ -479,15 +470,6 @@
       },
       "alt_bets": [
         {
-          "market": "Moneyline",
-          "pick": "Washington Mystics",
-          "model_win_prob": "35.8%",
-          "edge": 11.99,
-          "confidence": "High",
-          "odds": 320,
-          "odds_format": "american"
-        },
-        {
           "market": "Spread",
           "pick": "Washington Mystics (+9.5)",
           "model_prediction": "Predicted spread: -6.4",
@@ -497,7 +479,7 @@
           "odds_format": "american"
         }
       ],
-      "bet_count": 2,
+      "bet_count": 1,
       "home_l5": {
         "n": 5,
         "ppg": 81.6,
