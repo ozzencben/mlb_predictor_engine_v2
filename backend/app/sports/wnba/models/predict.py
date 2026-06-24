@@ -333,15 +333,15 @@ async def generate_wnba_ai_insights_async(output: dict[str, Any]) -> None:
             pred["ai_insight"] = f"AI insight generation failed: {e}"
 
 
-def _load_cached_ai_insights() -> dict[str, str]:
+def _load_cached_predictions() -> dict[str, dict[str, Any]]:
     if not OUTPUT_FILE.exists():
         return {}
     try:
         data = json.loads(OUTPUT_FILE.read_text(encoding="utf-8"))
         return {
-            p["game_id"]: p["ai_insight"]
+            p["game_id"]: p
             for p in data.get("predictions", [])
-            if p.get("game_id") and p.get("ai_insight")
+            if p.get("game_id")
         }
     except Exception:
         return {}
@@ -351,7 +351,7 @@ def _load_cached_ai_insights() -> dict[str, str]:
 # Ana tahmin fonksiyonu
 # -----------------------------------------------------------------------
 
-def generate_predictions(save: bool = True, skip_ai: bool = False) -> list[dict[str, Any]]:
+def generate_predictions(save: bool = True, skip_ai: bool = False, force_ai: bool = False) -> list[dict[str, Any]]:
     """
     today_predictions_raw.json'daki her mac icin:
       - Win olasiligi (kalibrasyon + Platt)
@@ -376,7 +376,7 @@ def generate_predictions(save: bool = True, skip_ai: bool = False) -> list[dict[
     win_model, spread_model, total_model, calib = _load_models()
     print(f"[INFO] {len(matches)} mac icin tahmin uretiliyor...")
 
-    cached_ai = _load_cached_ai_insights()
+    cached_preds = {} if force_ai else _load_cached_predictions()
     predictions: list[dict[str, Any]] = []
 
     for match in matches:
@@ -487,8 +487,18 @@ def generate_predictions(save: bool = True, skip_ai: bool = False) -> list[dict[
             "rest_home": match.get("rest_home"),
             "rest_away": match.get("rest_away"),
             "features": feats,
-            "ai_insight": cached_ai.get(match["game_id"]),
+            "ai_insight": None,
         })
+
+        # Get cached AI insight if predicted winner matches, otherwise discard cache to force regeneration
+        cached_match = cached_preds.get(match["game_id"])
+        current_winner = home_name if home_win_prob >= 0.50 else away_name
+        if cached_match and cached_match.get("ai_insight"):
+            cached_winner = cached_match.get("predicted_winner")
+            if cached_winner == current_winner:
+                predictions[-1]["ai_insight"] = cached_match.get("ai_insight")
+            else:
+                print(f"  [AI] Model winner changed ({cached_winner} -> {current_winner}). Discarding cached insight for {match['name']}.")
 
         print(
             f"  [{match['away_team_abbr']:3s} @ {match['home_team_abbr']:3s}] "
@@ -547,8 +557,9 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="WNBA gunluk tahmin")
     parser.add_argument("--no-save", action="store_true")
     parser.add_argument("--skip-ai", action="store_true")
+    parser.add_argument("--force-ai", action="store_true", help="Force regeneration of AI insights")
     args = parser.parse_args(argv)
-    generate_predictions(save=not args.no_save, skip_ai=args.skip_ai)
+    generate_predictions(save=not args.no_save, skip_ai=args.skip_ai, force_ai=args.force_ai)
     return 0
 
 

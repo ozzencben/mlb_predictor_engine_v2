@@ -1,6 +1,6 @@
 {
   "date": "2026-06-24",
-  "generated_at": "2026-06-24T13:26:29.201935+00:00",
+  "generated_at": "2026-06-24T14:00:29.564733+00:00",
   "match_count": 4,
   "beta_version": "1.0.0-beta",
   "model_meta": {
@@ -44,8 +44,8 @@
         "away_team": "Phoenix Mercury",
         "home_abbr": "IND",
         "away_abbr": "PHX",
-        "moneyline_home": -320,
-        "moneyline_away": 245,
+        "moneyline_home": -355,
+        "moneyline_away": 270,
         "spread_home": -104,
         "spread_away": -118,
         "spread_line": -8.5,
@@ -58,9 +58,9 @@
           "market": "Moneyline",
           "pick": "Phoenix Mercury",
           "model_win_prob": "36.6%",
-          "edge": 7.63,
-          "confidence": "Medium",
-          "odds": 245,
+          "edge": 9.59,
+          "confidence": "High",
+          "odds": 270,
           "odds_format": "american"
         },
         {
@@ -434,7 +434,7 @@
         "feature_star_out_count_diff": 0.0,
         "feature_star_minutes_avail_diff": 0.0333
       },
-      "ai_insight": "- Indiana holds a clear edge in team strength, boasting a significantly higher ELO (1592.3 vs 1459.6) and a starkly superior L5 Net Rating (4.842 vs -6.628). Playing at home further enhances the Fever's advantage over the struggling Mercury.\n- Both teams benefit from 1 rest day, negating any fatigue disparity. The reported star absence impact is negligible (0.0), indicating no significant injury-related shifts. Indiana's positive L5 Net Rating highlights strong recent form, while Phoenix's negative rating suggests continued struggles.\n- The model shows a substantial 10.65% edge on the Phoenix Mercury Moneyline. While Indiana is favored, the market's implied probability for Phoenix (26%) at +285 is considerably lower than our model's assessment (36.6%), signaling strong value on the underdog. Recommend: Phoenix Mercury Moneyline."
+      "ai_insight": "- The Indiana Fever have a significant edge in terms of team strength, with a higher ELO rating (1592.3) compared to the Phoenix Mercury (1459.6), and a superior L5 net rating (4.842) compared to the Mercury's -6.628, which indicates a strong home court advantage.\n- Situational factors such as rest days are equal for both teams, with each having 1 day of rest, and there are no star absences that could impact the game, so the teams are on a level playing field in terms of preparation and availability.\n- The best betting angle in this matchup is to take the Phoenix Mercury on the Spread (+8.5) or consider the favorite's Moneyline, as the model projects the Indiana Fever to win but the edge on the Mercury's Moneyline is substantial, however since the model projects the Fever to win, the recommended play is the Spread or the favorite's Moneyline, Indiana Fever -355."
     },
     {
       "game_id": "401857018",
@@ -468,23 +468,23 @@
         "away_team": "Minnesota Lynx",
         "home_abbr": "WSH",
         "away_abbr": "MIN",
-        "moneyline_home": 310,
-        "moneyline_away": -420,
-        "spread_home": -118,
-        "spread_away": -104,
+        "moneyline_home": 320,
+        "moneyline_away": -430,
+        "spread_home": -120,
+        "spread_away": -102,
         "spread_line": 9.5,
-        "total_line": 169.5,
-        "total_over": -104,
-        "total_under": -118
+        "total_line": 168.5,
+        "total_over": -118,
+        "total_under": -104
       },
       "alt_bets": [
         {
           "market": "Moneyline",
           "pick": "Washington Mystics",
           "model_win_prob": "35.8%",
-          "edge": 11.41,
+          "edge": 11.99,
           "confidence": "High",
-          "odds": 310,
+          "odds": 320,
           "odds_format": "american"
         },
         {
@@ -493,7 +493,7 @@
           "model_prediction": "Predicted spread: -6.4",
           "edge": 3.09,
           "confidence": "Low",
-          "odds": -118,
+          "odds": -120,
           "odds_format": "american"
         }
       ],
@@ -849,7 +849,7 @@
         "feature_star_out_count_diff": 0.0,
         "feature_star_minutes_avail_diff": -0.1833
       },
-      "ai_insight": "- The Minnesota Lynx hold a substantial edge in team strength, evidenced by their superior ELO rating (1721.4 vs 1447.6) and dominant L5 Net Rating (8.954 vs -1.128). Despite the Mystics having home-court advantage, it's insufficient to overcome the Lynx's clear long-term quality and recent strong form.\n- Both teams benefit from 3 days of rest, ensuring no fatigue angle for either side. The \"star absence impact\" is neutral (0.0), indicating no significant injury concerns or key player absences affecting the game's dynamics for either squad. Recent form favors the Lynx, aligning with their positive L5 Net Rating.\n- The recommended play is the **Moneyline on Washington Mystics**. Our model identifies a substantial 9.49% edge for the Mystics' ML, suggesting their current market price of +280 is significantly undervalued compared to their true win probability of 35.8%. This presents a strong value bet."
+      "ai_insight": "- The Minnesota Lynx hold a significant advantage across advanced metrics, boasting a 1721.4 ELO rating compared to the Washington Mystics' 1447.6, and a robust +8.954 L5 Net Rating against the Mystics' -1.128. Despite playing at home, Washington's performance suggests Minnesota is the clearly superior team.\n- Both teams are well-rested, having 3 days off, and there's no indicated significant impact from star player absences (0.0 home-away PPG difference). The Lynx's strong recent form, highlighted by their superior L5 Net Rating, indicates they are playing at a high level with no apparent fatigue or injury concerns hindering their performance.\n- The model projects the Lynx to win by 6.4 points, while the market offers the Mystics at +9.5. This presents a 3.09% edge on Washington Mystics +9.5. The best play is to back **Washington Mystics +9.5**, leveraging the value found on the spread rather than the underdog Moneyline due to the Lynx's strong win probability."
     },
     {
       "game_id": "401857019",
@@ -883,8 +883,8 @@
         "away_team": "Portland Fire",
         "home_abbr": "CHI",
         "away_abbr": "POR",
-        "moneyline_home": -152,
-        "moneyline_away": 124,
+        "moneyline_home": -158,
+        "moneyline_away": 130,
         "spread_home": -105,
         "spread_away": -115,
         "spread_line": -3.5,
@@ -897,9 +897,9 @@
           "market": "Moneyline",
           "pick": "Portland Fire",
           "model_win_prob": "54.5%",
-          "edge": 9.9,
+          "edge": 11.06,
           "confidence": "High",
-          "odds": 124,
+          "odds": 130,
           "odds_format": "american"
         },
         {
@@ -1201,7 +1201,7 @@
         "feature_star_out_count_diff": 0.0,
         "feature_star_minutes_avail_diff": -0.175
       },
-      "ai_insight": "AI analysis is temporarily unavailable: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+      "ai_insight": "- Portland Fire holds a significant ELO advantage (1441.8 vs 1295.0), suggesting superior overall team strength. Chicago Sky, while having home-court advantage, shows a slightly better L5 net rating (-10.108 vs -14.266), indicating marginally stronger recent form despite both teams struggling.\n- Portland Fire has a substantial rest advantage (6 days vs Chicago Sky's 2 days), which could be a critical factor in reducing fatigue and boosting performance. Both teams have negative L5 net ratings, signaling recent struggles, but no significant star absences are noted.\n- The model projects Portland Fire to win (54.5%) while the market positions them as an underdog (+130), creating an 11.06% edge. Recommend: Portland Fire ML."
     },
     {
       "game_id": "401857020",
@@ -1235,8 +1235,8 @@
         "away_team": "Atlanta Dream",
         "home_abbr": "GS",
         "away_abbr": "ATL",
-        "moneyline_home": 118,
-        "moneyline_away": -144,
+        "moneyline_home": 122,
+        "moneyline_away": -150,
         "spread_home": -105,
         "spread_away": -115,
         "spread_line": 2.5,
@@ -1548,7 +1548,7 @@
         "feature_star_out_count_diff": 0.0,
         "feature_star_minutes_avail_diff": -0.325
       },
-      "ai_insight": "AI analysis is temporarily unavailable: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+      "ai_insight": "- The Atlanta Dream possess a notable strength advantage, reflected in their higher ELO (1668.4 vs 1590.6) and a significantly superior L5 Net Rating (9.07 vs 0.57) compared to the Golden State Valkyries. The Valkyries will benefit from playing on their home court.\n- The Golden State Valkyries have a slight rest advantage, coming off 3 days of rest compared to the Dream's 2. Despite this, the Dream exhibit stronger recent form based on their L5 Net Rating, indicating better momentum entering this matchup. Specific star player absence details are not provided, preventing a full assessment of its impact.\n- While the model indicates no strong betting edge for this matchup, it projects the Atlanta Dream to win by 3.3 points. Assuming a market spread of Atlanta Dream -3.5, there is a slight lean towards the Golden State Valkyries +3.5, as they would be getting slightly more points than the model's projected margin of defeat. However, due to the absence of a strong model edge, caution is advised."
     }
   ]
 }

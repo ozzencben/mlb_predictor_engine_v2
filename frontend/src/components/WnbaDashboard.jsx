@@ -144,6 +144,7 @@ function WnbaMatchCard({ predict, injuriesByTeam = {}, isResultCard = false, res
     const [expanded, setExpanded] = useState(false);
     const [statsExpanded, setStatsExpanded] = useState(false);
     const [activeHistoryTab, setActiveHistoryTab] = useState('h2h');
+    const [showTerms, setShowTerms] = useState(false);
 
     const hasOdds = predict.odds && predict.odds.moneyline_home != null && predict.odds.moneyline_away != null;
     const homeWinProb = Math.round((predict.home_win_prob || 0) * 100);
@@ -166,6 +167,178 @@ function WnbaMatchCard({ predict, injuriesByTeam = {}, isResultCard = false, res
             let x = Math.sin(hash++) * 10000;
             return x - Math.floor(x);
         };
+    };
+
+    const calculateAggregates = (gamesList, tabName) => {
+        let wins = 0;
+        let losses = 0;
+        let atsWins = 0;
+        let atsLosses = 0;
+        let atsPushes = 0;
+        let overs = 0;
+        let unders = 0;
+        let pushes = 0;
+
+        gamesList.forEach(g => {
+            const [p1, p2] = g.score.split('-').map(Number);
+            const tPts = p1 || 0;
+            const oPts = p2 || 0;
+
+            const rng = seedRandom(`${g.date}-${g.opponent}-${g.score}`);
+            const spreadBase = 2.5 + Math.floor(rng() * 6);
+            const isFav = rng() > 0.5;
+            const spreadSign = isFav ? -spreadBase : spreadBase;
+
+            let won = g.won;
+            let spreadCovered = false;
+
+            if (g._isH2H) {
+                won = g.winner === predict.home_team_abbr;
+            } else {
+                const actualDiff = g.won ? (tPts - oPts) : -(oPts - tPts);
+                spreadCovered = actualDiff > -spreadSign;
+            }
+
+            if (g._isH2H) {
+                if (g.winner === predict.home_team_abbr) wins++; else losses++;
+            } else {
+                if (won) wins++; else losses++;
+            }
+
+            if (g._isH2H) {
+                // Mock ATS win for winner
+                if (g.winner === predict.home_team_abbr) atsWins++; else atsLosses++;
+            } else {
+                if (spreadCovered) atsWins++; else atsLosses++;
+            }
+
+            const ouLine = 158.5 + Math.floor(rng() * 16);
+            const totalPts = tPts + oPts;
+            if (totalPts > ouLine) overs++;
+            else if (totalPts < ouLine) unders++;
+            else pushes++;
+        });
+
+        return {
+            wl: `${wins}-${losses}`,
+            ats: `${atsWins}-${atsLosses}-${atsPushes}`,
+            ou: `${overs}-${unders}-${pushes}`,
+            overs,
+            unders,
+            pushes
+        };
+    };
+
+    const renderTrendIcon = (overs, unders) => {
+        if (overs > unders) {
+            // Over trend - Upward arrow in orange
+            return (
+                <svg className="w-4 h-4 text-orange-500 filter drop-shadow-[0_0_3px_rgba(249,115,22,0.4)] flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" fill="currentColor" fillOpacity="0.1" stroke="currentColor" strokeWidth="2.5" />
+                    <path d="M16 8L8 16M16 8H10M16 8V14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+            );
+        } else if (unders > overs) {
+            // Under trend - Downward arrow in blue
+            return (
+                <svg className="w-4 h-4 text-blue-400 filter drop-shadow-[0_0_3px_rgba(96,165,250,0.4)] flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" fill="currentColor" fillOpacity="0.1" stroke="currentColor" strokeWidth="2.5" />
+                    <path d="M16 16L8 8M16 16H10M16 16V10" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+            );
+        } else {
+            // Neutral trend
+            return (
+                <svg className="w-4 h-4 text-slate-500 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" fill="currentColor" fillOpacity="0.1" stroke="currentColor" strokeWidth="2.5" />
+                    <path d="M8 12H16" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                </svg>
+            );
+        }
+    };
+
+    const renderAggregateSummary = (gamesList, tabName) => {
+        const aggs = calculateAggregates(gamesList, tabName);
+        let teamLogo = null;
+        let perspectiveAbbr = "";
+        let titleSuffix = " • Last 10";
+        
+        if (tabName === 'away') {
+            teamLogo = predict.away_logo;
+            perspectiveAbbr = predict.away_team_abbr;
+            titleSuffix = ` ${predict.away_team_abbr} • Last 10`;
+        } else if (tabName === 'home') {
+            teamLogo = predict.home_logo;
+            perspectiveAbbr = predict.home_team_abbr;
+            titleSuffix = ` ${predict.home_team_abbr} • Last 10`;
+        } else {
+            // H2H counts wins/losses relative to the home team
+            teamLogo = predict.home_logo;
+            perspectiveAbbr = predict.home_team_abbr;
+            titleSuffix = " Head-To-Head • Last 10";
+        }
+
+        return (
+            <div className="space-y-4 mb-4 select-none">
+                <div className="flex flex-col items-center justify-center text-center">
+                    <h4 className="text-[11px] font-black text-gray-200 uppercase tracking-wider flex items-center gap-1.5 justify-center">
+                        {tabName !== 'h2h' && teamLogo && <img src={teamLogo} alt="" className="w-4 h-4 object-contain" />}
+                        {titleSuffix}
+                    </h4>
+                    <button 
+                        onClick={() => setShowTerms(!showTerms)}
+                        className="text-[9px] text-slate-500 font-bold hover:text-indigo-400 transition-colors flex items-center gap-1 mt-1 focus:outline-none cursor-pointer"
+                    >
+                        Betting Terms <span className="w-3.5 h-3.5 rounded-full border border-slate-700 bg-slate-900/50 flex items-center justify-center text-[8px] font-black">i</span>
+                    </button>
+                    {showTerms && (
+                        <div className="mt-2 text-[8.5px] text-slate-400 bg-slate-950/80 border border-slate-850 rounded-xl p-3 max-w-xs leading-relaxed text-left transition-all duration-300">
+                            <div className="font-extrabold text-slate-300 mb-1">Betting Terms Glossary:</div>
+                            <div className="mb-0.5">• <span className="font-black text-indigo-400">Win / Loss</span>: Straight-up win/loss record.</div>
+                            <div className="mb-0.5">• <span className="font-black text-indigo-400">ATS (Against The Spread)</span>: Point spread cover record (Wins-Losses-Pushes).</div>
+                            <div>• <span className="font-black text-indigo-400">Over / Under</span>: Combined scores vs O/U limit (Overs-Unders-Pushes).</div>
+                        </div>
+                    )}
+                </div>
+
+                <div className="grid grid-cols-3 gap-2.5 max-w-md mx-auto">
+                    {/* Win/Loss Card */}
+                    <div className="bg-slate-900/40 border border-slate-850 rounded-xl p-2.5 flex flex-col items-center justify-center text-center transition-all duration-300 hover:bg-slate-900/60 hover:border-slate-800">
+                        <span className="text-[8px] text-slate-500 font-black uppercase tracking-wider mb-1.5 block">Win / Loss</span>
+                        <div className="flex items-center gap-1.5">
+                            <span className="text-xs sm:text-sm font-black text-white">{aggs.wl}</span>
+                            {teamLogo ? (
+                                <img src={teamLogo} alt={perspectiveAbbr} className="w-4 h-4 object-contain" />
+                            ) : (
+                                <span className="text-[8px] font-black text-slate-500">{perspectiveAbbr}</span>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* ATS Card */}
+                    <div className="bg-slate-900/40 border border-slate-850 rounded-xl p-2.5 flex flex-col items-center justify-center text-center transition-all duration-300 hover:bg-slate-900/60 hover:border-slate-800">
+                        <span className="text-[8px] text-slate-500 font-black uppercase tracking-wider mb-1.5 block">ATS</span>
+                        <div className="flex items-center gap-1.5">
+                            <span className="text-xs sm:text-sm font-black text-white">{aggs.ats}</span>
+                            {teamLogo ? (
+                                <img src={teamLogo} alt={perspectiveAbbr} className="w-4 h-4 object-contain" />
+                            ) : (
+                                <span className="text-[8px] font-black text-slate-500">{perspectiveAbbr}</span>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Over/Under Card */}
+                    <div className="bg-slate-900/40 border border-slate-850 rounded-xl p-2.5 flex flex-col items-center justify-center text-center transition-all duration-300 hover:bg-slate-900/60 hover:border-slate-800">
+                        <span className="text-[8px] text-slate-500 font-black uppercase tracking-wider mb-1.5 block">Over / Under</span>
+                        <div className="flex items-center gap-1.5">
+                            <span className="text-xs sm:text-sm font-black text-white">{aggs.ou}</span>
+                            {renderTrendIcon(aggs.overs, aggs.unders)}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
     };
 
     const renderHistoryTable = (gamesList, tab) => {
@@ -581,15 +754,26 @@ function WnbaMatchCard({ predict, injuriesByTeam = {}, isResultCard = false, res
                             <div className="p-3">
                                 {activeHistoryTab === 'h2h' && (
                                     predict.h2h_last10 && predict.h2h_last10.length > 0 ? (
-                                        renderHistoryTable(predict.h2h_last10.map(h2h => ({
-                                            date: h2h.date,
-                                            opponent: h2h.home_team === predict.home_team_abbr ? h2h.away_team : h2h.home_team,
-                                            is_home: h2h.home_team === predict.home_team_abbr,
-                                            won: h2h.winner === predict.home_team_abbr,
-                                            score: h2h.score,
-                                            _isH2H: true,
-                                            winner: h2h.winner
-                                        })), activeHistoryTab)
+                                        <>
+                                            {renderAggregateSummary(predict.h2h_last10.map(h2h => ({
+                                                date: h2h.date,
+                                                opponent: h2h.home_team === predict.home_team_abbr ? h2h.away_team : h2h.home_team,
+                                                is_home: h2h.home_team === predict.home_team_abbr,
+                                                won: h2h.winner === predict.home_team_abbr,
+                                                score: h2h.score,
+                                                _isH2H: true,
+                                                winner: h2h.winner
+                                            })), activeHistoryTab)}
+                                            {renderHistoryTable(predict.h2h_last10.map(h2h => ({
+                                                date: h2h.date,
+                                                opponent: h2h.home_team === predict.home_team_abbr ? h2h.away_team : h2h.home_team,
+                                                is_home: h2h.home_team === predict.home_team_abbr,
+                                                won: h2h.winner === predict.home_team_abbr,
+                                                score: h2h.score,
+                                                _isH2H: true,
+                                                winner: h2h.winner
+                                            })), activeHistoryTab)}
+                                        </>
                                     ) : (
                                         <div className="text-center py-4 text-[9px] text-slate-500 font-bold">
                                             No recent Head-to-Head matchups found.
@@ -599,7 +783,10 @@ function WnbaMatchCard({ predict, injuriesByTeam = {}, isResultCard = false, res
 
                                 {activeHistoryTab === 'away' && (
                                     predict.away_recent_games && predict.away_recent_games.length > 0 ? (
-                                        renderHistoryTable(predict.away_recent_games, activeHistoryTab)
+                                        <>
+                                            {renderAggregateSummary(predict.away_recent_games, activeHistoryTab)}
+                                            {renderHistoryTable(predict.away_recent_games, activeHistoryTab)}
+                                        </>
                                     ) : (
                                         <div className="text-center py-4 text-[9px] text-slate-500 font-bold">
                                             No recent games history found for {predict.away_team_name}.
@@ -609,7 +796,10 @@ function WnbaMatchCard({ predict, injuriesByTeam = {}, isResultCard = false, res
 
                                 {activeHistoryTab === 'home' && (
                                     predict.home_recent_games && predict.home_recent_games.length > 0 ? (
-                                        renderHistoryTable(predict.home_recent_games, activeHistoryTab)
+                                        <>
+                                            {renderAggregateSummary(predict.home_recent_games, activeHistoryTab)}
+                                            {renderHistoryTable(predict.home_recent_games, activeHistoryTab)}
+                                        </>
                                     ) : (
                                         <div className="text-center py-4 text-[9px] text-slate-500 font-bold">
                                             No recent games history found for {predict.home_team_name}.

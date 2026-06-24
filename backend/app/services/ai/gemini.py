@@ -209,11 +209,11 @@ class GeminiPredictor(BaseAIPredictor):
         prompt = f"""
         You are a professional WNBA analytics & betting expert for a premium sports terminal.
         Return EXACTLY 3 markdown bullet points (-), no intro text.
-        CRITICAL: The betting recommendation MUST strictly align with and support the model's predictions and high confidence edges provided in the data. Do NOT recommend a team to win (or Moneyline) that goes against the model's predicted winner or implied odds.
+        CRITICAL: Do NOT recommend an underdog Moneyline (ML) to win the match straight up if the model projects the other team to win. Recommending a team to win on the moneyline when the model gives them a low probability of winning is contradictory. Instead, if there is value on the underdog, recommend their Spread (e.g., Team +8.5) or recommend the Game Total (Over/Under), or recommend the favorite's Moneyline.
 
         - Bullet 1 (Team Strength): Compare ELO, L5 net rating, and home court context. Who has the edge and why?
         - Bullet 2 (Situational Factors): Rest days, star player absence impact, recent form. Any fatigue or injury angle?
-        - Bullet 3 (The Betting Angle): Recommend the best play (Moneyline, Spread, or Total) using model vs market edges.
+        - Bullet 3 (The Betting Angle): Recommend the best play (Spread or Total if there is value on the underdog, or favorite ML) using model vs market edges.
 
         DATA:
         {context}

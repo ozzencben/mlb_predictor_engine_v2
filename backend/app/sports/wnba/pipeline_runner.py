@@ -163,7 +163,7 @@ def _compute_today_live_features() -> list[dict]:
     return results
 
 
-def run_pipeline(skip_yesterday: bool = False, lookback_days: int = DEFAULT_PIPELINE_LOOKBACK_DAYS) -> dict:
+def run_pipeline(skip_yesterday: bool = False, lookback_days: int = DEFAULT_PIPELINE_LOOKBACK_DAYS, force_ai: bool = False) -> dict:
     from app.sports.wnba.services.beta_ops import archive_past_data, evaluate_today_accuracy
 
     logger.info("=" * 50)
@@ -246,7 +246,8 @@ def run_pipeline(skip_yesterday: bool = False, lookback_days: int = DEFAULT_PIPE
         from app.sports.wnba.models.predict import generate_predictions, reset_model_cache
         reset_model_cache()
         skip_ai = os.getenv("WNBA_SKIP_AI", "").lower() in ("1", "true", "yes")
-        predictions = generate_predictions(save=True, skip_ai=skip_ai)
+        env_force_ai = os.getenv("WNBA_FORCE_AI", "").lower() in ("1", "true", "yes")
+        predictions = generate_predictions(save=True, skip_ai=skip_ai, force_ai=force_ai or env_force_ai)
         logger.info(f"  -> {len(predictions)} tahmin kaydedildi")
     except FileNotFoundError:
         logger.warning("  Model bulunamadi. 'train_model.py' calistirilmali.")
@@ -274,6 +275,7 @@ def main(argv: list[str] | None = None) -> int:
     import argparse
     parser = argparse.ArgumentParser(description="WNBA günlük pipeline")
     parser.add_argument("--skip-yesterday", action="store_true")
+    parser.add_argument("--force-ai", action="store_true", help="Force regeneration of AI insights")
     parser.add_argument(
         "--lookback-days",
         type=int,
@@ -281,7 +283,7 @@ def main(argv: list[str] | None = None) -> int:
         help=f"Kac gun geriye eksik mac aransin (varsayilan: {DEFAULT_PIPELINE_LOOKBACK_DAYS})",
     )
     args = parser.parse_args(argv)
-    run_pipeline(skip_yesterday=args.skip_yesterday, lookback_days=args.lookback_days)
+    run_pipeline(skip_yesterday=args.skip_yesterday, lookback_days=args.lookback_days, force_ai=args.force_ai)
     return 0
 
 
