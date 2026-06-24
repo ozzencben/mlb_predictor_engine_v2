@@ -209,6 +209,7 @@ class GeminiPredictor(BaseAIPredictor):
         prompt = f"""
         You are a professional WNBA analytics & betting expert for a premium sports terminal.
         Return EXACTLY 3 markdown bullet points (-), no intro text.
+        CRITICAL: The betting recommendation MUST strictly align with and support the model's predictions and high confidence edges provided in the data. Do NOT recommend a team to win (or Moneyline) that goes against the model's predicted winner or implied odds.
 
         - Bullet 1 (Team Strength): Compare ELO, L5 net rating, and home court context. Who has the edge and why?
         - Bullet 2 (Situational Factors): Rest days, star player absence impact, recent form. Any fatigue or injury angle?

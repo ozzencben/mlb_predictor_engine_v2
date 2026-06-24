@@ -1,6 +1,6 @@
 {
   "date": "2026-06-24",
-  "generated_at": "2026-06-24T12:20:53.741132+00:00",
+  "generated_at": "2026-06-24T13:26:29.201935+00:00",
   "match_count": 4,
   "beta_version": "1.0.0-beta",
   "model_meta": {
@@ -44,36 +44,45 @@
         "away_team": "Phoenix Mercury",
         "home_abbr": "IND",
         "away_abbr": "PHX",
-        "moneyline_home": -375,
-        "moneyline_away": 285,
-        "spread_home": -138,
-        "spread_away": 112,
-        "spread_line": -7.5,
-        "total_line": 175.5,
-        "total_over": -106,
-        "total_under": -114
+        "moneyline_home": -320,
+        "moneyline_away": 245,
+        "spread_home": -104,
+        "spread_away": -118,
+        "spread_line": -8.5,
+        "total_line": 176.5,
+        "total_over": -105,
+        "total_under": -115
       },
       "alt_bets": [
         {
           "market": "Moneyline",
           "pick": "Phoenix Mercury",
           "model_win_prob": "36.6%",
-          "edge": 10.65,
-          "confidence": "High",
-          "odds": 285,
+          "edge": 7.63,
+          "confidence": "Medium",
+          "odds": 245,
           "odds_format": "american"
         },
         {
           "market": "Total",
-          "pick": "Under 175.5",
+          "pick": "Under 176.5",
           "model_prediction": "Predicted total: 172.0",
-          "edge": 3.45,
+          "edge": 4.45,
+          "confidence": "Medium",
+          "odds": -115,
+          "odds_format": "american"
+        },
+        {
+          "market": "Spread",
+          "pick": "Phoenix Mercury (+8.5)",
+          "model_prediction": "Predicted spread: +6.0",
+          "edge": 2.5,
           "confidence": "Low",
-          "odds": -114,
+          "odds": -118,
           "odds_format": "american"
         }
       ],
-      "bet_count": 2,
+      "bet_count": 3,
       "home_l5": {
         "n": 5,
         "ppg": 96.2,
@@ -459,32 +468,32 @@
         "away_team": "Minnesota Lynx",
         "home_abbr": "WSH",
         "away_abbr": "MIN",
-        "moneyline_home": 280,
-        "moneyline_away": -370,
-        "spread_home": -108,
-        "spread_away": -112,
-        "spread_line": 8.5,
-        "total_line": 168.5,
-        "total_over": -114,
-        "total_under": -106
+        "moneyline_home": 310,
+        "moneyline_away": -420,
+        "spread_home": -118,
+        "spread_away": -104,
+        "spread_line": 9.5,
+        "total_line": 169.5,
+        "total_over": -104,
+        "total_under": -118
       },
       "alt_bets": [
         {
           "market": "Moneyline",
           "pick": "Washington Mystics",
           "model_win_prob": "35.8%",
-          "edge": 9.49,
+          "edge": 11.41,
           "confidence": "High",
-          "odds": 280,
+          "odds": 310,
           "odds_format": "american"
         },
         {
           "market": "Spread",
-          "pick": "Washington Mystics (+8.5)",
+          "pick": "Washington Mystics (+9.5)",
           "model_prediction": "Predicted spread: -6.4",
-          "edge": 2.09,
+          "edge": 3.09,
           "confidence": "Low",
-          "odds": -108,
+          "odds": -118,
           "odds_format": "american"
         }
       ],
@@ -874,32 +883,32 @@
         "away_team": "Portland Fire",
         "home_abbr": "CHI",
         "away_abbr": "POR",
-        "moneyline_home": -148,
-        "moneyline_away": 120,
-        "spread_home": -118,
-        "spread_away": -104,
-        "spread_line": -2.5,
+        "moneyline_home": -152,
+        "moneyline_away": 124,
+        "spread_home": -105,
+        "spread_away": -115,
+        "spread_line": -3.5,
         "total_line": 170.5,
-        "total_over": -110,
-        "total_under": -110
+        "total_over": -115,
+        "total_under": -105
       },
       "alt_bets": [
         {
           "market": "Moneyline",
           "pick": "Portland Fire",
           "model_win_prob": "54.5%",
-          "edge": 9.09,
+          "edge": 9.9,
           "confidence": "High",
-          "odds": 120,
+          "odds": 124,
           "odds_format": "american"
         },
         {
           "market": "Spread",
-          "pick": "Portland Fire (+2.5)",
+          "pick": "Portland Fire (+3.5)",
           "model_prediction": "Predicted spread: -0.1",
-          "edge": 2.64,
+          "edge": 3.64,
           "confidence": "Low",
-          "odds": -104,
+          "odds": -115,
           "odds_format": "american"
         }
       ],
@@ -1226,14 +1235,14 @@
         "away_team": "Atlanta Dream",
         "home_abbr": "GS",
         "away_abbr": "ATL",
-        "moneyline_home": 116,
-        "moneyline_away": -142,
-        "spread_home": -108,
-        "spread_away": -112,
+        "moneyline_home": 118,
+        "moneyline_away": -144,
+        "spread_home": -105,
+        "spread_away": -115,
         "spread_line": 2.5,
-        "total_line": 164.5,
-        "total_over": -112,
-        "total_under": -108
+        "total_line": 165.5,
+        "total_over": -110,
+        "total_under": -110
       },
       "alt_bets": [],
       "bet_count": 0,
