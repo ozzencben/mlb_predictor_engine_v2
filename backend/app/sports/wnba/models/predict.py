@@ -27,7 +27,7 @@ from zoneinfo import ZoneInfo
 import numpy as np
 import xgboost as xgb
 
-from app.sports.wnba.models.model_features import SPREAD_TOTAL_FEATURE_COLS, WIN_FEATURE_COLS
+from app.sports.wnba.models.model_features import REGRESS_FEATURE_COLS, WIN_FEATURE_COLS
 from app.sports.wnba.services.beta_ops import BETA_VERSION, load_model_meta
 
 # -----------------------------------------------------------------------
@@ -41,7 +41,7 @@ RAW_FILE = DATA_DIR / "today_predictions_raw.json"
 OUTPUT_FILE = DATA_DIR / "today_predictions.json"
 
 # Geriye uyumluluk
-FEATURE_COLS = SPREAD_TOTAL_FEATURE_COLS
+FEATURE_COLS = REGRESS_FEATURE_COLS
 
 # -----------------------------------------------------------------------
 # Model yukleme (tek seferlik, modül seviyesi önbellek)
@@ -391,7 +391,7 @@ def generate_predictions(save: bool = True, skip_ai: bool = False) -> list[dict[
                 ok = False
                 break
             win_row.append(float(v))
-        for col in SPREAD_TOTAL_FEATURE_COLS:
+        for col in REGRESS_FEATURE_COLS:
             v = feats.get(col)
             if v is None:
                 ok = False

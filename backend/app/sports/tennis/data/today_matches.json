@@ -37,20 +37,20 @@
     },
     {
         "match_id": "2TcpcQXa",
-        "timestamp": 1782295200,
-        "date_utc": "2026-06-24T10:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "timestamp": 1782295800,
+        "date_utc": "2026-06-24T10:10:00+00:00",
+        "status_code": "3",
+        "detail_code": "3",
+        "status": "Finished",
         "note": null,
-        "round_code": "1",
+        "round_code": "3",
         "home_player": {
             "name": "Samuel T.",
             "short_name": "SAM",
             "id": "rZVojxZe",
             "slug": "samuel-toby",
             "country": "United Kingdom",
-            "sets_won": null
+            "sets_won": 2
         },
         "away_player": {
             "name": "Tirante T. A.",
@@ -58,10 +58,19 @@
             "id": "jBkGDj34",
             "slug": "tirante-thiago-agustin",
             "country": "Argentina",
-            "sets_won": null
+            "sets_won": 0
         },
-        "winner": null,
-        "set_scores": [],
+        "winner": 1,
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
         "tournament": {
             "name": "ATP - SINGLES: Eastbourne (United Kingdom), grass",
             "id": "GpWRazTf",
@@ -75,11 +84,11 @@
         "match_id": "xWTyiuQN",
         "timestamp": 1782298800,
         "date_utc": "2026-06-24T11:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "status_code": "3",
+        "detail_code": "5",
+        "status": "Walkover",
         "note": null,
-        "round_code": "1",
+        "round_code": "3",
         "home_player": {
             "name": "Hussey G.",
             "short_name": "HUS",
@@ -108,21 +117,66 @@
         }
     },
     {
-        "match_id": "MHKx1Xqe",
-        "timestamp": 1782300600,
-        "date_utc": "2026-06-24T11:30:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "match_id": "hfzR3mel",
+        "timestamp": 1782299437,
+        "date_utc": "2026-06-24T11:10:37+00:00",
+        "status_code": "2",
+        "detail_code": "18",
+        "status": "Live (Set 2)",
         "note": null,
-        "round_code": "1",
+        "round_code": "2",
+        "home_player": {
+            "name": "Hussey G.",
+            "short_name": "HUS",
+            "id": "8AO4DtCh",
+            "slug": "hussey-giles",
+            "country": "United Kingdom",
+            "sets_won": 0
+        },
+        "away_player": {
+            "name": "Halys Q.",
+            "short_name": "HAL",
+            "id": "EDve8Ljh",
+            "slug": "halys-quentin",
+            "country": "France",
+            "sets_won": 1
+        },
+        "winner": null,
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "1"
+            }
+        ],
+        "tournament": {
+            "name": "ATP - SINGLES: Eastbourne (United Kingdom), grass",
+            "id": "GpWRazTf",
+            "country_id": "3473162",
+            "category_id": "UcjJK12k",
+            "url": "/tennis/atp-singles/eastbourne/",
+            "gender": "Singles"
+        }
+    },
+    {
+        "match_id": "MHKx1Xqe",
+        "timestamp": 1782301800,
+        "date_utc": "2026-06-24T11:50:00+00:00",
+        "status_code": "2",
+        "detail_code": "17",
+        "status": "Live (Set 1)",
+        "note": null,
+        "round_code": "2",
         "home_player": {
             "name": "Fery A.",
             "short_name": "FER",
             "id": "SKxbA6KA",
             "slug": "fery-arthur",
             "country": "United Kingdom",
-            "sets_won": null
+            "sets_won": 0
         },
         "away_player": {
             "name": "Cerundolo J. M.",
@@ -130,6 +184,47 @@
             "id": "A93TM7BR",
             "slug": "cerundolo-juan-manuel",
             "country": "Argentina",
+            "sets_won": 0
+        },
+        "winner": null,
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "0"
+            }
+        ],
+        "tournament": {
+            "name": "ATP - SINGLES: Eastbourne (United Kingdom), grass",
+            "id": "GpWRazTf",
+            "country_id": "3473162",
+            "category_id": "UcjJK12k",
+            "url": "/tennis/atp-singles/eastbourne/",
+            "gender": "Singles"
+        }
+    },
+    {
+        "match_id": "ULEwmL3s",
+        "timestamp": 1782303300,
+        "date_utc": "2026-06-24T12:15:00+00:00",
+        "status_code": "1",
+        "detail_code": "1",
+        "status": "Not Started",
+        "note": null,
+        "round_code": "1",
+        "home_player": {
+            "name": "Humbert U.",
+            "short_name": "HUM",
+            "id": "O4ywE5Ah",
+            "slug": "humbert-ugo",
+            "country": "France",
+            "sets_won": null
+        },
+        "away_player": {
+            "name": "Brooksby J.",
+            "short_name": "BRO",
+            "id": "MoOtVkbN",
+            "slug": "brooksby-jenson",
+            "country": "USA",
             "sets_won": null
         },
         "winner": null,
@@ -166,42 +261,6 @@
             "id": "SbeTx1o8",
             "slug": "bergs-zizou",
             "country": "Belgium",
-            "sets_won": null
-        },
-        "winner": null,
-        "set_scores": [],
-        "tournament": {
-            "name": "ATP - SINGLES: Eastbourne (United Kingdom), grass",
-            "id": "GpWRazTf",
-            "country_id": "3473162",
-            "category_id": "UcjJK12k",
-            "url": "/tennis/atp-singles/eastbourne/",
-            "gender": "Singles"
-        }
-    },
-    {
-        "match_id": "ULEwmL3s",
-        "timestamp": 1782306000,
-        "date_utc": "2026-06-24T13:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
-        "home_player": {
-            "name": "Humbert U.",
-            "short_name": "HUM",
-            "id": "O4ywE5Ah",
-            "slug": "humbert-ugo",
-            "country": "France",
-            "sets_won": null
-        },
-        "away_player": {
-            "name": "Brooksby J.",
-            "short_name": "BRO",
-            "id": "MoOtVkbN",
-            "slug": "brooksby-jenson",
-            "country": "USA",
             "sets_won": null
         },
         "winner": null,
@@ -324,42 +383,6 @@
         }
     },
     {
-        "match_id": "IXkNtYcL",
-        "timestamp": 1782295200,
-        "date_utc": "2026-06-24T10:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
-        "home_player": {
-            "name": "Cassone M.",
-            "short_name": "CAS",
-            "id": "O4aHjdoE",
-            "slug": "cassone-murphy",
-            "country": "USA",
-            "sets_won": null
-        },
-        "away_player": {
-            "name": "Quinn E.",
-            "short_name": "QUI",
-            "id": "fDEtnFgg",
-            "slug": "quinn-ethan",
-            "country": "USA",
-            "sets_won": null
-        },
-        "winner": null,
-        "set_scores": [],
-        "tournament": {
-            "name": "ATP - SINGLES: Mallorca (Spain), grass",
-            "id": "trmromMs",
-            "country_id": "3473162",
-            "category_id": "SppOT5u3",
-            "url": "/tennis/atp-singles/mallorca/",
-            "gender": "Singles"
-        }
-    },
-    {
         "match_id": "2HDkUVAM",
         "timestamp": 1782295200,
         "date_utc": "2026-06-24T10:00:00+00:00",
@@ -396,21 +419,70 @@
         }
     },
     {
-        "match_id": "4QDmYhID",
-        "timestamp": 1782297000,
-        "date_utc": "2026-06-24T10:30:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "match_id": "IXkNtYcL",
+        "timestamp": 1782295500,
+        "date_utc": "2026-06-24T10:05:00+00:00",
+        "status_code": "2",
+        "detail_code": "19",
+        "status": "Live (Set 3)",
         "note": null,
-        "round_code": "1",
+        "round_code": "2",
+        "home_player": {
+            "name": "Cassone M.",
+            "short_name": "CAS",
+            "id": "O4aHjdoE",
+            "slug": "cassone-murphy",
+            "country": "USA",
+            "sets_won": 1
+        },
+        "away_player": {
+            "name": "Quinn E.",
+            "short_name": "QUI",
+            "id": "fDEtnFgg",
+            "slug": "quinn-ethan",
+            "country": "USA",
+            "sets_won": 1
+        },
+        "winner": null,
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "3"
+            }
+        ],
+        "tournament": {
+            "name": "ATP - SINGLES: Mallorca (Spain), grass",
+            "id": "trmromMs",
+            "country_id": "3473162",
+            "category_id": "SppOT5u3",
+            "url": "/tennis/atp-singles/mallorca/",
+            "gender": "Singles"
+        }
+    },
+    {
+        "match_id": "4QDmYhID",
+        "timestamp": 1782297300,
+        "date_utc": "2026-06-24T10:35:00+00:00",
+        "status_code": "3",
+        "detail_code": "3",
+        "status": "Finished",
+        "note": null,
+        "round_code": "3",
         "home_player": {
             "name": "Kopriva V.",
             "short_name": "KOP",
             "id": "EHGKxKDL",
             "slug": "kopriva-vit",
             "country": "Czech Republic",
-            "sets_won": null
+            "sets_won": 2
         },
         "away_player": {
             "name": "Buse I.",
@@ -418,10 +490,19 @@
             "id": "A1LQjAPb",
             "slug": "buse-ignacio",
             "country": "Peru",
-            "sets_won": null
+            "sets_won": 0
         },
-        "winner": null,
-        "set_scores": [],
+        "winner": 1,
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
         "tournament": {
             "name": "ATP - SINGLES: Mallorca (Spain), grass",
             "id": "trmromMs",
@@ -504,57 +585,21 @@
         }
     },
     {
-        "match_id": "xzrTSnwC",
-        "timestamp": 1782295200,
-        "date_utc": "2026-06-24T10:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
-        "home_player": {
-            "name": "Basing M.",
-            "short_name": "BAS",
-            "id": "CpNtcwr9",
-            "slug": "basing-max",
-            "country": "United Kingdom",
-            "sets_won": null
-        },
-        "away_player": {
-            "name": "Gentzsch T.",
-            "short_name": "GEN",
-            "id": "IgniZQN6",
-            "slug": "gentzsch-tom",
-            "country": "Germany",
-            "sets_won": null
-        },
-        "winner": null,
-        "set_scores": [],
-        "tournament": {
-            "name": "ATP - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
-            "id": "nZi4fKds",
-            "country_id": "3473162",
-            "category_id": "Ya0ihFY0",
-            "url": "/tennis/atp-singles/wimbledon/",
-            "gender": "Singles"
-        }
-    },
-    {
         "match_id": "MqyDWUwm",
-        "timestamp": 1782295200,
-        "date_utc": "2026-06-24T10:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
+        "timestamp": 1782295500,
+        "date_utc": "2026-06-24T10:05:00+00:00",
+        "status_code": "3",
+        "detail_code": "36",
+        "status": "Finished",
+        "note": "Interrupted due to heat. Interrupted due to\ntechnical problems.",
+        "round_code": "2",
         "home_player": {
             "name": "Bertola R.",
             "short_name": "BER",
             "id": "OWVm6y0g",
             "slug": "bertola-remy",
             "country": "Switzerland",
-            "sets_won": null
+            "sets_won": 0
         },
         "away_player": {
             "name": "Rodionov J.",
@@ -562,226 +607,19 @@
             "id": "CKjcTLz1",
             "slug": "rodionov-jurij",
             "country": "Austria",
-            "sets_won": null
+            "sets_won": 1
         },
         "winner": null,
-        "set_scores": [],
-        "tournament": {
-            "name": "ATP - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
-            "id": "nZi4fKds",
-            "country_id": "3473162",
-            "category_id": "Ya0ihFY0",
-            "url": "/tennis/atp-singles/wimbledon/",
-            "gender": "Singles"
-        }
-    },
-    {
-        "match_id": "ANYC7c8E",
-        "timestamp": 1782295200,
-        "date_utc": "2026-06-24T10:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
-        "home_player": {
-            "name": "Bu Y.",
-            "short_name": "BU",
-            "id": "Qabjt3Y5",
-            "slug": "yunchaokete-bu",
-            "country": "China",
-            "sets_won": null
-        },
-        "away_player": {
-            "name": "Tabur C.",
-            "short_name": "TAB",
-            "id": "fHPZtbgE",
-            "slug": "tabur-clement",
-            "country": "France",
-            "sets_won": null
-        },
-        "winner": null,
-        "set_scores": [],
-        "tournament": {
-            "name": "ATP - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
-            "id": "nZi4fKds",
-            "country_id": "3473162",
-            "category_id": "Ya0ihFY0",
-            "url": "/tennis/atp-singles/wimbledon/",
-            "gender": "Singles"
-        }
-    },
-    {
-        "match_id": "fPyFj4Lk",
-        "timestamp": 1782295200,
-        "date_utc": "2026-06-24T10:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
-        "home_player": {
-            "name": "Coria F.",
-            "short_name": "COR",
-            "id": "vJdE1Bg7",
-            "slug": "coria-federico",
-            "country": "Argentina",
-            "sets_won": null
-        },
-        "away_player": {
-            "name": "Sakellaridis S.",
-            "short_name": "SAK",
-            "id": "2Dmhcv8C",
-            "slug": "sakellaridis-stefanos",
-            "country": "Greece",
-            "sets_won": null
-        },
-        "winner": null,
-        "set_scores": [],
-        "tournament": {
-            "name": "ATP - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
-            "id": "nZi4fKds",
-            "country_id": "3473162",
-            "category_id": "Ya0ihFY0",
-            "url": "/tennis/atp-singles/wimbledon/",
-            "gender": "Singles"
-        }
-    },
-    {
-        "match_id": "AZvrcjGb",
-        "timestamp": 1782295200,
-        "date_utc": "2026-06-24T10:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
-        "home_player": {
-            "name": "Evans D.",
-            "short_name": "EVA",
-            "id": "Ya9jkSU5",
-            "slug": "evans-daniel",
-            "country": "United Kingdom",
-            "sets_won": null
-        },
-        "away_player": {
-            "name": "Schoolkate T.",
-            "short_name": "SCH",
-            "id": "hn8XQkiU",
-            "slug": "schoolkate-tristan",
-            "country": "Australia",
-            "sets_won": null
-        },
-        "winner": null,
-        "set_scores": [],
-        "tournament": {
-            "name": "ATP - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
-            "id": "nZi4fKds",
-            "country_id": "3473162",
-            "category_id": "Ya0ihFY0",
-            "url": "/tennis/atp-singles/wimbledon/",
-            "gender": "Singles"
-        }
-    },
-    {
-        "match_id": "xCD1sW7e",
-        "timestamp": 1782295200,
-        "date_utc": "2026-06-24T10:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
-        "home_player": {
-            "name": "Galarneau A.",
-            "short_name": "GAL",
-            "id": "EHhqit59",
-            "slug": "galarneau-alexis",
-            "country": "Canada",
-            "sets_won": null
-        },
-        "away_player": {
-            "name": "Tarvet O.",
-            "short_name": "TAR",
-            "id": "lYUiygo1",
-            "slug": "tarvet-oliver",
-            "country": "United Kingdom",
-            "sets_won": null
-        },
-        "winner": null,
-        "set_scores": [],
-        "tournament": {
-            "name": "ATP - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
-            "id": "nZi4fKds",
-            "country_id": "3473162",
-            "category_id": "Ya0ihFY0",
-            "url": "/tennis/atp-singles/wimbledon/",
-            "gender": "Singles"
-        }
-    },
-    {
-        "match_id": "AmtyRQ7O",
-        "timestamp": 1782295200,
-        "date_utc": "2026-06-24T10:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
-        "home_player": {
-            "name": "Mejia N.",
-            "short_name": "MEJ",
-            "id": "QcT8wHe4",
-            "slug": "mejia-nicolas",
-            "country": "Colombia",
-            "sets_won": null
-        },
-        "away_player": {
-            "name": "Heide G.",
-            "short_name": "HEI",
-            "id": "6krWmGif",
-            "slug": "heide-gustavo",
-            "country": "Brazil",
-            "sets_won": null
-        },
-        "winner": null,
-        "set_scores": [],
-        "tournament": {
-            "name": "ATP - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
-            "id": "nZi4fKds",
-            "country_id": "3473162",
-            "category_id": "Ya0ihFY0",
-            "url": "/tennis/atp-singles/wimbledon/",
-            "gender": "Singles"
-        }
-    },
-    {
-        "match_id": "f1wnCYg3",
-        "timestamp": 1782295200,
-        "date_utc": "2026-06-24T10:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
-        "home_player": {
-            "name": "Onclin G.",
-            "short_name": "ONC",
-            "id": "dtG17O9l",
-            "slug": "onclin-gauthier",
-            "country": "Belgium",
-            "sets_won": null
-        },
-        "away_player": {
-            "name": "Mochizuki S.",
-            "short_name": "MOC",
-            "id": "KrwvlzXb",
-            "slug": "mochizuki-shintaro",
-            "country": "Japan",
-            "sets_won": null
-        },
-        "winner": null,
-        "set_scores": [],
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "4"
+            }
+        ],
         "tournament": {
             "name": "ATP - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
             "id": "nZi4fKds",
@@ -793,20 +631,20 @@
     },
     {
         "match_id": "EPGeL6iB",
-        "timestamp": 1782295200,
-        "date_utc": "2026-06-24T10:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
+        "timestamp": 1782295500,
+        "date_utc": "2026-06-24T10:05:00+00:00",
+        "status_code": "3",
+        "detail_code": "36",
+        "status": "Finished",
+        "note": "Interrupted due to heat. Interrupted due to\ntechnical problems.",
+        "round_code": "2",
         "home_player": {
             "name": "Piros Z.",
             "short_name": "PIR",
             "id": "2BC3jj8o",
             "slug": "piros-zsombor",
             "country": "Hungary",
-            "sets_won": null
+            "sets_won": 0
         },
         "away_player": {
             "name": "Harris B.",
@@ -814,10 +652,330 @@
             "id": "G0X2O6XR",
             "slug": "harris-billy",
             "country": "United Kingdom",
-            "sets_won": null
+            "sets_won": 1
         },
         "winner": null,
-        "set_scores": [],
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "0"
+            }
+        ],
+        "tournament": {
+            "name": "ATP - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
+            "id": "nZi4fKds",
+            "country_id": "3473162",
+            "category_id": "Ya0ihFY0",
+            "url": "/tennis/atp-singles/wimbledon/",
+            "gender": "Singles"
+        }
+    },
+    {
+        "match_id": "xzrTSnwC",
+        "timestamp": 1782295800,
+        "date_utc": "2026-06-24T10:10:00+00:00",
+        "status_code": "3",
+        "detail_code": "36",
+        "status": "Finished",
+        "note": "Interrupted due to heat. Interrupted due to\ntechnical problems.",
+        "round_code": "2",
+        "home_player": {
+            "name": "Basing M.",
+            "short_name": "BAS",
+            "id": "CpNtcwr9",
+            "slug": "basing-max",
+            "country": "United Kingdom",
+            "sets_won": 1
+        },
+        "away_player": {
+            "name": "Gentzsch T.",
+            "short_name": "GEN",
+            "id": "IgniZQN6",
+            "slug": "gentzsch-tom",
+            "country": "Germany",
+            "sets_won": 0
+        },
+        "winner": null,
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "1",
+                "away": "1"
+            }
+        ],
+        "tournament": {
+            "name": "ATP - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
+            "id": "nZi4fKds",
+            "country_id": "3473162",
+            "category_id": "Ya0ihFY0",
+            "url": "/tennis/atp-singles/wimbledon/",
+            "gender": "Singles"
+        }
+    },
+    {
+        "match_id": "ANYC7c8E",
+        "timestamp": 1782295800,
+        "date_utc": "2026-06-24T10:10:00+00:00",
+        "status_code": "3",
+        "detail_code": "36",
+        "status": "Finished",
+        "note": "Interrupted due to heat. Interrupted due to\ntechnical problems.",
+        "round_code": "2",
+        "home_player": {
+            "name": "Bu Y.",
+            "short_name": "BU",
+            "id": "Qabjt3Y5",
+            "slug": "yunchaokete-bu",
+            "country": "China",
+            "sets_won": 1
+        },
+        "away_player": {
+            "name": "Tabur C.",
+            "short_name": "TAB",
+            "id": "fHPZtbgE",
+            "slug": "tabur-clement",
+            "country": "France",
+            "sets_won": 0
+        },
+        "winner": null,
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "1",
+                "away": "2"
+            }
+        ],
+        "tournament": {
+            "name": "ATP - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
+            "id": "nZi4fKds",
+            "country_id": "3473162",
+            "category_id": "Ya0ihFY0",
+            "url": "/tennis/atp-singles/wimbledon/",
+            "gender": "Singles"
+        }
+    },
+    {
+        "match_id": "fPyFj4Lk",
+        "timestamp": 1782295800,
+        "date_utc": "2026-06-24T10:10:00+00:00",
+        "status_code": "3",
+        "detail_code": "36",
+        "status": "Finished",
+        "note": "Interrupted due to heat. Interrupted due to\ntechnical problems.",
+        "round_code": "2",
+        "home_player": {
+            "name": "Coria F.",
+            "short_name": "COR",
+            "id": "vJdE1Bg7",
+            "slug": "coria-federico",
+            "country": "Argentina",
+            "sets_won": 0
+        },
+        "away_player": {
+            "name": "Sakellaridis S.",
+            "short_name": "SAK",
+            "id": "2Dmhcv8C",
+            "slug": "sakellaridis-stefanos",
+            "country": "Greece",
+            "sets_won": 1
+        },
+        "winner": null,
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "4"
+            }
+        ],
+        "tournament": {
+            "name": "ATP - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
+            "id": "nZi4fKds",
+            "country_id": "3473162",
+            "category_id": "Ya0ihFY0",
+            "url": "/tennis/atp-singles/wimbledon/",
+            "gender": "Singles"
+        }
+    },
+    {
+        "match_id": "AZvrcjGb",
+        "timestamp": 1782295800,
+        "date_utc": "2026-06-24T10:10:00+00:00",
+        "status_code": "3",
+        "detail_code": "36",
+        "status": "Finished",
+        "note": "Interrupted due to heat. Interrupted due to\ntechnical problems.",
+        "round_code": "2",
+        "home_player": {
+            "name": "Evans D.",
+            "short_name": "EVA",
+            "id": "Ya9jkSU5",
+            "slug": "evans-daniel",
+            "country": "United Kingdom",
+            "sets_won": 0
+        },
+        "away_player": {
+            "name": "Schoolkate T.",
+            "short_name": "SCH",
+            "id": "hn8XQkiU",
+            "slug": "schoolkate-tristan",
+            "country": "Australia",
+            "sets_won": 1
+        },
+        "winner": null,
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "0",
+                "away": "0"
+            }
+        ],
+        "tournament": {
+            "name": "ATP - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
+            "id": "nZi4fKds",
+            "country_id": "3473162",
+            "category_id": "Ya0ihFY0",
+            "url": "/tennis/atp-singles/wimbledon/",
+            "gender": "Singles"
+        }
+    },
+    {
+        "match_id": "xCD1sW7e",
+        "timestamp": 1782295800,
+        "date_utc": "2026-06-24T10:10:00+00:00",
+        "status_code": "3",
+        "detail_code": "36",
+        "status": "Finished",
+        "note": "Interrupted due to heat. Interrupted due to\ntechnical problems.",
+        "round_code": "2",
+        "home_player": {
+            "name": "Galarneau A.",
+            "short_name": "GAL",
+            "id": "EHhqit59",
+            "slug": "galarneau-alexis",
+            "country": "Canada",
+            "sets_won": 0
+        },
+        "away_player": {
+            "name": "Tarvet O.",
+            "short_name": "TAR",
+            "id": "lYUiygo1",
+            "slug": "tarvet-oliver",
+            "country": "United Kingdom",
+            "sets_won": 0
+        },
+        "winner": null,
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "5"
+            }
+        ],
+        "tournament": {
+            "name": "ATP - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
+            "id": "nZi4fKds",
+            "country_id": "3473162",
+            "category_id": "Ya0ihFY0",
+            "url": "/tennis/atp-singles/wimbledon/",
+            "gender": "Singles"
+        }
+    },
+    {
+        "match_id": "AmtyRQ7O",
+        "timestamp": 1782295800,
+        "date_utc": "2026-06-24T10:10:00+00:00",
+        "status_code": "3",
+        "detail_code": "36",
+        "status": "Finished",
+        "note": "Interrupted due to heat. Interrupted due to\ntechnical problems.",
+        "round_code": "2",
+        "home_player": {
+            "name": "Mejia N.",
+            "short_name": "MEJ",
+            "id": "QcT8wHe4",
+            "slug": "mejia-nicolas",
+            "country": "Colombia",
+            "sets_won": 1
+        },
+        "away_player": {
+            "name": "Heide G.",
+            "short_name": "HEI",
+            "id": "6krWmGif",
+            "slug": "heide-gustavo",
+            "country": "Brazil",
+            "sets_won": 0
+        },
+        "winner": null,
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "2",
+                "away": "0"
+            }
+        ],
+        "tournament": {
+            "name": "ATP - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
+            "id": "nZi4fKds",
+            "country_id": "3473162",
+            "category_id": "Ya0ihFY0",
+            "url": "/tennis/atp-singles/wimbledon/",
+            "gender": "Singles"
+        }
+    },
+    {
+        "match_id": "f1wnCYg3",
+        "timestamp": 1782295800,
+        "date_utc": "2026-06-24T10:10:00+00:00",
+        "status_code": "3",
+        "detail_code": "36",
+        "status": "Finished",
+        "note": "Interrupted due to heat. Interrupted due to\ntechnical problems.",
+        "round_code": "2",
+        "home_player": {
+            "name": "Onclin G.",
+            "short_name": "ONC",
+            "id": "dtG17O9l",
+            "slug": "onclin-gauthier",
+            "country": "Belgium",
+            "sets_won": 0
+        },
+        "away_player": {
+            "name": "Mochizuki S.",
+            "short_name": "MOC",
+            "id": "KrwvlzXb",
+            "slug": "mochizuki-shintaro",
+            "country": "Japan",
+            "sets_won": 1
+        },
+        "winner": null,
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "1"
+            }
+        ],
         "tournament": {
             "name": "ATP - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
             "id": "nZi4fKds",
@@ -829,20 +987,20 @@
     },
     {
         "match_id": "dYVEoIwg",
-        "timestamp": 1782295200,
-        "date_utc": "2026-06-24T10:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
+        "timestamp": 1782295800,
+        "date_utc": "2026-06-24T10:10:00+00:00",
+        "status_code": "3",
+        "detail_code": "36",
+        "status": "Finished",
+        "note": "Interrupted due to heat. Interrupted due to\ntechnical problems.",
+        "round_code": "2",
         "home_player": {
             "name": "Travaglia S.",
             "short_name": "TRA",
             "id": "KAYoXgme",
             "slug": "travaglia-stefano",
             "country": "Italy",
-            "sets_won": null
+            "sets_won": 0
         },
         "away_player": {
             "name": "Zhou Y.",
@@ -850,10 +1008,19 @@
             "id": "SbSmfis2",
             "slug": "zhou-yi",
             "country": "China",
-            "sets_won": null
+            "sets_won": 1
         },
         "winner": null,
-        "set_scores": [],
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "2",
+                "away": "1"
+            }
+        ],
         "tournament": {
             "name": "ATP - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
             "id": "nZi4fKds",
@@ -865,8 +1032,8 @@
     },
     {
         "match_id": "EJNj0F0l",
-        "timestamp": 1782300600,
-        "date_utc": "2026-06-24T11:30:00+00:00",
+        "timestamp": 1782304200,
+        "date_utc": "2026-06-24T12:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -901,8 +1068,8 @@
     },
     {
         "match_id": "AJCF7VxI",
-        "timestamp": 1782300600,
-        "date_utc": "2026-06-24T11:30:00+00:00",
+        "timestamp": 1782304200,
+        "date_utc": "2026-06-24T12:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -937,8 +1104,8 @@
     },
     {
         "match_id": "0fIPjAXr",
-        "timestamp": 1782300600,
-        "date_utc": "2026-06-24T11:30:00+00:00",
+        "timestamp": 1782304200,
+        "date_utc": "2026-06-24T12:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -973,8 +1140,8 @@
     },
     {
         "match_id": "KEwGw4iU",
-        "timestamp": 1782300600,
-        "date_utc": "2026-06-24T11:30:00+00:00",
+        "timestamp": 1782304200,
+        "date_utc": "2026-06-24T12:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -1009,8 +1176,8 @@
     },
     {
         "match_id": "Qa23MdoL",
-        "timestamp": 1782300600,
-        "date_utc": "2026-06-24T11:30:00+00:00",
+        "timestamp": 1782304200,
+        "date_utc": "2026-06-24T12:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -1045,8 +1212,8 @@
     },
     {
         "match_id": "E9f8aFlU",
-        "timestamp": 1782300600,
-        "date_utc": "2026-06-24T11:30:00+00:00",
+        "timestamp": 1782304200,
+        "date_utc": "2026-06-24T12:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -1081,8 +1248,8 @@
     },
     {
         "match_id": "jykqqHQk",
-        "timestamp": 1782300600,
-        "date_utc": "2026-06-24T11:30:00+00:00",
+        "timestamp": 1782304200,
+        "date_utc": "2026-06-24T12:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -1117,8 +1284,8 @@
     },
     {
         "match_id": "AXJ4Csln",
-        "timestamp": 1782300600,
-        "date_utc": "2026-06-24T11:30:00+00:00",
+        "timestamp": 1782304200,
+        "date_utc": "2026-06-24T12:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -1153,8 +1320,8 @@
     },
     {
         "match_id": "KhhcTzOO",
-        "timestamp": 1782300600,
-        "date_utc": "2026-06-24T11:30:00+00:00",
+        "timestamp": 1782304200,
+        "date_utc": "2026-06-24T12:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -1189,8 +1356,8 @@
     },
     {
         "match_id": "8tqPPvBd",
-        "timestamp": 1782300600,
-        "date_utc": "2026-06-24T11:30:00+00:00",
+        "timestamp": 1782304200,
+        "date_utc": "2026-06-24T12:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -1225,8 +1392,8 @@
     },
     {
         "match_id": "8UIO031m",
-        "timestamp": 1782306000,
-        "date_utc": "2026-06-24T13:00:00+00:00",
+        "timestamp": 1782309600,
+        "date_utc": "2026-06-24T14:00:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -1261,8 +1428,8 @@
     },
     {
         "match_id": "QDVqoUht",
-        "timestamp": 1782306000,
-        "date_utc": "2026-06-24T13:00:00+00:00",
+        "timestamp": 1782309600,
+        "date_utc": "2026-06-24T14:00:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -1297,8 +1464,8 @@
     },
     {
         "match_id": "4ET7TtzI",
-        "timestamp": 1782306000,
-        "date_utc": "2026-06-24T13:00:00+00:00",
+        "timestamp": 1782309600,
+        "date_utc": "2026-06-24T14:00:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -1333,8 +1500,8 @@
     },
     {
         "match_id": "ImxL5ywR",
-        "timestamp": 1782306000,
-        "date_utc": "2026-06-24T13:00:00+00:00",
+        "timestamp": 1782309600,
+        "date_utc": "2026-06-24T14:00:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -1369,8 +1536,8 @@
     },
     {
         "match_id": "zoKP2gKr",
-        "timestamp": 1782306000,
-        "date_utc": "2026-06-24T13:00:00+00:00",
+        "timestamp": 1782309600,
+        "date_utc": "2026-06-24T14:00:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -1405,8 +1572,8 @@
     },
     {
         "match_id": "bwQ80PMj",
-        "timestamp": 1782306000,
-        "date_utc": "2026-06-24T13:00:00+00:00",
+        "timestamp": 1782309600,
+        "date_utc": "2026-06-24T14:00:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -1441,8 +1608,8 @@
     },
     {
         "match_id": "nL7AUlJt",
-        "timestamp": 1782306000,
-        "date_utc": "2026-06-24T13:00:00+00:00",
+        "timestamp": 1782309600,
+        "date_utc": "2026-06-24T14:00:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -1477,8 +1644,8 @@
     },
     {
         "match_id": "lObJX4X0",
-        "timestamp": 1782306000,
-        "date_utc": "2026-06-24T13:00:00+00:00",
+        "timestamp": 1782309600,
+        "date_utc": "2026-06-24T14:00:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -1513,8 +1680,8 @@
     },
     {
         "match_id": "K8vehv3U",
-        "timestamp": 1782306000,
-        "date_utc": "2026-06-24T13:00:00+00:00",
+        "timestamp": 1782309600,
+        "date_utc": "2026-06-24T14:00:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -1549,8 +1716,8 @@
     },
     {
         "match_id": "fL1RVr2D",
-        "timestamp": 1782306000,
-        "date_utc": "2026-06-24T13:00:00+00:00",
+        "timestamp": 1782309600,
+        "date_utc": "2026-06-24T14:00:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -1585,8 +1752,8 @@
     },
     {
         "match_id": "ITewZrlA",
-        "timestamp": 1782306000,
-        "date_utc": "2026-06-24T13:00:00+00:00",
+        "timestamp": 1782309600,
+        "date_utc": "2026-06-24T14:00:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -1621,8 +1788,8 @@
     },
     {
         "match_id": "t86Gjzo9",
-        "timestamp": 1782306000,
-        "date_utc": "2026-06-24T13:00:00+00:00",
+        "timestamp": 1782309600,
+        "date_utc": "2026-06-24T14:00:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -1657,20 +1824,20 @@
     },
     {
         "match_id": "4rRJTvyK",
-        "timestamp": 1782291600,
-        "date_utc": "2026-06-24T09:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "timestamp": 1782292200,
+        "date_utc": "2026-06-24T09:10:00+00:00",
+        "status_code": "3",
+        "detail_code": "3",
+        "status": "Finished",
         "note": null,
-        "round_code": "1",
+        "round_code": "3",
         "home_player": {
             "name": "Alexandrova E.",
             "short_name": "ALE",
             "id": "dzbgeEFF",
             "slug": "alexandrova-ekaterina",
             "country": "World",
-            "sets_won": null
+            "sets_won": 2
         },
         "away_player": {
             "name": "Andreeva M.",
@@ -1678,46 +1845,19 @@
             "id": "lI6fOOat",
             "slug": "andreeva-mirra",
             "country": "World",
-            "sets_won": null
+            "sets_won": 0
         },
-        "winner": null,
-        "set_scores": [],
-        "tournament": {
-            "name": "WTA - SINGLES: Bad Homburg (Germany), grass",
-            "id": "tbpvswVG",
-            "country_id": "3473164",
-            "category_id": "2HTMSCnl",
-            "url": "/tennis/wta-singles/bad-homburg/",
-            "gender": "Singles"
-        }
-    },
-    {
-        "match_id": "rqFEF9S6",
-        "timestamp": 1782297000,
-        "date_utc": "2026-06-24T10:30:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
-        "home_player": {
-            "name": "Kalinskaya A.",
-            "short_name": "KAL",
-            "id": "KGdcQnEf",
-            "slug": "kalinskaya-anna",
-            "country": "World",
-            "sets_won": null
-        },
-        "away_player": {
-            "name": "Ruse G.",
-            "short_name": "RUS",
-            "id": "ra7IoKGO",
-            "slug": "ruse-elena-gabriela",
-            "country": "Romania",
-            "sets_won": null
-        },
-        "winner": null,
-        "set_scores": [],
+        "winner": 1,
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
         "tournament": {
             "name": "WTA - SINGLES: Bad Homburg (Germany), grass",
             "id": "tbpvswVG",
@@ -1729,20 +1869,20 @@
     },
     {
         "match_id": "8vtBIkZP",
-        "timestamp": 1782297000,
-        "date_utc": "2026-06-24T10:30:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "timestamp": 1782298500,
+        "date_utc": "2026-06-24T10:55:00+00:00",
+        "status_code": "2",
+        "detail_code": "18",
+        "status": "Live (Set 2)",
         "note": null,
-        "round_code": "1",
+        "round_code": "2",
         "home_player": {
             "name": "Zheng Q.",
             "short_name": "ZHE",
             "id": "xCyEhjAS",
             "slug": "zheng-qinwen",
             "country": "China",
-            "sets_won": null
+            "sets_won": 1
         },
         "away_player": {
             "name": "Tauson C.",
@@ -1750,10 +1890,64 @@
             "id": "2PPTHPya",
             "slug": "tauson-clara",
             "country": "Denmark",
-            "sets_won": null
+            "sets_won": 0
         },
         "winner": null,
-        "set_scores": [],
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "0",
+                "away": "1"
+            }
+        ],
+        "tournament": {
+            "name": "WTA - SINGLES: Bad Homburg (Germany), grass",
+            "id": "tbpvswVG",
+            "country_id": "3473164",
+            "category_id": "2HTMSCnl",
+            "url": "/tennis/wta-singles/bad-homburg/",
+            "gender": "Singles"
+        }
+    },
+    {
+        "match_id": "rqFEF9S6",
+        "timestamp": 1782299100,
+        "date_utc": "2026-06-24T11:05:00+00:00",
+        "status_code": "2",
+        "detail_code": "18",
+        "status": "Live (Set 2)",
+        "note": null,
+        "round_code": "2",
+        "home_player": {
+            "name": "Kalinskaya A.",
+            "short_name": "KAL",
+            "id": "KGdcQnEf",
+            "slug": "kalinskaya-anna",
+            "country": "World",
+            "sets_won": 0
+        },
+        "away_player": {
+            "name": "Ruse G.",
+            "short_name": "RUS",
+            "id": "ra7IoKGO",
+            "slug": "ruse-elena-gabriela",
+            "country": "Romania",
+            "sets_won": 1
+        },
+        "winner": null,
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "0",
+                "away": "0"
+            }
+        ],
         "tournament": {
             "name": "WTA - SINGLES: Bad Homburg (Germany), grass",
             "id": "tbpvswVG",
@@ -1837,20 +2031,20 @@
     },
     {
         "match_id": "rycBae5c",
-        "timestamp": 1782295200,
-        "date_utc": "2026-06-24T10:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "timestamp": 1782295500,
+        "date_utc": "2026-06-24T10:05:00+00:00",
+        "status_code": "3",
+        "detail_code": "3",
+        "status": "Finished",
         "note": null,
-        "round_code": "1",
+        "round_code": "3",
         "home_player": {
             "name": "Bouzas Maneiro J.",
             "short_name": "BOU",
             "id": "Gj20DdaG",
             "slug": "bouzas-maneiro-jessica",
             "country": "Spain",
-            "sets_won": null
+            "sets_won": 0
         },
         "away_player": {
             "name": "Keys M.",
@@ -1858,10 +2052,19 @@
             "id": "QwU996PK",
             "slug": "keys-madison",
             "country": "USA",
-            "sets_won": null
+            "sets_won": 2
         },
-        "winner": null,
-        "set_scores": [],
+        "winner": 2,
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
         "tournament": {
             "name": "WTA - SINGLES: Eastbourne (United Kingdom), grass",
             "id": "zNN5gcO1",
@@ -1873,20 +2076,20 @@
     },
     {
         "match_id": "OhNj0EGr",
-        "timestamp": 1782295200,
-        "date_utc": "2026-06-24T10:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "timestamp": 1782295500,
+        "date_utc": "2026-06-24T10:05:00+00:00",
+        "status_code": "3",
+        "detail_code": "3",
+        "status": "Finished",
         "note": null,
-        "round_code": "1",
+        "round_code": "3",
         "home_player": {
             "name": "Maria T.",
             "short_name": "MAR",
             "id": "OGYNaUZG",
             "slug": "maria-tatjana",
             "country": "Germany",
-            "sets_won": null
+            "sets_won": 2
         },
         "away_player": {
             "name": "Zakharova A.",
@@ -1894,10 +2097,64 @@
             "id": "pQGynuhR",
             "slug": "zakharova-anastasia",
             "country": "World",
-            "sets_won": null
+            "sets_won": 0
+        },
+        "winner": 1,
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "tournament": {
+            "name": "WTA - SINGLES: Eastbourne (United Kingdom), grass",
+            "id": "zNN5gcO1",
+            "country_id": "3473164",
+            "category_id": "E14kuTcD",
+            "url": "/tennis/wta-singles/eastbourne/",
+            "gender": "Singles"
+        }
+    },
+    {
+        "match_id": "hGcMBp4j",
+        "timestamp": 1782299700,
+        "date_utc": "2026-06-24T11:15:00+00:00",
+        "status_code": "2",
+        "detail_code": "18",
+        "status": "Live (Set 2)",
+        "note": null,
+        "round_code": "2",
+        "home_player": {
+            "name": "Ostapenko J.",
+            "short_name": "OST",
+            "id": "Gloq9MUN",
+            "slug": "ostapenko-jelena",
+            "country": "Latvia",
+            "sets_won": 0
+        },
+        "away_player": {
+            "name": "Udvardy P.",
+            "short_name": "UDV",
+            "id": "bLI5Djkk",
+            "slug": "udvardy-panna",
+            "country": "Hungary",
+            "sets_won": 1
         },
         "winner": null,
-        "set_scores": [],
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "0",
+                "away": "0"
+            }
+        ],
         "tournament": {
             "name": "WTA - SINGLES: Eastbourne (United Kingdom), grass",
             "id": "zNN5gcO1",
@@ -1911,18 +2168,18 @@
         "match_id": "dYgpNN5c",
         "timestamp": 1782300600,
         "date_utc": "2026-06-24T11:30:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "status_code": "2",
+        "detail_code": "17",
+        "status": "Live (Set 1)",
         "note": null,
-        "round_code": "1",
+        "round_code": "2",
         "home_player": {
             "name": "Kessler M.",
             "short_name": "KES",
             "id": "dMopwFzs",
             "slug": "kessler-mccartney",
             "country": "USA",
-            "sets_won": null
+            "sets_won": 0
         },
         "away_player": {
             "name": "Kalinina A.",
@@ -1930,46 +2187,15 @@
             "id": "zNoTPac0",
             "slug": "kalinina-anhelina",
             "country": "Ukraine",
-            "sets_won": null
+            "sets_won": 0
         },
         "winner": null,
-        "set_scores": [],
-        "tournament": {
-            "name": "WTA - SINGLES: Eastbourne (United Kingdom), grass",
-            "id": "zNN5gcO1",
-            "country_id": "3473164",
-            "category_id": "E14kuTcD",
-            "url": "/tennis/wta-singles/eastbourne/",
-            "gender": "Singles"
-        }
-    },
-    {
-        "match_id": "hGcMBp4j",
-        "timestamp": 1782300600,
-        "date_utc": "2026-06-24T11:30:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
-        "home_player": {
-            "name": "Ostapenko J.",
-            "short_name": "OST",
-            "id": "Gloq9MUN",
-            "slug": "ostapenko-jelena",
-            "country": "Latvia",
-            "sets_won": null
-        },
-        "away_player": {
-            "name": "Udvardy P.",
-            "short_name": "UDV",
-            "id": "bLI5Djkk",
-            "slug": "udvardy-panna",
-            "country": "Hungary",
-            "sets_won": null
-        },
-        "winner": null,
-        "set_scores": [],
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "2"
+            }
+        ],
         "tournament": {
             "name": "WTA - SINGLES: Eastbourne (United Kingdom), grass",
             "id": "zNN5gcO1",
@@ -1981,20 +2207,20 @@
     },
     {
         "match_id": "K2aeOIG8",
-        "timestamp": 1782300600,
-        "date_utc": "2026-06-24T11:30:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "timestamp": 1782301500,
+        "date_utc": "2026-06-24T11:45:00+00:00",
+        "status_code": "2",
+        "detail_code": "17",
+        "status": "Live (Set 1)",
         "note": null,
-        "round_code": "1",
+        "round_code": "2",
         "home_player": {
             "name": "Valentova T.",
             "short_name": "VAL",
             "id": "hWMZK1VQ",
             "slug": "valentova-tereza",
             "country": "Czech Republic",
-            "sets_won": null
+            "sets_won": 0
         },
         "away_player": {
             "name": "Tomljanovic A.",
@@ -2002,10 +2228,15 @@
             "id": "hAR7VtG4",
             "slug": "tomljanovic-ajla",
             "country": "Australia",
-            "sets_won": null
+            "sets_won": 0
         },
         "winner": null,
-        "set_scores": [],
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "1"
+            }
+        ],
         "tournament": {
             "name": "WTA - SINGLES: Eastbourne (United Kingdom), grass",
             "id": "zNN5gcO1",
@@ -2017,8 +2248,8 @@
     },
     {
         "match_id": "6oK7oJmo",
-        "timestamp": 1782306000,
-        "date_utc": "2026-06-24T13:00:00+00:00",
+        "timestamp": 1782306900,
+        "date_utc": "2026-06-24T13:15:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -2053,8 +2284,8 @@
     },
     {
         "match_id": "fVIpaBE7",
-        "timestamp": 1782307800,
-        "date_utc": "2026-06-24T13:30:00+00:00",
+        "timestamp": 1782308700,
+        "date_utc": "2026-06-24T13:45:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -2089,8 +2320,8 @@
     },
     {
         "match_id": "rRiyVRQb",
-        "timestamp": 1782313200,
-        "date_utc": "2026-06-24T15:00:00+00:00",
+        "timestamp": 1782314100,
+        "date_utc": "2026-06-24T15:15:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -2125,20 +2356,20 @@
     },
     {
         "match_id": "t0UBjkVQ",
-        "timestamp": 1782295200,
-        "date_utc": "2026-06-24T10:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
+        "timestamp": 1782295500,
+        "date_utc": "2026-06-24T10:05:00+00:00",
+        "status_code": "3",
+        "detail_code": "36",
+        "status": "Finished",
+        "note": "Interrupted due to heat. Interrupted due to\ntechnical problems.",
+        "round_code": "2",
         "home_player": {
             "name": "Adeshina E.",
             "short_name": "ADE",
             "id": "4EujnrQm",
             "slug": "adeshina-esther",
             "country": "United Kingdom",
-            "sets_won": null
+            "sets_won": 0
         },
         "away_player": {
             "name": "Tan H.",
@@ -2146,118 +2377,19 @@
             "id": "vqOqBe0i",
             "slug": "tan-harmony",
             "country": "France",
-            "sets_won": null
+            "sets_won": 1
         },
         "winner": null,
-        "set_scores": [],
-        "tournament": {
-            "name": "WTA - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
-            "id": "hl1W8RZs",
-            "country_id": "3473164",
-            "category_id": "pvUyZKsS",
-            "url": "/tennis/wta-singles/wimbledon/",
-            "gender": "Singles"
-        }
-    },
-    {
-        "match_id": "Y55WCi0l",
-        "timestamp": 1782295200,
-        "date_utc": "2026-06-24T10:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
-        "home_player": {
-            "name": "Garland J.",
-            "short_name": "GAR",
-            "id": "nLHKqCzb",
-            "slug": "garland-joanna",
-            "country": "Taiwan",
-            "sets_won": null
-        },
-        "away_player": {
-            "name": "Grant T. C.",
-            "short_name": "GRA",
-            "id": "KECg1Jfi",
-            "slug": "grant-tyra-caterina",
-            "country": "Italy",
-            "sets_won": null
-        },
-        "winner": null,
-        "set_scores": [],
-        "tournament": {
-            "name": "WTA - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
-            "id": "hl1W8RZs",
-            "country_id": "3473164",
-            "category_id": "pvUyZKsS",
-            "url": "/tennis/wta-singles/wimbledon/",
-            "gender": "Singles"
-        }
-    },
-    {
-        "match_id": "2yfxVnS9",
-        "timestamp": 1782295200,
-        "date_utc": "2026-06-24T10:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
-        "home_player": {
-            "name": "Sawangkaew M.",
-            "short_name": "SAW",
-            "id": "AFSnl5ye",
-            "slug": "sawangkaew-mananchaya",
-            "country": "Thailand",
-            "sets_won": null
-        },
-        "away_player": {
-            "name": "Stoiana M.",
-            "short_name": "STO",
-            "id": "K6fgsbWR",
-            "slug": "stoiana-mary",
-            "country": "USA",
-            "sets_won": null
-        },
-        "winner": null,
-        "set_scores": [],
-        "tournament": {
-            "name": "WTA - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
-            "id": "hl1W8RZs",
-            "country_id": "3473164",
-            "category_id": "pvUyZKsS",
-            "url": "/tennis/wta-singles/wimbledon/",
-            "gender": "Singles"
-        }
-    },
-    {
-        "match_id": "pvWC5Bs1",
-        "timestamp": 1782295200,
-        "date_utc": "2026-06-24T10:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
-        "home_player": {
-            "name": "Sebov K.",
-            "short_name": "SEB",
-            "id": "p2l29WXE",
-            "slug": "sebov-katherine",
-            "country": "Canada",
-            "sets_won": null
-        },
-        "away_player": {
-            "name": "Noha Akugue N.",
-            "short_name": "NOH",
-            "id": "IyMCDvw8",
-            "slug": "akugue-noha-noma",
-            "country": "Germany",
-            "sets_won": null
-        },
-        "winner": null,
-        "set_scores": [],
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "5"
+            }
+        ],
         "tournament": {
             "name": "WTA - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
             "id": "hl1W8RZs",
@@ -2269,20 +2401,20 @@
     },
     {
         "match_id": "Eq7n99aD",
-        "timestamp": 1782295200,
-        "date_utc": "2026-06-24T10:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
+        "timestamp": 1782295500,
+        "date_utc": "2026-06-24T10:05:00+00:00",
+        "status_code": "3",
+        "detail_code": "36",
+        "status": "Finished",
+        "note": "Interrupted due to heat. Interrupted due to\ntechnical problems.",
+        "round_code": "2",
         "home_player": {
             "name": "Shymanovich I.",
             "short_name": "SHY",
             "id": "l21IOgts",
             "slug": "shymanovich-iryna",
             "country": "World",
-            "sets_won": null
+            "sets_won": 1
         },
         "away_player": {
             "name": "Minnen G.",
@@ -2290,10 +2422,19 @@
             "id": "QoLeDQFG",
             "slug": "minnen-greetje",
             "country": "Belgium",
-            "sets_won": null
+            "sets_won": 0
         },
         "winner": null,
-        "set_scores": [],
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "0",
+                "away": "1"
+            }
+        ],
         "tournament": {
             "name": "WTA - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
             "id": "hl1W8RZs",
@@ -2305,20 +2446,20 @@
     },
     {
         "match_id": "6VyZCgkR",
-        "timestamp": 1782295200,
-        "date_utc": "2026-06-24T10:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
+        "timestamp": 1782295500,
+        "date_utc": "2026-06-24T10:05:00+00:00",
+        "status_code": "3",
+        "detail_code": "36",
+        "status": "Finished",
+        "note": "Interrupted due to heat. Interrupted due to\ntechnical problems.",
+        "round_code": "2",
         "home_player": {
             "name": "Sun L.",
             "short_name": "SUN",
             "id": "MewU5OwE",
             "slug": "radovcic-lulu",
             "country": "New Zealand",
-            "sets_won": null
+            "sets_won": 0
         },
         "away_player": {
             "name": "Dodin O.",
@@ -2326,10 +2467,150 @@
             "id": "8fh5VQUc",
             "slug": "dodin-oceane",
             "country": "France",
-            "sets_won": null
+            "sets_won": 0
         },
         "winner": null,
-        "set_scores": [],
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "6"
+            }
+        ],
+        "tournament": {
+            "name": "WTA - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
+            "id": "hl1W8RZs",
+            "country_id": "3473164",
+            "category_id": "pvUyZKsS",
+            "url": "/tennis/wta-singles/wimbledon/",
+            "gender": "Singles"
+        }
+    },
+    {
+        "match_id": "Y55WCi0l",
+        "timestamp": 1782295800,
+        "date_utc": "2026-06-24T10:10:00+00:00",
+        "status_code": "3",
+        "detail_code": "36",
+        "status": "Finished",
+        "note": "Interrupted due to heat. Interrupted due to\ntechnical problems.",
+        "round_code": "2",
+        "home_player": {
+            "name": "Garland J.",
+            "short_name": "GAR",
+            "id": "nLHKqCzb",
+            "slug": "garland-joanna",
+            "country": "Taiwan",
+            "sets_won": 0
+        },
+        "away_player": {
+            "name": "Grant T. C.",
+            "short_name": "GRA",
+            "id": "KECg1Jfi",
+            "slug": "grant-tyra-caterina",
+            "country": "Italy",
+            "sets_won": 1
+        },
+        "winner": null,
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "1"
+            }
+        ],
+        "tournament": {
+            "name": "WTA - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
+            "id": "hl1W8RZs",
+            "country_id": "3473164",
+            "category_id": "pvUyZKsS",
+            "url": "/tennis/wta-singles/wimbledon/",
+            "gender": "Singles"
+        }
+    },
+    {
+        "match_id": "2yfxVnS9",
+        "timestamp": 1782295800,
+        "date_utc": "2026-06-24T10:10:00+00:00",
+        "status_code": "3",
+        "detail_code": "36",
+        "status": "Finished",
+        "note": "Interrupted due to heat. Interrupted due to\ntechnical problems.",
+        "round_code": "2",
+        "home_player": {
+            "name": "Sawangkaew M.",
+            "short_name": "SAW",
+            "id": "AFSnl5ye",
+            "slug": "sawangkaew-mananchaya",
+            "country": "Thailand",
+            "sets_won": 0
+        },
+        "away_player": {
+            "name": "Stoiana M.",
+            "short_name": "STO",
+            "id": "K6fgsbWR",
+            "slug": "stoiana-mary",
+            "country": "USA",
+            "sets_won": 1
+        },
+        "winner": null,
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "0"
+            }
+        ],
+        "tournament": {
+            "name": "WTA - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
+            "id": "hl1W8RZs",
+            "country_id": "3473164",
+            "category_id": "pvUyZKsS",
+            "url": "/tennis/wta-singles/wimbledon/",
+            "gender": "Singles"
+        }
+    },
+    {
+        "match_id": "pvWC5Bs1",
+        "timestamp": 1782295800,
+        "date_utc": "2026-06-24T10:10:00+00:00",
+        "status_code": "3",
+        "detail_code": "36",
+        "status": "Finished",
+        "note": "Interrupted due to heat. Interrupted due to\ntechnical problems.",
+        "round_code": "2",
+        "home_player": {
+            "name": "Sebov K.",
+            "short_name": "SEB",
+            "id": "p2l29WXE",
+            "slug": "sebov-katherine",
+            "country": "Canada",
+            "sets_won": 1
+        },
+        "away_player": {
+            "name": "Noha Akugue N.",
+            "short_name": "NOH",
+            "id": "IyMCDvw8",
+            "slug": "akugue-noha-noma",
+            "country": "Germany",
+            "sets_won": 0
+        },
+        "winner": null,
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "1",
+                "away": "3"
+            }
+        ],
         "tournament": {
             "name": "WTA - SINGLES: Wimbledon (United Kingdom) - Qualification, grass",
             "id": "hl1W8RZs",
@@ -2341,8 +2622,8 @@
     },
     {
         "match_id": "4ER2ByA7",
-        "timestamp": 1782300600,
-        "date_utc": "2026-06-24T11:30:00+00:00",
+        "timestamp": 1782304200,
+        "date_utc": "2026-06-24T12:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -2377,8 +2658,8 @@
     },
     {
         "match_id": "tY1UoIoK",
-        "timestamp": 1782300600,
-        "date_utc": "2026-06-24T11:30:00+00:00",
+        "timestamp": 1782304200,
+        "date_utc": "2026-06-24T12:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -2413,8 +2694,8 @@
     },
     {
         "match_id": "ljTeHNb3",
-        "timestamp": 1782300600,
-        "date_utc": "2026-06-24T11:30:00+00:00",
+        "timestamp": 1782304200,
+        "date_utc": "2026-06-24T12:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -2449,8 +2730,8 @@
     },
     {
         "match_id": "MFwY2e4L",
-        "timestamp": 1782300600,
-        "date_utc": "2026-06-24T11:30:00+00:00",
+        "timestamp": 1782304200,
+        "date_utc": "2026-06-24T12:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -2485,8 +2766,8 @@
     },
     {
         "match_id": "EVqWrzDk",
-        "timestamp": 1782300600,
-        "date_utc": "2026-06-24T11:30:00+00:00",
+        "timestamp": 1782304200,
+        "date_utc": "2026-06-24T12:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -2521,8 +2802,8 @@
     },
     {
         "match_id": "65A170A4",
-        "timestamp": 1782300600,
-        "date_utc": "2026-06-24T11:30:00+00:00",
+        "timestamp": 1782304200,
+        "date_utc": "2026-06-24T12:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -2557,8 +2838,8 @@
     },
     {
         "match_id": "S2VKhfZp",
-        "timestamp": 1782306000,
-        "date_utc": "2026-06-24T13:00:00+00:00",
+        "timestamp": 1782309600,
+        "date_utc": "2026-06-24T14:00:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -2593,8 +2874,8 @@
     },
     {
         "match_id": "xfdN0ehd",
-        "timestamp": 1782306000,
-        "date_utc": "2026-06-24T13:00:00+00:00",
+        "timestamp": 1782309600,
+        "date_utc": "2026-06-24T14:00:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -2629,8 +2910,8 @@
     },
     {
         "match_id": "CGh0td9s",
-        "timestamp": 1782306000,
-        "date_utc": "2026-06-24T13:00:00+00:00",
+        "timestamp": 1782309600,
+        "date_utc": "2026-06-24T14:00:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -2665,8 +2946,8 @@
     },
     {
         "match_id": "lYs2rDF8",
-        "timestamp": 1782306000,
-        "date_utc": "2026-06-24T13:00:00+00:00",
+        "timestamp": 1782309600,
+        "date_utc": "2026-06-24T14:00:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -2701,8 +2982,8 @@
     },
     {
         "match_id": "QDgAApHi",
-        "timestamp": 1782311400,
-        "date_utc": "2026-06-24T14:30:00+00:00",
+        "timestamp": 1782315000,
+        "date_utc": "2026-06-24T15:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -2737,8 +3018,8 @@
     },
     {
         "match_id": "GvjqT5eB",
-        "timestamp": 1782311400,
-        "date_utc": "2026-06-24T14:30:00+00:00",
+        "timestamp": 1782315000,
+        "date_utc": "2026-06-24T15:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -2773,8 +3054,8 @@
     },
     {
         "match_id": "KSxEWaJ0",
-        "timestamp": 1782311400,
-        "date_utc": "2026-06-24T14:30:00+00:00",
+        "timestamp": 1782315000,
+        "date_utc": "2026-06-24T15:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -2809,8 +3090,8 @@
     },
     {
         "match_id": "jcWyy0hd",
-        "timestamp": 1782311400,
-        "date_utc": "2026-06-24T14:30:00+00:00",
+        "timestamp": 1782315000,
+        "date_utc": "2026-06-24T15:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -2845,8 +3126,8 @@
     },
     {
         "match_id": "Kb3Iz1d2",
-        "timestamp": 1782311400,
-        "date_utc": "2026-06-24T14:30:00+00:00",
+        "timestamp": 1782315000,
+        "date_utc": "2026-06-24T15:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -2881,8 +3162,8 @@
     },
     {
         "match_id": "O0PMfBuC",
-        "timestamp": 1782311400,
-        "date_utc": "2026-06-24T14:30:00+00:00",
+        "timestamp": 1782315000,
+        "date_utc": "2026-06-24T15:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -2917,8 +3198,8 @@
     },
     {
         "match_id": "CMoKPVvn",
-        "timestamp": 1782311400,
-        "date_utc": "2026-06-24T14:30:00+00:00",
+        "timestamp": 1782315000,
+        "date_utc": "2026-06-24T15:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -2953,8 +3234,8 @@
     },
     {
         "match_id": "xnIooaYg",
-        "timestamp": 1782311400,
-        "date_utc": "2026-06-24T14:30:00+00:00",
+        "timestamp": 1782315000,
+        "date_utc": "2026-06-24T15:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -2989,8 +3270,8 @@
     },
     {
         "match_id": "xr2ZLmvB",
-        "timestamp": 1782311400,
-        "date_utc": "2026-06-24T14:30:00+00:00",
+        "timestamp": 1782315000,
+        "date_utc": "2026-06-24T15:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -3025,8 +3306,8 @@
     },
     {
         "match_id": "C2Z5YLll",
-        "timestamp": 1782311400,
-        "date_utc": "2026-06-24T14:30:00+00:00",
+        "timestamp": 1782315000,
+        "date_utc": "2026-06-24T15:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -3061,8 +3342,8 @@
     },
     {
         "match_id": "Yk3kXeQj",
-        "timestamp": 1782311400,
-        "date_utc": "2026-06-24T14:30:00+00:00",
+        "timestamp": 1782315000,
+        "date_utc": "2026-06-24T15:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -3097,8 +3378,8 @@
     },
     {
         "match_id": "p85sKR8N",
-        "timestamp": 1782311400,
-        "date_utc": "2026-06-24T14:30:00+00:00",
+        "timestamp": 1782315000,
+        "date_utc": "2026-06-24T15:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -3133,8 +3414,8 @@
     },
     {
         "match_id": "vyvjp4V9",
-        "timestamp": 1782311400,
-        "date_utc": "2026-06-24T14:30:00+00:00",
+        "timestamp": 1782315000,
+        "date_utc": "2026-06-24T15:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -3169,8 +3450,8 @@
     },
     {
         "match_id": "dYyclf0k",
-        "timestamp": 1782311400,
-        "date_utc": "2026-06-24T14:30:00+00:00",
+        "timestamp": 1782315000,
+        "date_utc": "2026-06-24T15:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -3205,8 +3486,8 @@
     },
     {
         "match_id": "tOx5bfjK",
-        "timestamp": 1782311400,
-        "date_utc": "2026-06-24T14:30:00+00:00",
+        "timestamp": 1782315000,
+        "date_utc": "2026-06-24T15:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -3241,8 +3522,8 @@
     },
     {
         "match_id": "MyBWME6E",
-        "timestamp": 1782311400,
-        "date_utc": "2026-06-24T14:30:00+00:00",
+        "timestamp": 1782315000,
+        "date_utc": "2026-06-24T15:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -3277,20 +3558,20 @@
     },
     {
         "match_id": "jopf7PDc",
-        "timestamp": 1782295200,
-        "date_utc": "2026-06-24T10:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "timestamp": 1782295500,
+        "date_utc": "2026-06-24T10:05:00+00:00",
+        "status_code": "3",
+        "detail_code": "3",
+        "status": "Finished",
         "note": null,
-        "round_code": "1",
+        "round_code": "3",
         "home_player": {
             "name": "Bhambri Y./Venus M.",
             "short_name": "GUI",
             "id": "0dIN6cMO/KQxK9dVk",
             "slug": "bhambri-yuki",
             "country": "India",
-            "sets_won": null
+            "sets_won": 0
         },
         "away_player": {
             "name": "Andreozzi G./Guinard M.",
@@ -3298,10 +3579,19 @@
             "id": "Yi4YPuke/jsEQiWCq",
             "slug": "andreozzi-guido",
             "country": "Argentina",
-            "sets_won": null
+            "sets_won": 2
         },
-        "winner": null,
-        "set_scores": [],
+        "winner": 2,
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
         "tournament": {
             "name": "ATP - DOUBLES: Eastbourne (United Kingdom), grass",
             "id": "t0O1fw9e",
@@ -3313,13 +3603,13 @@
     },
     {
         "match_id": "tW8vBVU0",
-        "timestamp": 1782300600,
-        "date_utc": "2026-06-24T11:30:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "timestamp": 1782301500,
+        "date_utc": "2026-06-24T11:45:00+00:00",
+        "status_code": "3",
+        "detail_code": "9",
+        "status": "Finished",
         "note": null,
-        "round_code": "1",
+        "round_code": "3",
         "home_player": {
             "name": "Nys H./Roger-Vasselin E.",
             "short_name": "SAL",
@@ -3336,7 +3626,7 @@
             "country": "USA",
             "sets_won": null
         },
-        "winner": null,
+        "winner": 1,
         "set_scores": [],
         "tournament": {
             "name": "ATP - DOUBLES: Eastbourne (United Kingdom), grass",
@@ -3421,20 +3711,20 @@
     },
     {
         "match_id": "zT0ebbCl",
-        "timestamp": 1782295200,
-        "date_utc": "2026-06-24T10:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "timestamp": 1782295800,
+        "date_utc": "2026-06-24T10:10:00+00:00",
+        "status_code": "2",
+        "detail_code": "18",
+        "status": "Live (Set 2)",
         "note": null,
-        "round_code": "1",
+        "round_code": "2",
         "home_player": {
             "name": "Gonzalez M./Gonzalez S.",
             "short_name": "PEL",
             "id": "IHpNzfLP/nJMJsuq6",
             "slug": "gonzalez-maximo",
             "country": "Argentina",
-            "sets_won": null
+            "sets_won": 1
         },
         "away_player": {
             "name": "Arends S./Pel D.",
@@ -3442,10 +3732,19 @@
             "id": "bqQtB0Na/tSxO13Qj",
             "slug": "arends-sander",
             "country": "Netherlands",
-            "sets_won": null
+            "sets_won": 0
         },
         "winner": null,
-        "set_scores": [],
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "5"
+            }
+        ],
         "tournament": {
             "name": "ATP - DOUBLES: Mallorca (Spain), grass",
             "id": "O6xmp7yl",
@@ -3457,8 +3756,8 @@
     },
     {
         "match_id": "QZOVswS7",
-        "timestamp": 1782300600,
-        "date_utc": "2026-06-24T11:30:00+00:00",
+        "timestamp": 1782302400,
+        "date_utc": "2026-06-24T12:00:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -3493,8 +3792,8 @@
     },
     {
         "match_id": "hMQNqace",
-        "timestamp": 1782300600,
-        "date_utc": "2026-06-24T11:30:00+00:00",
+        "timestamp": 1782303000,
+        "date_utc": "2026-06-24T12:10:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -3529,8 +3828,8 @@
     },
     {
         "match_id": "WWBH5tKE",
-        "timestamp": 1782306000,
-        "date_utc": "2026-06-24T13:00:00+00:00",
+        "timestamp": 1782307800,
+        "date_utc": "2026-06-24T13:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -3565,20 +3864,20 @@
     },
     {
         "match_id": "YcuqRzZo",
-        "timestamp": 1782291600,
-        "date_utc": "2026-06-24T09:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "timestamp": 1782292200,
+        "date_utc": "2026-06-24T09:10:00+00:00",
+        "status_code": "3",
+        "detail_code": "3",
+        "status": "Finished",
         "note": null,
-        "round_code": "1",
+        "round_code": "3",
         "home_player": {
             "name": "Hsieh S-W./Wang Xin.",
             "short_name": "GLE",
             "id": "8jMJmh84/xEwwLD1l",
             "slug": "hsieh-su-wei",
             "country": "Taiwan",
-            "sets_won": null
+            "sets_won": 2
         },
         "away_player": {
             "name": "Eikeri U./Gleason Q.",
@@ -3586,10 +3885,19 @@
             "id": "GUlv5xbO/YTIjgkce",
             "slug": "eikeri-ulrikke",
             "country": "Norway",
-            "sets_won": null
+            "sets_won": 0
         },
-        "winner": null,
-        "set_scores": [],
+        "winner": 1,
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
         "tournament": {
             "name": "WTA - DOUBLES: Bad Homburg (Germany), grass",
             "id": "OMZrtcpN",
@@ -3601,8 +3909,8 @@
     },
     {
         "match_id": "M1p7LW2N",
-        "timestamp": 1782302400,
-        "date_utc": "2026-06-24T12:00:00+00:00",
+        "timestamp": 1782304200,
+        "date_utc": "2026-06-24T12:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -3709,20 +4017,20 @@
     },
     {
         "match_id": "KIaq8Fqf",
-        "timestamp": 1782295200,
-        "date_utc": "2026-06-24T10:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "timestamp": 1782295500,
+        "date_utc": "2026-06-24T10:05:00+00:00",
+        "status_code": "3",
+        "detail_code": "3",
+        "status": "Finished",
         "note": null,
-        "round_code": "1",
+        "round_code": "3",
         "home_player": {
             "name": "Dabrowski G./Stefani L.",
             "short_name": "RAK",
             "id": "0K1SsbQq/MqZumFll",
             "slug": "dabrowski-gabriela",
             "country": "Canada",
-            "sets_won": null
+            "sets_won": 2
         },
         "away_player": {
             "name": "Kato M./Rakhimova K.",
@@ -3730,10 +4038,19 @@
             "id": "boU2UKtN/raRNE2Fn",
             "slug": "kato-miyu",
             "country": "Japan",
-            "sets_won": null
+            "sets_won": 0
         },
-        "winner": null,
-        "set_scores": [],
+        "winner": 1,
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
         "tournament": {
             "name": "WTA - DOUBLES: Eastbourne (United Kingdom), grass",
             "id": "ncR9hHw8",
@@ -3745,8 +4062,8 @@
     },
     {
         "match_id": "2DiBxDT0",
-        "timestamp": 1782311400,
-        "date_utc": "2026-06-24T14:30:00+00:00",
+        "timestamp": 1782312300,
+        "date_utc": "2026-06-24T14:45:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -4398,20 +4715,20 @@
     },
     {
         "match_id": "xnC6HVcf",
-        "timestamp": 1782291600,
-        "date_utc": "2026-06-24T09:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "timestamp": 1782292200,
+        "date_utc": "2026-06-24T09:10:00+00:00",
+        "status_code": "3",
+        "detail_code": "3",
+        "status": "Finished",
         "note": null,
-        "round_code": "1",
+        "round_code": "3",
         "home_player": {
             "name": "Martineau M.",
             "short_name": "MAR",
             "id": "IDkmT0Hj",
             "slug": "martineau-matteo",
             "country": "France",
-            "sets_won": null
+            "sets_won": 0
         },
         "away_player": {
             "name": "Nesterov P.",
@@ -4419,10 +4736,19 @@
             "id": "OvQcnjPp",
             "slug": "nesterov-petr",
             "country": "Bulgaria",
-            "sets_won": null
+            "sets_won": 2
         },
-        "winner": null,
-        "set_scores": [],
+        "winner": 2,
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
         "tournament": {
             "name": "CHALLENGER MEN - SINGLES: Plovdiv (Bulgaria), clay",
             "id": "WtnVKKNE",
@@ -4434,20 +4760,20 @@
     },
     {
         "match_id": "MotAtipL",
-        "timestamp": 1782291600,
-        "date_utc": "2026-06-24T09:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "timestamp": 1782293100,
+        "date_utc": "2026-06-24T09:25:00+00:00",
+        "status_code": "3",
+        "detail_code": "3",
+        "status": "Finished",
         "note": null,
-        "round_code": "1",
+        "round_code": "3",
         "home_player": {
             "name": "Santamarta Roig A.",
             "short_name": "SAN",
             "id": "KnnBhEso",
             "slug": "santamarta-roig-andres",
             "country": "Spain",
-            "sets_won": null
+            "sets_won": 2
         },
         "away_player": {
             "name": "Dalla Valle E.",
@@ -4455,10 +4781,19 @@
             "id": "be9jPNnl",
             "slug": "dalla-valle-enrico",
             "country": "Italy",
-            "sets_won": null
+            "sets_won": 0
         },
-        "winner": null,
-        "set_scores": [],
+        "winner": 1,
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
         "tournament": {
             "name": "CHALLENGER MEN - SINGLES: Plovdiv (Bulgaria), clay",
             "id": "WtnVKKNE",
@@ -4470,20 +4805,20 @@
     },
     {
         "match_id": "jcWyiWlD",
-        "timestamp": 1782291600,
-        "date_utc": "2026-06-24T09:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "timestamp": 1782293400,
+        "date_utc": "2026-06-24T09:30:00+00:00",
+        "status_code": "3",
+        "detail_code": "3",
+        "status": "Finished",
         "note": null,
-        "round_code": "1",
+        "round_code": "3",
         "home_player": {
             "name": "Vasa E.",
             "short_name": "VAS",
             "id": "2eEQepaQ",
             "slug": "vasa-eero",
             "country": "Finland",
-            "sets_won": null
+            "sets_won": 1
         },
         "away_player": {
             "name": "Milic O.",
@@ -4491,10 +4826,68 @@
             "id": "06Zumgy7",
             "slug": "milic-ognjen",
             "country": "Serbia",
-            "sets_won": null
+            "sets_won": 2
+        },
+        "winner": 2,
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "tournament": {
+            "name": "CHALLENGER MEN - SINGLES: Plovdiv (Bulgaria), clay",
+            "id": "WtnVKKNE",
+            "country_id": "3473162",
+            "category_id": "K86govPG",
+            "url": "/tennis/challenger-men-singles/plovdiv/",
+            "gender": "Singles"
+        }
+    },
+    {
+        "match_id": "O4aAFWbl",
+        "timestamp": 1782298200,
+        "date_utc": "2026-06-24T10:50:00+00:00",
+        "status_code": "2",
+        "detail_code": "18",
+        "status": "Live (Set 2)",
+        "note": null,
+        "round_code": "2",
+        "home_player": {
+            "name": "Kopp S.",
+            "short_name": "KOP",
+            "id": "juk28X9Q",
+            "slug": "kopp-sandro",
+            "country": "Austria",
+            "sets_won": 1
+        },
+        "away_player": {
+            "name": "Vasilev A.",
+            "short_name": "VAS",
+            "id": "MmYbRkbA",
+            "slug": "vasilev-alexander",
+            "country": "Bulgaria",
+            "sets_won": 0
         },
         "winner": null,
-        "set_scores": [],
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "2",
+                "away": "1"
+            }
+        ],
         "tournament": {
             "name": "CHALLENGER MEN - SINGLES: Plovdiv (Bulgaria), clay",
             "id": "WtnVKKNE",
@@ -4506,20 +4899,20 @@
     },
     {
         "match_id": "fo9V5wGO",
-        "timestamp": 1782297000,
-        "date_utc": "2026-06-24T10:30:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "timestamp": 1782298800,
+        "date_utc": "2026-06-24T11:00:00+00:00",
+        "status_code": "2",
+        "detail_code": "18",
+        "status": "Live (Set 2)",
         "note": null,
-        "round_code": "1",
+        "round_code": "2",
         "home_player": {
             "name": "Berkieta T.",
             "short_name": "BER",
             "id": "nHnrJW55",
             "slug": "berkieta-tomasz",
             "country": "Poland",
-            "sets_won": null
+            "sets_won": 0
         },
         "away_player": {
             "name": "Compagnucci T.",
@@ -4527,10 +4920,19 @@
             "id": "ETKnHZom",
             "slug": "compagnucci-tommaso",
             "country": "Italy",
-            "sets_won": null
+            "sets_won": 1
         },
         "winner": null,
-        "set_scores": [],
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "3"
+            }
+        ],
         "tournament": {
             "name": "CHALLENGER MEN - SINGLES: Plovdiv (Bulgaria), clay",
             "id": "WtnVKKNE",
@@ -4542,8 +4944,8 @@
     },
     {
         "match_id": "n1sbrr0M",
-        "timestamp": 1782297000,
-        "date_utc": "2026-06-24T10:30:00+00:00",
+        "timestamp": 1782302100,
+        "date_utc": "2026-06-24T11:55:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -4577,81 +4979,9 @@
         }
     },
     {
-        "match_id": "O4aAFWbl",
-        "timestamp": 1782297000,
-        "date_utc": "2026-06-24T10:30:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
-        "home_player": {
-            "name": "Kopp S.",
-            "short_name": "KOP",
-            "id": "juk28X9Q",
-            "slug": "kopp-sandro",
-            "country": "Austria",
-            "sets_won": null
-        },
-        "away_player": {
-            "name": "Vasilev A.",
-            "short_name": "VAS",
-            "id": "MmYbRkbA",
-            "slug": "vasilev-alexander",
-            "country": "Bulgaria",
-            "sets_won": null
-        },
-        "winner": null,
-        "set_scores": [],
-        "tournament": {
-            "name": "CHALLENGER MEN - SINGLES: Plovdiv (Bulgaria), clay",
-            "id": "WtnVKKNE",
-            "country_id": "3473162",
-            "category_id": "K86govPG",
-            "url": "/tennis/challenger-men-singles/plovdiv/",
-            "gender": "Singles"
-        }
-    },
-    {
-        "match_id": "bu7g9Muh",
-        "timestamp": 1782302400,
-        "date_utc": "2026-06-24T12:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
-        "home_player": {
-            "name": "Angelini L.",
-            "short_name": "ANG",
-            "id": "vVczePaE",
-            "slug": "angelini-lorenzo",
-            "country": "Italy",
-            "sets_won": null
-        },
-        "away_player": {
-            "name": "Blanch D.",
-            "short_name": "BLA",
-            "id": "tEewFwuI",
-            "slug": "blanch-dali",
-            "country": "USA",
-            "sets_won": null
-        },
-        "winner": null,
-        "set_scores": [],
-        "tournament": {
-            "name": "CHALLENGER MEN - SINGLES: Plovdiv (Bulgaria), clay",
-            "id": "WtnVKKNE",
-            "country_id": "3473162",
-            "category_id": "K86govPG",
-            "url": "/tennis/challenger-men-singles/plovdiv/",
-            "gender": "Singles"
-        }
-    },
-    {
         "match_id": "bZFmFJAr",
-        "timestamp": 1782302400,
-        "date_utc": "2026-06-24T12:00:00+00:00",
+        "timestamp": 1782303300,
+        "date_utc": "2026-06-24T12:15:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -4685,21 +5015,57 @@
         }
     },
     {
-        "match_id": "EZ9g9D4s",
-        "timestamp": 1782288000,
-        "date_utc": "2026-06-24T08:00:00+00:00",
+        "match_id": "bu7g9Muh",
+        "timestamp": 1782304200,
+        "date_utc": "2026-06-24T12:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
         "note": null,
         "round_code": "1",
         "home_player": {
+            "name": "Angelini L.",
+            "short_name": "ANG",
+            "id": "vVczePaE",
+            "slug": "angelini-lorenzo",
+            "country": "Italy",
+            "sets_won": null
+        },
+        "away_player": {
+            "name": "Blanch D.",
+            "short_name": "BLA",
+            "id": "tEewFwuI",
+            "slug": "blanch-dali",
+            "country": "USA",
+            "sets_won": null
+        },
+        "winner": null,
+        "set_scores": [],
+        "tournament": {
+            "name": "CHALLENGER MEN - SINGLES: Plovdiv (Bulgaria), clay",
+            "id": "WtnVKKNE",
+            "country_id": "3473162",
+            "category_id": "K86govPG",
+            "url": "/tennis/challenger-men-singles/plovdiv/",
+            "gender": "Singles"
+        }
+    },
+    {
+        "match_id": "EZ9g9D4s",
+        "timestamp": 1782288600,
+        "date_utc": "2026-06-24T08:10:00+00:00",
+        "status_code": "3",
+        "detail_code": "3",
+        "status": "Finished",
+        "note": null,
+        "round_code": "3",
+        "home_player": {
             "name": "Guillen Meza A.",
             "short_name": "GUI",
             "id": "6HCUWrxA",
             "slug": "guillen-meza-alvaro",
             "country": "Ecuador",
-            "sets_won": null
+            "sets_won": 0
         },
         "away_player": {
             "name": "Cretu C.",
@@ -4707,10 +5073,19 @@
             "id": "0xqR9dG1",
             "slug": "cretu-cezar",
             "country": "Romania",
-            "sets_won": null
+            "sets_won": 2
         },
-        "winner": null,
-        "set_scores": [],
+        "winner": 2,
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
         "tournament": {
             "name": "CHALLENGER MEN - SINGLES: Targu Mures (Romania), clay",
             "id": "QLhbXmLa",
@@ -4722,20 +5097,20 @@
     },
     {
         "match_id": "K6NupTIG",
-        "timestamp": 1782288000,
-        "date_utc": "2026-06-24T08:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "timestamp": 1782288600,
+        "date_utc": "2026-06-24T08:10:00+00:00",
+        "status_code": "3",
+        "detail_code": "3",
+        "status": "Finished",
         "note": null,
-        "round_code": "1",
+        "round_code": "3",
         "home_player": {
             "name": "McDonald N.",
             "short_name": "MCD",
             "id": "GpliceHb",
             "slug": "mcdonald-niels",
             "country": "Germany",
-            "sets_won": null
+            "sets_won": 2
         },
         "away_player": {
             "name": "Passaro F.",
@@ -4743,46 +5118,23 @@
             "id": "6iHVMexn",
             "slug": "passaro-francesco",
             "country": "Italy",
-            "sets_won": null
+            "sets_won": 1
         },
-        "winner": null,
-        "set_scores": [],
-        "tournament": {
-            "name": "CHALLENGER MEN - SINGLES: Targu Mures (Romania), clay",
-            "id": "QLhbXmLa",
-            "country_id": "3473162",
-            "category_id": "QXwvzNAb",
-            "url": "/tennis/challenger-men-singles/targu-mures/",
-            "gender": "Singles"
-        }
-    },
-    {
-        "match_id": "rszQuqKU",
-        "timestamp": 1782293400,
-        "date_utc": "2026-06-24T09:30:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
-        "home_player": {
-            "name": "Gueymard Wayenburg S.",
-            "short_name": "GUE",
-            "id": "OdbfkgxD",
-            "slug": "gueymard-wayenburg-sascha",
-            "country": "France",
-            "sets_won": null
-        },
-        "away_player": {
-            "name": "Alcala Gurri M.",
-            "short_name": "ALC",
-            "id": "pISmOkA6",
-            "slug": "alcala-gurri-max",
-            "country": "Spain",
-            "sets_won": null
-        },
-        "winner": null,
-        "set_scores": [],
+        "winner": 1,
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
         "tournament": {
             "name": "CHALLENGER MEN - SINGLES: Targu Mures (Romania), clay",
             "id": "QLhbXmLa",
@@ -4794,20 +5146,20 @@
     },
     {
         "match_id": "EczE9bSj",
-        "timestamp": 1782293400,
-        "date_utc": "2026-06-24T09:30:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "timestamp": 1782294300,
+        "date_utc": "2026-06-24T09:45:00+00:00",
+        "status_code": "3",
+        "detail_code": "3",
+        "status": "Finished",
         "note": null,
-        "round_code": "1",
+        "round_code": "3",
         "home_player": {
             "name": "Topo M.",
             "short_name": "TOP",
             "id": "UJf3ehr1",
             "slug": "topo-marko",
             "country": "Germany",
-            "sets_won": null
+            "sets_won": 0
         },
         "away_player": {
             "name": "Krumich M.",
@@ -4815,46 +5167,19 @@
             "id": "WKaCDElC",
             "slug": "krumich-martin",
             "country": "Czech Republic",
-            "sets_won": null
+            "sets_won": 2
         },
-        "winner": null,
-        "set_scores": [],
-        "tournament": {
-            "name": "CHALLENGER MEN - SINGLES: Targu Mures (Romania), clay",
-            "id": "QLhbXmLa",
-            "country_id": "3473162",
-            "category_id": "QXwvzNAb",
-            "url": "/tennis/challenger-men-singles/targu-mures/",
-            "gender": "Singles"
-        }
-    },
-    {
-        "match_id": "pKRriCrf",
-        "timestamp": 1782298800,
-        "date_utc": "2026-06-24T11:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
-        "home_player": {
-            "name": "Ajdukovic D.",
-            "short_name": "AJD",
-            "id": "n11bz7QK",
-            "slug": "ajdukovic-duje",
-            "country": "Croatia",
-            "sets_won": null
-        },
-        "away_player": {
-            "name": "Agamenone F.",
-            "short_name": "AGA",
-            "id": "E9dx5gGD",
-            "slug": "agamenone-franco",
-            "country": "Italy",
-            "sets_won": null
-        },
-        "winner": null,
-        "set_scores": [],
+        "winner": 2,
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
         "tournament": {
             "name": "CHALLENGER MEN - SINGLES: Targu Mures (Romania), clay",
             "id": "QLhbXmLa",
@@ -4866,20 +5191,20 @@
     },
     {
         "match_id": "llMVdsFF",
-        "timestamp": 1782298800,
-        "date_utc": "2026-06-24T11:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "timestamp": 1782299400,
+        "date_utc": "2026-06-24T11:10:00+00:00",
+        "status_code": "2",
+        "detail_code": "18",
+        "status": "Live (Set 2)",
         "note": null,
-        "round_code": "1",
+        "round_code": "2",
         "home_player": {
             "name": "Hassan B.",
             "short_name": "HAS",
             "id": "W66euka4",
             "slug": "hassan-benjamin",
             "country": "Lebanon",
-            "sets_won": null
+            "sets_won": 1
         },
         "away_player": {
             "name": "Nagal S.",
@@ -4887,10 +5212,101 @@
             "id": "46aHbwDc",
             "slug": "nagal-sumit",
             "country": "India",
-            "sets_won": null
+            "sets_won": 0
         },
         "winner": null,
-        "set_scores": [],
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "0",
+                "away": "1"
+            }
+        ],
+        "tournament": {
+            "name": "CHALLENGER MEN - SINGLES: Targu Mures (Romania), clay",
+            "id": "QLhbXmLa",
+            "country_id": "3473162",
+            "category_id": "QXwvzNAb",
+            "url": "/tennis/challenger-men-singles/targu-mures/",
+            "gender": "Singles"
+        }
+    },
+    {
+        "match_id": "rszQuqKU",
+        "timestamp": 1782300600,
+        "date_utc": "2026-06-24T11:30:00+00:00",
+        "status_code": "2",
+        "detail_code": "17",
+        "status": "Live (Set 1)",
+        "note": null,
+        "round_code": "2",
+        "home_player": {
+            "name": "Gueymard Wayenburg S.",
+            "short_name": "GUE",
+            "id": "OdbfkgxD",
+            "slug": "gueymard-wayenburg-sascha",
+            "country": "France",
+            "sets_won": 0
+        },
+        "away_player": {
+            "name": "Alcala Gurri M.",
+            "short_name": "ALC",
+            "id": "pISmOkA6",
+            "slug": "alcala-gurri-max",
+            "country": "Spain",
+            "sets_won": 0
+        },
+        "winner": null,
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "3"
+            }
+        ],
+        "tournament": {
+            "name": "CHALLENGER MEN - SINGLES: Targu Mures (Romania), clay",
+            "id": "QLhbXmLa",
+            "country_id": "3473162",
+            "category_id": "QXwvzNAb",
+            "url": "/tennis/challenger-men-singles/targu-mures/",
+            "gender": "Singles"
+        }
+    },
+    {
+        "match_id": "pKRriCrf",
+        "timestamp": 1782300900,
+        "date_utc": "2026-06-24T11:35:00+00:00",
+        "status_code": "2",
+        "detail_code": "17",
+        "status": "Live (Set 1)",
+        "note": null,
+        "round_code": "2",
+        "home_player": {
+            "name": "Ajdukovic D.",
+            "short_name": "AJD",
+            "id": "n11bz7QK",
+            "slug": "ajdukovic-duje",
+            "country": "Croatia",
+            "sets_won": 0
+        },
+        "away_player": {
+            "name": "Agamenone F.",
+            "short_name": "AGA",
+            "id": "E9dx5gGD",
+            "slug": "agamenone-franco",
+            "country": "Italy",
+            "sets_won": 0
+        },
+        "winner": null,
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "2"
+            }
+        ],
         "tournament": {
             "name": "CHALLENGER MEN - SINGLES: Targu Mures (Romania), clay",
             "id": "QLhbXmLa",
@@ -4902,8 +5318,8 @@
     },
     {
         "match_id": "YgeTMqiS",
-        "timestamp": 1782304200,
-        "date_utc": "2026-06-24T12:30:00+00:00",
+        "timestamp": 1782306000,
+        "date_utc": "2026-06-24T13:00:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -4938,8 +5354,8 @@
     },
     {
         "match_id": "vm4j9uuJ",
-        "timestamp": 1782304200,
-        "date_utc": "2026-06-24T12:30:00+00:00",
+        "timestamp": 1782311100,
+        "date_utc": "2026-06-24T14:25:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -5298,20 +5714,20 @@
     },
     {
         "match_id": "CWMiIGyH",
-        "timestamp": 1782286200,
-        "date_utc": "2026-06-24T07:30:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "timestamp": 1782286800,
+        "date_utc": "2026-06-24T07:40:00+00:00",
+        "status_code": "3",
+        "detail_code": "3",
+        "status": "Finished",
         "note": null,
-        "round_code": "1",
+        "round_code": "3",
         "home_player": {
             "name": "Banthia S./Donski A.",
             "short_name": "GEN",
             "id": "hvM3ptDk/4ve1kpvM",
             "slug": "banthia-siddhant",
             "country": "India",
-            "sets_won": null
+            "sets_won": 0
         },
         "away_player": {
             "name": "Ganchev A./Genov A.",
@@ -5319,10 +5735,19 @@
             "id": "82pryOVp/lWmsER66",
             "slug": "ganchev-alex",
             "country": "Bulgaria",
-            "sets_won": null
+            "sets_won": 2
         },
-        "winner": null,
-        "set_scores": [],
+        "winner": 2,
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
         "tournament": {
             "name": "CHALLENGER MEN - DOUBLES: Plovdiv (Bulgaria), clay",
             "id": "4fpwJbhR",
@@ -5334,20 +5759,20 @@
     },
     {
         "match_id": "zVNd9Lhn",
-        "timestamp": 1782286200,
-        "date_utc": "2026-06-24T07:30:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "timestamp": 1782286800,
+        "date_utc": "2026-06-24T07:40:00+00:00",
+        "status_code": "3",
+        "detail_code": "3",
+        "status": "Finished",
         "note": null,
-        "round_code": "1",
+        "round_code": "3",
         "home_player": {
             "name": "Dev S D P./Sinha N. K.",
             "short_name": "TAJ",
             "id": "nLLCyZOb/bwAEIrYh",
             "slug": "dev-s-d-prajwal",
             "country": "India",
-            "sets_won": null
+            "sets_won": 2
         },
         "away_player": {
             "name": "Sueoka Y./Tajima N.",
@@ -5355,10 +5780,23 @@
             "id": "CO0Fr0PC/UPyeIzoa",
             "slug": "sueoka-yamato",
             "country": "Japan",
-            "sets_won": null
+            "sets_won": 1
         },
-        "winner": null,
-        "set_scores": [],
+        "winner": 1,
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "10",
+                "away": "5"
+            }
+        ],
         "tournament": {
             "name": "CHALLENGER MEN - DOUBLES: Plovdiv (Bulgaria), clay",
             "id": "4fpwJbhR",
@@ -5370,20 +5808,20 @@
     },
     {
         "match_id": "vJOqKx74",
-        "timestamp": 1782286200,
-        "date_utc": "2026-06-24T07:30:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
+        "timestamp": 1782286800,
+        "date_utc": "2026-06-24T07:40:00+00:00",
+        "status_code": "3",
+        "detail_code": "3",
+        "status": "Finished",
         "note": null,
-        "round_code": "1",
+        "round_code": "3",
         "home_player": {
             "name": "Faucon R./Uzhylovskyi V.",
             "short_name": "ZHE",
             "id": "fLC4aV3D/EBx84gHc",
             "slug": "romain-faucon",
             "country": "Belgium",
-            "sets_won": null
+            "sets_won": 1
         },
         "away_player": {
             "name": "Huang T./Zheng B.",
@@ -5391,10 +5829,23 @@
             "id": "hdDp5Q94/AROuX8tf",
             "slug": "huang-tsung-hao",
             "country": "Taiwan",
-            "sets_won": null
+            "sets_won": 2
         },
-        "winner": null,
-        "set_scores": [],
+        "winner": 2,
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "10",
+                "away": "12"
+            }
+        ],
         "tournament": {
             "name": "CHALLENGER MEN - DOUBLES: Plovdiv (Bulgaria), clay",
             "id": "4fpwJbhR",
@@ -5406,8 +5857,8 @@
     },
     {
         "match_id": "G8PC5whB",
-        "timestamp": 1782302400,
-        "date_utc": "2026-06-24T12:00:00+00:00",
+        "timestamp": 1782307200,
+        "date_utc": "2026-06-24T13:20:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -5441,45 +5892,9 @@
         }
     },
     {
-        "match_id": "8GsK3HMN",
-        "timestamp": 1782307800,
-        "date_utc": "2026-06-24T13:30:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
-        "home_player": {
-            "name": "Milev Y./Nesterov P.",
-            "short_name": "VIS",
-            "id": "OvQcnjPp/6HaaZh9U",
-            "slug": "milev-yanaki",
-            "country": "Bulgaria",
-            "sets_won": null
-        },
-        "away_player": {
-            "name": "Jans J./Visker N.",
-            "short_name": "JAN",
-            "id": "trcbXYS8/GhdpAvaF",
-            "slug": "jans-jarno",
-            "country": "Netherlands",
-            "sets_won": null
-        },
-        "winner": null,
-        "set_scores": [],
-        "tournament": {
-            "name": "CHALLENGER MEN - DOUBLES: Plovdiv (Bulgaria), clay",
-            "id": "4fpwJbhR",
-            "country_id": "3473163",
-            "category_id": "hzK0qIgT",
-            "url": "/tennis/challenger-men-doubles/plovdiv/",
-            "gender": "Doubles"
-        }
-    },
-    {
         "match_id": "8rM47aNb",
-        "timestamp": 1782307800,
-        "date_utc": "2026-06-24T13:30:00+00:00",
+        "timestamp": 1782308700,
+        "date_utc": "2026-06-24T13:45:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -5513,21 +5928,57 @@
         }
     },
     {
-        "match_id": "6eNkg92l",
-        "timestamp": 1782291600,
-        "date_utc": "2026-06-24T09:00:00+00:00",
+        "match_id": "8GsK3HMN",
+        "timestamp": 1782309600,
+        "date_utc": "2026-06-24T14:00:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
         "note": null,
         "round_code": "1",
         "home_player": {
+            "name": "Milev Y./Nesterov P.",
+            "short_name": "VIS",
+            "id": "OvQcnjPp/6HaaZh9U",
+            "slug": "milev-yanaki",
+            "country": "Bulgaria",
+            "sets_won": null
+        },
+        "away_player": {
+            "name": "Jans J./Visker N.",
+            "short_name": "JAN",
+            "id": "trcbXYS8/GhdpAvaF",
+            "slug": "jans-jarno",
+            "country": "Netherlands",
+            "sets_won": null
+        },
+        "winner": null,
+        "set_scores": [],
+        "tournament": {
+            "name": "CHALLENGER MEN - DOUBLES: Plovdiv (Bulgaria), clay",
+            "id": "4fpwJbhR",
+            "country_id": "3473163",
+            "category_id": "hzK0qIgT",
+            "url": "/tennis/challenger-men-doubles/plovdiv/",
+            "gender": "Doubles"
+        }
+    },
+    {
+        "match_id": "6eNkg92l",
+        "timestamp": 1782292200,
+        "date_utc": "2026-06-24T09:10:00+00:00",
+        "status_code": "3",
+        "detail_code": "3",
+        "status": "Finished",
+        "note": null,
+        "round_code": "3",
+        "home_player": {
             "name": "Prashanth V./Ramanathan R.",
             "short_name": "MER",
             "id": "WMML87Fg/xxxHS5DA",
             "slug": "prashanth-vijay-sundar",
             "country": "India",
-            "sets_won": null
+            "sets_won": 2
         },
         "away_player": {
             "name": "Isaro P./Merino A.",
@@ -5535,46 +5986,23 @@
             "id": "pfwxqAHb/vRIvDgPC",
             "slug": "isaro-pruchya",
             "country": "Thailand",
-            "sets_won": null
+            "sets_won": 1
         },
-        "winner": null,
-        "set_scores": [],
-        "tournament": {
-            "name": "CHALLENGER MEN - DOUBLES: Targu Mures (Romania), clay",
-            "id": "nys7VRkC",
-            "country_id": "3473163",
-            "category_id": "xG5fY0uB",
-            "url": "/tennis/challenger-men-doubles/targu-mures/",
-            "gender": "Doubles"
-        }
-    },
-    {
-        "match_id": "APyKbVvR",
-        "timestamp": 1782298800,
-        "date_utc": "2026-06-24T11:00:00+00:00",
-        "status_code": "1",
-        "detail_code": "1",
-        "status": "Not Started",
-        "note": null,
-        "round_code": "1",
-        "home_player": {
-            "name": "Cretu C./Papoe R. M.",
-            "short_name": "HAI",
-            "id": "84miaY3T/0xqR9dG1",
-            "slug": "cretu-cezar",
-            "country": "Romania",
-            "sets_won": null
-        },
-        "away_player": {
-            "name": "Albot R./Haita S. H.",
-            "short_name": "ALB",
-            "id": "WALDYu9U/OnoPKE7m",
-            "slug": "albot-radu",
-            "country": "Moldova",
-            "sets_won": null
-        },
-        "winner": null,
-        "set_scores": [],
+        "winner": 1,
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "10",
+                "away": "6"
+            }
+        ],
         "tournament": {
             "name": "CHALLENGER MEN - DOUBLES: Targu Mures (Romania), clay",
             "id": "nys7VRkC",
@@ -5607,6 +6035,42 @@
             "id": "hpXh1pE5/tMTm47i0",
             "slug": "castelnuovo-luca",
             "country": "Switzerland",
+            "sets_won": null
+        },
+        "winner": null,
+        "set_scores": [],
+        "tournament": {
+            "name": "CHALLENGER MEN - DOUBLES: Targu Mures (Romania), clay",
+            "id": "nys7VRkC",
+            "country_id": "3473163",
+            "category_id": "xG5fY0uB",
+            "url": "/tennis/challenger-men-doubles/targu-mures/",
+            "gender": "Doubles"
+        }
+    },
+    {
+        "match_id": "APyKbVvR",
+        "timestamp": 1782305700,
+        "date_utc": "2026-06-24T12:55:00+00:00",
+        "status_code": "1",
+        "detail_code": "1",
+        "status": "Not Started",
+        "note": null,
+        "round_code": "1",
+        "home_player": {
+            "name": "Cretu C./Papoe R. M.",
+            "short_name": "HAI",
+            "id": "84miaY3T/0xqR9dG1",
+            "slug": "cretu-cezar",
+            "country": "Romania",
+            "sets_won": null
+        },
+        "away_player": {
+            "name": "Albot R./Haita S. H.",
+            "short_name": "ALB",
+            "id": "WALDYu9U/OnoPKE7m",
+            "slug": "albot-radu",
+            "country": "Moldova",
             "sets_won": null
         },
         "winner": null,
@@ -5693,28 +6157,28 @@
         }
     },
     {
-        "match_id": "CCGiDUgK",
-        "timestamp": 1782309600,
-        "date_utc": "2026-06-24T14:00:00+00:00",
+        "match_id": "OY8w4QG6",
+        "timestamp": 1782311400,
+        "date_utc": "2026-06-24T14:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
         "note": null,
         "round_code": "1",
         "home_player": {
-            "name": "Nagal S./Passaro F.",
-            "short_name": "RIB",
-            "id": "6iHVMexn/46aHbwDc",
-            "slug": "nagal-sumit",
-            "country": "India",
+            "name": "Alcala Gurri M./Damas M.",
+            "short_name": "KAL",
+            "id": "U1rIGv6n/pISmOkA6",
+            "slug": "alcala-gurri-max",
+            "country": "Spain",
             "sets_won": null
         },
         "away_player": {
-            "name": "Cornea V. V./Ribero F.",
-            "short_name": "COR",
-            "id": "v7WgNVZb/K8hket5k",
-            "slug": "cornea-vlad-victor",
-            "country": "Romania",
+            "name": "Ajdukovic D./Kalender A.",
+            "short_name": "AJD",
+            "id": "AXaTNFs4/n11bz7QK",
+            "slug": "ajdukovic-duje",
+            "country": "Croatia",
             "sets_won": null
         },
         "winner": null,
@@ -5730,8 +6194,8 @@
     },
     {
         "match_id": "ELQcimX0",
-        "timestamp": 1782309600,
-        "date_utc": "2026-06-24T14:00:00+00:00",
+        "timestamp": 1782311400,
+        "date_utc": "2026-06-24T14:30:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
@@ -5765,28 +6229,28 @@
         }
     },
     {
-        "match_id": "OY8w4QG6",
-        "timestamp": 1782311400,
-        "date_utc": "2026-06-24T14:30:00+00:00",
+        "match_id": "CCGiDUgK",
+        "timestamp": 1782316500,
+        "date_utc": "2026-06-24T15:55:00+00:00",
         "status_code": "1",
         "detail_code": "1",
         "status": "Not Started",
         "note": null,
         "round_code": "1",
         "home_player": {
-            "name": "Alcala Gurri M./Damas M.",
-            "short_name": "KAL",
-            "id": "U1rIGv6n/pISmOkA6",
-            "slug": "alcala-gurri-max",
-            "country": "Spain",
+            "name": "Nagal S./Passaro F.",
+            "short_name": "RIB",
+            "id": "6iHVMexn/46aHbwDc",
+            "slug": "nagal-sumit",
+            "country": "India",
             "sets_won": null
         },
         "away_player": {
-            "name": "Ajdukovic D./Kalender A.",
-            "short_name": "AJD",
-            "id": "AXaTNFs4/n11bz7QK",
-            "slug": "ajdukovic-duje",
-            "country": "Croatia",
+            "name": "Cornea V. V./Ribero F.",
+            "short_name": "COR",
+            "id": "v7WgNVZb/K8hket5k",
+            "slug": "cornea-vlad-victor",
+            "country": "Romania",
             "sets_won": null
         },
         "winner": null,

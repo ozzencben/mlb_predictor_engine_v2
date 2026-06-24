@@ -1,0 +1,28 @@
+{
+  "date": "2026-06-23",
+  "evaluated_at": "2026-06-24T12:18:26.565168+00:00",
+  "games_evaluated": 1,
+  "ml_accuracy": 0.0,
+  "ml_correct": 0,
+  "ml_total": 1,
+  "spread_accuracy": 1.0,
+  "spread_correct": 1,
+  "spread_total": 1,
+  "total_accuracy": 1.0,
+  "total_correct": 1,
+  "total_total": 1,
+  "results": [
+    {
+      "game_id": "401857016",
+      "name": "New York Liberty at Las Vegas Aces",
+      "home_team_abbr": "LV",
+      "away_team_abbr": "NY",
+      "predicted_winner_abbr": "LV",
+      "actual_score": "87-76",
+      "ml_correct": false,
+      "home_win_prob": 0.5552,
+      "predicted_spread": 2.12,
+      "predicted_total": 168.1
+    }
+  ]
+}
