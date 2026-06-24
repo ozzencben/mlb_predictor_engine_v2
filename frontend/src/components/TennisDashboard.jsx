@@ -149,22 +149,28 @@ function renderAiInsight(text) {
 function StatsComparison({ p1, p2 }) {
     if (!p1 || !p2) return null;
 
+    const safeFmtPct = v => v != null && !isNaN(v) ? `${Number(v).toFixed(1)}%` : '—';
+    const safeFmtNum = v => v != null && !isNaN(v) ? Number(v).toFixed(1) : '—';
+    const safeFmtRank = v => v != null ? `#${v}` : '—';
+    const safeFmtElo = v => v != null && !isNaN(v) ? Math.round(v) : '—';
+    const safeFmtSuffix = (v, suffix) => v != null ? `${v} ${suffix}` : '—';
+
     const rows = [
-        { label: 'World Ranking', p1Val: p1.rank, p2Val: p2.rank, format: v => `#${v}`, higherIsBetter: false, icon: '🏅' },
-        { label: 'Surface ELO Rating', p1Val: p1.elo, p2Val: p2.elo, format: v => Math.round(v), higherIsBetter: true, icon: '🧠' },
-        { label: 'Court DNA (Surface %)', p1Val: p1.surface_rate * 100, p2Val: p2.surface_rate * 100, format: v => `${v.toFixed(1)}%`, higherIsBetter: true, icon: '🏟️' },
-        { label: 'Form Momentum', p1Val: p1.momentum * 100, p2Val: p2.momentum * 100, format: v => `${v.toFixed(1)}%`, higherIsBetter: true, icon: '📈' },
-        { label: 'Fatigue (3-Game Sets)', p1Val: p1.fatigue, p2Val: p2.fatigue, format: v => `${v} Sets`, higherIsBetter: false, icon: '🔋' },
-        { label: 'Set Dominance', p1Val: p1.set_dominance * 100, p2Val: p2.set_dominance * 100, format: v => `${v.toFixed(1)}%`, higherIsBetter: true, icon: '⚡' },
-        { label: 'Game Dominance', p1Val: p1.game_dominance * 100, p2Val: p2.game_dominance * 100, format: v => `${v.toFixed(1)}%`, higherIsBetter: true, icon: '🎮' },
-        { label: 'Recovery Window', p1Val: p1.rest_days, p2Val: p2.rest_days, format: v => `${v} Days`, higherIsBetter: true, icon: '💤' },
-        { label: 'Clutch Deciding Set %', p1Val: p1.clutch_win_rate, p2Val: p2.clutch_win_rate, format: v => `${v.toFixed(1)}%`, higherIsBetter: true, icon: '🔥' },
-        { label: 'Straight Sets Sweep %', p1Val: p1.straight_sets_rate, p2Val: p2.straight_sets_rate, format: v => `${v.toFixed(1)}%`, higherIsBetter: true, icon: '🧹' },
-        { label: 'Tiebreak Win Rate', p1Val: p1.tiebreak_win_rate ?? 50.0, p2Val: p2.tiebreak_win_rate ?? 50.0, format: v => `${v.toFixed(1)}%`, higherIsBetter: true, icon: '🎯' },
-        { label: 'First Set Win Rate', p1Val: p1.first_set_win_rate ?? 50.0, p2Val: p2.first_set_win_rate ?? 50.0, format: v => `${v.toFixed(1)}%`, higherIsBetter: true, icon: '🚀' },
-        { label: 'Comeback Rate', p1Val: p1.comeback_rate ?? 50.0, p2Val: p2.comeback_rate ?? 50.0, format: v => `${v.toFixed(1)}%`, higherIsBetter: true, icon: '💪' },
-        { label: 'Avg Games / Set', p1Val: p1.avg_games_per_set ?? 11.0, p2Val: p2.avg_games_per_set ?? 11.0, format: v => v.toFixed(1), higherIsBetter: false, icon: '📊' },
-        { label: 'Bagel / Breadstick Rate', p1Val: p1.bagel_breadstick_rate ?? 10.0, p2Val: p2.bagel_breadstick_rate ?? 10.0, format: v => `${v.toFixed(1)}%`, higherIsBetter: true, icon: '🥐' },
+        { label: 'World Ranking', p1Val: p1.rank, p2Val: p2.rank, format: safeFmtRank, higherIsBetter: false, icon: '🏅' },
+        { label: 'Surface ELO Rating', p1Val: p1.elo, p2Val: p2.elo, format: safeFmtElo, higherIsBetter: true, icon: '🧠' },
+        { label: 'Court DNA (Surface %)', p1Val: p1.surface_rate != null ? p1.surface_rate * 100 : null, p2Val: p2.surface_rate != null ? p2.surface_rate * 100 : null, format: safeFmtPct, higherIsBetter: true, icon: '🏟️' },
+        { label: 'Form Momentum', p1Val: p1.momentum != null ? p1.momentum * 100 : null, p2Val: p2.momentum != null ? p2.momentum * 100 : null, format: safeFmtPct, higherIsBetter: true, icon: '📈' },
+        { label: 'Fatigue (3-Game Sets)', p1Val: p1.fatigue, p2Val: p2.fatigue, format: v => safeFmtSuffix(v, 'Sets'), higherIsBetter: false, icon: '🔋' },
+        { label: 'Set Dominance', p1Val: p1.set_dominance != null ? p1.set_dominance * 100 : null, p2Val: p2.set_dominance != null ? p2.set_dominance * 100 : null, format: safeFmtPct, higherIsBetter: true, icon: '⚡' },
+        { label: 'Game Dominance', p1Val: p1.game_dominance != null ? p1.game_dominance * 100 : null, p2Val: p2.game_dominance != null ? p2.game_dominance * 100 : null, format: safeFmtPct, higherIsBetter: true, icon: '🎮' },
+        { label: 'Recovery Window', p1Val: p1.rest_days, p2Val: p2.rest_days, format: v => safeFmtSuffix(v, 'Days'), higherIsBetter: true, icon: '💤' },
+        { label: 'Clutch Deciding Set %', p1Val: p1.clutch_win_rate, p2Val: p2.clutch_win_rate, format: safeFmtPct, higherIsBetter: true, icon: '🔥' },
+        { label: 'Straight Sets Sweep %', p1Val: p1.straight_sets_rate, p2Val: p2.straight_sets_rate, format: safeFmtPct, higherIsBetter: true, icon: '🧹' },
+        { label: 'Tiebreak Win Rate', p1Val: p1.tiebreak_win_rate ?? 50.0, p2Val: p2.tiebreak_win_rate ?? 50.0, format: safeFmtPct, higherIsBetter: true, icon: '🎯' },
+        { label: 'First Set Win Rate', p1Val: p1.first_set_win_rate ?? 50.0, p2Val: p2.first_set_win_rate ?? 50.0, format: safeFmtPct, higherIsBetter: true, icon: '🚀' },
+        { label: 'Comeback Rate', p1Val: p1.comeback_rate ?? 50.0, p2Val: p2.comeback_rate ?? 50.0, format: safeFmtPct, higherIsBetter: true, icon: '💪' },
+        { label: 'Avg Games / Set', p1Val: p1.avg_games_per_set ?? 11.0, p2Val: p2.avg_games_per_set ?? 11.0, format: safeFmtNum, higherIsBetter: false, icon: '📊' },
+        { label: 'Bagel / Breadstick Rate', p1Val: p1.bagel_breadstick_rate ?? 10.0, p2Val: p2.bagel_breadstick_rate ?? 10.0, format: safeFmtPct, higherIsBetter: true, icon: '🥐' },
     ];
 
     return (

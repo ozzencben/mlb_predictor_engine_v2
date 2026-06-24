@@ -212,9 +212,9 @@ function CentralDashboard({
                         matchup: `${t.home_player} vs ${t.away_player}`,
                         type: 'MONEYLINE',
                         selection: `${selectionName.split(' ').pop() || selectionName} ML`,
-                        edge: `${edge.toFixed(1)}%`,
+                        edge: edge != null && !isNaN(edge) ? `${edge.toFixed(1)}%` : '—',
                         odds: oddsVal ? (oddsVal >= 2.0 ? `+${Math.round((oddsVal - 1.0) * 100)}` : `${Math.round(-100.0 / (oddsVal - 1.0))}`) : 'Best Odds',
-                        confidence: `${confidenceVal.toFixed(0)}%`,
+                        confidence: confidenceVal != null && !isNaN(confidenceVal) ? `${confidenceVal.toFixed(0)}%` : '—',
                         book: 'Best Odds'
                     };
                 }
