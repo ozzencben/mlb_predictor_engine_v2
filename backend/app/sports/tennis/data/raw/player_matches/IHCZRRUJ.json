@@ -1,0 +1,992 @@
+[
+    {
+        "match_id": "C6aHGXzg",
+        "tournament": "Wimbledon (United Kingdom) - Qualification, grass",
+        "ground": "Grass",
+        "date_text": "22.06. 10:05",
+        "home_player": "Andrade A.",
+        "away_player": "Smith C.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-06-22"
+    },
+    {
+        "match_id": "OnlgufhC",
+        "tournament": "Dublin (Ireland), grass",
+        "ground": "Grass",
+        "date_text": "17.06. 16:30",
+        "home_player": "Rodionov J.",
+        "away_player": "Smith C.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-06-17"
+    },
+    {
+        "match_id": "hjhyOjSO",
+        "tournament": "Dublin (Ireland), grass",
+        "ground": "Grass",
+        "date_text": "15.06. 14:20",
+        "home_player": "Chidekh C.",
+        "away_player": "Smith C.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-06-15"
+    },
+    {
+        "match_id": "O6d9pgoC",
+        "tournament": "Tyler (USA), hard",
+        "ground": "Hard",
+        "date_text": "03.06. 23:30",
+        "home_player": "Imamura M.",
+        "away_player": "Smith C.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-06-03"
+    },
+    {
+        "match_id": "xbQyad3S",
+        "tournament": "Little Rock (USA), hard",
+        "ground": "Hard",
+        "date_text": "31.05. 18:20",
+        "home_player": "Smith C.",
+        "away_player": "Mmoh M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-05-31"
+    },
+    {
+        "match_id": "QZMWMgK0",
+        "tournament": "Little Rock (USA), hard",
+        "ground": "Hard",
+        "date_text": "31.05. 01:40",
+        "home_player": "Ilagan A.",
+        "away_player": "Smith C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-05-31"
+    },
+    {
+        "match_id": "OGuOoT8b",
+        "tournament": "Little Rock (USA), hard",
+        "ground": "Hard",
+        "date_text": "30.05. 16:10",
+        "home_player": "Smith C.",
+        "away_player": "Zink T.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-30"
+    },
+    {
+        "match_id": "8v2t3LBT",
+        "tournament": "Little Rock (USA), hard",
+        "ground": "Hard",
+        "date_text": "27.05. 21:30",
+        "home_player": "Smith C.",
+        "away_player": "Milavsky D.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-05-27"
+    },
+    {
+        "match_id": "UiqE7LVq",
+        "tournament": "Little Rock (USA), hard",
+        "ground": "Hard",
+        "date_text": "27.05. 00:15",
+        "home_player": "Smith C.",
+        "away_player": "Svajda T.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2026-05-27"
+    },
+    {
+        "match_id": "63qx7a2s",
+        "tournament": "French Open (France) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "20.05. 12:20",
+        "home_player": "Faria J.",
+        "away_player": "Smith C.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-05-20"
+    },
+    {
+        "match_id": "UT8FlkHq",
+        "tournament": "French Open (France) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "19.05. 09:45",
+        "home_player": "Smith C.",
+        "away_player": "Guillen Meza A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-05-19"
+    },
+    {
+        "match_id": "EBVeFhCm",
+        "tournament": "Oeiras 6 (Portugal), clay",
+        "ground": "Clay",
+        "date_text": "14.05. 10:10",
+        "home_player": "Djere L.",
+        "away_player": "Smith C.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-05-14"
+    },
+    {
+        "match_id": "ChpEMZG6",
+        "tournament": "Oeiras 6 (Portugal), clay",
+        "ground": "Clay",
+        "date_text": "13.05. 11:40",
+        "home_player": "Smith C.",
+        "away_player": "Pinnington Jones J.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-05-13"
+    },
+    {
+        "match_id": "CK8t7vFr",
+        "tournament": "Oeiras 6 (Portugal), clay",
+        "ground": "Clay",
+        "date_text": "11.05. 16:00",
+        "home_player": "Rodionov J.",
+        "away_player": "Smith C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-11"
+    },
+    {
+        "match_id": "WzSdXK5j",
+        "tournament": "Savannah (USA), clay",
+        "ground": "Clay",
+        "date_text": "21.04. 00:15",
+        "home_player": "Nishikori K.",
+        "away_player": "Smith C.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-04-21"
+    },
+    {
+        "match_id": "QRryJ6Ji",
+        "tournament": "Tallahassee (USA), clay",
+        "ground": "Clay",
+        "date_text": "14.04. 15:05",
+        "home_player": "Smith C.",
+        "away_player": "Johns G.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-14"
+    },
+    {
+        "match_id": "tpd6nikg",
+        "tournament": "Sarasota (USA), clay",
+        "ground": "Clay",
+        "date_text": "06.04. 18:30",
+        "home_player": "Zink T.",
+        "away_player": "Smith C.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-04-06"
+    },
+    {
+        "match_id": "zm5nyA8j",
+        "tournament": "Houston (USA), clay",
+        "ground": "Clay",
+        "date_text": "31.03. 00:45",
+        "home_player": "Smith C.",
+        "away_player": "Tirante T. A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-31"
+    },
+    {
+        "match_id": "6XrD4gxo",
+        "tournament": "Miami (USA) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "17.03. 18:00",
+        "home_player": "Svajda Z.",
+        "away_player": "Smith C.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-03-17"
+    },
+    {
+        "match_id": "xhFEJWv2",
+        "tournament": "Indian Wells (USA) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "02.03. 18:10",
+        "home_player": "Smith C.",
+        "away_player": "Shimabukuro S.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-03-02"
+    },
+    {
+        "match_id": "MZLVfwQO",
+        "tournament": "Delray Beach (USA) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "14.02. 15:10",
+        "home_player": "Wu Y.",
+        "away_player": "Smith C.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-02-14"
+    },
+    {
+        "match_id": "boCrwJ2d",
+        "tournament": "Cleveland (USA), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "08.02. 18:10",
+        "home_player": "Gojo B.",
+        "away_player": "Smith C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-02-08"
+    },
+    {
+        "match_id": "Y3vvCGYp",
+        "tournament": "Cleveland (USA), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "07.02. 18:40",
+        "home_player": "Smith K.",
+        "away_player": "Smith C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-07"
+    },
+    {
+        "match_id": "lxdo0fhL",
+        "tournament": "Cleveland (USA), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "06.02. 21:05",
+        "home_player": "Dostanic S.",
+        "away_player": "Smith C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-02-06"
+    },
+    {
+        "match_id": "viYPNSiS",
+        "tournament": "Cleveland (USA), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "05.02. 23:10",
+        "home_player": "Jones B.",
+        "away_player": "Smith C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-02-05"
+    },
+    {
+        "match_id": "r9fC5dAD",
+        "tournament": "Cleveland (USA), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "03.02. 23:10",
+        "home_player": "Kingsley C.",
+        "away_player": "Smith C.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-03"
+    },
+    {
+        "match_id": "nax3HsWq",
+        "tournament": "San Diego (USA), hard",
+        "ground": "Hard",
+        "date_text": "30.01. 20:30",
+        "home_player": "Kypson P.",
+        "away_player": "Smith C.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
+        "date": "2026-01-30"
+    },
+    {
+        "match_id": "jmS6FJjC",
+        "tournament": "San Diego (USA), hard",
+        "ground": "Hard",
+        "date_text": "29.01. 20:15",
+        "home_player": "Bicknell B.",
+        "away_player": "Smith C.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-29"
+    },
+    {
+        "match_id": "GxrpQx4m",
+        "tournament": "San Diego (USA), hard",
+        "ground": "Hard",
+        "date_text": "28.01. 00:15",
+        "home_player": "Langmo C.",
+        "away_player": "Smith C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-28"
+    },
+    {
+        "match_id": "KzAkBWp9",
+        "tournament": "Australian Open (Australia) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "13.01. 23:10",
+        "home_player": "Sakamoto R.",
+        "away_player": "Smith C.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-01-13"
+    },
+    {
+        "match_id": "Ek3sTOSa",
+        "tournament": "Australian Open (Australia) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "12.01. 03:05",
+        "home_player": "Pavlovic L.",
+        "away_player": "Smith C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-12"
+    },
+    {
+        "match_id": "2yeriyLF",
+        "tournament": "Canberra (Australia), hard",
+        "ground": "Hard",
+        "date_text": "05.01. 23:40",
+        "home_player": "Carballes Baena R.",
+        "away_player": "Smith C.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-01-05"
+    },
+    {
+        "match_id": "K0cigjun",
+        "tournament": "Bratislava 2 (Slovakia), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "27.10.2025",
+        "home_player": "Smith C.",
+        "away_player": "Schoolkate T.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2025-10-27"
+    },
+    {
+        "match_id": "CvYg0ejt",
+        "tournament": "Brest (France), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "21.10.2025",
+        "home_player": "Smith C.",
+        "away_player": "Fery A.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-21"
+    },
+    {
+        "match_id": "IDj6KQ8E",
+        "tournament": "Brest (France) - Qualification, hard (indoor)",
+        "ground": "Hard",
+        "date_text": "20.10.2025",
+        "home_player": "Smith C.",
+        "away_player": "Tabur C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-20"
+    },
+    {
+        "match_id": "dnCHIytB",
+        "tournament": "Brest (France) - Qualification, hard (indoor)",
+        "ground": "Hard",
+        "date_text": "19.10.2025",
+        "home_player": "Smith C.",
+        "away_player": "Furness E.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-10-19"
+    },
+    {
+        "match_id": "0pxO0dtp",
+        "tournament": "Jinan (China), hard",
+        "ground": "Hard",
+        "date_text": "10.10.2025",
+        "home_player": "Smith C.",
+        "away_player": "Bar Biryukov P.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2025-10-10"
+    },
+    {
+        "match_id": "6oJGDc4j",
+        "tournament": "Jinan (China), hard",
+        "ground": "Hard",
+        "date_text": "09.10.2025",
+        "home_player": "Smith C.",
+        "away_player": "Droguet T.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2025-10-09"
+    },
+    {
+        "match_id": "hGzJn11D",
+        "tournament": "Jinan (China), hard",
+        "ground": "Hard",
+        "date_text": "07.10.2025",
+        "home_player": "Duckworth J.",
+        "away_player": "Smith C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2025-10-07"
+    },
+    {
+        "match_id": "juEEmS3k",
+        "tournament": "Shanghai (China) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "29.09.2025",
+        "home_player": "Zhukayev B.",
+        "away_player": "Smith C.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2025-09-29"
+    },
+    {
+        "match_id": "t2hvrdPG",
+        "tournament": "Jingshan (China), hard",
+        "ground": "Hard",
+        "date_text": "26.09.2025",
+        "home_player": "Yevseyev D.",
+        "away_player": "Smith C.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-09-26"
+    },
+    {
+        "match_id": "dvnjzv23",
+        "tournament": "Jingshan (China), hard",
+        "ground": "Hard",
+        "date_text": "24.09.2025",
+        "home_player": "Smith C.",
+        "away_player": "Soriano Barrera A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "0"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2025-09-24"
+    },
+    {
+        "match_id": "rFA2F7Il",
+        "tournament": "US Open (USA) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "19.08.2025",
+        "home_player": "Johns G.",
+        "away_player": "Smith C.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-08-19"
+    }
+]

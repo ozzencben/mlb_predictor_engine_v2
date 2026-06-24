@@ -368,6 +368,36 @@ def compute_match_features(
             "feature_star_minutes_avail_diff": 0.0,
         })
 
+    team_logs_home = [
+        l for l in logs
+        if l["team_id"] == home_id and (l.get("date") or "") < before_date
+    ]
+    team_logs_away = [
+        l for l in logs
+        if l["team_id"] == away_id and (l.get("date") or "") < before_date
+    ]
+
+    home_recent_games = [
+        {
+            "date": r["date"],
+            "opponent": r["opp_abbr"],
+            "is_home": bool(r["is_home"]),
+            "won": bool(r["won"]),
+            "score": f"{r['pts']}-{r['opp_pts']}",
+        }
+        for r in reversed(team_logs_home[-10:])
+    ]
+    away_recent_games = [
+        {
+            "date": r["date"],
+            "opponent": r["opp_abbr"],
+            "is_home": bool(r["is_home"]),
+            "won": bool(r["won"]),
+            "score": f"{r['pts']}-{r['opp_pts']}",
+        }
+        for r in reversed(team_logs_away[-10:])
+    ]
+
     context: dict[str, Any] = {
         "home_l5": home_l5,
         "away_l5": away_l5,
@@ -376,6 +406,8 @@ def compute_match_features(
         "home_l5_home": home_l5_home,
         "away_l5_away": away_l5_away,
         "h2h_last10": h2h_games,
+        "home_recent_games": home_recent_games,
+        "away_recent_games": away_recent_games,
         "elo_home": round(elo_home, 1),
         "elo_away": round(elo_away, 1),
         "rest_home": rest_home,

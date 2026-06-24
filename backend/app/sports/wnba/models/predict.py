@@ -480,6 +480,8 @@ def generate_predictions(save: bool = True, skip_ai: bool = False) -> list[dict[
             "home_l5_home": match.get("home_l5_home"),
             "away_l5_away": match.get("away_l5_away"),
             "h2h_last10": match.get("h2h_last10"),
+            "home_recent_games": match.get("home_recent_games"),
+            "away_recent_games": match.get("away_recent_games"),
             "elo_home": match.get("elo_home"),
             "elo_away": match.get("elo_away"),
             "rest_home": match.get("rest_home"),

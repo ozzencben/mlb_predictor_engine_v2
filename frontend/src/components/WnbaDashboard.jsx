@@ -195,93 +195,92 @@ function WnbaMatchCard({ predict, injuriesByTeam = {}, isResultCard = false, res
                 </div>
             </div>
 
-            {/* Teams */}
-            <div className="space-y-3 relative z-10">
-                {/* Away */}
-                <div className="flex justify-between items-center gap-2">
-                    <div className="flex items-center gap-3 min-w-0">
-                        <TeamLogo logo={predict.away_logo} abbr={predict.away_team_abbr} />
-                        <div className="min-w-0">
-                            <div className={`text-xs font-black truncate ${predict.predicted_winner_abbr === predict.away_team_abbr ? 'text-indigo-400' : 'text-gray-300'}`}>
-                                {predict.away_team_name} {predict.predicted_winner_abbr === predict.away_team_abbr && '🎯'}
-                            </div>
-                            <div className="text-[9px] text-slate-500 font-bold">
-                                ELO {predict.elo_away || '1500'} • Rest {predict.rest_away != null ? `${predict.rest_away}d` : '—'}
-                            </div>
-                            <InjuryPills injuries={awayInjuries} />
+            {/* Teams (Horizontal Side-by-Side) */}
+            <div className="grid grid-cols-3 gap-2 items-center relative z-10 py-1">
+                {/* Away Team Column */}
+                <div className="flex flex-col items-center text-center min-w-0">
+                    <TeamLogo logo={predict.away_logo} abbr={predict.away_team_abbr} size="lg" />
+                    <div className="mt-2 min-w-0">
+                        <div className={`text-[11px] font-black truncate ${predict.predicted_winner_abbr === predict.away_team_abbr ? 'text-indigo-400' : 'text-gray-300'}`}>
+                            {predict.away_team_name} {predict.predicted_winner_abbr === predict.away_team_abbr && '🎯'}
                         </div>
-                    </div>
-                    <div className="text-right flex-shrink-0">
-                        <div className="text-xs font-black text-gray-300">{awayWinProb}%</div>
-                        {hasOdds && (
-                            <span className="text-[8px] font-bold text-slate-500 bg-slate-950/60 border border-slate-900/80 px-1 py-0.5 rounded">
-                                {displayAmericanOdds(predict.odds.moneyline_away)}
-                            </span>
-                        )}
+                        <div className="text-[8px] text-slate-500 font-bold mt-0.5">
+                            ELO {predict.elo_away || '1500'} • Rest {predict.rest_away != null ? `${predict.rest_away}d` : '—'}
+                        </div>
+                        <div className="flex flex-col items-center justify-center mt-1">
+                            <span className="text-[10px] font-black text-gray-300">{awayWinProb}%</span>
+                            {hasOdds && (
+                                <span className="text-[8px] font-bold text-slate-500 bg-slate-950/60 border border-slate-900/80 px-1 py-0.5 rounded mt-0.5">
+                                    {displayAmericanOdds(predict.odds.moneyline_away)}
+                                </span>
+                            )}
+                        </div>
+                        <InjuryPills injuries={awayInjuries} />
                     </div>
                 </div>
 
-                {/* Probability bar */}
-                <div className="w-full bg-slate-950/80 rounded-full h-2 border border-slate-900/60 overflow-hidden flex shadow-inner">
-                    <div className="h-full bg-slate-800 rounded-l-full transition-all duration-700" style={{ width: `${awayWinProb}%` }} />
-                    <div
-                        className="h-full bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-r-full shadow-[0_0_8px_rgba(99,102,241,0.4)] transition-all duration-700"
-                        style={{ width: `${homeWinProb}%` }}
-                    />
+                {/* Center Column: VS / Proj Score / Result Score */}
+                <div className="flex flex-col items-center justify-center text-center px-1">
+                    {isResultCard && resultMeta?.actual_score ? (
+                        <div className="bg-slate-950/50 border border-slate-900 rounded-xl px-2 py-1 text-center">
+                            <span className="text-[7px] text-slate-500 font-black uppercase tracking-wider block">Final Score</span>
+                            <span className="text-xs font-black text-white tabular-nums">{resultMeta.actual_score}</span>
+                        </div>
+                    ) : (
+                        predict.predicted_total != null && predict.predicted_spread != null ? (
+                            (() => {
+                                const homeProj = predict.predicted_home_score !== undefined 
+                                    ? predict.predicted_home_score 
+                                    : Math.round((predict.predicted_total + predict.predicted_spread) / 2);
+                                const awayProj = predict.predicted_away_score !== undefined 
+                                    ? predict.predicted_away_score 
+                                    : Math.round((predict.predicted_total - predict.predicted_spread) / 2);
+                                return (
+                                    <div className="text-center">
+                                        <span className="text-[8px] text-slate-400 font-bold uppercase tracking-widest block mb-1">Proj. Score</span>
+                                        <div className="inline-block text-xs sm:text-sm font-black text-white bg-slate-950/60 px-2.5 py-1 rounded-lg border border-slate-900 shadow-[0_0_10px_rgba(0,0,0,0.5)] tracking-tight tabular-nums">
+                                            {awayProj} <span className="text-slate-500 font-medium mx-1">-</span> {homeProj}
+                                        </div>
+                                    </div>
+                                );
+                            })()
+                        ) : (
+                            <span className="text-xs font-black text-slate-600 tracking-wider">VS</span>
+                        )
+                    )}
                 </div>
 
-                {/* Home */}
-                <div className="flex justify-between items-center gap-2">
-                    <div className="flex items-center gap-3 min-w-0">
-                        <TeamLogo logo={predict.home_logo} abbr={predict.home_team_abbr} />
-                        <div className="min-w-0">
-                            <div className={`text-xs font-black truncate ${predict.predicted_winner_abbr === predict.home_team_abbr ? 'text-indigo-400' : 'text-gray-300'}`}>
-                                {predict.home_team_name} {predict.predicted_winner_abbr === predict.home_team_abbr && '🎯'}
-                            </div>
-                            <div className="text-[9px] text-slate-500 font-bold">
-                                ELO {predict.elo_home || '1500'} • Rest {predict.rest_home != null ? `${predict.rest_home}d` : '—'}
-                            </div>
-                            <InjuryPills injuries={homeInjuries} />
+                {/* Home Team Column */}
+                <div className="flex flex-col items-center text-center min-w-0">
+                    <TeamLogo logo={predict.home_logo} abbr={predict.home_team_abbr} size="lg" />
+                    <div className="mt-2 min-w-0">
+                        <div className={`text-[11px] font-black truncate ${predict.predicted_winner_abbr === predict.home_team_abbr ? 'text-indigo-400' : 'text-gray-300'}`}>
+                            {predict.home_team_name} {predict.predicted_winner_abbr === predict.home_team_abbr && '🎯'}
                         </div>
-                    </div>
-                    <div className="text-right flex-shrink-0">
-                        <div className="text-xs font-black text-gray-300">{homeWinProb}%</div>
-                        {hasOdds && (
-                            <span className="text-[8px] font-bold text-slate-500 bg-slate-950/60 border border-slate-900/80 px-1 py-0.5 rounded">
-                                {displayAmericanOdds(predict.odds.moneyline_home)}
-                            </span>
-                        )}
+                        <div className="text-[8px] text-slate-500 font-bold mt-0.5">
+                            ELO {predict.elo_home || '1500'} • Rest {predict.rest_home != null ? `${predict.rest_home}d` : '—'}
+                        </div>
+                        <div className="flex flex-col items-center justify-center mt-1">
+                            <span className="text-[10px] font-black text-gray-300">{homeWinProb}%</span>
+                            {hasOdds && (
+                                <span className="text-[8px] font-bold text-slate-500 bg-slate-950/60 border border-slate-900/80 px-1 py-0.5 rounded mt-0.5">
+                                    {displayAmericanOdds(predict.odds.moneyline_home)}
+                                </span>
+                            )}
+                        </div>
+                        <InjuryPills injuries={homeInjuries} />
                     </div>
                 </div>
             </div>
 
-            {/* Result score */}
-            {isResultCard && resultMeta?.actual_score && (
-                <div className="bg-slate-950/50 border border-slate-900 rounded-2xl px-4 py-2 text-center relative z-10">
-                    <span className="text-[8px] text-slate-500 font-black uppercase tracking-wider block">Final Score</span>
-                    <span className="text-sm font-black text-white tabular-nums">{resultMeta.actual_score}</span>
-                </div>
-            )}
-
-            {/* Proj Score */}
-            {!isResultCard && predict.predicted_total != null && predict.predicted_spread != null && (
-                (() => {
-                    const homeProj = predict.predicted_home_score !== undefined 
-                        ? predict.predicted_home_score 
-                        : Math.round((predict.predicted_total + predict.predicted_spread) / 2);
-                    const awayProj = predict.predicted_away_score !== undefined 
-                        ? predict.predicted_away_score 
-                        : Math.round((predict.predicted_total - predict.predicted_spread) / 2);
-                    return (
-                        <div className="text-center relative z-10 my-1">
-                            <span className="text-[8px] text-slate-500 font-black uppercase tracking-widest block mb-1">Proj. Score</span>
-                            <div className="inline-block text-xl md:text-2xl font-black text-white bg-slate-950/60 px-6 py-1.5 rounded-xl border border-slate-900 shadow-[0_0_12px_rgba(0,0,0,0.4)] tracking-tight tabular-nums">
-                                {awayProj} <span className="text-slate-500 font-medium mx-2">-</span> {homeProj}
-                            </div>
-                        </div>
-                    );
-                })()
-            )}
+            {/* Probability bar below teams */}
+            <div className="w-full bg-slate-950/80 rounded-full h-1.5 border border-slate-900/60 overflow-hidden flex shadow-inner relative z-10">
+                <div className="h-full bg-slate-800 rounded-l-full transition-all duration-700" style={{ width: `${awayWinProb}%` }} />
+                <div
+                    className="h-full bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-r-full shadow-[0_0_8px_rgba(99,102,241,0.4)] transition-all duration-700"
+                    style={{ width: `${homeWinProb}%` }}
+                />
+            </div>
 
             {/* Projections */}
             <div className="grid grid-cols-3 gap-2 bg-slate-950/60 border border-slate-900 rounded-2xl p-3.5 shadow-inner relative z-10">
@@ -454,6 +453,85 @@ function WnbaMatchCard({ predict, injuriesByTeam = {}, isResultCard = false, res
                                             ))}
                                         </tbody>
                                     </table>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Team Recent Games (Last 10) */}
+                        {((predict.away_recent_games && predict.away_recent_games.length > 0) || 
+                          (predict.home_recent_games && predict.home_recent_games.length > 0)) && (
+                            <div className="space-y-2">
+                                <span className="text-[8px] font-black uppercase tracking-widest text-slate-500 block">
+                                    📈 Individual Team Recent Games (Last 10)
+                                </span>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    {/* Away Team Recent Games */}
+                                    {predict.away_recent_games && predict.away_recent_games.length > 0 && (
+                                        <div className="bg-slate-950/40 border border-slate-900 rounded-2xl p-3">
+                                            <div className="text-[9px] font-black text-indigo-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                                                <TeamLogo logo={predict.away_logo} abbr={predict.away_team_abbr} size="md" />
+                                                <span>{predict.away_team_name}</span>
+                                            </div>
+                                            <div className="overflow-x-auto">
+                                                <table className="w-full text-[9px] font-bold text-slate-400 text-center border-collapse">
+                                                    <thead>
+                                                        <tr className="border-b border-slate-900 text-[8px] font-black uppercase text-slate-500">
+                                                            <th className="pb-1.5 text-left">Date</th>
+                                                            <th className="pb-1.5">Opponent</th>
+                                                            <th className="pb-1.5">Score</th>
+                                                            <th className="pb-1.5 text-right">Result</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody className="divide-y divide-slate-900/40">
+                                                        {predict.away_recent_games.map((g, idx) => (
+                                                            <tr key={idx} className="hover:bg-slate-900/10">
+                                                                <td className="py-1.5 text-left text-slate-500 font-semibold">{g.date}</td>
+                                                                <td className="py-1.5">{g.is_home ? 'vs' : '@'} {g.opponent}</td>
+                                                                <td className="py-1.5 text-slate-300 font-black tabular-nums">{g.score}</td>
+                                                                <td className={`py-1.5 text-right font-extrabold ${g.won ? 'text-emerald-400' : 'text-rose-400'}`}>
+                                                                    {g.won ? 'W' : 'L'}
+                                                                </td>
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {/* Home Team Recent Games */}
+                                    {predict.home_recent_games && predict.home_recent_games.length > 0 && (
+                                        <div className="bg-slate-950/40 border border-slate-900 rounded-2xl p-3">
+                                            <div className="text-[9px] font-black text-indigo-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                                                <TeamLogo logo={predict.home_logo} abbr={predict.home_team_abbr} size="md" />
+                                                <span>{predict.home_team_name}</span>
+                                            </div>
+                                            <div className="overflow-x-auto">
+                                                <table className="w-full text-[9px] font-bold text-slate-400 text-center border-collapse">
+                                                    <thead>
+                                                        <tr className="border-b border-slate-900 text-[8px] font-black uppercase text-slate-500">
+                                                            <th className="pb-1.5 text-left">Date</th>
+                                                            <th className="pb-1.5">Opponent</th>
+                                                            <th className="pb-1.5">Score</th>
+                                                            <th className="pb-1.5 text-right">Result</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody className="divide-y divide-slate-900/40">
+                                                        {predict.home_recent_games.map((g, idx) => (
+                                                            <tr key={idx} className="hover:bg-slate-900/10">
+                                                                <td className="py-1.5 text-left text-slate-500 font-semibold">{g.date}</td>
+                                                                <td className="py-1.5">{g.is_home ? 'vs' : '@'} {g.opponent}</td>
+                                                                <td className="py-1.5 text-slate-300 font-black tabular-nums">{g.score}</td>
+                                                                <td className={`py-1.5 text-right font-extrabold ${g.won ? 'text-emerald-400' : 'text-rose-400'}`}>
+                                                                    {g.won ? 'W' : 'L'}
+                                                                </td>
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         )}

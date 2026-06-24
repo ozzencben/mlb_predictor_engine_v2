@@ -18,7 +18,7 @@
     "131935",
     "16"
   ],
-  "game_count": 144,
+  "game_count": 145,
   "games": [
     {
       "game_id": "401866150",
@@ -2179,6 +2179,21 @@
       "away_team_name": "New York Liberty",
       "home_score": 98,
       "away_score": 97
+    },
+    {
+      "game_id": "401857016",
+      "date": "2026-06-24",
+      "season": 2026,
+      "season_type": "2",
+      "name": "New York Liberty at Las Vegas Aces",
+      "home_team_id": "17",
+      "away_team_id": "9",
+      "home_team_abbr": "LV",
+      "away_team_abbr": "NY",
+      "home_team_name": "Las Vegas Aces",
+      "away_team_name": "New York Liberty",
+      "home_score": 76,
+      "away_score": 87
     }
   ]
 }
