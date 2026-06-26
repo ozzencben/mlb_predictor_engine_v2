@@ -1,6 +1,32 @@
 import React, { useState } from 'react';
 import { useWnbaPredictions } from '../hooks/useWnbaPredictions';
 
+const WNBA_TEAMS_LOOKUP = {
+    ATL: { name: 'Atlanta Dream', logo: 'https://a.espncdn.com/i/teamlogos/wnba/500/atl.png' },
+    CHI: { name: 'Chicago Sky', logo: 'https://a.espncdn.com/i/teamlogos/wnba/500/chi.png' },
+    CON: { name: 'Connecticut Sun', logo: 'https://a.espncdn.com/i/teamlogos/wnba/500/con.png' },
+    DAL: { name: 'Dallas Wings', logo: 'https://a.espncdn.com/i/teamlogos/wnba/500/dal.png' },
+    GS: { name: 'Golden State Valkyries', logo: 'https://a.espncdn.com/i/teamlogos/wnba/500/gs.png' },
+    IND: { name: 'Indiana Fever', logo: 'https://a.espncdn.com/i/teamlogos/wnba/500/ind.png' },
+    LA: { name: 'Los Angeles Sparks', logo: 'https://a.espncdn.com/i/teamlogos/wnba/500/la.png' },
+    LV: { name: 'Las Vegas Aces', logo: 'https://a.espncdn.com/i/teamlogos/wnba/500/lv.png' },
+    MIN: { name: 'Minnesota Lynx', logo: 'https://a.espncdn.com/i/teamlogos/wnba/500/min.png' },
+    NY: { name: 'New York Liberty', logo: 'https://a.espncdn.com/i/teamlogos/wnba/500/ny.png' },
+    PHX: { name: 'Phoenix Mercury', logo: 'https://a.espncdn.com/i/teamlogos/wnba/500/phx.png' },
+    POR: { name: 'Portland Fire', logo: 'https://a.espncdn.com/i/teamlogos/wnba/500/por.png' },
+    SEA: { name: 'Seattle Storm', logo: 'https://a.espncdn.com/i/teamlogos/wnba/500/sea.png' },
+    TOR: { name: 'Toronto Tempo', logo: 'https://a.espncdn.com/i/teamlogos/wnba/500/tor.png' },
+    WSH: { name: 'Washington Mystics', logo: 'https://a.espncdn.com/i/teamlogos/wnba/500/wsh.png' }
+};
+
+export const getWnbaTeamName = (abbr) => {
+    return WNBA_TEAMS_LOOKUP[abbr?.toUpperCase()]?.name || abbr || '';
+};
+
+export const getWnbaTeamLogo = (abbr) => {
+    return WNBA_TEAMS_LOOKUP[abbr?.toUpperCase()]?.logo || '';
+};
+
 // ─────────────────────────────────────────────────────────────
 //  Helpers
 // ─────────────────────────────────────────────────────────────
@@ -146,6 +172,11 @@ function WnbaMatchCard({ predict, injuriesByTeam = {}, isResultCard = false, res
     const [activeHistoryTab, setActiveHistoryTab] = useState('h2h');
     const [showTerms, setShowTerms] = useState(false);
 
+    const awayLogo = predict.away_logo || getWnbaTeamLogo(predict.away_team_abbr);
+    const homeLogo = predict.home_logo || getWnbaTeamLogo(predict.home_team_abbr);
+    const awayName = predict.away_team_name || getWnbaTeamName(predict.away_team_abbr);
+    const homeName = predict.home_team_name || getWnbaTeamName(predict.home_team_abbr);
+
     const hasOdds = predict.odds && predict.odds.moneyline_home != null && predict.odds.moneyline_away != null;
     const homeWinProb = Math.round((predict.home_win_prob || 0) * 100);
     const awayWinProb = Math.round((predict.away_win_prob || 0) * 100);
@@ -264,16 +295,16 @@ function WnbaMatchCard({ predict, injuriesByTeam = {}, isResultCard = false, res
         let titleSuffix = " • Last 10";
         
         if (tabName === 'away') {
-            teamLogo = predict.away_logo;
+            teamLogo = awayLogo;
             perspectiveAbbr = predict.away_team_abbr;
             titleSuffix = ` ${predict.away_team_abbr} • Last 10`;
         } else if (tabName === 'home') {
-            teamLogo = predict.home_logo;
+            teamLogo = homeLogo;
             perspectiveAbbr = predict.home_team_abbr;
             titleSuffix = ` ${predict.home_team_abbr} • Last 10`;
         } else {
             // H2H counts wins/losses relative to the home team
-            teamLogo = predict.home_logo;
+            teamLogo = homeLogo;
             perspectiveAbbr = predict.home_team_abbr;
             titleSuffix = " Head-To-Head • Last 10";
         }
@@ -454,10 +485,10 @@ function WnbaMatchCard({ predict, injuriesByTeam = {}, isResultCard = false, res
             <div className="grid grid-cols-3 gap-2 items-center relative z-10 py-1">
                 {/* Away Team Column */}
                 <div className="flex flex-col items-center text-center min-w-0">
-                    <TeamLogo logo={predict.away_logo} abbr={predict.away_team_abbr} size="lg" />
+                    <TeamLogo logo={awayLogo} abbr={predict.away_team_abbr} size="lg" />
                     <div className="mt-2 min-w-0">
                         <div className={`text-[11px] font-black truncate ${predict.predicted_winner_abbr === predict.away_team_abbr ? 'text-indigo-400' : 'text-gray-300'}`}>
-                            {predict.away_team_name} {predict.predicted_winner_abbr === predict.away_team_abbr && '🎯'}
+                            {awayName} {predict.predicted_winner_abbr === predict.away_team_abbr && '🎯'}
                         </div>
                         <div className="flex flex-col items-center justify-center mt-1">
                             <span className="text-[10px] font-black text-gray-300">{awayWinProb}%</span>
@@ -504,10 +535,10 @@ function WnbaMatchCard({ predict, injuriesByTeam = {}, isResultCard = false, res
 
                 {/* Home Team Column */}
                 <div className="flex flex-col items-center text-center min-w-0">
-                    <TeamLogo logo={predict.home_logo} abbr={predict.home_team_abbr} size="lg" />
+                    <TeamLogo logo={homeLogo} abbr={predict.home_team_abbr} size="lg" />
                     <div className="mt-2 min-w-0">
                         <div className={`text-[11px] font-black truncate ${predict.predicted_winner_abbr === predict.home_team_abbr ? 'text-indigo-400' : 'text-gray-300'}`}>
-                            {predict.home_team_name} {predict.predicted_winner_abbr === predict.home_team_abbr && '🎯'}
+                            {homeName} {predict.predicted_winner_abbr === predict.home_team_abbr && '🎯'}
                         </div>
                         <div className="flex flex-col items-center justify-center mt-1">
                             <span className="text-[10px] font-black text-gray-300">{homeWinProb}%</span>
@@ -800,7 +831,7 @@ function WnbaMatchCard({ predict, injuriesByTeam = {}, isResultCard = false, res
                                         </>
                                     ) : (
                                         <div className="text-center py-4 text-[9px] text-slate-500 font-bold">
-                                            No recent games history found for {predict.away_team_name}.
+                                            No recent games history found for {awayName}.
                                         </div>
                                     )
                                 )}
@@ -813,7 +844,7 @@ function WnbaMatchCard({ predict, injuriesByTeam = {}, isResultCard = false, res
                                         </>
                                     ) : (
                                         <div className="text-center py-4 text-[9px] text-slate-500 font-bold">
-                                            No recent games history found for {predict.home_team_name}.
+                                            No recent games history found for {homeName}.
                                         </div>
                                     )
                                 )}

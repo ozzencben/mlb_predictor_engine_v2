@@ -68,6 +68,7 @@ function App() {
     const { data: wnbaData, loading: wnbaLoading } = useWnbaPredictions(null);
     const [yesterdayMlbPredictions, setYesterdayMlbPredictions] = useState([]);
     const [yesterdayTennisResults, setYesterdayTennisResults] = useState([]);
+    const [yesterdayWnbaResults, setYesterdayWnbaResults] = useState([]);
 
     useEffect(() => {
         if (toastMessage) {
@@ -146,6 +147,15 @@ function App() {
                 }
             } catch (err) {
                 console.warn("Failed to fetch yesterday Tennis results:", err.message);
+            }
+
+            try {
+                const wnbaRes = await apiClient.get(`/wnba/results?date=${yesterdayDate}`);
+                if (wnbaRes.data?.data?.results) {
+                    setYesterdayWnbaResults(wnbaRes.data.data.results);
+                }
+            } catch (err) {
+                console.warn("Failed to fetch yesterday WNBA results:", err.message);
             }
         };
 
@@ -826,6 +836,7 @@ function App() {
                         systemDate={systemDate}
                         yesterdayMlbPredictions={yesterdayMlbPredictions}
                         yesterdayTennisResults={yesterdayTennisResults}
+                        yesterdayWnbaResults={yesterdayWnbaResults}
                     />
                 )}
 

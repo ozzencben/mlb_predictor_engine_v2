@@ -12,7 +12,8 @@ function CentralDashboard({
     loading = false,
     systemDate = '',
     yesterdayMlbPredictions = [],
-    yesterdayTennisResults = []
+    yesterdayTennisResults = [],
+    yesterdayWnbaResults = []
 }) {
     const [standingsData, setStandingsData] = React.useState(null);
     const [standingsLoading, setStandingsLoading] = React.useState(true);
@@ -162,8 +163,26 @@ function CentralDashboard({
             };
         });
 
-        return [...mlbItems, ...tennisItems];
-    }, [yesterdayMlbPredictions, yesterdayTennisResults]);
+        const wnbaItems = yesterdayWnbaResults.map(r => {
+            const scores = r.actual_score ? r.actual_score.split('-').map(Number) : [0, 0];
+            const awayScore = scores[0] || 0;
+            const homeScore = scores[1] || 0;
+            return {
+                sport: 'wnba',
+                icon: '🏀',
+                away: r.away_team_abbr,
+                home: r.home_team_abbr,
+                awayScore,
+                homeScore,
+                status: 'FINAL',
+                prediction: `${r.predicted_winner_abbr} ML`,
+                edge: r.home_win_prob ? `${Math.round(r.home_win_prob * 100)}% Win` : '',
+                success: r.ml_correct
+            };
+        });
+
+        return [...mlbItems, ...tennisItems, ...wnbaItems];
+    }, [yesterdayMlbPredictions, yesterdayTennisResults, yesterdayWnbaResults]);
 
     // Dynamic Spotlight Pick calculations based on maximum Edge (MLB or Tennis)
     const spotlightPick = useMemo(() => {
