@@ -1,6 +1,6 @@
 {
   "date": "2026-06-26",
-  "generated_at": "2026-06-26T08:23:49.913913+00:00",
+  "generated_at": "2026-06-26T17:48:01.675805+00:00",
   "match_count": 3,
   "beta_version": "1.0.0-beta",
   "model_meta": {
@@ -44,23 +44,23 @@
         "away_team": "Washington Mystics",
         "home_abbr": "CON",
         "away_abbr": "WSH",
-        "moneyline_home": 146,
-        "moneyline_away": -180,
-        "spread_home": -114,
-        "spread_away": -106,
-        "spread_line": 4.5,
-        "total_line": 163.5,
-        "total_over": -114,
-        "total_under": -106
+        "moneyline_home": 134,
+        "moneyline_away": -164,
+        "spread_home": -108,
+        "spread_away": -112,
+        "spread_line": 3.5,
+        "total_line": 164.5,
+        "total_over": -112,
+        "total_under": -108
       },
       "alt_bets": [
         {
           "market": "Total",
-          "pick": "Over 163.5",
+          "pick": "Over 164.5",
           "model_prediction": "Predicted total: 167.6",
-          "edge": 4.08,
-          "confidence": "Medium",
-          "odds": -114,
+          "edge": 3.08,
+          "confidence": "Low",
+          "odds": -112,
           "odds_format": "american"
         }
       ],
@@ -450,10 +450,10 @@
         "away_team": "Portland Fire",
         "home_abbr": "CHI",
         "away_abbr": "POR",
-        "moneyline_home": -194,
-        "moneyline_away": 156,
-        "spread_home": -114,
-        "spread_away": -106,
+        "moneyline_home": -188,
+        "moneyline_away": 152,
+        "spread_home": -112,
+        "spread_away": -108,
         "spread_line": -4.5,
         "total_line": 172.5,
         "total_over": -114,
@@ -464,9 +464,9 @@
           "market": "Moneyline",
           "pick": "Portland Fire",
           "model_win_prob": "50.5%",
-          "edge": 11.47,
+          "edge": 10.85,
           "confidence": "High",
-          "odds": 156,
+          "odds": 152,
           "odds_format": "american"
         },
         {
@@ -475,7 +475,7 @@
           "model_prediction": "Predicted spread: +0.8",
           "edge": 3.72,
           "confidence": "Low",
-          "odds": -106,
+          "odds": -108,
           "odds_format": "american"
         }
       ],
@@ -809,14 +809,14 @@
         "away_team": "Atlanta Dream",
         "home_abbr": "GS",
         "away_abbr": "ATL",
-        "moneyline_home": -108,
-        "moneyline_away": -112,
-        "spread_home": -114,
-        "spread_away": -106,
+        "moneyline_home": -104,
+        "moneyline_away": -118,
+        "spread_home": -112,
+        "spread_away": -108,
         "spread_line": 1.5,
-        "total_line": 164.5,
-        "total_over": -110,
-        "total_under": -110
+        "total_line": 163.5,
+        "total_over": -114,
+        "total_under": -106
       },
       "alt_bets": [
         {
@@ -825,7 +825,7 @@
           "model_prediction": "Predicted spread: +1.9",
           "edge": 3.44,
           "confidence": "Low",
-          "odds": -114,
+          "odds": -112,
           "odds_format": "american"
         }
       ],
