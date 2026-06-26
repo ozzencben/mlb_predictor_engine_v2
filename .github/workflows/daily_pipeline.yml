@@ -1,0 +1,50 @@
+name: Daily Sports Predictions Pipeline
+
+on:
+  schedule:
+    # Runs at 04:00 and 16:00 UTC every day (00:00 and 12:00 Eastern Time / 07:00 and 19:00 TR time during Daylight Saving)
+    - cron: '0 4,16 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required for committing changes back to repo
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Astral uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Playwright Browsers (for Tennis Scraping if needed)
+        run: |
+          cd backend
+          uv run playwright install --with-deps chromium
+
+      - name: Run Sports Predictions Pipelines
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          APP_ENV: production
+        run: |
+          cd backend
+          uv run python run_daily_pipelines.py
+
+      - name: Commit and Push Updated Data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chrono: automated daily sports predictions update [skip ci]"
+          file_pattern: "backend/app/sports/**/data/**/*.json"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"

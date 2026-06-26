@@ -276,6 +276,13 @@ async def lifespan(app: FastAPI):
 
     # 3. Günlük zamanlayıcıyı başlat (Render'da gecikmeli)
     scheduler_task = asyncio.create_task(_delayed_scheduler_loop())
+
+    # Arka plan görevlerinin Garbage Collector tarafından temizlenmesini önlemek için güçlü referans sakla
+    app.state.scheduler_task = scheduler_task
+    app.state.startup_task = startup_task
+    app.state.tennis_startup_task = tennis_startup_task
+    app.state.wnba_startup_task = wnba_startup_task
+
     if is_low_memory_host():
         logger.info("🗓️  Zamanlayıcılar gecikmeli başlatılacak (Render bellek koruması).")
     else:

@@ -1,0 +1,1145 @@
+{
+  "date": "2026-06-26",
+  "generated_at": "2026-06-26T08:23:49.913913+00:00",
+  "match_count": 3,
+  "beta_version": "1.0.0-beta",
+  "model_meta": {
+    "beta_version": "1.0.0-beta",
+    "model_trained_at": "2026-06-23T16:29:54.217333+00:00",
+    "win_accuracy": 0.6873,
+    "win_feature_count": 22,
+    "spread_mae": 10.434,
+    "total_mae": 14.305
+  },
+  "predictions": [
+    {
+      "game_id": "401857024",
+      "date": "2026-06-26",
+      "name": "Washington Mystics at Connecticut Sun",
+      "home_team_id": "18",
+      "away_team_id": "16",
+      "home_team_abbr": "CON",
+      "away_team_abbr": "WSH",
+      "home_team_name": "Connecticut Sun",
+      "away_team_name": "Washington Mystics",
+      "home_logo": "https://a.espncdn.com/i/teamlogos/wnba/500/con.png",
+      "away_logo": "https://a.espncdn.com/i/teamlogos/wnba/500/scoreboard/wsh.png",
+      "venue": "Mohegan Sun Arena",
+      "home_win_prob": 0.4806,
+      "away_win_prob": 0.5194,
+      "home_win_prob_pct": "48.1%",
+      "away_win_prob_pct": "51.9%",
+      "predicted_spread": -2.56,
+      "predicted_total": 167.6,
+      "predicted_home_score": 82.5,
+      "predicted_away_score": 85.1,
+      "predicted_winner": "Washington Mystics",
+      "predicted_winner_abbr": "WSH",
+      "implied_home_ml": 108,
+      "implied_away_ml": -108,
+      "odds": {
+        "game_id_odds": "72f392cc087c7a061b9939d13bd6ec6e",
+        "commence_time": "2026-06-26T23:30:00Z",
+        "home_team": "Connecticut Sun",
+        "away_team": "Washington Mystics",
+        "home_abbr": "CON",
+        "away_abbr": "WSH",
+        "moneyline_home": 146,
+        "moneyline_away": -180,
+        "spread_home": -114,
+        "spread_away": -106,
+        "spread_line": 4.5,
+        "total_line": 163.5,
+        "total_over": -114,
+        "total_under": -106
+      },
+      "alt_bets": [
+        {
+          "market": "Total",
+          "pick": "Over 163.5",
+          "model_prediction": "Predicted total: 167.6",
+          "edge": 4.08,
+          "confidence": "Medium",
+          "odds": -114,
+          "odds_format": "american"
+        }
+      ],
+      "bet_count": 1,
+      "home_l5": {
+        "n": 5,
+        "ppg": 89.4,
+        "oppg": 88.6,
+        "efg_pct": 0.5006,
+        "oefg_pct": 0.5012,
+        "tov_pct": 0.1329,
+        "ortg": 107.914,
+        "drtg": 106.806,
+        "net_rtg": 1.108,
+        "pace": 80.996,
+        "ts_pct": 0.5399,
+        "ft_rate": 0.3377,
+        "reb": 35.6,
+        "ast_tov": 2.1942,
+        "win_rate": 0.2
+      },
+      "away_l5": {
+        "n": 5,
+        "ppg": 79.6,
+        "oppg": 81.4,
+        "efg_pct": 0.4847,
+        "oefg_pct": 0.4979,
+        "tov_pct": 0.1802,
+        "ortg": 98.82,
+        "drtg": 100.18,
+        "net_rtg": -1.36,
+        "pace": 81.14,
+        "ts_pct": 0.5422,
+        "ft_rate": 0.441,
+        "reb": 33.8,
+        "ast_tov": 1.303,
+        "win_rate": 0.6
+      },
+      "home_l10": {
+        "n": 10,
+        "ppg": 82.7,
+        "oppg": 86.0,
+        "efg_pct": 0.4799,
+        "oefg_pct": 0.511,
+        "tov_pct": 0.1564,
+        "ortg": 101.044,
+        "drtg": 105.043,
+        "net_rtg": -3.999,
+        "pace": 80.788,
+        "ts_pct": 0.5197,
+        "ft_rate": 0.3658,
+        "reb": 34.4,
+        "ast_tov": 1.7677,
+        "win_rate": 0.2
+      },
+      "away_l10": {
+        "n": 10,
+        "ppg": 81.4,
+        "oppg": 84.3,
+        "efg_pct": 0.4944,
+        "oefg_pct": 0.5157,
+        "tov_pct": 0.194,
+        "ortg": 100.249,
+        "drtg": 102.671,
+        "net_rtg": -2.422,
+        "pace": 81.83,
+        "ts_pct": 0.5485,
+        "ft_rate": 0.4398,
+        "reb": 34.2,
+        "ast_tov": 1.2773,
+        "win_rate": 0.5
+      },
+      "home_l5_home": {
+        "n": 5,
+        "ppg": 85.0,
+        "oppg": 85.2,
+        "efg_pct": 0.4922,
+        "oefg_pct": 0.5047,
+        "tov_pct": 0.1171,
+        "ortg": 104.568,
+        "drtg": 103.946,
+        "net_rtg": 0.622,
+        "pace": 81.844,
+        "ts_pct": 0.5267,
+        "ft_rate": 0.3034,
+        "reb": 32.8,
+        "ast_tov": 2.3808,
+        "win_rate": 0.2
+      },
+      "away_l5_away": {
+        "n": 5,
+        "ppg": 79.8,
+        "oppg": 87.6,
+        "efg_pct": 0.4895,
+        "oefg_pct": 0.5273,
+        "tov_pct": 0.1827,
+        "ortg": 100.222,
+        "drtg": 109.762,
+        "net_rtg": -9.54,
+        "pace": 79.876,
+        "ts_pct": 0.5481,
+        "ft_rate": 0.4456,
+        "reb": 31.0,
+        "ast_tov": 1.303,
+        "win_rate": 0.6
+      },
+      "h2h_last10": [
+        {
+          "date": "2023-08-22",
+          "home_team": "WSH",
+          "away_team": "CON",
+          "score": "64-68",
+          "winner": "CON"
+        },
+        {
+          "date": "2024-05-17",
+          "home_team": "CON",
+          "away_team": "WSH",
+          "score": "84-77",
+          "winner": "CON"
+        },
+        {
+          "date": "2024-06-04",
+          "home_team": "CON",
+          "away_team": "WSH",
+          "score": "76-59",
+          "winner": "CON"
+        },
+        {
+          "date": "2024-06-27",
+          "home_team": "WSH",
+          "away_team": "CON",
+          "score": "91-94",
+          "winner": "CON"
+        },
+        {
+          "date": "2024-08-31",
+          "home_team": "WSH",
+          "away_team": "CON",
+          "score": "85-96",
+          "winner": "CON"
+        },
+        {
+          "date": "2025-05-18",
+          "home_team": "CON",
+          "away_team": "WSH",
+          "score": "85-90",
+          "winner": "WSH"
+        },
+        {
+          "date": "2025-06-08",
+          "home_team": "WSH",
+          "away_team": "CON",
+          "score": "104-67",
+          "winner": "WSH"
+        },
+        {
+          "date": "2025-08-19",
+          "home_team": "WSH",
+          "away_team": "CON",
+          "score": "69-80",
+          "winner": "CON"
+        },
+        {
+          "date": "2025-08-21",
+          "home_team": "CON",
+          "away_team": "WSH",
+          "score": "67-56",
+          "winner": "CON"
+        },
+        {
+          "date": "2026-06-17",
+          "home_team": "CON",
+          "away_team": "WSH",
+          "score": "81-88",
+          "winner": "WSH"
+        }
+      ],
+      "home_recent_games": [
+        {
+          "date": "2026-06-22",
+          "opponent": "CHI",
+          "is_home": true,
+          "won": true,
+          "score": "92-63"
+        },
+        {
+          "date": "2026-06-19",
+          "opponent": "TOR",
+          "is_home": true,
+          "won": false,
+          "score": "97-101"
+        },
+        {
+          "date": "2026-06-17",
+          "opponent": "WSH",
+          "is_home": true,
+          "won": false,
+          "score": "81-88"
+        },
+        {
+          "date": "2026-06-13",
+          "opponent": "IND",
+          "is_home": true,
+          "won": false,
+          "score": "75-85"
+        },
+        {
+          "date": "2026-06-10",
+          "opponent": "TOR",
+          "is_home": false,
+          "won": false,
+          "score": "102-106"
+        },
+        {
+          "date": "2026-06-08",
+          "opponent": "NY",
+          "is_home": true,
+          "won": false,
+          "score": "80-89"
+        },
+        {
+          "date": "2026-06-05",
+          "opponent": "CHI",
+          "is_home": false,
+          "won": false,
+          "score": "80-85"
+        },
+        {
+          "date": "2026-06-02",
+          "opponent": "ATL",
+          "is_home": false,
+          "won": false,
+          "score": "75-91"
+        },
+        {
+          "date": "2026-05-30",
+          "opponent": "LA",
+          "is_home": true,
+          "won": true,
+          "score": "84-81"
+        },
+        {
+          "date": "2026-05-28",
+          "opponent": "POR",
+          "is_home": false,
+          "won": false,
+          "score": "61-71"
+        }
+      ],
+      "away_recent_games": [
+        {
+          "date": "2026-06-24",
+          "opponent": "MIN",
+          "is_home": true,
+          "won": false,
+          "score": "76-78"
+        },
+        {
+          "date": "2026-06-21",
+          "opponent": "MIN",
+          "is_home": false,
+          "won": true,
+          "score": "84-79"
+        },
+        {
+          "date": "2026-06-19",
+          "opponent": "NY",
+          "is_home": false,
+          "won": true,
+          "score": "86-83"
+        },
+        {
+          "date": "2026-06-17",
+          "opponent": "CON",
+          "is_home": false,
+          "won": true,
+          "score": "88-81"
+        },
+        {
+          "date": "2026-06-14",
+          "opponent": "NY",
+          "is_home": false,
+          "won": false,
+          "score": "64-86"
+        },
+        {
+          "date": "2026-06-12",
+          "opponent": "TOR",
+          "is_home": true,
+          "won": true,
+          "score": "86-85"
+        },
+        {
+          "date": "2026-06-08",
+          "opponent": "IND",
+          "is_home": true,
+          "won": false,
+          "score": "76-78"
+        },
+        {
+          "date": "2026-06-06",
+          "opponent": "ATL",
+          "is_home": false,
+          "won": false,
+          "score": "77-109"
+        },
+        {
+          "date": "2026-06-02",
+          "opponent": "CHI",
+          "is_home": true,
+          "won": true,
+          "score": "90-72"
+        },
+        {
+          "date": "2026-05-29",
+          "opponent": "LA",
+          "is_home": true,
+          "won": false,
+          "score": "87-92"
+        }
+      ],
+      "elo_home": 1312.3,
+      "elo_away": 1444.5,
+      "rest_home": 4,
+      "rest_away": 2,
+      "features": {
+        "feature_net_rating_diff": 2.468,
+        "feature_elo_diff": -132.29,
+        "feature_ppg_diff": 9.8,
+        "feature_efg_diff": 0.0159,
+        "feature_tov_diff": -0.0473,
+        "feature_pace_diff": -0.144,
+        "feature_ts_diff": -0.0023,
+        "feature_reb_diff": 1.8,
+        "feature_rest_diff": 2,
+        "feature_b2b_fatigue": 0,
+        "feature_h2h_edge": 0.7,
+        "feature_hca_weight": 0.05,
+        "feature_home_off_abs": 89.4,
+        "feature_away_off_abs": 79.6,
+        "feature_home_def_abs": 88.6,
+        "feature_away_def_abs": 81.4,
+        "feature_pace_abs": 81.068,
+        "feature_opp_quality_diff": -4.28,
+        "feature_form_streak_diff": 2.0,
+        "feature_net_rating_diff_l10": -1.577,
+        "feature_ppg_diff_l10": 1.3,
+        "feature_efg_diff_l10": -0.0145,
+        "feature_home_court_off_diff": 4.346,
+        "feature_home_court_def_diff": -5.816,
+        "feature_star_out_impact_diff": 4.35,
+        "feature_star_out_count_diff": 0.0,
+        "feature_star_minutes_avail_diff": -0.175
+      },
+      "ai_insight": "- The Washington Mystics have a significant edge in terms of team strength, with a higher ELO rating (1444.5) compared to the Connecticut Sun (1312.3), and they also have a home court edge in terms of their recent performance, although the L5 net rating slightly favors the Sun (1.108) over the Mystics (-1.36).\n- Situational factors such as rest days and star absences could impact the game, with the Connecticut Sun having 4 rest days compared to the Washington Mystics' 2, but the star absence impact difference is 4.35 points, which might affect the Sun's performance, considering they are at home.\n- The best betting angle for this matchup is the Total Over 163.5, as the model projects a total of 167.6 and the market offers a total of 163.5, providing a 4.08% edge, making it a more favorable bet than taking either team on the moneyline or against the spread."
+    },
+    {
+      "game_id": "401857025",
+      "date": "2026-06-26",
+      "name": "Portland Fire at Chicago Sky",
+      "home_team_id": "19",
+      "away_team_id": "132052",
+      "home_team_abbr": "CHI",
+      "away_team_abbr": "POR",
+      "home_team_name": "Chicago Sky",
+      "away_team_name": "Portland Fire",
+      "home_logo": "https://a.espncdn.com/i/teamlogos/wnba/500/chi.png",
+      "away_logo": "https://a.espncdn.com/i/teamlogos/wnba/500/scoreboard/por.png",
+      "venue": "Wintrust Arena",
+      "home_win_prob": 0.4947,
+      "away_win_prob": 0.5053,
+      "home_win_prob_pct": "49.5%",
+      "away_win_prob_pct": "50.5%",
+      "predicted_spread": 0.78,
+      "predicted_total": 171.9,
+      "predicted_home_score": 86.4,
+      "predicted_away_score": 85.6,
+      "predicted_winner": "Portland Fire",
+      "predicted_winner_abbr": "POR",
+      "implied_home_ml": 102,
+      "implied_away_ml": -102,
+      "odds": {
+        "game_id_odds": "1456eb2d3d5295f1aebe9883f2b15604",
+        "commence_time": "2026-06-26T23:30:00Z",
+        "home_team": "Chicago Sky",
+        "away_team": "Portland Fire",
+        "home_abbr": "CHI",
+        "away_abbr": "POR",
+        "moneyline_home": -194,
+        "moneyline_away": 156,
+        "spread_home": -114,
+        "spread_away": -106,
+        "spread_line": -4.5,
+        "total_line": 172.5,
+        "total_over": -114,
+        "total_under": -106
+      },
+      "alt_bets": [
+        {
+          "market": "Moneyline",
+          "pick": "Portland Fire",
+          "model_win_prob": "50.5%",
+          "edge": 11.47,
+          "confidence": "High",
+          "odds": 156,
+          "odds_format": "american"
+        },
+        {
+          "market": "Spread",
+          "pick": "Portland Fire (+4.5)",
+          "model_prediction": "Predicted spread: +0.8",
+          "edge": 3.72,
+          "confidence": "Low",
+          "odds": -106,
+          "odds_format": "american"
+        }
+      ],
+      "bet_count": 2,
+      "home_l5": {
+        "n": 5,
+        "ppg": 91.4,
+        "oppg": 94.6,
+        "efg_pct": 0.4823,
+        "oefg_pct": 0.5128,
+        "tov_pct": 0.1518,
+        "ortg": 106.05,
+        "drtg": 110.522,
+        "net_rtg": -4.472,
+        "pace": 83.868,
+        "ts_pct": 0.5426,
+        "ft_rate": 0.3956,
+        "reb": 34.2,
+        "ast_tov": 1.6322,
+        "win_rate": 0.2
+      },
+      "away_l5": {
+        "n": 5,
+        "ppg": 83.8,
+        "oppg": 97.0,
+        "efg_pct": 0.5134,
+        "oefg_pct": 0.5514,
+        "tov_pct": 0.1586,
+        "ortg": 102.998,
+        "drtg": 118.288,
+        "net_rtg": -15.29,
+        "pace": 81.752,
+        "ts_pct": 0.5507,
+        "ft_rate": 0.2405,
+        "reb": 27.8,
+        "ast_tov": 1.8192,
+        "win_rate": 0.4
+      },
+      "home_l10": {
+        "n": 10,
+        "ppg": 81.5,
+        "oppg": 88.9,
+        "efg_pct": 0.4653,
+        "oefg_pct": 0.4839,
+        "tov_pct": 0.1706,
+        "ortg": 96.707,
+        "drtg": 104.554,
+        "net_rtg": -7.847,
+        "pace": 83.646,
+        "ts_pct": 0.5177,
+        "ft_rate": 0.3685,
+        "reb": 33.1,
+        "ast_tov": 1.392,
+        "win_rate": 0.2
+      },
+      "away_l10": {
+        "n": 10,
+        "ppg": 80.6,
+        "oppg": 91.7,
+        "efg_pct": 0.5096,
+        "oefg_pct": 0.5271,
+        "tov_pct": 0.1914,
+        "ortg": 100.203,
+        "drtg": 113.988,
+        "net_rtg": -13.785,
+        "pace": 80.476,
+        "ts_pct": 0.5507,
+        "ft_rate": 0.2497,
+        "reb": 28.9,
+        "ast_tov": 1.5537,
+        "win_rate": 0.3
+      },
+      "home_l5_home": {
+        "n": 5,
+        "ppg": 82.8,
+        "oppg": 83.0,
+        "efg_pct": 0.5,
+        "oefg_pct": 0.4795,
+        "tov_pct": 0.1631,
+        "ortg": 102.592,
+        "drtg": 101.68,
+        "net_rtg": 0.912,
+        "pace": 81.408,
+        "ts_pct": 0.5484,
+        "ft_rate": 0.3378,
+        "reb": 32.0,
+        "ast_tov": 1.663,
+        "win_rate": 0.4
+      },
+      "away_l5_away": {
+        "n": 5,
+        "ppg": 76.4,
+        "oppg": 93.2,
+        "efg_pct": 0.4631,
+        "oefg_pct": 0.5461,
+        "tov_pct": 0.1812,
+        "ortg": 93.712,
+        "drtg": 116.3,
+        "net_rtg": -22.588,
+        "pace": 80.9,
+        "ts_pct": 0.5016,
+        "ft_rate": 0.2408,
+        "reb": 31.0,
+        "ast_tov": 1.3704,
+        "win_rate": 0.2
+      },
+      "h2h_last10": [
+        {
+          "date": "2026-05-10",
+          "home_team": "POR",
+          "away_team": "CHI",
+          "score": "83-98",
+          "winner": "CHI"
+        },
+        {
+          "date": "2026-06-25",
+          "home_team": "CHI",
+          "away_team": "POR",
+          "score": "101-78",
+          "winner": "CHI"
+        }
+      ],
+      "home_recent_games": [
+        {
+          "date": "2026-06-25",
+          "opponent": "POR",
+          "is_home": true,
+          "won": true,
+          "score": "101-78"
+        },
+        {
+          "date": "2026-06-22",
+          "opponent": "CON",
+          "is_home": false,
+          "won": false,
+          "score": "63-92"
+        },
+        {
+          "date": "2026-06-21",
+          "opponent": "DAL",
+          "is_home": false,
+          "won": false,
+          "score": "92-93"
+        },
+        {
+          "date": "2026-06-18",
+          "opponent": "NY",
+          "is_home": true,
+          "won": false,
+          "score": "95-96"
+        },
+        {
+          "date": "2026-06-11",
+          "opponent": "IND",
+          "is_home": false,
+          "won": false,
+          "score": "106-114"
+        },
+        {
+          "date": "2026-06-09",
+          "opponent": "ATL",
+          "is_home": true,
+          "won": false,
+          "score": "75-82"
+        },
+        {
+          "date": "2026-06-07",
+          "opponent": "TOR",
+          "is_home": false,
+          "won": false,
+          "score": "68-85"
+        },
+        {
+          "date": "2026-06-05",
+          "opponent": "CON",
+          "is_home": true,
+          "won": true,
+          "score": "85-80"
+        },
+        {
+          "date": "2026-06-02",
+          "opponent": "WSH",
+          "is_home": false,
+          "won": false,
+          "score": "72-90"
+        },
+        {
+          "date": "2026-05-29",
+          "opponent": "MIN",
+          "is_home": true,
+          "won": false,
+          "score": "58-79"
+        }
+      ],
+      "away_recent_games": [
+        {
+          "date": "2026-06-25",
+          "opponent": "CHI",
+          "is_home": false,
+          "won": false,
+          "score": "78-101"
+        },
+        {
+          "date": "2026-06-18",
+          "opponent": "SEA",
+          "is_home": true,
+          "won": true,
+          "score": "94-89"
+        },
+        {
+          "date": "2026-06-16",
+          "opponent": "MIN",
+          "is_home": false,
+          "won": false,
+          "score": "74-107"
+        },
+        {
+          "date": "2026-06-14",
+          "opponent": "DAL",
+          "is_home": true,
+          "won": true,
+          "score": "84-83"
+        },
+        {
+          "date": "2026-06-12",
+          "opponent": "LV",
+          "is_home": true,
+          "won": false,
+          "score": "89-105"
+        },
+        {
+          "date": "2026-06-07",
+          "opponent": "LA",
+          "is_home": false,
+          "won": false,
+          "score": "72-89"
+        },
+        {
+          "date": "2026-06-06",
+          "opponent": "PHX",
+          "is_home": true,
+          "won": false,
+          "score": "72-78"
+        },
+        {
+          "date": "2026-06-03",
+          "opponent": "GS",
+          "is_home": false,
+          "won": false,
+          "score": "77-95"
+        },
+        {
+          "date": "2026-05-31",
+          "opponent": "IND",
+          "is_home": true,
+          "won": true,
+          "score": "100-84"
+        },
+        {
+          "date": "2026-05-30",
+          "opponent": "ATL",
+          "is_home": true,
+          "won": false,
+          "score": "66-86"
+        }
+      ],
+      "elo_home": 1330.6,
+      "elo_away": 1406.2,
+      "rest_home": 1,
+      "rest_away": 1,
+      "features": {
+        "feature_net_rating_diff": 10.818,
+        "feature_elo_diff": -75.65,
+        "feature_ppg_diff": 7.6,
+        "feature_efg_diff": -0.0311,
+        "feature_tov_diff": -0.0068,
+        "feature_pace_diff": 2.116,
+        "feature_ts_diff": -0.0081,
+        "feature_reb_diff": 6.4,
+        "feature_rest_diff": 0,
+        "feature_b2b_fatigue": 0,
+        "feature_h2h_edge": 1.0,
+        "feature_hca_weight": 0.0,
+        "feature_home_off_abs": 91.4,
+        "feature_away_off_abs": 83.8,
+        "feature_home_def_abs": 94.6,
+        "feature_away_def_abs": 97.0,
+        "feature_pace_abs": 82.81,
+        "feature_opp_quality_diff": -1.68,
+        "feature_form_streak_diff": 2.0,
+        "feature_net_rating_diff_l10": 5.938,
+        "feature_ppg_diff_l10": 0.9,
+        "feature_efg_diff_l10": -0.0443,
+        "feature_home_court_off_diff": 8.88,
+        "feature_home_court_def_diff": -14.62,
+        "feature_star_out_impact_diff": 0.0,
+        "feature_star_out_count_diff": 0.0,
+        "feature_star_minutes_avail_diff": -0.175
+      },
+      "ai_insight": "- The Portland Fire have a significant edge in terms of team strength, with a higher ELO rating (1406.2) compared to the Chicago Sky (1330.6), and a better L5 net rating (-15.29) than the Chicago Sky (-4.472), although the home court edge slightly favors the Chicago Sky.\n- Situational factors such as rest days are equal for both teams, with each having 1 day of rest, and there are no star absences that would significantly impact the game, as the star absence impact difference is 0.0.\n- The best betting angle for this matchup is to take the Portland Fire on the Moneyline, as the model projects them to win 50.5% of the time, giving them an 11.47% edge, or alternatively, taking the Portland Fire with a spread of +4.5, which has a 3.72% edge, as the model suggests value on the underdog."
+    },
+    {
+      "game_id": "401857026",
+      "date": "2026-06-27",
+      "name": "Atlanta Dream at Golden State Valkyries",
+      "home_team_id": "129689",
+      "away_team_id": "20",
+      "home_team_abbr": "GS",
+      "away_team_abbr": "ATL",
+      "home_team_name": "Golden State Valkyries",
+      "away_team_name": "Atlanta Dream",
+      "home_logo": "https://a.espncdn.com/i/teamlogos/wnba/500/scoreboard/gs.png",
+      "away_logo": "https://a.espncdn.com/i/teamlogos/wnba/500/atl.png",
+      "venue": "Chase Center",
+      "home_win_prob": 0.5112,
+      "away_win_prob": 0.4888,
+      "home_win_prob_pct": "51.1%",
+      "away_win_prob_pct": "48.9%",
+      "predicted_spread": 1.94,
+      "predicted_total": 161.8,
+      "predicted_home_score": 81.9,
+      "predicted_away_score": 79.9,
+      "predicted_winner": "Golden State Valkyries",
+      "predicted_winner_abbr": "GS",
+      "implied_home_ml": -105,
+      "implied_away_ml": 105,
+      "odds": {
+        "game_id_odds": "2aa029b6f16580a4239f7e91f62f69fa",
+        "commence_time": "2026-06-27T02:10:00Z",
+        "home_team": "Golden State Valkyries",
+        "away_team": "Atlanta Dream",
+        "home_abbr": "GS",
+        "away_abbr": "ATL",
+        "moneyline_home": -108,
+        "moneyline_away": -112,
+        "spread_home": -114,
+        "spread_away": -106,
+        "spread_line": 1.5,
+        "total_line": 164.5,
+        "total_over": -110,
+        "total_under": -110
+      },
+      "alt_bets": [
+        {
+          "market": "Spread",
+          "pick": "Golden State Valkyries (+1.5)",
+          "model_prediction": "Predicted spread: +1.9",
+          "edge": 3.44,
+          "confidence": "Low",
+          "odds": -114,
+          "odds_format": "american"
+        }
+      ],
+      "bet_count": 1,
+      "home_l5": {
+        "n": 5,
+        "ppg": 78.8,
+        "oppg": 75.4,
+        "efg_pct": 0.4991,
+        "oefg_pct": 0.4952,
+        "tov_pct": 0.1492,
+        "ortg": 103.27,
+        "drtg": 100.224,
+        "net_rtg": 3.046,
+        "pace": 75.896,
+        "ts_pct": 0.5339,
+        "ft_rate": 0.283,
+        "reb": 35.0,
+        "ast_tov": 1.5248,
+        "win_rate": 0.6
+      },
+      "away_l5": {
+        "n": 5,
+        "ppg": 96.6,
+        "oppg": 87.6,
+        "efg_pct": 0.5204,
+        "oefg_pct": 0.5616,
+        "tov_pct": 0.1191,
+        "ortg": 113.21,
+        "drtg": 104.336,
+        "net_rtg": 8.874,
+        "pace": 84.34,
+        "ts_pct": 0.5583,
+        "ft_rate": 0.3503,
+        "reb": 35.0,
+        "ast_tov": 2.2342,
+        "win_rate": 0.8
+      },
+      "home_l10": {
+        "n": 10,
+        "ppg": 81.5,
+        "oppg": 77.8,
+        "efg_pct": 0.4991,
+        "oefg_pct": 0.5012,
+        "tov_pct": 0.1326,
+        "ortg": 106.1,
+        "drtg": 101.942,
+        "net_rtg": 4.158,
+        "pace": 76.656,
+        "ts_pct": 0.5399,
+        "ft_rate": 0.2851,
+        "reb": 33.2,
+        "ast_tov": 1.9136,
+        "win_rate": 0.6
+      },
+      "away_l10": {
+        "n": 10,
+        "ppg": 92.6,
+        "oppg": 85.2,
+        "efg_pct": 0.5125,
+        "oefg_pct": 0.5578,
+        "tov_pct": 0.1293,
+        "ortg": 111.682,
+        "drtg": 104.631,
+        "net_rtg": 7.051,
+        "pace": 81.97,
+        "ts_pct": 0.5547,
+        "ft_rate": 0.3584,
+        "reb": 34.2,
+        "ast_tov": 2.157,
+        "win_rate": 0.7
+      },
+      "home_l5_home": {
+        "n": 5,
+        "ppg": 81.6,
+        "oppg": 73.2,
+        "efg_pct": 0.513,
+        "oefg_pct": 0.4583,
+        "tov_pct": 0.1457,
+        "ortg": 106.316,
+        "drtg": 95.792,
+        "net_rtg": 10.524,
+        "pace": 76.588,
+        "ts_pct": 0.5551,
+        "ft_rate": 0.321,
+        "reb": 34.2,
+        "ast_tov": 1.7248,
+        "win_rate": 0.8
+      },
+      "away_l5_away": {
+        "n": 5,
+        "ppg": 85.8,
+        "oppg": 82.6,
+        "efg_pct": 0.48,
+        "oefg_pct": 0.5572,
+        "tov_pct": 0.1437,
+        "ortg": 105.016,
+        "drtg": 104.526,
+        "net_rtg": 0.49,
+        "pace": 80.016,
+        "ts_pct": 0.5279,
+        "ft_rate": 0.3363,
+        "reb": 34.8,
+        "ast_tov": 1.6706,
+        "win_rate": 0.6
+      },
+      "h2h_last10": [
+        {
+          "date": "2025-07-07",
+          "home_team": "ATL",
+          "away_team": "GS",
+          "score": "90-81",
+          "winner": "ATL"
+        },
+        {
+          "date": "2025-07-29",
+          "home_team": "ATL",
+          "away_team": "GS",
+          "score": "75-77",
+          "winner": "GS"
+        },
+        {
+          "date": "2025-08-18",
+          "home_team": "GS",
+          "away_team": "ATL",
+          "score": "63-79",
+          "winner": "ATL"
+        },
+        {
+          "date": "2026-06-25",
+          "home_team": "GS",
+          "away_team": "ATL",
+          "score": "77-66",
+          "winner": "GS"
+        }
+      ],
+      "home_recent_games": [
+        {
+          "date": "2026-06-25",
+          "opponent": "ATL",
+          "is_home": true,
+          "won": true,
+          "score": "77-66"
+        },
+        {
+          "date": "2026-06-21",
+          "opponent": "LV",
+          "is_home": false,
+          "won": false,
+          "score": "73-92"
+        },
+        {
+          "date": "2026-06-20",
+          "opponent": "MIN",
+          "is_home": true,
+          "won": false,
+          "score": "75-81"
+        },
+        {
+          "date": "2026-06-18",
+          "opponent": "DAL",
+          "is_home": true,
+          "won": true,
+          "score": "91-80"
+        },
+        {
+          "date": "2026-06-16",
+          "opponent": "LA",
+          "is_home": true,
+          "won": true,
+          "score": "78-58"
+        },
+        {
+          "date": "2026-06-13",
+          "opponent": "SEA",
+          "is_home": false,
+          "won": true,
+          "score": "76-72"
+        },
+        {
+          "date": "2026-06-10",
+          "opponent": "PHX",
+          "is_home": true,
+          "won": true,
+          "score": "87-81"
+        },
+        {
+          "date": "2026-06-06",
+          "opponent": "LV",
+          "is_home": false,
+          "won": false,
+          "score": "79-84"
+        },
+        {
+          "date": "2026-06-05",
+          "opponent": "MIN",
+          "is_home": false,
+          "won": false,
+          "score": "84-87"
+        },
+        {
+          "date": "2026-06-03",
+          "opponent": "POR",
+          "is_home": true,
+          "won": true,
+          "score": "95-77"
+        }
+      ],
+      "away_recent_games": [
+        {
+          "date": "2026-06-25",
+          "opponent": "GS",
+          "is_home": false,
+          "won": false,
+          "score": "66-77"
+        },
+        {
+          "date": "2026-06-22",
+          "opponent": "TOR",
+          "is_home": true,
+          "won": true,
+          "score": "94-87"
+        },
+        {
+          "date": "2026-06-20",
+          "opponent": "IND",
+          "is_home": true,
+          "won": true,
+          "score": "113-96"
+        },
+        {
+          "date": "2026-06-18",
+          "opponent": "IND",
+          "is_home": false,
+          "won": true,
+          "score": "108-101"
+        },
+        {
+          "date": "2026-06-14",
+          "opponent": "TOR",
+          "is_home": false,
+          "won": true,
+          "score": "102-77"
+        },
+        {
+          "date": "2026-06-11",
+          "opponent": "NY",
+          "is_home": true,
+          "won": false,
+          "score": "90-104"
+        },
+        {
+          "date": "2026-06-09",
+          "opponent": "CHI",
+          "is_home": false,
+          "won": true,
+          "score": "82-75"
+        },
+        {
+          "date": "2026-06-06",
+          "opponent": "WSH",
+          "is_home": true,
+          "won": true,
+          "score": "109-77"
+        },
+        {
+          "date": "2026-06-04",
+          "opponent": "IND",
+          "is_home": false,
+          "won": false,
+          "score": "71-83"
+        },
+        {
+          "date": "2026-06-02",
+          "opponent": "CON",
+          "is_home": true,
+          "won": true,
+          "score": "91-75"
+        }
+      ],
+      "elo_home": 1614.8,
+      "elo_away": 1644.1,
+      "rest_home": 1,
+      "rest_away": 1,
+      "features": {
+        "feature_net_rating_diff": -5.828,
+        "feature_elo_diff": -29.27,
+        "feature_ppg_diff": -17.8,
+        "feature_efg_diff": -0.0213,
+        "feature_tov_diff": 0.0301,
+        "feature_pace_diff": -8.444,
+        "feature_ts_diff": -0.0244,
+        "feature_reb_diff": 0.0,
+        "feature_rest_diff": 0,
+        "feature_b2b_fatigue": 0,
+        "feature_h2h_edge": 0.5,
+        "feature_hca_weight": 0.2,
+        "feature_home_off_abs": 78.8,
+        "feature_away_off_abs": 96.6,
+        "feature_home_def_abs": 75.4,
+        "feature_away_def_abs": 87.6,
+        "feature_pace_abs": 80.118,
+        "feature_opp_quality_diff": 3.72,
+        "feature_form_streak_diff": 2.0,
+        "feature_net_rating_diff_l10": -2.893,
+        "feature_ppg_diff_l10": -11.1,
+        "feature_efg_diff_l10": -0.0134,
+        "feature_home_court_off_diff": 1.3,
+        "feature_home_court_def_diff": -8.734,
+        "feature_star_out_impact_diff": 12.0,
+        "feature_star_out_count_diff": 0.0,
+        "feature_star_minutes_avail_diff": -0.325
+      },
+      "ai_insight": "- The Atlanta Dream have a slight edge in terms of team strength, with a higher ELO rating (1644.1) compared to the Golden State Valkyries (1614.8), and a significantly better L5 net rating (8.874) than the Valkyries (3.046), which could indicate a strong performance on the road, but the home court edge slightly favors the Valkyries.\n- Situational factors such as rest days are equal for both teams, with each having 1 day of rest, but the absence of a key star player for the Valkyries could impact their performance, with a 12.0 point per game difference, which may hinder their ability to keep up with the Dream's high-powered offense, currently in good form.\n- The best betting angle in this matchup is taking the Golden State Valkyries on the Spread (+1.5), as the model indicates a 3.44% edge, providing value on the home team to keep the game close, despite the model projecting the Atlanta Dream to win, the spread offers"
+    }
+  ]
+}

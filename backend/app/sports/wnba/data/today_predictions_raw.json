@@ -1,6 +1,6 @@
 {
   "date": "2026-06-26",
-  "generated_at": "2026-06-26T08:11:35.445472+00:00",
+  "generated_at": "2026-06-26T08:23:45.645932+00:00",
   "match_count": 3,
   "matches": [
     {
@@ -219,6 +219,150 @@
           "winner": "WSH"
         }
       ],
+      "home_recent_games": [
+        {
+          "date": "2026-06-22",
+          "opponent": "CHI",
+          "is_home": true,
+          "won": true,
+          "score": "92-63"
+        },
+        {
+          "date": "2026-06-19",
+          "opponent": "TOR",
+          "is_home": true,
+          "won": false,
+          "score": "97-101"
+        },
+        {
+          "date": "2026-06-17",
+          "opponent": "WSH",
+          "is_home": true,
+          "won": false,
+          "score": "81-88"
+        },
+        {
+          "date": "2026-06-13",
+          "opponent": "IND",
+          "is_home": true,
+          "won": false,
+          "score": "75-85"
+        },
+        {
+          "date": "2026-06-10",
+          "opponent": "TOR",
+          "is_home": false,
+          "won": false,
+          "score": "102-106"
+        },
+        {
+          "date": "2026-06-08",
+          "opponent": "NY",
+          "is_home": true,
+          "won": false,
+          "score": "80-89"
+        },
+        {
+          "date": "2026-06-05",
+          "opponent": "CHI",
+          "is_home": false,
+          "won": false,
+          "score": "80-85"
+        },
+        {
+          "date": "2026-06-02",
+          "opponent": "ATL",
+          "is_home": false,
+          "won": false,
+          "score": "75-91"
+        },
+        {
+          "date": "2026-05-30",
+          "opponent": "LA",
+          "is_home": true,
+          "won": true,
+          "score": "84-81"
+        },
+        {
+          "date": "2026-05-28",
+          "opponent": "POR",
+          "is_home": false,
+          "won": false,
+          "score": "61-71"
+        }
+      ],
+      "away_recent_games": [
+        {
+          "date": "2026-06-24",
+          "opponent": "MIN",
+          "is_home": true,
+          "won": false,
+          "score": "76-78"
+        },
+        {
+          "date": "2026-06-21",
+          "opponent": "MIN",
+          "is_home": false,
+          "won": true,
+          "score": "84-79"
+        },
+        {
+          "date": "2026-06-19",
+          "opponent": "NY",
+          "is_home": false,
+          "won": true,
+          "score": "86-83"
+        },
+        {
+          "date": "2026-06-17",
+          "opponent": "CON",
+          "is_home": false,
+          "won": true,
+          "score": "88-81"
+        },
+        {
+          "date": "2026-06-14",
+          "opponent": "NY",
+          "is_home": false,
+          "won": false,
+          "score": "64-86"
+        },
+        {
+          "date": "2026-06-12",
+          "opponent": "TOR",
+          "is_home": true,
+          "won": true,
+          "score": "86-85"
+        },
+        {
+          "date": "2026-06-08",
+          "opponent": "IND",
+          "is_home": true,
+          "won": false,
+          "score": "76-78"
+        },
+        {
+          "date": "2026-06-06",
+          "opponent": "ATL",
+          "is_home": false,
+          "won": false,
+          "score": "77-109"
+        },
+        {
+          "date": "2026-06-02",
+          "opponent": "CHI",
+          "is_home": true,
+          "won": true,
+          "score": "90-72"
+        },
+        {
+          "date": "2026-05-29",
+          "opponent": "LA",
+          "is_home": true,
+          "won": false,
+          "score": "87-92"
+        }
+      ],
       "elo_home": 1312.3,
       "elo_away": 1444.5,
       "rest_home": 4,
@@ -398,6 +542,150 @@
           "away_team": "POR",
           "score": "101-78",
           "winner": "CHI"
+        }
+      ],
+      "home_recent_games": [
+        {
+          "date": "2026-06-25",
+          "opponent": "POR",
+          "is_home": true,
+          "won": true,
+          "score": "101-78"
+        },
+        {
+          "date": "2026-06-22",
+          "opponent": "CON",
+          "is_home": false,
+          "won": false,
+          "score": "63-92"
+        },
+        {
+          "date": "2026-06-21",
+          "opponent": "DAL",
+          "is_home": false,
+          "won": false,
+          "score": "92-93"
+        },
+        {
+          "date": "2026-06-18",
+          "opponent": "NY",
+          "is_home": true,
+          "won": false,
+          "score": "95-96"
+        },
+        {
+          "date": "2026-06-11",
+          "opponent": "IND",
+          "is_home": false,
+          "won": false,
+          "score": "106-114"
+        },
+        {
+          "date": "2026-06-09",
+          "opponent": "ATL",
+          "is_home": true,
+          "won": false,
+          "score": "75-82"
+        },
+        {
+          "date": "2026-06-07",
+          "opponent": "TOR",
+          "is_home": false,
+          "won": false,
+          "score": "68-85"
+        },
+        {
+          "date": "2026-06-05",
+          "opponent": "CON",
+          "is_home": true,
+          "won": true,
+          "score": "85-80"
+        },
+        {
+          "date": "2026-06-02",
+          "opponent": "WSH",
+          "is_home": false,
+          "won": false,
+          "score": "72-90"
+        },
+        {
+          "date": "2026-05-29",
+          "opponent": "MIN",
+          "is_home": true,
+          "won": false,
+          "score": "58-79"
+        }
+      ],
+      "away_recent_games": [
+        {
+          "date": "2026-06-25",
+          "opponent": "CHI",
+          "is_home": false,
+          "won": false,
+          "score": "78-101"
+        },
+        {
+          "date": "2026-06-18",
+          "opponent": "SEA",
+          "is_home": true,
+          "won": true,
+          "score": "94-89"
+        },
+        {
+          "date": "2026-06-16",
+          "opponent": "MIN",
+          "is_home": false,
+          "won": false,
+          "score": "74-107"
+        },
+        {
+          "date": "2026-06-14",
+          "opponent": "DAL",
+          "is_home": true,
+          "won": true,
+          "score": "84-83"
+        },
+        {
+          "date": "2026-06-12",
+          "opponent": "LV",
+          "is_home": true,
+          "won": false,
+          "score": "89-105"
+        },
+        {
+          "date": "2026-06-07",
+          "opponent": "LA",
+          "is_home": false,
+          "won": false,
+          "score": "72-89"
+        },
+        {
+          "date": "2026-06-06",
+          "opponent": "PHX",
+          "is_home": true,
+          "won": false,
+          "score": "72-78"
+        },
+        {
+          "date": "2026-06-03",
+          "opponent": "GS",
+          "is_home": false,
+          "won": false,
+          "score": "77-95"
+        },
+        {
+          "date": "2026-05-31",
+          "opponent": "IND",
+          "is_home": true,
+          "won": true,
+          "score": "100-84"
+        },
+        {
+          "date": "2026-05-30",
+          "opponent": "ATL",
+          "is_home": true,
+          "won": false,
+          "score": "66-86"
         }
       ],
       "elo_home": 1330.6,
@@ -593,6 +881,150 @@
           "away_team": "ATL",
           "score": "77-66",
           "winner": "GS"
+        }
+      ],
+      "home_recent_games": [
+        {
+          "date": "2026-06-25",
+          "opponent": "ATL",
+          "is_home": true,
+          "won": true,
+          "score": "77-66"
+        },
+        {
+          "date": "2026-06-21",
+          "opponent": "LV",
+          "is_home": false,
+          "won": false,
+          "score": "73-92"
+        },
+        {
+          "date": "2026-06-20",
+          "opponent": "MIN",
+          "is_home": true,
+          "won": false,
+          "score": "75-81"
+        },
+        {
+          "date": "2026-06-18",
+          "opponent": "DAL",
+          "is_home": true,
+          "won": true,
+          "score": "91-80"
+        },
+        {
+          "date": "2026-06-16",
+          "opponent": "LA",
+          "is_home": true,
+          "won": true,
+          "score": "78-58"
+        },
+        {
+          "date": "2026-06-13",
+          "opponent": "SEA",
+          "is_home": false,
+          "won": true,
+          "score": "76-72"
+        },
+        {
+          "date": "2026-06-10",
+          "opponent": "PHX",
+          "is_home": true,
+          "won": true,
+          "score": "87-81"
+        },
+        {
+          "date": "2026-06-06",
+          "opponent": "LV",
+          "is_home": false,
+          "won": false,
+          "score": "79-84"
+        },
+        {
+          "date": "2026-06-05",
+          "opponent": "MIN",
+          "is_home": false,
+          "won": false,
+          "score": "84-87"
+        },
+        {
+          "date": "2026-06-03",
+          "opponent": "POR",
+          "is_home": true,
+          "won": true,
+          "score": "95-77"
+        }
+      ],
+      "away_recent_games": [
+        {
+          "date": "2026-06-25",
+          "opponent": "GS",
+          "is_home": false,
+          "won": false,
+          "score": "66-77"
+        },
+        {
+          "date": "2026-06-22",
+          "opponent": "TOR",
+          "is_home": true,
+          "won": true,
+          "score": "94-87"
+        },
+        {
+          "date": "2026-06-20",
+          "opponent": "IND",
+          "is_home": true,
+          "won": true,
+          "score": "113-96"
+        },
+        {
+          "date": "2026-06-18",
+          "opponent": "IND",
+          "is_home": false,
+          "won": true,
+          "score": "108-101"
+        },
+        {
+          "date": "2026-06-14",
+          "opponent": "TOR",
+          "is_home": false,
+          "won": true,
+          "score": "102-77"
+        },
+        {
+          "date": "2026-06-11",
+          "opponent": "NY",
+          "is_home": true,
+          "won": false,
+          "score": "90-104"
+        },
+        {
+          "date": "2026-06-09",
+          "opponent": "CHI",
+          "is_home": false,
+          "won": true,
+          "score": "82-75"
+        },
+        {
+          "date": "2026-06-06",
+          "opponent": "WSH",
+          "is_home": true,
+          "won": true,
+          "score": "109-77"
+        },
+        {
+          "date": "2026-06-04",
+          "opponent": "IND",
+          "is_home": false,
+          "won": false,
+          "score": "71-83"
+        },
+        {
+          "date": "2026-06-02",
+          "opponent": "CON",
+          "is_home": true,
+          "won": true,
+          "score": "91-75"
         }
       ],
       "elo_home": 1614.8,

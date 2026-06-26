@@ -77,6 +77,10 @@ class TennisPipelineRunner:
     def run_refresh_pipeline(self):
         """Light refresh: fixture + missing player histories + predictions + accuracy."""
         logger.info("🎾 Starting Tennis LIGHT refresh (rolling 24h window)...")
+        
+        # Her yeni günde eski tahmin/sonuç dosyalarının silinmesini önlemek için arşivlemeyi çalıştır
+        self.archive_past_data()
+
         from app.sports.tennis.services import fetch_fexture
         from app.sports.tennis.models import predict
 

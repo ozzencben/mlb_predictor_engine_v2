@@ -295,7 +295,7 @@ function CentralDashboard({
                         selection: `${getTeamAbbr(selectionTeam)} ML`,
                         edge: maxEdge,
                         odds: oddsVal > 0 ? `+${oddsVal}` : oddsVal,
-                        confidence: `${(confidenceVal * 100).toFixed(0)}%`
+                        confidence: confidenceVal != null && !isNaN(confidenceVal) ? `${(confidenceVal * 100).toFixed(0)}%` : '—'
                     });
                 }
             });
@@ -325,7 +325,7 @@ function CentralDashboard({
                         selection: `${selectionName.split(' ').pop() || selectionName} ML`,
                         edge: edge,
                         odds: americanOdds,
-                        confidence: `${confidenceVal.toFixed(0)}%`
+                        confidence: confidenceVal != null && !isNaN(confidenceVal) ? `${confidenceVal.toFixed(0)}%` : '—'
                     });
                 }
             });
