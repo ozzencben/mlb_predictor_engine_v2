@@ -558,6 +558,7 @@ function WnbaMatchCard({ predict, injuriesByTeam = {}, isResultCard = false, res
                         <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-1">Spread</span>
                         <span className="text-[10px] font-black text-indigo-400 tracking-tight whitespace-nowrap">
                             {(() => {
+                                if (predict.predicted_spread == null) return '—';
                                 const bookSpreadLine = predict.odds?.spread_line;
                                 if (bookSpreadLine !== undefined && bookSpreadLine !== null) {
                                     const diff = predict.predicted_spread + bookSpreadLine;
@@ -571,9 +572,13 @@ function WnbaMatchCard({ predict, injuriesByTeam = {}, isResultCard = false, res
                             })()}
                         </span>
                         <span className="text-[8px] text-slate-400 mt-0.5 font-bold">
-                            {predict.predicted_spread > 0 
-                                ? `Proj: -${predict.predicted_spread.toFixed(1)}` 
-                                : `Proj: +${Math.abs(predict.predicted_spread).toFixed(1)}`}
+                            {predict.predicted_spread != null ? (
+                                predict.predicted_spread > 0 
+                                    ? `Proj: -${predict.predicted_spread.toFixed(1)}` 
+                                    : `Proj: +${Math.abs(predict.predicted_spread).toFixed(1)}`
+                            ) : (
+                                'Proj: —'
+                            )}
                         </span>
                     </div>
 
@@ -582,15 +587,16 @@ function WnbaMatchCard({ predict, injuriesByTeam = {}, isResultCard = false, res
                         <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider mb-1">Total</span>
                         <span className="text-[10px] font-black text-blue-400 tracking-tight whitespace-nowrap">
                             {(() => {
+                                if (predict.predicted_total == null) return '—';
                                 const bookTotalLine = predict.odds?.total_line;
                                 if (bookTotalLine !== undefined && bookTotalLine !== null) {
                                     return predict.predicted_total >= bookTotalLine ? `OVER ${bookTotalLine}` : `UNDER ${bookTotalLine}`;
                                 }
-                                return `O/U ${predict.predicted_total?.toFixed(1)}`;
+                                return `O/U ${predict.predicted_total.toFixed(1)}`;
                             })()}
                         </span>
                         <span className="text-[8px] text-slate-400 mt-0.5 font-bold">
-                            {predict.predicted_total?.toFixed(1)} Proj
+                            {predict.predicted_total != null ? `${predict.predicted_total.toFixed(1)} Proj` : 'Proj: —'}
                         </span>
                     </div>
                 </div>
