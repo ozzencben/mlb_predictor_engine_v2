@@ -1,406 +1,381 @@
 {
-    "date": "2026-06-24",
+    "date": "2026-06-26",
     "games": [
         {
-            "game_id": 823850,
-            "away_team": "Texas",
-            "home_team": "Miami",
-            "away_team_id": 140,
-            "home_team_id": 146,
-            "away_pitcher": "Jacob deGrom",
-            "away_pitcher_id": 594798,
-            "home_pitcher": "Eury Pérez",
-            "home_pitcher_id": 691587,
-            "game_time": "12:10 PM ET",
-            "status": "Scheduled",
-            "away_team_stats": {
-                "record": "38-41",
-                "home_record": "19-18",
-                "away_record": "19-23",
-                "l10": "4-6"
-            },
-            "home_team_stats": {
-                "record": "41-39",
-                "home_record": "27-17",
-                "away_record": "14-22",
-                "l10": "6-4"
-            }
-        },
-        {
-            "game_id": 823613,
-            "away_team": "Chi Cubs",
-            "home_team": "NY Mets",
-            "away_team_id": 112,
-            "home_team_id": 121,
-            "away_pitcher": "TBD",
-            "away_pitcher_id": null,
-            "home_pitcher": "Nolan McLean",
-            "home_pitcher_id": 690997,
-            "game_time": "1:10 PM ET",
-            "status": "Scheduled",
-            "away_team_stats": {
-                "record": "41-37",
-                "home_record": "23-17",
-                "away_record": "18-20",
-                "l10": "7-3"
-            },
-            "home_team_stats": {
-                "record": "34-44",
-                "home_record": "18-19",
-                "away_record": "16-25",
-                "l10": "4-6"
-            }
-        },
-        {
-            "game_id": 823611,
-            "away_team": "Chi Cubs",
-            "home_team": "NY Mets",
-            "away_team_id": 112,
-            "home_team_id": 121,
-            "away_pitcher": "TBD",
-            "away_pitcher_id": null,
-            "home_pitcher": "Sean Manaea",
-            "home_pitcher_id": 640455,
-            "game_time": "7:10 PM ET",
-            "status": "Scheduled",
-            "away_team_stats": {
-                "record": "41-37",
-                "home_record": "23-17",
-                "away_record": "18-20",
-                "l10": "7-3"
-            },
-            "home_team_stats": {
-                "record": "34-44",
-                "home_record": "18-19",
-                "away_record": "16-25",
-                "l10": "4-6"
-            }
-        },
-        {
-            "game_id": 824583,
-            "away_team": "Cleveland",
-            "home_team": "Chi White Sox",
-            "away_team_id": 114,
-            "home_team_id": 145,
-            "away_pitcher": "Tanner Bibee",
-            "away_pitcher_id": 676440,
-            "home_pitcher": "Erick Fedde",
-            "home_pitcher_id": 607200,
-            "game_time": "2:10 PM ET",
-            "status": "Scheduled",
-            "away_team_stats": {
-                "record": "41-39",
-                "home_record": "19-17",
-                "away_record": "22-22",
-                "l10": "4-6"
-            },
-            "home_team_stats": {
-                "record": "41-37",
-                "home_record": "26-12",
-                "away_record": "15-25",
-                "l10": "4-6"
-            }
-        },
-        {
-            "game_id": 824341,
-            "away_team": "Boston",
-            "home_team": "Colorado",
-            "away_team_id": 111,
-            "home_team_id": 115,
-            "away_pitcher": "Ranger Suarez",
-            "away_pitcher_id": 624133,
-            "home_pitcher": "Kyle Freeland",
-            "home_pitcher_id": 607536,
-            "game_time": "3:10 PM ET",
-            "status": "Scheduled",
-            "away_team_stats": {
-                "record": "32-45",
-                "home_record": "12-25",
-                "away_record": "20-20",
-                "l10": "4-6"
-            },
-            "home_team_stats": {
-                "record": "31-49",
-                "home_record": "17-22",
-                "away_record": "14-27",
-                "l10": "5-5"
-            }
-        },
-        {
-            "game_id": 824018,
-            "away_team": "Baltimore",
-            "home_team": "LA Angels",
-            "away_team_id": 110,
-            "home_team_id": 108,
-            "away_pitcher": "Trey Gibson",
-            "away_pitcher_id": 694346,
-            "home_pitcher": "José Soriano",
-            "home_pitcher_id": 667755,
-            "game_time": "4:07 PM ET",
-            "status": "Scheduled",
-            "away_team_stats": {
-                "record": "38-43",
-                "home_record": "22-19",
-                "away_record": "16-24",
-                "l10": "4-6"
-            },
-            "home_team_stats": {
-                "record": "33-48",
-                "home_record": "18-21",
-                "away_record": "15-27",
-                "l10": "4-6"
-            }
-        },
-        {
-            "game_id": 823367,
-            "away_team": "Seattle",
-            "home_team": "Pittsburgh",
-            "away_team_id": 136,
-            "home_team_id": 134,
-            "away_pitcher": "Bryan Woo",
-            "away_pitcher_id": 693433,
-            "home_pitcher": "Braxton Ashcraft",
-            "home_pitcher_id": 677952,
-            "game_time": "6:40 PM ET",
-            "status": "Scheduled",
-            "away_team_stats": {
-                "record": "41-39",
-                "home_record": "22-19",
-                "away_record": "19-20",
-                "l10": "5-5"
-            },
-            "home_team_stats": {
-                "record": "39-40",
-                "home_record": "20-20",
-                "away_record": "19-20",
-                "l10": "4-6"
-            }
-        },
-        {
-            "game_id": 822965,
-            "away_team": "Kansas City",
-            "home_team": "Tampa Bay",
-            "away_team_id": 118,
-            "home_team_id": 139,
-            "away_pitcher": "Noah Cameron",
-            "away_pitcher_id": 702070,
-            "home_pitcher": "Griffin Jax",
-            "home_pitcher_id": 643377,
-            "game_time": "6:40 PM ET",
-            "status": "Scheduled",
-            "away_team_stats": {
-                "record": "34-46",
-                "home_record": "19-22",
-                "away_record": "15-24",
-                "l10": "6-4"
-            },
-            "home_team_stats": {
-                "record": "43-33",
-                "home_record": "26-12",
-                "away_record": "17-21",
-                "l10": "3-7"
-            }
-        },
-        {
-            "game_id": 824259,
-            "away_team": "NY Yankees",
+            "game_id": 824255,
+            "away_team": "Houston",
             "home_team": "Detroit",
-            "away_team_id": 147,
+            "away_team_id": 117,
             "home_team_id": 116,
-            "away_pitcher": "Ryan Weathers",
-            "away_pitcher_id": 677960,
-            "home_pitcher": "Tarik Skubal",
-            "home_pitcher_id": 669373,
+            "away_pitcher": "Spencer Arrighetti",
+            "away_pitcher_id": 681293,
+            "home_pitcher": "Keider Montero",
+            "home_pitcher_id": 672456,
             "game_time": "6:40 PM ET",
             "status": "Scheduled",
             "away_team_stats": {
-                "record": "47-31",
-                "home_record": "22-15",
-                "away_record": "25-16",
-                "l10": "6-4"
+                "record": "40-43",
+                "home_record": "20-21",
+                "away_record": "20-22",
+                "l10": "7-3"
             },
             "home_team_stats": {
-                "record": "34-45",
-                "home_record": "22-17",
+                "record": "34-47",
+                "home_record": "22-19",
                 "away_record": "12-28",
                 "l10": "5-5"
             }
         },
         {
-            "game_id": 822719,
-            "away_team": "Philadelphia",
-            "home_team": "Washington",
-            "away_team_id": 143,
-            "home_team_id": 120,
-            "away_pitcher": "Aaron Nola",
-            "away_pitcher_id": 605400,
-            "home_pitcher": "Miles Mikolas",
-            "home_pitcher_id": 571945,
-            "game_time": "6:45 PM ET",
+            "game_id": 823363,
+            "away_team": "Cincinnati",
+            "home_team": "Pittsburgh",
+            "away_team_id": 113,
+            "home_team_id": 134,
+            "away_pitcher": "Andrew Abbott",
+            "away_pitcher_id": 671096,
+            "home_pitcher": "Paul Skenes",
+            "home_pitcher_id": 694973,
+            "game_time": "6:40 PM ET",
             "status": "Scheduled",
             "away_team_stats": {
-                "record": "43-36",
-                "home_record": "23-19",
-                "away_record": "20-17",
-                "l10": "6-4"
-            },
-            "home_team_stats": {
-                "record": "41-39",
-                "home_record": "17-23",
-                "away_record": "24-16",
-                "l10": "6-4"
-            }
-        },
-        {
-            "game_id": 822798,
-            "away_team": "Houston",
-            "home_team": "Toronto",
-            "away_team_id": 117,
-            "home_team_id": 141,
-            "away_pitcher": "Mike Burrows",
-            "away_pitcher_id": 681347,
-            "home_pitcher": "Trey Yesavage",
-            "home_pitcher_id": 702056,
-            "game_time": "7:07 PM ET",
-            "status": "Scheduled",
-            "away_team_stats": {
-                "record": "38-43",
-                "home_record": "20-21",
-                "away_record": "18-22",
-                "l10": "6-4"
-            },
-            "home_team_stats": {
-                "record": "39-40",
-                "home_record": "22-19",
-                "away_record": "17-21",
-                "l10": "6-4"
-            }
-        },
-        {
-            "game_id": 824500,
-            "away_team": "Milwaukee",
-            "home_team": "Cincinnati",
-            "away_team_id": 158,
-            "home_team_id": 113,
-            "away_pitcher": "Shane Drohan",
-            "away_pitcher_id": 675660,
-            "home_pitcher": "Rhett Lowder",
-            "home_pitcher_id": 695076,
-            "game_time": "7:10 PM ET",
-            "status": "Scheduled",
-            "away_team_stats": {
-                "record": "48-29",
-                "home_record": "25-15",
-                "away_record": "23-14",
-                "l10": "6-4"
-            },
-            "home_team_stats": {
-                "record": "37-41",
-                "home_record": "19-21",
+                "record": "37-42",
+                "home_record": "19-22",
                 "away_record": "18-20",
-                "l10": "5-5"
-            }
-        },
-        {
-            "game_id": 823691,
-            "away_team": "LA Dodgers",
-            "home_team": "Minnesota",
-            "away_team_id": 119,
-            "home_team_id": 142,
-            "away_pitcher": "Shohei Ohtani",
-            "away_pitcher_id": 660271,
-            "home_pitcher": "Joe Ryan",
-            "home_pitcher_id": 657746,
-            "game_time": "7:40 PM ET",
-            "status": "Scheduled",
-            "away_team_stats": {
-                "record": "51-29",
-                "home_record": "26-14",
-                "away_record": "25-15",
-                "l10": "7-3"
-            },
-            "home_team_stats": {
-                "record": "38-43",
-                "home_record": "20-21",
-                "away_record": "18-22",
-                "l10": "6-4"
-            }
-        },
-        {
-            "game_id": 823041,
-            "away_team": "Arizona",
-            "home_team": "St Louis",
-            "away_team_id": 109,
-            "home_team_id": 138,
-            "away_pitcher": "Mitch Bratt",
-            "away_pitcher_id": 683352,
-            "home_pitcher": "Matthew Liberatore",
-            "home_pitcher_id": 669461,
-            "game_time": "7:45 PM ET",
-            "status": "Scheduled",
-            "away_team_stats": {
-                "record": "40-39",
-                "home_record": "24-17",
-                "away_record": "16-22",
-                "l10": "5-5"
-            },
-            "home_team_stats": {
-                "record": "42-35",
-                "home_record": "22-18",
-                "away_record": "20-17",
-                "l10": "5-5"
-            }
-        },
-        {
-            "game_id": 823284,
-            "away_team": "Atlanta",
-            "home_team": "San Diego",
-            "away_team_id": 144,
-            "home_team_id": 135,
-            "away_pitcher": "Martín Pérez",
-            "away_pitcher_id": 527048,
-            "home_pitcher": "JP Sears",
-            "home_pitcher_id": 676664,
-            "game_time": "8:40 PM ET",
-            "status": "Scheduled",
-            "away_team_stats": {
-                "record": "48-30",
-                "home_record": "24-14",
-                "away_record": "24-16",
-                "l10": "3-7"
-            },
-            "home_team_stats": {
-                "record": "41-37",
-                "home_record": "21-19",
-                "away_record": "20-18",
-                "l10": "6-4"
-            }
-        },
-        {
-            "game_id": 823208,
-            "away_team": "Athletics",
-            "home_team": "SF Giants",
-            "away_team_id": 133,
-            "home_team_id": 137,
-            "away_pitcher": "Gage Jump",
-            "away_pitcher_id": 695611,
-            "home_pitcher": "Tyler Mahle",
-            "home_pitcher_id": 641816,
-            "game_time": "9:45 PM ET",
-            "status": "Scheduled",
-            "away_team_stats": {
-                "record": "38-41",
-                "home_record": "18-23",
-                "away_record": "20-18",
                 "l10": "4-6"
             },
             "home_team_stats": {
-                "record": "32-46",
-                "home_record": "15-20",
+                "record": "41-40",
+                "home_record": "22-20",
+                "away_record": "19-20",
+                "l10": "5-5"
+            }
+        },
+        {
+            "game_id": 824824,
+            "away_team": "Washington",
+            "home_team": "Baltimore",
+            "away_team_id": 120,
+            "home_team_id": 110,
+            "away_pitcher": "Andrew Alvarez",
+            "away_pitcher_id": 674841,
+            "home_pitcher": "Trevor Rogers",
+            "home_pitcher_id": 669432,
+            "game_time": "7:05 PM ET",
+            "status": "Scheduled",
+            "away_team_stats": {
+                "record": "41-41",
+                "home_record": "17-25",
+                "away_record": "24-16",
+                "l10": "4-6"
+            },
+            "home_team_stats": {
+                "record": "38-44",
+                "home_record": "22-19",
+                "away_record": "16-25",
+                "l10": "4-6"
+            }
+        },
+        {
+            "game_id": 822796,
+            "away_team": "Texas",
+            "home_team": "Toronto",
+            "away_team_id": 140,
+            "home_team_id": 141,
+            "away_pitcher": "Nathan Eovaldi",
+            "away_pitcher_id": 543135,
+            "home_pitcher": "Patrick Corbin",
+            "home_pitcher_id": 571578,
+            "game_time": "7:07 PM ET",
+            "status": "Scheduled",
+            "away_team_stats": {
+                "record": "39-42",
+                "home_record": "19-18",
+                "away_record": "20-24",
+                "l10": "4-6"
+            },
+            "home_team_stats": {
+                "record": "39-42",
+                "home_record": "22-21",
+                "away_record": "17-21",
+                "l10": "5-5"
+            }
+        },
+        {
+            "game_id": 824423,
+            "away_team": "Seattle",
+            "home_team": "Cleveland",
+            "away_team_id": 136,
+            "home_team_id": 114,
+            "away_pitcher": "Luis Castillo",
+            "away_pitcher_id": 622491,
+            "home_pitcher": "Joey Cantillo",
+            "home_pitcher_id": 676282,
+            "game_time": "7:10 PM ET",
+            "status": "Scheduled",
+            "away_team_stats": {
+                "record": "41-41",
+                "home_record": "22-19",
+                "away_record": "19-22",
+                "l10": "4-6"
+            },
+            "home_team_stats": {
+                "record": "42-39",
+                "home_record": "19-17",
+                "away_record": "23-22",
+                "l10": "4-6"
+            }
+        },
+        {
+            "game_id": 822962,
+            "away_team": "Arizona",
+            "home_team": "Tampa Bay",
+            "away_team_id": 109,
+            "home_team_id": 139,
+            "away_pitcher": "Zac Gallen",
+            "away_pitcher_id": 668678,
+            "home_pitcher": "Nick Martinez",
+            "home_pitcher_id": 607259,
+            "game_time": "7:10 PM ET",
+            "status": "Scheduled",
+            "away_team_stats": {
+                "record": "41-39",
+                "home_record": "24-17",
+                "away_record": "17-22",
+                "l10": "6-4"
+            },
+            "home_team_stats": {
+                "record": "45-33",
+                "home_record": "28-12",
+                "away_record": "17-21",
+                "l10": "4-6"
+            }
+        },
+        {
+            "game_id": 823610,
+            "away_team": "Philadelphia",
+            "home_team": "NY Mets",
+            "away_team_id": 143,
+            "home_team_id": 121,
+            "away_pitcher": "Zack Wheeler",
+            "away_pitcher_id": 554430,
+            "home_pitcher": "TBD",
+            "home_pitcher_id": null,
+            "game_time": "7:10 PM ET",
+            "status": "Scheduled",
+            "away_team_stats": {
+                "record": "45-36",
+                "home_record": "23-19",
+                "away_record": "22-17",
+                "l10": "7-3"
+            },
+            "home_team_stats": {
+                "record": "34-47",
+                "home_record": "18-22",
+                "away_record": "16-25",
+                "l10": "2-8"
+            }
+        },
+        {
+            "game_id": 824743,
+            "away_team": "NY Yankees",
+            "home_team": "Boston",
+            "away_team_id": 147,
+            "home_team_id": 111,
+            "away_pitcher": "Will Warren",
+            "away_pitcher_id": 701542,
+            "home_pitcher": "Payton Tolle",
+            "home_pitcher_id": 801139,
+            "game_time": "7:10 PM ET",
+            "status": "Scheduled",
+            "away_team_stats": {
+                "record": "48-32",
+                "home_record": "22-15",
+                "away_record": "26-17",
+                "l10": "5-5"
+            },
+            "home_team_stats": {
+                "record": "33-46",
+                "home_record": "13-25",
+                "away_record": "20-21",
+                "l10": "4-6"
+            }
+        },
+        {
+            "game_id": 824582,
+            "away_team": "Kansas City",
+            "home_team": "Chi White Sox",
+            "away_team_id": 118,
+            "home_team_id": 145,
+            "away_pitcher": "TBD",
+            "away_pitcher_id": null,
+            "home_pitcher": "TBD",
+            "home_pitcher_id": null,
+            "game_time": "7:40 PM ET",
+            "status": "Scheduled",
+            "away_team_stats": {
+                "record": "34-48",
+                "home_record": "19-22",
+                "away_record": "15-26",
+                "l10": "5-5"
+            },
+            "home_team_stats": {
+                "record": "41-38",
+                "home_record": "26-13",
+                "away_record": "15-25",
+                "l10": "4-6"
+            }
+        },
+        {
+            "game_id": 823773,
+            "away_team": "Chi Cubs",
+            "home_team": "Milwaukee",
+            "away_team_id": 112,
+            "home_team_id": 158,
+            "away_pitcher": "Colin Rea",
+            "away_pitcher_id": 607067,
+            "home_pitcher": "Jacob Misiorowski",
+            "home_pitcher_id": 694819,
+            "game_time": "7:45 PM ET",
+            "status": "Scheduled",
+            "away_team_stats": {
+                "record": "44-37",
+                "home_record": "23-17",
+                "away_record": "21-20",
+                "l10": "7-3"
+            },
+            "home_team_stats": {
+                "record": "49-29",
+                "home_record": "25-15",
+                "away_record": "24-14",
+                "l10": "7-3"
+            }
+        },
+        {
+            "game_id": 823688,
+            "away_team": "Colorado",
+            "home_team": "Minnesota",
+            "away_team_id": 115,
+            "home_team_id": 142,
+            "away_pitcher": "Tomoyuki Sugano",
+            "away_pitcher_id": 608372,
+            "home_pitcher": "Taj Bradley",
+            "home_pitcher_id": 671737,
+            "game_time": "8:10 PM ET",
+            "status": "Scheduled",
+            "away_team_stats": {
+                "record": "32-49",
+                "home_record": "18-22",
+                "away_record": "14-27",
+                "l10": "6-4"
+            },
+            "home_team_stats": {
+                "record": "38-44",
+                "home_record": "20-22",
+                "away_record": "18-22",
+                "l10": "6-4"
+            }
+        },
+        {
+            "game_id": 823039,
+            "away_team": "Miami",
+            "home_team": "St Louis",
+            "away_team_id": 146,
+            "home_team_id": 138,
+            "away_pitcher": "Max Meyer",
+            "away_pitcher_id": 676974,
+            "home_pitcher": "Michael McGreevy",
+            "home_pitcher_id": 700241,
+            "game_time": "8:15 PM ET",
+            "status": "Scheduled",
+            "away_team_stats": {
+                "record": "42-39",
+                "home_record": "28-17",
+                "away_record": "14-22",
+                "l10": "7-3"
+            },
+            "home_team_stats": {
+                "record": "42-36",
+                "home_record": "22-19",
+                "away_record": "20-17",
+                "l10": "4-6"
+            }
+        },
+        {
+            "game_id": 824014,
+            "away_team": "Athletics",
+            "home_team": "LA Angels",
+            "away_team_id": 133,
+            "home_team_id": 108,
+            "away_pitcher": "J.T. Ginn",
+            "away_pitcher_id": 669372,
+            "home_pitcher": "Walbert Ureña",
+            "home_pitcher_id": 700712,
+            "game_time": "9:38 PM ET",
+            "status": "Scheduled",
+            "away_team_stats": {
+                "record": "39-42",
+                "home_record": "18-23",
+                "away_record": "21-19",
+                "l10": "4-6"
+            },
+            "home_team_stats": {
+                "record": "34-48",
+                "home_record": "19-21",
+                "away_record": "15-27",
+                "l10": "5-5"
+            }
+        },
+        {
+            "game_id": 823285,
+            "away_team": "LA Dodgers",
+            "home_team": "San Diego",
+            "away_team_id": 119,
+            "home_team_id": 135,
+            "away_pitcher": "Roki Sasaki",
+            "away_pitcher_id": 808963,
+            "home_pitcher": "Walker Buehler",
+            "home_pitcher_id": 621111,
+            "game_time": "9:45 PM ET",
+            "status": "Scheduled",
+            "away_team_stats": {
+                "record": "52-29",
+                "home_record": "26-14",
+                "away_record": "26-15",
+                "l10": "7-3"
+            },
+            "home_team_stats": {
+                "record": "42-37",
+                "home_record": "22-19",
+                "away_record": "20-18",
+                "l10": "6-4"
+            }
+        },
+        {
+            "game_id": 823206,
+            "away_team": "Atlanta",
+            "home_team": "SF Giants",
+            "away_team_id": 144,
+            "home_team_id": 137,
+            "away_pitcher": "Reynaldo López",
+            "away_pitcher_id": 625643,
+            "home_pitcher": "TBD",
+            "home_pitcher_id": null,
+            "game_time": "10:15 PM ET",
+            "status": "Scheduled",
+            "away_team_stats": {
+                "record": "48-31",
+                "home_record": "24-14",
+                "away_record": "24-17",
+                "l10": "3-7"
+            },
+            "home_team_stats": {
+                "record": "33-47",
+                "home_record": "16-21",
                 "away_record": "17-26",
                 "l10": "5-5"
             }
         }
     ],
-    "last_updated": "June 24, 02:10 AM ET"
+    "last_updated": "June 26, 04:10 AM ET"
 }

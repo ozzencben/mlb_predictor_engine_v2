@@ -287,30 +287,6 @@
             "k_pct": 20.5
         }
     },
-    "Houston": {
-        "rpg_offense": {
-            "current": 4.53,
-            "last_3": 4.33,
-            "home": 4.39,
-            "away": 4.68
-        },
-        "rpg_defense": {
-            "current": 5.04,
-            "last_3": 4.0,
-            "home": 5.1,
-            "away": 4.98
-        },
-        "batting_avg": {
-            "current": 0.244,
-            "last_3": 0.262,
-            "home": 0.234,
-            "away": 0.253
-        },
-        "advanced_metrics": {
-            "wrc_plus": 100.3,
-            "k_pct": 21.6
-        }
-    },
     "LA Angels": {
         "rpg_offense": {
             "current": 4.53,
@@ -333,6 +309,30 @@
         "advanced_metrics": {
             "wrc_plus": 98.5,
             "k_pct": 24.8
+        }
+    },
+    "Houston": {
+        "rpg_offense": {
+            "current": 4.53,
+            "last_3": 4.33,
+            "home": 4.39,
+            "away": 4.68
+        },
+        "rpg_defense": {
+            "current": 5.04,
+            "last_3": 4.0,
+            "home": 5.1,
+            "away": 4.98
+        },
+        "batting_avg": {
+            "current": 0.244,
+            "last_3": 0.262,
+            "home": 0.234,
+            "away": 0.253
+        },
+        "advanced_metrics": {
+            "wrc_plus": 100.3,
+            "k_pct": 21.6
         }
     },
     "Colorado": {
@@ -407,30 +407,6 @@
             "k_pct": 22.8
         }
     },
-    "Kansas City": {
-        "rpg_offense": {
-            "current": 4.31,
-            "last_3": 8.0,
-            "home": 4.83,
-            "away": 3.77
-        },
-        "rpg_defense": {
-            "current": 4.76,
-            "last_3": 6.0,
-            "home": 4.85,
-            "away": 4.67
-        },
-        "batting_avg": {
-            "current": 0.248,
-            "last_3": 0.275,
-            "home": 0.263,
-            "away": 0.234
-        },
-        "advanced_metrics": {
-            "wrc_plus": 98.4,
-            "k_pct": 20.7
-        }
-    },
     "Miami": {
         "rpg_offense": {
             "current": 4.31,
@@ -453,6 +429,30 @@
         "advanced_metrics": {
             "wrc_plus": 97.7,
             "k_pct": 21.7
+        }
+    },
+    "Kansas City": {
+        "rpg_offense": {
+            "current": 4.31,
+            "last_3": 8.0,
+            "home": 4.83,
+            "away": 3.77
+        },
+        "rpg_defense": {
+            "current": 4.76,
+            "last_3": 6.0,
+            "home": 4.85,
+            "away": 4.67
+        },
+        "batting_avg": {
+            "current": 0.248,
+            "last_3": 0.275,
+            "home": 0.263,
+            "away": 0.234
+        },
+        "advanced_metrics": {
+            "wrc_plus": 98.4,
+            "k_pct": 20.7
         }
     },
     "Arizona": {

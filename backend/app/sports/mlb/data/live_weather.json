@@ -1,54 +1,45 @@
 {
-    "Miami": {
-        "temp_f": 78.9,
-        "wind_mph": 0.0,
-        "wind_direction": "Calm (Roof Closed)",
-        "humidity": 87.0,
-        "condition": "Roof Closed (Expected Thunderstorm)",
-        "cbs_alert_word": "Ideal (Roof Closed)",
-        "red_flag_alert": false
-    },
-    "NY Mets": {
-        "temp_f": 64.1,
-        "wind_mph": 4.6,
-        "wind_direction": "N to S",
-        "humidity": 86.0,
-        "condition": "Clear Sky",
-        "cbs_alert_word": "Clear",
-        "red_flag_alert": false
-    },
-    "Chi White Sox": {
-        "temp_f": 57.9,
-        "wind_mph": 4.6,
-        "wind_direction": "S to N",
-        "humidity": 79.0,
-        "condition": "Clear Sky",
-        "cbs_alert_word": "Clear",
-        "red_flag_alert": false
-    },
-    "Colorado": {
-        "temp_f": 69.0,
-        "wind_mph": 9.9,
-        "wind_direction": "N to S",
-        "humidity": 71.0,
-        "condition": "Overcast",
-        "cbs_alert_word": "Overcast",
-        "red_flag_alert": false
-    },
-    "LA Angels": {
-        "temp_f": 65.7,
-        "wind_mph": 2.6,
-        "wind_direction": "SSW to NNE",
-        "humidity": 83.0,
+    "Detroit": {
+        "temp_f": 59.2,
+        "wind_mph": 4.0,
+        "wind_direction": "WSW to ENE",
+        "humidity": 90.0,
         "condition": "Clear Sky",
         "cbs_alert_word": "Clear",
         "red_flag_alert": false
     },
     "Pittsburgh": {
-        "temp_f": 57.5,
-        "wind_mph": 3.2,
+        "temp_f": 62.9,
+        "wind_mph": 3.0,
+        "wind_direction": "ENE to WSW",
+        "humidity": 91.0,
+        "condition": "Overcast",
+        "cbs_alert_word": "Overcast",
+        "red_flag_alert": false
+    },
+    "Baltimore": {
+        "temp_f": 72.2,
+        "wind_mph": 2.8,
+        "wind_direction": "SSW to NNE",
+        "humidity": 86.0,
+        "condition": "Overcast",
+        "cbs_alert_word": "Overcast",
+        "red_flag_alert": false
+    },
+    "Toronto": {
+        "temp_f": 59.0,
+        "wind_mph": 3.0,
+        "wind_direction": "NE to SW",
+        "humidity": 97.0,
+        "condition": "Fog",
+        "cbs_alert_word": "Clear",
+        "red_flag_alert": false
+    },
+    "Cleveland": {
+        "temp_f": 61.4,
+        "wind_mph": 2.6,
         "wind_direction": "WSW to ENE",
-        "humidity": 81.0,
+        "humidity": 89.0,
         "condition": "Clear Sky",
         "cbs_alert_word": "Clear",
         "red_flag_alert": false
@@ -62,76 +53,85 @@
         "cbs_alert_word": "Ideal (Dome)",
         "red_flag_alert": false
     },
-    "Detroit": {
-        "temp_f": 56.4,
-        "wind_mph": 4.6,
-        "wind_direction": "NNW to SSE",
+    "NY Mets": {
+        "temp_f": 70.0,
+        "wind_mph": 6.1,
+        "wind_direction": "SSW to NNE",
+        "humidity": 77.0,
+        "condition": "Overcast",
+        "cbs_alert_word": "Overcast",
+        "red_flag_alert": false
+    },
+    "Boston": {
+        "temp_f": 66.8,
+        "wind_mph": 1.9,
+        "wind_direction": "SE to NW",
+        "humidity": 79.0,
+        "condition": "Overcast",
+        "cbs_alert_word": "Overcast",
+        "red_flag_alert": false
+    },
+    "Chi White Sox": {
+        "temp_f": 60.7,
+        "wind_mph": 6.0,
+        "wind_direction": "NE to SW",
         "humidity": 80.0,
         "condition": "Clear Sky",
         "cbs_alert_word": "Clear",
         "red_flag_alert": false
     },
-    "Washington": {
-        "temp_f": 64.6,
-        "wind_mph": 2.9,
-        "wind_direction": "WSW to ENE",
+    "Milwaukee": {
+        "temp_f": 54.1,
+        "wind_mph": 4.7,
+        "wind_direction": "NNW to SSE",
         "humidity": 90.0,
         "condition": "Clear Sky",
         "cbs_alert_word": "Clear",
         "red_flag_alert": false
     },
-    "Toronto": {
-        "temp_f": 59.8,
-        "wind_mph": 8.7,
-        "wind_direction": "NW to SE",
-        "humidity": 66.0,
-        "condition": "Clear Sky",
-        "cbs_alert_word": "Clear",
-        "red_flag_alert": false
-    },
-    "Cincinnati": {
-        "temp_f": 62.8,
-        "wind_mph": 2.2,
-        "wind_direction": "NNW to SSE",
-        "humidity": 71.0,
-        "condition": "Clear Sky",
-        "cbs_alert_word": "Clear",
-        "red_flag_alert": false
-    },
     "Minnesota": {
-        "temp_f": 60.2,
-        "wind_mph": 3.4,
-        "wind_direction": "S to N",
-        "humidity": 94.0,
+        "temp_f": 55.9,
+        "wind_mph": 3.6,
+        "wind_direction": "NNE to SSW",
+        "humidity": 89.0,
         "condition": "Clear Sky",
         "cbs_alert_word": "Clear",
         "red_flag_alert": false
     },
     "St Louis": {
-        "temp_f": 65.4,
-        "wind_mph": 2.5,
-        "wind_direction": "S to N",
-        "humidity": 73.0,
-        "condition": "Partly Cloudy",
+        "temp_f": 70.6,
+        "wind_mph": 3.3,
+        "wind_direction": "NNE to SSW",
+        "humidity": 92.0,
+        "condition": "Overcast",
+        "cbs_alert_word": "Overcast",
+        "red_flag_alert": false
+    },
+    "LA Angels": {
+        "temp_f": 62.9,
+        "wind_mph": 3.3,
+        "wind_direction": "WSW to ENE",
+        "humidity": 83.0,
+        "condition": "Overcast",
         "cbs_alert_word": "Overcast",
         "red_flag_alert": false
     },
     "San Diego": {
-        "temp_f": 65.8,
-        "wind_mph": 3.2,
-        "wind_direction": "NNW to SSE",
-        "humidity": 84.0,
-        "condition": "Partly Cloudy",
+        "temp_f": 64.4,
+        "wind_mph": 1.2,
+        "wind_direction": "WSW to ENE",
+        "humidity": 83.0,
+        "condition": "Overcast",
         "cbs_alert_word": "Overcast",
         "red_flag_alert": false
     },
     "SF Giants": {
-        "temp_f": 54.9,
-        "wind_mph": 8.1,
+        "temp_f": 54.3,
+        "wind_mph": 14.3,
         "wind_direction": "W to E",
-        "humidity": 97.0,
-        "condition": "Partly Cloudy",
-        "cbs_alert_word": "Overcast",
+        "humidity": 90.0,
+        "condition": "Mainly Clear",
+        "cbs_alert_word": "Clear",
         "red_flag_alert": false
     }
 }
