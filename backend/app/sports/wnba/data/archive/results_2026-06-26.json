@@ -1,0 +1,52 @@
+{
+  "date": "2026-06-26",
+  "evaluated_at": "2026-06-27T17:11:23.364701+00:00",
+  "games_evaluated": 3,
+  "ml_accuracy": 0.3333,
+  "ml_correct": 1,
+  "ml_total": 3,
+  "spread_accuracy": 1.0,
+  "spread_correct": 3,
+  "spread_total": 3,
+  "total_accuracy": 1.0,
+  "total_correct": 3,
+  "total_total": 3,
+  "results": [
+    {
+      "game_id": "401857024",
+      "name": "Washington Mystics at Connecticut Sun",
+      "home_team_abbr": "CON",
+      "away_team_abbr": "WSH",
+      "predicted_winner_abbr": "WSH",
+      "actual_score": "57-68",
+      "ml_correct": false,
+      "home_win_prob": 0.4806,
+      "predicted_spread": -2.56,
+      "predicted_total": 167.6
+    },
+    {
+      "game_id": "401857025",
+      "name": "Portland Fire at Chicago Sky",
+      "home_team_abbr": "CHI",
+      "away_team_abbr": "POR",
+      "predicted_winner_abbr": "POR",
+      "actual_score": "94-124",
+      "ml_correct": false,
+      "home_win_prob": 0.4947,
+      "predicted_spread": 0.78,
+      "predicted_total": 171.9
+    },
+    {
+      "game_id": "401857026",
+      "name": "Atlanta Dream at Golden State Valkyries",
+      "home_team_abbr": "GS",
+      "away_team_abbr": "ATL",
+      "predicted_winner_abbr": "GS",
+      "actual_score": "75-78",
+      "ml_correct": true,
+      "home_win_prob": 0.5112,
+      "predicted_spread": 1.94,
+      "predicted_total": 161.8
+    }
+  ]
+}

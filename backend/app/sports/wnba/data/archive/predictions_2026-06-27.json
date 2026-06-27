@@ -1,6 +1,6 @@
 {
   "date": "2026-06-27",
-  "generated_at": "2026-06-27T06:56:16.065947+00:00",
+  "generated_at": "2026-06-27T17:12:29.145692+00:00",
   "match_count": 3,
   "beta_version": "1.0.0-beta",
   "model_meta": {
@@ -44,14 +44,14 @@
         "away_team": "Phoenix Mercury",
         "home_abbr": "TOR",
         "away_abbr": "PHX",
-        "moneyline_home": -200,
-        "moneyline_away": 160,
+        "moneyline_home": -240,
+        "moneyline_away": 190,
         "spread_home": -114,
         "spread_away": -106,
-        "spread_line": -4.5,
+        "spread_line": -5.5,
         "total_line": 177.5,
-        "total_over": -108,
-        "total_under": -112
+        "total_over": -110,
+        "total_under": -110
       },
       "alt_bets": [
         {
@@ -60,7 +60,7 @@
           "model_prediction": "Predicted total: 171.6",
           "edge": 5.9,
           "confidence": "Medium",
-          "odds": -112,
+          "odds": -110,
           "odds_format": "american"
         }
       ],
@@ -353,7 +353,7 @@
         "feature_star_out_count_diff": 1.0,
         "feature_star_minutes_avail_diff": -0.275
       },
-      "ai_insight": "- Toronto Tempo holds a slight ELO advantage (1491.7 vs 1471.6) and benefits from home court. However, Phoenix Mercury has shown slightly better recent performance with a superior L5 Net Rating (-2.848 vs -3.93). The overall edge leans slightly towards Toronto Tempo due to ELO and home advantage.\n- Phoenix Mercury comes into the game with a slight rest advantage, having 3 days compared to Toronto Tempo's 2. No specific star absences are detailed for this game, but Phoenix's recent form suggests they might be in slightly better shape.\n- The model projects Toronto Tempo to win (58.9%) and identifies the most significant value on the Total Under. Recommend **Game Total Under 177.5** due to a 5.9% edge according to the model's projection of 171.6 points."
+      "ai_insight": "- **Team Strength:** Toronto Tempo holds a slight edge due to a marginally higher ELO (1491.7 vs. Phoenix's 1471.6) and the advantage of playing at home. However, Phoenix Mercury has displayed slightly better recent form, evidenced by their L5 net rating of -2.848 compared to Toronto's -3.93. The home court advantage is likely the primary factor tilting the overall team strength slightly in Toronto's favor.\n- **Situational Factors:** Phoenix Mercury benefits from an extra day of rest (3 vs. Toronto's 2). A significant situational factor is the \"star absence impact diff\" of 15.7, which suggests Toronto's key players provide a substantial boost when playing at home, potentially offsetting Phoenix's rest advantage. Both teams have shown negative net ratings recently, indicating a struggle for consistent form.\n- **The Betting Angle:** The model projects Toronto Tempo to win (58.9%), but identifies a strong value play on the game total. With a model-projected total of 171.6 and a 5.9% edge, the recommended play is **Game Total Under 177.5**. The market's Moneyline for Toronto (-240) suggests a higher win probability than the model projects, indicating the Under is the superior value bet."
     },
     {
       "game_id": "401857028",
@@ -389,19 +389,19 @@
         "away_abbr": "LA",
         "moneyline_home": -300,
         "moneyline_away": 235,
-        "spread_home": -115,
-        "spread_away": -105,
+        "spread_home": -114,
+        "spread_away": -106,
         "spread_line": -6.5,
-        "total_line": 178.5,
+        "total_line": 179.5,
         "total_over": -112,
         "total_under": -108
       },
       "alt_bets": [
         {
           "market": "Total",
-          "pick": "Under 178.5",
+          "pick": "Under 179.5",
           "model_prediction": "Predicted total: 172.6",
-          "edge": 5.89,
+          "edge": 6.89,
           "confidence": "Medium",
           "odds": -108,
           "odds_format": "american"
@@ -759,7 +759,7 @@
         "feature_star_out_count_diff": 0.0,
         "feature_star_minutes_avail_diff": -0.0583
       },
-      "ai_insight": "- The Indiana Fever hold a significant advantage across the board. Their ELO rating of 1580.3 outpaces the Sparks' 1482.2, and their L5 Net Rating of +1.134 is vastly superior to the Sparks' struggling -12.0. Playing at home further solidifies the Fever's edge.\n- The Fever benefit from an extra day of rest (3 vs. 2) compared to the Sparks, providing a slight freshness advantage. No significant star player absence impact is noted, but the Fever's positive recent form (as seen in their Net Rating) suggests they are playing much better basketball than the Sparks currently.\n- The model projects the Indiana Fever to win with 62.6% probability and identifies a strong edge on the total. With the market total at 178.5 and the model's projected total at 172.6, the best play is **Game Total Under 178.5**."
+      "ai_insight": "AI analysis is temporarily unavailable: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
     },
     {
       "game_id": "401857029",
@@ -793,30 +793,30 @@
         "away_team": "Atlanta Dream",
         "home_abbr": "SEA",
         "away_abbr": "ATL",
-        "moneyline_home": 300,
-        "moneyline_away": -400,
+        "moneyline_home": 245,
+        "moneyline_away": -320,
         "spread_home": -108,
         "spread_away": -112,
-        "spread_line": 8.5,
-        "total_line": 166.5,
-        "total_over": -110,
-        "total_under": -110
+        "spread_line": 7.5,
+        "total_line": 168.5,
+        "total_over": -108,
+        "total_under": -112
       },
       "alt_bets": [
         {
           "market": "Total",
-          "pick": "Over 166.5",
+          "pick": "Over 168.5",
           "model_prediction": "Predicted total: 173.7",
-          "edge": 7.17,
+          "edge": 5.17,
           "confidence": "Medium",
-          "odds": -110,
+          "odds": -108,
           "odds_format": "american"
         },
         {
           "market": "Spread",
-          "pick": "Seattle Storm (+8.5)",
+          "pick": "Seattle Storm (+7.5)",
           "model_prediction": "Predicted spread: -5.0",
-          "edge": 3.5,
+          "edge": 2.5,
           "confidence": "Low",
           "odds": -108,
           "odds_format": "american"
@@ -1174,7 +1174,7 @@
         "feature_star_out_count_diff": 0.0,
         "feature_star_minutes_avail_diff": 0.1667
       },
-      "ai_insight": "- The Atlanta Dream hold a significant edge in team strength, boasting a substantially higher ELO (1632.1 vs 1378.1) and far superior recent form with a +8.874 L5 Net Rating compared to the Storm's -4.148. While Seattle plays at home, the Dream's underlying metrics clearly indicate their overall advantage.\n- The Atlanta Dream benefit from a slight rest advantage, having 2 days off compared to the Storm's 1. There are no significant star player absences impacting either team's projected scoring, suggesting both teams are relatively healthy. Atlanta's positive L5 Net Rating indicates they are in much better recent form, while Seattle appears to be struggling.\n- The model projects the Atlanta Dream to win with a 63.5% probability and an estimated spread of -5.0. With the market total at 166.5 and the model projecting 173.7, there's a strong 7.17% edge on the **Total Over 166.5**. This play aligns with the model's highest confidence edge and avoids recommending an underdog moneyline when the model projects them to lose."
+      "ai_insight": "-   Atlanta Dream holds a significant edge in team strength, evidenced by a superior ELO (1632.1 vs. Seattle's 1378.1) and a much better L5 Net Rating (8.874 vs. Seattle's -4.148), outweighing Seattle's home-court advantage.\n-   Atlanta benefits from an additional day of rest (2 days vs. Seattle's 1), which could contribute to fresher legs. No material impact from star player absences is indicated, suggesting both teams are near full strength for key personnel, with Atlanta's superior recent form from their L5 Net Rating still prominent.\n-   The model identifies a strong betting edge on the **Total Over 168.5**, with a 5.17% advantage. This is the top recommended play, as the model projects a total of 173.7 points, providing significant value over the market's total."
     }
   ]
 }
