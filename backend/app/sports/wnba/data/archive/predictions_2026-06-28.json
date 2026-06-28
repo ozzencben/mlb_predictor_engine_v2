@@ -1,6 +1,6 @@
 {
   "date": "2026-06-28",
-  "generated_at": "2026-06-28T08:05:59.834603+00:00",
+  "generated_at": "2026-06-28T17:11:22.263788+00:00",
   "match_count": 4,
   "beta_version": "1.0.0-beta",
   "model_meta": {
@@ -44,23 +44,23 @@
         "away_team": "Minnesota Lynx",
         "home_abbr": "DAL",
         "away_abbr": "MIN",
-        "moneyline_home": 136,
-        "moneyline_away": -168,
-        "spread_home": -108,
-        "spread_away": -112,
+        "moneyline_home": 128,
+        "moneyline_away": -158,
+        "spread_home": -120,
+        "spread_away": -102,
         "spread_line": 3.5,
-        "total_line": 177.5,
-        "total_over": -108,
-        "total_under": -112
+        "total_line": 178.5,
+        "total_over": -115,
+        "total_under": -105
       },
       "alt_bets": [
         {
           "market": "Total",
-          "pick": "Under 177.5",
+          "pick": "Under 178.5",
           "model_prediction": "Predicted total: 171.1",
-          "edge": 6.41,
+          "edge": 7.41,
           "confidence": "Medium",
-          "odds": -112,
+          "odds": -105,
           "odds_format": "american"
         }
       ],
@@ -416,7 +416,7 @@
         "feature_star_out_count_diff": 0.0,
         "feature_star_minutes_avail_diff": 0.1334
       },
-      "ai_insight": "- The Minnesota Lynx hold a significant edge in team strength, reflected by their higher ELO (1724.4 vs 1559.1) and a vastly superior L5 net rating (11.396 vs 1.612). This indicates the Lynx are a much stronger team in overall performance and recent form, largely offsetting the Wings' home-court advantage.\n- The Lynx also benefit from a considerable rest advantage, having 4 days of rest compared to the Wings' 2 days. This extra recovery time, coupled with their strong recent play, could contribute to a fresher and more effective performance from Minnesota. No significant star player absence impact is noted for either side.\n- Based on the model's top edges, the best play is on the game total. Recommend **Total Under 177.5**, which offers a substantial 6.41% edge when comparing the model's projection to the market."
+      "ai_insight": "- **Team Strength:** The Minnesota Lynx hold a significant edge based on ELO (1724.4 vs 1559.1) and a vastly superior L5 net rating (11.396 vs 1.612). While the Dallas Wings are at home, the Lynx's overall statistical strength indicates they are the better team.\n- **Situational Factors:** The Minnesota Lynx benefit from a substantial rest advantage, having 4 days off compared to the Dallas Wings' 2 days. There is no significant star player absence impact (0.0), suggesting both teams are relatively healthy or have accounted for absences. The Lynx's superior recent form, as indicated by their L5 net rating, further solidifies their position.\n- **The Betting Angle:** The model projects a total of 171.1 points, significantly lower than the market total of 178.5. With a robust 7.41% edge identified for the Total Under 178.5, this presents the strongest value play. The model's probability for the Lynx (58.9%) is lower than the market's implied probability (61.24%) at -158, so there's no value on the favorite's Moneyline.\n    **Recommendation: Total Under 178.5**"
     },
     {
       "game_id": "401857031",
@@ -450,22 +450,22 @@
         "away_team": "Portland Fire",
         "home_abbr": "WSH",
         "away_abbr": "POR",
-        "moneyline_home": -265,
-        "moneyline_away": 210,
-        "spread_home": -110,
-        "spread_away": -110,
+        "moneyline_home": -290,
+        "moneyline_away": 225,
+        "spread_home": -115,
+        "spread_away": -105,
         "spread_line": -6.5,
-        "total_line": 166.5,
+        "total_line": 167.5,
         "total_over": -110,
         "total_under": -110
       },
       "alt_bets": [
         {
           "market": "Total",
-          "pick": "Under 166.5",
+          "pick": "Under 167.5",
           "model_prediction": "Predicted total: 163.4",
-          "edge": 3.12,
-          "confidence": "Low",
+          "edge": 4.12,
+          "confidence": "Medium",
           "odds": -110,
           "odds_format": "american"
         }
@@ -751,7 +751,7 @@
         "feature_star_out_count_diff": 0.0,
         "feature_star_minutes_avail_diff": -0.0667
       },
-      "ai_insight": "-   **Team Strength**: The Washington Mystics hold a clear advantage, boasting a significantly higher ELO rating (1417.4 vs. 1372.9) and a starkly superior L5 Net Rating (2.296 vs. -19.004) compared to the Portland Fire. Playing at home further solidifies the Mystics' fundamental edge in this matchup.\n-   **Situational Factors**: Both teams are coming off 2 days of rest, negating any significant fatigue advantage or disadvantage. The \"star absence impact diff\" of 0.0 suggests no critical star players are missing for either side that would dramatically shift the scoring balance. The Mystics' recent strong form, indicated by their positive L5 Net Rating, is a notable situational factor.\n-   **The Betting Angle**: The model projects a total of 163.4, with a strong edge (3.12%) on the Total Under 166.5 against the market. Given the model projects the Mystics to win (59.2%), and the market's implied probability for the Mystics (-265 ML equates to 72.6%) is higher than the model's, there is no value on the Mystics' Moneyline. The best play with a clear model edge is **Under 166.5**."
+      "ai_insight": "- **Team Strength:** The Washington Mystics (ELO 1417.4) hold a distinct edge over the Portland Fire (ELO 1372.9) in overall team strength. This is further amplified by their superior L5 Net Rating (Mystics 2.296 vs. Fire -19.004), indicating significantly better recent performance, compounded by the Mystics playing at home.\n- **Situational Factors:** Both teams come into the game with 2 days of rest, neutralizing any potential fatigue advantage. There's no significant impact expected from star player absences for either side. However, Portland's extremely poor L5 Net Rating of -19.004 highlights a considerable dip in recent form and is a critical situational concern for the Fire.\n- **The Betting Angle:** The model projects the Washington Mystics to win (59.2%). With the market pricing the Mystics Moneyline at -290 (implied 74.36%), there is no value in betting on the favorite ML. Given the model does not project the Portland Fire to win, a Moneyline recommendation on the underdog is not advised. The strongest play based on model vs. market edges is on the **Game Total Under 167.5**, which shows a significant 4.12% edge according to our analytics."
     },
     {
       "game_id": "401857032",
@@ -785,23 +785,23 @@
         "away_team": "Las Vegas Aces",
         "home_abbr": "CHI",
         "away_abbr": "LV",
-        "moneyline_home": 240,
-        "moneyline_away": -310,
-        "spread_home": -114,
-        "spread_away": -106,
+        "moneyline_home": 225,
+        "moneyline_away": -290,
+        "spread_home": -118,
+        "spread_away": -104,
         "spread_line": 7.5,
-        "total_line": 178.5,
-        "total_over": -110,
-        "total_under": -110
+        "total_line": 180.5,
+        "total_over": -114,
+        "total_under": -106
       },
       "alt_bets": [
         {
           "market": "Total",
-          "pick": "Under 178.5",
+          "pick": "Under 180.5",
           "model_prediction": "Predicted total: 171.8",
-          "edge": 6.71,
-          "confidence": "Medium",
-          "odds": -110,
+          "edge": 8.71,
+          "confidence": "High",
+          "odds": -106,
           "odds_format": "american"
         }
       ],
@@ -1157,7 +1157,7 @@
         "feature_star_out_count_diff": 0.0,
         "feature_star_minutes_avail_diff": -0.2083
       },
-      "ai_insight": "- Las Vegas holds the overall team strength edge with a significantly higher ELO (1676.2 vs 1364.0), indicating a stronger fundamental foundation. However, Chicago's L5 net rating (4.7 vs 2.61) shows better recent form while playing at home.\n- Both teams come into the game with 2 days of rest, neutralizing any fatigue advantage or disadvantage. There's no significant impact from star player absences (0.0 differential), suggesting both teams are at or near full strength.\n- The model projects the Las Vegas Aces to win (60.1% probability) with a game total of 171.8. The strongest betting edge identified is on the **Total Under 178.5**, offering a significant 6.71% value based on the model's projection versus the market."
+      "ai_insight": "- The Las Vegas Aces hold a substantial ELO advantage (1676.2 vs 1364.0), indicating superior overall team strength. Despite this, the Chicago Sky exhibit better recent form with a higher L5 Net Rating (4.7 vs 2.61) and will benefit from home-court advantage, though the Aces retain the overall edge.\n- Both teams are well-rested with 2 days off each, negating any fatigue angle. There are no reported star player absences or significant injury impacts (0.0 differential), suggesting both rosters are near full strength. Chicago's strong L5 Net Rating points to them entering the game in good recent form.\n- The model projects the Las Vegas Aces to win with 60.1% probability. Given the significant 8.71% edge identified by the model, the recommended play is **Total Under 180.5**."
     },
     {
       "game_id": "401857033",
@@ -1191,14 +1191,14 @@
         "away_team": "New York Liberty",
         "home_abbr": "GS",
         "away_abbr": "NY",
-        "moneyline_home": -118,
-        "moneyline_away": -104,
-        "spread_home": -108,
-        "spread_away": -112,
+        "moneyline_home": -128,
+        "moneyline_away": 104,
+        "spread_home": -110,
+        "spread_away": -110,
         "spread_line": -1.5,
         "total_line": 163.5,
-        "total_over": -110,
-        "total_under": -110
+        "total_over": -114,
+        "total_under": -106
       },
       "alt_bets": [],
       "bet_count": 0,
@@ -1518,7 +1518,7 @@
         "feature_star_out_count_diff": 0.0,
         "feature_star_minutes_avail_diff": -0.325
       },
-      "ai_insight": "-   Golden State holds a slight edge in team strength, evidenced by a higher ELO (1626.9 vs 1585.0) and a marginally better L5 Net Rating (-1.194 vs -1.992). This advantage is further supported by their home court context in this matchup.\n-   The New York Liberty possess a rest advantage, having two days of rest compared to Golden State's one. Both teams exhibit recent form struggles as indicated by negative L5 Net Ratings, suggesting potential for a tightly contested game rather than a dominant performance from either side.\n-   The model projects a slight favorite in Golden State (53.5% win probability) with a projected spread of GSW -1.3. While the model indicates \"No strong edge plays,\" if we assume the market spread is GSW -1.5, the model would imply a slight value on the underdog, NYL +1.5. Therefore, the recommended play is **New York Liberty +1.5**."
+      "ai_insight": "- Golden State holds a clear edge in team strength, boasting a higher ELO (1626.9 vs 1585.0), a superior L5 net rating (-1.194 vs -1.992), and playing with home-court advantage.\n- New York benefits from an extra rest day (2 vs 1 for Golden State), potentially offering a slight fatigue advantage. While the \"star absence impact diff\" indicates high sensitivity to player availability, no specific star absences are noted for this particular matchup.\n- The model projects Golden State to win by a narrow 1.3 points (53.5% probability), but the market's implied probability for Golden State ML (-128) is higher at 56.14%, indicating no value on the favorite's moneyline. With \"No strong edge plays\" highlighted by the model and no specific market spread or total lines provided, a slight edge can be found on the underdog's spread. Assuming a common market spread like Golden State -1.5, the recommendation is **New York Liberty +1.5**."
     }
   ]
 }
