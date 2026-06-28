@@ -1,0 +1,958 @@
+[
+    {
+        "match_id": "dQczloTh",
+        "tournament": "Targu Mures (Romania), clay",
+        "ground": "Clay",
+        "date_text": "22.06. 18:05",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Agamenone F.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-06-22"
+    },
+    {
+        "match_id": "YTeSKitK",
+        "tournament": "Poznan (Poland) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "15.06. 10:45",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Karol M.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-06-15"
+    },
+    {
+        "match_id": "GMxZdbCl",
+        "tournament": "Poznan (Poland) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "14.06. 10:10",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Zakaria F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "0"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-06-14"
+    },
+    {
+        "match_id": "UaR6XA45",
+        "tournament": "Stuttgart (Germany) - Qualification, grass",
+        "ground": "Grass",
+        "date_text": "06.06. 10:40",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Rodionov J.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-06-06"
+    },
+    {
+        "match_id": "lQeBxY4e",
+        "tournament": "Centurion 2 (South Africa), hard",
+        "ground": "Hard",
+        "date_text": "01.06. 11:15",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Gonzalez Fernandez M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-06-01"
+    },
+    {
+        "match_id": "ERs2ZsYa",
+        "tournament": "Centurion (South Africa), hard",
+        "ground": "Hard",
+        "date_text": "25.05. 13:40",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Pankin S.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-25"
+    },
+    {
+        "match_id": "vLTY1EkU",
+        "tournament": "Wuxi (China), hard",
+        "ground": "Hard",
+        "date_text": "05.05. 09:30",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Milic O.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-05"
+    },
+    {
+        "match_id": "Wz2WLsYP",
+        "tournament": "Wuxi (China) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "04.05. 06:30",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Zhu E.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-05-04"
+    },
+    {
+        "match_id": "QcX9cgAr",
+        "tournament": "Wuxi (China) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "03.05. 07:25\nRetired",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Wang A.",
+        "home_score": 1,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "3",
+                "away": "0"
+            }
+        ],
+        "date": "2026-05-03"
+    },
+    {
+        "match_id": "xKNd9Z06",
+        "tournament": "M25 Luzhou (China), hard",
+        "ground": "Hard",
+        "date_text": "25.04. 02:10\nRetired",
+        "home_player": "Gray A.",
+        "away_player": "Castelnuovo L.",
+        "home_score": 1,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "1",
+                "away": "0"
+            }
+        ],
+        "date": "2026-04-25"
+    },
+    {
+        "match_id": "j3muiZVO",
+        "tournament": "M25 Luzhou (China), hard",
+        "ground": "Hard",
+        "date_text": "24.04. 02:10",
+        "home_player": "Kumasaka T.",
+        "away_player": "Castelnuovo L.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-04-24"
+    },
+    {
+        "match_id": "xEMti6z9",
+        "tournament": "M25 Luzhou (China), hard",
+        "ground": "Hard",
+        "date_text": "23.04. 04:55",
+        "home_player": "Trongcharoenchaikul W.",
+        "away_player": "Castelnuovo L.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-23"
+    },
+    {
+        "match_id": "4pMN9TRq",
+        "tournament": "M25 Luzhou (China), hard",
+        "ground": "Hard",
+        "date_text": "22.04. 03:40",
+        "home_player": "Dong Z.",
+        "away_player": "Castelnuovo L.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-22"
+    },
+    {
+        "match_id": "EXlHnpXg",
+        "tournament": "M25 Anning (China), clay",
+        "ground": "Clay",
+        "date_text": "15.04. 02:10",
+        "home_player": "Liu S.",
+        "away_player": "Castelnuovo L.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-15"
+    },
+    {
+        "match_id": "drRIawFs",
+        "tournament": "M25 Maanshan 2 (China), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "12.04. 05:00\nWO",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Santillan A.",
+        "home_score": 0,
+        "away_score": 0,
+        "winner": "unknown",
+        "set_scores": [],
+        "date": "2026-04-12"
+    },
+    {
+        "match_id": "IebeeZSH",
+        "tournament": "M25 Maanshan 2 (China), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "11.04. 02:30",
+        "home_player": "McCabe J.",
+        "away_player": "Castelnuovo L.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-11"
+    },
+    {
+        "match_id": "b9QNVIgK",
+        "tournament": "M25 Maanshan 2 (China), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "10.04. 02:00",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Dellavedova M.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-04-10"
+    },
+    {
+        "match_id": "zi79xDb6",
+        "tournament": "M25 Maanshan 2 (China), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "09.04. 02:10",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Zeng Y.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-04-09"
+    },
+    {
+        "match_id": "hA6lRh9C",
+        "tournament": "M25 Maanshan 2 (China), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "08.04. 03:30",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Hongyu Y.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-04-08"
+    },
+    {
+        "match_id": "pbj2sgR9",
+        "tournament": "M25 Maanshan (China), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "02.04. 05:00",
+        "home_player": "Castelnuovo L.",
+        "away_player": "McCabe J.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-02"
+    },
+    {
+        "match_id": "Uo0Uzyie",
+        "tournament": "M25 Maanshan (China), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "01.04. 06:30\nRetired",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Haliak M.",
+        "home_score": 1,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-04-01"
+    },
+    {
+        "match_id": "297Hehfl",
+        "tournament": "M25 Mumbai (India), hard",
+        "ground": "Hard",
+        "date_text": "20.03. 04:30",
+        "home_player": "Borg L.",
+        "away_player": "Castelnuovo L.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "0"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-03-20"
+    },
+    {
+        "match_id": "ED4CyeoC",
+        "tournament": "M25 Mumbai (India), hard",
+        "ground": "Hard",
+        "date_text": "19.03. 09:00",
+        "home_player": "Atlangeriev B.",
+        "away_player": "Castelnuovo L.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-19"
+    },
+    {
+        "match_id": "8rW2edQc",
+        "tournament": "M25 Mumbai (India), hard",
+        "ground": "Hard",
+        "date_text": "18.03. 08:15",
+        "home_player": "Kesharwani M.",
+        "away_player": "Castelnuovo L.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-18"
+    },
+    {
+        "match_id": "QsNxZi8c",
+        "tournament": "M25 Kolkata (India), hard",
+        "ground": "Hard",
+        "date_text": "13.03. 05:30",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Borg L.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-13"
+    },
+    {
+        "match_id": "xOau1lhm",
+        "tournament": "M25 Kolkata (India), hard",
+        "ground": "Hard",
+        "date_text": "12.03. 07:10",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Heisnam S.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-03-12"
+    },
+    {
+        "match_id": "Wz2uZQM6",
+        "tournament": "M25 Kolkata (India), hard",
+        "ground": "Hard",
+        "date_text": "10.03. 06:45",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Kesharwani M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-03-10"
+    },
+    {
+        "match_id": "pOg7EdSj",
+        "tournament": "Pune (India) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "22.02. 06:30",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Dev S D P.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-22"
+    },
+    {
+        "match_id": "fqOlqWpA",
+        "tournament": "New Delhi (India) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "16.02. 05:45\nWO",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Binda A.",
+        "home_score": 0,
+        "away_score": 0,
+        "winner": "unknown",
+        "set_scores": [],
+        "date": "2026-02-16"
+    },
+    {
+        "match_id": "j5Qyyd23",
+        "tournament": "New Delhi (India) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "15.02. 07:30",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Aggarwal P.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2026-02-15"
+    },
+    {
+        "match_id": "ADk4Jwz0",
+        "tournament": "Chennai (India), hard",
+        "ground": "Hard",
+        "date_text": "13.02. 07:00",
+        "home_player": "Kasnikowski M.",
+        "away_player": "Castelnuovo L.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-13"
+    },
+    {
+        "match_id": "hSTiss7K",
+        "tournament": "Chennai (India), hard",
+        "ground": "Hard",
+        "date_text": "12.02. 04:40",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Crawford O.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-12"
+    },
+    {
+        "match_id": "0fYcEjxP",
+        "tournament": "Chennai (India), hard",
+        "ground": "Hard",
+        "date_text": "10.02. 07:05",
+        "home_player": "Leong M. W. K.",
+        "away_player": "Castelnuovo L.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-10"
+    },
+    {
+        "match_id": "dQ88NsDa",
+        "tournament": "Taipei (Taiwan), hard",
+        "ground": "Hard",
+        "date_text": "05.11.2025",
+        "home_player": "Wong C.",
+        "away_player": "Castelnuovo L.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2025-11-05"
+    },
+    {
+        "match_id": "4O1qv2nT",
+        "tournament": "M25 Huzhou (China), hard",
+        "ground": "Hard",
+        "date_text": "23.10.2025\nRetired",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Tamm K.",
+        "home_score": 0,
+        "away_score": 1,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "0",
+                "away": "0"
+            }
+        ],
+        "date": "2025-10-23"
+    },
+    {
+        "match_id": "2sbeybx9",
+        "tournament": "M25 Huzhou (China), hard",
+        "ground": "Hard",
+        "date_text": "21.10.2025",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Wu Kai An",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-10-21"
+    },
+    {
+        "match_id": "2srcGJTj",
+        "tournament": "Shenzhen 4 (China), hard",
+        "ground": "Hard",
+        "date_text": "14.10.2025",
+        "home_player": "Rocha H.",
+        "away_player": "Castelnuovo L.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-10-14"
+    },
+    {
+        "match_id": "rNMP50IF",
+        "tournament": "Shenzhen 4 (China) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "13.10.2025",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Rawat S.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-13"
+    },
+    {
+        "match_id": "Ia15VQ2T",
+        "tournament": "Shenzhen 4 (China) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "12.10.2025",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Lee D. H.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-10-12"
+    },
+    {
+        "match_id": "WWS4o5Sr",
+        "tournament": "Jingshan (China) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "23.09.2025\nRetired",
+        "home_player": "Harris L.",
+        "away_player": "Castelnuovo L.",
+        "home_score": 1,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "1",
+                "away": "2"
+            }
+        ],
+        "date": "2025-09-23"
+    },
+    {
+        "match_id": "K4u29Ht0",
+        "tournament": "Jingshan (China) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "22.09.2025",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Sultanov K.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2025-09-22"
+    },
+    {
+        "match_id": "r1DDEcXG",
+        "tournament": "M25 Guiyang (China), hard",
+        "ground": "Hard",
+        "date_text": "21.09.2025",
+        "home_player": "Castelnuovo L.",
+        "away_player": "Bar Biryukov P.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-09-21"
+    },
+    {
+        "match_id": "4Q2GOgVO",
+        "tournament": "M25 Guiyang (China), hard",
+        "ground": "Hard",
+        "date_text": "20.09.2025\nRetired",
+        "home_player": "Jasika O.",
+        "away_player": "Castelnuovo L.",
+        "home_score": 1,
+        "away_score": 1,
+        "winner": "unknown",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "6"
+            }
+        ],
+        "date": "2025-09-20"
+    }
+]

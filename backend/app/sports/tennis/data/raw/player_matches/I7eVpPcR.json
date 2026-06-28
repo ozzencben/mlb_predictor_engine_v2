@@ -1,0 +1,992 @@
+[
+    {
+        "match_id": "fBAfXm5L",
+        "tournament": "M15 Monastir 16 (Tunisia), hard",
+        "ground": "Hard",
+        "date_text": "01.05. 08:30\nRetired",
+        "home_player": "Seghetti S.",
+        "away_player": "Trifi A.",
+        "home_score": 0,
+        "away_score": 1,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "3"
+            }
+        ],
+        "date": "2026-05-01"
+    },
+    {
+        "match_id": "lpKF42zn",
+        "tournament": "M15 Monastir 16 (Tunisia), hard",
+        "ground": "Hard",
+        "date_text": "30.04. 08:30",
+        "home_player": "Seghetti S.",
+        "away_player": "Abibsi A.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-04-30"
+    },
+    {
+        "match_id": "jwlmDGZ2",
+        "tournament": "M15 Monastir 16 (Tunisia), hard",
+        "ground": "Hard",
+        "date_text": "29.04. 11:30",
+        "home_player": "Ouakaa A.",
+        "away_player": "Seghetti S.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-04-29"
+    },
+    {
+        "match_id": "WbjsSIAs",
+        "tournament": "M15 Foggia (Italy), clay",
+        "ground": "Clay",
+        "date_text": "18.03. 10:30",
+        "home_player": "Dell'Elba V.",
+        "away_player": "Seghetti S.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2026-03-18"
+    },
+    {
+        "match_id": "W2HIqR75",
+        "tournament": "M15 Monastir 46 (Tunisia), hard",
+        "ground": "Hard",
+        "date_text": "17.12.2025",
+        "home_player": "Seghetti S.",
+        "away_player": "Tepmahc N.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-12-17"
+    },
+    {
+        "match_id": "juUOtf86",
+        "tournament": "M15 Monastir 37 (Tunisia), hard",
+        "ground": "Hard",
+        "date_text": "02.10.2025",
+        "home_player": "Seghetti S.",
+        "away_player": "De Lange P.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-02"
+    },
+    {
+        "match_id": "0xOVIDgM",
+        "tournament": "M15 Monastir 37 (Tunisia), hard",
+        "ground": "Hard",
+        "date_text": "01.10.2025",
+        "home_player": "Seghetti S.",
+        "away_player": "Dell'Elba V.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-10-01"
+    },
+    {
+        "match_id": "xnXqDKDD",
+        "tournament": "M15 Monastir 36 (Tunisia), hard",
+        "ground": "Hard",
+        "date_text": "24.09.2025",
+        "home_player": "Seghetti S.",
+        "away_player": "Hallquist Lithen J.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-09-24"
+    },
+    {
+        "match_id": "t8sGgmaf",
+        "tournament": "M15 Monastir 35 (Tunisia), hard",
+        "ground": "Hard",
+        "date_text": "17.09.2025",
+        "home_player": "Seghetti S.",
+        "away_player": "Wiedenmann L.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2025-09-17"
+    },
+    {
+        "match_id": "Q7P20Rce",
+        "tournament": "M15 Forli (Italy), clay",
+        "ground": "Clay",
+        "date_text": "25.08.2025",
+        "home_player": "Pieri S.",
+        "away_player": "Seghetti S.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
+        "date": "2025-08-25"
+    },
+    {
+        "match_id": "2eqgdXxg",
+        "tournament": "M25 Lesa (Italy), clay",
+        "ground": "Clay",
+        "date_text": "19.08.2025",
+        "home_player": "Seghetti S.",
+        "away_player": "Kivattsev K.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            }
+        ],
+        "date": "2025-08-19"
+    },
+    {
+        "match_id": "bZMxH5BG",
+        "tournament": "M15 Pirot (Serbia), clay",
+        "ground": "Clay",
+        "date_text": "15.08.2025",
+        "home_player": "Estevez J.",
+        "away_player": "Seghetti S.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-08-15"
+    },
+    {
+        "match_id": "fL2mO11n",
+        "tournament": "M15 Pirot (Serbia), clay",
+        "ground": "Clay",
+        "date_text": "14.08.2025",
+        "home_player": "Seghetti S.",
+        "away_player": "Fiorentini A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "0"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2025-08-14"
+    },
+    {
+        "match_id": "ShNf47AD",
+        "tournament": "M15 Pirot (Serbia), clay",
+        "ground": "Clay",
+        "date_text": "13.08.2025",
+        "home_player": "Pietri B.",
+        "away_player": "Seghetti S.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            }
+        ],
+        "date": "2025-08-13"
+    },
+    {
+        "match_id": "UBrBFwC6",
+        "tournament": "M15 Sofia (Bulgaria), clay",
+        "ground": "Clay",
+        "date_text": "05.08.2025",
+        "home_player": "Preda L.",
+        "away_player": "Seghetti S.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
+        "date": "2025-08-05"
+    },
+    {
+        "match_id": "vqXdyefn",
+        "tournament": "M15 Wels (Austria), clay",
+        "ground": "Clay",
+        "date_text": "29.07.2025",
+        "home_player": "Seghetti S.",
+        "away_player": "Marionneau L.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2025-07-29"
+    },
+    {
+        "match_id": "tUzpHUHt",
+        "tournament": "M15 Segrate (Italy), clay",
+        "ground": "Clay",
+        "date_text": "23.07.2025",
+        "home_player": "Speziali F.",
+        "away_player": "Seghetti S.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2025-07-23"
+    },
+    {
+        "match_id": "pxCoTh4e",
+        "tournament": "M15 Kursumlijska Banja 11 (Serbia), clay",
+        "ground": "Clay",
+        "date_text": "17.07.2025",
+        "home_player": "Seghetti S.",
+        "away_player": "Vales A.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2025-07-17"
+    },
+    {
+        "match_id": "fLx9BN8a",
+        "tournament": "M15 Kursumlijska Banja 11 (Serbia), clay",
+        "ground": "Clay",
+        "date_text": "16.07.2025",
+        "home_player": "Radojicic A.",
+        "away_player": "Seghetti S.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-07-16"
+    },
+    {
+        "match_id": "jREZbnVI",
+        "tournament": "M15 Kursumlijska Banja 10 (Serbia), clay",
+        "ground": "Clay",
+        "date_text": "10.07.2025",
+        "home_player": "Klok D.",
+        "away_player": "Seghetti S.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-07-10"
+    },
+    {
+        "match_id": "YLSVLqIG",
+        "tournament": "M15 Bergamo (Italy), clay",
+        "ground": "Clay",
+        "date_text": "25.06.2025",
+        "home_player": "Seghetti S.",
+        "away_player": "Mazza M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-06-25"
+    },
+    {
+        "match_id": "vuoS881e",
+        "tournament": "M15 Monastir 23 (Tunisia), hard",
+        "ground": "Hard",
+        "date_text": "13.06.2025",
+        "home_player": "Seghetti S.",
+        "away_player": "Tepmahc N.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2025-06-13"
+    },
+    {
+        "match_id": "p2Xhgtcm",
+        "tournament": "M15 Monastir 23 (Tunisia), hard",
+        "ground": "Hard",
+        "date_text": "12.06.2025",
+        "home_player": "Sahtali T.",
+        "away_player": "Seghetti S.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-06-12"
+    },
+    {
+        "match_id": "0CvfzmVi",
+        "tournament": "M15 Monastir 23 (Tunisia), hard",
+        "ground": "Hard",
+        "date_text": "10.06.2025",
+        "home_player": "Pascual Ferra R.",
+        "away_player": "Seghetti S.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-06-10"
+    },
+    {
+        "match_id": "bun4FhvK",
+        "tournament": "M15 Monastir 22 (Tunisia), hard",
+        "ground": "Hard",
+        "date_text": "03.06.2025",
+        "home_player": "Seghetti S.",
+        "away_player": "Tepmahc N.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-06-03"
+    },
+    {
+        "match_id": "jZ6YhiO9",
+        "tournament": "M15 Monastir 21 (Tunisia), hard",
+        "ground": "Hard",
+        "date_text": "28.05.2025",
+        "home_player": "Seghetti S.",
+        "away_player": "Lumsden E.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2025-05-28"
+    },
+    {
+        "match_id": "baj277Mk",
+        "tournament": "M15 Kursumlijska Banja (Serbia), clay",
+        "ground": "Clay",
+        "date_text": "25.04.2025",
+        "home_player": "Blanch D.",
+        "away_player": "Seghetti S.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
+        "date": "2025-04-25"
+    },
+    {
+        "match_id": "GGxDsAJ5",
+        "tournament": "M15 Kursumlijska Banja (Serbia), clay",
+        "ground": "Clay",
+        "date_text": "23.04.2025",
+        "home_player": "Seghetti S.",
+        "away_player": "Hausberger G.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-04-23"
+    },
+    {
+        "match_id": "YZJdabdm",
+        "tournament": "M15 Dubrovnik (Croatia), clay",
+        "ground": "Clay",
+        "date_text": "15.04.2025",
+        "home_player": "Berkieta T.",
+        "away_player": "Seghetti S.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-04-15"
+    },
+    {
+        "match_id": "O4rQz1w2",
+        "tournament": "M15 Monastir 12 (Tunisia), hard",
+        "ground": "Hard",
+        "date_text": "27.03.2025",
+        "home_player": "Seghetti S.",
+        "away_player": "Ouakaa A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2025-03-27"
+    },
+    {
+        "match_id": "SMd2qhad",
+        "tournament": "M15 Monastir 12 (Tunisia), hard",
+        "ground": "Hard",
+        "date_text": "25.03.2025",
+        "home_player": "Seghetti S.",
+        "away_player": "Grant W.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-03-25"
+    },
+    {
+        "match_id": "CtJuVZz2",
+        "tournament": "M15 Monastir 11 (Tunisia), hard",
+        "ground": "Hard",
+        "date_text": "18.03.2025",
+        "home_player": "Wallin O.",
+        "away_player": "Seghetti S.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-03-18"
+    },
+    {
+        "match_id": "buYgcv4d",
+        "tournament": "M15 Monastir 10 (Tunisia), hard",
+        "ground": "Hard",
+        "date_text": "11.03.2025",
+        "home_player": "Paroulek T.",
+        "away_player": "Seghetti S.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2025-03-11"
+    },
+    {
+        "match_id": "bX9xAodM",
+        "tournament": "M25 Antalya 2 (Turkey), clay",
+        "ground": "Clay",
+        "date_text": "05.02.2025",
+        "home_player": "Popovic S.",
+        "away_player": "Seghetti S.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-02-05"
+    },
+    {
+        "match_id": "v1zBNN3L",
+        "tournament": "M15 Antalya 2 (Turkey), clay",
+        "ground": "Clay",
+        "date_text": "14.01.2025",
+        "home_player": "Pennaforti G.",
+        "away_player": "Seghetti S.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-01-14"
+    },
+    {
+        "match_id": "dQOPp7V9",
+        "tournament": "M15 Antalya (Turkey), clay",
+        "ground": "Clay",
+        "date_text": "10.01.2025",
+        "home_player": "Seghetti S.",
+        "away_player": "Andreescu S. A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-01-10"
+    },
+    {
+        "match_id": "lEjYOVPq",
+        "tournament": "M15 Antalya (Turkey), clay",
+        "ground": "Clay",
+        "date_text": "09.01.2025",
+        "home_player": "Seghetti S.",
+        "away_player": "Lee K.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-01-09"
+    },
+    {
+        "match_id": "Qcl97nCk",
+        "tournament": "M15 Antalya (Turkey), clay",
+        "ground": "Clay",
+        "date_text": "07.01.2025",
+        "home_player": "Bielinskyi V.",
+        "away_player": "Seghetti S.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2025-01-07"
+    },
+    {
+        "match_id": "IDKF3ibk",
+        "tournament": "M15 Forli (Italy), clay",
+        "ground": "Clay",
+        "date_text": "28.08.2024",
+        "home_player": "Basile P.",
+        "away_player": "Seghetti S.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
+        "date": "2024-08-28"
+    },
+    {
+        "match_id": "2Nyqdea3",
+        "tournament": "M15 Gubbio (Italy), clay",
+        "ground": "Clay",
+        "date_text": "18.07.2024",
+        "home_player": "Seghetti S.",
+        "away_player": "Juarez F.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2024-07-18"
+    },
+    {
+        "match_id": "jFE3jlid",
+        "tournament": "M15 Gubbio (Italy), clay",
+        "ground": "Clay",
+        "date_text": "16.07.2024",
+        "home_player": "Angelini L.",
+        "away_player": "Seghetti S.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2024-07-16"
+    },
+    {
+        "match_id": "IHngPTk3",
+        "tournament": "Verona (Italy) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "23.07.2023",
+        "home_player": "Neumayer L.",
+        "away_player": "Seghetti S.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
+        "date": "2023-07-23"
+    },
+    {
+        "match_id": "trGImoqO",
+        "tournament": "Verona (Italy) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "10.07.2022",
+        "home_player": "Seghetti S.",
+        "away_player": "Sultanov K.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2022-07-10"
+    }
+]

@@ -1,0 +1,975 @@
+[
+    {
+        "match_id": "C6HRYFhn",
+        "tournament": "San Luis Potosi (Mexico) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "29.03. 22:40",
+        "home_player": "McKennon M.",
+        "away_player": "Zeballos F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-03-29"
+    },
+    {
+        "match_id": "nT3ypAeL",
+        "tournament": "Morelia (Mexico) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "23.03. 00:50",
+        "home_player": "Zeballos F.",
+        "away_player": "Vandecasteele Q.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-23"
+    },
+    {
+        "match_id": "AJGpeDBD",
+        "tournament": "Santiago (Chile) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "08.03. 17:10",
+        "home_player": "Zeballos F.",
+        "away_player": "Kingsley C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-08"
+    },
+    {
+        "match_id": "GQPIPooC",
+        "tournament": "Itajai 2 (Brazil) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "19.01. 16:30",
+        "home_player": "Torres J. B.",
+        "away_player": "Zeballos F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-01-19"
+    },
+    {
+        "match_id": "jmQ0r9s2",
+        "tournament": "Itajai 2 (Brazil) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "18.01. 18:45\nWO",
+        "home_player": "Zeballos F.",
+        "away_player": "Aguilar J. C. M.",
+        "home_score": 0,
+        "away_score": 0,
+        "winner": "unknown",
+        "set_scores": [],
+        "date": "2026-01-18"
+    },
+    {
+        "match_id": "lCgUq8c4",
+        "tournament": "Temuco (Chile) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "23.11.2025\nRetired",
+        "home_player": "De La Pena B.",
+        "away_player": "Zeballos F.",
+        "home_score": 0,
+        "away_score": 0,
+        "winner": "unknown",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "4"
+            }
+        ],
+        "date": "2025-11-23"
+    },
+    {
+        "match_id": "SKPlUECj",
+        "tournament": "Florianopolis (Brazil), clay",
+        "ground": "Clay",
+        "date_text": "19.11.2025",
+        "home_player": "Prado Angelo J. C.",
+        "away_player": "Zeballos F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-11-19"
+    },
+    {
+        "match_id": "KQtAdKh4",
+        "tournament": "Florianopolis (Brazil) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "17.11.2025",
+        "home_player": "Zeballos F.",
+        "away_player": "Ingildsen J.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-11-17"
+    },
+    {
+        "match_id": "Q73Ay33d",
+        "tournament": "Florianopolis (Brazil) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "16.11.2025",
+        "home_player": "Cigarran T.",
+        "away_player": "Zeballos F.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2025-11-16"
+    },
+    {
+        "match_id": "ET3NHBGa",
+        "tournament": "Lima 3 (Peru) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "26.10.2025",
+        "home_player": "Jorda Sanchis D.",
+        "away_player": "Zeballos F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-10-26"
+    },
+    {
+        "match_id": "0vDBVxun",
+        "tournament": "Todi (Italy) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "10.08.2025",
+        "home_player": "Liutarevich I.",
+        "away_player": "Zeballos F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2025-08-10"
+    },
+    {
+        "match_id": "I7s9on6l",
+        "tournament": "Santa Cruz (Bolivia), clay",
+        "ground": "Clay",
+        "date_text": "17.06.2025",
+        "home_player": "Zeballos F.",
+        "away_player": "Barrena A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-06-17"
+    },
+    {
+        "match_id": "hWSCgBEd",
+        "tournament": "Davis Cup - World Group II (World) - Preliminary",
+        "ground": "Unknown",
+        "date_text": "02.02.2025",
+        "home_player": "Cid Subervi R.",
+        "away_player": "Zeballos F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-02-02"
+    },
+    {
+        "match_id": "YLdH4yNc",
+        "tournament": "Davis Cup - World Group II (World) - Preliminary",
+        "ground": "Unknown",
+        "date_text": "01.02.2025",
+        "home_player": "Bertran P.",
+        "away_player": "Zeballos F.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-02-01"
+    },
+    {
+        "match_id": "zar3JquQ",
+        "tournament": "Guayaquil (Ecuador) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "27.10.2024",
+        "home_player": "Olivieri G. A.",
+        "away_player": "Zeballos F.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2024-10-27"
+    },
+    {
+        "match_id": "OnyRnocE",
+        "tournament": "Antofagasta (Chile) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "22.09.2024",
+        "home_player": "Farjat T.",
+        "away_player": "Zeballos F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2024-09-22"
+    },
+    {
+        "match_id": "Of1CRoo3",
+        "tournament": "Asuncion (Paraguay) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "17.03.2024",
+        "home_player": "Torres J. B.",
+        "away_player": "Zeballos F.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2024-03-17"
+    },
+    {
+        "match_id": "GQB0VCYF",
+        "tournament": "Santa Cruz (Bolivia) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "04.03.2024",
+        "home_player": "Aboian V.",
+        "away_player": "Zeballos F.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2024-03-04"
+    },
+    {
+        "match_id": "Wp89zizf",
+        "tournament": "Santa Cruz (Bolivia) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "03.03.2024",
+        "home_player": "Zeballos F.",
+        "away_player": "Huertas Del Pino C.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2024-03-03"
+    },
+    {
+        "match_id": "4lejUHr2",
+        "tournament": "Temuco (Chile) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "26.11.2023",
+        "home_player": "Leite W.",
+        "away_player": "Zeballos F.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2023-11-26"
+    },
+    {
+        "match_id": "jgHfEeIm",
+        "tournament": "Campinas (Brazil) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "01.10.2023\nRetired",
+        "home_player": "Zeballos F.",
+        "away_player": "Sakamoto P.",
+        "home_score": 0,
+        "away_score": 0,
+        "winner": "unknown",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "4"
+            }
+        ],
+        "date": "2023-10-01"
+    },
+    {
+        "match_id": "CUbWgCze",
+        "tournament": "Santa Cruz (Bolivia) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "10.09.2023",
+        "home_player": "Zeballos F.",
+        "away_player": "Pereira J.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2023-09-10"
+    },
+    {
+        "match_id": "lnEtsbf8",
+        "tournament": "Banja Luka (Bosnia and Herzegovina) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "07.08.2023",
+        "home_player": "Santillan A.",
+        "away_player": "Zeballos F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2023-08-07"
+    },
+    {
+        "match_id": "2ZBEWYUA",
+        "tournament": "San Benedetto (Italy) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "10.07.2023",
+        "home_player": "Zeballos F.",
+        "away_player": "Ocleppo J.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2023-07-10"
+    },
+    {
+        "match_id": "KfxYzRfF",
+        "tournament": "San Benedetto (Italy) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "09.07.2023",
+        "home_player": "Lopez Montagud C.",
+        "away_player": "Zeballos F.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2023-07-09"
+    },
+    {
+        "match_id": "pY1NYH5j",
+        "tournament": "Morelos (Mexico) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "16.04.2023",
+        "home_player": "Copil M.",
+        "away_player": "Zeballos F.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2023-04-16"
+    },
+    {
+        "match_id": "vwh39Io8",
+        "tournament": "San Luis Potosi (Mexico) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "02.04.2023",
+        "home_player": "Galarneau A.",
+        "away_player": "Zeballos F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2023-04-02"
+    },
+    {
+        "match_id": "xYm365Vk",
+        "tournament": "Monterrey (Mexico) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "19.02.2023",
+        "home_player": "Tomic B.",
+        "away_player": "Zeballos F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2023-02-19"
+    },
+    {
+        "match_id": "4Y4PBA6A",
+        "tournament": "Temuco (Chile), hard",
+        "ground": "Hard",
+        "date_text": "22.11.2022",
+        "home_player": "Olivo R.",
+        "away_player": "Zeballos F.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2022-11-22"
+    },
+    {
+        "match_id": "A7y8CWqa",
+        "tournament": "Temuco (Chile) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "21.11.2022",
+        "home_player": "Zeballos F.",
+        "away_player": "Brown P.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2022-11-21"
+    },
+    {
+        "match_id": "AHS4trYj",
+        "tournament": "Temuco (Chile) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "20.11.2022",
+        "home_player": "Zeballos F.",
+        "away_player": "Martinez L. D.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2022-11-20"
+    },
+    {
+        "match_id": "Y1KXoDbo",
+        "tournament": "Sao Leopoldo (Brazil) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "13.11.2022",
+        "home_player": "Wenger D.",
+        "away_player": "Zeballos F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2022-11-13"
+    },
+    {
+        "match_id": "6wD5AO0d",
+        "tournament": "Montevideo (Uruguay), clay",
+        "ground": "Clay",
+        "date_text": "08.11.2022",
+        "home_player": "Bagnis F.",
+        "away_player": "Zeballos F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2022-11-08"
+    },
+    {
+        "match_id": "O8SXdzUd",
+        "tournament": "Montevideo (Uruguay) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "07.11.2022",
+        "home_player": "Villanueva G.",
+        "away_player": "Zeballos F.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2022-11-07"
+    },
+    {
+        "match_id": "Cnp9D3cN",
+        "tournament": "Montevideo (Uruguay) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "06.11.2022",
+        "home_player": "Zeballos F.",
+        "away_player": "Seyboth Wild T.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2022-11-06"
+    },
+    {
+        "match_id": "dOm9onM8",
+        "tournament": "Guayaquil (Ecuador) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "31.10.2022",
+        "home_player": "Seyboth Wild T.",
+        "away_player": "Zeballos F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2022-10-31"
+    },
+    {
+        "match_id": "SdF0tDIU",
+        "tournament": "Campinas (Brazil) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "02.10.2022",
+        "home_player": "Paul J.",
+        "away_player": "Zeballos F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2022-10-02"
+    },
+    {
+        "match_id": "MRr34gq1",
+        "tournament": "Davis Cup - World Group II (World)",
+        "ground": "Unknown",
+        "date_text": "16.09.2022",
+        "home_player": "Samrej K.",
+        "away_player": "Zeballos F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2022-09-16"
+    },
+    {
+        "match_id": "023O3uVF",
+        "tournament": "Grodzisk Mazowiecki (Poland) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "15.08.2022",
+        "home_player": "Seyboth Wild T.",
+        "away_player": "Zeballos F.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2022-08-15"
+    },
+    {
+        "match_id": "Mga1YMzp",
+        "tournament": "Pozoblanco (Spain), hard",
+        "ground": "Hard",
+        "date_text": "19.07.2022",
+        "home_player": "Zeballos F.",
+        "away_player": "Added D.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2022-07-19"
+    },
+    {
+        "match_id": "QDxEGnD0",
+        "tournament": "Pozoblanco (Spain) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "18.07.2022",
+        "home_player": "Pereira J.",
+        "away_player": "Zeballos F.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2022-07-18"
+    },
+    {
+        "match_id": "65Bmzs8S",
+        "tournament": "Pozoblanco (Spain) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "17.07.2022",
+        "home_player": "Zeballos F.",
+        "away_player": "Damas M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2022-07-17"
+    },
+    {
+        "match_id": "Sp33lATE",
+        "tournament": "Porto (Portugal) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "03.07.2022",
+        "home_player": "Zeballos F.",
+        "away_player": "Donski A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2022-07-03"
+    }
+]
