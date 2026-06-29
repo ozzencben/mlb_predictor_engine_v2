@@ -18,7 +18,7 @@
     "131935",
     "16"
   ],
-  "game_count": 158,
+  "game_count": 162,
   "games": [
     {
       "game_id": "401866150",
@@ -2389,6 +2389,66 @@
       "away_team_name": "Atlanta Dream",
       "home_score": 105,
       "away_score": 90
+    },
+    {
+      "game_id": "401857030",
+      "date": "2026-06-28",
+      "season": 2026,
+      "season_type": "2",
+      "name": "Minnesota Lynx at Dallas Wings",
+      "home_team_id": "3",
+      "away_team_id": "8",
+      "home_team_abbr": "DAL",
+      "away_team_abbr": "MIN",
+      "home_team_name": "Dallas Wings",
+      "away_team_name": "Minnesota Lynx",
+      "home_score": 77,
+      "away_score": 85
+    },
+    {
+      "game_id": "401857031",
+      "date": "2026-06-28",
+      "season": 2026,
+      "season_type": "2",
+      "name": "Portland Fire at Washington Mystics",
+      "home_team_id": "16",
+      "away_team_id": "132052",
+      "home_team_abbr": "WSH",
+      "away_team_abbr": "POR",
+      "home_team_name": "Washington Mystics",
+      "away_team_name": "Portland Fire",
+      "home_score": 124,
+      "away_score": 123
+    },
+    {
+      "game_id": "401857032",
+      "date": "2026-06-28",
+      "season": 2026,
+      "season_type": "2",
+      "name": "Las Vegas Aces at Chicago Sky",
+      "home_team_id": "19",
+      "away_team_id": "17",
+      "home_team_abbr": "CHI",
+      "away_team_abbr": "LV",
+      "home_team_name": "Chicago Sky",
+      "away_team_name": "Las Vegas Aces",
+      "home_score": 99,
+      "away_score": 107
+    },
+    {
+      "game_id": "401857033",
+      "date": "2026-06-28",
+      "season": 2026,
+      "season_type": "2",
+      "name": "New York Liberty at Golden State Valkyries",
+      "home_team_id": "129689",
+      "away_team_id": "9",
+      "home_team_abbr": "GS",
+      "away_team_abbr": "NY",
+      "home_team_name": "Golden State Valkyries",
+      "away_team_name": "New York Liberty",
+      "home_score": 76,
+      "away_score": 67
     }
   ]
 }

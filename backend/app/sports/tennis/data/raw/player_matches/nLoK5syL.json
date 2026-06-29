@@ -1,0 +1,999 @@
+[
+    {
+        "match_id": "dC0Hwnzf",
+        "tournament": "London (United Kingdom), grass",
+        "ground": "Grass",
+        "date_text": "16.06. 15:45",
+        "home_player": "Humbert U.",
+        "away_player": "Cilic M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-06-16"
+    },
+    {
+        "match_id": "614biiR8",
+        "tournament": "Hertogenbosch (Netherlands), grass",
+        "ground": "Grass",
+        "date_text": "13.06. 11:30",
+        "home_player": "Medvedev D.",
+        "away_player": "Cilic M.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-06-13"
+    },
+    {
+        "match_id": "xYEYMd8j",
+        "tournament": "Hertogenbosch (Netherlands), grass",
+        "ground": "Grass",
+        "date_text": "12.06. 11:40",
+        "home_player": "Borges N.",
+        "away_player": "Cilic M.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-06-12"
+    },
+    {
+        "match_id": "xdPcpMom",
+        "tournament": "Hertogenbosch (Netherlands), grass",
+        "ground": "Grass",
+        "date_text": "08.06. 12:40",
+        "home_player": "Cilic M.",
+        "away_player": "Shapovalov D.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2026-06-08"
+    },
+    {
+        "match_id": "pMne85iS",
+        "tournament": "French Open (France), clay",
+        "ground": "Clay",
+        "date_text": "26.05. 09:10",
+        "home_player": "Cilic M.",
+        "away_player": "Kouame M.",
+        "home_score": 0,
+        "away_score": 3,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-26"
+    },
+    {
+        "match_id": "KOCQBDmS",
+        "tournament": "Rome (Italy), clay",
+        "ground": "Clay",
+        "date_text": "09.05. 10:55",
+        "home_player": "Cilic M.",
+        "away_player": "Landaluce M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-09"
+    },
+    {
+        "match_id": "8U0tODPF",
+        "tournament": "Rome (Italy), clay",
+        "ground": "Clay",
+        "date_text": "07.05. 11:00",
+        "home_player": "Giron M.",
+        "away_player": "Cilic M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-07"
+    },
+    {
+        "match_id": "td2YvtV8",
+        "tournament": "Madrid (Spain), clay",
+        "ground": "Clay",
+        "date_text": "24.04. 19:00\nWO",
+        "home_player": "Fonseca J.",
+        "away_player": "Cilic M.",
+        "home_score": 0,
+        "away_score": 0,
+        "winner": "unknown",
+        "set_scores": [],
+        "date": "2026-04-24"
+    },
+    {
+        "match_id": "nk1sXik2",
+        "tournament": "Madrid (Spain), clay",
+        "ground": "Clay",
+        "date_text": "22.04. 09:10",
+        "home_player": "Bergs Z.",
+        "away_player": "Cilic M.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-22"
+    },
+    {
+        "match_id": "vRv66CKc",
+        "tournament": "Munich (Germany), clay",
+        "ground": "Clay",
+        "date_text": "14.04. 13:15",
+        "home_player": "Cilic M.",
+        "away_player": "Altmaier D.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-14"
+    },
+    {
+        "match_id": "4l2cqfjn",
+        "tournament": "Monte Carlo (Monaco), clay",
+        "ground": "Clay",
+        "date_text": "08.04. 13:35",
+        "home_player": "Auger-Aliassime F.",
+        "away_player": "Cilic M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-04-08"
+    },
+    {
+        "match_id": "AZOhL2mL",
+        "tournament": "Monte Carlo (Monaco), clay",
+        "ground": "Clay",
+        "date_text": "07.04. 10:40",
+        "home_player": "Cilic M.",
+        "away_player": "Shevchenko A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-04-07"
+    },
+    {
+        "match_id": "GUdalAUG",
+        "tournament": "Miami (USA), hard",
+        "ground": "Hard",
+        "date_text": "23.03. 22:05",
+        "home_player": "Cilic M.",
+        "away_player": "Zverev A.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-23"
+    },
+    {
+        "match_id": "2D9SETvH",
+        "tournament": "Miami (USA), hard",
+        "ground": "Hard",
+        "date_text": "22.03. 00:20",
+        "home_player": "Nakashima B.",
+        "away_player": "Cilic M.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-03-22"
+    },
+    {
+        "match_id": "K8GbWmE4",
+        "tournament": "Miami (USA), hard",
+        "ground": "Hard",
+        "date_text": "19.03. 20:00",
+        "home_player": "Cilic M.",
+        "away_player": "Popyrin A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-03-19"
+    },
+    {
+        "match_id": "8tgbqSal",
+        "tournament": "Indian Wells (USA), hard",
+        "ground": "Hard",
+        "date_text": "05.03. 02:35",
+        "home_player": "Svajda Z.",
+        "away_player": "Cilic M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-03-05"
+    },
+    {
+        "match_id": "AuOziUOj",
+        "tournament": "Delray Beach (USA), hard",
+        "ground": "Hard",
+        "date_text": "17.02. 20:30",
+        "home_player": "Nakashima B.",
+        "away_player": "Cilic M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-17"
+    },
+    {
+        "match_id": "EXCGDx1n",
+        "tournament": "Dallas (USA), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "14.02. 20:10",
+        "home_player": "Fritz T.",
+        "away_player": "Cilic M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-14"
+    },
+    {
+        "match_id": "YoBiz6R6",
+        "tournament": "Dallas (USA), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "13.02. 18:10",
+        "home_player": "Pinnington Jones J.",
+        "away_player": "Cilic M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-13"
+    },
+    {
+        "match_id": "GGwkhT6c",
+        "tournament": "Dallas (USA), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "12.02. 18:05",
+        "home_player": "Quinn E.",
+        "away_player": "Cilic M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-12"
+    },
+    {
+        "match_id": "8K9jWAkC",
+        "tournament": "Dallas (USA), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "10.02. 18:10",
+        "home_player": "Cilic M.",
+        "away_player": "Tien L.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-10"
+    },
+    {
+        "match_id": "OAaRccGa",
+        "tournament": "Australian Open (Australia), hard",
+        "ground": "Hard",
+        "date_text": "24.01. 10:25",
+        "home_player": "Cilic M.",
+        "away_player": "Ruud C.",
+        "home_score": 1,
+        "away_score": 3,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-01-24"
+    },
+    {
+        "match_id": "GGtGzLCd",
+        "tournament": "Australian Open (Australia), hard",
+        "ground": "Hard",
+        "date_text": "22.01. 06:15",
+        "home_player": "Shapovalov D.",
+        "away_player": "Cilic M.",
+        "home_score": 0,
+        "away_score": 3,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-22"
+    },
+    {
+        "match_id": "IT2u11L5",
+        "tournament": "Australian Open (Australia), hard",
+        "ground": "Hard",
+        "date_text": "19.01. 05:00",
+        "home_player": "Altmaier D.",
+        "away_player": "Cilic M.",
+        "home_score": 0,
+        "away_score": 3,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-01-19"
+    },
+    {
+        "match_id": "MTV3OC3j",
+        "tournament": "Kooyong (Australia), hard",
+        "ground": "Hard",
+        "date_text": "13.01. 23:30",
+        "home_player": "Tien L.",
+        "away_player": "Cilic M.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "10",
+                "away": "7"
+            }
+        ],
+        "date": "2026-01-13"
+    },
+    {
+        "match_id": "EcDjWGq4",
+        "tournament": "Hong Kong (Hong Kong), hard",
+        "ground": "Hard",
+        "date_text": "07.01. 07:15",
+        "home_player": "Cilic M.",
+        "away_player": "Borges N.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-07"
+    },
+    {
+        "match_id": "MDFFf18O",
+        "tournament": "Hong Kong (Hong Kong), hard",
+        "ground": "Hard",
+        "date_text": "05.01. 07:15",
+        "home_player": "Cilic M.",
+        "away_player": "Mannarino A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-01-05"
+    },
+    {
+        "match_id": "2uJBhUxB",
+        "tournament": "Helsinki (Finland), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "07.11.2025",
+        "home_player": "Cilic M.",
+        "away_player": "Virtanen O.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-07"
+    },
+    {
+        "match_id": "hAy2sAj3",
+        "tournament": "Helsinki (Finland), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "05.11.2025",
+        "home_player": "Cilic M.",
+        "away_player": "Napolitano S.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2025-11-05"
+    },
+    {
+        "match_id": "MulpiSkm",
+        "tournament": "Helsinki (Finland), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "03.11.2025",
+        "home_player": "Cilic M.",
+        "away_player": "Hassan B.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2025-11-03"
+    },
+    {
+        "match_id": "vXfn4pIM",
+        "tournament": "Basel (Switzerland), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "23.10.2025",
+        "home_player": "Auger-Aliassime F.",
+        "away_player": "Cilic M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-23"
+    },
+    {
+        "match_id": "WCpHdWZj",
+        "tournament": "Basel (Switzerland), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "21.10.2025",
+        "home_player": "Goffin D.",
+        "away_player": "Cilic M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2025-10-21"
+    },
+    {
+        "match_id": "tzUQ9tct",
+        "tournament": "Basel (Switzerland) - Qualification, hard (indoor)",
+        "ground": "Hard",
+        "date_text": "19.10.2025",
+        "home_player": "Goffin D.",
+        "away_player": "Cilic M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2025-10-19"
+    },
+    {
+        "match_id": "YJVVGTD6",
+        "tournament": "Basel (Switzerland) - Qualification, hard (indoor)",
+        "ground": "Hard",
+        "date_text": "18.10.2025",
+        "home_player": "Cilic M.",
+        "away_player": "Walton A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-10-18"
+    },
+    {
+        "match_id": "pncE5VUF",
+        "tournament": "Stockholm (Sweden), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "15.10.2025",
+        "home_player": "Cilic M.",
+        "away_player": "Ruud C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-15"
+    },
+    {
+        "match_id": "2DtIZLiA",
+        "tournament": "Stockholm (Sweden), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "14.10.2025",
+        "home_player": "Budkov Kjaer N.",
+        "away_player": "Cilic M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-14"
+    },
+    {
+        "match_id": "nRi6qvO7",
+        "tournament": "Shanghai (China), hard",
+        "ground": "Hard",
+        "date_text": "03.10.2025",
+        "home_player": "Cilic M.",
+        "away_player": "Djokovic N.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-03"
+    },
+    {
+        "match_id": "zcZNOM9a",
+        "tournament": "Shanghai (China), hard",
+        "ground": "Hard",
+        "date_text": "01.10.2025",
+        "home_player": "Cilic M.",
+        "away_player": "Basilashvili N.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-01"
+    },
+    {
+        "match_id": "zkT7K1B6",
+        "tournament": "Beijing (China), hard",
+        "ground": "Hard",
+        "date_text": "25.09.2025",
+        "home_player": "Sinner J.",
+        "away_player": "Cilic M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2025-09-25"
+    },
+    {
+        "match_id": "GxWyDHQr",
+        "tournament": "Hangzhou (China), hard",
+        "ground": "Hard",
+        "date_text": "18.09.2025",
+        "home_player": "Basavareddy N.",
+        "away_player": "Cilic M.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-09-18"
+    },
+    {
+        "match_id": "GvyOYHll",
+        "tournament": "Davis Cup - World Group (World) - Qualification",
+        "ground": "Unknown",
+        "date_text": "13.09.2025",
+        "home_player": "Cilic M.",
+        "away_player": "Moutet C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-09-13"
+    },
+    {
+        "match_id": "Qimkmdnp",
+        "tournament": "Davis Cup - World Group (World) - Qualification",
+        "ground": "Unknown",
+        "date_text": "12.09.2025",
+        "home_player": "Cilic M.",
+        "away_player": "Rinderknech A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-09-12"
+    },
+    {
+        "match_id": "KpiuEll4",
+        "tournament": "US Open (USA), hard",
+        "ground": "Hard",
+        "date_text": "26.08.2025",
+        "home_player": "Bublik A.",
+        "away_player": "Cilic M.",
+        "home_score": 3,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-08-26"
+    }
+]

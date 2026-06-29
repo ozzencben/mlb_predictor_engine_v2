@@ -1,0 +1,995 @@
+[
+    {
+        "match_id": "Q3KWy11D",
+        "tournament": "Nottingham (United Kingdom) - Qualification, grass",
+        "ground": "Grass",
+        "date_text": "13.06. 16:35",
+        "home_player": "Dudeney A.",
+        "away_player": "Putintseva Y.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-06-13"
+    },
+    {
+        "match_id": "GvQftAp3",
+        "tournament": "French Open (France), clay",
+        "ground": "Clay",
+        "date_text": "28.05. 12:15",
+        "home_player": "Putintseva Y.",
+        "away_player": "Osorio C.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-05-28"
+    },
+    {
+        "match_id": "QJ2w0StI",
+        "tournament": "French Open (France), clay",
+        "ground": "Clay",
+        "date_text": "25.05. 13:05",
+        "home_player": "Gibson T.",
+        "away_player": "Putintseva Y.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-25"
+    },
+    {
+        "match_id": "65pXSG5T",
+        "tournament": "Strasbourg (France) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "17.05. 08:40",
+        "home_player": "Putintseva Y.",
+        "away_player": "Oliynykova O.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-17"
+    },
+    {
+        "match_id": "WjKwosod",
+        "tournament": "Strasbourg (France) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "16.05. 10:45",
+        "home_player": "Ruzic A.",
+        "away_player": "Putintseva Y.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-16"
+    },
+    {
+        "match_id": "nNETWR66",
+        "tournament": "Paris (France), clay",
+        "ground": "Clay",
+        "date_text": "15.05. 08:00\nWO",
+        "home_player": "Putintseva Y.",
+        "away_player": "Parry D.",
+        "home_score": 0,
+        "away_score": 0,
+        "winner": "unknown",
+        "set_scores": [],
+        "date": "2026-05-15"
+    },
+    {
+        "match_id": "M16pQON9",
+        "tournament": "Paris (France), clay",
+        "ground": "Clay",
+        "date_text": "13.05. 08:10",
+        "home_player": "Putintseva Y.",
+        "away_player": "Podrez V.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
+        "date": "2026-05-13"
+    },
+    {
+        "match_id": "zs4EzmIb",
+        "tournament": "Paris (France), clay",
+        "ground": "Clay",
+        "date_text": "11.05. 13:30",
+        "home_player": "Kessler M.",
+        "away_player": "Putintseva Y.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-11"
+    },
+    {
+        "match_id": "Uk6ETsMj",
+        "tournament": "Rome (Italy), clay",
+        "ground": "Clay",
+        "date_text": "06.05. 14:10",
+        "home_player": "Putintseva Y.",
+        "away_player": "Valentova T.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-06"
+    },
+    {
+        "match_id": "KfNBTxTG",
+        "tournament": "Madrid (Spain), clay",
+        "ground": "Clay",
+        "date_text": "24.04. 13:50",
+        "home_player": "Putintseva Y.",
+        "away_player": "Kostyuk M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-24"
+    },
+    {
+        "match_id": "GC5Im9mm",
+        "tournament": "Madrid (Spain), clay",
+        "ground": "Clay",
+        "date_text": "22.04. 13:40",
+        "home_player": "Putintseva Y.",
+        "away_player": "Valentova T.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-04-22"
+    },
+    {
+        "match_id": "GEMrHdYj",
+        "tournament": "Billie Jean King Cup - World Group (World) - Qualification",
+        "ground": "Unknown",
+        "date_text": "11.04. 10:20",
+        "home_player": "Putintseva Y.",
+        "away_player": "Andreescu B.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-11"
+    },
+    {
+        "match_id": "KAFcQ0B4",
+        "tournament": "Billie Jean King Cup - World Group (World) - Qualification",
+        "ground": "Unknown",
+        "date_text": "10.04. 09:20",
+        "home_player": "Putintseva Y.",
+        "away_player": "Cross K.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2026-04-10"
+    },
+    {
+        "match_id": "pnYJNp8c",
+        "tournament": "Charleston (USA), clay",
+        "ground": "Clay",
+        "date_text": "01.04. 17:00",
+        "home_player": "Pegula J.",
+        "away_player": "Putintseva Y.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2026-04-01"
+    },
+    {
+        "match_id": "faO2d6lS",
+        "tournament": "Charleston (USA), clay",
+        "ground": "Clay",
+        "date_text": "30.03. 15:10",
+        "home_player": "Putintseva Y.",
+        "away_player": "Sun L.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-03-30"
+    },
+    {
+        "match_id": "YVfMXd3n",
+        "tournament": "Miami (USA), hard",
+        "ground": "Hard",
+        "date_text": "21.03. 02:25",
+        "home_player": "Rybakina E.",
+        "away_player": "Putintseva Y.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-03-21"
+    },
+    {
+        "match_id": "Iko5iPKH",
+        "tournament": "Miami (USA), hard",
+        "ground": "Hard",
+        "date_text": "19.03. 20:15",
+        "home_player": "Tjen J.",
+        "away_player": "Putintseva Y.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-19"
+    },
+    {
+        "match_id": "6eH5EnHU",
+        "tournament": "Indian Wells (USA), hard",
+        "ground": "Hard",
+        "date_text": "06.03. 19:10",
+        "home_player": "Putintseva Y.",
+        "away_player": "Tauson C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-06"
+    },
+    {
+        "match_id": "SQsBNjMU",
+        "tournament": "Indian Wells (USA), hard",
+        "ground": "Hard",
+        "date_text": "04.03. 19:10",
+        "home_player": "Putintseva Y.",
+        "away_player": "Badosa P.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-03-04"
+    },
+    {
+        "match_id": "pbpdYweC",
+        "tournament": "Merida (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "23.02. 21:50",
+        "home_player": "Jimenez Kasintseva V.",
+        "away_player": "Putintseva Y.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-02-23"
+    },
+    {
+        "match_id": "KSsqluHF",
+        "tournament": "Australian Open (Australia), hard",
+        "ground": "Hard",
+        "date_text": "25.01. 02:35",
+        "home_player": "Putintseva Y.",
+        "away_player": "Jovic I.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-25"
+    },
+    {
+        "match_id": "QPIVz9aN",
+        "tournament": "Australian Open (Australia), hard",
+        "ground": "Hard",
+        "date_text": "23.01. 02:35",
+        "home_player": "Sonmez Z.",
+        "away_player": "Putintseva Y.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-23"
+    },
+    {
+        "match_id": "80lEised",
+        "tournament": "Australian Open (Australia), hard",
+        "ground": "Hard",
+        "date_text": "21.01. 01:40",
+        "home_player": "Putintseva Y.",
+        "away_player": "Jacquemot E.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-01-21"
+    },
+    {
+        "match_id": "OGCTE8Sj",
+        "tournament": "Australian Open (Australia), hard",
+        "ground": "Hard",
+        "date_text": "18.01. 00:10",
+        "home_player": "Putintseva Y.",
+        "away_player": "Haddad Maia B.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-01-18"
+    },
+    {
+        "match_id": "Ct1Lidu0",
+        "tournament": "Adelaide (Australia), hard",
+        "ground": "Hard",
+        "date_text": "14.01. 07:05",
+        "home_player": "Putintseva Y.",
+        "away_player": "Navarro E.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-14"
+    },
+    {
+        "match_id": "Qcr1ceEl",
+        "tournament": "Adelaide (Australia), hard",
+        "ground": "Hard",
+        "date_text": "13.01. 06:20",
+        "home_player": "Putintseva Y.",
+        "away_player": "Galfi D.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-01-13"
+    },
+    {
+        "match_id": "ELoMGOKO",
+        "tournament": "Adelaide (Australia) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "11.01. 02:45",
+        "home_player": "Bouzkova M.",
+        "away_player": "Putintseva Y.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-01-11"
+    },
+    {
+        "match_id": "dK1g9CvI",
+        "tournament": "Adelaide (Australia) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "10.01. 00:45",
+        "home_player": "Russell T.",
+        "away_player": "Putintseva Y.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-10"
+    },
+    {
+        "match_id": "ARiuGqx9",
+        "tournament": "Brisbane (Australia), hard",
+        "ground": "Hard",
+        "date_text": "07.01. 07:10",
+        "home_player": "Kostyuk M.",
+        "away_player": "Putintseva Y.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
+        "date": "2026-01-07"
+    },
+    {
+        "match_id": "lnjyTPGj",
+        "tournament": "Brisbane (Australia), hard",
+        "ground": "Hard",
+        "date_text": "05.01. 05:00",
+        "home_player": "Putintseva Y.",
+        "away_player": "Baptiste H.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-01-05"
+    },
+    {
+        "match_id": "OvsseH16",
+        "tournament": "Brisbane (Australia) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "03.01. 03:40",
+        "home_player": "Putintseva Y.",
+        "away_player": "Gadecki O.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-03"
+    },
+    {
+        "match_id": "6eKGpG3c",
+        "tournament": "Brisbane (Australia) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "02.01. 03:05",
+        "home_player": "Putintseva Y.",
+        "away_player": "Hon P.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-01-02"
+    },
+    {
+        "match_id": "AughjfLP",
+        "tournament": "Jiujiang (China), hard",
+        "ground": "Hard",
+        "date_text": "31.10.2025",
+        "home_player": "Putintseva Y.",
+        "away_player": "Golubic V.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-31"
+    },
+    {
+        "match_id": "OdExO4CL",
+        "tournament": "Jiujiang (China), hard",
+        "ground": "Hard",
+        "date_text": "29.10.2025",
+        "home_player": "Putintseva Y.",
+        "away_player": "Zheng W.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
+        "date": "2025-10-29"
+    },
+    {
+        "match_id": "tItdvkp9",
+        "tournament": "Jiujiang (China), hard",
+        "ground": "Hard",
+        "date_text": "27.10.2025",
+        "home_player": "Putintseva Y.",
+        "away_player": "Jimenez Kasintseva V.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-10-27"
+    },
+    {
+        "match_id": "QgrPQoD5",
+        "tournament": "Guangzhou (China), hard",
+        "ground": "Hard",
+        "date_text": "23.10.2025",
+        "home_player": "Seidel E.",
+        "away_player": "Putintseva Y.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2025-10-23"
+    },
+    {
+        "match_id": "hYk6Qyi3",
+        "tournament": "Guangzhou (China), hard",
+        "ground": "Hard",
+        "date_text": "21.10.2025",
+        "home_player": "Korneeva A.",
+        "away_player": "Putintseva Y.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-21"
+    },
+    {
+        "match_id": "SvYv2GS1",
+        "tournament": "Ningbo (China), hard",
+        "ground": "Hard",
+        "date_text": "13.10.2025",
+        "home_player": "Putintseva Y.",
+        "away_player": "Starodubtseva Y.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-13"
+    },
+    {
+        "match_id": "tjWQsibT",
+        "tournament": "Ningbo (China) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "12.10.2025",
+        "home_player": "Putintseva Y.",
+        "away_player": "Gibson T.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2025-10-12"
+    },
+    {
+        "match_id": "ppYvRYKc",
+        "tournament": "Ningbo (China) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "11.10.2025",
+        "home_player": "Putintseva Y.",
+        "away_player": "Kawa K.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "0"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-10-11"
+    },
+    {
+        "match_id": "8ldvMuEF",
+        "tournament": "Wuhan (China), hard",
+        "ground": "Hard",
+        "date_text": "07.10.2025",
+        "home_player": "Noskova L.",
+        "away_player": "Putintseva Y.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-07"
+    },
+    {
+        "match_id": "IwnSDw0C",
+        "tournament": "Wuhan (China) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "05.10.2025",
+        "home_player": "Putintseva Y.",
+        "away_player": "Blinkova A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-10-05"
+    },
+    {
+        "match_id": "dAGDQoa4",
+        "tournament": "Wuhan (China) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "04.10.2025",
+        "home_player": "Putintseva Y.",
+        "away_player": "Parry D.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
+        "date": "2025-10-04"
+    }
+]

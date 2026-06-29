@@ -1,0 +1,984 @@
+[
+    {
+        "match_id": "4KGn4utK",
+        "tournament": "Cordoba (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "12.05. 16:50\nRetired",
+        "home_player": "Huertas Del Pino Cordova A.",
+        "away_player": "Varillas J. P.",
+        "home_score": 0,
+        "away_score": 0,
+        "winner": "unknown",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "3"
+            }
+        ],
+        "date": "2026-05-12"
+    },
+    {
+        "match_id": "dUs21qa3",
+        "tournament": "Santos (Brazil), clay",
+        "ground": "Clay",
+        "date_text": "05.05. 20:50",
+        "home_player": "Varillas J. P.",
+        "away_player": "Dickerson R.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-05"
+    },
+    {
+        "match_id": "fsNpPo7F",
+        "tournament": "Santa Cruz (Bolivia), clay",
+        "ground": "Clay",
+        "date_text": "14.04. 19:10\nRetired",
+        "home_player": "Varillas J. P.",
+        "away_player": "Mena F.",
+        "home_score": 0,
+        "away_score": 1,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "1",
+                "away": "3"
+            }
+        ],
+        "date": "2026-04-14"
+    },
+    {
+        "match_id": "zkGWySHO",
+        "tournament": "Campinas (Brazil), clay",
+        "ground": "Clay",
+        "date_text": "10.04. 16:10",
+        "home_player": "Midon L.",
+        "away_player": "Varillas J. P.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-04-10"
+    },
+    {
+        "match_id": "G2Moc0K6",
+        "tournament": "Campinas (Brazil), clay",
+        "ground": "Clay",
+        "date_text": "08.04. 15:10",
+        "home_player": "Villanueva G.",
+        "away_player": "Varillas J. P.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-04-08"
+    },
+    {
+        "match_id": "jqTL1Tg4",
+        "tournament": "Campinas (Brazil), clay",
+        "ground": "Clay",
+        "date_text": "06.04. 20:00",
+        "home_player": "Braga V.",
+        "away_player": "Varillas J. P.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-06"
+    },
+    {
+        "match_id": "fq20mx1T",
+        "tournament": "Sao Leopoldo (Brazil), clay",
+        "ground": "Clay",
+        "date_text": "02.04. 14:05",
+        "home_player": "Varillas J. P.",
+        "away_player": "Diaz Acosta F.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-04-02"
+    },
+    {
+        "match_id": "G8cXGmEL",
+        "tournament": "Sao Leopoldo (Brazil), clay",
+        "ground": "Clay",
+        "date_text": "31.03. 19:35",
+        "home_player": "Zarate C. M.",
+        "away_player": "Varillas J. P.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-31"
+    },
+    {
+        "match_id": "G0ogxfwh",
+        "tournament": "Sao Paulo (Brazil), clay",
+        "ground": "Clay",
+        "date_text": "26.03. 21:20",
+        "home_player": "Barrena A.",
+        "away_player": "Varillas J. P.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-03-26"
+    },
+    {
+        "match_id": "6JwaCGHa",
+        "tournament": "Sao Paulo (Brazil), clay",
+        "ground": "Clay",
+        "date_text": "24.03. 22:10",
+        "home_player": "Varillas J. P.",
+        "away_player": "Miguel L. A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
+        "date": "2026-03-24"
+    },
+    {
+        "match_id": "IZxdUKnI",
+        "tournament": "Asuncion (Paraguay), clay",
+        "ground": "Clay",
+        "date_text": "22.03. 00:00",
+        "home_player": "Roncadelli F.",
+        "away_player": "Varillas J. P.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-03-22"
+    },
+    {
+        "match_id": "AmOGuNPj",
+        "tournament": "Asuncion (Paraguay), clay",
+        "ground": "Clay",
+        "date_text": "20.03. 21:50",
+        "home_player": "Barrena A.",
+        "away_player": "Varillas J. P.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-03-20"
+    },
+    {
+        "match_id": "Y1DF1BQs",
+        "tournament": "Asuncion (Paraguay), clay",
+        "ground": "Clay",
+        "date_text": "19.03. 18:10",
+        "home_player": "Varillas J. P.",
+        "away_player": "Prado Angelo J. C.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-03-19"
+    },
+    {
+        "match_id": "OlwKz7sn",
+        "tournament": "Asuncion (Paraguay), clay",
+        "ground": "Clay",
+        "date_text": "18.03. 01:00",
+        "home_player": "Kestelboim M.",
+        "away_player": "Varillas J. P.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-18"
+    },
+    {
+        "match_id": "tx2vEtzq",
+        "tournament": "Santiago (Chile), clay",
+        "ground": "Clay",
+        "date_text": "09.03. 18:05",
+        "home_player": "Varillas J. P.",
+        "away_player": "Bueno G.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-03-09"
+    },
+    {
+        "match_id": "tQXoxl4C",
+        "tournament": "Brasilia 2 (Brazil), clay",
+        "ground": "Clay",
+        "date_text": "05.03. 16:10",
+        "home_player": "Varillas J. P.",
+        "away_player": "Boscardin Dias P.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-03-05"
+    },
+    {
+        "match_id": "Uovd3qcc",
+        "tournament": "Brasilia 2 (Brazil), clay",
+        "ground": "Clay",
+        "date_text": "03.03. 13:40",
+        "home_player": "Torrealba B.",
+        "away_player": "Varillas J. P.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-03"
+    },
+    {
+        "match_id": "S0vpuELt",
+        "tournament": "Tigre 2 (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "27.02. 15:10",
+        "home_player": "Dedura D.",
+        "away_player": "Varillas J. P.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-27"
+    },
+    {
+        "match_id": "UcQA3g3D",
+        "tournament": "Tigre 2 (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "26.02. 13:10\nRetired",
+        "home_player": "Aguilar Cardozo J.",
+        "away_player": "Varillas J. P.",
+        "home_score": 1,
+        "away_score": 1,
+        "winner": "unknown",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "0",
+                "away": "2"
+            }
+        ],
+        "date": "2026-02-26"
+    },
+    {
+        "match_id": "Or2zUvas",
+        "tournament": "Tigre 2 (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "24.02. 16:10",
+        "home_player": "Varillas J. P.",
+        "away_player": "Midon L.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-02-24"
+    },
+    {
+        "match_id": "riVtwjFL",
+        "tournament": "Tigre (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "17.02. 14:50",
+        "home_player": "Guillen Meza A.",
+        "away_player": "Varillas J. P.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-02-17"
+    },
+    {
+        "match_id": "lWdZr1xq",
+        "tournament": "Davis Cup - World Group (World) - Qualification",
+        "ground": "Unknown",
+        "date_text": "06.02. 17:10",
+        "home_player": "Struff J-L.",
+        "away_player": "Varillas J. P.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-02-06"
+    },
+    {
+        "match_id": "xj9uPxXF",
+        "tournament": "Concepcion (Chile), clay",
+        "ground": "Clay",
+        "date_text": "29.01. 16:15",
+        "home_player": "Vallejo D.",
+        "away_player": "Varillas J. P.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-01-29"
+    },
+    {
+        "match_id": "6q20Pjen",
+        "tournament": "Concepcion (Chile), clay",
+        "ground": "Clay",
+        "date_text": "27.01. 19:50",
+        "home_player": "Varillas J. P.",
+        "away_player": "Meligeni Alves F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-01-27"
+    },
+    {
+        "match_id": "js5iMOP6",
+        "tournament": "Itajai 2 (Brazil), clay",
+        "ground": "Clay",
+        "date_text": "20.01. 16:05",
+        "home_player": "Varillas J. P.",
+        "away_player": "Agamenone F.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-20"
+    },
+    {
+        "match_id": "KW3WKOaf",
+        "tournament": "Buenos Aires (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "16.01. 14:15",
+        "home_player": "Collarini A.",
+        "away_player": "Varillas J. P.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-01-16"
+    },
+    {
+        "match_id": "KUIaDWmg",
+        "tournament": "Buenos Aires (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "15.01. 13:40",
+        "home_player": "Varillas J. P.",
+        "away_player": "Midon L.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-01-15"
+    },
+    {
+        "match_id": "tOuMbIS9",
+        "tournament": "Buenos Aires (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "14.01. 13:10\nRetired",
+        "home_player": "Varillas J. P.",
+        "away_player": "Sakamoto P.",
+        "home_score": 1,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-01-14"
+    },
+    {
+        "match_id": "zJtRrFL8",
+        "tournament": "Buenos Aires (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "12.01. 20:35",
+        "home_player": "Varillas J. P.",
+        "away_player": "Villanueva G.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-01-12"
+    },
+    {
+        "match_id": "fc0vcb4T",
+        "tournament": "Bogota 4 (Colombia), clay",
+        "ground": "Clay",
+        "date_text": "28.11.2025",
+        "home_player": "Varillas J. P.",
+        "away_player": "Mejia N.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-28"
+    },
+    {
+        "match_id": "xpEUFBZ2",
+        "tournament": "Bogota 4 (Colombia), clay",
+        "ground": "Clay",
+        "date_text": "27.11.2025",
+        "home_player": "Rodriguez Taverna S.",
+        "away_player": "Varillas J. P.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2025-11-27"
+    },
+    {
+        "match_id": "lWclyDR0",
+        "tournament": "Bogota 4 (Colombia), clay",
+        "ground": "Clay",
+        "date_text": "25.11.2025",
+        "home_player": "Varillas J. P.",
+        "away_player": "Rodriguez L. J.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-11-25"
+    },
+    {
+        "match_id": "p0tIaBgJ",
+        "tournament": "Guayaquil (Ecuador), clay",
+        "ground": "Clay",
+        "date_text": "23.11.2025",
+        "home_player": "Varillas J. P.",
+        "away_player": "Vallejo D.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-23"
+    },
+    {
+        "match_id": "h67bpi6T",
+        "tournament": "Guayaquil (Ecuador), clay",
+        "ground": "Clay",
+        "date_text": "22.11.2025",
+        "home_player": "Gomez F. A.",
+        "away_player": "Varillas J. P.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-22"
+    },
+    {
+        "match_id": "vXbaZZtA",
+        "tournament": "Guayaquil (Ecuador), clay",
+        "ground": "Clay",
+        "date_text": "21.11.2025",
+        "home_player": "Habib H.",
+        "away_player": "Varillas J. P.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-21"
+    },
+    {
+        "match_id": "CtFyfDat",
+        "tournament": "Guayaquil (Ecuador), clay",
+        "ground": "Clay",
+        "date_text": "19.11.2025",
+        "home_player": "Varillas J. P.",
+        "away_player": "Dellien Velasco M. A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "0"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2025-11-19"
+    },
+    {
+        "match_id": "jiMvFaEF",
+        "tournament": "Guayaquil (Ecuador), clay",
+        "ground": "Clay",
+        "date_text": "18.11.2025",
+        "home_player": "Aguilar J. C. M.",
+        "away_player": "Varillas J. P.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-18"
+    },
+    {
+        "match_id": "ObLP7iKj",
+        "tournament": "Lima 2 (Peru), clay",
+        "ground": "Clay",
+        "date_text": "05.11.2025",
+        "home_player": "Burruchaga R. A.",
+        "away_player": "Varillas J. P.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-11-05"
+    },
+    {
+        "match_id": "zi4W9seD",
+        "tournament": "Lima 2 (Peru), clay",
+        "ground": "Clay",
+        "date_text": "04.11.2025",
+        "home_player": "Gomez F. A.",
+        "away_player": "Varillas J. P.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2025-11-04"
+    },
+    {
+        "match_id": "K6IElDnD",
+        "tournament": "Lima 3 (Peru), clay",
+        "ground": "Clay",
+        "date_text": "28.10.2025",
+        "home_player": "Kolar Z.",
+        "away_player": "Varillas J. P.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-28"
+    },
+    {
+        "match_id": "zJrX7OLF",
+        "tournament": "Costa do Sauipe (Brazil) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "19.10.2025",
+        "home_player": "Varillas J. P.",
+        "away_player": "Gima S.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-19"
+    },
+    {
+        "match_id": "vZsw5zo4",
+        "tournament": "Curitiba (Brazil) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "13.10.2025",
+        "home_player": "Varillas J. P.",
+        "away_player": "Alves M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-13"
+    },
+    {
+        "match_id": "2i38GsDi",
+        "tournament": "Curitiba (Brazil) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "13.10.2025",
+        "home_player": "Varillas J. P.",
+        "away_player": "Buffara P.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
+        "date": "2025-10-13"
+    }
+]
