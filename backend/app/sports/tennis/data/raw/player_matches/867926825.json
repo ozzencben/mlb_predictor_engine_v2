@@ -1,0 +1,992 @@
+[
+    {
+        "match_id": "ld2UIbtH",
+        "tournament": "M25 Xalapa (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "26.04. 22:55",
+        "home_player": "Rottgering M.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-04-26"
+    },
+    {
+        "match_id": "bszqi7y1",
+        "tournament": "M25 Xalapa (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "26.04. 00:10",
+        "home_player": "Hernandez A.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-26"
+    },
+    {
+        "match_id": "CdG6oBi2",
+        "tournament": "M25 Xalapa (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "25.04. 04:50",
+        "home_player": "Legout T.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-25"
+    },
+    {
+        "match_id": "Ak9ad0XN",
+        "tournament": "M25 Xalapa (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "23.04. 23:35",
+        "home_player": "Sau Franco A.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-23"
+    },
+    {
+        "match_id": "dvcDb3oA",
+        "tournament": "M25 Xalapa (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "23.04. 00:00\nRetired",
+        "home_player": "Reyna R.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 0,
+        "away_score": 0,
+        "winner": "unknown",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "5"
+            }
+        ],
+        "date": "2026-04-23"
+    },
+    {
+        "match_id": "xO5XDPMN",
+        "tournament": "Mexico City (Mexico), clay",
+        "ground": "Clay",
+        "date_text": "10.04. 23:10",
+        "home_player": "Pavlovic L.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-10"
+    },
+    {
+        "match_id": "tIVYOvCG",
+        "tournament": "Mexico City (Mexico), clay",
+        "ground": "Clay",
+        "date_text": "09.04. 22:10",
+        "home_player": "Artnak B.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-04-09"
+    },
+    {
+        "match_id": "z5MG2Odl",
+        "tournament": "Mexico City (Mexico), clay",
+        "ground": "Clay",
+        "date_text": "07.04. 23:25",
+        "home_player": "Pacheco Mendez R.",
+        "away_player": "McDonald M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-04-07"
+    },
+    {
+        "match_id": "WC94flEs",
+        "tournament": "San Luis Potosi (Mexico), clay",
+        "ground": "Clay",
+        "date_text": "05.04. 01:20",
+        "home_player": "Duckworth J.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-05"
+    },
+    {
+        "match_id": "GteqKtUi",
+        "tournament": "San Luis Potosi (Mexico), clay",
+        "ground": "Clay",
+        "date_text": "04.04. 02:00",
+        "home_player": "Ficovich J. P.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-04"
+    },
+    {
+        "match_id": "KtKKIfWI",
+        "tournament": "San Luis Potosi (Mexico), clay",
+        "ground": "Clay",
+        "date_text": "03.04. 01:05",
+        "home_player": "Pacheco Mendez R.",
+        "away_player": "Pavlovic L.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
+        "date": "2026-04-03"
+    },
+    {
+        "match_id": "U9SRuk4l",
+        "tournament": "San Luis Potosi (Mexico), clay",
+        "ground": "Clay",
+        "date_text": "01.04. 04:30",
+        "home_player": "Colson T.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-01"
+    },
+    {
+        "match_id": "lpjGnJ7k",
+        "tournament": "Morelia (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "27.03. 00:05",
+        "home_player": "Pacheco Mendez R.",
+        "away_player": "Gojo B.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-27"
+    },
+    {
+        "match_id": "AsTRYKWa",
+        "tournament": "Morelia (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "26.03. 00:10",
+        "home_player": "Duckworth J.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-26"
+    },
+    {
+        "match_id": "xvSaMHCs",
+        "tournament": "Morelia (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "25.03. 00:10",
+        "home_player": "Pacheco Mendez R.",
+        "away_player": "Ayeni A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-03-25"
+    },
+    {
+        "match_id": "zBkl3xuC",
+        "tournament": "Morelos (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "20.03. 20:30",
+        "home_player": "Mmoh M.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-03-20"
+    },
+    {
+        "match_id": "OluUxU26",
+        "tournament": "Morelos (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "19.03. 20:40\nRetired",
+        "home_player": "Shah A.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 0,
+        "away_score": 1,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-19"
+    },
+    {
+        "match_id": "dYZiplZH",
+        "tournament": "Morelos (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "18.03. 22:25",
+        "home_player": "Pacheco Mendez R.",
+        "away_player": "Galarneau A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
+        "date": "2026-03-18"
+    },
+    {
+        "match_id": "pMlvgIcT",
+        "tournament": "Acapulco (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "25.02. 00:05",
+        "home_player": "Pacheco Mendez R.",
+        "away_player": "Cobolli F.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-02-25"
+    },
+    {
+        "match_id": "OUKdWAQP",
+        "tournament": "Metepec (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "21.02. 22:15",
+        "home_player": "Pacheco Mendez R.",
+        "away_player": "Gojo B.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-21"
+    },
+    {
+        "match_id": "zoEZBsp3",
+        "tournament": "Metepec (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "20.02. 21:40",
+        "home_player": "Kozlov S.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-20"
+    },
+    {
+        "match_id": "fDBo1bp2",
+        "tournament": "Metepec (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "18.02. 21:50",
+        "home_player": "Ayeni A.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-18"
+    },
+    {
+        "match_id": "6mTKxBG5",
+        "tournament": "Metepec (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "17.02. 21:55",
+        "home_player": "Dalmasso G.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-17"
+    },
+    {
+        "match_id": "W6QlkFf2",
+        "tournament": "Davis Cup - World Group I (World) - Preliminary",
+        "ground": "Unknown",
+        "date_text": "08.02. 17:20",
+        "home_player": "Tsitsipas S.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2026-02-08"
+    },
+    {
+        "match_id": "Mgr9xxBd",
+        "tournament": "Davis Cup - World Group I (World) - Preliminary",
+        "ground": "Unknown",
+        "date_text": "07.02. 15:30",
+        "home_player": "Sakellaridis S.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-07"
+    },
+    {
+        "match_id": "0bqcx3am",
+        "tournament": "Manama (Bahrain), hard",
+        "ground": "Hard",
+        "date_text": "28.01. 12:05",
+        "home_player": "Pacheco Mendez R.",
+        "away_player": "Nardi L.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-01-28"
+    },
+    {
+        "match_id": "IV7g1WMi",
+        "tournament": "Soma Bay 2 (Egypt), hard",
+        "ground": "Hard",
+        "date_text": "23.01. 09:05",
+        "home_player": "Butvilas E.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-01-23"
+    },
+    {
+        "match_id": "vFgq6nZr",
+        "tournament": "Soma Bay 2 (Egypt), hard",
+        "ground": "Hard",
+        "date_text": "22.01. 09:00",
+        "home_player": "Kirkin E.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-22"
+    },
+    {
+        "match_id": "ddaCW12m",
+        "tournament": "Soma Bay 2 (Egypt), hard",
+        "ground": "Hard",
+        "date_text": "20.01. 12:45",
+        "home_player": "McKennon M.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-20"
+    },
+    {
+        "match_id": "tntVIPn2",
+        "tournament": "Australian Open (Australia) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "13.01. 05:40",
+        "home_player": "Pacheco Mendez R.",
+        "away_player": "Vallejo D.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-13"
+    },
+    {
+        "match_id": "QsbAV6n2",
+        "tournament": "Nonthaburi (Thailand), hard",
+        "ground": "Hard",
+        "date_text": "06.01. 03:10",
+        "home_player": "Pacheco Mendez R.",
+        "away_player": "Bertrand R.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-01-06"
+    },
+    {
+        "match_id": "GOA1pH4E",
+        "tournament": "Bogota 4 (Colombia), clay",
+        "ground": "Clay",
+        "date_text": "25.11.2025",
+        "home_player": "Mena F.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-11-25"
+    },
+    {
+        "match_id": "p6gygpiK",
+        "tournament": "Guayaquil (Ecuador), clay",
+        "ground": "Clay",
+        "date_text": "18.11.2025",
+        "home_player": "Pacheco Mendez R.",
+        "away_player": "Mena F.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-18"
+    },
+    {
+        "match_id": "0xQIo1t2",
+        "tournament": "Montevideo (Uruguay), clay",
+        "ground": "Clay",
+        "date_text": "10.11.2025",
+        "home_player": "Heide G.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-11-10"
+    },
+    {
+        "match_id": "0d44Y0lT",
+        "tournament": "Lima 2 (Peru), clay",
+        "ground": "Clay",
+        "date_text": "05.11.2025",
+        "home_player": "Villanueva G.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-11-05"
+    },
+    {
+        "match_id": "bXe7q3el",
+        "tournament": "Costa do Sauipe (Brazil), clay",
+        "ground": "Clay",
+        "date_text": "24.10.2025",
+        "home_player": "Pacheco Mendez R.",
+        "away_player": "Nava E.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-24"
+    },
+    {
+        "match_id": "pt4NX2Wb",
+        "tournament": "Curitiba (Brazil), clay",
+        "ground": "Clay",
+        "date_text": "15.10.2025",
+        "home_player": "Pacheco Mendez R.",
+        "away_player": "Prado Angelo J. C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-15"
+    },
+    {
+        "match_id": "dzrd158t",
+        "tournament": "Curitiba (Brazil), clay",
+        "ground": "Clay",
+        "date_text": "13.10.2025",
+        "home_player": "Ficovich J. P.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-13"
+    },
+    {
+        "match_id": "AXGWii65",
+        "tournament": "Cali (Colombia), clay",
+        "ground": "Clay",
+        "date_text": "07.10.2025",
+        "home_player": "Pacheco Mendez R.",
+        "away_player": "Prado Angelo J. C.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-07"
+    },
+    {
+        "match_id": "QJ7iMsTQ",
+        "tournament": "Antofagasta (Chile), clay",
+        "ground": "Clay",
+        "date_text": "02.10.2025",
+        "home_player": "Guillen Meza A.",
+        "away_player": "Pacheco Mendez R.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2025-10-02"
+    },
+    {
+        "match_id": "t2C5eX8d",
+        "tournament": "Antofagasta (Chile), clay",
+        "ground": "Clay",
+        "date_text": "30.09.2025",
+        "home_player": "Pacheco Mendez R.",
+        "away_player": "Boscardin Dias P.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-09-30"
+    },
+    {
+        "match_id": "hAoe3lt4",
+        "tournament": "St. Tropez (France), hard",
+        "ground": "Hard",
+        "date_text": "18.09.2025",
+        "home_player": "Pacheco Mendez R.",
+        "away_player": "Echargui M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-09-18"
+    },
+    {
+        "match_id": "vJagSdsB",
+        "tournament": "St. Tropez (France), hard",
+        "ground": "Hard",
+        "date_text": "16.09.2025",
+        "home_player": "Pacheco Mendez R.",
+        "away_player": "Donnet E.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2025-09-16"
+    }
+]

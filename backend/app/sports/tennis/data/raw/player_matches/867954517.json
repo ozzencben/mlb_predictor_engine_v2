@@ -1,0 +1,980 @@
+[
+    {
+        "match_id": "OSwbOiVH",
+        "tournament": "Eastbourne (United Kingdom) - Qualification, grass",
+        "ground": "Grass",
+        "date_text": "21.06. 10:15",
+        "home_player": "Tomljanovic A.",
+        "away_player": "Erjavec V.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2026-06-21"
+    },
+    {
+        "match_id": "QXTwNPae",
+        "tournament": "Eastbourne (United Kingdom) - Qualification, grass",
+        "ground": "Grass",
+        "date_text": "20.06. 10:15",
+        "home_player": "Tararudee L.",
+        "away_player": "Erjavec V.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-06-20"
+    },
+    {
+        "match_id": "zXtiPNH7",
+        "tournament": "Nottingham (United Kingdom) - Qualification, grass",
+        "ground": "Grass",
+        "date_text": "13.06. 16:40",
+        "home_player": "Golubic V.",
+        "away_player": "Erjavec V.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-06-13"
+    },
+    {
+        "match_id": "r1AdOsOq",
+        "tournament": "French Open (France), clay",
+        "ground": "Clay",
+        "date_text": "25.05. 11:35",
+        "home_player": "Erjavec V.",
+        "away_player": "Rybakina E.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-25"
+    },
+    {
+        "match_id": "hzxhhB1e",
+        "tournament": "Rome (Italy) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "05.05. 12:55",
+        "home_player": "Urgesi F.",
+        "away_player": "Erjavec V.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-05-05"
+    },
+    {
+        "match_id": "IXJeqzsB",
+        "tournament": "Rome (Italy) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "04.05. 15:10\nRetired",
+        "home_player": "Pavlyuchenkova A.",
+        "away_player": "Erjavec V.",
+        "home_score": 0,
+        "away_score": 1,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "2"
+            }
+        ],
+        "date": "2026-05-04"
+    },
+    {
+        "match_id": "CbwmLdZG",
+        "tournament": "Huzhou (China), clay",
+        "ground": "Clay",
+        "date_text": "03.05. 06:50",
+        "home_player": "Erjavec V.",
+        "away_player": "Kawa K.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-03"
+    },
+    {
+        "match_id": "fH9oSf1b",
+        "tournament": "Huzhou (China), clay",
+        "ground": "Clay",
+        "date_text": "02.05. 05:10",
+        "home_player": "Erjavec V.",
+        "away_player": "Wang Xiy.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-02"
+    },
+    {
+        "match_id": "6FiX1Ss1",
+        "tournament": "Huzhou (China), clay",
+        "ground": "Clay",
+        "date_text": "01.05. 03:10",
+        "home_player": "Erjavec V.",
+        "away_player": "Zheng W.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-05-01"
+    },
+    {
+        "match_id": "fFlNC5I8",
+        "tournament": "Huzhou (China), clay",
+        "ground": "Clay",
+        "date_text": "29.04. 03:35",
+        "home_player": "Erjavec V.",
+        "away_player": "Lansere S.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-04-29"
+    },
+    {
+        "match_id": "tf5vmM0e",
+        "tournament": "Huzhou (China), clay",
+        "ground": "Clay",
+        "date_text": "28.04. 03:10",
+        "home_player": "Erjavec V.",
+        "away_player": "Wang M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "0"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-04-28"
+    },
+    {
+        "match_id": "CEXsGoZp",
+        "tournament": "Madrid (Spain) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "20.04. 11:50",
+        "home_player": "Grant T. C.",
+        "away_player": "Erjavec V.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2026-04-20"
+    },
+    {
+        "match_id": "0K5xKWdk",
+        "tournament": "Oeiras (Portugal), clay",
+        "ground": "Clay",
+        "date_text": "15.04. 09:40",
+        "home_player": "Erjavec V.",
+        "away_player": "Sramkova R.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-15"
+    },
+    {
+        "match_id": "Ye29MuNO",
+        "tournament": "Oeiras (Portugal), clay",
+        "ground": "Clay",
+        "date_text": "14.04. 09:40",
+        "home_player": "Erjavec V.",
+        "away_player": "Ivantsiv M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "0"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
+        "date": "2026-04-14"
+    },
+    {
+        "match_id": "hYj8ALj4",
+        "tournament": "Billie Jean King Cup - World Group (World) - Qualification",
+        "ground": "Unknown",
+        "date_text": "11.04. 11:35",
+        "home_player": "Erjavec V.",
+        "away_player": "Quevedo K.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-11"
+    },
+    {
+        "match_id": "GY6zdMyB",
+        "tournament": "Billie Jean King Cup - World Group (World) - Qualification",
+        "ground": "Unknown",
+        "date_text": "10.04. 13:55",
+        "home_player": "Erjavec V.",
+        "away_player": "Romero Gormaz L.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-04-10"
+    },
+    {
+        "match_id": "YTwPX8gT",
+        "tournament": "Dubrovnik (Croatia), clay",
+        "ground": "Clay",
+        "date_text": "27.03. 15:10",
+        "home_player": "Zidansek T.",
+        "away_player": "Erjavec V.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-03-27"
+    },
+    {
+        "match_id": "buDQfyOE",
+        "tournament": "Dubrovnik (Croatia), clay",
+        "ground": "Clay",
+        "date_text": "25.03. 15:40",
+        "home_player": "Quevedo K.",
+        "away_player": "Erjavec V.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-25"
+    },
+    {
+        "match_id": "M5S7asKk",
+        "tournament": "Dubrovnik (Croatia), clay",
+        "ground": "Clay",
+        "date_text": "23.03. 10:40",
+        "home_player": "Maristany G.",
+        "away_player": "Erjavec V.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-23"
+    },
+    {
+        "match_id": "lfgOcPFc",
+        "tournament": "Antalya 3 (Turkey), clay",
+        "ground": "Clay",
+        "date_text": "14.03. 08:05",
+        "home_player": "Erjavec V.",
+        "away_player": "Zidansek T.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-14"
+    },
+    {
+        "match_id": "nZbJQIZr",
+        "tournament": "Antalya 3 (Turkey), clay",
+        "ground": "Clay",
+        "date_text": "13.03. 08:05",
+        "home_player": "Erjavec V.",
+        "away_player": "Brancaccio N.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-03-13"
+    },
+    {
+        "match_id": "jgfxnugJ",
+        "tournament": "Antalya 3 (Turkey), clay",
+        "ground": "Clay",
+        "date_text": "12.03. 11:10",
+        "home_player": "Erjavec V.",
+        "away_player": "Kostovic T.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-03-12"
+    },
+    {
+        "match_id": "j5xu8SnI",
+        "tournament": "Antalya 3 (Turkey), clay",
+        "ground": "Clay",
+        "date_text": "11.03. 09:20",
+        "home_player": "Erjavec V.",
+        "away_player": "Oz I.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-03-11"
+    },
+    {
+        "match_id": "GtcLeVO6",
+        "tournament": "Antalya 2 (Turkey), clay",
+        "ground": "Clay",
+        "date_text": "04.03. 07:35",
+        "home_player": "Zidansek T.",
+        "away_player": "Erjavec V.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-04"
+    },
+    {
+        "match_id": "W0kaqYLs",
+        "tournament": "Antalya (Turkey), clay",
+        "ground": "Clay",
+        "date_text": "28.02. 10:25",
+        "home_player": "Erjavec V.",
+        "away_player": "Kalinina A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-28"
+    },
+    {
+        "match_id": "jq5AsB8T",
+        "tournament": "Antalya (Turkey), clay",
+        "ground": "Clay",
+        "date_text": "27.02. 09:25",
+        "home_player": "Erjavec V.",
+        "away_player": "Brancaccio N.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-02-27"
+    },
+    {
+        "match_id": "W2tfuZf5",
+        "tournament": "Antalya (Turkey), clay",
+        "ground": "Clay",
+        "date_text": "26.02. 07:35",
+        "home_player": "Erjavec V.",
+        "away_player": "Romero Gormaz L.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-02-26"
+    },
+    {
+        "match_id": "r9IKN1XN",
+        "tournament": "Antalya (Turkey), clay",
+        "ground": "Clay",
+        "date_text": "24.02. 10:25",
+        "home_player": "Erjavec V.",
+        "away_player": "Yoruk I.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-02-24"
+    },
+    {
+        "match_id": "d6V5oUcd",
+        "tournament": "Dubai (United Arab Emirates) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "14.02. 06:10",
+        "home_player": "Erjavec V.",
+        "away_player": "Uchijima M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-14"
+    },
+    {
+        "match_id": "KlEvARce",
+        "tournament": "Dubai (United Arab Emirates) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "13.02. 06:10",
+        "home_player": "Jacquemot E.",
+        "away_player": "Erjavec V.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-13"
+    },
+    {
+        "match_id": "baofWunC",
+        "tournament": "Cluj-Napoca (Romania), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "02.02. 11:10",
+        "home_player": "Erjavec V.",
+        "away_player": "Zidansek T.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-02"
+    },
+    {
+        "match_id": "UwsOtOG7",
+        "tournament": "Australian Open (Australia), hard",
+        "ground": "Hard",
+        "date_text": "19.01. 00:10",
+        "home_player": "Erjavec V.",
+        "away_player": "Frech M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-19"
+    },
+    {
+        "match_id": "jJdg8moo",
+        "tournament": "Auckland (New Zealand) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "03.01. 22:05",
+        "home_player": "Erjavec V.",
+        "away_player": "Costoulas S.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-03"
+    },
+    {
+        "match_id": "2eunNH05",
+        "tournament": "Auckland (New Zealand) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "02.01. 22:10",
+        "home_player": "Erjavec V.",
+        "away_player": "Das A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-01-02"
+    },
+    {
+        "match_id": "lpRq59f2",
+        "tournament": "Quito (Ecuador), clay",
+        "ground": "Clay",
+        "date_text": "05.12.2025",
+        "home_player": "Erjavec V.",
+        "away_player": "Jeanjean L.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            }
+        ],
+        "date": "2025-12-05"
+    },
+    {
+        "match_id": "0ppa3tT1",
+        "tournament": "Quito (Ecuador), clay",
+        "ground": "Clay",
+        "date_text": "04.12.2025",
+        "home_player": "Erjavec V.",
+        "away_player": "Pigossi L.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2025-12-04"
+    },
+    {
+        "match_id": "jytZzBVG",
+        "tournament": "Quito (Ecuador), clay",
+        "ground": "Clay",
+        "date_text": "02.12.2025",
+        "home_player": "Erjavec V.",
+        "away_player": "Tikhonova A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2025-12-02"
+    },
+    {
+        "match_id": "Qcj67cjD",
+        "tournament": "Buenos Aires (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "29.11.2025",
+        "home_player": "Udvardy P.",
+        "away_player": "Erjavec V.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-11-29"
+    },
+    {
+        "match_id": "jRGCnjpf",
+        "tournament": "Buenos Aires (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "28.11.2025",
+        "home_player": "Erjavec V.",
+        "away_player": "Samson L.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
+        "date": "2025-11-28"
+    },
+    {
+        "match_id": "EZnA8cMP",
+        "tournament": "Buenos Aires (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "26.11.2025",
+        "home_player": "Erjavec V.",
+        "away_player": "Ortenzi J.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2025-11-26"
+    },
+    {
+        "match_id": "A71ljltK",
+        "tournament": "Buenos Aires (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "24.11.2025",
+        "home_player": "Erjavec V.",
+        "away_player": "Bulbarella M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "0"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
+        "date": "2025-11-24"
+    },
+    {
+        "match_id": "ENjEPHRb",
+        "tournament": "Colina (Chile), clay",
+        "ground": "Clay",
+        "date_text": "18.11.2025",
+        "home_player": "Monnet C.",
+        "away_player": "Erjavec V.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2025-11-18"
+    },
+    {
+        "match_id": "dQE0fMi4",
+        "tournament": "Hong Kong (Hong Kong), hard",
+        "ground": "Hard",
+        "date_text": "28.10.2025",
+        "home_player": "Erjavec V.",
+        "away_player": "Zhang S.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-28"
+    }
+]

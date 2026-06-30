@@ -1,0 +1,991 @@
+[
+    {
+        "match_id": "hpJdNz1l",
+        "tournament": "M15 Tokyo (Japan), hard",
+        "ground": "Hard",
+        "date_text": "13.06. 02:30",
+        "home_player": "Honda N.",
+        "away_player": "Magadan A.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-06-13"
+    },
+    {
+        "match_id": "xnMuXPiB",
+        "tournament": "M15 Tokyo (Japan), hard",
+        "ground": "Hard",
+        "date_text": "12.06. 01:00",
+        "home_player": "Delaney Ja.",
+        "away_player": "Magadan A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-06-12"
+    },
+    {
+        "match_id": "80qzI7Ei",
+        "tournament": "M15 Tokyo (Japan), hard",
+        "ground": "Hard",
+        "date_text": "11.06. 01:00\nWO",
+        "home_player": "Fukuda S.",
+        "away_player": "Magadan A.",
+        "home_score": 0,
+        "away_score": 0,
+        "winner": "unknown",
+        "set_scores": [],
+        "date": "2026-06-11"
+    },
+    {
+        "match_id": "4r1wu4Lb",
+        "tournament": "M15 Tokyo (Japan), hard",
+        "ground": "Hard",
+        "date_text": "09.06. 01:00",
+        "home_player": "Magadan A.",
+        "away_player": "Chung H.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
+        "date": "2026-06-09"
+    },
+    {
+        "match_id": "th6uosmB",
+        "tournament": "M15 Gimcheon 2 (South Korea), hard",
+        "ground": "Hard",
+        "date_text": "30.05. 02:00",
+        "home_player": "Magadan A.",
+        "away_player": "Dellavedova M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-30"
+    },
+    {
+        "match_id": "GAAVYfw8",
+        "tournament": "M15 Gimcheon 2 (South Korea), hard",
+        "ground": "Hard",
+        "date_text": "29.05. 02:00",
+        "home_player": "Magadan A.",
+        "away_player": "Saitoh K.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-05-29"
+    },
+    {
+        "match_id": "2i4D7ovP",
+        "tournament": "M15 Gimcheon 2 (South Korea), hard",
+        "ground": "Hard",
+        "date_text": "28.05. 02:00",
+        "home_player": "Magadan A.",
+        "away_player": "Oh Chan-Yeong",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-05-28"
+    },
+    {
+        "match_id": "xdXeLhDM",
+        "tournament": "M15 Gimcheon 2 (South Korea), hard",
+        "ground": "Hard",
+        "date_text": "27.05. 03:00",
+        "home_player": "Magadan A.",
+        "away_player": "Jang J.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
+        "date": "2026-05-27"
+    },
+    {
+        "match_id": "CYZBumve",
+        "tournament": "M15 Gimcheon (South Korea), hard",
+        "ground": "Hard",
+        "date_text": "21.05. 02:00",
+        "home_player": "Magadan A.",
+        "away_player": "Kim D. J.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-05-21"
+    },
+    {
+        "match_id": "K6FggQKa",
+        "tournament": "M15 Gimcheon (South Korea), hard",
+        "ground": "Hard",
+        "date_text": "20.05. 03:00",
+        "home_player": "Magadan A.",
+        "away_player": "Oh S.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-05-20"
+    },
+    {
+        "match_id": "UPALrgWb",
+        "tournament": "M15 Nakhon Pathom (Thailand), hard",
+        "ground": "Hard",
+        "date_text": "15.05. 02:00",
+        "home_player": "Samrej K.",
+        "away_player": "Magadan A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-05-15"
+    },
+    {
+        "match_id": "GCBibpJD",
+        "tournament": "M15 Nakhon Pathom (Thailand), hard",
+        "ground": "Hard",
+        "date_text": "14.05. 02:00",
+        "home_player": "Charoenphon Y.",
+        "away_player": "Magadan A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-14"
+    },
+    {
+        "match_id": "UePjwZPc",
+        "tournament": "M15 Nakhon Pathom (Thailand), hard",
+        "ground": "Hard",
+        "date_text": "12.05. 05:30",
+        "home_player": "Chaiyarin C.",
+        "away_player": "Magadan A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-12"
+    },
+    {
+        "match_id": "C4OaQiy9",
+        "tournament": "Savannah (USA) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "19.04. 21:10",
+        "home_player": "Magadan A.",
+        "away_player": "Kuzuhara B.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-19"
+    },
+    {
+        "match_id": "rgbyJqAd",
+        "tournament": "Tallahassee (USA) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "13.04. 15:45",
+        "home_player": "Magadan A.",
+        "away_player": "Langmo C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-13"
+    },
+    {
+        "match_id": "f1Lv1sEU",
+        "tournament": "Tallahassee (USA) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "12.04. 18:45",
+        "home_player": "Magadan A.",
+        "away_player": "Cid Subervi R.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-04-12"
+    },
+    {
+        "match_id": "riiDAV6K",
+        "tournament": "Mexico City (Mexico), clay",
+        "ground": "Clay",
+        "date_text": "08.04. 01:15",
+        "home_player": "Artnak B.",
+        "away_player": "Magadan A.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-04-08"
+    },
+    {
+        "match_id": "nXe0uxLr",
+        "tournament": "San Luis Potosi (Mexico), clay",
+        "ground": "Clay",
+        "date_text": "02.04. 20:10",
+        "home_player": "Magadan A.",
+        "away_player": "Soto M.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-02"
+    },
+    {
+        "match_id": "04NWQY87",
+        "tournament": "San Luis Potosi (Mexico), clay",
+        "ground": "Clay",
+        "date_text": "31.03. 23:10",
+        "home_player": "Kozlov S.",
+        "away_player": "Magadan A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-03-31"
+    },
+    {
+        "match_id": "0f8MNQmI",
+        "tournament": "Morelia (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "25.03. 21:25",
+        "home_player": "Magadan A.",
+        "away_player": "Pavlovic L.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-25"
+    },
+    {
+        "match_id": "CYudEC6T",
+        "tournament": "Morelia (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "24.03. 02:35",
+        "home_player": "Magadan A.",
+        "away_player": "Rubio Fierros A. F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-03-24"
+    },
+    {
+        "match_id": "YFSWdRIN",
+        "tournament": "Morelos (Mexico), hard",
+        "ground": "Hard",
+        "date_text": "17.03. 20:00",
+        "home_player": "Kozlov S.",
+        "away_player": "Magadan A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-03-17"
+    },
+    {
+        "match_id": "pGoZNtZb",
+        "tournament": "Acapulco (Mexico) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "21.02. 23:05",
+        "home_player": "Hijikata R.",
+        "away_player": "Magadan A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-02-21"
+    },
+    {
+        "match_id": "EmVf0u33",
+        "tournament": "Davis Cup - World Group I (World) - Preliminary",
+        "ground": "Unknown",
+        "date_text": "07.02. 18:00",
+        "home_player": "Tsitsipas S.",
+        "away_player": "Magadan A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-07"
+    },
+    {
+        "match_id": "AwbDuO2s",
+        "tournament": "San Diego (USA) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "27.01. 01:05",
+        "home_player": "Magadan A.",
+        "away_player": "Sheehy J.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-27"
+    },
+    {
+        "match_id": "YVVNskqB",
+        "tournament": "M25 Winston-Salem, NC 2 (USA), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "15.01. 17:10",
+        "home_player": "Magadan A.",
+        "away_player": "Vandecasteele Q.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-15"
+    },
+    {
+        "match_id": "2uJ8MUjR",
+        "tournament": "M25 Winston-Salem, NC 2 (USA), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "14.01. 19:00",
+        "home_player": "Magadan A.",
+        "away_player": "Robertson C.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-01-14"
+    },
+    {
+        "match_id": "dEKEEcxe",
+        "tournament": "M25 Winston-Salem, NC (USA), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "06.01. 21:00",
+        "home_player": "Magadan A.",
+        "away_player": "Milavsky D.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-06"
+    },
+    {
+        "match_id": "KYUYUaim",
+        "tournament": "Bogota 4 (Colombia), clay",
+        "ground": "Clay",
+        "date_text": "25.11.2025",
+        "home_player": "Magadan A.",
+        "away_player": "Bertran P.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-25"
+    },
+    {
+        "match_id": "S2KHAAJl",
+        "tournament": "Bogota 4 (Colombia) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "24.11.2025",
+        "home_player": "Magadan A.",
+        "away_player": "Flores J.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-11-24"
+    },
+    {
+        "match_id": "nPpjccqd",
+        "tournament": "Bogota 4 (Colombia) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "23.11.2025",
+        "home_player": "Magadan A.",
+        "away_player": "Bianchi J. J.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-11-23"
+    },
+    {
+        "match_id": "CMturWL5",
+        "tournament": "Drummondville (Canada) - Qualification, hard (indoor)",
+        "ground": "Hard",
+        "date_text": "10.11.2025",
+        "home_player": "Baadi T.",
+        "away_player": "Magadan A.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-11-10"
+    },
+    {
+        "match_id": "OjTZyoET",
+        "tournament": "Drummondville (Canada) - Qualification, hard (indoor)",
+        "ground": "Hard",
+        "date_text": "09.11.2025",
+        "home_player": "Muamba N.",
+        "away_player": "Magadan A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-09"
+    },
+    {
+        "match_id": "SvWfMEFb",
+        "tournament": "M25 Montreal (Canada), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "07.11.2025",
+        "home_player": "Magadan A.",
+        "away_player": "Kingsley C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-07"
+    },
+    {
+        "match_id": "YZRSFTq9",
+        "tournament": "M25 Montreal (Canada), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "06.11.2025",
+        "home_player": "Arseneault M.",
+        "away_player": "Magadan A.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-06"
+    },
+    {
+        "match_id": "YyVlVqe3",
+        "tournament": "M25 Montreal (Canada), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "05.11.2025",
+        "home_player": "Schell N.",
+        "away_player": "Magadan A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2025-11-05"
+    },
+    {
+        "match_id": "0EyGxWnB",
+        "tournament": "M25 Harlingen, TX (USA), hard",
+        "ground": "Hard",
+        "date_text": "30.10.2025",
+        "home_player": "Magadan A.",
+        "away_player": "Searle H.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-30"
+    },
+    {
+        "match_id": "xzyfLFsJ",
+        "tournament": "M25 Harlingen, TX (USA), hard",
+        "ground": "Hard",
+        "date_text": "29.10.2025",
+        "home_player": "Magadan A.",
+        "away_player": "Borisiouk M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-10-29"
+    },
+    {
+        "match_id": "fXGlMIY7",
+        "tournament": "M25 Norman, OK (USA), hard",
+        "ground": "Hard",
+        "date_text": "22.10.2025",
+        "home_player": "Bigun K.",
+        "away_player": "Magadan A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-10-22"
+    },
+    {
+        "match_id": "j9w24hgC",
+        "tournament": "M15 Lexington, KY (USA), hard",
+        "ground": "Hard",
+        "date_text": "09.10.2025",
+        "home_player": "Brunkow G.",
+        "away_player": "Magadan A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2025-10-09"
+    },
+    {
+        "match_id": "4b6lI05k",
+        "tournament": "M15 Lexington, KY (USA), hard",
+        "ground": "Hard",
+        "date_text": "07.10.2025",
+        "home_player": "Li C.",
+        "away_player": "Magadan A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-07"
+    },
+    {
+        "match_id": "6g1dWLiR",
+        "tournament": "M15 Winston-Salem, NC (USA), hard",
+        "ground": "Hard",
+        "date_text": "01.10.2025",
+        "home_player": "Magadan A.",
+        "away_player": "Borisiouk M.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-01"
+    },
+    {
+        "match_id": "WO09crjU",
+        "tournament": "M15 Ann Arbor, MI (USA), hard",
+        "ground": "Hard",
+        "date_text": "25.09.2025",
+        "home_player": "Magadan A.",
+        "away_player": "Dahlin M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2025-09-25"
+    }
+]

@@ -1,0 +1,116 @@
+[
+    {
+        "match_id": "G8anAVgd",
+        "tournament": "M15 Quito 2 (Ecuador), clay",
+        "ground": "Clay",
+        "date_text": "30.04. 16:30",
+        "home_player": "Urrea A.",
+        "away_player": "Galarraga M. A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-04-30"
+    },
+    {
+        "match_id": "6Lr1SDwp",
+        "tournament": "M15 Quito 2 (Ecuador), clay",
+        "ground": "Clay",
+        "date_text": "28.04. 16:30",
+        "home_player": "Galarraga M. A.",
+        "away_player": "Scramin do Lago J. V.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-04-28"
+    },
+    {
+        "match_id": "YkqUsYME",
+        "tournament": "M15 Quito (Ecuador), clay",
+        "ground": "Clay",
+        "date_text": "22.04. 15:00",
+        "home_player": "Gomez J. S.",
+        "away_player": "Galarraga M. A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-04-22"
+    },
+    {
+        "match_id": "rTPrevNq",
+        "tournament": "Guayaquil (Ecuador), clay",
+        "ground": "Clay",
+        "date_text": "18.11.2025\nRetired",
+        "home_player": "Martinez L. D.",
+        "away_player": "Galarraga M. A.",
+        "home_score": 1,
+        "away_score": 1,
+        "winner": "unknown",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "4",
+                "away": "0"
+            }
+        ],
+        "date": "2025-11-18"
+    },
+    {
+        "match_id": "EV4yFaLD",
+        "tournament": "Quito (Ecuador) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "13.09.2021",
+        "home_player": "Gomez A.",
+        "away_player": "Galarraga M. A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2021-09-13"
+    }
+]

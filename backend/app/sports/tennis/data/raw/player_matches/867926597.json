@@ -1,0 +1,996 @@
+[
+    {
+        "match_id": "dxOky5Hq",
+        "tournament": "Wimbledon (United Kingdom) - Qualification, grass",
+        "ground": "Grass",
+        "date_text": "22.06. 15:05",
+        "home_player": "Cecchinato M.",
+        "away_player": "Barrios Vera T.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-06-22"
+    },
+    {
+        "match_id": "4dCBueJH",
+        "tournament": "Parma (Italy), clay",
+        "ground": "Clay",
+        "date_text": "18.06. 15:35",
+        "home_player": "Cecchinato M.",
+        "away_player": "van Assche L.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-06-18"
+    },
+    {
+        "match_id": "Io1dU6tm",
+        "tournament": "Parma (Italy), clay",
+        "ground": "Clay",
+        "date_text": "17.06. 11:20",
+        "home_player": "Cecchinato M.",
+        "away_player": "Bondioli F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-06-17"
+    },
+    {
+        "match_id": "bDpjnohg",
+        "tournament": "Parma (Italy), clay",
+        "ground": "Clay",
+        "date_text": "16.06. 09:50",
+        "home_player": "Cecchinato M.",
+        "away_player": "Caniato C. A.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-06-16"
+    },
+    {
+        "match_id": "hWmu4cbk",
+        "tournament": "Cattolica (Italy), clay",
+        "ground": "Clay",
+        "date_text": "12.06. 09:05",
+        "home_player": "De Jong J.",
+        "away_player": "Cecchinato M.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-06-12"
+    },
+    {
+        "match_id": "WhDFGV97",
+        "tournament": "Cattolica (Italy), clay",
+        "ground": "Clay",
+        "date_text": "11.06. 08:35",
+        "home_player": "Guillen Meza A.",
+        "away_player": "Cecchinato M.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-06-11"
+    },
+    {
+        "match_id": "KAcCItko",
+        "tournament": "Cattolica (Italy), clay",
+        "ground": "Clay",
+        "date_text": "09.06. 10:25",
+        "home_player": "Nesterov P.",
+        "away_player": "Cecchinato M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-06-09"
+    },
+    {
+        "match_id": "dvwhGfUQ",
+        "tournament": "Perugia (Italy), clay",
+        "ground": "Clay",
+        "date_text": "05.06. 12:05",
+        "home_player": "Cecchinato M.",
+        "away_player": "Skatov T.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-06-05"
+    },
+    {
+        "match_id": "QyhbPw8l",
+        "tournament": "Perugia (Italy), clay",
+        "ground": "Clay",
+        "date_text": "03.06. 11:10\nRetired",
+        "home_player": "Royer V.",
+        "away_player": "Cecchinato M.",
+        "home_score": 0,
+        "away_score": 1,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "0",
+                "away": "3"
+            }
+        ],
+        "date": "2026-06-03"
+    },
+    {
+        "match_id": "vsmgQ79e",
+        "tournament": "Perugia (Italy), clay",
+        "ground": "Clay",
+        "date_text": "01.06. 14:00",
+        "home_player": "Cecchinato M.",
+        "away_player": "Simakin I.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-06-01"
+    },
+    {
+        "match_id": "tfVRuaDM",
+        "tournament": "Vicenza (Italy), clay",
+        "ground": "Clay",
+        "date_text": "26.05. 13:35",
+        "home_player": "Cecchinato M.",
+        "away_player": "Hsu Y. H.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-05-26"
+    },
+    {
+        "match_id": "bXWT4Vx3",
+        "tournament": "French Open (France) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "21.05. 09:05",
+        "home_player": "Cecchinato M.",
+        "away_player": "Pellegrino A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-21"
+    },
+    {
+        "match_id": "KUHKo0J8",
+        "tournament": "French Open (France) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "20.05. 08:05",
+        "home_player": "Sakellaridis S.",
+        "away_player": "Cecchinato M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-05-20"
+    },
+    {
+        "match_id": "MkrAY8j5",
+        "tournament": "French Open (France) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "18.05. 11:00",
+        "home_player": "Houkes M.",
+        "away_player": "Cecchinato M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-18"
+    },
+    {
+        "match_id": "ERZweHv1",
+        "tournament": "Zagreb (Croatia), clay",
+        "ground": "Clay",
+        "date_text": "14.05. 08:10",
+        "home_player": "Cecchinato M.",
+        "away_player": "Andrade A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-14"
+    },
+    {
+        "match_id": "SfHlS8Cd",
+        "tournament": "Zagreb (Croatia), clay",
+        "ground": "Clay",
+        "date_text": "11.05. 14:45",
+        "home_player": "Cecchinato M.",
+        "away_player": "Wendelken H.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-05-11"
+    },
+    {
+        "match_id": "fD5yHSXQ",
+        "tournament": "Ostrava (Czech Republic), clay",
+        "ground": "Clay",
+        "date_text": "01.05. 09:05",
+        "home_player": "Cecchinato M.",
+        "away_player": "Brancaccio R.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-01"
+    },
+    {
+        "match_id": "tOCqCKyR",
+        "tournament": "Ostrava (Czech Republic), clay",
+        "ground": "Clay",
+        "date_text": "29.04. 10:20",
+        "home_player": "Cecchinato M.",
+        "away_player": "Johns G.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-29"
+    },
+    {
+        "match_id": "C8G1WSYq",
+        "tournament": "Ostrava (Czech Republic), clay",
+        "ground": "Clay",
+        "date_text": "27.04. 12:15",
+        "home_player": "Cecchinato M.",
+        "away_player": "Michalski D.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-04-27"
+    },
+    {
+        "match_id": "EqsixLpp",
+        "tournament": "Oeiras 3 (Portugal), clay",
+        "ground": "Clay",
+        "date_text": "13.04. 13:55",
+        "home_player": "Royer V.",
+        "away_player": "Cecchinato M.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-04-13"
+    },
+    {
+        "match_id": "dnuMbqLU",
+        "tournament": "Monza (Italy), clay",
+        "ground": "Clay",
+        "date_text": "09.04. 09:05",
+        "home_player": "Landaluce M.",
+        "away_player": "Cecchinato M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-04-09"
+    },
+    {
+        "match_id": "tdjjJn9D",
+        "tournament": "Monza (Italy), clay",
+        "ground": "Clay",
+        "date_text": "07.04. 08:10",
+        "home_player": "Cecchinato M.",
+        "away_player": "Kopp S.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-07"
+    },
+    {
+        "match_id": "QuvL79E6",
+        "tournament": "Barletta (Italy), clay",
+        "ground": "Clay",
+        "date_text": "03.04. 09:20",
+        "home_player": "Cecchinato M.",
+        "away_player": "Gill F.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-03"
+    },
+    {
+        "match_id": "WfA8IIyK",
+        "tournament": "Barletta (Italy), clay",
+        "ground": "Clay",
+        "date_text": "30.03. 12:05",
+        "home_player": "Cecchinato M.",
+        "away_player": "Romano F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-03-30"
+    },
+    {
+        "match_id": "Q3bJUdk3",
+        "tournament": "Alicante (Spain), clay",
+        "ground": "Clay",
+        "date_text": "27.03. 10:10",
+        "home_player": "Ofner S.",
+        "away_player": "Cecchinato M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2026-03-27"
+    },
+    {
+        "match_id": "O0scuyu3",
+        "tournament": "Alicante (Spain), clay",
+        "ground": "Clay",
+        "date_text": "25.03. 10:10",
+        "home_player": "Harris L.",
+        "away_player": "Cecchinato M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-25"
+    },
+    {
+        "match_id": "ALRS0txA",
+        "tournament": "Alicante (Spain), clay",
+        "ground": "Clay",
+        "date_text": "24.03. 09:40",
+        "home_player": "Cecchinato M.",
+        "away_player": "Lajovic D.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-03-24"
+    },
+    {
+        "match_id": "nTkROhhR",
+        "tournament": "Kigali 2 (Rwanda), clay",
+        "ground": "Clay",
+        "date_text": "15.03. 09:10",
+        "home_player": "Trungelliti M.",
+        "away_player": "Cecchinato M.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-03-15"
+    },
+    {
+        "match_id": "0tqrpndK",
+        "tournament": "Kigali 2 (Rwanda), clay",
+        "ground": "Clay",
+        "date_text": "14.03. 08:35",
+        "home_player": "Cecchinato M.",
+        "away_player": "Gea A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-03-14"
+    },
+    {
+        "match_id": "SGlveYFq",
+        "tournament": "Kigali 2 (Rwanda), clay",
+        "ground": "Clay",
+        "date_text": "13.03. 08:35",
+        "home_player": "Cecchinato M.",
+        "away_player": "Martin A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-03-13"
+    },
+    {
+        "match_id": "xKmPVQuA",
+        "tournament": "Kigali 2 (Rwanda), clay",
+        "ground": "Clay",
+        "date_text": "11.03. 11:20",
+        "home_player": "Cecchinato M.",
+        "away_player": "Kopp S.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-03-11"
+    },
+    {
+        "match_id": "xd1RR7Q0",
+        "tournament": "Kigali 2 (Rwanda), clay",
+        "ground": "Clay",
+        "date_text": "10.03. 08:10",
+        "home_player": "Cecchinato M.",
+        "away_player": "Iradukunda G.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "0"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-03-10"
+    },
+    {
+        "match_id": "QufUXTOc",
+        "tournament": "Kigali (Rwanda), clay",
+        "ground": "Clay",
+        "date_text": "06.03. 11:40",
+        "home_player": "Schwaerzler J. J.",
+        "away_player": "Cecchinato M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-06"
+    },
+    {
+        "match_id": "tUBTx5Qa",
+        "tournament": "Kigali (Rwanda), clay",
+        "ground": "Clay",
+        "date_text": "05.03. 08:10\nRetired",
+        "home_player": "Cecchinato M.",
+        "away_player": "Kym J.",
+        "home_score": 0,
+        "away_score": 1,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "3",
+                "away": "3"
+            }
+        ],
+        "date": "2026-03-05"
+    },
+    {
+        "match_id": "2waUDXfR",
+        "tournament": "Kigali (Rwanda), clay",
+        "ground": "Clay",
+        "date_text": "04.03. 11:25",
+        "home_player": "Kopp S.",
+        "away_player": "Cecchinato M.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-03-04"
+    },
+    {
+        "match_id": "YixOpTa6",
+        "tournament": "Kigali (Rwanda), clay",
+        "ground": "Clay",
+        "date_text": "02.03. 10:15",
+        "home_player": "Cecchinato M.",
+        "away_player": "Ouakaa A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-03-02"
+    },
+    {
+        "match_id": "nwaYbdVh",
+        "tournament": "Buenos Aires (Argentina) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "08.02. 16:05",
+        "home_player": "Passaro F.",
+        "away_player": "Cecchinato M.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-02-08"
+    },
+    {
+        "match_id": "pjOZl5ln",
+        "tournament": "Buenos Aires (Argentina) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "07.02. 16:15",
+        "home_player": "Rodriguez Taverna S.",
+        "away_player": "Cecchinato M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-07"
+    },
+    {
+        "match_id": "0nz8GM5m",
+        "tournament": "Rosario (Argentina), clay",
+        "ground": "Clay",
+        "date_text": "03.02. 19:30",
+        "home_player": "Boscardin Dias P.",
+        "away_player": "Cecchinato M.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2026-02-03"
+    },
+    {
+        "match_id": "hhs0BkhM",
+        "tournament": "Concepcion (Chile), clay",
+        "ground": "Clay",
+        "date_text": "31.01. 14:35",
+        "home_player": "Tabilo A.",
+        "away_player": "Cecchinato M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-01-31"
+    },
+    {
+        "match_id": "8M88mQ0C",
+        "tournament": "Concepcion (Chile), clay",
+        "ground": "Clay",
+        "date_text": "30.01. 15:10",
+        "home_player": "Tseng C. H.",
+        "away_player": "Cecchinato M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-30"
+    },
+    {
+        "match_id": "l8Z5oWrf",
+        "tournament": "Concepcion (Chile), clay",
+        "ground": "Clay",
+        "date_text": "29.01. 14:10",
+        "home_player": "Cecchinato M.",
+        "away_player": "Guillen Meza A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-01-29"
+    },
+    {
+        "match_id": "QieE5bZO",
+        "tournament": "Concepcion (Chile), clay",
+        "ground": "Clay",
+        "date_text": "28.01. 14:10",
+        "home_player": "Cecchinato M.",
+        "away_player": "Marcondes I.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "0"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-01-28"
+    }
+]

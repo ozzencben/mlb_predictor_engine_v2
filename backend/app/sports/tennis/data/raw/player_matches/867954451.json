@@ -1,0 +1,988 @@
+[
+    {
+        "match_id": "hdV2OZDd",
+        "tournament": "Eastbourne (United Kingdom), grass",
+        "ground": "Grass",
+        "date_text": "22.06. 12:15",
+        "home_player": "Joint M.",
+        "away_player": "Arango E.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-06-22"
+    },
+    {
+        "match_id": "4bPapC9a",
+        "tournament": "Nottingham (United Kingdom), grass",
+        "ground": "Grass",
+        "date_text": "15.06. 12:05",
+        "home_player": "Joint M.",
+        "away_player": "Starodubtseva Y.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-06-15"
+    },
+    {
+        "match_id": "W6b5XXxS",
+        "tournament": "Makarska (Croatia), clay",
+        "ground": "Clay",
+        "date_text": "04.06. 15:55",
+        "home_player": "Kabbaj Y.",
+        "away_player": "Joint M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-06-04"
+    },
+    {
+        "match_id": "2DaxcXQN",
+        "tournament": "Makarska (Croatia), clay",
+        "ground": "Clay",
+        "date_text": "04.06. 09:55",
+        "home_player": "Kawa K.",
+        "away_player": "Joint M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-06-04"
+    },
+    {
+        "match_id": "ziNfRPdE",
+        "tournament": "French Open (France), clay",
+        "ground": "Clay",
+        "date_text": "25.05. 12:45",
+        "home_player": "Joint M.",
+        "away_player": "Potapova A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-25"
+    },
+    {
+        "match_id": "Emqpe9O9",
+        "tournament": "Strasbourg (France), clay",
+        "ground": "Clay",
+        "date_text": "17.05. 10:40",
+        "home_player": "Joint M.",
+        "away_player": "Li A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-17"
+    },
+    {
+        "match_id": "Uq16x9mn",
+        "tournament": "Paris (France), clay",
+        "ground": "Clay",
+        "date_text": "11.05. 17:35",
+        "home_player": "Paquet C.",
+        "away_player": "Joint M.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-05-11"
+    },
+    {
+        "match_id": "ENoHXYLk",
+        "tournament": "Rome (Italy), clay",
+        "ground": "Clay",
+        "date_text": "07.05. 13:05",
+        "home_player": "Joint M.",
+        "away_player": "Golubic V.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-07"
+    },
+    {
+        "match_id": "MqqaTSfA",
+        "tournament": "Indian Wells (USA), hard",
+        "ground": "Hard",
+        "date_text": "06.03. 23:00",
+        "home_player": "Cristian J.",
+        "away_player": "Joint M.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2026-03-06"
+    },
+    {
+        "match_id": "t4xFIvTh",
+        "tournament": "Dubai (United Arab Emirates), hard",
+        "ground": "Hard",
+        "date_text": "15.02. 12:20",
+        "home_player": "Shnaider D.",
+        "away_player": "Joint M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-02-15"
+    },
+    {
+        "match_id": "rBivqLW1",
+        "tournament": "Doha (Qatar), hard",
+        "ground": "Hard",
+        "date_text": "09.02. 10:10",
+        "home_player": "Noskova L.",
+        "away_player": "Joint M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
+        "date": "2026-02-09"
+    },
+    {
+        "match_id": "SG4UisN9",
+        "tournament": "Abu Dhabi (United Arab Emirates), hard",
+        "ground": "Hard",
+        "date_text": "02.02. 09:25",
+        "home_player": "Tjen J.",
+        "away_player": "Joint M.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-02-02"
+    },
+    {
+        "match_id": "Uka7A8ge",
+        "tournament": "Australian Open (Australia), hard",
+        "ground": "Hard",
+        "date_text": "20.01. 00:10",
+        "home_player": "Valentova T.",
+        "away_player": "Joint M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-01-20"
+    },
+    {
+        "match_id": "YaZiYsY7",
+        "tournament": "Adelaide (Australia), hard",
+        "ground": "Hard",
+        "date_text": "15.01. 08:20",
+        "home_player": "Andreeva M.",
+        "away_player": "Joint M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "0"
+            }
+        ],
+        "date": "2026-01-15"
+    },
+    {
+        "match_id": "fiPiMkXO",
+        "tournament": "Adelaide (Australia), hard",
+        "ground": "Hard",
+        "date_text": "14.01. 09:55\nRetired",
+        "home_player": "Joint M.",
+        "away_player": "Tomljanovic A.",
+        "home_score": 0,
+        "away_score": 0,
+        "winner": "unknown",
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "2"
+            }
+        ],
+        "date": "2026-01-14"
+    },
+    {
+        "match_id": "nRRdT14U",
+        "tournament": "Adelaide (Australia), hard",
+        "ground": "Hard",
+        "date_text": "13.01. 04:05",
+        "home_player": "Joint M.",
+        "away_player": "Kenin S.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-01-13"
+    },
+    {
+        "match_id": "CE4foz2l",
+        "tournament": "United Cup (Australia) - Play Offs, hard",
+        "ground": "Hard",
+        "date_text": "09.01. 06:40",
+        "home_player": "Joint M.",
+        "away_player": "Swiatek I.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-09"
+    },
+    {
+        "match_id": "tIWnGdtQ",
+        "tournament": "United Cup (Australia), hard",
+        "ground": "Hard",
+        "date_text": "06.01. 06:35",
+        "home_player": "Joint M.",
+        "away_player": "Krejcikova B.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-06"
+    },
+    {
+        "match_id": "txuxHVM5",
+        "tournament": "Billie Jean King Cup - World Group (World) - Relegation - Play Offs",
+        "ground": "Unknown",
+        "date_text": "16.11.2025",
+        "home_player": "Joint M.",
+        "away_player": "Pigossi L.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-11-16"
+    },
+    {
+        "match_id": "nqgm4AfL",
+        "tournament": "Billie Jean King Cup - World Group (World) - Relegation - Play Offs",
+        "ground": "Unknown",
+        "date_text": "14.11.2025",
+        "home_player": "Joint M.",
+        "away_player": "Jorge F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            }
+        ],
+        "date": "2025-11-14"
+    },
+    {
+        "match_id": "nRJ87GHc",
+        "tournament": "Hong Kong (Hong Kong), hard",
+        "ground": "Hard",
+        "date_text": "01.11.2025",
+        "home_player": "Bucsa C.",
+        "away_player": "Joint M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-11-01"
+    },
+    {
+        "match_id": "v3q3sXOP",
+        "tournament": "Hong Kong (Hong Kong), hard",
+        "ground": "Hard",
+        "date_text": "31.10.2025",
+        "home_player": "Sakatsume H.",
+        "away_player": "Joint M.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-31"
+    },
+    {
+        "match_id": "8dEGD0n9",
+        "tournament": "Hong Kong (Hong Kong), hard",
+        "ground": "Hard",
+        "date_text": "29.10.2025",
+        "home_player": "Morvayova V.",
+        "away_player": "Joint M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-29"
+    },
+    {
+        "match_id": "vZFsv17N",
+        "tournament": "Hong Kong (Hong Kong), hard",
+        "ground": "Hard",
+        "date_text": "27.10.2025",
+        "home_player": "Sevastova A.",
+        "away_player": "Joint M.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-27"
+    },
+    {
+        "match_id": "G8vktyge",
+        "tournament": "Tokyo (Japan), hard",
+        "ground": "Hard",
+        "date_text": "22.10.2025",
+        "home_player": "Joint M.",
+        "away_player": "Muchova K.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2025-10-22"
+    },
+    {
+        "match_id": "MB24R4oI",
+        "tournament": "Tokyo (Japan), hard",
+        "ground": "Hard",
+        "date_text": "20.10.2025",
+        "home_player": "Golubic V.",
+        "away_player": "Joint M.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-20"
+    },
+    {
+        "match_id": "W0WnPCkA",
+        "tournament": "Ningbo (China) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "11.10.2025",
+        "home_player": "Joint M.",
+        "away_player": "Tomljanovic A.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-11"
+    },
+    {
+        "match_id": "6PmtzPCa",
+        "tournament": "Wuhan (China), hard",
+        "ground": "Hard",
+        "date_text": "08.10.2025",
+        "home_player": "Joint M.",
+        "away_player": "Siniakova K.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2025-10-08"
+    },
+    {
+        "match_id": "Ec5n4veE",
+        "tournament": "Wuhan (China), hard",
+        "ground": "Hard",
+        "date_text": "06.10.2025",
+        "home_player": "Zhu L.",
+        "away_player": "Joint M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2025-10-06"
+    },
+    {
+        "match_id": "tSsLroeL",
+        "tournament": "Beijing (China), hard",
+        "ground": "Hard",
+        "date_text": "29.09.2025",
+        "home_player": "Joint M.",
+        "away_player": "Kartal S.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2025-09-29"
+    },
+    {
+        "match_id": "KlXJvdrK",
+        "tournament": "Beijing (China), hard",
+        "ground": "Hard",
+        "date_text": "27.09.2025",
+        "home_player": "Shnaider D.",
+        "away_player": "Joint M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2025-09-27"
+    },
+    {
+        "match_id": "Gtpf1sgg",
+        "tournament": "Beijing (China), hard",
+        "ground": "Hard",
+        "date_text": "25.09.2025",
+        "home_player": "Jimenez Kasintseva V.",
+        "away_player": "Joint M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2025-09-25"
+    },
+    {
+        "match_id": "fT6ITv1l",
+        "tournament": "Seoul (South Korea), hard",
+        "ground": "Hard",
+        "date_text": "20.09.2025",
+        "home_player": "Swiatek I.",
+        "away_player": "Joint M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "0"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2025-09-20"
+    },
+    {
+        "match_id": "C8kUzNz1",
+        "tournament": "Seoul (South Korea), hard",
+        "ground": "Hard",
+        "date_text": "20.09.2025",
+        "home_player": "Tauson C.",
+        "away_player": "Joint M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-09-20"
+    },
+    {
+        "match_id": "lSkbCkyS",
+        "tournament": "Seoul (South Korea), hard",
+        "ground": "Hard",
+        "date_text": "17.09.2025",
+        "home_player": "Joint M.",
+        "away_player": "Kenin S.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2025-09-17"
+    },
+    {
+        "match_id": "nsUpwogD",
+        "tournament": "Seoul (South Korea), hard",
+        "ground": "Hard",
+        "date_text": "15.09.2025",
+        "home_player": "Joint M.",
+        "away_player": "Fruhvirtova L.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2025-09-15"
+    },
+    {
+        "match_id": "2eebkLlD",
+        "tournament": "US Open (USA), hard",
+        "ground": "Hard",
+        "date_text": "29.08.2025",
+        "home_player": "Anisimova A.",
+        "away_player": "Joint M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2025-08-29"
+    },
+    {
+        "match_id": "xfFzpybm",
+        "tournament": "US Open (USA), hard",
+        "ground": "Hard",
+        "date_text": "26.08.2025",
+        "home_player": "Jimenez Kasintseva V.",
+        "away_player": "Joint M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2025-08-26"
+    },
+    {
+        "match_id": "x8lInuXg",
+        "tournament": "Cleveland (USA), hard",
+        "ground": "Hard",
+        "date_text": "17.08.2025",
+        "home_player": "Joint M.",
+        "away_player": "Lys E.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2025-08-17"
+    },
+    {
+        "match_id": "8612Du8t",
+        "tournament": "Cincinnati (USA), hard",
+        "ground": "Hard",
+        "date_text": "11.08.2025",
+        "home_player": "Alexandrova E.",
+        "away_player": "Joint M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-08-11"
+    },
+    {
+        "match_id": "O63y4QrC",
+        "tournament": "Cincinnati (USA), hard",
+        "ground": "Hard",
+        "date_text": "09.08.2025",
+        "home_player": "Joint M.",
+        "away_player": "Haddad Maia B.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2025-08-09"
+    },
+    {
+        "match_id": "vZBUCeOG",
+        "tournament": "Cincinnati (USA), hard",
+        "ground": "Hard",
+        "date_text": "07.08.2025",
+        "home_player": "Joint M.",
+        "away_player": "Minnen G.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2025-08-07"
+    },
+    {
+        "match_id": "U3GEH5DE",
+        "tournament": "Montreal (Canada), hard",
+        "ground": "Hard",
+        "date_text": "30.07.2025",
+        "home_player": "Joint M.",
+        "away_player": "Kessler M.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2025-07-30"
+    }
+]

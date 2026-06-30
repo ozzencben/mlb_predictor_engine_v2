@@ -1,0 +1,1015 @@
+[
+    {
+        "match_id": "8jvBOMUa",
+        "tournament": "French Open (France), clay",
+        "ground": "Clay",
+        "date_text": "27.05. 09:00\nWO",
+        "home_player": "De Minaur A.",
+        "away_player": "Blockx A.",
+        "home_score": 0,
+        "away_score": 0,
+        "winner": "unknown",
+        "set_scores": [],
+        "date": "2026-05-27"
+    },
+    {
+        "match_id": "E5YsJPFM",
+        "tournament": "French Open (France), clay",
+        "ground": "Clay",
+        "date_text": "24.05. 15:45",
+        "home_player": "Blockx A.",
+        "away_player": "Wong C.",
+        "home_score": 3,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-05-24"
+    },
+    {
+        "match_id": "McxyP1qS",
+        "tournament": "Rome (Italy), clay",
+        "ground": "Clay",
+        "date_text": "10.05. 11:15",
+        "home_player": "Blockx A.",
+        "away_player": "Zverev A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-10"
+    },
+    {
+        "match_id": "WjYkEmsR",
+        "tournament": "Rome (Italy), clay",
+        "ground": "Clay",
+        "date_text": "08.05. 15:45",
+        "home_player": "Griekspoor T.",
+        "away_player": "Blockx A.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-08"
+    },
+    {
+        "match_id": "GUMpK4Os",
+        "tournament": "Rome (Italy), clay",
+        "ground": "Clay",
+        "date_text": "07.05. 11:05",
+        "home_player": "Cina F.",
+        "away_player": "Blockx A.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-05-07"
+    },
+    {
+        "match_id": "6Fi3OdGD",
+        "tournament": "Madrid (Spain), clay",
+        "ground": "Clay",
+        "date_text": "01.05. 18:10",
+        "home_player": "Blockx A.",
+        "away_player": "Zverev A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-05-01"
+    },
+    {
+        "match_id": "rTSuzW5c",
+        "tournament": "Madrid (Spain), clay",
+        "ground": "Clay",
+        "date_text": "30.04. 11:10",
+        "home_player": "Ruud C.",
+        "away_player": "Blockx A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-30"
+    },
+    {
+        "match_id": "2Rhsq5eB",
+        "tournament": "Madrid (Spain), clay",
+        "ground": "Clay",
+        "date_text": "28.04. 17:10",
+        "home_player": "Cerundolo F.",
+        "away_player": "Blockx A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-28"
+    },
+    {
+        "match_id": "OtoOsbRa",
+        "tournament": "Madrid (Spain), clay",
+        "ground": "Clay",
+        "date_text": "27.04. 16:20",
+        "home_player": "Blockx A.",
+        "away_player": "Auger-Aliassime F.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-04-27"
+    },
+    {
+        "match_id": "xfbULonf",
+        "tournament": "Madrid (Spain), clay",
+        "ground": "Clay",
+        "date_text": "25.04. 12:40",
+        "home_player": "Nakashima B.",
+        "away_player": "Blockx A.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-25"
+    },
+    {
+        "match_id": "SMZS56wf",
+        "tournament": "Madrid (Spain), clay",
+        "ground": "Clay",
+        "date_text": "23.04. 09:10",
+        "home_player": "Garin C.",
+        "away_player": "Blockx A.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-04-23"
+    },
+    {
+        "match_id": "jwz0kRDi",
+        "tournament": "Munich (Germany), clay",
+        "ground": "Clay",
+        "date_text": "15.04. 11:40",
+        "home_player": "Blockx A.",
+        "away_player": "Shelton B.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-04-15"
+    },
+    {
+        "match_id": "S42QbLIl",
+        "tournament": "Munich (Germany), clay",
+        "ground": "Clay",
+        "date_text": "13.04. 15:25",
+        "home_player": "Blockx A.",
+        "away_player": "Hanfmann Y.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-04-13"
+    },
+    {
+        "match_id": "hCsZBPuC",
+        "tournament": "Monte Carlo (Monaco), clay",
+        "ground": "Clay",
+        "date_text": "09.04. 14:30",
+        "home_player": "Blockx A.",
+        "away_player": "De Minaur A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-04-09"
+    },
+    {
+        "match_id": "ldWNFsw2",
+        "tournament": "Monte Carlo (Monaco), clay",
+        "ground": "Clay",
+        "date_text": "08.04. 15:40",
+        "home_player": "Cobolli F.",
+        "away_player": "Blockx A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-08"
+    },
+    {
+        "match_id": "xlLi1sdk",
+        "tournament": "Monte Carlo (Monaco), clay",
+        "ground": "Clay",
+        "date_text": "06.04. 14:25",
+        "home_player": "Shapovalov D.",
+        "away_player": "Blockx A.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-06"
+    },
+    {
+        "match_id": "bXvp5UVh",
+        "tournament": "Monte Carlo (Monaco) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "05.04. 11:10",
+        "home_player": "Dzumhur D.",
+        "away_player": "Blockx A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-05"
+    },
+    {
+        "match_id": "pAYEpUin",
+        "tournament": "Monte Carlo (Monaco) - Qualification, clay",
+        "ground": "Clay",
+        "date_text": "04.04. 12:35",
+        "home_player": "Maestrelli F.",
+        "away_player": "Blockx A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-04-04"
+    },
+    {
+        "match_id": "zmFpsZ23",
+        "tournament": "Miami (USA) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "17.03. 17:15",
+        "home_player": "Blockx A.",
+        "away_player": "O'Connell C.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-17"
+    },
+    {
+        "match_id": "EcWEJSoK",
+        "tournament": "Miami (USA) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "16.03. 20:45",
+        "home_player": "Blockx A.",
+        "away_player": "Tseng C. H.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-03-16"
+    },
+    {
+        "match_id": "OzQLzzz2",
+        "tournament": "Cap Cana (Dominican Republic), hard",
+        "ground": "Hard",
+        "date_text": "14.03. 18:10",
+        "home_player": "Blockx A.",
+        "away_player": "Navone M.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-03-14"
+    },
+    {
+        "match_id": "rPWHfSe4",
+        "tournament": "Cap Cana (Dominican Republic), hard",
+        "ground": "Hard",
+        "date_text": "13.03. 18:10",
+        "home_player": "Blockx A.",
+        "away_player": "Wong C.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-03-13"
+    },
+    {
+        "match_id": "ba9q44B7",
+        "tournament": "Cap Cana (Dominican Republic), hard",
+        "ground": "Hard",
+        "date_text": "12.03. 19:10",
+        "home_player": "Svrcina D.",
+        "away_player": "Blockx A.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-12"
+    },
+    {
+        "match_id": "EZH9Le2K",
+        "tournament": "Cap Cana (Dominican Republic), hard",
+        "ground": "Hard",
+        "date_text": "10.03. 22:45",
+        "home_player": "Cid Subervi R.",
+        "away_player": "Blockx A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-03-10"
+    },
+    {
+        "match_id": "MH2fW9O7",
+        "tournament": "Indian Wells (USA) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "02.03. 18:10",
+        "home_player": "Blockx A.",
+        "away_player": "Landaluce M.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "0",
+                "away": "6"
+            },
+            {
+                "home": "2",
+                "away": "6"
+            }
+        ],
+        "date": "2026-03-02"
+    },
+    {
+        "match_id": "4tf3ySwe",
+        "tournament": "Lille (France), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "22.02. 14:10",
+        "home_player": "Blockx A.",
+        "away_player": "van Assche L.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-22"
+    },
+    {
+        "match_id": "z9KT708K",
+        "tournament": "Lille (France), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "21.02. 16:40",
+        "home_player": "Kym J.",
+        "away_player": "Blockx A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            }
+        ],
+        "date": "2026-02-21"
+    },
+    {
+        "match_id": "2JfuKOt9",
+        "tournament": "Lille (France), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "20.02. 20:00",
+        "home_player": "Blockx A.",
+        "away_player": "Bonzi B.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-02-20"
+    },
+    {
+        "match_id": "xASevKFE",
+        "tournament": "Lille (France), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "19.02. 11:10",
+        "home_player": "Blockx A.",
+        "away_player": "Bouquier A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "7",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-19"
+    },
+    {
+        "match_id": "Cr9Yw8BE",
+        "tournament": "Lille (France), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "17.02. 16:25",
+        "home_player": "Blockx A.",
+        "away_player": "Safiullin R.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "2"
+            },
+            {
+                "home": "6",
+                "away": "2"
+            }
+        ],
+        "date": "2026-02-17"
+    },
+    {
+        "match_id": "buDlk86k",
+        "tournament": "Pau (France), hard (indoor)",
+        "ground": "Hard",
+        "date_text": "10.02. 13:40",
+        "home_player": "Blockx A.",
+        "away_player": "Tabur C.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "1",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-10"
+    },
+    {
+        "match_id": "IV4dT3c2",
+        "tournament": "Davis Cup - World Group (World) - Qualification",
+        "ground": "Unknown",
+        "date_text": "07.02. 14:35",
+        "home_player": "Radulov I.",
+        "away_player": "Blockx A.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "7",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            },
+            {
+                "home": "1",
+                "away": "6"
+            }
+        ],
+        "date": "2026-02-07"
+    },
+    {
+        "match_id": "d6bd99l2",
+        "tournament": "Australian Open (Australia), hard",
+        "ground": "Hard",
+        "date_text": "18.01. 06:10",
+        "home_player": "Blockx A.",
+        "away_player": "Faria J.",
+        "home_score": 1,
+        "away_score": 3,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-18"
+    },
+    {
+        "match_id": "8pfoyjmd",
+        "tournament": "Australian Open (Australia) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "15.01. 05:05\nRetired",
+        "home_player": "Blockx A.",
+        "away_player": "Kubler J.",
+        "home_score": 1,
+        "away_score": 1,
+        "winner": "unknown",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            },
+            {
+                "home": "0",
+                "away": "1"
+            }
+        ],
+        "date": "2026-01-15"
+    },
+    {
+        "match_id": "fRu1mSVN",
+        "tournament": "Australian Open (Australia) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "14.01. 05:45",
+        "home_player": "Blockx A.",
+        "away_player": "Molcan A.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "1"
+            },
+            {
+                "home": "6",
+                "away": "1"
+            }
+        ],
+        "date": "2026-01-14"
+    },
+    {
+        "match_id": "fVq5kcNt",
+        "tournament": "Australian Open (Australia) - Qualification, hard",
+        "ground": "Hard",
+        "date_text": "13.01. 05:50",
+        "home_player": "Blockx A.",
+        "away_player": "Cecchinato M.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-01-13"
+    },
+    {
+        "match_id": "ANZegZel",
+        "tournament": "Canberra (Australia), hard",
+        "ground": "Hard",
+        "date_text": "10.01. 05:05",
+        "home_player": "Blockx A.",
+        "away_player": "Jodar R.",
+        "home_score": 2,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "4"
+            },
+            {
+                "home": "6",
+                "away": "4"
+            }
+        ],
+        "date": "2026-01-10"
+    },
+    {
+        "match_id": "OhfN4qug",
+        "tournament": "Canberra (Australia), hard",
+        "ground": "Hard",
+        "date_text": "09.01. 03:15",
+        "home_player": "Blockx A.",
+        "away_player": "McCabe J.",
+        "home_score": 2,
+        "away_score": 1,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            }
+        ],
+        "date": "2026-01-09"
+    },
+    {
+        "match_id": "6m49oVxS",
+        "tournament": "Canberra (Australia), hard",
+        "ground": "Hard",
+        "date_text": "08.01. 04:15",
+        "home_player": "Kopriva V.",
+        "away_player": "Blockx A.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "5",
+                "away": "7"
+            },
+            {
+                "home": "7",
+                "away": "5"
+            },
+            {
+                "home": "4",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-08"
+    },
+    {
+        "match_id": "rP73zLKs",
+        "tournament": "Canberra (Australia), hard",
+        "ground": "Hard",
+        "date_text": "07.01. 02:50",
+        "home_player": "Carballes Baena R.",
+        "away_player": "Blockx A.",
+        "home_score": 1,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "6",
+                "away": "7"
+            },
+            {
+                "home": "6",
+                "away": "3"
+            },
+            {
+                "home": "5",
+                "away": "7"
+            }
+        ],
+        "date": "2026-01-07"
+    },
+    {
+        "match_id": "nmq8kOqB",
+        "tournament": "Canberra (Australia), hard",
+        "ground": "Hard",
+        "date_text": "05.01. 04:25",
+        "home_player": "Budkov Kjaer N.",
+        "away_player": "Blockx A.",
+        "home_score": 0,
+        "away_score": 2,
+        "winner": "away",
+        "set_scores": [
+            {
+                "home": "2",
+                "away": "6"
+            },
+            {
+                "home": "3",
+                "away": "6"
+            }
+        ],
+        "date": "2026-01-05"
+    },
+    {
+        "match_id": "U7xPgcOE",
+        "tournament": "Next Gen Finals - Jeddah (World) - Play Offs, hard (indoor)",
+        "ground": "Hard",
+        "date_text": "21.12.2025",
+        "home_player": "Tien L.",
+        "away_player": "Blockx A.",
+        "home_score": 3,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "3"
+            },
+            {
+                "home": "4",
+                "away": "2"
+            },
+            {
+                "home": "4",
+                "away": "1"
+            }
+        ],
+        "date": "2025-12-21"
+    },
+    {
+        "match_id": "zJlv0vU8",
+        "tournament": "Next Gen Finals - Jeddah (World) - Play Offs, hard (indoor)",
+        "ground": "Hard",
+        "date_text": "20.12.2025",
+        "home_player": "Blockx A.",
+        "away_player": "Budkov Kjaer N.",
+        "home_score": 3,
+        "away_score": 0,
+        "winner": "home",
+        "set_scores": [
+            {
+                "home": "4",
+                "away": "3"
+            },
+            {
+                "home": "4",
+                "away": "3"
+            },
+            {
+                "home": "4",
+                "away": "2"
+            }
+        ],
+        "date": "2025-12-20"
+    }
+]
