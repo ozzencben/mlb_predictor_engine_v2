@@ -1,6 +1,6 @@
 {
   "date": "2026-06-30",
-  "generated_at": "2026-06-30T08:12:31.620870+00:00",
+  "generated_at": "2026-06-30T17:53:20.591230+00:00",
   "match_count": 1,
   "beta_version": "1.0.0-beta",
   "model_meta": {
@@ -44,41 +44,41 @@
         "away_team": "Las Vegas Aces",
         "home_abbr": "NY",
         "away_abbr": "LV",
-        "moneyline_home": -138,
-        "moneyline_away": 112,
-        "spread_home": -106,
-        "spread_away": -114,
-        "spread_line": -2.5,
-        "total_line": 175.5,
-        "total_over": -114,
-        "total_under": -106
+        "moneyline_home": -245,
+        "moneyline_away": 194,
+        "spread_home": -105,
+        "spread_away": -115,
+        "spread_line": -6.5,
+        "total_line": 174.5,
+        "total_over": -110,
+        "total_under": -110
       },
       "alt_bets": [
-        {
-          "market": "Total",
-          "pick": "Under 175.5",
-          "model_prediction": "Predicted total: 164.6",
-          "edge": 10.86,
-          "confidence": "High",
-          "odds": -106,
-          "odds_format": "american"
-        },
         {
           "market": "Moneyline",
           "pick": "Las Vegas Aces",
           "model_win_prob": "56.2%",
-          "edge": 9.04,
+          "edge": 22.19,
           "confidence": "High",
-          "odds": 112,
+          "odds": 194,
+          "odds_format": "american"
+        },
+        {
+          "market": "Total",
+          "pick": "Under 174.5",
+          "model_prediction": "Predicted total: 164.6",
+          "edge": 9.86,
+          "confidence": "High",
+          "odds": -110,
           "odds_format": "american"
         },
         {
           "market": "Spread",
-          "pick": "Las Vegas Aces (+2.5)",
+          "pick": "Las Vegas Aces (+6.5)",
           "model_prediction": "Predicted spread: -1.5",
-          "edge": 4.0,
-          "confidence": "Medium",
-          "odds": -114,
+          "edge": 8.0,
+          "confidence": "High",
+          "odds": -115,
           "odds_format": "american"
         }
       ],
@@ -434,7 +434,7 @@
         "feature_star_out_count_diff": 0.0,
         "feature_star_minutes_avail_diff": 0.0333
       },
-      "ai_insight": "- The Las Vegas Aces hold a significant edge in team strength, boasting a superior ELO rating (1681.2 vs 1568.8) and vastly outperforming the Liberty in their last 5 games with a net rating of 13.756 compared to the Liberty's -3.61. While the Liberty have home-court advantage, the Aces' overall dominance in these metrics gives them the clear upper hand.\n- Both teams come into this matchup equally rested with 2 days off, suggesting no fatigue advantage for either side. There are no reported star player absences or significant injury impacts (0.0 home-away PPG difference), meaning both teams are expected to be at full strength.\n- The model projects the Las Vegas Aces to win (56.2%) and identifies the strongest betting edge on the Game Total. With a model total of 164.6 and a significant edge of 10.86% on Under 175.5, the best play is **Game Total Under 175.5**."
+      "ai_insight": "- The Las Vegas Aces hold a significant edge in team strength, reflected by their higher ELO (1681.2 vs 1568.8) and substantially better L5 Net Rating (13.756 vs -3.61). While the New York Liberty are at home, the Aces' superior recent performance and overall rating suggest they are the stronger team entering this contest.\n- Both teams are well-rested, having 2 days off, so fatigue is not a distinguishing factor. There is also no significant impact from star player absences noted (0.0). The primary situational factor is the Liberty's recent poor form, indicated by their negative L5 Net Rating, contrasting sharply with the Aces' strong positive rating.\n- The model shows a strong edge on the Las Vegas Aces Moneyline (22.19%). Despite the market listing them as underdogs (+194), the model projects the Aces to win outright (56.2%). Therefore, the best play is **Las Vegas Aces Moneyline (+194)**."
     }
   ]
 }
